@@ -1,0 +1,15 @@
+{
+  "originHash" : "8ad92993233cefa4edcd45872550b0cf7cb249c3041e8d5aca53dd2c1768fd5a",
+  "pins" : [
+    {
+      "identity" : "cbor",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/thecoolwinter/CBOR.git",
+      "state" : {
+        "revision" : "f0c4cb21ec8cf403a11b3af55f1e548ab75d24f1",
+        "version" : "1.1.2"
+      }
+    }
+  ],
+  "version" : 3
+}

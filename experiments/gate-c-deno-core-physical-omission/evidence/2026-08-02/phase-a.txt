@@ -1,0 +1,38 @@
+command=review-phase-a.sh /private/tmp/deno_core-0.409.0.crate /private/tmp/capsule-deno-v2.9.4-src/deno
+decision=GO
+registry.file=libs/core/ops_builtin.rs
+registry.builtinOps=99
+lowerBound.upstreamHandAuthoredFiles=1
+lowerBound.generatedOutputs=0
+threshold.maxUpstreamHandAuthoredFiles=3
+threshold.maxChangedNonCommentLines=200
+snapshot.externalReferencesDerivedFromOpCtxs=1
+requiredOps=op_get_extras_binding_object,op_get_ext_import_meta_proto,op_set_captured_bootstrap
+
+source.opsBuiltin.sha256=2a7988461f4c436010c83920a3f6fe5d257f7b43094ba6bfd23df36a96a6f941
+source.opsBuiltinTypes.sha256=354434c989a4be4156d861f5573c5f18fc7cb628fef073f958cc845c39447f2d
+source.opsBuiltinV8.sha256=ce0970fe02851012d3da14ea623190477031602ba46aad351372b57a015665b3
+source.extensionSet.sha256=82e0685f1ef7d677a47dee5d92caf0c25cc51fdb1bf62f84588d588756e17a02
+source.jsRuntime.sha256=2b8074e87ff8a1afa3c22d003b49f1b1bf159108e17ee7c6ddb87d85fa3cc75b
+source.bindings.sha256=573e2e4bc1692575ea55970ee1ec306d9f200419c1293b001e5169c70b00d540
+source.snapshot.sha256=23f342e096afbc5124e4e89e8371b54b76833088cb808622c6123b59d0f92f81
+bootstrap.00Primordials.sha256=43fe616a573d7f795fd3c6aa0e0ff7353b657274aa085cfbe869db1ce8e4cf44
+bootstrap.00Infra.sha256=33984000be930f3b02a2d1149ac0319724e8d95891623c8cc74699da4ce97287
+bootstrap.01Core.sha256=160a4c12ff5d71f5614064d96c6489c269df59f52d350e2bc75ae1b58660a0f8
+bootstrap.02Timers.sha256=305596528c679be30d0ac61fa049ec0f1777c287054d119ff4b341575afac7f9
+
+inventory.summary=BUILTIN_OPS is the single built-in registration list; JsRuntime combines it with extension ops before OpCtx creation; external references and snapshot op_count derive from that final list. Op macros generate implementations but no second registry. Extensions, module loaders, inspector, V8 flags, and startup snapshots are separate restoration routes fixed by the wrapper. The full 99-name inventory is reproducibly emitted by review-phase-a.sh.
+patch.actualFiles=1
+patch.textAdditions=2
+patch.textDeletions=99
+patch.generatedOutputs=0
+patch.decision=within predeclared reviewability threshold
+
+phaseB.snapshotDiscovery.file=modules/module_map_data.rs
+phaseB.snapshotDiscovery.originalSha256=6731724cd7ba8dfa6e95ac826dcbd458bb23bfc790015dc94b29a51ec3983e7f
+phaseB.snapshotDiscovery.cause=randomized by_name map drain serialized without canonical order
+phaseB.snapshotDiscovery.patchTextAdditions=3
+phaseB.snapshotDiscovery.snapshotFormatChanged=false
+combined.upstreamHandAuthoredFiles=2
+combined.changedTextLines=104
+combined.decision=within predeclared reviewability threshold

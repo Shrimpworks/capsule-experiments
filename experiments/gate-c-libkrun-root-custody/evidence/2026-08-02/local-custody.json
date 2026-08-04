@@ -1,0 +1,39 @@
+{
+  "finalized_sequence": {
+    "access": 0,
+    "digest": "c4bdd5ead4558d291e645c58039f0989c5a8bfdd42af19ecd0df2d7da01fd891",
+    "length": 53504,
+    "mode": "0o400",
+    "nlink": 0
+  },
+  "fork_exec_cloexec": {
+    "execAfterClearCloexec": "preserved",
+    "execWithCloexec": "closed",
+    "forkPreserved": true
+  },
+  "original_source_alias": "independent-snapshot-stable",
+  "post_unlink_path_replacement": "retained-identity-stable",
+  "precreation_symlink": "rejected-EEXIST",
+  "retained_writable_alias": "mutation-observed-as-expected-negative",
+  "retained_writable_mapping": "mutation-observed-as-expected-negative",
+  "shared_open_description": {
+    "offsetShared": true,
+    "preadOffsetStable": true,
+    "statusFlagsShared": true
+  },
+  "supervisor_crash_runner_retention": {
+    "device": 16777232,
+    "inode": 114891267,
+    "pathReacquisition": "impossible",
+    "runnerDigest": "c4bdd5ead4558d291e645c58039f0989c5a8bfdd42af19ecd0df2d7da01fd891"
+  },
+  "unprotected_same_uid_window": {
+    "hardLinkAcquired": true,
+    "meaning": "platform-protected construction storage remains mandatory",
+    "writableOpenAcquired": true
+  },
+  "wrong_and_reused_fd": {
+    "reused": "identity-mismatch",
+    "wrong": "closed"
+  }
+}

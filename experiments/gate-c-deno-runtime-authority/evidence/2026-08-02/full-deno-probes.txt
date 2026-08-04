@@ -1,0 +1,28 @@
+candidate=official Deno v2.9.4 linux/arm64
+profile=no config/lock/npm/remote/node-modules/code-cache/prompt/update/package-json; memory-only cache/KV DB; disposable tmpfs DENO_DIR; deny read/write/net/env/sys/run/ffi/import
+external_layer=Docker network none, read-only, cap-drop ALL, no-new-privileges, pids 64, RAM 256m, CPU 1, non-root, fixed mounts/tmpfs
+
+static_initial_graph={"secondaryLoaded":true}
+static_initial_graph_result=FAIL: ./secondary.js loaded despite --deny-read and --deny-import
+blob_worker={"workerExecuted":true}
+blob_worker_result=FAIL: blob/data Worker executed under all denies
+sigusr1_inspector=Debugger listening on ws://127.0.0.1:9229/<run-specific-uuid>
+sigusr1_inspector_result=FAIL: self SIGUSR1 activated loopback inspector without inspect flag
+node_worker_constructor=available
+node_process_binding_fs=object
+node_process_dlopen=denied by read permission
+node_compatibility_result=FAIL: Node compatibility/worker/native binding surface remains constructed
+https_import=denied by --no-remote/--deny-import
+jsr_import=denied by --no-remote/--deny-import
+npm_import=denied by --no-npm/--deny-import
+data_import=allowed
+import_route_result=FAIL: initial graph, node built-ins, and data imports remain; external/package routes deny
+local_storage=available
+cache_storage_open=available
+persistence_result=FAIL: internal storage APIs are not removed by read/write denial
+
+direct_high_level_results=read/write/env/sys/run/net/listen/ffi/node-fs/node-child-process/node-inspector denied
+permission_query=denied
+permission_request=denied without prompt
+inherited_fd_9=denied: EBADF through node:fs readSync
+conclusion=individual permission denials passed, but construction closure failed

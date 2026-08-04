@@ -1,0 +1,32 @@
+{
+  "schema": "capsule.typescript-transformation-record.v0",
+  "transformer": {
+    "identity": "3bc25a01c3059776070a5354e7c6560d06f031ef0336c6a96d34c41f5577aec5",
+    "nodeVersion": "22.22.1",
+    "amaroVersion": "1.1.5",
+    "sourceArchiveSha256": "87104b07e7acee748bcc5391e1bc69cf3571caa0fdfb8b1d6b5fd3f9599b7849",
+    "distributionSha256": "261da057fb25ff2912dd6abb7842fc915ddf7947a2cb3c8cce90875d2b9bb667",
+    "executableSha256": "245e0321af97d3c21dd4e7104457334dfe3c3ba7982d0db75363e354565f8cbb"
+  },
+  "options": {
+    "digest": "cbd7337986e8145ff812da60b79703c7b7a31929d5c9212fae48e4568249de7b",
+    "inputMediaType": "application/capsule.typescript-source;v=0;module=esm",
+    "outputMediaType": "application/capsule.javascript-source;v=0;module=esm",
+    "mode": "strip"
+  },
+  "source": {
+    "bytes": 391,
+    "sha256": "697a9bed1307422ecae49d20f60dff7b367535f450fee514b63ffe4d5a22c6db"
+  },
+  "emitted": {
+    "bytes": 391,
+    "sha256": "f91911dd606409fed94c214381533f5ece3e2ae23ea861a3a55192cefad884cd"
+  },
+  "sourceMap": {
+    "disposition": "absent"
+  },
+  "diagnostics": {
+    "policy": "reject-any",
+    "count": 0
+  }
+}

@@ -1,0 +1,72 @@
+{
+  "schemaVersion": 1,
+  "status": "not-independently-rebuildable-from-declared-immutable-inputs",
+  "selectedJob": {
+    "run": 29503514733,
+    "attempt": 2,
+    "job": 87701498072,
+    "target": "aarch64-unknown-linux-gnu",
+    "variant": "release",
+    "simdutf": true,
+    "pointerCompression": false
+  },
+  "pinned": {
+    "rust": "1.91.0",
+    "gn": {
+      "revision": "3357c4f51b1a9e676378c695dd9c7e9911c35ee6"
+    },
+    "ninja": {
+      "package": "infra/3pp/tools/ninja/linux-amd64",
+      "version": "3@1.12.1.chromium.4"
+    },
+    "sysroots": [
+      {
+        "arch": "amd64",
+        "sha256": "52d61d4446ffebfaa3dda2cd02da4ab4876ff237853f46d273e7f9b666652e1d",
+        "url": "https://commondatastorage.googleapis.com/chrome-linux-sysroot/52d61d4446ffebfaa3dda2cd02da4ab4876ff237853f46d273e7f9b666652e1d"
+      },
+      {
+        "arch": "arm64",
+        "sha256": "c7176a4c7aacbf46bda58a029f39f79a68008d3dee6518f154dcf5161a5486d8",
+        "url": "https://commondatastorage.googleapis.com/chrome-linux-sysroot/c7176a4c7aacbf46bda58a029f39f79a68008d3dee6518f154dcf5161a5486d8"
+      }
+    ],
+    "v8RustToolchain": {
+      "object": "rust-toolchain-4c4205163abcbd08948b3efab796c543ba1ea687-4-llvmorg-23-init-10931-g20b6ec66.tar.xz",
+      "sha256": "832de79f8d90940f4aaef023f83a00c1e7210c023f4d57f606b7bf9831c889aa",
+      "size": 274393124
+    },
+    "sccacheVersion": "0.8.2"
+  },
+  "derivedGnArgs": [
+    "is_debug=false",
+    "target_cpu=\"arm64\"",
+    "use_sysroot=true",
+    "rusty_v8_enable_simdutf=true",
+    "v8_monolithic_for_shared_library=true",
+    "v8_enable_sandbox=false",
+    "v8_enable_pointer_compression=false",
+    "treat_warnings_as_errors=false",
+    "use_custom_libcxx=true"
+  ],
+  "unresolvedImmutableInputs": [
+    "Exact ubuntu-22.04-xl runner image revision and installed base packages",
+    "Exact apt indices and package versions for GNU aarch64 cross toolchain, QEMU and libc6-arm64-cross",
+    "Exact apt.llvm.org clang/lld/libclang 19 package revisions",
+    "Exact Python 3.11.x patch version",
+    "Resolved commit for cargo-bins/cargo-binstall@main and versions of cargo-binstall/cargo-nextest",
+    "Resolved commits for tag-referenced GitHub Actions where release metadata does not retain them",
+    "sccache tarball digest (workflow pins only v0.8.2 and does not verify a checksum)",
+    "Complete effective environment, GN_ARGS value, generated args.gn/build.ninja/dependency graph, and submodule-status artifact",
+    "Input archive mtime stored by gzip -9c; workflow does not use gzip -n"
+  ],
+  "rebuild": {
+    "attempted": false,
+    "reason": "Required exact inputs are unavailable; a local build would not test reproduction of the official publisher bytes."
+  },
+  "comparison": {
+    "completeBytes": "not-performed",
+    "symbolsMembers": "official archive inventoried only",
+    "limit": "No independently rebuilt archive exists, so no reproducibility or equivalence claim is made."
+  }
+}

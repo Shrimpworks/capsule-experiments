@@ -1,0 +1,215 @@
+9     execve("/runtime/deno", ["/runtime/deno", "run", "--no-config", "--no-lock", "--no-npm", "--no-remote", "--cached-only", "--node-modules-dir=none", "--no-code-cache", "--no-prompt", "--deny-read", "--deny-write", "--deny-net", "--deny-env", "--deny-sys", "--deny-run", "--deny-ffi", "--deny-import", "/fixtures/full-deno-nominal.ts"], 0xffffd75f8370 /* 13 vars */) = 0
+9     mmap(NULL, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0xffff93190000
+9     openat(AT_FDCWD, "/etc/ld.so.cache", O_RDONLY|O_CLOEXEC) = 3
+9     mmap(NULL, 23431, PROT_READ, MAP_PRIVATE, 3, 0) = 0xffff9318a000
+9     close(3)                          = 0
+9     openat(AT_FDCWD, "/lib/aarch64-linux-gnu/libdl.so.2", O_RDONLY|O_CLOEXEC) = 3
+9     mmap(NULL, 196640, PROT_NONE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0xffff93127000
+9     mmap(0xffff93130000, 131104, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0) = 0xffff93130000
+9     mprotect(0xffff93131000, 122880, PROT_NONE) = 0
+9     mmap(0xffff9314f000, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0xf000) = 0xffff9314f000
+9     close(3)                          = 0
+9     openat(AT_FDCWD, "/lib/aarch64-linux-gnu/libgcc_s.so.1", O_RDONLY|O_CLOEXEC) = 3
+9     mmap(NULL, 262856, PROT_NONE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0xffff930ef000
+9     mmap(0xffff930f0000, 197320, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0) = 0xffff930f0000
+9     mprotect(0xffff93104000, 110592, PROT_NONE) = 0
+9     mmap(0xffff9311f000, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x1f000) = 0xffff9311f000
+9     close(3)                          = 0
+9     openat(AT_FDCWD, "/lib/aarch64-linux-gnu/libpthread.so.0", O_RDONLY|O_CLOEXEC) = 3
+9     mmap(NULL, 196640, PROT_NONE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0xffff930bf000
+9     mmap(0xffff930c0000, 131104, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0) = 0xffff930c0000
+9     mprotect(0xffff930c1000, 122880, PROT_NONE) = 0
+9     mmap(0xffff930df000, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0xf000) = 0xffff930df000
+9     close(3)                          = 0
+9     openat(AT_FDCWD, "/lib/aarch64-linux-gnu/libm.so.6", O_RDONLY|O_CLOEXEC) = 3
+9     mmap(NULL, 721008, PROT_NONE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0xffff9300f000
+9     mmap(0xffff93010000, 655472, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0) = 0xffff93010000
+9     mprotect(0xffff93092000, 118784, PROT_NONE) = 0
+9     mmap(0xffff930af000, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x8f000) = 0xffff930af000
+9     close(3)                          = 0
+9     openat(AT_FDCWD, "/lib/aarch64-linux-gnu/libc.so.6", O_RDONLY|O_CLOEXEC) = 3
+9     mmap(NULL, 1826912, PROT_NONE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0xffff92e51000
+9     mmap(0xffff92e60000, 1761376, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0) = 0xffff92e60000
+9     mprotect(0xffff92fec000, 65536, PROT_NONE) = 0
+9     mmap(0xffff92ffc000, 24576, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x18c000) = 0xffff92ffc000
+9     mmap(0xffff93002000, 49248, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS, -1, 0) = 0xffff93002000
+9     close(3)                          = 0
+9     mmap(NULL, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0xffff93188000
+9     mmap(NULL, 12288, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0xffff93185000
+9     mprotect(0xffff92ffc000, 16384, PROT_READ) = 0
+9     mprotect(0xffff930af000, 4096, PROT_READ) = 0
+9     mprotect(0xffff930df000, 4096, PROT_READ) = 0
+9     mprotect(0xffff9311f000, 4096, PROT_READ) = 0
+9     mprotect(0xffff9314f000, 4096, PROT_READ) = 0
+9     mprotect(0xaaaac6935000, 2473984, PROT_READ) = 0
+9     mprotect(0xffff93196000, 8192, PROT_READ) = 0
+9     openat(AT_FDCWD, "/proc/self/maps", O_RDONLY|O_CLOEXEC) = 3
+9     close(3)                          = 0
+9     mmap(NULL, 20480, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS|MAP_STACK, -1, 0) = 0xffff9318b000
+9     mprotect(0xffff9318b000, 4096, PROT_NONE) = 0
+9     socketpair(AF_UNIX, SOCK_STREAM|SOCK_CLOEXEC|SOCK_NONBLOCK, 0, [6, 7]) = 0
+9     openat(AT_FDCWD, "/proc/self/cgroup", O_RDONLY|O_CLOEXEC) = 9
+9     close(9)                          = 0
+9     openat(AT_FDCWD, "/sys/fs/cgroup/cpu.max", O_RDONLY|O_CLOEXEC) = 9
+9     close(9)                          = 0
+9     mmap(NULL, 8454144, PROT_NONE, MAP_PRIVATE|MAP_ANONYMOUS|MAP_STACK, -1, 0) = 0xffff92650000
+9     mprotect(0xffff92660000, 8388608, PROT_READ|PROT_WRITE) = 0
+9     clone(child_stack=0xffff92e5e020, flags=CLONE_VM|CLONE_FS|CLONE_FILES|CLONE_SIGHAND|CLONE_THREAD|CLONE_SYSVSEM|CLONE_SETTLS|CLONE_PARENT_SETTID|CLONE_CHILD_CLEARTID, parent_tid=[10], tls=0xffff92e5eea0, child_tidptr=0xffff92e5e830) = 10
+10    mmap(NULL, 134217728, PROT_NONE, MAP_PRIVATE|MAP_ANONYMOUS|MAP_NORESERVE, -1, 0) = 0xffff8a600000
+9     mprotect(0xaaaac6bc0000, 65536, PROT_READ) = 0
+10    mprotect(0xffff8c000000, 135168, PROT_READ|PROT_WRITE) = 0
+10    mmap(NULL, 65536, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0xffff92640000
+9     openat(AT_FDCWD, "/dev/urandom", O_RDONLY) = 9
+9     close(9)                          = 0
+9     mmap(NULL, 134279168, PROT_NONE, MAP_PRIVATE|MAP_ANONYMOUS|MAP_NORESERVE, -1, 0) = 0xffff83ff1000
+9     openat(AT_FDCWD, "/dev/urandom", O_RDONLY) = 9
+9     close(9)                          = 0
+9     mmap(NULL, 524288, PROT_NONE, MAP_PRIVATE|MAP_ANONYMOUS|MAP_NORESERVE, -1, 0) = 0xffff925c0000
+9     mprotect(0xffff925c0000, 16384, PROT_READ|PROT_WRITE) = 0
+9     mmap(0x3000000000, 51539603456, PROT_NONE, MAP_PRIVATE|MAP_ANONYMOUS|MAP_NORESERVE, -1, 0) = 0x3000000000
+9     openat(AT_FDCWD, "/proc/self/cgroup", O_RDONLY|O_CLOEXEC) = 9
+9     close(9)                          = 0
+9     openat(AT_FDCWD, "/sys/fs/cgroup/cpu.max", O_RDONLY|O_CLOEXEC) = 9
+9     close(9)                          = 0
+9     mmap(NULL, 2162688, PROT_NONE, MAP_PRIVATE|MAP_ANONYMOUS|MAP_STACK, -1, 0) = 0xffff923b0000
+9     mprotect(0xffff923c0000, 2097152, PROT_READ|PROT_WRITE) = 0
+9     clone(child_stack=0xffff925be020, flags=CLONE_VM|CLONE_FS|CLONE_FILES|CLONE_SIGHAND|CLONE_THREAD|CLONE_SYSVSEM|CLONE_SETTLS|CLONE_PARENT_SETTID|CLONE_CHILD_CLEARTID, parent_tid=[11], tls=0xffff925beea0, child_tidptr=0xffff925be830) = 11
+9     mmap(NULL, 2162688, PROT_NONE, MAP_PRIVATE|MAP_ANONYMOUS|MAP_STACK, -1, 0) = 0xffff921a0000
+9     mprotect(0xffff921b0000, 2097152, PROT_READ|PROT_WRITE) = 0
+11    mmap(NULL, 134217728, PROT_NONE, MAP_PRIVATE|MAP_ANONYMOUS|MAP_NORESERVE, -1, 0) = 0xffff7c000000
+9     clone(child_stack=0xffff923ae020, flags=CLONE_VM|CLONE_FS|CLONE_FILES|CLONE_SIGHAND|CLONE_THREAD|CLONE_SYSVSEM|CLONE_SETTLS|CLONE_PARENT_SETTID|CLONE_CHILD_CLEARTID <unfinished ...>
+11    mprotect(0xffff7c000000, 135168, PROT_READ|PROT_WRITE) = 0
+9     <... clone resumed>, parent_tid=[12], tls=0xffff923aeea0, child_tidptr=0xffff923ae830) = 12
+11    mmap(NULL, 20480, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS|MAP_STACK, -1, 0) = 0xffff93180000
+12    mmap(0xffff80000000, 67108864, PROT_NONE, MAP_PRIVATE|MAP_ANONYMOUS|MAP_NORESERVE, -1, 0 <unfinished ...>
+11    mprotect(0xffff93180000, 4096, PROT_NONE <unfinished ...>
+9     openat(AT_FDCWD, "/state/.npmrc", O_RDONLY|O_CLOEXEC <unfinished ...>
+12    <... mmap resumed>)               = 0xffff80000000
+11    <... mprotect resumed>)           = 0
+9     <... openat resumed>)             = -1 ENOENT (No such file or directory)
+12    mprotect(0xffff80000000, 135168, PROT_READ|PROT_WRITE) = 0
+12    mmap(NULL, 20480, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS|MAP_STACK, -1, 0) = 0xffff93153000
+12    mprotect(0xffff93153000, 4096, PROT_NONE) = 0
+11    openat(AT_FDCWD, "/state/deno/dep_analysis_cache_v2", O_RDWR|O_CREAT|O_NOFOLLOW|O_CLOEXEC, 0644 <unfinished ...>
+12    openat(AT_FDCWD, "/state/deno/node_analysis_cache_v2", O_RDWR|O_CREAT|O_NOFOLLOW|O_CLOEXEC, 0644 <unfinished ...>
+11    <... openat resumed>)             = 9
+12    <... openat resumed>)             = 10
+11    openat(AT_FDCWD, "/dev/urandom", O_RDONLY|O_CLOEXEC) = 11
+11    close(11)                         = 0
+9     openat(AT_FDCWD, "/proc/self/cgroup", O_RDONLY|O_CLOEXEC <unfinished ...>
+12    openat(AT_FDCWD, "/proc/sys/kernel/osrelease", O_RDONLY|O_CLOEXEC <unfinished ...>
+9     <... openat resumed>)             = 12
+12    <... openat resumed>)             = 11
+9     close(12 <unfinished ...>
+12    close(11 <unfinished ...>
+9     <... close resumed>)              = 0
+12    <... close resumed>)              = 0
+9     openat(AT_FDCWD, "/sys/fs/cgroup/cpu.max", O_RDONLY|O_CLOEXEC) = 11
+9     close(11)                         = 0
+9     openat(AT_FDCWD, "/proc/meminfo", O_RDONLY|O_CLOEXEC) = 11
+12    openat(AT_FDCWD, "/state/deno/node_analysis_cache_v2-journal", O_RDWR|O_CREAT|O_NOFOLLOW|O_CLOEXEC, 0644) = 12
+9     close(11)                         = 0
+11    openat(AT_FDCWD, "/state/deno/dep_analysis_cache_v2-journal", O_RDWR|O_CREAT|O_NOFOLLOW|O_CLOEXEC, 0644) = 11
+12    openat(AT_FDCWD, "/state/deno", O_RDONLY|O_CLOEXEC) = 13
+12    close(13 <unfinished ...>
+11    openat(AT_FDCWD, "/state/deno", O_RDONLY|O_CLOEXEC <unfinished ...>
+12    <... close resumed>)              = 0
+11    <... openat resumed>)             = 13
+11    close(13)                         = 0
+12    close(12)                         = 0
+11    close(11)                         = 0
+9     mmap(NULL, 278528, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0xffff9215c000
+9     mmap(NULL, 483328, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0xffff920e6000
+12    openat(AT_FDCWD, "/state/deno/node_analysis_cache_v2-wal", O_RDWR|O_CREAT|O_NOFOLLOW|O_CLOEXEC, 0644) = 11
+11    openat(AT_FDCWD, "/state/deno/dep_analysis_cache_v2-wal", O_RDWR|O_CREAT|O_NOFOLLOW|O_CLOEXEC, 0644) = 12
+12    openat(AT_FDCWD, "/state/deno/node_analysis_cache_v2-shm", O_RDWR|O_CREAT|O_NOFOLLOW|O_CLOEXEC, 0644 <unfinished ...>
+9     openat(AT_FDCWD, "/proc/self/maps", O_RDONLY|O_CLOEXEC <unfinished ...>
+12    <... openat resumed>)             = 13
+9     <... openat resumed>)             = 14
+9     close(14 <unfinished ...>
+11    openat(AT_FDCWD, "/state/deno/dep_analysis_cache_v2-shm", O_RDWR|O_CREAT|O_NOFOLLOW|O_CLOEXEC, 0644 <unfinished ...>
+9     <... close resumed>)              = 0
+11    <... openat resumed>)             = 14
+12    mmap(NULL, 32768, PROT_READ|PROT_WRITE, MAP_SHARED, 13, 0) = 0xffff93128000
+9     mmap(0xaaaac38e0000, 268435456, PROT_NONE, MAP_PRIVATE|MAP_ANONYMOUS|MAP_NORESERVE, -1, 0) = 0xffff6c000000
+9     mprotect(0xffff6c000000, 268435456, PROT_READ|PROT_WRITE|PROT_EXEC) = 0
+11    mmap(NULL, 32768, PROT_READ|PROT_WRITE, MAP_SHARED, 14, 0) = 0xffff930e8000
+9     mmap(0x2c5a340000, 520192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x2c5a340000
+9     mmap(0x240a640000, 520192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x240a640000
+9     mmap(0x3288fc0000, 520192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x3288fc0000
+9     mmap(0x38d7080000, 520192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x38d7080000
+12    openat(AT_FDCWD, "/state/deno", O_RDONLY|O_CLOEXEC) = 15
+9     mmap(0x1d30d80000, 520192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x1d30d80000
+12    close(15)                         = 0
+9     mmap(0x140ef80000, 520192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x140ef80000
+9     mmap(0x28251c0000, 520192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x28251c0000
+11    openat(AT_FDCWD, "/state/deno", O_RDONLY|O_CLOEXEC) = 15
+9     mmap(0x28d2040000, 520192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x28d2040000
+11    close(15)                         = 0
+9     mmap(0x3027ec0000, 520192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x3027ec0000
+9     mprotect(0x2c5a340000, 262144, PROT_READ) = 0
+9     mprotect(0x240a640000, 262144, PROT_READ) = 0
+9     mprotect(0x3288fc0000, 262144, PROT_READ) = 0
+9     mprotect(0x38d7080000, 262144, PROT_READ) = 0
+9     mprotect(0x1d30d80000, 262144, PROT_READ) = 0
+9     mprotect(0x140ef80000, 262144, PROT_READ) = 0
+9     mprotect(0x28251c0000, 262144, PROT_READ) = 0
+9     mprotect(0x28d2040000, 81920, PROT_READ) = 0
+9     mprotect(0x3027ec0000, 131072, PROT_READ) = 0
+9     openat(AT_FDCWD, "/dev/urandom", O_RDONLY) = 15
+9     close(15)                         = 0
+9     mmap(NULL, 268496896, PROT_NONE, MAP_PRIVATE|MAP_ANONYMOUS|MAP_NORESERVE, -1, 0) = 0xffff5bff1000
+9     openat(AT_FDCWD, "/dev/urandom", O_RDONLY) = 15
+9     close(15)                         = 0
+9     mprotect(0xffff5c000000, 65536, PROT_READ) = 0
+9     mmap(0x39e1800000, 520192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x39e1800000
+9     mmap(0x62cd40000, 520192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x62cd40000
+9     mmap(0x168f240000, 520192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x168f240000
+9     mmap(0x1de1fc0000, 520192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x1de1fc0000
+9     mprotect(0xffff5c010000, 65536, PROT_READ|PROT_WRITE) = 0
+9     mmap(0x2c5a350000, 65536, PROT_NONE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS, -1, 0) = 0x2c5a350000
+9     mmap(0x2c5a370000, 65536, PROT_NONE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS, -1, 0) = 0x2c5a370000
+9     mmap(0x240a650000, 65536, PROT_NONE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS, -1, 0) = 0x240a650000
+9     mmap(0x240a670000, 65536, PROT_NONE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS, -1, 0) = 0x240a670000
+9     mmap(0x38d70b0000, 65536, PROT_NONE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS, -1, 0) = 0x38d70b0000
+9     mmap(0x38d7090000, 65536, PROT_NONE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS, -1, 0) = 0x38d7090000
+9     mmap(0x3288fd0000, 65536, PROT_NONE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS, -1, 0) = 0x3288fd0000
+9     mmap(0x3288ff0000, 65536, PROT_NONE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS, -1, 0) = 0x3288ff0000
+9     mmap(0x1d30d90000, 65536, PROT_NONE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS, -1, 0) = 0x1d30d90000
+9     mmap(0x1d30db0000, 65536, PROT_NONE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS, -1, 0) = 0x1d30db0000
+9     mmap(0x140ef90000, 65536, PROT_NONE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS, -1, 0) = 0x140ef90000
+9     mmap(0x140efb0000, 65536, PROT_NONE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS, -1, 0) = 0x140efb0000
+9     openat(AT_FDCWD, "/dev/urandom", O_RDONLY) = 15
+9     close(15)                         = 0
+9     mmap(0x2221680000, 520192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x2221680000
+9     mmap(0x26d1cc0000, 520192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x26d1cc0000
+9     mmap(0x34ccd00000, 520192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0xffff92067000
+9     mmap(0x3d55b40000, 520192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x3d55b40000
+9     mmap(0x17c4ec0000, 520192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x17c4ec0000
+9     mmap(0xa06280000, 520192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0xa06280000
+9     mprotect(0xffff5c020000, 65536, PROT_READ|PROT_WRITE) = 0
+9     openat(AT_FDCWD, "/fixtures/full-deno-nominal.ts", O_RDONLY|O_CLOEXEC) = 17
+9     close(17)                         = 0
+9     openat(AT_FDCWD, "/state/deno/gen/file/fixtures/full-deno-nominal.ts.js", O_RDONLY|O_CLOEXEC) = -1 ENOENT (No such file or directory)
+11    openat(AT_FDCWD, "/proc/self/cgroup", O_RDONLY|O_CLOEXEC) = 17
+11    close(17)                         = 0
+11    openat(AT_FDCWD, "/proc/self/mountinfo", O_RDONLY|O_CLOEXEC) = 17
+11    close(17)                         = 0
+11    openat(AT_FDCWD, "/sys/fs/cgroup/cpu.max", O_RDONLY|O_CLOEXEC) = 17
+11    close(17)                         = 0
+9     openat(AT_FDCWD, "/state/deno/gen/file/fixtures/full-deno-nominal.ts.0d46e0b1.tmp", O_WRONLY|O_CREAT|O_TRUNC|O_CLOEXEC, 0644) = -1 ENOENT (No such file or directory)
+9     openat(AT_FDCWD, "/state/deno/gen/file/fixtures/full-deno-nominal.ts.0d46e0b1.tmp", O_WRONLY|O_CREAT|O_TRUNC|O_CLOEXEC, 0644) = 17
+9     close(17)                         = 0
+9     mprotect(0x3402000000, 131072, PROT_READ|PROT_WRITE) = 0
+9     close(15)                         = 0
+9     close(16)                         = 0
+9     mmap(0x3402000000, 131072, PROT_NONE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS, -1, 0) = 0x3402000000
+10    openat(AT_FDCWD, "/sys/devices/system/cpu/online", O_RDONLY|O_CLOEXEC) = 15
+10    close(15)                         = 0
+9     mmap(0xffff5c010000, 65536, PROT_NONE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS, -1, 0) = 0xffff5c010000
+9     mmap(0xffff5c020000, 65536, PROT_NONE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS, -1, 0) = 0xffff5c020000
+9     mmap(0xffff5c000000, 65536, PROT_NONE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS, -1, 0) = 0xffff5c000000
+9     close(3)                          = 0
+9     close(8)                          = 0
+12    mmap(NULL, 20480, PROT_READ, MAP_SHARED, 10, 0) = 0xffff93123000
+11    mmap(NULL, 20480, PROT_READ, MAP_SHARED, 9, 0) = 0xffff9318b000

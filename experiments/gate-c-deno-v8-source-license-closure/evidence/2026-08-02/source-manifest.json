@@ -1,0 +1,277 @@
+{
+  "schemaVersion": 1,
+  "retrieved": "2026-08-02",
+  "sourceIdentity": {
+    "rustyV8": "d305e6afa7736f6e298c30ae6646f7709ee9382b",
+    "rustyV8Url": "https://github.com/denoland/rusty_v8/commit/d305e6afa7736f6e298c30ae6646f7709ee9382b",
+    "denolandV8": "ac1e23989121713ca642f6650b34deff7b686896",
+    "denolandV8Url": "https://github.com/denoland/v8/commit/ac1e23989121713ca642f6650b34deff7b686896",
+    "chromiumV8Base": "0da5ef4358784bb0af0ff5d5d7c49cdad8931d1e",
+    "chromiumV8BaseUrl": "https://chromium.googlesource.com/v8/v8/+/0da5ef4358784bb0af0ff5d5d7c49cdad8931d1e",
+    "v8Version": "15.0.245.2"
+  },
+  "archiveHashMeaning": "Retrieval blob hashes verify the bytes retrieved on 2026-08-02; immutable Git commits/trees are the source identities because server-generated archive packaging is not itself a stable source identity.",
+  "components": [
+    {
+      "name": "rusty-v8",
+      "revision": "d305e6afa7736f6e298c30ae6646f7709ee9382b",
+      "url": "https://github.com/denoland/rusty_v8/archive/d305e6afa7736f6e298c30ae6646f7709ee9382b.tar.gz",
+      "retrieved": "2026-08-02",
+      "retrievalArchive": {
+        "filename": "rusty_v8-d305e6a.tar.gz",
+        "sha256": "6affd369d96a58f127905bdc17dbc18286dccf0b099fc38b585c833f89037d84"
+      },
+      "tree": "rusty_v8-d305e6a"
+    },
+    {
+      "name": "v8",
+      "revision": "ac1e23989121713ca642f6650b34deff7b686896",
+      "url": "https://github.com/denoland/v8/archive/ac1e23989121713ca642f6650b34deff7b686896.tar.gz",
+      "retrieved": "2026-08-02",
+      "retrievalArchive": {
+        "filename": "denoland-v8-ac1e239.tar.gz",
+        "sha256": "208fc32bb41a5758bdb0e130a0019c908e68599ff5d9a40ef029a8e793b9039e"
+      },
+      "tree": "denoland-v8-ac1e239"
+    },
+    {
+      "name": "chromium-build",
+      "revision": "8acb33ac8dceef0503443109c0a92988189563ef",
+      "url": "https://github.com/denoland/chromium_build/archive/8acb33ac8dceef0503443109c0a92988189563ef.tar.gz",
+      "retrieved": "2026-08-02",
+      "retrievalArchive": {
+        "filename": "chromium_build-8acb33a.tar.gz",
+        "sha256": "bdcb812514e8f3f6aac449990b2010ea6b9ea384981485529b89b2c273172d53"
+      },
+      "tree": "chromium_build-8acb33a"
+    },
+    {
+      "name": "buildtools",
+      "revision": "17495e454aae81b581e8b3caccbb53054509b280",
+      "url": "https://chromium.googlesource.com/chromium/src/buildtools/+archive/17495e454aae81b581e8b3caccbb53054509b280.tar.gz",
+      "retrieved": "2026-08-02",
+      "retrievalArchive": {
+        "filename": "buildtools-17495e4.tar.gz",
+        "sha256": "fc8b9212dad5641fec2d00b8f79695af032e7c3b9590649ac08e16fbed10659f"
+      },
+      "tree": "buildtools-17495e4"
+    },
+    {
+      "name": "abseil",
+      "revision": "d16e32215c3ab90ba57c2e904a5344d85c7353e4",
+      "url": "https://chromium.googlesource.com/chromium/src/third_party/abseil-cpp/+archive/d16e32215c3ab90ba57c2e904a5344d85c7353e4.tar.gz",
+      "retrieved": "2026-08-02",
+      "retrievalArchive": {
+        "filename": "abseil-d16e322.tar.gz",
+        "sha256": "460797f7211af6cfe85afeb794744ad99ca3f3b1a83cc67d8f172168cbcb5c08"
+      },
+      "tree": "abseil-d16e322"
+    },
+    {
+      "name": "dragonbox",
+      "revision": "beeeef91cf6fef89a4d4ba5e95d47ca64ccb3a44",
+      "url": "https://chromium.googlesource.com/external/github.com/jk-jeon/dragonbox/+archive/beeeef91cf6fef89a4d4ba5e95d47ca64ccb3a44.tar.gz",
+      "retrieved": "2026-08-02",
+      "retrievalArchive": {
+        "filename": "dragonbox-beeeef9.tar.gz",
+        "sha256": "27a2a505695f7dd53bab0391500d74fcf96c7b403bd6ceb08e234cca882f7b4f"
+      },
+      "tree": "dragonbox-beeeef9"
+    },
+    {
+      "name": "fast-float",
+      "revision": "05087a303dad9c98768b33c829d398223a649bc6",
+      "url": "https://chromium.googlesource.com/external/github.com/fastfloat/fast_float/+archive/05087a303dad9c98768b33c829d398223a649bc6.tar.gz",
+      "retrieved": "2026-08-02",
+      "retrievalArchive": {
+        "filename": "fast_float-05087a3.tar.gz",
+        "sha256": "2766fd2fd29e277b084ade1d6e3899fa42e009420560a5d975c1c896663e7fc0"
+      },
+      "tree": "fast_float-05087a3"
+    },
+    {
+      "name": "fp16",
+      "revision": "3d2de1816307bac63c16a297e8c4dc501b4076df",
+      "url": "https://github.com/Maratyszcza/FP16/archive/3d2de1816307bac63c16a297e8c4dc501b4076df.tar.gz",
+      "retrieved": "2026-08-02",
+      "retrievalArchive": {
+        "filename": "fp16-3d2de18.tar.gz",
+        "sha256": "65ace2f05fd9434b0acb7a7d3cc6cd96842ea6236b680594af932b359bedbfc1"
+      },
+      "tree": "fp16-3d2de18"
+    },
+    {
+      "name": "highway",
+      "revision": "2607d3b5b0113992fe84d3848859eae13b3b52c1",
+      "url": "https://chromium.googlesource.com/external/github.com/google/highway/+archive/2607d3b5b0113992fe84d3848859eae13b3b52c1.tar.gz",
+      "retrieved": "2026-08-02",
+      "retrievalArchive": {
+        "filename": "highway-2607d3b.tar.gz",
+        "sha256": "c116fdebb98282fdf5dd18d68f393a6f2a01ad84e3373613946d130bd0ae7556"
+      },
+      "tree": "highway-2607d3b"
+    },
+    {
+      "name": "icu",
+      "revision": "ee5f27adc28bd3f15b2c293f726d14d2e336cbd5",
+      "url": "https://chromium.googlesource.com/chromium/deps/icu/+archive/ee5f27adc28bd3f15b2c293f726d14d2e336cbd5.tar.gz",
+      "retrieved": "2026-08-02",
+      "retrievalArchive": {
+        "filename": "icu-ee5f27a.tar.gz",
+        "sha256": "85cfd6c96231690d4ffbe81f14e01ebe068d820aea6ca1c55784b2507b4835d6"
+      },
+      "tree": "icu-ee5f27a"
+    },
+    {
+      "name": "jinja2",
+      "revision": "c3027d884967773057bf74b957e3fea87e5df4d7",
+      "url": "https://chromium.googlesource.com/chromium/src/third_party/jinja2/+archive/c3027d884967773057bf74b957e3fea87e5df4d7.tar.gz",
+      "retrieved": "2026-08-02",
+      "retrievalArchive": {
+        "filename": "jinja2-c3027d8.tar.gz",
+        "sha256": "c8ddc48c67bdb17355cd3c6f7e89b088222b179a61e200984e150fbd2b156a24"
+      },
+      "tree": "jinja2-c3027d8"
+    },
+    {
+      "name": "libcxx",
+      "revision": "5abc7f839700f0f17338434e1c1c6a8c87c00c11",
+      "url": "https://chromium.googlesource.com/external/github.com/llvm/llvm-project/libcxx/+archive/5abc7f839700f0f17338434e1c1c6a8c87c00c11.tar.gz",
+      "retrieved": "2026-08-02",
+      "retrievalArchive": {
+        "filename": "libcxx-5abc7f8.tar.gz",
+        "sha256": "c53d8ffc7d332c1985952e2c7de908f8f0e3b2ee01525bebc235a066f4f7825f"
+      },
+      "tree": "libcxx-5abc7f8"
+    },
+    {
+      "name": "libcxxabi",
+      "revision": "8f11bb1d4438d0239d0dfc1bd9456a9f31629dda",
+      "url": "https://chromium.googlesource.com/external/github.com/llvm/llvm-project/libcxxabi/+archive/8f11bb1d4438d0239d0dfc1bd9456a9f31629dda.tar.gz",
+      "retrieved": "2026-08-02",
+      "retrievalArchive": {
+        "filename": "libcxxabi-8f11bb1.tar.gz",
+        "sha256": "6512f753a791ea14c89b173bfbcd12495a681c6572857a48a80a416b65741f1b"
+      },
+      "tree": "libcxxabi-8f11bb1"
+    },
+    {
+      "name": "libunwind",
+      "revision": "d6c7a21e978f0adaa43accaad53bc64f0b64f6ec",
+      "url": "https://chromium.googlesource.com/external/github.com/llvm/llvm-project/libunwind/+archive/d6c7a21e978f0adaa43accaad53bc64f0b64f6ec.tar.gz",
+      "retrieved": "2026-08-02",
+      "retrievalArchive": {
+        "filename": "libunwind-d6c7a21.tar.gz",
+        "sha256": "ca91cd716d08a1a06ddab5125cb6a872e85f24b809ba0b5e1df713159cb9d3fb"
+      },
+      "tree": "libunwind-d6c7a21"
+    },
+    {
+      "name": "llvm-libc",
+      "revision": "9309c117ebae84dd2f9df1ef99de4782162527d5",
+      "url": "https://chromium.googlesource.com/external/github.com/llvm/llvm-project/libc/+archive/9309c117ebae84dd2f9df1ef99de4782162527d5.tar.gz",
+      "retrieved": "2026-08-02",
+      "retrievalArchive": {
+        "filename": "llvm-libc-9309c11.tar.gz",
+        "sha256": "7603dc04c608193ab81990b5a96ee845e2d87eca54a7d250ed8462871e763a9f"
+      },
+      "tree": "llvm-libc-9309c11"
+    },
+    {
+      "name": "markupsafe",
+      "revision": "4256084ae14175d38a3ff7d739dca83ae49ccec6",
+      "url": "https://chromium.googlesource.com/chromium/src/third_party/markupsafe/+archive/4256084ae14175d38a3ff7d739dca83ae49ccec6.tar.gz",
+      "retrieved": "2026-08-02",
+      "retrievalArchive": {
+        "filename": "markupsafe-4256084.tar.gz",
+        "sha256": "15091e9b33c60d0ab8f6c3087498e4c8ef4ac27e5b69a111e651889dc12eaea9"
+      },
+      "tree": "markupsafe-4256084"
+    },
+    {
+      "name": "partition-alloc",
+      "revision": "ff3b8b885b8374cbd3902642d94dc737bda93d5d",
+      "url": "https://chromium.googlesource.com/chromium/src/base/allocator/partition_allocator/+archive/ff3b8b885b8374cbd3902642d94dc737bda93d5d.tar.gz",
+      "retrieved": "2026-08-02",
+      "retrievalArchive": {
+        "filename": "partition_alloc-ff3b8b8.tar.gz",
+        "sha256": "e66cf389ae4fc30d819ce7f760a5fce1492757c308436d59904fda9dd6ff5ae1"
+      },
+      "tree": "partition_alloc-ff3b8b8"
+    },
+    {
+      "name": "chromium-rust",
+      "revision": "26e8ff47f18a8d28d6187a04b6a16cb7332356f8",
+      "url": "https://chromium.googlesource.com/chromium/src/third_party/rust/+archive/26e8ff47f18a8d28d6187a04b6a16cb7332356f8.tar.gz",
+      "retrieved": "2026-08-02",
+      "retrievalArchive": {
+        "filename": "chromium-rust-26e8ff4.tar.gz",
+        "sha256": "cd0c666fd259fa74ac26ecd0d09c5b57624c1455a9e1b0dc36878505b152c512"
+      },
+      "tree": "chromium-rust-26e8ff4"
+    },
+    {
+      "name": "simdutf",
+      "revision": "f7356eed293f8208c40b3c1b344a50bd70971983",
+      "url": "https://chromium.googlesource.com/chromium/src/third_party/simdutf/+archive/f7356eed293f8208c40b3c1b344a50bd70971983.tar.gz",
+      "retrieved": "2026-08-02",
+      "retrievalArchive": {
+        "filename": "simdutf-f7356ee.tar.gz",
+        "sha256": "2641dc8eb0adda1527daa15abb5ffc0298dcdf01f8d09a9cc4cd53252b561da1"
+      },
+      "tree": "simdutf-f7356ee"
+    },
+    {
+      "name": "tools-clang",
+      "revision": "45f4b9e25124809497a27a8ae0e63d603b0f9f1b",
+      "url": "https://chromium.googlesource.com/chromium/src/tools/clang/+archive/45f4b9e25124809497a27a8ae0e63d603b0f9f1b.tar.gz",
+      "retrieved": "2026-08-02",
+      "retrievalArchive": {
+        "filename": "tools-clang-45f4b9e.tar.gz",
+        "sha256": "55cab7fc2f6972c6d0b564c217256b2a1ee6009fba8ba6ac4938ee113eda5a7d"
+      },
+      "tree": "tools-clang-45f4b9e"
+    },
+    {
+      "name": "tools-win",
+      "revision": "faefd1b6fa9eeb033ad6fe60368ccb9bf908cbd0",
+      "url": "https://chromium.googlesource.com/chromium/src/tools/win/+archive/faefd1b6fa9eeb033ad6fe60368ccb9bf908cbd0.tar.gz",
+      "retrieved": "2026-08-02",
+      "retrievalArchive": {
+        "filename": "tools-win-faefd1b.tar.gz",
+        "sha256": "b09efd819f9fc20c9f3b7654ebb312ce1a41b7712ab317db75751bed0fd34fa4"
+      },
+      "tree": "tools-win-faefd1b"
+    }
+  ],
+  "patchStack": [
+    {
+      "order": 1,
+      "commit": "cabd5f6e2c673a000e9c334fdbdf29ab0023da07",
+      "subject": "Remove googletest visibility workaround in BUILD.gn",
+      "patchSha256": "ba521cc95927ad6f33a55fa2d16ff11fe535fe9d4cab72aa4300ee22774ba23e",
+      "url": "https://github.com/denoland/v8/commit/cabd5f6e2c673a000e9c334fdbdf29ab0023da07.patch"
+    },
+    {
+      "order": 2,
+      "commit": "ffe1c78c9443321313d0fd28dec5e468a241d129",
+      "subject": "add padding to fix ~ptrcmp builds on windows",
+      "patchSha256": "eb83dceef8691380c3d2eadcc75272bb8bb7ee7b6f437205e992f71ed6f38eb5",
+      "url": "https://github.com/denoland/v8/commit/ffe1c78c9443321313d0fd28dec5e468a241d129.patch"
+    },
+    {
+      "order": 3,
+      "commit": "10b91f1f2e3828859868e186eee681882a9a248a",
+      "subject": "Fix crash on Apple Silicon when mprotect fails expectedly",
+      "patchSha256": "997ee5bbce88a0d0104e48fde1224d3ed74a0fc27d389ba9bf5fa7547a4c576b",
+      "url": "https://github.com/denoland/v8/commit/10b91f1f2e3828859868e186eee681882a9a248a.patch"
+    },
+    {
+      "order": 4,
+      "commit": "ac1e23989121713ca642f6650b34deff7b686896",
+      "subject": "Apply V8_TLS_USED_IN_LIBRARY define to V8 internal_config",
+      "patchSha256": "517fcebc819cf4311495ef993fd72474ec996aa5450c86d86d774f326a5e26d1",
+      "url": "https://github.com/denoland/v8/commit/ac1e23989121713ca642f6650b34deff7b686896.patch"
+    }
+  ]
+}

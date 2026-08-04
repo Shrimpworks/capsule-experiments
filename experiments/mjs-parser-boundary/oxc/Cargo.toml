@@ -1,0 +1,15 @@
+[package]
+name = "capsule-mjs-oxc-probe"
+edition.workspace = true
+license.workspace = true
+publish.workspace = true
+version.workspace = true
+
+[dependencies]
+oxc_allocator = "=0.140.0"
+oxc_ast = "=0.140.0"
+oxc_ast_visit = "=0.140.0"
+oxc_parser = "=0.140.0"
+oxc_semantic = "=0.140.0"
+oxc_span = "=0.140.0"
+

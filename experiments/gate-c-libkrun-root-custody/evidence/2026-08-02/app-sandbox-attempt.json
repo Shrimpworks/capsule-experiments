@@ -1,0 +1,29 @@
+{
+  "attachmentPath": "/dev/fd/4",
+  "conjunctivePass": false,
+  "descriptorNegatives": {
+    "reusedFdExit": -6,
+    "runnerInitialization": "SIGABRT-before-main",
+    "wrongFdExit": -6
+  },
+  "descriptorTransfer": "direct-fork-exec-inheritance",
+  "device": 16777232,
+  "environmentalLimitation": "ad-hoc App Sandbox bundle aborted in secinit before main; this host has no valid code-signing identity, so the installed signed App Sandbox case remains untested",
+  "finalizedDescriptorDigest": "01012163484a9a186636149102456e88efc2bbbb14f65b34dae833141bd3b4a4",
+  "inode": 114964184,
+  "length": 134217728,
+  "linkCount": 0,
+  "mode": "sandboxed",
+  "modeBits": "0o400",
+  "pathExistsAfterFinalization": false,
+  "runner": {
+    "bothOpenIdentityMatches": false,
+    "bothOpenReadOnly": false,
+    "exit": -6,
+    "guestDigest": null,
+    "guestLength": null,
+    "libkrunRootOpenCount": 0,
+    "postStopDescriptorDigest": "01012163484a9a186636149102456e88efc2bbbb14f65b34dae833141bd3b4a4"
+  },
+  "sourceManifestDigest": "01012163484a9a186636149102456e88efc2bbbb14f65b34dae833141bd3b4a4"
+}

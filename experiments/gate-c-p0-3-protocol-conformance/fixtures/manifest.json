@@ -1,0 +1,438 @@
+{
+  "status": "development-only candidate; not a frozen product contract",
+  "version": 1,
+  "layout": {
+    "canonicalInputMax": 262144,
+    "commitTrailerLength": 64,
+    "completionHeaderLength": 160,
+    "completionPhysicalMax": 262368,
+    "dataHeaderLength": 152,
+    "inlineJSONPayloadMax": 262144,
+    "inputPhysicalMax": 262296,
+    "sourcePayloadMax": 1048576,
+    "sourcePhysicalMax": 1048728
+  },
+  "bindingHex": {
+    "attemptId": "11111111111111111111111111111111",
+    "planDigest": "3333333333333333333333333333333333333333333333333333333333333333",
+    "registrationId": "22222222222222222222222222222222",
+    "runtimeProfileDigest": "4444444444444444444444444444444444444444444444444444444444444444"
+  },
+  "cases": [
+    {
+      "name": "completion-bad-commit-digest",
+      "file": "cases/completion-bad-commit-digest.bin",
+      "sha256": "80cf2dbe3b5630f4a002218a4df172efc3a7f24dcf1fffe9f79a5d79d4e6c63f",
+      "bytes": 235,
+      "endpointRole": 3,
+      "expectedDisposition": "BAD_DIGEST",
+      "runnerLifecycle": "clean-exit",
+      "expectedOrdinarySuccess": false
+    },
+    {
+      "name": "completion-bad-payload-digest",
+      "file": "cases/completion-bad-payload-digest.bin",
+      "sha256": "cc06bd6a21ddea286d56f5d4e7b2e4d63ca4b9801b0fc893e46c8841f5e1884a",
+      "bytes": 235,
+      "endpointRole": 3,
+      "expectedDisposition": "BAD_DIGEST",
+      "runnerLifecycle": "clean-exit",
+      "expectedOrdinarySuccess": false
+    },
+    {
+      "name": "completion-crash-after-commit",
+      "file": "cases/completion-crash-after-commit.bin",
+      "sha256": "6c0c02205ee28a068e0f1769933e6dd7cecd0e530cb73a3c79a5c920ca2a65ee",
+      "bytes": 235,
+      "endpointRole": 3,
+      "expectedDisposition": "ACCEPT",
+      "runnerLifecycle": "crash",
+      "expectedOrdinarySuccess": false
+    },
+    {
+      "name": "completion-crash-before-commit",
+      "file": "cases/completion-crash-before-commit.bin",
+      "sha256": "36dc7aaafe21301e9a3a08deddf26724831554a2842b42fae97d722ffcca2b1b",
+      "bytes": 171,
+      "endpointRole": 3,
+      "expectedDisposition": "MISSING_COMMIT",
+      "runnerLifecycle": "crash",
+      "expectedOrdinarySuccess": false
+    },
+    {
+      "name": "completion-duplicate-frame",
+      "file": "cases/completion-duplicate-frame.bin",
+      "sha256": "b297682688a042c71836faaa301f67298234add75f2f3e7351e0a220dd852957",
+      "bytes": 470,
+      "endpointRole": 3,
+      "expectedDisposition": "DUPLICATE_FRAME",
+      "runnerLifecycle": "clean-exit",
+      "expectedOrdinarySuccess": false
+    },
+    {
+      "name": "completion-duplicate-trailer",
+      "file": "cases/completion-duplicate-trailer.bin",
+      "sha256": "b6154cb2311d2aa75cbb74e831b6751284c7732671fde2aa30a3d1995fe55ef4",
+      "bytes": 299,
+      "endpointRole": 3,
+      "expectedDisposition": "DUPLICATE_COMMIT",
+      "runnerLifecycle": "clean-exit",
+      "expectedOrdinarySuccess": false
+    },
+    {
+      "name": "completion-early-trailer",
+      "file": "cases/completion-early-trailer.bin",
+      "sha256": "997871a3fad7c908ed1625b0efe995f0ebeb412d1cd094e17036acb845923484",
+      "bytes": 64,
+      "endpointRole": 3,
+      "expectedDisposition": "EARLY_COMMIT",
+      "runnerLifecycle": "clean-exit",
+      "expectedOrdinarySuccess": false
+    },
+    {
+      "name": "completion-json-cap-plus-one",
+      "file": "cases/completion-json-cap-plus-one.bin",
+      "sha256": "8ba38e031a5d201b9dce52275142a3ea5e8a78f36163423917f16ff62486dbd5",
+      "bytes": 262369,
+      "endpointRole": 3,
+      "expectedDisposition": "OVERSIZE",
+      "runnerLifecycle": "clean-exit",
+      "expectedOrdinarySuccess": false
+    },
+    {
+      "name": "completion-json-duplicate-key",
+      "file": "cases/completion-json-duplicate-key.bin",
+      "sha256": "23d9f5c32735cd482d3bd96ad4b3790b3701b1bacdd5c50d84614c47c7f78785",
+      "bytes": 245,
+      "endpointRole": 3,
+      "expectedDisposition": "INVALID_JSON",
+      "runnerLifecycle": "clean-exit",
+      "expectedOrdinarySuccess": false
+    },
+    {
+      "name": "completion-json-exact",
+      "file": "cases/completion-json-exact.bin",
+      "sha256": "239c6abf0c3b0133d946cbe9cfd78b710a8e9abed9c0882435f64bd5b330c6df",
+      "bytes": 262368,
+      "endpointRole": 3,
+      "expectedDisposition": "ACCEPT",
+      "runnerLifecycle": "clean-exit",
+      "expectedOrdinarySuccess": true
+    },
+    {
+      "name": "completion-json-second-document",
+      "file": "cases/completion-json-second-document.bin",
+      "sha256": "a3d47ac9c0da50c72e6695082d43c8cd8b75379aa2b19cf6e5e92b098e8ec928",
+      "bytes": 229,
+      "endpointRole": 3,
+      "expectedDisposition": "INVALID_JSON",
+      "runnerLifecycle": "clean-exit",
+      "expectedOrdinarySuccess": false
+    },
+    {
+      "name": "completion-malformed-json",
+      "file": "cases/completion-malformed-json.bin",
+      "sha256": "0cc0cc0e2e9cbdfe7a75b8820681680b0952314d390adfdd9b9a8d2dd6d3bc00",
+      "bytes": 234,
+      "endpointRole": 3,
+      "expectedDisposition": "INVALID_JSON",
+      "runnerLifecycle": "clean-exit",
+      "expectedOrdinarySuccess": false
+    },
+    {
+      "name": "completion-malformed-length-early-trailer",
+      "file": "cases/completion-malformed-length-early-trailer.bin",
+      "sha256": "824dc6e27273218491fe96d96f829660657c3155bf5dd5e580a2fea095b2777d",
+      "bytes": 235,
+      "endpointRole": 3,
+      "expectedDisposition": "EARLY_COMMIT",
+      "runnerLifecycle": "clean-exit",
+      "expectedOrdinarySuccess": false
+    },
+    {
+      "name": "completion-missing-trailer",
+      "file": "cases/completion-missing-trailer.bin",
+      "sha256": "36dc7aaafe21301e9a3a08deddf26724831554a2842b42fae97d722ffcca2b1b",
+      "bytes": 171,
+      "endpointRole": 3,
+      "expectedDisposition": "MISSING_COMMIT",
+      "runnerLifecycle": "clean-exit",
+      "expectedOrdinarySuccess": false
+    },
+    {
+      "name": "completion-nonsuccess-nonnull",
+      "file": "cases/completion-nonsuccess-nonnull.bin",
+      "sha256": "8865516d7b72a8cc527113708f4fcdaac3e67c7bbace243649f95650c1b9a8a4",
+      "bytes": 246,
+      "endpointRole": 3,
+      "expectedDisposition": "INVALID_JSON",
+      "runnerLifecycle": "clean-exit",
+      "expectedOrdinarySuccess": false
+    },
+    {
+      "name": "completion-physical-cap-plus-one",
+      "file": "cases/completion-physical-cap-plus-one.bin",
+      "sha256": "4700f6e94993f53c333dc53ede442a186775bb29098ca33a6c012c2c8ba7fd1f",
+      "bytes": 262369,
+      "endpointRole": 3,
+      "expectedDisposition": "OVERSIZE",
+      "runnerLifecycle": "clean-exit",
+      "expectedOrdinarySuccess": false
+    },
+    {
+      "name": "completion-runner-zero-without-commit",
+      "file": "cases/completion-runner-zero-without-commit.bin",
+      "sha256": "36dc7aaafe21301e9a3a08deddf26724831554a2842b42fae97d722ffcca2b1b",
+      "bytes": 171,
+      "endpointRole": 3,
+      "expectedDisposition": "MISSING_COMMIT",
+      "runnerLifecycle": "clean-exit",
+      "expectedOrdinarySuccess": false
+    },
+    {
+      "name": "completion-small-accept",
+      "file": "cases/completion-small-accept.bin",
+      "sha256": "6c0c02205ee28a068e0f1769933e6dd7cecd0e530cb73a3c79a5c920ca2a65ee",
+      "bytes": 235,
+      "endpointRole": 3,
+      "expectedDisposition": "ACCEPT",
+      "runnerLifecycle": "clean-exit",
+      "expectedOrdinarySuccess": true
+    },
+    {
+      "name": "completion-source-role-swap",
+      "file": "cases/completion-source-role-swap.bin",
+      "sha256": "870976249cdd3f932f1fa65a6f51b5f62fd4c926f4af2956341de839cb2e5799",
+      "bytes": 170,
+      "endpointRole": 3,
+      "expectedDisposition": "DOMAIN",
+      "runnerLifecycle": "clean-exit",
+      "expectedOrdinarySuccess": false
+    },
+    {
+      "name": "completion-stale-attempt",
+      "file": "cases/completion-stale-attempt.bin",
+      "sha256": "61ee4daaafa618fe4977b5084e5f66159ec6a38c70aa4171c4c0cf7dd196d8f5",
+      "bytes": 235,
+      "endpointRole": 3,
+      "expectedDisposition": "STALE",
+      "runnerLifecycle": "clean-exit",
+      "expectedOrdinarySuccess": false
+    },
+    {
+      "name": "completion-trailing-data",
+      "file": "cases/completion-trailing-data.bin",
+      "sha256": "93ef29929dd62da57809c78a605a943bf5b13af40072b3b5535e222dd8b7dc07",
+      "bytes": 236,
+      "endpointRole": 3,
+      "expectedDisposition": "TRAILING_DATA",
+      "runnerLifecycle": "clean-exit",
+      "expectedOrdinarySuccess": false
+    },
+    {
+      "name": "completion-truncated-payload",
+      "file": "cases/completion-truncated-payload.bin",
+      "sha256": "605fd7ddc76e88ce3883d25e995301bac3184a4a67ef2ff57ff6e3b159c6401c",
+      "bytes": 162,
+      "endpointRole": 3,
+      "expectedDisposition": "TRUNCATED",
+      "runnerLifecycle": "clean-exit",
+      "expectedOrdinarySuccess": false
+    },
+    {
+      "name": "completion-unknown-status",
+      "file": "cases/completion-unknown-status.bin",
+      "sha256": "927a77261ab8fd4c8bbbcac52ee02e7cd16bf1c680bea7b0269201a45c4f418e",
+      "bytes": 235,
+      "endpointRole": 3,
+      "expectedDisposition": "MALFORMED_HEADER",
+      "runnerLifecycle": "clean-exit",
+      "expectedOrdinarySuccess": false
+    },
+    {
+      "name": "completion-wrong-attempt",
+      "file": "cases/completion-wrong-attempt.bin",
+      "sha256": "c321b5cbe927556e217c487e925719564f76c8e29ac43a1cef8d0f706bcd7bcc",
+      "bytes": 235,
+      "endpointRole": 3,
+      "expectedDisposition": "BINDING",
+      "runnerLifecycle": "clean-exit",
+      "expectedOrdinarySuccess": false
+    },
+    {
+      "name": "completion-wrong-commit-attempt",
+      "file": "cases/completion-wrong-commit-attempt.bin",
+      "sha256": "db1a42bcf93ddbc20f825619294f18de4a8e1f7d4d0bbf95c8dfe57277f2dabf",
+      "bytes": 235,
+      "endpointRole": 3,
+      "expectedDisposition": "BINDING",
+      "runnerLifecycle": "clean-exit",
+      "expectedOrdinarySuccess": false
+    },
+    {
+      "name": "completion-wrong-plan",
+      "file": "cases/completion-wrong-plan.bin",
+      "sha256": "0d70011ead09d8625bc8f9855eb8c60e2397c0e2942a9ba6f536961b30e41caa",
+      "bytes": 235,
+      "endpointRole": 3,
+      "expectedDisposition": "BINDING",
+      "runnerLifecycle": "clean-exit",
+      "expectedOrdinarySuccess": false
+    },
+    {
+      "name": "completion-wrong-profile",
+      "file": "cases/completion-wrong-profile.bin",
+      "sha256": "8a5d5c15b565ab74a60499506d1a28b45bd3f0a7975144db5fb7b96b2be139d1",
+      "bytes": 235,
+      "endpointRole": 3,
+      "expectedDisposition": "BINDING",
+      "runnerLifecycle": "clean-exit",
+      "expectedOrdinarySuccess": false
+    },
+    {
+      "name": "completion-wrong-registration",
+      "file": "cases/completion-wrong-registration.bin",
+      "sha256": "13c86c63d651e3736508546ed4422b7903295390474bd1ce93d8640bd1b19140",
+      "bytes": 235,
+      "endpointRole": 3,
+      "expectedDisposition": "BINDING",
+      "runnerLifecycle": "clean-exit",
+      "expectedOrdinarySuccess": false
+    },
+    {
+      "name": "input-payload-cap-plus-one",
+      "file": "cases/input-payload-cap-plus-one.bin",
+      "sha256": "84dba576fba2c1254e104923daa82f4d67dfd9485a57bf2573f57693bf8f00e7",
+      "bytes": 262297,
+      "endpointRole": 2,
+      "expectedDisposition": "OVERSIZE",
+      "expectedOrdinarySuccess": false
+    },
+    {
+      "name": "input-payload-exact",
+      "file": "cases/input-payload-exact.bin",
+      "sha256": "7fea2562e7dcf0b01e89cc07671e93aa63ada96adc3b96376d7fa8b4b8e49aae",
+      "bytes": 262296,
+      "endpointRole": 2,
+      "expectedDisposition": "ACCEPT",
+      "expectedOrdinarySuccess": false
+    },
+    {
+      "name": "input-small-accept",
+      "file": "cases/input-small-accept.bin",
+      "sha256": "1dbe322d93c92c775d4f7c2a3a434405fb2f6b3959e1fbebb30848ff66d8c32d",
+      "bytes": 163,
+      "endpointRole": 2,
+      "expectedDisposition": "ACCEPT",
+      "expectedOrdinarySuccess": false
+    },
+    {
+      "name": "input-swapped-onto-source",
+      "file": "cases/input-swapped-onto-source.bin",
+      "sha256": "1dbe322d93c92c775d4f7c2a3a434405fb2f6b3959e1fbebb30848ff66d8c32d",
+      "bytes": 163,
+      "endpointRole": 1,
+      "expectedDisposition": "DOMAIN",
+      "expectedOrdinarySuccess": false
+    },
+    {
+      "name": "source-duplicate-frame",
+      "file": "cases/source-duplicate-frame.bin",
+      "sha256": "aa483cd8dac8ae111a167f1f8a3aa67f89bb45415f797d57b30584be86a4894c",
+      "bytes": 340,
+      "endpointRole": 1,
+      "expectedDisposition": "DUPLICATE_FRAME",
+      "expectedOrdinarySuccess": false
+    },
+    {
+      "name": "source-duplicate-role-ids",
+      "file": "cases/source-duplicate-role-ids.bin",
+      "sha256": "06fe4c346b33f655b3c2d7dcd8061422d19be3abb8cc66bf297d0106a461dd6e",
+      "bytes": 170,
+      "endpointRole": 1,
+      "expectedDisposition": "DOMAIN",
+      "expectedOrdinarySuccess": false
+    },
+    {
+      "name": "source-payload-cap-plus-one",
+      "file": "cases/source-payload-cap-plus-one.bin",
+      "sha256": "b7555b87cb73aa05724f401ed723cff64d926d725f0985aa1a239f83560ecd67",
+      "bytes": 1048729,
+      "endpointRole": 1,
+      "expectedDisposition": "OVERSIZE",
+      "expectedOrdinarySuccess": false
+    },
+    {
+      "name": "source-payload-exact",
+      "file": "cases/source-payload-exact.bin",
+      "sha256": "c511109fde643ac10bd7f78d16a1c962b4263d0f87be3bba192d8eff25f6ba1e",
+      "bytes": 1048728,
+      "endpointRole": 1,
+      "expectedDisposition": "ACCEPT",
+      "expectedOrdinarySuccess": false
+    },
+    {
+      "name": "source-small-accept",
+      "file": "cases/source-small-accept.bin",
+      "sha256": "870976249cdd3f932f1fa65a6f51b5f62fd4c926f4af2956341de839cb2e5799",
+      "bytes": 170,
+      "endpointRole": 1,
+      "expectedDisposition": "ACCEPT",
+      "expectedOrdinarySuccess": false
+    },
+    {
+      "name": "source-stale-attempt",
+      "file": "cases/source-stale-attempt.bin",
+      "sha256": "4538a7cd2a3f971dd638e428689d69aec5c1c604fa6d0e0a4befe6b957a02704",
+      "bytes": 170,
+      "endpointRole": 1,
+      "expectedDisposition": "STALE",
+      "expectedOrdinarySuccess": false
+    },
+    {
+      "name": "source-truncated",
+      "file": "cases/source-truncated.bin",
+      "sha256": "f1227a91f3f9e3a716c8aa452b8d849765a28566a9fe6617ead493c384e1f3f2",
+      "bytes": 169,
+      "endpointRole": 1,
+      "expectedDisposition": "TRUNCATED",
+      "expectedOrdinarySuccess": false
+    },
+    {
+      "name": "source-wrong-attempt",
+      "file": "cases/source-wrong-attempt.bin",
+      "sha256": "b12f1be7f20b9a32425ce561fc66ab99b998d57b9f47b463baa335068d4e5b0c",
+      "bytes": 170,
+      "endpointRole": 1,
+      "expectedDisposition": "BINDING",
+      "expectedOrdinarySuccess": false
+    },
+    {
+      "name": "source-wrong-plan",
+      "file": "cases/source-wrong-plan.bin",
+      "sha256": "0681205c6288b4c13ba80a23516ef3fcd2ea31e7acfd509b86ccc89c7378a24a",
+      "bytes": 170,
+      "endpointRole": 1,
+      "expectedDisposition": "BINDING",
+      "expectedOrdinarySuccess": false
+    },
+    {
+      "name": "source-wrong-profile",
+      "file": "cases/source-wrong-profile.bin",
+      "sha256": "1801af5b4135d9a526eccfd6d6f2bef69e65867da2113619f62d909d98bbe68d",
+      "bytes": 170,
+      "endpointRole": 1,
+      "expectedDisposition": "BINDING",
+      "expectedOrdinarySuccess": false
+    },
+    {
+      "name": "source-wrong-registration",
+      "file": "cases/source-wrong-registration.bin",
+      "sha256": "6214275e0850a561954705b434e61f8bb49be276c2c2e993fe8df666ded9a070",
+      "bytes": 170,
+      "endpointRole": 1,
+      "expectedDisposition": "BINDING",
+      "expectedOrdinarySuccess": false
+    }
+  ]
+}

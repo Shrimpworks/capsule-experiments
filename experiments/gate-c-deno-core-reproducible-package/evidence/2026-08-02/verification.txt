@@ -1,0 +1,27 @@
+Verification date: 2026-08-02 America/Toronto (2026-08-03 UTC)
+
+Focused deterministic and package checks: PASS
+- Fresh official-input Cargo acquisition produced 191 registry sources and normalized bundle SHA-256 912ee37b7735efc7412abf9a34c66ecf970fc8335f14d6b21202a0c7964df58c.
+- Two clean network-disabled containers on the same Docker Desktop/LinuxKit host produced byte-identical declared bundle files and normalized archives.
+- Binary SHA-256: 597baba6b9f50fc619ce667a352e19686f8c73efc6819d137b3c4081450fd6f5.
+- Snapshot SHA-256: ef5f1e7883bbf62a6422957ff0eea51a06d4b35cad1f47dc9c9ae137ab8dfa0b.
+- Normalized bundle SHA-256: da8f755832a6fceba37078c58cc67c4136bc823acc75fe377ec4c1b98a8ef498.
+- Physical three-op registry/link proof and restoration/runtime mutation checks: PASS.
+- experiments/gate-c-deno-core-reproducible-package/verify.sh: PASS (packageEvidence=valid; runtimeSelectionDecision=no-go).
+
+Repository verification: PASS
+- pnpm install (Node.js 22.22.1; pnpm 10.28.2)
+- pnpm check
+- pnpm lint
+- pnpm test
+- pnpm verify:schemas
+- pnpm format:check
+- pnpm site:build
+- go test ./...
+- go vet ./...
+- go build ./...
+- git diff --check
+
+Evidence qualification:
+- Reproducibility level is same-host independent clean containers, not independent-builder or independent-host reproduction.
+- Runtime-selection evidence remains NO-GO; this verification does not admit a runtime or support RUNTIME-001.

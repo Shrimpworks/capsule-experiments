@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "https://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Label</key>
+	<string>com.capsulecorp.spike.p0-4a-installed-topology.supervisor</string>
+	<key>BundleProgram</key>
+	<string>Contents/MacOS/capsule-topology-supervisor</string>
+	<key>ProgramArguments</key>
+	<array>
+		<string>capsule-topology-supervisor</string>
+		<string>serve</string>
+		<string>p0-4a-epoch-placeholder</string>
+		<string>com.capsulecorp.spike.p0-4a-installed-topology.supervisor.from-client</string>
+		<string>__CLIENT_REQUIREMENT__</string>
+		<string>client</string>
+	</array>
+	<key>MachServices</key>
+	<dict>
+		<key>com.capsulecorp.spike.p0-4a-installed-topology.supervisor.from-client</key>
+		<true/>
+	</dict>
+	<key>RunAtLoad</key>
+	<false/>
+	<key>KeepAlive</key>
+	<false/>
+	<key>AbandonProcessGroup</key>
+	<true/>
+	<key>ProcessType</key>
+	<string>Interactive</string>
+</dict>
+</plist>

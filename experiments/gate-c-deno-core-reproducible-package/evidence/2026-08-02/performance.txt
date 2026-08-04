@@ -1,0 +1,31 @@
+date=2026-08-02
+subject.binary.sha256=597baba6b9f50fc619ce667a352e19686f8c73efc6819d137b3c4081450fd6f5
+environment=digest-pinned Rust 1.95.0 Bookworm Linux/arm64 container; network none; one container; sequential process starts; fixed nominal fixture
+limitation=supporting same-host warm-container measurement only; not guest/backend/cold-container/production evidence
+
+sample.1.ns=29615250
+sample.2.ns=24750958
+sample.3.ns=24669166
+sample.4.ns=23683625
+sample.5.ns=24591917
+sample.6.ns=24572667
+sample.7.ns=27016876
+sample.8.ns=25862541
+sample.9.ns=26293000
+sample.10.ns=25960000
+sample.11.ns=25489000
+sample.12.ns=24717083
+sample.13.ns=23945542
+sample.14.ns=24056666
+sample.15.ns=24374000
+sample.16.ns=26207083
+sample.17.ns=24842500
+sample.18.ns=25017000
+sample.19.ns=24800333
+sample.20.ns=23674625
+
+count=20
+min.ns=23674625
+p50.ns=24775646
+mean.ns=25206992
+max.ns=29615250

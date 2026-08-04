@@ -1,0 +1,92 @@
+{
+  "environment": {
+    "clang": "Apple clang version 21.0.0 (clang-2100.1.1.101)",
+    "date": "2026-08-03T19:04:10-0400",
+    "effective_uid": 501,
+    "kernel": "25.5.0",
+    "machine": "arm64",
+    "platform": "macOS-26.5.2-arm64-arm-64bit-Mach-O",
+    "privilege": "ordinary current user; no sudo/root/helper",
+    "python": "3.14.6 (main, Jun 10 2026, 10:03:53) [Clang 21.0.0 (clang-2100.0.123.102)]",
+    "sw_vers": ["ProductName:\t\tmacOS", "ProductVersion:\t\t26.5.2", "BuildVersion:\t\t25F84"]
+  },
+  "experiment": "capsule-supervisor-owner-lock-boundary",
+  "result": "conditional-pass-for-local-semantics",
+  "scope": "owned temporary files and child processes only; no product service/backend/guest",
+  "tests": {
+    "descriptor_lifetime": {
+      "observations": {
+        "flock_dup": "lock survived until last duplicate of the locked description closed",
+        "flock_independent": "independent open contended; closing an unlocked independent descriptor did not release owner",
+        "ofd_description": "lock survived dup and unrelated closes, then released on last duplicate close",
+        "record_same_process": "a second open joined the process lock; closing it released all record locks on the file"
+      },
+      "status": "pass"
+    },
+    "fork_exec_and_cloexec": {
+      "observations": {
+        "flock_exec_cloexec": "CLOEXEC released lock at exec; non-CLOEXEC retained it",
+        "flock_fork": "fork-only child retained the same open file description and lock",
+        "ofd_fork_exec": "fork retained the description; CLOEXEC released at exec and non-CLOEXEC retained it",
+        "record_exec": "POSIX record lock survived same-process exec unless CLOEXEC closed its descriptor",
+        "record_fork": "POSIX record lock was not inherited across fork"
+      },
+      "status": "pass"
+    },
+    "lock_mechanisms": {
+      "observations": {
+        "f_ofd_setlk_in_python": true,
+        "f_ofd_setlk_in_sdk_headers": true,
+        "flock": "cross-process contention and process-death release observed",
+        "o_exlock_available": true,
+        "o_exlock_flock_interoperable": true,
+        "ofd": "cross-process contention and process-death release observed",
+        "ofd_vs_flock_namespace": "contended",
+        "ofd_vs_posix_namespace": "contended",
+        "posix_record": "cross-process contention and process-death release observed"
+      },
+      "status": "pass"
+    },
+    "rename_unlink_and_stale_object": {
+      "observations": {
+        "enrolled_identity_refusal": "inode-mismatch",
+        "renamed_original": "held flock stayed with the original inode",
+        "replacement": "new pathname inode could be locked concurrently",
+        "unlinked_open_object": "lock remained descriptor-scoped until close, while pathname was absent"
+      },
+      "status": "pass"
+    },
+    "startup_order_and_reopen": {
+      "observations": {
+        "duplicate": "busy before store read, recovery enumeration, mutation, or adapter marker",
+        "process_death": "SIGKILL closed last owner descriptor; successor acquired",
+        "store_sha256": "adeda1b8023a90e51c958cf1e38aa4c3dead6efc1be32824565ad6f8d6b11d81",
+        "successor_events": [
+          "lock-acquired",
+          "store-opened",
+          "recovery-enumerated",
+          "attempts-enabled"
+        ]
+      },
+      "status": "pass"
+    },
+    "validation_and_path_binding": {
+      "observations": {
+        "accepted": "pre-created mode-0600 regular file with exact uid/dev/inode/nlink",
+        "actual_cross_uid_chown": "not run; no root or second-user authority used",
+        "refusals": {
+          "device-policy": "device-mismatch",
+          "directory": "not-regular",
+          "hardlink": "link-count-not-one",
+          "inode-policy": "inode-mismatch",
+          "missing": "open:2",
+          "mode": "mode-not-0600",
+          "owner-policy": "owner-mismatch",
+          "symlink": "open:62"
+        },
+        "retained_directory_fd": "openat remained bound to original directory after path replacement"
+      },
+      "status": "pass"
+    }
+  }
+}

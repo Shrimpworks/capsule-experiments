@@ -1,0 +1,64 @@
+{
+  "schema": "capsule.deno-core-reproducibility.v0",
+  "level": "same-host-independent-clean-containers",
+  "result": "all-declared-package-bytes-equal",
+  "builder": "rust:1.95.0-bookworm@sha256:6258907abe69656e41cd992e0b705cdcfabcbbe3db374f92ed2d47121282d4a1",
+  "buildA": {
+    "binary": {
+      "path": "bundle/bin/capsule-deno-core-physical-omission",
+      "size": 68497544,
+      "sha256": "597baba6b9f50fc619ce667a352e19686f8c73efc6819d137b3c4081450fd6f5"
+    },
+    "snapshot": {
+      "path": "bundle/share/capsule-deno-core/capsule_core_snapshot.bin",
+      "size": 699980,
+      "sha256": "ef5f1e7883bbf62a6422957ff0eea51a06d4b35cad1f47dc9c9ae137ab8dfa0b"
+    },
+    "archive": {
+      "path": "capsule-deno-core-runtime-bundle.tar.gz",
+      "size": 20983063,
+      "sha256": "da8f755832a6fceba37078c58cc67c4136bc823acc75fe377ec4c1b98a8ef498"
+    }
+  },
+  "buildB": {
+    "binary": {
+      "path": "bundle/bin/capsule-deno-core-physical-omission",
+      "size": 68497544,
+      "sha256": "597baba6b9f50fc619ce667a352e19686f8c73efc6819d137b3c4081450fd6f5"
+    },
+    "snapshot": {
+      "path": "bundle/share/capsule-deno-core/capsule_core_snapshot.bin",
+      "size": 699980,
+      "sha256": "ef5f1e7883bbf62a6422957ff0eea51a06d4b35cad1f47dc9c9ae137ab8dfa0b"
+    },
+    "archive": {
+      "path": "capsule-deno-core-runtime-bundle.tar.gz",
+      "size": 20983063,
+      "sha256": "da8f755832a6fceba37078c58cc67c4136bc823acc75fe377ec4c1b98a8ef498"
+    }
+  },
+  "completeComparison": [
+    "bundle-manifest.txt cmp",
+    "binary cmp",
+    "snapshot cmp",
+    "normalized archive cmp"
+  ],
+  "nondeterminism": [
+    {
+      "observation": "PR #43 ordinary snapshot builds differed",
+      "reviewedControl": "patch 0002 sorts the existing module-name sidecar vector",
+      "outputRewrite": false
+    },
+    {
+      "observation": "initial package replay at /build/workspace produced equal but different binary adf3e5ae and snapshot 37c4b280",
+      "reviewedControl": "declare and reuse the original in-container /workspace, /cargo-home, and /target prefixes",
+      "outputRewrite": false
+    },
+    {
+      "observation": "ASLR perturbs V8 snapshot bytes",
+      "reviewedControl": "setarch aarch64 -R for Cargo and descendants",
+      "outputRewrite": false
+    }
+  ],
+  "independentBuilderBlocker": "only one owned Apple M1 Max / Docker Desktop LinuxKit host and one exact Linux/arm64 OCI implementation were available in scope"
+}

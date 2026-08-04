@@ -1,0 +1,43 @@
+nominal.command=/probe --source /fixtures/nominal.js --input /fixtures/input.json --manifest
+nominal.registry=[op_get_ext_import_meta_proto,op_get_extras_binding_object,op_set_captured_bootstrap]
+nominal.extensions=[]
+nominal.moduleLoader=none
+nominal.inspector=false
+nominal.v8Flags=[--jitless,--random-seed=42]
+nominal.descriptors=[0,1,2]
+nominal.output={"count":3,"label":"capsule-owned","sum":6}
+
+sealedGlobals.output={"Deno":"undefined","bootstrap":"undefined","console":"undefined","process":"undefined","worker":"undefined","webAssembly":"undefined","sharedArrayBuffer":"undefined","atomics":"undefined","date":"undefined","temporal":"undefined"}
+
+staticImport.status=1
+staticImport.error=module load: Module loading is not supported.
+dynamicImport.status=1
+dynamicImport.error=event loop: TypeError: op_dispatch_exception is not a function
+rawTypeScript.status=1
+rawTypeScript.error=module load: Uncaught SyntaxError: Unexpected identifier 'CapsuleInput'
+unlistedSource.status=1
+unlistedSource.error=source is not an exact retained Capsule fixture
+unlistedInput.status=1
+unlistedInput.error=input is not the exact retained Capsule fixture
+
+restoration.extension.status=1
+restoration.extension.error=construction manifest refused mutation: CAPSULE_MUTATION_EXTENSION
+restoration.inspector.status=1
+restoration.inspector.error=construction manifest refused mutation: CAPSULE_MUTATION_INSPECTOR
+restoration.moduleLoader.status=1
+restoration.moduleLoader.error=construction manifest refused mutation: CAPSULE_MUTATION_MODULE_LOADER
+restoration.removeJitless.status=1
+restoration.removeJitless.error=construction manifest refused mutation: CAPSULE_MUTATION_REMOVE_JITLESS
+
+restoration.socket={"mutation":"socket","result":"denied","errno":1}
+restoration.clone={"mutation":"clone","result":"denied","errno":1}
+restoration.execve={"mutation":"execve","result":"denied","errno":1}
+restoration.execMmap={"mutation":"exec-mmap","result":"denied","errno":1}
+restoration.extraDescriptor.status=1
+restoration.extraDescriptor.error=unexpected inherited descriptors: [0, 1, 2, 3]
+restoration.opPrint.status=1
+restoration.opPrint.binary.sha256=4f807f3feb1169accec77d87ce87ed2221d5b353ef8a8d4b586bdc5949de0b2d
+restoration.opPrint.snapshot.sha256=09ab303dd382f55188dad4f546b3f0f210b6b123b99a280c6c8a07293dafb7b1
+restoration.opPrint.error=physical op registry mismatch: ["op_get_ext_import_meta_proto", "op_get_extras_binding_object", "op_print", "op_set_captured_bootstrap"]
+
+decision=fixed fixture preserved; prohibited routes and deliberate restorations refused in the exact construction

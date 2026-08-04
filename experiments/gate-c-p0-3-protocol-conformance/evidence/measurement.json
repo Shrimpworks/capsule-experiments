@@ -1,0 +1,266 @@
+{
+  "status": "observed local harness evidence; not backend or production evidence",
+  "observedAt": "2026-08-02T18:58:49Z",
+  "environment": {
+    "command": "go run ./experiments/gate-c-p0-3-protocol-conformance/cmd/p0-3-conformance",
+    "darwin": "25.5.0",
+    "gitRevision": "22aa6d7f48019fb537c751b5495e6ee9d3a4e955",
+    "go": "go1.26.5",
+    "goarch": "arm64",
+    "goos": "darwin",
+    "logicalCpus": "10",
+    "macos": "26.5.2"
+  },
+  "records": [
+    {
+      "name": "source-payload-exact",
+      "endpointRole": 1,
+      "chunkBytes": 1,
+      "inputBytes": 1048728,
+      "drainedBytes": 1048728,
+      "retainedBytes": 1048728,
+      "disposition": "ACCEPT",
+      "elapsedNanoseconds": 10293708
+    },
+    {
+      "name": "source-payload-exact",
+      "endpointRole": 1,
+      "chunkBytes": 7,
+      "inputBytes": 1048728,
+      "drainedBytes": 1048728,
+      "retainedBytes": 1048728,
+      "disposition": "ACCEPT",
+      "elapsedNanoseconds": 1934416
+    },
+    {
+      "name": "source-payload-exact",
+      "endpointRole": 1,
+      "chunkBytes": 4096,
+      "inputBytes": 1048728,
+      "drainedBytes": 1048728,
+      "retainedBytes": 1048728,
+      "disposition": "ACCEPT",
+      "elapsedNanoseconds": 788791
+    },
+    {
+      "name": "source-payload-exact",
+      "endpointRole": 1,
+      "chunkBytes": 65536,
+      "inputBytes": 1048728,
+      "drainedBytes": 1048728,
+      "retainedBytes": 1048728,
+      "disposition": "ACCEPT",
+      "elapsedNanoseconds": 828459
+    },
+    {
+      "name": "source-payload-cap-plus-one",
+      "endpointRole": 1,
+      "chunkBytes": 1,
+      "inputBytes": 1048729,
+      "drainedBytes": 1048729,
+      "retainedBytes": 1048729,
+      "disposition": "OVERSIZE",
+      "elapsedNanoseconds": 8674000
+    },
+    {
+      "name": "source-payload-cap-plus-one",
+      "endpointRole": 1,
+      "chunkBytes": 7,
+      "inputBytes": 1048729,
+      "drainedBytes": 1048729,
+      "retainedBytes": 1048729,
+      "disposition": "OVERSIZE",
+      "elapsedNanoseconds": 1123667
+    },
+    {
+      "name": "source-payload-cap-plus-one",
+      "endpointRole": 1,
+      "chunkBytes": 4096,
+      "inputBytes": 1048729,
+      "drainedBytes": 1048729,
+      "retainedBytes": 1048729,
+      "disposition": "OVERSIZE",
+      "elapsedNanoseconds": 258000
+    },
+    {
+      "name": "source-payload-cap-plus-one",
+      "endpointRole": 1,
+      "chunkBytes": 65536,
+      "inputBytes": 1048729,
+      "drainedBytes": 1048729,
+      "retainedBytes": 1048729,
+      "disposition": "OVERSIZE",
+      "elapsedNanoseconds": 438042
+    },
+    {
+      "name": "input-payload-exact",
+      "endpointRole": 2,
+      "chunkBytes": 1,
+      "inputBytes": 262296,
+      "drainedBytes": 262296,
+      "retainedBytes": 262296,
+      "disposition": "ACCEPT",
+      "elapsedNanoseconds": 2208042
+    },
+    {
+      "name": "input-payload-exact",
+      "endpointRole": 2,
+      "chunkBytes": 7,
+      "inputBytes": 262296,
+      "drainedBytes": 262296,
+      "retainedBytes": 262296,
+      "disposition": "ACCEPT",
+      "elapsedNanoseconds": 363959
+    },
+    {
+      "name": "input-payload-exact",
+      "endpointRole": 2,
+      "chunkBytes": 4096,
+      "inputBytes": 262296,
+      "drainedBytes": 262296,
+      "retainedBytes": 262296,
+      "disposition": "ACCEPT",
+      "elapsedNanoseconds": 174500
+    },
+    {
+      "name": "input-payload-exact",
+      "endpointRole": 2,
+      "chunkBytes": 65536,
+      "inputBytes": 262296,
+      "drainedBytes": 262296,
+      "retainedBytes": 262296,
+      "disposition": "ACCEPT",
+      "elapsedNanoseconds": 310542
+    },
+    {
+      "name": "input-payload-cap-plus-one",
+      "endpointRole": 2,
+      "chunkBytes": 1,
+      "inputBytes": 262297,
+      "drainedBytes": 262297,
+      "retainedBytes": 262297,
+      "disposition": "OVERSIZE",
+      "elapsedNanoseconds": 2187041
+    },
+    {
+      "name": "input-payload-cap-plus-one",
+      "endpointRole": 2,
+      "chunkBytes": 7,
+      "inputBytes": 262297,
+      "drainedBytes": 262297,
+      "retainedBytes": 262297,
+      "disposition": "OVERSIZE",
+      "elapsedNanoseconds": 273459
+    },
+    {
+      "name": "input-payload-cap-plus-one",
+      "endpointRole": 2,
+      "chunkBytes": 4096,
+      "inputBytes": 262297,
+      "drainedBytes": 262297,
+      "retainedBytes": 262297,
+      "disposition": "OVERSIZE",
+      "elapsedNanoseconds": 78000
+    },
+    {
+      "name": "input-payload-cap-plus-one",
+      "endpointRole": 2,
+      "chunkBytes": 65536,
+      "inputBytes": 262297,
+      "drainedBytes": 262297,
+      "retainedBytes": 262297,
+      "disposition": "OVERSIZE",
+      "elapsedNanoseconds": 255708
+    },
+    {
+      "name": "completion-json-exact",
+      "endpointRole": 3,
+      "chunkBytes": 1,
+      "inputBytes": 262368,
+      "drainedBytes": 262368,
+      "retainedBytes": 262368,
+      "disposition": "ACCEPT",
+      "elapsedNanoseconds": 3448333
+    },
+    {
+      "name": "completion-json-exact",
+      "endpointRole": 3,
+      "chunkBytes": 7,
+      "inputBytes": 262368,
+      "drainedBytes": 262368,
+      "retainedBytes": 262368,
+      "disposition": "ACCEPT",
+      "elapsedNanoseconds": 1935833
+    },
+    {
+      "name": "completion-json-exact",
+      "endpointRole": 3,
+      "chunkBytes": 4096,
+      "inputBytes": 262368,
+      "drainedBytes": 262368,
+      "retainedBytes": 262368,
+      "disposition": "ACCEPT",
+      "elapsedNanoseconds": 1648916
+    },
+    {
+      "name": "completion-json-exact",
+      "endpointRole": 3,
+      "chunkBytes": 65536,
+      "inputBytes": 262368,
+      "drainedBytes": 262368,
+      "retainedBytes": 262368,
+      "disposition": "ACCEPT",
+      "elapsedNanoseconds": 1444542
+    },
+    {
+      "name": "completion-physical-cap-plus-one",
+      "endpointRole": 3,
+      "chunkBytes": 1,
+      "inputBytes": 262369,
+      "drainedBytes": 262369,
+      "retainedBytes": 262369,
+      "disposition": "OVERSIZE",
+      "elapsedNanoseconds": 2188416
+    },
+    {
+      "name": "completion-physical-cap-plus-one",
+      "endpointRole": 3,
+      "chunkBytes": 7,
+      "inputBytes": 262369,
+      "drainedBytes": 262369,
+      "retainedBytes": 262369,
+      "disposition": "OVERSIZE",
+      "elapsedNanoseconds": 276250
+    },
+    {
+      "name": "completion-physical-cap-plus-one",
+      "endpointRole": 3,
+      "chunkBytes": 4096,
+      "inputBytes": 262369,
+      "drainedBytes": 262369,
+      "retainedBytes": 262369,
+      "disposition": "OVERSIZE",
+      "elapsedNanoseconds": 57125
+    },
+    {
+      "name": "completion-physical-cap-plus-one",
+      "endpointRole": 3,
+      "chunkBytes": 65536,
+      "inputBytes": 262369,
+      "drainedBytes": 262369,
+      "retainedBytes": 262369,
+      "disposition": "OVERSIZE",
+      "elapsedNanoseconds": 82250
+    }
+  ],
+  "flood": {
+    "name": "completion-output-flood-four-times-cap",
+    "endpointRole": 3,
+    "chunkBytes": 32768,
+    "inputBytes": 1049472,
+    "drainedBytes": 1049472,
+    "retainedBytes": 262369,
+    "disposition": "OVERSIZE",
+    "elapsedNanoseconds": 27594209
+  }
+}

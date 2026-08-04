@@ -1,0 +1,20 @@
+date=2026-08-03
+command=fnm exec --using=22.22.1 -- ./experiments/typescript-approved-byte-boundary/run.sh
+
+PASS 7 Node boundary tests
+PASS 20 same-process emissions byte-identical
+PASS 3 separate-process emissions and records byte-identical
+PASS Unicode composition bytes preserved without normalization
+PASS LF and CRLF preserved as distinct exact bytes
+PASS exact source/emitted file and aggregate maxima
+PASS source/emitted/aggregate/file-count cap-plus-one refusal
+PASS invalid UTF-8 and UTF-8 BOM refusal
+PASS parser diagnostic and transform-requiring enum refusal
+PASS unknown options and changed transformer profile refusal
+PASS source/emitted/options/transformer/source-map/diagnostics mutation refusal
+PASS independent Go exact-byte and closed-record verification
+PASS deno_ast 0.53.3 locked/offline comparison
+PASS cargo fmt --check
+
+The PASS labels validate the fixed experiment only. They do not admit a runtime/backend, implement
+an approval path, prove semantic equivalence, or support validated-local/production claims.

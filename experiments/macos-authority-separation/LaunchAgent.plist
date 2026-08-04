@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+  <key>Label</key>
+  <string>dev.capsule.gate-b.license-free</string>
+  <key>MachServices</key>
+  <dict>
+    <key>dev.capsule.gate-b.license-free</key>
+    <true/>
+  </dict>
+  <key>ProgramArguments</key>
+  <array>
+    <string>/invalid/xpc_broker</string>
+    <string>invalid requirement</string>
+  </array>
+  <key>StandardOutPath</key>
+  <string>/tmp/capsule-gate-b-xpc.stdout</string>
+  <key>StandardErrorPath</key>
+  <string>/tmp/capsule-gate-b-xpc.stderr</string>
+</dict>
+</plist>

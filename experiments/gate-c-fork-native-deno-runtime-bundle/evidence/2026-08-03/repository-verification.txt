@@ -1,0 +1,35 @@
+Capsule repository verification
+Date: 2026-08-03
+
+Toolchain:
+- Node v22.22.1 through fnm
+- pnpm 10.28.2
+- Go 1.26.5 darwin/arm64
+- golangci-lint 2.12.2 built with Go 1.26.2
+
+Required commands:
+- pnpm install: pass; lockfile current, 11 packages reused, no downloads
+- pnpm check: pass
+- pnpm lint: pass; 174 files checked, no fixes
+- pnpm test: pass
+- pnpm verify:schemas: pass; 82 rules, 262 cases, 368 fixtures
+- pnpm verify:adrs: pass; 28 ADR files match the index
+- go test ./...: pass
+- go vet ./...: pass
+- go build ./...: pass
+- golangci-lint run ./...: pass; 0 issues
+- go run golang.org/x/vuln/cmd/govulncheck@latest ./...: pass; no vulnerabilities found
+
+Focused commands:
+- git diff --check: pass
+- scripts/verify.sh: pass offline
+- scripts/verify.sh with exact Deno and rusty_v8 fork checkouts: pass
+
+Environment notes:
+- pnpm install required access to the existing user-level pnpm store symlink.
+- golangci-lint's sandboxed package loader reported no analyzable Go files; the identical required
+  command passed with access to the user-level Go build cache.
+- govulncheck's first sandboxed attempt could not resolve proxy.golang.org; the identical required
+  command passed with approved network access.
+- No runtime prefetch, build, test execution, root assembly, publication, signing, backend, or
+  guest action occurred.

@@ -1,0 +1,24 @@
+Focused fork verification against exact local checkouts
+Date: 2026-08-03
+
+Command:
+./experiments/gate-c-fork-native-deno-runtime-bundle/scripts/verify.sh /private/tmp/capsule-fork-native-deno /private/tmp/capsule-fork-native-rusty-v8
+
+Observed output:
+upstream.anchor=14eea3160ae5834476aa3b9d317b8d41d991b982
+builtin.ops=3
+fixture.nominal={"count":3,"label":"capsule-owned","sum":6}
+fixture.seal={"Deno":"undefined","bootstrap":"undefined","console":"undefined","process":"undefined","worker":"undefined","webAssembly":"undefined","sharedArrayBuffer":"undefined","atomics":"undefined","date":"undefined","temporal":"undefined"}
+restoration.op_print=refused-four-op-registry
+admission=none
+verified baseline d305e6afa7736f6e298c30ae6646f7709ee9382b and 20 exact gitlinks
+forkRefs=verified
+requestedTarget=linux-arm64
+construction=blocked-arm64-builder-absent
+buildAttempted=false
+runtime001=unsupported
+
+Exit status: 0
+
+No prefetch, compilation, root assembly, signing, publication, backend, guest, or admission action
+was performed.

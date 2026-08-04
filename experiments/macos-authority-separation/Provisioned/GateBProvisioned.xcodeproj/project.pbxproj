@@ -1,0 +1,91 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		100000000000000000000001 /* authority_probe.m in Sources */ = {isa = PBXBuildFile; fileRef = 200000000000000000000001 /* authority_probe.m */; };
+		100000000000000000000002 /* authority_probe.m in Sources */ = {isa = PBXBuildFile; fileRef = 200000000000000000000001 /* authority_probe.m */; };
+		100000000000000000000003 /* authority_probe.m in Sources */ = {isa = PBXBuildFile; fileRef = 200000000000000000000001 /* authority_probe.m */; };
+		100000000000000000000011 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 200000000000000000000011 /* Foundation.framework */; };
+		100000000000000000000012 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 200000000000000000000012 /* Security.framework */; };
+		100000000000000000000013 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 200000000000000000000011 /* Foundation.framework */; };
+		100000000000000000000014 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 200000000000000000000012 /* Security.framework */; };
+		100000000000000000000015 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 200000000000000000000011 /* Foundation.framework */; };
+		100000000000000000000016 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 200000000000000000000012 /* Security.framework */; };
+		100000000000000000000017 /* LocalAuthentication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 200000000000000000000013 /* LocalAuthentication.framework */; };
+		100000000000000000000018 /* LocalAuthentication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 200000000000000000000013 /* LocalAuthentication.framework */; };
+		100000000000000000000019 /* LocalAuthentication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 200000000000000000000013 /* LocalAuthentication.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		200000000000000000000001 /* authority_probe.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = authority_probe.m; sourceTree = "<group>"; };
+		200000000000000000000002 /* Broker.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Broker.entitlements; sourceTree = "<group>"; };
+		200000000000000000000003 /* Supervisor.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Supervisor.entitlements; sourceTree = "<group>"; };
+		200000000000000000000004 /* Daemon.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Daemon.entitlements; sourceTree = "<group>"; };
+		200000000000000000000011 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		200000000000000000000012 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		200000000000000000000013 /* LocalAuthentication.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LocalAuthentication.framework; path = System/Library/Frameworks/LocalAuthentication.framework; sourceTree = SDKROOT; };
+		200000000000000000000021 /* CapsuleGateBBroker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CapsuleGateBBroker.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		200000000000000000000022 /* CapsuleGateBSupervisor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CapsuleGateBSupervisor.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		200000000000000000000023 /* CapsuleGateBDaemon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CapsuleGateBDaemon.app; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		300000000000000000000011 = {isa = PBXFrameworksBuildPhase; buildActionMask = 2147483647; files = (100000000000000000000011, 100000000000000000000012, 100000000000000000000017,); runOnlyForDeploymentPostprocessing = 0; };
+		300000000000000000000012 = {isa = PBXFrameworksBuildPhase; buildActionMask = 2147483647; files = (100000000000000000000013, 100000000000000000000014, 100000000000000000000018,); runOnlyForDeploymentPostprocessing = 0; };
+		300000000000000000000013 = {isa = PBXFrameworksBuildPhase; buildActionMask = 2147483647; files = (100000000000000000000015, 100000000000000000000016, 100000000000000000000019,); runOnlyForDeploymentPostprocessing = 0; };
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		400000000000000000000001 = {isa = PBXGroup; children = (400000000000000000000002, 400000000000000000000003, 400000000000000000000004, 400000000000000000000005,); sourceTree = "<group>"; };
+		400000000000000000000002 /* Sources */ = {isa = PBXGroup; children = (200000000000000000000001,); path = Sources; sourceTree = "<group>"; };
+		400000000000000000000003 /* Entitlements */ = {isa = PBXGroup; children = (200000000000000000000002, 200000000000000000000003, 200000000000000000000004,); path = Entitlements; sourceTree = "<group>"; };
+		400000000000000000000004 /* Frameworks */ = {isa = PBXGroup; children = (200000000000000000000011, 200000000000000000000012, 200000000000000000000013,); name = Frameworks; sourceTree = "<group>"; };
+		400000000000000000000005 /* Products */ = {isa = PBXGroup; children = (200000000000000000000021, 200000000000000000000022, 200000000000000000000023,); name = Products; sourceTree = "<group>"; };
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		500000000000000000000001 /* CapsuleGateBBroker */ = {isa = PBXNativeTarget; buildConfigurationList = 800000000000000000000011; buildPhases = (600000000000000000000001, 300000000000000000000011, 600000000000000000000011,); buildRules = (); dependencies = (); name = CapsuleGateBBroker; productName = CapsuleGateBBroker; productReference = 200000000000000000000021; productType = "com.apple.product-type.application"; };
+		500000000000000000000002 /* CapsuleGateBSupervisor */ = {isa = PBXNativeTarget; buildConfigurationList = 800000000000000000000012; buildPhases = (600000000000000000000002, 300000000000000000000012, 600000000000000000000012,); buildRules = (); dependencies = (); name = CapsuleGateBSupervisor; productName = CapsuleGateBSupervisor; productReference = 200000000000000000000022; productType = "com.apple.product-type.application"; };
+		500000000000000000000003 /* CapsuleGateBDaemon */ = {isa = PBXNativeTarget; buildConfigurationList = 800000000000000000000013; buildPhases = (600000000000000000000003, 300000000000000000000013, 600000000000000000000013,); buildRules = (); dependencies = (); name = CapsuleGateBDaemon; productName = CapsuleGateBDaemon; productReference = 200000000000000000000023; productType = "com.apple.product-type.application"; };
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		700000000000000000000001 /* Project object */ = {isa = PBXProject; attributes = {BuildIndependentTargetsInParallel = 1; LastUpgradeCheck = 2660; TargetAttributes = {500000000000000000000001 = {CreatedOnToolsVersion = 26.6; ProvisioningStyle = Automatic;}; 500000000000000000000002 = {CreatedOnToolsVersion = 26.6; ProvisioningStyle = Automatic;}; 500000000000000000000003 = {CreatedOnToolsVersion = 26.6; ProvisioningStyle = Automatic;};};}; buildConfigurationList = 800000000000000000000001; compatibilityVersion = "Xcode 14.0"; developmentRegion = en; hasScannedForEncodings = 0; knownRegions = (en, Base,); mainGroup = 400000000000000000000001; productRefGroup = 400000000000000000000005; projectDirPath = ""; projectRoot = ""; targets = (500000000000000000000001, 500000000000000000000002, 500000000000000000000003,); };
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		600000000000000000000011 = {isa = PBXResourcesBuildPhase; buildActionMask = 2147483647; files = (); runOnlyForDeploymentPostprocessing = 0; };
+		600000000000000000000012 = {isa = PBXResourcesBuildPhase; buildActionMask = 2147483647; files = (); runOnlyForDeploymentPostprocessing = 0; };
+		600000000000000000000013 = {isa = PBXResourcesBuildPhase; buildActionMask = 2147483647; files = (); runOnlyForDeploymentPostprocessing = 0; };
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		600000000000000000000001 = {isa = PBXSourcesBuildPhase; buildActionMask = 2147483647; files = (100000000000000000000001,); runOnlyForDeploymentPostprocessing = 0; };
+		600000000000000000000002 = {isa = PBXSourcesBuildPhase; buildActionMask = 2147483647; files = (100000000000000000000002,); runOnlyForDeploymentPostprocessing = 0; };
+		600000000000000000000003 = {isa = PBXSourcesBuildPhase; buildActionMask = 2147483647; files = (100000000000000000000003,); runOnlyForDeploymentPostprocessing = 0; };
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		900000000000000000000001 = {isa = XCBuildConfiguration; buildSettings = {ALWAYS_SEARCH_USER_PATHS = NO; CLANG_ENABLE_OBJC_ARC = YES; MACOSX_DEPLOYMENT_TARGET = 15.0; SDKROOT = macosx;}; name = Debug; };
+		900000000000000000000002 = {isa = XCBuildConfiguration; buildSettings = {ALWAYS_SEARCH_USER_PATHS = NO; CLANG_ENABLE_OBJC_ARC = YES; MACOSX_DEPLOYMENT_TARGET = 15.0; SDKROOT = macosx;}; name = Release; };
+		900000000000000000000011 = {isa = XCBuildConfiguration; buildSettings = {CODE_SIGN_ENTITLEMENTS = Entitlements/Broker.entitlements; CODE_SIGN_STYLE = Automatic; DEVELOPMENT_TEAM = ""; ENABLE_HARDENED_RUNTIME = YES; GENERATE_INFOPLIST_FILE = YES; INFOPLIST_KEY_LSBackgroundOnly = YES; ONLY_ACTIVE_ARCH = YES; PRODUCT_BUNDLE_IDENTIFIER = io.github.dills122.capsule.gate-b.broker; PRODUCT_NAME = CapsuleGateBBroker; SKIP_INSTALL = YES;}; name = Debug; };
+		900000000000000000000012 = {isa = XCBuildConfiguration; buildSettings = {CODE_SIGN_ENTITLEMENTS = Entitlements/Broker.entitlements; CODE_SIGN_STYLE = Automatic; DEVELOPMENT_TEAM = ""; ENABLE_HARDENED_RUNTIME = YES; GENERATE_INFOPLIST_FILE = YES; INFOPLIST_KEY_LSBackgroundOnly = YES; PRODUCT_BUNDLE_IDENTIFIER = io.github.dills122.capsule.gate-b.broker; PRODUCT_NAME = CapsuleGateBBroker; SKIP_INSTALL = YES;}; name = Release; };
+		900000000000000000000021 = {isa = XCBuildConfiguration; buildSettings = {CODE_SIGN_ENTITLEMENTS = Entitlements/Supervisor.entitlements; CODE_SIGN_STYLE = Automatic; DEVELOPMENT_TEAM = ""; ENABLE_HARDENED_RUNTIME = YES; GENERATE_INFOPLIST_FILE = YES; INFOPLIST_KEY_LSBackgroundOnly = YES; ONLY_ACTIVE_ARCH = YES; PRODUCT_BUNDLE_IDENTIFIER = io.github.dills122.capsule.gate-b.supervisor; PRODUCT_NAME = CapsuleGateBSupervisor; SKIP_INSTALL = YES;}; name = Debug; };
+		900000000000000000000022 = {isa = XCBuildConfiguration; buildSettings = {CODE_SIGN_ENTITLEMENTS = Entitlements/Supervisor.entitlements; CODE_SIGN_STYLE = Automatic; DEVELOPMENT_TEAM = ""; ENABLE_HARDENED_RUNTIME = YES; GENERATE_INFOPLIST_FILE = YES; INFOPLIST_KEY_LSBackgroundOnly = YES; PRODUCT_BUNDLE_IDENTIFIER = io.github.dills122.capsule.gate-b.supervisor; PRODUCT_NAME = CapsuleGateBSupervisor; SKIP_INSTALL = YES;}; name = Release; };
+		900000000000000000000031 = {isa = XCBuildConfiguration; buildSettings = {CODE_SIGN_ENTITLEMENTS = Entitlements/Daemon.entitlements; CODE_SIGN_STYLE = Automatic; DEVELOPMENT_TEAM = ""; ENABLE_HARDENED_RUNTIME = YES; GENERATE_INFOPLIST_FILE = YES; INFOPLIST_KEY_LSBackgroundOnly = YES; ONLY_ACTIVE_ARCH = YES; PRODUCT_BUNDLE_IDENTIFIER = io.github.dills122.capsule.gate-b.daemon; PRODUCT_NAME = CapsuleGateBDaemon; SKIP_INSTALL = YES;}; name = Debug; };
+		900000000000000000000032 = {isa = XCBuildConfiguration; buildSettings = {CODE_SIGN_ENTITLEMENTS = Entitlements/Daemon.entitlements; CODE_SIGN_STYLE = Automatic; DEVELOPMENT_TEAM = ""; ENABLE_HARDENED_RUNTIME = YES; GENERATE_INFOPLIST_FILE = YES; INFOPLIST_KEY_LSBackgroundOnly = YES; PRODUCT_BUNDLE_IDENTIFIER = io.github.dills122.capsule.gate-b.daemon; PRODUCT_NAME = CapsuleGateBDaemon; SKIP_INSTALL = YES;}; name = Release; };
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		800000000000000000000001 = {isa = XCConfigurationList; buildConfigurations = (900000000000000000000001, 900000000000000000000002,); defaultConfigurationIsVisible = 0; defaultConfigurationName = Release; };
+		800000000000000000000011 = {isa = XCConfigurationList; buildConfigurations = (900000000000000000000011, 900000000000000000000012,); defaultConfigurationIsVisible = 0; defaultConfigurationName = Release; };
+		800000000000000000000012 = {isa = XCConfigurationList; buildConfigurations = (900000000000000000000021, 900000000000000000000022,); defaultConfigurationIsVisible = 0; defaultConfigurationName = Release; };
+		800000000000000000000013 = {isa = XCConfigurationList; buildConfigurations = (900000000000000000000031, 900000000000000000000032,); defaultConfigurationIsVisible = 0; defaultConfigurationName = Release; };
+/* End XCConfigurationList section */
+	};
+	rootObject = 700000000000000000000001 /* Project object */;
+}

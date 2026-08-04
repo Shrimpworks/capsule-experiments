@@ -1,0 +1,19 @@
+role	state	path	sha256-or-readback	minimum-os	identifier	team	cdhash
+app-info	harness	Contents/Info.plist	eaabcdbe6d899b6e148c7b5e93492fffe6a21574f9a8acca1aaef2b6bfcfc4b3	n/a	n/a	n/a	n/a
+app-registrar	harness	Contents/MacOS/capsule-topology-registrar	outer-signature-readback	13.0	n/a	n/a	n/a
+service-client	harness	Contents/MacOS/capsule-topology-client	c772d566a57cfad3c8f9fbb838be72fc1e4a2b64d25396e367fab129128e167c	13.0	com.capsulecorp.spike.p0-4a-installed-topology.client	not set	29c67b8746bcd520084b4103b0d2c9bbb34b9785
+execution-supervisor	placeholder	Contents/MacOS/capsule-topology-supervisor	35eadd9038a745d19db699e28bcb637e34dc64cd08a6b5a6951af468b7acec9d	13.0	com.capsulecorp.spike.p0-4a-installed-topology.supervisor	not set	75cfdf3c7fc884aaf0815781c9f3ea95b74ac0dd
+runner-app-info	harness	Contents/Helpers/CapsuleTopologyRunner.app/Contents/Info.plist	23a3b132d468d9d80c66e586eb549dcae1c36cc393cabcf07b3465e8e8e920c3	n/a	n/a	n/a	n/a
+vmm-runner	harness	Contents/Helpers/CapsuleTopologyRunner.app/Contents/MacOS/capsule-topology-runner	61b6a9c8dd5b6f68d4b31677d81f51f67b45a56da6dfab2b8d6300a77fb52a44	13.0	com.capsulecorp.spike.p0-4a-installed-topology.runner	not set	5cf2540fbe9382de1615f96a3fcef8777b26afc7
+guest-launcher	placeholder	Contents/MacOS/capsule-guest-launcher-placeholder	c569d1232040a96b717f22df5a48ddeb711b90602e5a5875eab4ccb006666bc4	13.0	com.capsulecorp.spike.p0-4a-installed-topology.guest-launcher-placeholder	not set	44a307e12bc279f543558c298bfc778fc88c4e38
+process-identity-helper	harness	Contents/MacOS/capsule-process-identity	9c18d759ee9c7ec59863767bf1eac7957a4fc5abdd34a1fedc73711c8c0dfd7b	13.0	com.capsulecorp.spike.p0-4a-installed-topology.process-identity	not set	892dc532a61961d9da0f24274eda62f853cf4f3d
+libkrun	pinned-candidate	Contents/Frameworks/libkrun.1.19.4.dylib	2a2c09cfaa15e618d1c06a72975249e5734bea347dd90797707817f3c1c178d7	11.0	com.capsulecorp.spike.p0-4a-installed-topology.libkrun	not set	923c39844238331cc01d5b6d8be3cbad55de96fe
+libkrunfw	pinned-candidate	Contents/Frameworks/libkrunfw.5.dylib	9f7e9952fd66c2da172f5e618023d81b6fb5f23740071e877fce44a36db5b680	26.0	com.capsulecorp.spike.p0-4a-installed-topology.libkrunfw	not set	a7fb068eab4ff0a7278e69c4e879ff7bf3cbf703
+runtime	rejected-stock-candidate	Contents/Resources/Runtime/bun	e0c90ec15d33363e6b70713d56bc3b2c7585c17f40a0fe0f8fd9305901d4e233	13.0	bun	7FRXF46ZSN	e954e4093beecf241f32b9ce07b270a39d3297d4
+firmware	metadata-placeholder	Contents/Resources/Runtime/firmware.json	c8e9680a401372ef946294baf4ff4b8dfc0fac930e5b69e1b9a8f7e9883018da	n/a	n/a	n/a	n/a
+guest-kernel	metadata-placeholder	Contents/Resources/Runtime/kernel.json	d47faedd0dbc3104f2cd011771879c70b13e7d57f7050a67046d42b7ecebb122	n/a	n/a	n/a	n/a
+runtime-root	byte-placeholder	Contents/Resources/Runtime/root.placeholder	839a6290a6e1c9f2b7c36a58413623ec5c1a10fc88e258e2082132daa40bf3e1	n/a	n/a	n/a	n/a
+runner-entitlements	harness	Contents/Resources/Manifests/runner.entitlements.plist	ab20ba8b9523bad365f647ae163ffc4c02867cf7189f74caed1b605bef184017	n/a	n/a	n/a	n/a
+descriptor-manifest	provisional	Contents/Resources/Manifests/descriptor-manifest.json	93d99f0b37f5420a5eba3078858c1a2ffe55578ca324dafb919d950c4728bae8	n/a	n/a	n/a	n/a
+topology-input	provisional	Contents/Resources/Manifests/topology-input.json	c1d207ff412bd46fa09caa86e3594c758118b84941872693b46a20d2a9faee81	n/a	n/a	n/a	n/a
+embedded-per-user-registration	harness	Contents/Library/LaunchAgents/com.capsulecorp.spike.p0-4a-installed-topology.supervisor.plist	a860654dc422fd1031033eaa93a60673a396ccbc4f1b032d29f094de20eee036	n/a	n/a	n/a	n/a

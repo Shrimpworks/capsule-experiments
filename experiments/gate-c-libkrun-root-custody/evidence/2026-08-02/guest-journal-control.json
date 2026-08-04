@@ -1,0 +1,28 @@
+{
+  "attachmentPath": "/dev/fd/4",
+  "conjunctivePass": false,
+  "descriptorNegatives": {
+    "reusedFdExit": 77,
+    "reusedFdRejectedBeforeKrun": true,
+    "wrongFdExit": 125
+  },
+  "descriptorTransfer": "direct-fork-exec-inheritance",
+  "device": 16777232,
+  "finalizedDescriptorDigest": "741e884e440a0b73a632285bc16daca97de6c0ac30a485567b5595a6dc376c92",
+  "inode": 114975874,
+  "length": 134217728,
+  "linkCount": 0,
+  "mode": "unsandboxed",
+  "modeBits": "0o400",
+  "pathExistsAfterFinalization": false,
+  "runner": {
+    "bothOpenIdentityMatches": true,
+    "bothOpenReadOnly": true,
+    "exit": 0,
+    "guestDigest": "bdfa180366d943c9c508a4fc80de80255b03fa2b69858d45af606aea10f6063a",
+    "guestLength": 134217728,
+    "libkrunRootOpenCount": 2,
+    "postStopDescriptorDigest": "741e884e440a0b73a632285bc16daca97de6c0ac30a485567b5595a6dc376c92"
+  },
+  "sourceManifestDigest": "741e884e440a0b73a632285bc16daca97de6c0ac30a485567b5595a6dc376c92"
+}

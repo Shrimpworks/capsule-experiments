@@ -1,0 +1,6 @@
+{
+  "kind": "capsule.p0-4a.firmware-placeholder",
+  "libkrunfw": "5.5.0",
+  "embeddedKernel": "6.12.91",
+  "admitted": false
+}

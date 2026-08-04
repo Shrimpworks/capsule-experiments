@@ -1,0 +1,23 @@
+date=2026-08-02
+result=DENO-FAMILY-NO-GO
+
+PASS pnpm install (Node 22.22.1; pnpm 10.28.2)
+PASS pnpm check
+PASS pnpm lint
+PASS pnpm test
+PASS pnpm verify:schemas
+PASS pnpm format:check
+PASS go test ./...
+PASS go vet ./...
+PASS go build ./...
+PASS git diff --check
+PASS shellcheck scripts/*.sh full-deno/run.sh
+PASS scripts/check-inputs.sh against exact Deno binary/source/V8 archives
+PASS scripts/source-inventory.sh against exact Deno v2.9.4 source archive
+PASS scripts/verify.sh (locked/offline deno_core build, nominal, import refusal, TypeScript refusal, global seal, manifest, mutations, locked TypeScript surface)
+PASS full-deno/run.sh against exact Linux/arm64 Deno v2.9.4 binary in owned isolated container
+PASS 30-sample final performance series per full-TS/full-JS/core-JS case
+PASS final selected-syscall traces for full Deno and deno_core
+
+The PASS labels verify experiment execution and repository integrity. They do not change the
+candidate decision, admit a runtime/backend, or support a validated-local/production claim.

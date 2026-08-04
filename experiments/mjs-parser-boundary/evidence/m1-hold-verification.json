@@ -1,0 +1,7 @@
+{
+  "canonicalBase": "schemas/conformance/v0/mjs-source/language-hold-*.mjs",
+  "cases": 28,
+  "moduleGrammarCases": 22,
+  "freeCommonjsReferenceCases": 6,
+  "mismatches": []
+}

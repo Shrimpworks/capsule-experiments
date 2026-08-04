@@ -1,0 +1,130 @@
+{
+  "capturedAt": "2026-08-03",
+  "experimentBaseCommit": "599d09177143b4c98828b7732a12ea10d7d94274",
+  "toolchain": {
+    "go": "go1.23.4 darwin/arm64",
+    "moduleGoDirective": "1.23.0",
+    "decisiveModuleLookup": "GOPROXY=off"
+  },
+  "modules": [
+    {
+      "path": "github.com/fxamacker/cbor/v2",
+      "version": "v2.9.2",
+      "tagCommit": "45589abe5c63bea2db4d311e0d0fcc551cd772ae",
+      "moduleSum": "h1:X4Ksno9+x3cz0TZv69ec1hxP/+tymuR8PXQJyDwfh78=",
+      "goModSum": "h1:vM4b+DJCtHn+zz7h3FFp/hDAI9WNWCsZj23V5ytsSxQ=",
+      "moduleZipSha256": "778e7b1e56acefbf9f9b6fd435e55a1dcc6d59bbd5513b9a60eac08886617d06",
+      "release": {
+        "publishedAt": "2026-05-04",
+        "url": "https://github.com/fxamacker/cbor/releases/tag/v2.9.2",
+        "githubReleaseImmutable": false,
+        "assets": 0,
+        "attestation": "none supplied with the release"
+      },
+      "license": "MIT",
+      "licenseSha256": "78cad457d5ea7318230f3d969d4cdf29cef45524a1fc8ca3a97646da1ad7a841",
+      "noticeFiles": ["LICENSE"],
+      "securityOwner": "latest released version; private reports to faye.github@gmail.com",
+      "sourceFootprintKiB": 1204,
+      "sourceFiles": 49,
+      "selectedPackages": ["github.com/fxamacker/cbor/v2"],
+      "selectedGoFiles": [
+        "bytestring.go",
+        "cache.go",
+        "common.go",
+        "decode.go",
+        "decode_map_utils.go",
+        "diagnose.go",
+        "doc.go",
+        "encode.go",
+        "encode_map.go",
+        "omitzero_pre_go124.go",
+        "simplevalue.go",
+        "stream.go",
+        "structfields.go",
+        "tag.go",
+        "valid.go"
+      ],
+      "ignoredByGo123": ["omitzero_go124.go"]
+    },
+    {
+      "path": "github.com/veraison/go-cose",
+      "version": "v1.3.0",
+      "tagCommit": "e5c68f97dfbb7dc2677e891ceea9a8eafe42ddb4",
+      "moduleSum": "h1:2/H5w8kdSpQJyVtIhx8gmwPJ2uSz1PkyWFx0idbd7rk=",
+      "goModSum": "h1:df09OV91aHoQWLmy1KsDdYiagtXgyAwAl8vFeFn1gMc=",
+      "moduleZipSha256": "3f7a1c1438941e32a931d2ca02c4196cf98cff450c9ecbdbc4f34f50d1d0fee9",
+      "release": {
+        "publishedAt": "2024-09-27",
+        "url": "https://github.com/veraison/go-cose/releases/tag/v1.3.0",
+        "githubReleaseImmutable": false,
+        "assets": 0,
+        "attestation": "none supplied with the release"
+      },
+      "license": "MPL-2.0",
+      "licenseSha256": "1f256ecad192880510e84ad60474eab7589218784b9a50bc7ceee34c2b91f1d5",
+      "noticeFiles": ["LICENSE"],
+      "securityOwner": "go-cose-security@googlegroups.com and active Veraison maintainers",
+      "securityPolicyGap": "SECURITY.md still identifies v1.0.0 as the only supported stable release",
+      "sourceFootprintKiB": 1916,
+      "sourceFiles": 68,
+      "selectedPackages": ["github.com/veraison/go-cose"],
+      "selectedGoFiles": [
+        "algorithm.go",
+        "cbor.go",
+        "countersign.go",
+        "cwt.go",
+        "ecdsa.go",
+        "ed25519.go",
+        "errors.go",
+        "headers.go",
+        "key.go",
+        "rsa.go",
+        "sign.go",
+        "sign1.go",
+        "signer.go",
+        "verifier.go"
+      ],
+      "buildOptions": "no build tags; package-global fxamacker modes use duplicate-key and indefinite-length refusal but default library nesting and collection ceilings"
+    },
+    {
+      "path": "github.com/x448/float16",
+      "version": "v0.8.4",
+      "moduleTimestamp": "2020-01-17T18:31:28Z",
+      "tagCommit": "not present in the cached module origin metadata; exact module zip hash is authoritative for this experiment",
+      "moduleSum": "h1:qLwI1I70+NjRFUR3zs1JPUCgaCXSh3SW62uAKT1mSBM=",
+      "goModSum": "h1:14CWIYCyZA/cWjXOioeEpHeN/83MdbZDRQHoFcYsOfg=",
+      "moduleZipSha256": "73b24a41037ea999ab66851e3798a0973dbb1f214925915b01f0820f7b2f1500",
+      "license": "MIT",
+      "licenseSha256": "a555f1194fdac34da70fb416968f7e2217b02352c26c1eac2fa45fcb4290ae8d",
+      "noticeFiles": ["LICENSE"],
+      "releaseProvenance": "versioned Go module and checksum only; no release asset or attestation retained",
+      "securityOwner": "no SECURITY policy in the exact module source; fxamacker/cbor owns update/removal of this transitive dependency for Capsule's selected lane",
+      "sourceFootprintKiB": 76,
+      "sourceFiles": 7,
+      "selectedPackages": ["github.com/x448/float16"],
+      "selectedGoFiles": ["float16.go"]
+    }
+  ],
+  "moduleGraph": [
+    "experiment -> capsule.local/capsule v0.0.0 (local replace ../..)",
+    "experiment -> fxamacker/cbor/v2 v2.9.2",
+    "experiment -> veraison/go-cose v1.3.0",
+    "experiment -> x448/float16 v0.8.4 (indirect)",
+    "capsule.local/capsule -> golang.org/x/sys v0.28.0 (not linked by the footprint command)",
+    "fxamacker/cbor/v2 v2.9.2 -> x448/float16 v0.8.4",
+    "veraison/go-cose v1.3.0 -> fxamacker/cbor/v2 v2.5.0 (MVS selects v2.9.2)",
+    "veraison/go-cose v1.3.0 -> x448/float16 v0.8.4"
+  ],
+  "licenseDisposition": {
+    "fxamacker": "permissive MIT notice required",
+    "float16": "permissive MIT notice required",
+    "goCose": "MPL-2.0 file-level source-form and notice obligations; test-only use retained, no product distribution selected"
+  },
+  "advisoryScan": {
+    "command": "go run golang.org/x/vuln/cmd/govulncheck@latest ./...",
+    "result": "No vulnerabilities found",
+    "scope": "standalone comparison module and imported symbols",
+    "databaseCheckedAt": "2026-08-03"
+  }
+}

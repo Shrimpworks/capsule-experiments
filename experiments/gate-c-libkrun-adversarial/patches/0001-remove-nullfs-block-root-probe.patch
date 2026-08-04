@@ -1,0 +1,38 @@
+diff --git a/src/libkrun/src/lib.rs b/src/libkrun/src/lib.rs
+index be3300f..840908f 100644
+--- a/src/libkrun/src/lib.rs
++++ b/src/libkrun/src/lib.rs
+@@ -2385,33 +2384,0 @@ pub unsafe extern "C" fn krun_set_root_disk_remount(
+-            // Boot from a block device: the virtiofs root only needs to
+-            // serve init.krun and provide mount points for /dev, /proc, /sys.
+-            // Use a NullFs (no host directory) with the inode overlay.
+-            let mut virtual_entries = Vec::new();
+-            #[cfg(feature = "init-blob")]
+-            if !ctx_cfg.disable_implicit_init {
+-                virtual_entries.push(init_virtual_entry());
+-            }
+-            // init.c needs these directories as mount points before
+-            // pivoting to the block device root.
+-            for name in ["dev", "proc", "sys", "newroot"] {
+-                virtual_entries.push(VirtualDirEntry {
+-                    name: CString::new(name).unwrap(),
+-                    entry: VirtualEntry {
+-                        mode: 0o755,
+-                        one_shot: false,
+-                        content: VirtualEntryContent::Dir {
+-                            children: Vec::new(),
+-                        },
+-                    },
+-                });
+-            }
+-
+-            ctx_cfg.vmr.add_fs_device(FsDeviceConfig {
+-                fs_id: "/dev/root".into(),
+-                shared_dir: None,
+-                semantics: PermissionSemantics::LinuxComplete,
+-                // Default to a conservative 512 MB window.
+-                shm_size: Some(1 << 29),
+-                read_only: false,
+-                virtual_entries,
+-            });
+-

@@ -1,0 +1,87 @@
+{
+  "schemaVersion": 1,
+  "objectType": "capsule.fork-native-deno-runtime-bundle-input-contract",
+  "status": "blocked-arm64-builder-absent",
+  "scope": "build-profile-evidence-only",
+  "target": {
+    "os": "linux",
+    "architecture": "arm64",
+    "rustTarget": "aarch64-unknown-linux-gnu",
+    "substitutionAllowed": false
+  },
+  "forks": {
+    "deno": {
+      "repository": "https://github.com/dills122/deno.git",
+      "upstreamCommit": "14eea3160ae5834476aa3b9d317b8d41d991b982",
+      "governedHead": "9adb0b68b55bca81644827f1e7749a3acb091bed",
+      "mergeCommit": "ea18b9dc21ff8ebd19347be7095f47937ee14ec2",
+      "tree": "72edd0f7b5f83b918945860653714e344c8a303f",
+      "sourceArchiveRequired": true,
+      "sourceArchiveSha256": "unavailable-until-arm64-candidate-construction"
+    },
+    "rustyV8": {
+      "repository": "https://github.com/dills122/rusty_v8.git",
+      "upstreamCommit": "d305e6afa7736f6e298c30ae6646f7709ee9382b",
+      "governedHead": "a43ee7486c3e05bce5d6e5db586b3e2e688c33cf",
+      "mergeCommit": "a31b8f39dc6933d5635367e8ccb67d70f2cc2385",
+      "tree": "0e9be42766efb165119aaa4f13a4a43693d251e4",
+      "rejectedTerminalHead": "17698caedb8721c132a3e2f08f7ab0ae212f313a",
+      "sourceArchiveRequired": true,
+      "sourceArchiveSha256": "unavailable-until-arm64-profile-exists"
+    }
+  },
+  "requiredMaterials": [
+    "exact governed Deno source archive",
+    "exact governed rusty_v8 superproject and 20-gitlink corresponding-source archive",
+    "ordered three-op registry and deterministic snapshot source commits",
+    "exact V8 source commit, four-patch chain, and recursive source closure",
+    "digest-pinned Linux/arm64 builder image",
+    "digest-pinned host Rust, Clang, libclang/bindgen, GN, Ninja, sysroot, and V8 Rust toolchain inputs",
+    "complete locked Cargo source closure",
+    "effective args.gn, build.ninja, generated build settings, GN target graph, Ninja graph and dependency closure",
+    "exact archive members and linked-component closure",
+    "complete licenses, notices, and corresponding-source publication set",
+    "CycloneDX 1.6 SBOM",
+    "unsigned in-toto provenance bound to the governed fork heads",
+    "exact Debian runtime loader/library packages, source descriptors, and notices",
+    "closed 22-entry standalone-root manifest",
+    "fixed emitted-JavaScript fixture, transformation profile, and options"
+  ],
+  "buildPhases": {
+    "prefetch": {
+      "network": "connected",
+      "allowed": "declared digest-pinned inputs only"
+    },
+    "buildAndTest": {
+      "network": "disabled",
+      "emptyOutputAndCacheRequired": true,
+      "lockedOfflineResolution": true
+    }
+  },
+  "requiredOutputs": [
+    "Linux/arm64 rusty_v8 static archive and generated bindings",
+    "governed deno_core candidate binary and snapshot",
+    "normalized standalone runtime root",
+    "source and license/notice archives",
+    "build metadata archive",
+    "SBOM",
+    "unsigned provenance",
+    "artifact checksum manifest",
+    "physical-op, final-link, descriptor, syscall-seal, fixture, and restoration results",
+    "same-host clean-build equality record"
+  ],
+  "admission": {
+    "signed": false,
+    "published": false,
+    "runtimeProfileSelected": false,
+    "runtime001": "unsupported"
+  },
+  "failClosedRules": [
+    "refuse if the target is not Linux/arm64",
+    "refuse if any required source, tool, root, notice, SBOM, provenance, or output digest is absent",
+    "refuse if build or test network is enabled",
+    "refuse if the terminal rusty_v8 head is the stale original head",
+    "refuse if prior official-prebuilt known answers are represented as fork-native outputs",
+    "refuse release publication, signing, profile selection, or runtime admission"
+  ]
+}

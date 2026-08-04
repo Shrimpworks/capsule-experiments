@@ -1,0 +1,60 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.6",
+  "version": 1,
+  "metadata": {
+    "component": {
+      "type": "operating-system",
+      "name": "governed-deno-core-runtime-root",
+      "version": "sha256:d1f600b4f88fcb369cd6d851bd55c7bed670898fad6cb7f7449a76a106c6d925"
+    }
+  },
+  "components": [
+    {
+      "type": "application",
+      "name": "capsule-deno-core-physical-omission",
+      "version": "0.409.0-candidate",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "597baba6b9f50fc619ce667a352e19686f8c73efc6819d137b3c4081450fd6f5"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "libc6",
+      "version": "2.36-9+deb12u14",
+      "purl": "pkg:deb/debian/libc6@2.36-9%2Bdeb12u14?arch=arm64",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "01f4330719fd4f65580e16ea5a0527f372fca750e8f588d26deaf09f2d3b1cf4"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "libgcc-s1",
+      "version": "12.2.0-14+deb12u1",
+      "purl": "pkg:deb/debian/libgcc-s1@12.2.0-14%2Bdeb12u1?arch=arm64",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "576926b283613db80168ddf76380a3bd877602778cf0d226caa7bfbfa71eacf3"
+        }
+      ]
+    },
+    {
+      "type": "data",
+      "name": "gcc-12-base-notices",
+      "version": "12.2.0-14+deb12u1",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "674cf6cba6d432bd200c45fe866c1652c7a53523cc2e7a613e05bc4abf7b5440"
+        }
+      ]
+    }
+  ]
+}

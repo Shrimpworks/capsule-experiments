@@ -1,0 +1,55 @@
+{
+  "schemaVersion": 1,
+  "observedUtcDate": "2026-08-03",
+  "capsuleBase": "91c4aa4",
+  "remoteRefs": {
+    "denoGovernedBranch": "ea18b9dc21ff8ebd19347be7095f47937ee14ec2",
+    "denoPullRequestHead": "9adb0b68b55bca81644827f1e7749a3acb091bed",
+    "rustyV8GovernedBranch": "a31b8f39dc6933d5635367e8ccb67d70f2cc2385",
+    "rustyV8PullRequestHead": "a43ee7486c3e05bce5d6e5db586b3e2e688c33cf"
+  },
+  "deno": {
+    "upstreamCommit": "14eea3160ae5834476aa3b9d317b8d41d991b982",
+    "upstreamTree": "2732e7fb4f51907ce8a95ac068481c28185a21d2",
+    "head": "9adb0b68b55bca81644827f1e7749a3acb091bed",
+    "headTree": "72edd0f7b5f83b918945860653714e344c8a303f",
+    "merge": "ea18b9dc21ff8ebd19347be7095f47937ee14ec2",
+    "mergeParents": [
+      "14eea3160ae5834476aa3b9d317b8d41d991b982",
+      "9adb0b68b55bca81644827f1e7749a3acb091bed"
+    ],
+    "upstreamAncestor": true,
+    "governanceDocumentSha256": "da22a7856b49bc06a1fb4921f1f97eb1c8951d80572ec0f4efcc55d586da8f32",
+    "verifierSha256": "a880c599ee538b655c614d7da4111b05e62cb66a9bcca4cd4ddae1cc44c47aaa",
+    "forkVerifier": "pass-three-ops-fixed-fixtures-restoration-refused-admission-none"
+  },
+  "rustyV8": {
+    "upstreamCommit": "d305e6afa7736f6e298c30ae6646f7709ee9382b",
+    "upstreamTree": "e55bc850420d20b1ea2230eef9da6e26c07ef765",
+    "head": "a43ee7486c3e05bce5d6e5db586b3e2e688c33cf",
+    "headTree": "0e9be42766efb165119aaa4f13a4a43693d251e4",
+    "merge": "a31b8f39dc6933d5635367e8ccb67d70f2cc2385",
+    "mergeParents": [
+      "ab3413d0bc878601f75bf14a56e2faf635c19b9a",
+      "a43ee7486c3e05bce5d6e5db586b3e2e688c33cf"
+    ],
+    "upstreamAncestor": true,
+    "rejectedTerminalHead": "17698caedb8721c132a3e2f08f7ab0ae212f313a",
+    "sourceLockSha256": "df1630e159dfec398ca8d71305431d441b6953efc910de63f4c0e6e28f251855",
+    "builderLockSha256": "5f0e9d571cd711ff2efda0ca5f4a6e85d5f2644ff11793cedadd6dc71638c913",
+    "expectedOutputsSha256": "337126870c88d0111476aa9d665f844097fc8a32dae2963d52c02acfefbe765b",
+    "governanceDocumentSha256": "bb7a1cf46e69c7fbcc9a4d3eddc2d85ba6e3a84d9383993883b51eaee29c6603",
+    "forkVerifier": "pass-baseline-and-20-exact-gitlinks",
+    "supportedProfile": "linux-amd64-release-simdutf-v1",
+    "supportedTarget": "x86_64-unknown-linux-gnu",
+    "requestedProfileSupported": false
+  },
+  "build": {
+    "attempted": false,
+    "prefetchAttempted": false,
+    "reason": "merged rusty_v8 governed builder has no Linux/arm64 profile",
+    "amd64Substituted": false,
+    "newArtifactIdentities": []
+  },
+  "decision": "LINUX-ARM64-CONSTRUCTION-BLOCKED-NO-BUILD-NO-RUNTIME-ADMISSION"
+}

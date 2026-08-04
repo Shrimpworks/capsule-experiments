@@ -1,0 +1,30 @@
+status=0
+timedOut=0
+sourceCommit=728df8125077d0db44265f6e997c72b81b65c015
+buildFeatures=BLK=1,init-blob=default
+signing=ad-hoc,non-hardened,boot-only-control
+signedLibkrunSha256=1afa45f26b943ed55cb0a1edc9130c2d680750c6c38f6feb7f8f7701599dc89e
+signedRunnerSha256=958ef6ac954cdecfcb17921a466d21fdbe7ae038a3f4fd5bef97ba00b4cf1086
+stdoutSha256=d644bd5e0e048411150336811ee697efcc7e84980f0228f91f2c366885ab1a92
+stderrSha256=eccbf50f9c63bd7d94f67b8a93ca724fce5ef1740a27901f3373610cbd36d356
+--- stdout ---
+uid=65534 gid=65534 groups=[]
+CapEff:=0000000000000000
+NoNewPrivs:=1
+virtio=virtio0:DRIVER=virtio_balloon
+MODALIAS=virtio:d00000005v00000000
+virtio=virtio1:DRIVER=virtio_rng
+MODALIAS=virtio:d00000004v00000000
+virtio=virtio2:DRIVER=virtio_console
+MODALIAS=virtio:d00000003v00000000
+virtio=virtio3:DRIVER=virtiofs
+MODALIAS=virtio:d0000001Av00000000
+virtio=virtio4:DRIVER=virtio_blk
+MODALIAS=virtio:d00000002v00000000
+mount=/dev/vda / ext4 ro,nosuid,nodev,relatime 0 0
+interface=lo flags=up|loopback|running
+interface=dummy0 flags=broadcast
+network=denied error=dial tcp 192.0.2.1:80: connect: network is unreachable
+vsock=unavailable localCIDError=inappropriate ioctl for device
+--- stderr ---
+CAPSULE_KRUN_READY pid=70964 vcpus=1 ramMiB=256 vmmUid=501 vmmGid=20 network=none root=block-ro guestUser=trusted-launcher-required

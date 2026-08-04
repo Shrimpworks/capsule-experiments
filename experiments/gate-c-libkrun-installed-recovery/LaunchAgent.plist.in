@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "https://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Label</key>
+	<string>com.capsulecorp.spike.libkrun-installed-recovery.supervisor</string>
+	<key>ProgramArguments</key>
+	<array/>
+	<key>RunAtLoad</key>
+	<false/>
+	<key>KeepAlive</key>
+	<false/>
+	<key>AbandonProcessGroup</key>
+	<true/>
+	<key>ProcessType</key>
+	<string>Interactive</string>
+	<key>StandardOutPath</key>
+	<string>__STDOUT__</string>
+	<key>StandardErrorPath</key>
+	<string>__STDERR__</string>
+</dict>
+</plist>

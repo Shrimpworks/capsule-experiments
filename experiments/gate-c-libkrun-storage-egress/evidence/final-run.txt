@@ -1,0 +1,138 @@
+Gate C libkrun storage/egress selected retained evidence
+Run date: 2026-07-31
+Repository: 1f9f55bf2c7cc25b936dc9e2ceb343113f398c3c (dirty worktree)
+
+ENVIRONMENT
+ProductName: macOS
+ProductVersion: 26.5.2
+BuildVersion: 25F84
+Darwin: 25.5.0 arm64
+Host: MacBookPro18,4
+kern.hv_support: 1
+Xcode: 26.6 (17F113)
+Apple clang: 21.0.0
+Rust: 1.93.1
+Go: 1.26.5
+LLD: 22.1.8
+Docker client/server: 29.6.1
+libkrun commit: 728df8125077d0db44265f6e997c72b81b65c015
+
+PINNED FIXTURES
+builderImage=ubuntu@sha256:0e0a0fc6d18feda9db1590da249ac93e8d5abfea8f4c3c0c849ce512b5ef8982
+alpineImage=alpine@sha256:14358309a308569c32bdc37e2e0e9694be33a9d99e68afb0f5ff33cc1f695dce
+rootSha256=5f82fff76ad267020e1b219b7bf70fe60fd3500290de539d7b8f31615f2988d0
+sourceDiskSha256=c6a4ad211dea184f3c2facecc2b457772a4694352fd4673f7ed5241875c156ce
+sourcePayloadSha256=87fb9ee9d1b30776627bc0640d93a72ea3c8eda754cb03b3ad68fa8b6ca56291
+inputDiskSha256=30c27e69e79d6ee777e920fc9a07d05976271090da732872b02787b75f2fe96d
+inputPayloadSha256=1ccc278651b68c090513b5191164615319253f9f9336aab5b267e61c3efafd0b
+scratchTemplateSha256=4144b4485a40d7532843799a5c6afab93907ead5d99db9367b96dda34168d628
+scratchBytes=12582912
+
+GENERATED ARTIFACT HASHES
+runner=f14b6366bd341345aebe0b63457696acd705356ac10beb34976f9fa159ca2e7e
+guestProbe=4164090de431574d70c66721fadec66c37a6533388aed066ad6012d1563c9dad
+signedLibkrun=7d07681b2a56e18b3ef4caba12ec27bc5846f086fdec517680a26094a0d11d99
+signedLibkrunfw=538a0be2078f99b36fd874838c183dc2fc4f9df4e3a0d065f431295e4dbe2d1d
+
+FINAL HARNESS SUMMARY
+result=pass
+validExtractionSha256=96b3bd43e7aaf166783b5ebe224a0143799f4162d6829c094ffa2d27f250fba3
+truncationRejectExit=70
+hostileRejectExit=69
+specialRejectExit=69
+sparseRejectExit=72
+mutationRejectExit=1
+reuseRejectExit=1
+timeoutRunnerExit=143
+liveMutationDetected=true
+sandboxDeniedExit=125
+sourceDiskFinalSha256=c6a4ad211dea184f3c2facecc2b457772a4694352fd4673f7ed5241875c156ce
+inputDiskFinalSha256=30c27e69e79d6ee777e920fc9a07d05976271090da732872b02787b75f2fe96d
+
+VALID ATTEMPT
+CAPSULE_STORAGE_READY pid=92444 root=raw-ro source=raw-ro input=raw-ro scratch=raw-rw network=none virtiofs=none
+PROBE_BLOCK device=vdb readOnly=true
+PROBE_BLOCK device=vdc readOnly=true
+PROBE_BLOCK device=vdd readOnly=false
+PROBE_DIGEST path=/capsule/source/program.ts sha256=87fb9ee9d1b30776627bc0640d93a72ea3c8eda754cb03b3ad68fa8b6ca56291
+PROBE_DIGEST path=/capsule/input/data.bin sha256=1ccc278651b68c090513b5191164615319253f9f9336aab5b267e61c3efafd0b
+PROBE_AUTHORITY uid=65534 gid=65534 caps=zero noNewPrivs=true
+PROBE_MUTATION_DENIED path=/capsule/source/program.ts errno=EROFS
+PROBE_MUTATION_DENIED path=/capsule/input/data.bin errno=EROFS
+PROBE_FRESH_SCRATCH priorMarker=false
+PROBE_VALID_COMPLETE bytes=30
+PROBE_STORAGE_UNMOUNTED
+EGRESS_ACCEPT bytes=30 sha256=96b3bd43e7aaf166783b5ebe224a0143799f4162d6829c094ffa2d27f250fba3 parserImage=ubuntu@sha256:0e0a0fc6d18feda9db1590da249ac93e8d5abfea8f4c3c0c849ce512b5ef8982
+
+BOUNDED/QUOTA NEGATIVES
+EGRESS_REJECT reason=output-limit size=30 max=8 wouldTruncate=true release=false
+PROBE_QUOTA_COMPLETE sparseLogicalBytes=33554432 sequentialBytes=6672384 final=ENOSPC
+PROBE_STORAGE_UNMOUNTED
+EGRESS_REJECT reason=sparse-file size=33554432 allocatedBytes=0
+
+HOSTILE FILESYSTEM NEGATIVES
+PROBE_HOSTILE_COMPLETE symlink=true hardlink=true fifo=true socket=true specialDevice=EPERM hostileNames=true hostileMetadata=true
+PROBE_STORAGE_UNMOUNTED
+EGRESS_REJECT reason=unsafe-type-or-links type=regular links=2
+Observed directory entries included:
+- regular declared data.json plus hardlink to the same inode (link count 2)
+- symlink to /etc/passwd
+- FIFO and Unix socket inodes
+- names ..dotdot, %2e%2e, a newline, and a U+202E bidi control
+- mode-0777 regular file with user.capsule-hostile xattr
+Injected declared device:
+Type: character special
+Links: 1
+Device major/minor: 01:03
+EGRESS_REJECT reason=unsafe-type-or-links type=character links=1
+
+INPUT MUTATION
+Pre-start changed input:
+expected=30c27e69e79d6ee777e920fc9a07d05976271090da732872b02787b75f2fe96d
+actual=43a4070a12924c02f0bf2c10e4a9783205c7ee6be42171754195542a21d7c9ad
+runnerStarted=false
+Live same-user source mutation:
+beforeSha256=c6a4ad211dea184f3c2facecc2b457772a4694352fd4673f7ed5241875c156ce
+afterSha256=fd554ca00755fc4f4cffca2e46f566754a2fe529c6bbd6c724ef4c7fbefcc94c
+postStopDigestMismatch=true
+
+CRASH CLEANUP
+attempt=crash-cleanup
+scratchBytes=12582912
+runnerPid=92882
+runnerExit=137
+state.runner_absent=2026-07-31T21:06:14Z
+preCleanupSha256=4281a63daf9138c7e293a612a8d24622c9c7e45906d02bc68a536bd35178fb8a
+state.scratch_deleted=2026-07-31T21:06:14Z
+
+TIMEOUT CLEANUP
+attempt=timeout-cleanup
+scratchBytes=12582912
+runnerPid=92911
+runnerExit=143
+state.runner_absent=2026-07-31T21:06:15Z
+preCleanupSha256=bdd140fe3fb49eea8ffca1f9a6d4fe5559fb04de1e10a8044ec4c508eacfeccd
+state.scratch_deleted=2026-07-31T21:06:15Z
+
+REUSE/CROSS-JOB
+REUSE_REJECT attempt=valid reason=attempt-directory-exists
+Every independent ordinary attempt logged PROBE_FRESH_SCRATCH priorMarker=false.
+
+APP SANDBOX
+Allowed executable entitlements:
+- com.apple.security.app-sandbox=true
+- com.apple.security.hypervisor=true
+- exact read-only exceptions for root.ext4, source.ext4, input.ext4
+- exact read-write exception for sandbox-scratch.ext4
+Allowed case completed PROBE_VALID_COMPLETE and PROBE_STORAGE_UNMOUNTED.
+Denied bundle:
+CAPSULE_STORAGE_READY pid=92983 root=raw-ro source=raw-ro input=raw-ro scratch=raw-rw network=none virtiofs=none
+Error configuring virtio-blk for block
+krun_start_enter: Invalid argument
+runner exit=125
+
+TEST-TOOLING LIMITATION
+After Docker test containers exited, an observed com.apple.Virtualization.VirtualMachine XPC
+process retained read descriptors for the exact source.ext4 and input.ext4 fixture paths. Docker
+Desktop attribution is an inference, not independently proven. This is why Docker/debugfs is not
+proposed as the authoritative product parser lifecycle.

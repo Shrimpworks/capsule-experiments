@@ -1,0 +1,117 @@
+{
+  "_type": "https://in-toto.io/Statement/v1",
+  "subject": [
+    {
+      "name": "bundle/bin/capsule-deno-core-physical-omission",
+      "digest": {
+        "sha256": "597baba6b9f50fc619ce667a352e19686f8c73efc6819d137b3c4081450fd6f5"
+      }
+    },
+    {
+      "name": "bundle/share/capsule-deno-core/capsule_core_snapshot.bin",
+      "digest": {
+        "sha256": "ef5f1e7883bbf62a6422957ff0eea51a06d4b35cad1f47dc9c9ae137ab8dfa0b"
+      }
+    },
+    {
+      "name": "capsule-deno-core-runtime-bundle.tar.gz",
+      "digest": {
+        "sha256": "da8f755832a6fceba37078c58cc67c4136bc823acc75fe377ec4c1b98a8ef498"
+      }
+    }
+  ],
+  "predicateType": "https://slsa.dev/provenance/v1",
+  "predicate": {
+    "buildDefinition": {
+      "buildType": "https://capsule.local/experiments/deno-core-reproducible-package/v0",
+      "externalParameters": {
+        "target": "aarch64-unknown-linux-gnu",
+        "patchOrder": [
+          "patches/0001-physically-allowlist-bootstrap-ops.patch",
+          "patches/0002-canonicalize-snapshot-module-order.patch"
+        ],
+        "cargo": "--locked --offline --release -j1",
+        "v8Flags": ["--jitless", "--random-seed=42"]
+      },
+      "internalParameters": {
+        "sourceDateEpoch": 0,
+        "locale": "C",
+        "timezone": "UTC",
+        "aslr": "disabled for compiler process with setarch aarch64 -R",
+        "fixedPaths": ["/workspace", "/cargo-home", "/target"]
+      },
+      "resolvedDependencies": [
+        {
+          "uri": "pkg:github/denoland/deno@v2.9.4",
+          "digest": {
+            "sha256": "95f9d8361809f2d2f3ee2d8a6955951dcf96c2f4bbeb540c2d6fdd9363e6dc94"
+          }
+        },
+        {
+          "uri": "pkg:cargo/deno_core@0.409.0",
+          "digest": {
+            "sha256": "16b44f6f84139c39ec2f8d1b838412eb84ecaa9837103f7b12169896fd8778b4"
+          }
+        },
+        {
+          "uri": "pkg:cargo/v8@150.2.0",
+          "digest": {
+            "sha256": "c7f4e905df70d6c00b95e69c5f0831fd5eb5889b0116ae2b30293578c19cd1bc"
+          }
+        },
+        {
+          "uri": "pkg:generic/rusty_v8@150.2.0?arch=aarch64&os=linux",
+          "digest": {
+            "sha256": "8d91df74c8a671c23f880e64038023f49e07ca85c96e15d76a87e2aac9b20595"
+          }
+        },
+        {
+          "uri": "file:cargo-source-bundle.tar.gz",
+          "digest": {
+            "sha256": "912ee37b7735efc7412abf9a34c66ecf970fc8335f14d6b21202a0c7964df58c"
+          }
+        },
+        {
+          "uri": "file:patches/0001-physically-allowlist-bootstrap-ops.patch",
+          "digest": {
+            "sha256": "f45fda69db3875dbd730aa9568cb88ff6cc35a25c8d82edb5fa3b521c19bac37"
+          }
+        },
+        {
+          "uri": "file:patches/0002-canonicalize-snapshot-module-order.patch",
+          "digest": {
+            "sha256": "9dd33fd423ce98f030d80eba5cb386d5236b7ca103aa45b58ce5b36125d8061e"
+          }
+        }
+      ]
+    },
+    "runDetails": {
+      "builder": {
+        "id": "pkg:oci/rust@1.95.0-bookworm?repository_digest=sha256:6258907abe69656e41cd992e0b705cdcfabcbbe3db374f92ed2d47121282d4a1"
+      },
+      "metadata": {
+        "invocationId": "capsule-deno-core-repro-2026-08-02-same-host-a-b"
+      },
+      "byproducts": [
+        {
+          "name": "build-a/bundle-manifest.txt",
+          "digest": {
+            "sha256": "66521b9f0b1cf1e7deece2d3d86c9ce65ce49b5965763ec1596cac26e463bb67"
+          }
+        },
+        {
+          "name": "build-b/bundle-manifest.txt",
+          "digest": {
+            "sha256": "66521b9f0b1cf1e7deece2d3d86c9ce65ce49b5965763ec1596cac26e463bb67"
+          }
+        }
+      ],
+      "limitations": [
+        "unsigned experiment-generated statement",
+        "same Docker Desktop host and LinuxKit kernel for both clean containers",
+        "no independently controlled second builder or host was available",
+        "V8 third-party source and notice closure remains incomplete"
+      ]
+    }
+  }
+}

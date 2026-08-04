@@ -1,0 +1,21 @@
+{
+  "schema": "capsule.deno-core-runtime-root-mutations.v0",
+  "result": "pass",
+  "cases": [
+    "caller environment injection rejected before execution",
+    "missing loader rejected",
+    "substituted loader rejected",
+    "mutated loader rejected",
+    "missing library rejected",
+    "substituted library rejected",
+    "mutated library rejected",
+    "missing snapshot rejected",
+    "wrong mode rejected",
+    "wrong owner rejected",
+    "extra root file rejected",
+    "relocated internal path rejected",
+    "mutated GLIBC version rejected by manifest and loader",
+    "manifest digest mismatch rejected",
+    "22-entry cap accepted and cap-plus-one rejected"
+  ]
+}

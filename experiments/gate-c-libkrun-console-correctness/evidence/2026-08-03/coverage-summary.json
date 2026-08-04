@@ -1,0 +1,40 @@
+{
+  "status": "local library coverage only; not real transport, guest, VMM, or admission evidence",
+  "scope": "four files changed by the retained console correctness patch",
+  "aggregate": {
+    "functions": { "count": 88, "covered": 13, "notCovered": 75, "percent": 14.772727 },
+    "lines": { "count": 728, "covered": 90, "notCovered": 638, "percent": 12.362637 },
+    "regions": { "count": 1091, "covered": 156, "notCovered": 935, "percent": 14.298808 }
+  },
+  "files": [
+    {
+      "file": "src/devices/src/virtio/console/device.rs",
+      "functions": { "count": 30, "covered": 7, "notCovered": 23, "percent": 23.333333 },
+      "lines": { "count": 275, "covered": 35, "notCovered": 240, "percent": 12.727273 },
+      "regions": { "count": 421, "covered": 58, "notCovered": 363, "percent": 13.776722 }
+    },
+    {
+      "file": "src/devices/src/virtio/console/port.rs",
+      "functions": { "count": 17, "covered": 0, "notCovered": 17, "percent": 0.0 },
+      "lines": { "count": 137, "covered": 0, "notCovered": 137, "percent": 0.0 },
+      "regions": { "count": 172, "covered": 0, "notCovered": 172, "percent": 0.0 }
+    },
+    {
+      "file": "src/devices/src/virtio/console/port_io.rs",
+      "functions": { "count": 37, "covered": 6, "notCovered": 31, "percent": 16.216216 },
+      "lines": { "count": 225, "covered": 55, "notCovered": 170, "percent": 24.444444 },
+      "regions": { "count": 378, "covered": 98, "notCovered": 280, "percent": 25.925926 }
+    },
+    {
+      "file": "src/devices/src/virtio/console/process_tx.rs",
+      "functions": { "count": 4, "covered": 0, "notCovered": 4, "percent": 0.0 },
+      "lines": { "count": 91, "covered": 0, "notCovered": 91, "percent": 0.0 },
+      "regions": { "count": 120, "covered": 0, "notCovered": 120, "percent": 0.0 }
+    }
+  ],
+  "wholeKrunDevicesCrate": {
+    "functions": { "count": 1189, "covered": 208, "notCovered": 981, "percent": 17.493692 },
+    "lines": { "count": 13135, "covered": 2050, "notCovered": 11085, "percent": 15.607156 },
+    "regions": { "count": 19090, "covered": 3613, "notCovered": 15477, "percent": 18.926139 }
+  }
+}

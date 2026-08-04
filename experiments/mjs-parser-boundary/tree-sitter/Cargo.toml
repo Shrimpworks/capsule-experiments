@@ -1,0 +1,11 @@
+[package]
+name = "capsule-mjs-tree-sitter-control"
+edition.workspace = true
+license.workspace = true
+publish.workspace = true
+version.workspace = true
+
+[dependencies]
+tree-sitter = "=0.26.11"
+tree-sitter-javascript = "=0.25.0"
+

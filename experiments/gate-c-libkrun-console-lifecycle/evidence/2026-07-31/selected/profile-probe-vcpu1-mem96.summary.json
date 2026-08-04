@@ -1,0 +1,34 @@
+{
+  "attempt": "profile-probe-vcpu1-mem96",
+  "outcome": "exited",
+  "termination": "natural",
+  "runnerPid": 99518,
+  "profile": "probe-vcpu1-mem96",
+  "wallLimitMillis": 2000,
+  "graceMillis": 200,
+  "controlReadyMillis": 38,
+  "elapsedMillis": 92,
+  "identityVerifiedAtStart": true,
+  "identityVerifiedBeforeTerm": false,
+  "identityVerifiedBeforeKill": false,
+  "exitCode": 0,
+  "runnerUserCPUZero": false,
+  "runnerUserCpuMillis": 50,
+  "runnerSystemCpuMillis": 18,
+  "runnerMaxRssBytes": 79724544,
+  "controllerMaxRssBytes": 5079040,
+  "stdout": {
+    "mode": "drain",
+    "observedBytes": 0,
+    "retainedBytes": 0,
+    "capturePath": "profile-probe-vcpu1-mem96.stdout.capture",
+    "truncated": false
+  },
+  "stderr": {
+    "mode": "drain",
+    "observedBytes": 155,
+    "retainedBytes": 155,
+    "capturePath": "profile-probe-vcpu1-mem96.stderr.capture",
+    "truncated": false
+  }
+}

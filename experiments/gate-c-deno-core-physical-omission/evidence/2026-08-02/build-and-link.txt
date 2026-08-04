@@ -1,0 +1,54 @@
+profile.platform=linux/arm64
+profile.image=sha256:b8483b5baafc8f085feb4a48ef34993b182de50d86ed03fd13b98b166e7a0ad6
+profile.network=none
+profile.root=read-only
+profile.capabilities=all-dropped
+profile.noNewPrivileges=true
+profile.cargo=locked,offline,-j1
+profile.environment=SOURCE_DATE_EPOCH=0,TZ=UTC,LC_ALL=C,LANG=C
+
+ordinaryBuildA.binary.sha256=8552a52936a52c9eb46d86f3e40dd8e5287bcb22e69e7686d54db74bf43cbbda
+ordinaryBuildA.snapshot.sha256=6d499767268eda9d6e2b2790191b055acf15b3c9057d666a6e951a51c9fe19f6
+ordinaryBuildB.binary.sha256=214d1743e9e2b8aec91cd60cadf2b5d2aeaff0db453894ce2685de43e7caeadf
+ordinaryBuildB.snapshot.sha256=fbc88aa8095445fc938f5565e2b782e1b9eae91525e23e4c7b5b51ffa4cf447f
+ordinaryBuild.snapshot.size=699980
+ordinaryBuild.snapshot.differingBytes=43
+ordinaryBuild.decision=not deterministic
+
+preCanonicalOrderBuildA.binary.sha256=2242dbee5cd307bd1a7e3f23493214128e9dc87b34b490f5bb61a1424871a578
+preCanonicalOrderBuildB.binary.sha256=ac63d1e5ba907d27adf5958b1ee2e640b9b0db2881b8595077fab87d7d93625c
+preCanonicalOrderBuildA.snapshot.sha256=f045a28e720f966d1e426d1dbe7a86d323eaa1247284749f38b78e332620b7da
+preCanonicalOrderBuildB.snapshot.sha256=ef5f1e7883bbf62a6422957ff0eea51a06d4b35cad1f47dc9c9ae137ab8dfa0b
+preCanonicalOrderBuild.snapshot.differingBytes=27
+preCanonicalOrderBuild.decision=ASLR control alone does not remove randomized module-map order
+
+deterministicAdjustment.1=canonical sort of existing module-map by_name sidecar vector
+deterministicAdjustment.2=setarch aarch64 -R for the build process
+deterministicAdjustment.containerSeccomp=unconfined for personality(2) only
+deterministicBuildA.binary.sha256=597baba6b9f50fc619ce667a352e19686f8c73efc6819d137b3c4081450fd6f5
+deterministicBuildB.binary.sha256=597baba6b9f50fc619ce667a352e19686f8c73efc6819d137b3c4081450fd6f5
+deterministicBuild.binary.size=68497544
+deterministicBuildA.snapshot.sha256=ef5f1e7883bbf62a6422957ff0eea51a06d4b35cad1f47dc9c9ae137ab8dfa0b
+deterministicBuildB.snapshot.sha256=ef5f1e7883bbf62a6422957ff0eea51a06d4b35cad1f47dc9c9ae137ab8dfa0b
+deterministicBuild.snapshot.size=699980
+deterministicBuild.binary.cmp=equal
+deterministicBuild.snapshot.cmp=equal
+
+runtime.registry.count=3
+runtime.registry.names=op_get_ext_import_meta_proto,op_get_extras_binding_object,op_set_captured_bootstrap
+runtime.omittedMetadataSamples=op_compile_function,op_eval_context,op_import_sync,op_load_ext_script,op_memory_usage,op_op_names,op_panic,op_print,op_read,op_write
+runtime.omittedMetadataSamples.result=all absent
+
+nm.command=nm -C --defined-only BINARY | rg -o 'deno_core::ops_builtin(?:_types|_v8)?::op_[A-Za-z0-9_]+' | sort -u
+nm.symbol.1=deno_core::ops_builtin_v8::op_get_ext_import_meta_proto
+nm.symbol.2=deno_core::ops_builtin_v8::op_get_extras_binding_object
+nm.symbol.3=deno_core::ops_builtin_v8::op_set_captured_bootstrap
+nm.otherBuiltinOpSymbols=0
+
+fixedFixture.sourceAllowlist.count=5
+fixedFixture.inputAllowlist.count=1
+fixedFixture.otherSourceBytes=refused before runtime creation
+fixedFixture.otherInputBytes=refused before runtime creation
+
+buildLimitation=one earlier parallel rustc 1.95 archive build aborted; both final clean -j1 builds completed
+provenanceLimitation=same owned image only, not two-builder provenance

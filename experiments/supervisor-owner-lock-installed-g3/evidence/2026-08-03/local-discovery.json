@@ -1,0 +1,89 @@
+{
+  "format": "capsule.supervisor.owner-lock-g3.local-discovery",
+  "version": 0,
+  "date": "2026-08-03",
+  "authorizedScope": "owned current macOS development host; public signing metadata and one harmless temporary signing probe only",
+  "expected": {
+    "certificateSha1": "1638CFBD9250A00B4DBD81AE8FD1C790B42F61E3",
+    "certificateDisplayName": "Apple Development: Dylan Steele (W4QUR9FUL4)",
+    "teamIdentifier": "W4QUR9FUL4"
+  },
+  "observedCertificate": {
+    "sha1": "1638CFBD9250A00B4DBD81AE8FD1C790B42F61E3",
+    "sha256": "8C7A75BACEBF113E8B421A267C4F08B92112DEEE7228ADD855724018DB0C9891",
+    "subjectCommonName": "Apple Development: Dylan Steele (W4QUR9FUL4)",
+    "subjectOrganizationalUnit": "3DDR84M4JS",
+    "subjectUserId": "GSQP72QY5T",
+    "issuer": "Apple Worldwide Developer Relations Certification Authority",
+    "notBefore": "2026-07-31T16:46:46Z",
+    "notAfter": "2027-07-31T16:46:45Z"
+  },
+  "observedSignedProbe": {
+    "input": "harmless temporary copy of /usr/bin/true",
+    "signingSelectorSha1": "1638CFBD9250A00B4DBD81AE8FD1C790B42F61E3",
+    "identifier": "com.capsulecorp.spike.owner-lock-g3.discovery",
+    "teamIdentifier": "3DDR84M4JS",
+    "cdHashSha256Truncated": "81a6f7249408034ff363ddfe103c1ad0155598b9",
+    "cdHashSha256Full": "81a6f7249408034ff363ddfe103c1ad0155598b9225f160fa3bd55ce93f259d9",
+    "signedByteSha256": "05f302db885cb754ef05cc2144503d4b5c157c26dd83295936270270b99e0848",
+    "signatureAuthority": "Apple Development: Dylan Steele (W4QUR9FUL4)",
+    "hardenedRuntime": true,
+    "entitlements": {},
+    "designatedRequirement": "identifier \"com.capsulecorp.spike.owner-lock-g3.discovery\" and anchor apple generic and certificate leaf[subject.CN] = \"Apple Development: Dylan Steele (W4QUR9FUL4)\" and certificate 1[field.1.2.840.113635.100.6.2.1] /* exists */",
+    "retainedBytes": false
+  },
+  "cachedProfiles": [
+    {
+      "uuid": "083bfc15-1c78-4554-b542-f9385afeaeb6",
+      "name": "Mac Team Direct Provisioning Profile: io.github.dills122.capsule.gate-b.supervisor",
+      "teamIdentifier": "3DDR84M4JS",
+      "applicationIdentifier": "3DDR84M4JS.io.github.dills122.capsule.gate-b.supervisor",
+      "expiration": "2044-07-26T17:38:10Z",
+      "sha256": "09d5d69c7ba46da2ae6ca2525e74c22f445afdff7299829a5e68880389f767ce",
+      "usableForG3": false
+    },
+    {
+      "uuid": "a1981ade-6a5e-4eb5-b2bc-03515d64922f",
+      "name": "Mac Team Direct Provisioning Profile: io.github.dills122.capsule.gate-b.broker",
+      "teamIdentifier": "3DDR84M4JS",
+      "applicationIdentifier": "3DDR84M4JS.io.github.dills122.capsule.gate-b.broker",
+      "expiration": "2044-07-26T17:35:39Z",
+      "sha256": "b00948963935d3c659c671410d8669c4c08934ad3fa11d26c71f85ea5ed2a4d3",
+      "usableForG3": false
+    },
+    {
+      "uuid": "c63a7c49-9ae4-4f1a-9c75-c18c5387e565",
+      "name": "Mac Team Provisioning Profile: *",
+      "teamIdentifier": "3DDR84M4JS",
+      "applicationIdentifier": "3DDR84M4JS.*",
+      "expiration": "2027-07-31T17:20:36Z",
+      "sha256": "520db39cadf29c9bb71e7d487d7984b14466baed625cd541f252f03e985e9500",
+      "usableForG3": false
+    }
+  ],
+  "environment": {
+    "macOS": "26.5.2",
+    "build": "25F84",
+    "architecture": "arm64",
+    "xcode": "26.6 (17F113)",
+    "sdk": "26.5",
+    "swift": "6.3.3",
+    "clang": "21.0.0 (clang-2100.1.1.101)",
+    "go": "1.26.5"
+  },
+  "decision": "NO-GO",
+  "blockers": [
+    "the authorized certificate display name says W4QUR9FUL4 but its subject OU and emitted TeamIdentifier are 3DDR84M4JS",
+    "no cached provisioning profile belongs to W4QUR9FUL4",
+    "the protected Supervisor-root bootstrap authority/topology is not selected without a shared app group or prohibited create-on-normal-start fallback",
+    "no signed per-installation bootstrap record or installation-root signing mechanism is implemented",
+    "G2 still uses a trusted absolute test-only StorePath rather than a descriptor-relative closed store entry"
+  ],
+  "explicitlyNotRun": [
+    "W4 app build or signing",
+    "SMAppService registration or activation",
+    "protected-container state-root enrollment",
+    "installed session, crash, update, downgrade, rollback, logout-login, or reboot matrix",
+    "Developer ID, notarization, stapling, Gatekeeper, clean-host, minimum-OS, backend, runtime, or guest work"
+  ]
+}

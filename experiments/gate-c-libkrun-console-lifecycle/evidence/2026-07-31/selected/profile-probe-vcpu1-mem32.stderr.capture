@@ -1,0 +1,38 @@
+CAPSULE_KRUN_READY pid=99500 profile=probe-vcpu1-mem32 vcpus=1 ramMiB=32 termination=graceful network=none root=block-ro
+CAPSULE_KRUN_AUTHORIZED pid=99500
+[2026-07-31T21:10:05.150598Z WARN  krun_devices::virtio::mmio] update virtio queue in invalid state 0x0
+[2026-07-31T21:10:05.150629Z WARN  krun_devices::virtio::mmio] update virtio queue in invalid state 0x0
+[2026-07-31T21:10:05.155591Z ERROR init_or_kernel] [    0.058770] Kernel panic - not syncing: System is deadlocked on memory
+[2026-07-31T21:10:05.155675Z ERROR init_or_kernel] [    0.058884] CPU: 0 UID: 0 PID: 1 Comm: swapper/0 Not tainted 6.12.91 #1
+[2026-07-31T21:10:05.155743Z ERROR init_or_kernel] [    0.058950] Hardware name: linux,dummy-virt (DT)
+[2026-07-31T21:10:05.155788Z ERROR init_or_kernel] [    0.059020] Call trace:
+[2026-07-31T21:10:05.155824Z ERROR init_or_kernel] [    0.059061]  dump_backtrace+0x94/0x114
+[2026-07-31T21:10:05.155859Z ERROR init_or_kernel] [    0.059097]  show_stack+0x18/0x24
+[2026-07-31T21:10:05.155898Z ERROR init_or_kernel] [    0.059134]  dump_stack_lvl+0x34/0x8c
+[2026-07-31T21:10:05.155939Z ERROR init_or_kernel] [    0.059172]  dump_stack+0x18/0x24
+[2026-07-31T21:10:05.155974Z ERROR init_or_kernel] [    0.059211]  panic+0x328/0x33c
+[2026-07-31T21:10:05.156036Z ERROR init_or_kernel] [    0.059247]  pagefault_out_of_memory+0x0/0x68
+[2026-07-31T21:10:05.156103Z ERROR init_or_kernel] [    0.059310]  __alloc_pages_may_oom+0xdc/0x188
+[2026-07-31T21:10:05.156159Z ERROR init_or_kernel] [    0.059377]  __alloc_pages_slowpath.constprop.0+0x550/0x7b8
+[2026-07-31T21:10:05.156261Z ERROR init_or_kernel] [    0.059432]  __alloc_pages_noprof+0x1bc/0x224
+[2026-07-31T21:10:05.156308Z ERROR init_or_kernel] [    0.059536]  allocate_slab+0x278/0x380
+[2026-07-31T21:10:05.156364Z ERROR init_or_kernel] [    0.059582]  new_slab+0x44/0x6c
+[2026-07-31T21:10:05.156424Z ERROR init_or_kernel] [    0.059639]  ___slab_alloc+0x190/0x568
+[2026-07-31T21:10:05.156487Z ERROR init_or_kernel] [    0.059698]  kmem_cache_alloc_noprof+0x1f0/0x22c
+[2026-07-31T21:10:05.156545Z ERROR init_or_kernel] [    0.059762]  __kernfs_new_node.isra.0+0x54/0x244
+[2026-07-31T21:10:05.156597Z ERROR init_or_kernel] [    0.059820]  kernfs_new_node+0x48/0x70
+[2026-07-31T21:10:05.156644Z ERROR init_or_kernel] [    0.059871]  __kernfs_create_file+0x30/0xf0
+[2026-07-31T21:10:05.156715Z ERROR init_or_kernel] [    0.059921]  sysfs_add_file_mode_ns+0x74/0x128
+[2026-07-31T21:10:05.156759Z ERROR init_or_kernel] [    0.059988]  create_files+0xa0/0x1e4
+[2026-07-31T21:10:05.156845Z ERROR init_or_kernel] [    0.060032]  internal_create_group+0x108/0x2fc
+[2026-07-31T21:10:05.156888Z ERROR init_or_kernel] [    0.060117]  sysfs_create_group+0x18/0x24
+[2026-07-31T21:10:05.156939Z ERROR init_or_kernel] [    0.060161]  param_sysfs_builtin+0xac/0x110
+[2026-07-31T21:10:05.156986Z ERROR init_or_kernel] [    0.060213]  param_sysfs_builtin_init+0x7c/0xa4
+[2026-07-31T21:10:05.157022Z ERROR init_or_kernel] [    0.060259]  do_one_initcall+0x58/0x144
+[2026-07-31T21:10:05.157059Z ERROR init_or_kernel] [    0.060295]  do_initcalls+0xd4/0x138
+[2026-07-31T21:10:05.157114Z ERROR init_or_kernel] [    0.060335]  kernel_init_freeable+0x124/0x1c4
+[2026-07-31T21:10:05.157153Z ERROR init_or_kernel] [    0.060389]  kernel_init+0x24/0x1d4
+[2026-07-31T21:10:05.157194Z ERROR init_or_kernel] [    0.060426]  ret_from_fork+0x10/0x20
+[2026-07-31T21:10:05.157224Z ERROR init_or_kernel] [    0.060470] Kernel Offset: disabled
+[2026-07-31T21:10:05.157277Z ERROR init_or_kernel] [    0.060497] CPU features: 0x00,0000000c,00862928,6607f723
+[2026-07-31T21:10:05.157326Z ERROR init_or_kernel] [    0.060550] Memory Limit: none

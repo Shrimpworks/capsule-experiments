@@ -1,0 +1,6 @@
+{
+  "name": "capsule-local-probe",
+  "version": "0.0.0-experiment",
+  "type": "module",
+  "exports": "./index.js"
+}

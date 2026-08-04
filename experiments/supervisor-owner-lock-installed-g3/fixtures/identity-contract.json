@@ -1,0 +1,97 @@
+{
+  "format": "capsule.supervisor.owner-lock-g3.identity-contract",
+  "version": 0,
+  "authorizedEnvironment": "owned-current-macos-development-host",
+  "expectedTeamIdentifier": "W4QUR9FUL4",
+  "authorizedCertificateSha1": "1638CFBD9250A00B4DBD81AE8FD1C790B42F61E3",
+  "roles": {
+    "bootstrap": {
+      "roleIdentifier": "capsule.owner-lock-g3.bootstrap-fixture",
+      "bundleIdentifier": "com.capsulecorp.spike.owner-lock-g3.bootstrap",
+      "profileType": "macOS App Development",
+      "requestedEntitlements": {
+        "com.apple.security.app-sandbox": true
+      },
+      "prohibitedEntitlements": [
+        "com.apple.security.application-groups",
+        "keychain-access-groups",
+        "com.apple.security.hypervisor",
+        "com.apple.security.files.user-selected.read-only",
+        "com.apple.security.files.user-selected.read-write"
+      ]
+    },
+    "supervisor": {
+      "roleIdentifier": "capsule.execution-supervisor.owner-lock-g3-fixture",
+      "bundleIdentifier": "com.capsulecorp.spike.owner-lock-g3.supervisor",
+      "serviceLabel": "com.capsulecorp.spike.owner-lock-g3.supervisor",
+      "serviceKind": "SMAppService.agent",
+      "profileType": "macOS App Development",
+      "requestedEntitlements": {
+        "com.apple.security.app-sandbox": true
+      },
+      "prohibitedEntitlements": [
+        "com.apple.security.application-groups",
+        "keychain-access-groups",
+        "com.apple.security.hypervisor",
+        "com.apple.security.files.user-selected.read-only",
+        "com.apple.security.files.user-selected.read-write"
+      ]
+    }
+  },
+  "state": {
+    "applicationSupportChild": "CapsuleOwnerLockG3",
+    "bootstrapRecordEntryName": "owner-bootstrap.json",
+    "lockEntryName": "supervisor.owner",
+    "lockMode": 384,
+    "lockLinkCount": 1,
+    "storeEntryName": "supervisor-state.json",
+    "storeFormatVersion": 1
+  },
+  "bootstrapRecordFields": [
+    "format",
+    "version",
+    "installationId",
+    "supervisorId",
+    "expectedTeamIdentifier",
+    "supervisorSigningIdentifier",
+    "acceptedSupervisorCdHashes",
+    "supervisorEntitlementsSha256",
+    "expectedUid",
+    "stateRootDevice",
+    "stateRootInode",
+    "stateRootMode",
+    "stateRootLinkCount",
+    "lockEntryName",
+    "lockDevice",
+    "lockInode",
+    "lockMode",
+    "lockLinkCount",
+    "storeEntryName",
+    "storeFormatVersion",
+    "trustEpochSequence",
+    "trustEpochDigest"
+  ],
+  "releases": [
+    {
+      "name": "g3-v1",
+      "epochSequence": 1,
+      "supervisorCdHashFixture": "1111111111111111111111111111111111111111",
+      "entitlementsSha256Fixture": "1111111111111111111111111111111111111111111111111111111111111111"
+    },
+    {
+      "name": "g3-v2",
+      "epochSequence": 2,
+      "supervisorCdHashFixture": "2222222222222222222222222222222222222222",
+      "entitlementsSha256Fixture": "1111111111111111111111111111111111111111111111111111111111111111"
+    }
+  ],
+  "profileRequirements": {
+    "applicationGroups": [],
+    "keychainAccessGroups": [],
+    "exactProfiles": [
+      "W4QUR9FUL4.com.capsulecorp.spike.owner-lock-g3.bootstrap",
+      "W4QUR9FUL4.com.capsulecorp.spike.owner-lock-g3.supervisor"
+    ],
+    "allowHistoricalTeam3DDR84M4JS": false
+  }
+}

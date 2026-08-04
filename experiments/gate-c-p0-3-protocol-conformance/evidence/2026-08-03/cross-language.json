@@ -1,0 +1,52 @@
+{
+  "status": "backend-independent local harness evidence; not a frozen contract, transport, launcher, guest, VMM, or admission result",
+  "observedAt": "2026-08-03T17:55:15Z",
+  "baseRevision": "68b75fdf41f3d6c5db72a5163b19da451eb6f766",
+  "environment": {
+    "node": "v22.22.1",
+    "os": "macOS 26.5.2 (25F84)",
+    "architecture": "arm64"
+  },
+  "manifest": {
+    "cases": 43,
+    "sha256": "f4fd4ee1e1728e085eb8dd142890e1b4fd79749330bf746f6535eef3f3d342f6",
+    "independentlyEncodedKnownAnswers": 6
+  },
+  "caps": {
+    "sourcePayloadMax": 1048576,
+    "canonicalInputMax": 262144,
+    "inlineJSONPayloadMax": 262144,
+    "dataHeaderLength": 152,
+    "completionHeaderLength": 160,
+    "commitTrailerLength": 64,
+    "sourcePhysicalMax": 1048728,
+    "inputPhysicalMax": 262296,
+    "completionPhysicalMax": 262368
+  },
+  "acceptedKnownAnswerSha256": {
+    "sourcePayloadExact": "c511109fde643ac10bd7f78d16a1c962b4263d0f87be3bba192d8eff25f6ba1e",
+    "inputPayloadExact": "7fea2562e7dcf0b01e89cc07671e93aa63ada96adc3b96376d7fa8b4b8e49aae",
+    "completionJSONExact": "239c6abf0c3b0133d946cbe9cfd78b710a8e9abed9c0882435f64bd5b330c6df",
+    "completionSmall": "6c0c02205ee28a068e0f1769933e6dd7cecd0e530cb73a3c79a5c920ca2a65ee"
+  },
+  "faultHarness": {
+    "result": "PASS",
+    "cases": [
+      "exact caps accepted and cap-plus-one fully drained then refused",
+      "one-byte partial writes preserve the committed frame",
+      "zero progress and stall fail closed with forced teardown",
+      "reader death after partial progress fails closed",
+      "peer close produces an EPIPE-equivalent writer failure",
+      "backpressure still drains an entire oversize flood with cap-plus-one retention",
+      "runner death before and after commit never becomes ordinary success",
+      "cancellation tears down a partial producer without accepting EOF",
+      "source input and completion endpoint role confusion is refused",
+      "EOF and clean runner exit never substitute for a commit"
+    ]
+  },
+  "commands": [
+    "node --test experiments/gate-c-p0-3-protocol-conformance/cross-language/verifier.test.mjs",
+    "node experiments/gate-c-p0-3-protocol-conformance/cross-language/fault-harness.mjs",
+    "node experiments/gate-c-p0-3-protocol-conformance/cross-language/verifier.mjs"
+  ]
+}

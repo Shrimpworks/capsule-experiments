@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+  <key>Label</key>
+  <string>invalid.capsule.gate-b.installed</string>
+  <key>LimitLoadToSessionType</key>
+  <string>Aqua</string>
+  <key>MachServices</key>
+  <dict/>
+  <key>ProcessType</key>
+  <string>Interactive</string>
+  <key>ProgramArguments</key>
+  <array>
+    <string>/invalid/capsule-gate-b-component</string>
+  </array>
+  <key>StandardErrorPath</key>
+  <string>/tmp/capsule-gate-b-installed.stderr</string>
+  <key>StandardOutPath</key>
+  <string>/tmp/capsule-gate-b-installed.stdout</string>
+  <key>ThrottleInterval</key>
+  <integer>1</integer>
+</dict>
+</plist>

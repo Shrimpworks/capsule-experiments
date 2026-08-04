@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "intendedEngineeringDirection": "governed-deno-core",
+  "currentEvidenceStatus": "SOURCE-LICENSE-CLOSURE-NO-GO",
+  "runtimeAdmission": false,
+  "checks": [
+    {
+      "id": "exact-archive-identity",
+      "pass": true
+    },
+    {
+      "id": "exact-rusty-v8-and-v8-source-revisions",
+      "pass": true
+    },
+    {
+      "id": "exact-denoland-v8-patch-stack",
+      "pass": true
+    },
+    {
+      "id": "complete-immutable-build-inputs",
+      "pass": false
+    },
+    {
+      "id": "independent-official-archive-rebuild",
+      "pass": false
+    },
+    {
+      "id": "complete-linked-gn-component-closure",
+      "pass": false
+    },
+    {
+      "id": "complete-license-and-notice-closure",
+      "pass": false
+    },
+    {
+      "id": "source-publication-bundle-and-verifier",
+      "pass": false
+    },
+    {
+      "id": "cyclonedx-composition-complete",
+      "pass": false
+    }
+  ],
+  "decision": "SOURCE-LICENSE-CLOSURE-NO-GO",
+  "effect": "Keep RUNTIME-001 and runtime/profile selection blocked. This does not supersede ADR-0003 or admit deno_core."
+}

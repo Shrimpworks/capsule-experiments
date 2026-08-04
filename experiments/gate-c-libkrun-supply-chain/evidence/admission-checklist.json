@@ -1,0 +1,80 @@
+{
+  "schemaVersion": "capsule.development-runtime-admission-checklist.v1",
+  "candidate": "libkrun-hvf-1.19.4-fw-5.5.0",
+  "decision": "no-go",
+  "evaluatedAt": "2026-07-31",
+  "items": [
+    {
+      "id": "exact-final-byte-inventory",
+      "required": true,
+      "status": "fail",
+      "evidence": "Runner and dylibs were hashed, but the final launcher, disks, Bun, bundle metadata, notarized archive, and accepted record subjects are incomplete."
+    },
+    {
+      "id": "immutable-source-pins",
+      "required": true,
+      "status": "fail",
+      "evidence": "Commit, patches, Cargo.lock, firmware archive, and kernel.c are pinned; Debian sysroot packages and complete libkrunfw/kernel source materials are not."
+    },
+    {
+      "id": "independent-patch-launcher-review",
+      "required": true,
+      "status": "conditional",
+      "evidence": "PATCH_REVIEW.md records upstreamability and launcher findings that remain open."
+    },
+    {
+      "id": "unsigned-byte-reproducibility",
+      "required": true,
+      "status": "conditional",
+      "evidence": "Two default clean builds diverged; two path-remapped, deployment-target-14 builds matched for both dylibs. The retained production candidate build does not yet enforce that control."
+    },
+    {
+      "id": "release-sbom",
+      "required": true,
+      "status": "conditional",
+      "evidence": "A target/feature-resolved CycloneDX input exists, but toolchain, sysroot, guest launcher, disks, Bun, and complete license-file review are not release-complete."
+    },
+    {
+      "id": "signed-provenance",
+      "required": true,
+      "status": "fail",
+      "evidence": "The in-toto/SLSA-shaped file is an unsigned incomplete input from an untrusted local builder."
+    },
+    {
+      "id": "developer-id-signing",
+      "required": true,
+      "status": "fail",
+      "evidence": "Current rebuild used ad-hoc identities because no valid signing identity was available."
+    },
+    {
+      "id": "notarization-gatekeeper-clean-host",
+      "required": true,
+      "status": "fail",
+      "evidence": "No notary submission, ticket/staple, Gatekeeper acceptance, or clean-machine test was performed in this track."
+    },
+    {
+      "id": "support-floor",
+      "required": true,
+      "status": "fail",
+      "evidence": "Upstream declares Apple Silicon/macOS 14+, and controlled dylibs declared minOS 14.0, but the rebuilt runner/firmware declared 26.0 and no exact bundle ran on macOS 14."
+    },
+    {
+      "id": "license-source-publication",
+      "required": true,
+      "status": "fail",
+      "evidence": "Obligations are inventoried, but no complete corresponding-source/license publication bundle was created or reviewed by counsel."
+    },
+    {
+      "id": "advisory-update-rollback-disable",
+      "required": true,
+      "status": "conditional",
+      "evidence": "OPERATIONS.md defines ownership and workflows; implementations, credentials, exercises, and readback evidence do not exist."
+    },
+    {
+      "id": "exact-backend-validation-record",
+      "required": true,
+      "status": "fail",
+      "evidence": "The remaining Gate C malicious-guest, output, disk, installed recovery, update, and full shared corpus are outside or incomplete for this track."
+    }
+  ]
+}

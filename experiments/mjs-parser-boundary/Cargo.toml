@@ -1,0 +1,10 @@
+[workspace]
+members = ["oxc", "deno-ast", "tree-sitter", "v8"]
+resolver = "2"
+
+[workspace.package]
+edition = "2024"
+license = "MIT"
+publish = false
+version = "0.0.0"
+

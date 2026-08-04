@@ -1,0 +1,115 @@
+{
+  "schemaVersion": 1,
+  "purpose": "capsule.p0-4a.installed-development-topology",
+  "backendAdmitted": false,
+  "maximumPosture": "development-topology-only",
+  "declaredMinimumOS": "13.0",
+  "candidatePins": {
+    "libkrun": { "version": "1.19.4", "commit": "728df8125077d0db44265f6e997c72b81b65c015" },
+    "libkrunfw": { "version": "5.5.0", "embeddedKernel": "6.12.91" },
+    "runtime": { "name": "Bun", "version": "1.3.14", "admission": "rejected-by-P0-0" }
+  },
+  "components": [
+    { "role": "app-info", "path": "Contents/Info.plist", "state": "harness" },
+    {
+      "role": "app-registrar",
+      "path": "Contents/MacOS/capsule-topology-registrar",
+      "state": "harness"
+    },
+    {
+      "role": "service-client",
+      "path": "Contents/MacOS/capsule-topology-client",
+      "state": "harness"
+    },
+    {
+      "role": "execution-supervisor",
+      "path": "Contents/MacOS/capsule-topology-supervisor",
+      "state": "placeholder"
+    },
+    {
+      "role": "runner-app-info",
+      "path": "Contents/Helpers/CapsuleTopologyRunner.app/Contents/Info.plist",
+      "state": "harness"
+    },
+    {
+      "role": "vmm-runner",
+      "path": "Contents/Helpers/CapsuleTopologyRunner.app/Contents/MacOS/capsule-topology-runner",
+      "state": "harness"
+    },
+    {
+      "role": "guest-launcher",
+      "path": "Contents/MacOS/capsule-guest-launcher-placeholder",
+      "state": "placeholder"
+    },
+    {
+      "role": "process-identity-helper",
+      "path": "Contents/MacOS/capsule-process-identity",
+      "state": "harness"
+    },
+    {
+      "role": "libkrun",
+      "path": "Contents/Frameworks/libkrun.1.19.4.dylib",
+      "state": "pinned-candidate"
+    },
+    {
+      "role": "libkrunfw",
+      "path": "Contents/Frameworks/libkrunfw.5.dylib",
+      "state": "pinned-candidate"
+    },
+    {
+      "role": "runtime",
+      "path": "Contents/Resources/Runtime/bun",
+      "state": "rejected-stock-candidate"
+    },
+    {
+      "role": "firmware",
+      "path": "Contents/Resources/Runtime/firmware.json",
+      "state": "metadata-placeholder"
+    },
+    {
+      "role": "guest-kernel",
+      "path": "Contents/Resources/Runtime/kernel.json",
+      "state": "metadata-placeholder"
+    },
+    {
+      "role": "runtime-root",
+      "path": "Contents/Resources/Runtime/root.placeholder",
+      "state": "byte-placeholder"
+    },
+    {
+      "role": "runner-entitlements",
+      "path": "Contents/Resources/Manifests/runner.entitlements.plist",
+      "state": "harness"
+    },
+    {
+      "role": "descriptor-manifest",
+      "path": "Contents/Resources/Manifests/descriptor-manifest.json",
+      "state": "provisional"
+    },
+    {
+      "role": "topology-input",
+      "path": "Contents/Resources/Manifests/topology-input.json",
+      "state": "provisional"
+    },
+    {
+      "role": "embedded-per-user-registration",
+      "path": "Contents/Library/LaunchAgents/com.capsulecorp.spike.p0-4a-installed-topology.supervisor.plist",
+      "state": "harness"
+    }
+  ],
+  "provisionalMechanisms": [
+    "Supervisor implementation and durable enrolled state",
+    "Supervisor-only sealed launch descriptor and caller binding",
+    "P0-0 runtime-authority closure; stock Bun 1.3.14 is rejected",
+    "P0-1 immutable finalized runtime-root bytes and descriptor custody",
+    "P0-2 NullFs removal or bounded acceptance",
+    "P0-3 typed source/input/completion ports, caps, launcher protocol, and FD roles",
+    "final governed libkrun/libkrunfw patches and source-compliance payload",
+    "final firmware, kernel, root, runtime, and launcher bytes",
+    "installation manifest, trust epoch, keys, SBOM, provenance, and validation record",
+    "Developer ID signing, notarization, stapling, Gatekeeper, quarantine, updater, and clean-host evidence",
+    "minimum supported macOS; the complete candidate byte set determines the effective floor",
+    "self-referential outer app/main-executable identity uses app code-signature readback rather than an impossible manifest-contained full-file hash",
+    "session, logout/login, reboot, update, rollback, repair, pressure, and power-loss recovery"
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "name": "@capsule/experiment-gate-a2-typescript",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "check": "tsc -p tsconfig.json --noEmit",
+    "test": "pnpm build && node --test dist/test/*.test.js"
+  },
+  "dependencies": {
+    "cbor2": "2.3.0"
+  },
+  "devDependencies": {
+    "@types/node": "25.5.0",
+    "typescript": "5.9.2"
+  },
+  "packageManager": "pnpm@10.28.2"
+}

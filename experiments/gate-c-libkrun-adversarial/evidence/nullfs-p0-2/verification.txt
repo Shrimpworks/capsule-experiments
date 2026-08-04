@@ -1,0 +1,60 @@
+date=2026-08-02
+host=macOS 26.5.2 build 25F84 arm64
+libkrunCommit=728df8125077d0db44265f6e997c72b81b65c015
+rustc=1.93.1
+cargo=1.93.1
+go=1.26.5 darwin/arm64
+clang=Apple clang 21.0.0
+validCodeSigningIdentities=0
+
+command=CAPSULE_LIBKRUN_SOURCE=/private/tmp/capsule-libkrun-v1.19.4 ./audit-nullfs-source.sh .build/capsule-krun-runner
+result=pass, pinned block-root/direct-null/host-backed source routes matched, runner imported only block-root route
+
+command=make BLK=1 with retained patches plus minimal removal probe
+result=pass
+unsignedPatchedLibkrunSha256=35d54641a6ea5b08dcfc3ea4d86b44dcc97359debfa3e5b55a9cb2ec5067f9fe
+
+command=bounded baseline inventory boot
+result=pass, status 0, inventory present, /dev/vda read-only, virtiofs present
+
+command=bounded minimal-removal inventory boot
+result=falsified, host runner status 0, no completion/inventory, kernel panic before init
+
+command=adversarial harness rerun
+result=expected status 1 for NullFs plus three expected ad-hoc identity limitations
+caseCount=36
+identityCaseCount=4
+rawReportSha256=408d55e5c96662eec8408c7dae9fb02a696971542660ad076fa868a7a992eb87
+
+command=cargo test -p krun-devices --features blk --lib
+result=pass, 47 passed, 0 failed
+
+command=cargo test -p libkrun --features blk --lib with retained CC_LINUX configuration
+result=pass, 1 passed, 0 failed
+
+command=go test ./...
+result=pass
+
+command=go test ./internal/preflight -run ^TestValidateProfileDeterministicPropertyCorpus$ -count=1 -v
+result=pass, exact profiles accepted=1/10000
+
+command=go test ./internal/preflight -run ^$ -fuzz ^FuzzValidateProfile$ -fuzztime=5s
+result=pass, 1676130 executions, 8 total interesting inputs, no failure
+
+coverageLimitation=no NullFs/FUSE/virtqueue fuzz target or sanitizer/coverage corpus exists
+signingLimitation=boot comparison used non-hardened ad-hoc signing and is not installed-profile evidence
+
+command=fnm exec --using=22.22.1 -- pnpm install
+result=pass, lockfile current, 11 packages reused, 0 downloaded
+
+command=pnpm check; pnpm lint; pnpm test; pnpm verify:schemas
+result=pass
+
+command=go test ./...; go vet ./...; go build ./...
+result=pass
+
+command=sh -n and shellcheck over all five adversarial experiment scripts
+result=pass
+
+command=git diff --check
+result=pass

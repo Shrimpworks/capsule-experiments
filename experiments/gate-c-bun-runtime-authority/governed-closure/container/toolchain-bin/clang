@@ -1,0 +1,8 @@
+#!/bin/sh
+set -eu
+
+: "${CAPSULE_REAL_CC:?CAPSULE_REAL_CC must name the locked Nix clang}"
+case " $* " in
+  *' -gz=zstd '*) set -- "$@" -gz=zlib ;;
+esac
+exec "$CAPSULE_REAL_CC" "$@"

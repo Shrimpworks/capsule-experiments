@@ -1,0 +1,3820 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.6",
+  "version": 1,
+  "metadata": {
+    "component": {
+      "type": "application",
+      "bom-ref": "capsule-libkrun-hvf-development-profile",
+      "name": "Capsule libkrun/HVF development profile",
+      "version": "spike-2026-07-31"
+    },
+    "properties": [
+      {
+        "name": "capsule:artifact-kind",
+        "value": "SBOM input; not a release SBOM"
+      },
+      {
+        "name": "capsule:target",
+        "value": "aarch64-apple-darwin"
+      },
+      {
+        "name": "capsule:features",
+        "value": "libkrun/blk; no net/gpu/snd/input"
+      },
+      {
+        "name": "capsule:libkrun-commit",
+        "value": "728df8125077d0db44265f6e997c72b81b65c015"
+      },
+      {
+        "name": "capsule:cargo-lock-sha256",
+        "value": "9d5dc785636a264794a396ab478821c4ed33acae91650db8d72e8a35733f288c"
+      },
+      {
+        "name": "capsule:runtime-cargo-component-count",
+        "value": "83"
+      },
+      {
+        "name": "capsule:builder-cargo-component-count",
+        "value": "113"
+      }
+    ]
+  },
+  "components": [
+    {
+      "type": "library",
+      "bom-ref": "pkg:cargo/adler2@2.0.1",
+      "name": "adler2",
+      "version": "2.0.1",
+      "scope": "required",
+      "purl": "pkg:cargo/adler2@2.0.1",
+      "properties": [
+        {
+          "name": "capsule:dependency-scope",
+          "value": "cargo-registry"
+        },
+        {
+          "name": "capsule:source",
+          "value": "registry+https://github.com/rust-lang/crates.io-index"
+        },
+        {
+          "name": "capsule:dependency-role",
+          "value": "final-runtime-closure"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "0BSD OR MIT OR Apache-2.0"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:cargo/aho-corasick@1.1.4",
+      "name": "aho-corasick",
+      "version": "1.1.4",
+      "scope": "required",
+      "purl": "pkg:cargo/aho-corasick@1.1.4",
+      "properties": [
+        {
+          "name": "capsule:dependency-scope",
+          "value": "cargo-registry"
+        },
+        {
+          "name": "capsule:source",
+          "value": "registry+https://github.com/rust-lang/crates.io-index"
+        },
+        {
+          "name": "capsule:dependency-role",
+          "value": "final-runtime-closure"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "Unlicense OR MIT"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:cargo/allocator-api2@0.2.21",
+      "name": "allocator-api2",
+      "version": "0.2.21",
+      "scope": "required",
+      "purl": "pkg:cargo/allocator-api2@0.2.21",
+      "properties": [
+        {
+          "name": "capsule:dependency-scope",
+          "value": "cargo-registry"
+        },
+        {
+          "name": "capsule:source",
+          "value": "registry+https://github.com/rust-lang/crates.io-index"
+        },
+        {
+          "name": "capsule:dependency-role",
+          "value": "final-runtime-closure"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT OR Apache-2.0"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:cargo/anstream@0.6.21",
+      "name": "anstream",
+      "version": "0.6.21",
+      "scope": "required",
+      "purl": "pkg:cargo/anstream@0.6.21",
+      "properties": [
+        {
+          "name": "capsule:dependency-scope",
+          "value": "cargo-registry"
+        },
+        {
+          "name": "capsule:source",
+          "value": "registry+https://github.com/rust-lang/crates.io-index"
+        },
+        {
+          "name": "capsule:dependency-role",
+          "value": "final-runtime-closure"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT OR Apache-2.0"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:cargo/anstyle-parse@0.2.7",
+      "name": "anstyle-parse",
+      "version": "0.2.7",
+      "scope": "required",
+      "purl": "pkg:cargo/anstyle-parse@0.2.7",
+      "properties": [
+        {
+          "name": "capsule:dependency-scope",
+          "value": "cargo-registry"
+        },
+        {
+          "name": "capsule:source",
+          "value": "registry+https://github.com/rust-lang/crates.io-index"
+        },
+        {
+          "name": "capsule:dependency-role",
+          "value": "final-runtime-closure"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT OR Apache-2.0"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:cargo/anstyle-query@1.1.5",
+      "name": "anstyle-query",
+      "version": "1.1.5",
+      "scope": "required",
+      "purl": "pkg:cargo/anstyle-query@1.1.5",
+      "properties": [
+        {
+          "name": "capsule:dependency-scope",
+          "value": "cargo-registry"
+        },
+        {
+          "name": "capsule:source",
+          "value": "registry+https://github.com/rust-lang/crates.io-index"
+        },
+        {
+          "name": "capsule:dependency-role",
+          "value": "final-runtime-closure"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT OR Apache-2.0"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:cargo/anstyle@1.0.14",
+      "name": "anstyle",
+      "version": "1.0.14",
+      "scope": "required",
+      "purl": "pkg:cargo/anstyle@1.0.14",
+      "properties": [
+        {
+          "name": "capsule:dependency-scope",
+          "value": "cargo-registry"
+        },
+        {
+          "name": "capsule:source",
+          "value": "registry+https://github.com/rust-lang/crates.io-index"
+        },
+        {
+          "name": "capsule:dependency-role",
+          "value": "final-runtime-closure"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT OR Apache-2.0"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:cargo/anyhow@1.0.102",
+      "name": "anyhow",
+      "version": "1.0.102",
+      "scope": "excluded",
+      "purl": "pkg:cargo/anyhow@1.0.102",
+      "properties": [
+        {
+          "name": "capsule:dependency-scope",
+          "value": "cargo-registry"
+        },
+        {
+          "name": "capsule:source",
+          "value": "registry+https://github.com/rust-lang/crates.io-index"
+        },
+        {
+          "name": "capsule:dependency-role",
+          "value": "build-only-workspace-input"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT OR Apache-2.0"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:cargo/async-trait@0.1.89",
+      "name": "async-trait",
+      "version": "0.1.89",
+      "scope": "required",
+      "purl": "pkg:cargo/async-trait@0.1.89",
+      "properties": [
+        {
+          "name": "capsule:dependency-scope",
+          "value": "cargo-registry"
+        },
+        {
+          "name": "capsule:source",
+          "value": "registry+https://github.com/rust-lang/crates.io-index"
+        },
+        {
+          "name": "capsule:dependency-role",
+          "value": "final-runtime-closure"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT OR Apache-2.0"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:cargo/autocfg@1.5.0",
+      "name": "autocfg",
+      "version": "1.5.0",
+      "scope": "required",
+      "purl": "pkg:cargo/autocfg@1.5.0",
+      "properties": [
+        {
+          "name": "capsule:dependency-scope",
+          "value": "cargo-registry"
+        },
+        {
+          "name": "capsule:source",
+          "value": "registry+https://github.com/rust-lang/crates.io-index"
+        },
+        {
+          "name": "capsule:dependency-role",
+          "value": "final-runtime-closure"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "Apache-2.0 OR MIT"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:cargo/bincode_derive@2.0.1",
+      "name": "bincode_derive",
+      "version": "2.0.1",
+      "scope": "required",
+      "purl": "pkg:cargo/bincode_derive@2.0.1",
+      "properties": [
+        {
+          "name": "capsule:dependency-scope",
+          "value": "cargo-registry"
+        },
+        {
+          "name": "capsule:source",
+          "value": "registry+https://github.com/rust-lang/crates.io-index"
+        },
+        {
+          "name": "capsule:dependency-role",
+          "value": "final-runtime-closure"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:cargo/bincode@2.0.1",
+      "name": "bincode",
+      "version": "2.0.1",
+      "scope": "required",
+      "purl": "pkg:cargo/bincode@2.0.1",
+      "properties": [
+        {
+          "name": "capsule:dependency-scope",
+          "value": "cargo-registry"
+        },
+        {
+          "name": "capsule:source",
+          "value": "registry+https://github.com/rust-lang/crates.io-index"
+        },
+        {
+          "name": "capsule:dependency-role",
+          "value": "final-runtime-closure"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:cargo/bindgen@0.72.1",
+      "name": "bindgen",
+      "version": "0.72.1",
+      "scope": "excluded",
+      "purl": "pkg:cargo/bindgen@0.72.1",
+      "properties": [
+        {
+          "name": "capsule:dependency-scope",
+          "value": "cargo-registry"
+        },
+        {
+          "name": "capsule:source",
+          "value": "registry+https://github.com/rust-lang/crates.io-index"
+        },
+        {
+          "name": "capsule:dependency-role",
+          "value": "build-only-workspace-input"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "BSD-3-Clause"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:cargo/bitflags@1.3.2",
+      "name": "bitflags",
+      "version": "1.3.2",
+      "scope": "required",
+      "purl": "pkg:cargo/bitflags@1.3.2",
+      "properties": [
+        {
+          "name": "capsule:dependency-scope",
+          "value": "cargo-registry"
+        },
+        {
+          "name": "capsule:source",
+          "value": "registry+https://github.com/rust-lang/crates.io-index"
+        },
+        {
+          "name": "capsule:dependency-role",
+          "value": "final-runtime-closure"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT/Apache-2.0"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:cargo/bitflags@2.11.0",
+      "name": "bitflags",
+      "version": "2.11.0",
+      "scope": "required",
+      "purl": "pkg:cargo/bitflags@2.11.0",
+      "properties": [
+        {
+          "name": "capsule:dependency-scope",
+          "value": "cargo-registry"
+        },
+        {
+          "name": "capsule:source",
+          "value": "registry+https://github.com/rust-lang/crates.io-index"
+        },
+        {
+          "name": "capsule:dependency-role",
+          "value": "final-runtime-closure"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT OR Apache-2.0"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:cargo/cexpr@0.6.0",
+      "name": "cexpr",
+      "version": "0.6.0",
+      "scope": "excluded",
+      "purl": "pkg:cargo/cexpr@0.6.0",
+      "properties": [
+        {
+          "name": "capsule:dependency-scope",
+          "value": "cargo-registry"
+        },
+        {
+          "name": "capsule:source",
+          "value": "registry+https://github.com/rust-lang/crates.io-index"
+        },
+        {
+          "name": "capsule:dependency-role",
+          "value": "build-only-workspace-input"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "Apache-2.0/MIT"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:cargo/cfg_aliases@0.2.1",
+      "name": "cfg_aliases",
+      "version": "0.2.1",
+      "scope": "required",
+      "purl": "pkg:cargo/cfg_aliases@0.2.1",
+      "properties": [
+        {
+          "name": "capsule:dependency-scope",
+          "value": "cargo-registry"
+        },
+        {
+          "name": "capsule:source",
+          "value": "registry+https://github.com/rust-lang/crates.io-index"
+        },
+        {
+          "name": "capsule:dependency-role",
+          "value": "final-runtime-closure"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:cargo/cfg-if@1.0.4",
+      "name": "cfg-if",
+      "version": "1.0.4",
+      "scope": "required",
+      "purl": "pkg:cargo/cfg-if@1.0.4",
+      "properties": [
+        {
+          "name": "capsule:dependency-scope",
+          "value": "cargo-registry"
+        },
+        {
+          "name": "capsule:source",
+          "value": "registry+https://github.com/rust-lang/crates.io-index"
+        },
+        {
+          "name": "capsule:dependency-role",
+          "value": "final-runtime-closure"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT OR Apache-2.0"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:cargo/clang-sys@1.8.1",
+      "name": "clang-sys",
+      "version": "1.8.1",
+      "scope": "excluded",
+      "purl": "pkg:cargo/clang-sys@1.8.1",
+      "properties": [
+        {
+          "name": "capsule:dependency-scope",
+          "value": "cargo-registry"
+        },
+        {
+          "name": "capsule:source",
+          "value": "registry+https://github.com/rust-lang/crates.io-index"
+        },
+        {
+          "name": "capsule:dependency-role",
+          "value": "build-only-workspace-input"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "Apache-2.0"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:cargo/colorchoice@1.0.5",
+      "name": "colorchoice",
+      "version": "1.0.5",
+      "scope": "required",
+      "purl": "pkg:cargo/colorchoice@1.0.5",
+      "properties": [
+        {
+          "name": "capsule:dependency-scope",
+          "value": "cargo-registry"
+        },
+        {
+          "name": "capsule:source",
+          "value": "registry+https://github.com/rust-lang/crates.io-index"
+        },
+        {
+          "name": "capsule:dependency-role",
+          "value": "final-runtime-closure"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT OR Apache-2.0"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:cargo/crc32fast@1.5.0",
+      "name": "crc32fast",
+      "version": "1.5.0",
+      "scope": "required",
+      "purl": "pkg:cargo/crc32fast@1.5.0",
+      "properties": [
+        {
+          "name": "capsule:dependency-scope",
+          "value": "cargo-registry"
+        },
+        {
+          "name": "capsule:source",
+          "value": "registry+https://github.com/rust-lang/crates.io-index"
+        },
+        {
+          "name": "capsule:dependency-role",
+          "value": "final-runtime-closure"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT OR Apache-2.0"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:cargo/crossbeam-channel@0.5.15",
+      "name": "crossbeam-channel",
+      "version": "0.5.15",
+      "scope": "required",
+      "purl": "pkg:cargo/crossbeam-channel@0.5.15",
+      "properties": [
+        {
+          "name": "capsule:dependency-scope",
+          "value": "cargo-registry"
+        },
+        {
+          "name": "capsule:source",
+          "value": "registry+https://github.com/rust-lang/crates.io-index"
+        },
+        {
+          "name": "capsule:dependency-role",
+          "value": "final-runtime-closure"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT OR Apache-2.0"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:cargo/crossbeam-utils@0.8.21",
+      "name": "crossbeam-utils",
+      "version": "0.8.21",
+      "scope": "required",
+      "purl": "pkg:cargo/crossbeam-utils@0.8.21",
+      "properties": [
+        {
+          "name": "capsule:dependency-scope",
+          "value": "cargo-registry"
+        },
+        {
+          "name": "capsule:source",
+          "value": "registry+https://github.com/rust-lang/crates.io-index"
+        },
+        {
+          "name": "capsule:dependency-role",
+          "value": "final-runtime-closure"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT OR Apache-2.0"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:cargo/either@1.15.0",
+      "name": "either",
+      "version": "1.15.0",
+      "scope": "excluded",
+      "purl": "pkg:cargo/either@1.15.0",
+      "properties": [
+        {
+          "name": "capsule:dependency-scope",
+          "value": "cargo-registry"
+        },
+        {
+          "name": "capsule:source",
+          "value": "registry+https://github.com/rust-lang/crates.io-index"
+        },
+        {
+          "name": "capsule:dependency-role",
+          "value": "build-only-workspace-input"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT OR Apache-2.0"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:cargo/env_filter@1.0.0",
+      "name": "env_filter",
+      "version": "1.0.0",
+      "scope": "required",
+      "purl": "pkg:cargo/env_filter@1.0.0",
+      "properties": [
+        {
+          "name": "capsule:dependency-scope",
+          "value": "cargo-registry"
+        },
+        {
+          "name": "capsule:source",
+          "value": "registry+https://github.com/rust-lang/crates.io-index"
+        },
+        {
+          "name": "capsule:dependency-role",
+          "value": "final-runtime-closure"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT OR Apache-2.0"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:cargo/env_logger@0.11.9",
+      "name": "env_logger",
+      "version": "0.11.9",
+      "scope": "required",
+      "purl": "pkg:cargo/env_logger@0.11.9",
+      "properties": [
+        {
+          "name": "capsule:dependency-scope",
+          "value": "cargo-registry"
+        },
+        {
+          "name": "capsule:source",
+          "value": "registry+https://github.com/rust-lang/crates.io-index"
+        },
+        {
+          "name": "capsule:dependency-role",
+          "value": "final-runtime-closure"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT OR Apache-2.0"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:cargo/equivalent@1.0.2",
+      "name": "equivalent",
+      "version": "1.0.2",
+      "scope": "required",
+      "purl": "pkg:cargo/equivalent@1.0.2",
+      "properties": [
+        {
+          "name": "capsule:dependency-scope",
+          "value": "cargo-registry"
+        },
+        {
+          "name": "capsule:source",
+          "value": "registry+https://github.com/rust-lang/crates.io-index"
+        },
+        {
+          "name": "capsule:dependency-role",
+          "value": "final-runtime-closure"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "Apache-2.0 OR MIT"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:cargo/errno@0.3.14",
+      "name": "errno",
+      "version": "0.3.14",
+      "scope": "excluded",
+      "purl": "pkg:cargo/errno@0.3.14",
+      "properties": [
+        {
+          "name": "capsule:dependency-scope",
+          "value": "cargo-registry"
+        },
+        {
+          "name": "capsule:source",
+          "value": "registry+https://github.com/rust-lang/crates.io-index"
+        },
+        {
+          "name": "capsule:dependency-role",
+          "value": "build-only-workspace-input"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT OR Apache-2.0"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:cargo/filetime@0.2.27",
+      "name": "filetime",
+      "version": "0.2.27",
+      "scope": "excluded",
+      "purl": "pkg:cargo/filetime@0.2.27",
+      "properties": [
+        {
+          "name": "capsule:dependency-scope",
+          "value": "cargo-registry"
+        },
+        {
+          "name": "capsule:source",
+          "value": "registry+https://github.com/rust-lang/crates.io-index"
+        },
+        {
+          "name": "capsule:dependency-role",
+          "value": "build-only-workspace-input"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT/Apache-2.0"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:cargo/flate2@1.1.9",
+      "name": "flate2",
+      "version": "1.1.9",
+      "scope": "required",
+      "purl": "pkg:cargo/flate2@1.1.9",
+      "properties": [
+        {
+          "name": "capsule:dependency-scope",
+          "value": "cargo-registry"
+        },
+        {
+          "name": "capsule:source",
+          "value": "registry+https://github.com/rust-lang/crates.io-index"
+        },
+        {
+          "name": "capsule:dependency-role",
+          "value": "final-runtime-closure"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT OR Apache-2.0"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:cargo/foldhash@0.2.0",
+      "name": "foldhash",
+      "version": "0.2.0",
+      "scope": "required",
+      "purl": "pkg:cargo/foldhash@0.2.0",
+      "properties": [
+        {
+          "name": "capsule:dependency-scope",
+          "value": "cargo-registry"
+        },
+        {
+          "name": "capsule:source",
+          "value": "registry+https://github.com/rust-lang/crates.io-index"
+        },
+        {
+          "name": "capsule:dependency-role",
+          "value": "final-runtime-closure"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "Zlib"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:cargo/getrandom@0.3.4",
+      "name": "getrandom",
+      "version": "0.3.4",
+      "scope": "required",
+      "purl": "pkg:cargo/getrandom@0.3.4",
+      "properties": [
+        {
+          "name": "capsule:dependency-scope",
+          "value": "cargo-registry"
+        },
+        {
+          "name": "capsule:source",
+          "value": "registry+https://github.com/rust-lang/crates.io-index"
+        },
+        {
+          "name": "capsule:dependency-role",
+          "value": "final-runtime-closure"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT OR Apache-2.0"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:cargo/glob@0.3.3",
+      "name": "glob",
+      "version": "0.3.3",
+      "scope": "excluded",
+      "purl": "pkg:cargo/glob@0.3.3",
+      "properties": [
+        {
+          "name": "capsule:dependency-scope",
+          "value": "cargo-registry"
+        },
+        {
+          "name": "capsule:source",
+          "value": "registry+https://github.com/rust-lang/crates.io-index"
+        },
+        {
+          "name": "capsule:dependency-role",
+          "value": "build-only-workspace-input"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT OR Apache-2.0"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:cargo/hashbrown@0.16.1",
+      "name": "hashbrown",
+      "version": "0.16.1",
+      "scope": "required",
+      "purl": "pkg:cargo/hashbrown@0.16.1",
+      "properties": [
+        {
+          "name": "capsule:dependency-scope",
+          "value": "cargo-registry"
+        },
+        {
+          "name": "capsule:source",
+          "value": "registry+https://github.com/rust-lang/crates.io-index"
+        },
+        {
+          "name": "capsule:dependency-role",
+          "value": "final-runtime-closure"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT OR Apache-2.0"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:cargo/imago@0.2.3",
+      "name": "imago",
+      "version": "0.2.3",
+      "scope": "required",
+      "purl": "pkg:cargo/imago@0.2.3",
+      "properties": [
+        {
+          "name": "capsule:dependency-scope",
+          "value": "cargo-registry"
+        },
+        {
+          "name": "capsule:source",
+          "value": "registry+https://github.com/rust-lang/crates.io-index"
+        },
+        {
+          "name": "capsule:dependency-role",
+          "value": "final-runtime-closure"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:cargo/is_terminal_polyfill@1.70.2",
+      "name": "is_terminal_polyfill",
+      "version": "1.70.2",
+      "scope": "required",
+      "purl": "pkg:cargo/is_terminal_polyfill@1.70.2",
+      "properties": [
+        {
+          "name": "capsule:dependency-scope",
+          "value": "cargo-registry"
+        },
+        {
+          "name": "capsule:source",
+          "value": "registry+https://github.com/rust-lang/crates.io-index"
+        },
+        {
+          "name": "capsule:dependency-role",
+          "value": "final-runtime-closure"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT OR Apache-2.0"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:cargo/itertools@0.13.0",
+      "name": "itertools",
+      "version": "0.13.0",
+      "scope": "excluded",
+      "purl": "pkg:cargo/itertools@0.13.0",
+      "properties": [
+        {
+          "name": "capsule:dependency-scope",
+          "value": "cargo-registry"
+        },
+        {
+          "name": "capsule:source",
+          "value": "registry+https://github.com/rust-lang/crates.io-index"
+        },
+        {
+          "name": "capsule:dependency-role",
+          "value": "build-only-workspace-input"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT OR Apache-2.0"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:cargo/jiff@0.2.23",
+      "name": "jiff",
+      "version": "0.2.23",
+      "scope": "required",
+      "purl": "pkg:cargo/jiff@0.2.23",
+      "properties": [
+        {
+          "name": "capsule:dependency-scope",
+          "value": "cargo-registry"
+        },
+        {
+          "name": "capsule:source",
+          "value": "registry+https://github.com/rust-lang/crates.io-index"
+        },
+        {
+          "name": "capsule:dependency-role",
+          "value": "final-runtime-closure"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "Unlicense OR MIT"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:generic/libkrun/krun-arch-gen@0.1.0-1.19.4?commit=728df8125077d0db44265f6e997c72b81b65c015",
+      "name": "krun-arch-gen",
+      "version": "0.1.0-1.19.4",
+      "scope": "required",
+      "purl": "pkg:generic/libkrun/krun-arch-gen@0.1.0-1.19.4?commit=728df8125077d0db44265f6e997c72b81b65c015",
+      "properties": [
+        {
+          "name": "capsule:dependency-scope",
+          "value": "libkrun-workspace"
+        },
+        {
+          "name": "capsule:source",
+          "value": "git+https://github.com/libkrun/libkrun@728df8125077d0db44265f6e997c72b81b65c015"
+        },
+        {
+          "name": "capsule:dependency-role",
+          "value": "final-runtime-closure"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "Apache-2.0"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:generic/libkrun/krun-arch@0.1.0-1.19.4?commit=728df8125077d0db44265f6e997c72b81b65c015",
+      "name": "krun-arch",
+      "version": "0.1.0-1.19.4",
+      "scope": "required",
+      "purl": "pkg:generic/libkrun/krun-arch@0.1.0-1.19.4?commit=728df8125077d0db44265f6e997c72b81b65c015",
+      "properties": [
+        {
+          "name": "capsule:dependency-scope",
+          "value": "libkrun-workspace"
+        },
+        {
+          "name": "capsule:source",
+          "value": "git+https://github.com/libkrun/libkrun@728df8125077d0db44265f6e997c72b81b65c015"
+        },
+        {
+          "name": "capsule:dependency-role",
+          "value": "final-runtime-closure"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "Apache-2.0"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:generic/libkrun/krun-aws-nitro@0.1.0-1.19.4?commit=728df8125077d0db44265f6e997c72b81b65c015",
+      "name": "krun-aws-nitro",
+      "version": "0.1.0-1.19.4",
+      "scope": "excluded",
+      "purl": "pkg:generic/libkrun/krun-aws-nitro@0.1.0-1.19.4?commit=728df8125077d0db44265f6e997c72b81b65c015",
+      "properties": [
+        {
+          "name": "capsule:dependency-scope",
+          "value": "libkrun-workspace"
+        },
+        {
+          "name": "capsule:source",
+          "value": "git+https://github.com/libkrun/libkrun@728df8125077d0db44265f6e997c72b81b65c015"
+        },
+        {
+          "name": "capsule:dependency-role",
+          "value": "build-only-workspace-input"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "Apache-2.0"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:generic/libkrun/krun-cpuid@0.1.0-1.19.4?commit=728df8125077d0db44265f6e997c72b81b65c015",
+      "name": "krun-cpuid",
+      "version": "0.1.0-1.19.4",
+      "scope": "excluded",
+      "purl": "pkg:generic/libkrun/krun-cpuid@0.1.0-1.19.4?commit=728df8125077d0db44265f6e997c72b81b65c015",
+      "properties": [
+        {
+          "name": "capsule:dependency-scope",
+          "value": "libkrun-workspace"
+        },
+        {
+          "name": "capsule:source",
+          "value": "git+https://github.com/libkrun/libkrun@728df8125077d0db44265f6e997c72b81b65c015"
+        },
+        {
+          "name": "capsule:dependency-role",
+          "value": "build-only-workspace-input"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "Apache-2.0"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:generic/libkrun/krun-devices@0.1.0-1.19.4?commit=728df8125077d0db44265f6e997c72b81b65c015",
+      "name": "krun-devices",
+      "version": "0.1.0-1.19.4",
+      "scope": "required",
+      "purl": "pkg:generic/libkrun/krun-devices@0.1.0-1.19.4?commit=728df8125077d0db44265f6e997c72b81b65c015",
+      "properties": [
+        {
+          "name": "capsule:dependency-scope",
+          "value": "libkrun-workspace"
+        },
+        {
+          "name": "capsule:source",
+          "value": "git+https://github.com/libkrun/libkrun@728df8125077d0db44265f6e997c72b81b65c015"
+        },
+        {
+          "name": "capsule:dependency-role",
+          "value": "final-runtime-closure"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "Apache-2.0"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:generic/libkrun/krun-display@0.1.0?commit=728df8125077d0db44265f6e997c72b81b65c015",
+      "name": "krun-display",
+      "version": "0.1.0",
+      "scope": "excluded",
+      "purl": "pkg:generic/libkrun/krun-display@0.1.0?commit=728df8125077d0db44265f6e997c72b81b65c015",
+      "properties": [
+        {
+          "name": "capsule:dependency-scope",
+          "value": "libkrun-workspace"
+        },
+        {
+          "name": "capsule:source",
+          "value": "git+https://github.com/libkrun/libkrun@728df8125077d0db44265f6e997c72b81b65c015"
+        },
+        {
+          "name": "capsule:dependency-role",
+          "value": "build-only-workspace-input"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "Apache-2.0"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:generic/libkrun/krun-hvf@0.1.0-1.19.4?commit=728df8125077d0db44265f6e997c72b81b65c015",
+      "name": "krun-hvf",
+      "version": "0.1.0-1.19.4",
+      "scope": "required",
+      "purl": "pkg:generic/libkrun/krun-hvf@0.1.0-1.19.4?commit=728df8125077d0db44265f6e997c72b81b65c015",
+      "properties": [
+        {
+          "name": "capsule:dependency-scope",
+          "value": "libkrun-workspace"
+        },
+        {
+          "name": "capsule:source",
+          "value": "git+https://github.com/libkrun/libkrun@728df8125077d0db44265f6e997c72b81b65c015"
+        },
+        {
+          "name": "capsule:dependency-role",
+          "value": "final-runtime-closure"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "Apache-2.0"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:generic/libkrun/krun-init-blob@0.1.0-1.19.4?commit=728df8125077d0db44265f6e997c72b81b65c015",
+      "name": "krun-init-blob",
+      "version": "0.1.0-1.19.4",
+      "scope": "required",
+      "purl": "pkg:generic/libkrun/krun-init-blob@0.1.0-1.19.4?commit=728df8125077d0db44265f6e997c72b81b65c015",
+      "properties": [
+        {
+          "name": "capsule:dependency-scope",
+          "value": "libkrun-workspace"
+        },
+        {
+          "name": "capsule:source",
+          "value": "git+https://github.com/libkrun/libkrun@728df8125077d0db44265f6e997c72b81b65c015"
+        },
+        {
+          "name": "capsule:dependency-role",
+          "value": "final-runtime-closure"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "Apache-2.0"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:generic/libkrun/krun-input@0.1.0?commit=728df8125077d0db44265f6e997c72b81b65c015",
+      "name": "krun-input",
+      "version": "0.1.0",
+      "scope": "excluded",
+      "purl": "pkg:generic/libkrun/krun-input@0.1.0?commit=728df8125077d0db44265f6e997c72b81b65c015",
+      "properties": [
+        {
+          "name": "capsule:dependency-scope",
+          "value": "libkrun-workspace"
+        },
+        {
+          "name": "capsule:source",
+          "value": "git+https://github.com/libkrun/libkrun@728df8125077d0db44265f6e997c72b81b65c015"
+        },
+        {
+          "name": "capsule:dependency-role",
+          "value": "build-only-workspace-input"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "Apache-2.0"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:generic/libkrun/krun-kernel@0.1.0-1.19.4?commit=728df8125077d0db44265f6e997c72b81b65c015",
+      "name": "krun-kernel",
+      "version": "0.1.0-1.19.4",
+      "scope": "required",
+      "purl": "pkg:generic/libkrun/krun-kernel@0.1.0-1.19.4?commit=728df8125077d0db44265f6e997c72b81b65c015",
+      "properties": [
+        {
+          "name": "capsule:dependency-scope",
+          "value": "libkrun-workspace"
+        },
+        {
+          "name": "capsule:source",
+          "value": "git+https://github.com/libkrun/libkrun@728df8125077d0db44265f6e997c72b81b65c015"
+        },
+        {
+          "name": "capsule:dependency-role",
+          "value": "final-runtime-closure"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "Apache-2.0"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:generic/libkrun/krun-polly@0.1.0-1.19.4?commit=728df8125077d0db44265f6e997c72b81b65c015",
+      "name": "krun-polly",
+      "version": "0.1.0-1.19.4",
+      "scope": "required",
+      "purl": "pkg:generic/libkrun/krun-polly@0.1.0-1.19.4?commit=728df8125077d0db44265f6e997c72b81b65c015",
+      "properties": [
+        {
+          "name": "capsule:dependency-scope",
+          "value": "libkrun-workspace"
+        },
+        {
+          "name": "capsule:source",
+          "value": "git+https://github.com/libkrun/libkrun@728df8125077d0db44265f6e997c72b81b65c015"
+        },
+        {
+          "name": "capsule:dependency-role",
+          "value": "final-runtime-closure"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "Apache-2.0"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:generic/libkrun/krun-rutabaga-gfx@0.1.0-1.19.4?commit=728df8125077d0db44265f6e997c72b81b65c015",
+      "name": "krun-rutabaga-gfx",
+      "version": "0.1.0-1.19.4",
+      "scope": "excluded",
+      "purl": "pkg:generic/libkrun/krun-rutabaga-gfx@0.1.0-1.19.4?commit=728df8125077d0db44265f6e997c72b81b65c015",
+      "properties": [
+        {
+          "name": "capsule:dependency-scope",
+          "value": "libkrun-workspace"
+        },
+        {
+          "name": "capsule:source",
+          "value": "git+https://github.com/libkrun/libkrun@728df8125077d0db44265f6e997c72b81b65c015"
+        },
+        {
+          "name": "capsule:dependency-role",
+          "value": "build-only-workspace-input"
+        },
+        {
+          "name": "capsule:license-file",
+          "value": "LICENSE"
+        },
+        {
+          "name": "capsule:license-file-sha256",
+          "value": "0fc4bdcfde77da140a55a68268f55a8cd045d7b9fbf86c5fd8b2bc5cf233e959"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "name": "LicenseRef-krun-rutabaga-gfx"
+          }
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:generic/libkrun/krun-smbios@0.1.0-1.19.4?commit=728df8125077d0db44265f6e997c72b81b65c015",
+      "name": "krun-smbios",
+      "version": "0.1.0-1.19.4",
+      "scope": "required",
+      "purl": "pkg:generic/libkrun/krun-smbios@0.1.0-1.19.4?commit=728df8125077d0db44265f6e997c72b81b65c015",
+      "properties": [
+        {
+          "name": "capsule:dependency-scope",
+          "value": "libkrun-workspace"
+        },
+        {
+          "name": "capsule:source",
+          "value": "git+https://github.com/libkrun/libkrun@728df8125077d0db44265f6e997c72b81b65c015"
+        },
+        {
+          "name": "capsule:dependency-role",
+          "value": "final-runtime-closure"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "Apache-2.0"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:generic/libkrun/krun-utils@0.1.0-1.19.4?commit=728df8125077d0db44265f6e997c72b81b65c015",
+      "name": "krun-utils",
+      "version": "0.1.0-1.19.4",
+      "scope": "required",
+      "purl": "pkg:generic/libkrun/krun-utils@0.1.0-1.19.4?commit=728df8125077d0db44265f6e997c72b81b65c015",
+      "properties": [
+        {
+          "name": "capsule:dependency-scope",
+          "value": "libkrun-workspace"
+        },
+        {
+          "name": "capsule:source",
+          "value": "git+https://github.com/libkrun/libkrun@728df8125077d0db44265f6e997c72b81b65c015"
+        },
+        {
+          "name": "capsule:dependency-role",
+          "value": "final-runtime-closure"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "Apache-2.0"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:generic/libkrun/krun-vmm@0.1.0-1.19.4?commit=728df8125077d0db44265f6e997c72b81b65c015",
+      "name": "krun-vmm",
+      "version": "0.1.0-1.19.4",
+      "scope": "required",
+      "purl": "pkg:generic/libkrun/krun-vmm@0.1.0-1.19.4?commit=728df8125077d0db44265f6e997c72b81b65c015",
+      "properties": [
+        {
+          "name": "capsule:dependency-scope",
+          "value": "libkrun-workspace"
+        },
+        {
+          "name": "capsule:source",
+          "value": "git+https://github.com/libkrun/libkrun@728df8125077d0db44265f6e997c72b81b65c015"
+        },
+        {
+          "name": "capsule:dependency-role",
+          "value": "final-runtime-closure"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "Apache-2.0"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:cargo/libc@0.2.183",
+      "name": "libc",
+      "version": "0.2.183",
+      "scope": "required",
+      "purl": "pkg:cargo/libc@0.2.183",
+      "properties": [
+        {
+          "name": "capsule:dependency-scope",
+          "value": "cargo-registry"
+        },
+        {
+          "name": "capsule:source",
+          "value": "registry+https://github.com/rust-lang/crates.io-index"
+        },
+        {
+          "name": "capsule:dependency-role",
+          "value": "final-runtime-closure"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT OR Apache-2.0"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:generic/libkrun/libkrun@1.19.4?commit=728df8125077d0db44265f6e997c72b81b65c015",
+      "name": "libkrun",
+      "version": "1.19.4",
+      "scope": "required",
+      "purl": "pkg:generic/libkrun/libkrun@1.19.4?commit=728df8125077d0db44265f6e997c72b81b65c015",
+      "properties": [
+        {
+          "name": "capsule:dependency-scope",
+          "value": "libkrun-workspace"
+        },
+        {
+          "name": "capsule:source",
+          "value": "git+https://github.com/libkrun/libkrun@728df8125077d0db44265f6e997c72b81b65c015"
+        },
+        {
+          "name": "capsule:dependency-role",
+          "value": "final-runtime-closure"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "Apache-2.0"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:cargo/libloading@0.8.9",
+      "name": "libloading",
+      "version": "0.8.9",
+      "scope": "required",
+      "purl": "pkg:cargo/libloading@0.8.9",
+      "properties": [
+        {
+          "name": "capsule:dependency-scope",
+          "value": "cargo-registry"
+        },
+        {
+          "name": "capsule:source",
+          "value": "registry+https://github.com/rust-lang/crates.io-index"
+        },
+        {
+          "name": "capsule:dependency-role",
+          "value": "final-runtime-closure"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "ISC"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:cargo/linux-loader@0.13.2",
+      "name": "linux-loader",
+      "version": "0.13.2",
+      "scope": "required",
+      "purl": "pkg:cargo/linux-loader@0.13.2",
+      "properties": [
+        {
+          "name": "capsule:dependency-scope",
+          "value": "cargo-registry"
+        },
+        {
+          "name": "capsule:source",
+          "value": "registry+https://github.com/rust-lang/crates.io-index"
+        },
+        {
+          "name": "capsule:dependency-role",
+          "value": "final-runtime-closure"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "Apache-2.0 AND BSD-3-Clause"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:cargo/log@0.4.29",
+      "name": "log",
+      "version": "0.4.29",
+      "scope": "required",
+      "purl": "pkg:cargo/log@0.4.29",
+      "properties": [
+        {
+          "name": "capsule:dependency-scope",
+          "value": "cargo-registry"
+        },
+        {
+          "name": "capsule:source",
+          "value": "registry+https://github.com/rust-lang/crates.io-index"
+        },
+        {
+          "name": "capsule:dependency-role",
+          "value": "final-runtime-closure"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT OR Apache-2.0"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:cargo/lru@0.16.3",
+      "name": "lru",
+      "version": "0.16.3",
+      "scope": "required",
+      "purl": "pkg:cargo/lru@0.16.3",
+      "properties": [
+        {
+          "name": "capsule:dependency-scope",
+          "value": "cargo-registry"
+        },
+        {
+          "name": "capsule:source",
+          "value": "registry+https://github.com/rust-lang/crates.io-index"
+        },
+        {
+          "name": "capsule:dependency-role",
+          "value": "final-runtime-closure"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:cargo/memchr@2.8.0",
+      "name": "memchr",
+      "version": "2.8.0",
+      "scope": "required",
+      "purl": "pkg:cargo/memchr@2.8.0",
+      "properties": [
+        {
+          "name": "capsule:dependency-scope",
+          "value": "cargo-registry"
+        },
+        {
+          "name": "capsule:source",
+          "value": "registry+https://github.com/rust-lang/crates.io-index"
+        },
+        {
+          "name": "capsule:dependency-role",
+          "value": "final-runtime-closure"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "Unlicense OR MIT"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:cargo/memoffset@0.9.1",
+      "name": "memoffset",
+      "version": "0.9.1",
+      "scope": "required",
+      "purl": "pkg:cargo/memoffset@0.9.1",
+      "properties": [
+        {
+          "name": "capsule:dependency-scope",
+          "value": "cargo-registry"
+        },
+        {
+          "name": "capsule:source",
+          "value": "registry+https://github.com/rust-lang/crates.io-index"
+        },
+        {
+          "name": "capsule:dependency-role",
+          "value": "final-runtime-closure"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:cargo/minimal-lexical@0.2.1",
+      "name": "minimal-lexical",
+      "version": "0.2.1",
+      "scope": "excluded",
+      "purl": "pkg:cargo/minimal-lexical@0.2.1",
+      "properties": [
+        {
+          "name": "capsule:dependency-scope",
+          "value": "cargo-registry"
+        },
+        {
+          "name": "capsule:source",
+          "value": "registry+https://github.com/rust-lang/crates.io-index"
+        },
+        {
+          "name": "capsule:dependency-role",
+          "value": "build-only-workspace-input"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT/Apache-2.0"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:cargo/miniz_oxide@0.8.9",
+      "name": "miniz_oxide",
+      "version": "0.8.9",
+      "scope": "required",
+      "purl": "pkg:cargo/miniz_oxide@0.8.9",
+      "properties": [
+        {
+          "name": "capsule:dependency-scope",
+          "value": "cargo-registry"
+        },
+        {
+          "name": "capsule:source",
+          "value": "registry+https://github.com/rust-lang/crates.io-index"
+        },
+        {
+          "name": "capsule:dependency-role",
+          "value": "final-runtime-closure"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT OR Zlib OR Apache-2.0"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:cargo/nix@0.30.1",
+      "name": "nix",
+      "version": "0.30.1",
+      "scope": "required",
+      "purl": "pkg:cargo/nix@0.30.1",
+      "properties": [
+        {
+          "name": "capsule:dependency-scope",
+          "value": "cargo-registry"
+        },
+        {
+          "name": "capsule:source",
+          "value": "registry+https://github.com/rust-lang/crates.io-index"
+        },
+        {
+          "name": "capsule:dependency-role",
+          "value": "final-runtime-closure"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:cargo/nix@0.31.2",
+      "name": "nix",
+      "version": "0.31.2",
+      "scope": "excluded",
+      "purl": "pkg:cargo/nix@0.31.2",
+      "properties": [
+        {
+          "name": "capsule:dependency-scope",
+          "value": "cargo-registry"
+        },
+        {
+          "name": "capsule:source",
+          "value": "registry+https://github.com/rust-lang/crates.io-index"
+        },
+        {
+          "name": "capsule:dependency-role",
+          "value": "build-only-workspace-input"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:cargo/nom@7.1.3",
+      "name": "nom",
+      "version": "7.1.3",
+      "scope": "excluded",
+      "purl": "pkg:cargo/nom@7.1.3",
+      "properties": [
+        {
+          "name": "capsule:dependency-scope",
+          "value": "cargo-registry"
+        },
+        {
+          "name": "capsule:source",
+          "value": "registry+https://github.com/rust-lang/crates.io-index"
+        },
+        {
+          "name": "capsule:dependency-role",
+          "value": "build-only-workspace-input"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:cargo/once_cell@1.21.4",
+      "name": "once_cell",
+      "version": "1.21.4",
+      "scope": "required",
+      "purl": "pkg:cargo/once_cell@1.21.4",
+      "properties": [
+        {
+          "name": "capsule:dependency-scope",
+          "value": "cargo-registry"
+        },
+        {
+          "name": "capsule:source",
+          "value": "registry+https://github.com/rust-lang/crates.io-index"
+        },
+        {
+          "name": "capsule:dependency-role",
+          "value": "final-runtime-closure"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT OR Apache-2.0"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:cargo/page_size@0.6.0",
+      "name": "page_size",
+      "version": "0.6.0",
+      "scope": "required",
+      "purl": "pkg:cargo/page_size@0.6.0",
+      "properties": [
+        {
+          "name": "capsule:dependency-scope",
+          "value": "cargo-registry"
+        },
+        {
+          "name": "capsule:source",
+          "value": "registry+https://github.com/rust-lang/crates.io-index"
+        },
+        {
+          "name": "capsule:dependency-role",
+          "value": "final-runtime-closure"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT/Apache-2.0"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:cargo/pin-project-lite@0.2.17",
+      "name": "pin-project-lite",
+      "version": "0.2.17",
+      "scope": "required",
+      "purl": "pkg:cargo/pin-project-lite@0.2.17",
+      "properties": [
+        {
+          "name": "capsule:dependency-scope",
+          "value": "cargo-registry"
+        },
+        {
+          "name": "capsule:source",
+          "value": "registry+https://github.com/rust-lang/crates.io-index"
+        },
+        {
+          "name": "capsule:dependency-role",
+          "value": "final-runtime-closure"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "Apache-2.0 OR MIT"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:cargo/pkg-config@0.3.32",
+      "name": "pkg-config",
+      "version": "0.3.32",
+      "scope": "excluded",
+      "purl": "pkg:cargo/pkg-config@0.3.32",
+      "properties": [
+        {
+          "name": "capsule:dependency-scope",
+          "value": "cargo-registry"
+        },
+        {
+          "name": "capsule:source",
+          "value": "registry+https://github.com/rust-lang/crates.io-index"
+        },
+        {
+          "name": "capsule:dependency-role",
+          "value": "build-only-workspace-input"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT OR Apache-2.0"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:cargo/ppv-lite86@0.2.21",
+      "name": "ppv-lite86",
+      "version": "0.2.21",
+      "scope": "required",
+      "purl": "pkg:cargo/ppv-lite86@0.2.21",
+      "properties": [
+        {
+          "name": "capsule:dependency-scope",
+          "value": "cargo-registry"
+        },
+        {
+          "name": "capsule:source",
+          "value": "registry+https://github.com/rust-lang/crates.io-index"
+        },
+        {
+          "name": "capsule:dependency-role",
+          "value": "final-runtime-closure"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT OR Apache-2.0"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:cargo/proc-macro2@1.0.106",
+      "name": "proc-macro2",
+      "version": "1.0.106",
+      "scope": "required",
+      "purl": "pkg:cargo/proc-macro2@1.0.106",
+      "properties": [
+        {
+          "name": "capsule:dependency-scope",
+          "value": "cargo-registry"
+        },
+        {
+          "name": "capsule:source",
+          "value": "registry+https://github.com/rust-lang/crates.io-index"
+        },
+        {
+          "name": "capsule:dependency-role",
+          "value": "final-runtime-closure"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT OR Apache-2.0"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:cargo/quote@1.0.45",
+      "name": "quote",
+      "version": "1.0.45",
+      "scope": "required",
+      "purl": "pkg:cargo/quote@1.0.45",
+      "properties": [
+        {
+          "name": "capsule:dependency-scope",
+          "value": "cargo-registry"
+        },
+        {
+          "name": "capsule:source",
+          "value": "registry+https://github.com/rust-lang/crates.io-index"
+        },
+        {
+          "name": "capsule:dependency-role",
+          "value": "final-runtime-closure"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT OR Apache-2.0"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:cargo/rand_chacha@0.9.0",
+      "name": "rand_chacha",
+      "version": "0.9.0",
+      "scope": "required",
+      "purl": "pkg:cargo/rand_chacha@0.9.0",
+      "properties": [
+        {
+          "name": "capsule:dependency-scope",
+          "value": "cargo-registry"
+        },
+        {
+          "name": "capsule:source",
+          "value": "registry+https://github.com/rust-lang/crates.io-index"
+        },
+        {
+          "name": "capsule:dependency-role",
+          "value": "final-runtime-closure"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT OR Apache-2.0"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:cargo/rand_core@0.9.5",
+      "name": "rand_core",
+      "version": "0.9.5",
+      "scope": "required",
+      "purl": "pkg:cargo/rand_core@0.9.5",
+      "properties": [
+        {
+          "name": "capsule:dependency-scope",
+          "value": "cargo-registry"
+        },
+        {
+          "name": "capsule:source",
+          "value": "registry+https://github.com/rust-lang/crates.io-index"
+        },
+        {
+          "name": "capsule:dependency-role",
+          "value": "final-runtime-closure"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT OR Apache-2.0"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:cargo/rand@0.9.2",
+      "name": "rand",
+      "version": "0.9.2",
+      "scope": "required",
+      "purl": "pkg:cargo/rand@0.9.2",
+      "properties": [
+        {
+          "name": "capsule:dependency-scope",
+          "value": "cargo-registry"
+        },
+        {
+          "name": "capsule:source",
+          "value": "registry+https://github.com/rust-lang/crates.io-index"
+        },
+        {
+          "name": "capsule:dependency-role",
+          "value": "final-runtime-closure"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT OR Apache-2.0"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:cargo/regex-automata@0.4.14",
+      "name": "regex-automata",
+      "version": "0.4.14",
+      "scope": "required",
+      "purl": "pkg:cargo/regex-automata@0.4.14",
+      "properties": [
+        {
+          "name": "capsule:dependency-scope",
+          "value": "cargo-registry"
+        },
+        {
+          "name": "capsule:source",
+          "value": "registry+https://github.com/rust-lang/crates.io-index"
+        },
+        {
+          "name": "capsule:dependency-role",
+          "value": "final-runtime-closure"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT OR Apache-2.0"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:cargo/regex-syntax@0.8.10",
+      "name": "regex-syntax",
+      "version": "0.8.10",
+      "scope": "required",
+      "purl": "pkg:cargo/regex-syntax@0.8.10",
+      "properties": [
+        {
+          "name": "capsule:dependency-scope",
+          "value": "cargo-registry"
+        },
+        {
+          "name": "capsule:source",
+          "value": "registry+https://github.com/rust-lang/crates.io-index"
+        },
+        {
+          "name": "capsule:dependency-role",
+          "value": "final-runtime-closure"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT OR Apache-2.0"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:cargo/regex@1.12.3",
+      "name": "regex",
+      "version": "1.12.3",
+      "scope": "required",
+      "purl": "pkg:cargo/regex@1.12.3",
+      "properties": [
+        {
+          "name": "capsule:dependency-scope",
+          "value": "cargo-registry"
+        },
+        {
+          "name": "capsule:source",
+          "value": "registry+https://github.com/rust-lang/crates.io-index"
+        },
+        {
+          "name": "capsule:dependency-role",
+          "value": "final-runtime-closure"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT OR Apache-2.0"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:cargo/remain@0.2.15",
+      "name": "remain",
+      "version": "0.2.15",
+      "scope": "excluded",
+      "purl": "pkg:cargo/remain@0.2.15",
+      "properties": [
+        {
+          "name": "capsule:dependency-scope",
+          "value": "cargo-registry"
+        },
+        {
+          "name": "capsule:source",
+          "value": "registry+https://github.com/rust-lang/crates.io-index"
+        },
+        {
+          "name": "capsule:dependency-role",
+          "value": "build-only-workspace-input"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT OR Apache-2.0"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:cargo/rustc_version@0.4.1",
+      "name": "rustc_version",
+      "version": "0.4.1",
+      "scope": "required",
+      "purl": "pkg:cargo/rustc_version@0.4.1",
+      "properties": [
+        {
+          "name": "capsule:dependency-scope",
+          "value": "cargo-registry"
+        },
+        {
+          "name": "capsule:source",
+          "value": "registry+https://github.com/rust-lang/crates.io-index"
+        },
+        {
+          "name": "capsule:dependency-role",
+          "value": "final-runtime-closure"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT OR Apache-2.0"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:cargo/rustc-hash@2.1.1",
+      "name": "rustc-hash",
+      "version": "2.1.1",
+      "scope": "excluded",
+      "purl": "pkg:cargo/rustc-hash@2.1.1",
+      "properties": [
+        {
+          "name": "capsule:dependency-scope",
+          "value": "cargo-registry"
+        },
+        {
+          "name": "capsule:source",
+          "value": "registry+https://github.com/rust-lang/crates.io-index"
+        },
+        {
+          "name": "capsule:dependency-role",
+          "value": "build-only-workspace-input"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "Apache-2.0 OR MIT"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:cargo/rustix@1.1.4",
+      "name": "rustix",
+      "version": "1.1.4",
+      "scope": "excluded",
+      "purl": "pkg:cargo/rustix@1.1.4",
+      "properties": [
+        {
+          "name": "capsule:dependency-scope",
+          "value": "cargo-registry"
+        },
+        {
+          "name": "capsule:source",
+          "value": "registry+https://github.com/rust-lang/crates.io-index"
+        },
+        {
+          "name": "capsule:dependency-role",
+          "value": "build-only-workspace-input"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "Apache-2.0 WITH LLVM-exception OR Apache-2.0 OR MIT"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:cargo/semver@1.0.27",
+      "name": "semver",
+      "version": "1.0.27",
+      "scope": "required",
+      "purl": "pkg:cargo/semver@1.0.27",
+      "properties": [
+        {
+          "name": "capsule:dependency-scope",
+          "value": "cargo-registry"
+        },
+        {
+          "name": "capsule:source",
+          "value": "registry+https://github.com/rust-lang/crates.io-index"
+        },
+        {
+          "name": "capsule:dependency-role",
+          "value": "final-runtime-closure"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT OR Apache-2.0"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:cargo/serde_core@1.0.228",
+      "name": "serde_core",
+      "version": "1.0.228",
+      "scope": "required",
+      "purl": "pkg:cargo/serde_core@1.0.228",
+      "properties": [
+        {
+          "name": "capsule:dependency-scope",
+          "value": "cargo-registry"
+        },
+        {
+          "name": "capsule:source",
+          "value": "registry+https://github.com/rust-lang/crates.io-index"
+        },
+        {
+          "name": "capsule:dependency-role",
+          "value": "final-runtime-closure"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT OR Apache-2.0"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:cargo/shlex@1.3.0",
+      "name": "shlex",
+      "version": "1.3.0",
+      "scope": "excluded",
+      "purl": "pkg:cargo/shlex@1.3.0",
+      "properties": [
+        {
+          "name": "capsule:dependency-scope",
+          "value": "cargo-registry"
+        },
+        {
+          "name": "capsule:source",
+          "value": "registry+https://github.com/rust-lang/crates.io-index"
+        },
+        {
+          "name": "capsule:dependency-role",
+          "value": "build-only-workspace-input"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT OR Apache-2.0"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:cargo/signal-hook-registry@1.4.8",
+      "name": "signal-hook-registry",
+      "version": "1.4.8",
+      "scope": "excluded",
+      "purl": "pkg:cargo/signal-hook-registry@1.4.8",
+      "properties": [
+        {
+          "name": "capsule:dependency-scope",
+          "value": "cargo-registry"
+        },
+        {
+          "name": "capsule:source",
+          "value": "registry+https://github.com/rust-lang/crates.io-index"
+        },
+        {
+          "name": "capsule:dependency-role",
+          "value": "build-only-workspace-input"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT OR Apache-2.0"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:cargo/signal-hook@0.3.18",
+      "name": "signal-hook",
+      "version": "0.3.18",
+      "scope": "excluded",
+      "purl": "pkg:cargo/signal-hook@0.3.18",
+      "properties": [
+        {
+          "name": "capsule:dependency-scope",
+          "value": "cargo-registry"
+        },
+        {
+          "name": "capsule:source",
+          "value": "registry+https://github.com/rust-lang/crates.io-index"
+        },
+        {
+          "name": "capsule:dependency-role",
+          "value": "build-only-workspace-input"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "Apache-2.0/MIT"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:cargo/simd-adler32@0.3.8",
+      "name": "simd-adler32",
+      "version": "0.3.8",
+      "scope": "required",
+      "purl": "pkg:cargo/simd-adler32@0.3.8",
+      "properties": [
+        {
+          "name": "capsule:dependency-scope",
+          "value": "cargo-registry"
+        },
+        {
+          "name": "capsule:source",
+          "value": "registry+https://github.com/rust-lang/crates.io-index"
+        },
+        {
+          "name": "capsule:dependency-role",
+          "value": "final-runtime-closure"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:cargo/static_assertions@1.1.0",
+      "name": "static_assertions",
+      "version": "1.1.0",
+      "scope": "excluded",
+      "purl": "pkg:cargo/static_assertions@1.1.0",
+      "properties": [
+        {
+          "name": "capsule:dependency-scope",
+          "value": "cargo-registry"
+        },
+        {
+          "name": "capsule:source",
+          "value": "registry+https://github.com/rust-lang/crates.io-index"
+        },
+        {
+          "name": "capsule:dependency-role",
+          "value": "build-only-workspace-input"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT OR Apache-2.0"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:cargo/syn@2.0.117",
+      "name": "syn",
+      "version": "2.0.117",
+      "scope": "required",
+      "purl": "pkg:cargo/syn@2.0.117",
+      "properties": [
+        {
+          "name": "capsule:dependency-scope",
+          "value": "cargo-registry"
+        },
+        {
+          "name": "capsule:source",
+          "value": "registry+https://github.com/rust-lang/crates.io-index"
+        },
+        {
+          "name": "capsule:dependency-role",
+          "value": "final-runtime-closure"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT OR Apache-2.0"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:cargo/tar@0.4.45",
+      "name": "tar",
+      "version": "0.4.45",
+      "scope": "excluded",
+      "purl": "pkg:cargo/tar@0.4.45",
+      "properties": [
+        {
+          "name": "capsule:dependency-scope",
+          "value": "cargo-registry"
+        },
+        {
+          "name": "capsule:source",
+          "value": "registry+https://github.com/rust-lang/crates.io-index"
+        },
+        {
+          "name": "capsule:dependency-role",
+          "value": "build-only-workspace-input"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT OR Apache-2.0"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:cargo/thiserror-impl@1.0.69",
+      "name": "thiserror-impl",
+      "version": "1.0.69",
+      "scope": "excluded",
+      "purl": "pkg:cargo/thiserror-impl@1.0.69",
+      "properties": [
+        {
+          "name": "capsule:dependency-scope",
+          "value": "cargo-registry"
+        },
+        {
+          "name": "capsule:source",
+          "value": "registry+https://github.com/rust-lang/crates.io-index"
+        },
+        {
+          "name": "capsule:dependency-role",
+          "value": "build-only-workspace-input"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT OR Apache-2.0"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:cargo/thiserror-impl@2.0.18",
+      "name": "thiserror-impl",
+      "version": "2.0.18",
+      "scope": "required",
+      "purl": "pkg:cargo/thiserror-impl@2.0.18",
+      "properties": [
+        {
+          "name": "capsule:dependency-scope",
+          "value": "cargo-registry"
+        },
+        {
+          "name": "capsule:source",
+          "value": "registry+https://github.com/rust-lang/crates.io-index"
+        },
+        {
+          "name": "capsule:dependency-role",
+          "value": "final-runtime-closure"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT OR Apache-2.0"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:cargo/thiserror@1.0.69",
+      "name": "thiserror",
+      "version": "1.0.69",
+      "scope": "excluded",
+      "purl": "pkg:cargo/thiserror@1.0.69",
+      "properties": [
+        {
+          "name": "capsule:dependency-scope",
+          "value": "cargo-registry"
+        },
+        {
+          "name": "capsule:source",
+          "value": "registry+https://github.com/rust-lang/crates.io-index"
+        },
+        {
+          "name": "capsule:dependency-role",
+          "value": "build-only-workspace-input"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT OR Apache-2.0"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:cargo/thiserror@2.0.18",
+      "name": "thiserror",
+      "version": "2.0.18",
+      "scope": "required",
+      "purl": "pkg:cargo/thiserror@2.0.18",
+      "properties": [
+        {
+          "name": "capsule:dependency-scope",
+          "value": "cargo-registry"
+        },
+        {
+          "name": "capsule:source",
+          "value": "registry+https://github.com/rust-lang/crates.io-index"
+        },
+        {
+          "name": "capsule:dependency-role",
+          "value": "final-runtime-closure"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT OR Apache-2.0"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:cargo/tokio@1.50.0",
+      "name": "tokio",
+      "version": "1.50.0",
+      "scope": "required",
+      "purl": "pkg:cargo/tokio@1.50.0",
+      "properties": [
+        {
+          "name": "capsule:dependency-scope",
+          "value": "cargo-registry"
+        },
+        {
+          "name": "capsule:source",
+          "value": "registry+https://github.com/rust-lang/crates.io-index"
+        },
+        {
+          "name": "capsule:dependency-role",
+          "value": "final-runtime-closure"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:cargo/tracing-attributes@0.1.31",
+      "name": "tracing-attributes",
+      "version": "0.1.31",
+      "scope": "required",
+      "purl": "pkg:cargo/tracing-attributes@0.1.31",
+      "properties": [
+        {
+          "name": "capsule:dependency-scope",
+          "value": "cargo-registry"
+        },
+        {
+          "name": "capsule:source",
+          "value": "registry+https://github.com/rust-lang/crates.io-index"
+        },
+        {
+          "name": "capsule:dependency-role",
+          "value": "final-runtime-closure"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:cargo/tracing-core@0.1.36",
+      "name": "tracing-core",
+      "version": "0.1.36",
+      "scope": "required",
+      "purl": "pkg:cargo/tracing-core@0.1.36",
+      "properties": [
+        {
+          "name": "capsule:dependency-scope",
+          "value": "cargo-registry"
+        },
+        {
+          "name": "capsule:source",
+          "value": "registry+https://github.com/rust-lang/crates.io-index"
+        },
+        {
+          "name": "capsule:dependency-role",
+          "value": "final-runtime-closure"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:cargo/tracing@0.1.44",
+      "name": "tracing",
+      "version": "0.1.44",
+      "scope": "required",
+      "purl": "pkg:cargo/tracing@0.1.44",
+      "properties": [
+        {
+          "name": "capsule:dependency-scope",
+          "value": "cargo-registry"
+        },
+        {
+          "name": "capsule:source",
+          "value": "registry+https://github.com/rust-lang/crates.io-index"
+        },
+        {
+          "name": "capsule:dependency-role",
+          "value": "final-runtime-closure"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:cargo/unicode-ident@1.0.24",
+      "name": "unicode-ident",
+      "version": "1.0.24",
+      "scope": "required",
+      "purl": "pkg:cargo/unicode-ident@1.0.24",
+      "properties": [
+        {
+          "name": "capsule:dependency-scope",
+          "value": "cargo-registry"
+        },
+        {
+          "name": "capsule:source",
+          "value": "registry+https://github.com/rust-lang/crates.io-index"
+        },
+        {
+          "name": "capsule:dependency-role",
+          "value": "final-runtime-closure"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "(MIT OR Apache-2.0) AND Unicode-3.0"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:cargo/unty@0.0.4",
+      "name": "unty",
+      "version": "0.0.4",
+      "scope": "required",
+      "purl": "pkg:cargo/unty@0.0.4",
+      "properties": [
+        {
+          "name": "capsule:dependency-scope",
+          "value": "cargo-registry"
+        },
+        {
+          "name": "capsule:source",
+          "value": "registry+https://github.com/rust-lang/crates.io-index"
+        },
+        {
+          "name": "capsule:dependency-role",
+          "value": "final-runtime-closure"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT OR Apache-2.0"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:cargo/utf8parse@0.2.2",
+      "name": "utf8parse",
+      "version": "0.2.2",
+      "scope": "required",
+      "purl": "pkg:cargo/utf8parse@0.2.2",
+      "properties": [
+        {
+          "name": "capsule:dependency-scope",
+          "value": "cargo-registry"
+        },
+        {
+          "name": "capsule:source",
+          "value": "registry+https://github.com/rust-lang/crates.io-index"
+        },
+        {
+          "name": "capsule:dependency-role",
+          "value": "final-runtime-closure"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "Apache-2.0 OR MIT"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:cargo/virtio-bindings@0.2.7",
+      "name": "virtio-bindings",
+      "version": "0.2.7",
+      "scope": "required",
+      "purl": "pkg:cargo/virtio-bindings@0.2.7",
+      "properties": [
+        {
+          "name": "capsule:dependency-scope",
+          "value": "cargo-registry"
+        },
+        {
+          "name": "capsule:source",
+          "value": "registry+https://github.com/rust-lang/crates.io-index"
+        },
+        {
+          "name": "capsule:dependency-role",
+          "value": "final-runtime-closure"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "BSD-3-Clause OR Apache-2.0"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:cargo/virtue@0.0.18",
+      "name": "virtue",
+      "version": "0.0.18",
+      "scope": "required",
+      "purl": "pkg:cargo/virtue@0.0.18",
+      "properties": [
+        {
+          "name": "capsule:dependency-scope",
+          "value": "cargo-registry"
+        },
+        {
+          "name": "capsule:source",
+          "value": "registry+https://github.com/rust-lang/crates.io-index"
+        },
+        {
+          "name": "capsule:dependency-role",
+          "value": "final-runtime-closure"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:cargo/vm-fdt@0.3.0",
+      "name": "vm-fdt",
+      "version": "0.3.0",
+      "scope": "required",
+      "purl": "pkg:cargo/vm-fdt@0.3.0",
+      "properties": [
+        {
+          "name": "capsule:dependency-scope",
+          "value": "cargo-registry"
+        },
+        {
+          "name": "capsule:source",
+          "value": "registry+https://github.com/rust-lang/crates.io-index"
+        },
+        {
+          "name": "capsule:dependency-role",
+          "value": "final-runtime-closure"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "Apache-2.0 OR BSD-3-Clause"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:cargo/vm-memory@0.17.1",
+      "name": "vm-memory",
+      "version": "0.17.1",
+      "scope": "required",
+      "purl": "pkg:cargo/vm-memory@0.17.1",
+      "properties": [
+        {
+          "name": "capsule:dependency-scope",
+          "value": "cargo-registry"
+        },
+        {
+          "name": "capsule:source",
+          "value": "registry+https://github.com/rust-lang/crates.io-index"
+        },
+        {
+          "name": "capsule:dependency-role",
+          "value": "final-runtime-closure"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "Apache-2.0 OR BSD-3-Clause"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:cargo/vmm-sys-util@0.14.0",
+      "name": "vmm-sys-util",
+      "version": "0.14.0",
+      "scope": "required",
+      "purl": "pkg:cargo/vmm-sys-util@0.14.0",
+      "properties": [
+        {
+          "name": "capsule:dependency-scope",
+          "value": "cargo-registry"
+        },
+        {
+          "name": "capsule:source",
+          "value": "registry+https://github.com/rust-lang/crates.io-index"
+        },
+        {
+          "name": "capsule:dependency-role",
+          "value": "final-runtime-closure"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "BSD-3-Clause"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:cargo/vmm-sys-util@0.15.0",
+      "name": "vmm-sys-util",
+      "version": "0.15.0",
+      "scope": "required",
+      "purl": "pkg:cargo/vmm-sys-util@0.15.0",
+      "properties": [
+        {
+          "name": "capsule:dependency-scope",
+          "value": "cargo-registry"
+        },
+        {
+          "name": "capsule:source",
+          "value": "registry+https://github.com/rust-lang/crates.io-index"
+        },
+        {
+          "name": "capsule:dependency-role",
+          "value": "final-runtime-closure"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "BSD-3-Clause"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:cargo/vsock@0.5.3",
+      "name": "vsock",
+      "version": "0.5.3",
+      "scope": "excluded",
+      "purl": "pkg:cargo/vsock@0.5.3",
+      "properties": [
+        {
+          "name": "capsule:dependency-scope",
+          "value": "cargo-registry"
+        },
+        {
+          "name": "capsule:source",
+          "value": "registry+https://github.com/rust-lang/crates.io-index"
+        },
+        {
+          "name": "capsule:dependency-role",
+          "value": "build-only-workspace-input"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "Apache-2.0"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:cargo/xattr@1.6.1",
+      "name": "xattr",
+      "version": "1.6.1",
+      "scope": "excluded",
+      "purl": "pkg:cargo/xattr@1.6.1",
+      "properties": [
+        {
+          "name": "capsule:dependency-scope",
+          "value": "cargo-registry"
+        },
+        {
+          "name": "capsule:source",
+          "value": "registry+https://github.com/rust-lang/crates.io-index"
+        },
+        {
+          "name": "capsule:dependency-role",
+          "value": "build-only-workspace-input"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT OR Apache-2.0"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:cargo/zerocopy-derive@0.8.47",
+      "name": "zerocopy-derive",
+      "version": "0.8.47",
+      "scope": "required",
+      "purl": "pkg:cargo/zerocopy-derive@0.8.47",
+      "properties": [
+        {
+          "name": "capsule:dependency-scope",
+          "value": "cargo-registry"
+        },
+        {
+          "name": "capsule:source",
+          "value": "registry+https://github.com/rust-lang/crates.io-index"
+        },
+        {
+          "name": "capsule:dependency-role",
+          "value": "final-runtime-closure"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "BSD-2-Clause OR Apache-2.0 OR MIT"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:cargo/zerocopy@0.8.47",
+      "name": "zerocopy",
+      "version": "0.8.47",
+      "scope": "required",
+      "purl": "pkg:cargo/zerocopy@0.8.47",
+      "properties": [
+        {
+          "name": "capsule:dependency-scope",
+          "value": "cargo-registry"
+        },
+        {
+          "name": "capsule:source",
+          "value": "registry+https://github.com/rust-lang/crates.io-index"
+        },
+        {
+          "name": "capsule:dependency-role",
+          "value": "final-runtime-closure"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "BSD-2-Clause OR Apache-2.0 OR MIT"
+        }
+      ]
+    },
+    {
+      "type": "firmware",
+      "bom-ref": "pkg:generic/libkrunfw@5.5.0",
+      "name": "libkrunfw",
+      "version": "5.5.0",
+      "purl": "pkg:generic/libkrunfw@5.5.0",
+      "licenses": [
+        {
+          "expression": "LGPL-2.1-only"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "96561a4e5dccec0364a28ac32c5668e13e31180d083f412c9f8be7599380c70d"
+        }
+      ],
+      "properties": [
+        {
+          "name": "capsule:hash-subject",
+          "value": "upstream-prebuilt-kernel.c"
+        },
+        {
+          "name": "capsule:source-tag",
+          "value": "v5.5.0"
+        }
+      ]
+    },
+    {
+      "type": "operating-system",
+      "bom-ref": "pkg:generic/linux-kernel@6.12.91",
+      "name": "Linux kernel",
+      "version": "6.12.91",
+      "purl": "pkg:generic/linux-kernel@6.12.91",
+      "licenses": [
+        {
+          "expression": "GPL-2.0-only"
+        }
+      ],
+      "properties": [
+        {
+          "name": "capsule:embedded-by",
+          "value": "libkrunfw 5.5.0"
+        },
+        {
+          "name": "capsule:source-publication-required",
+          "value": "true"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "capsule-libkrun-hvf-development-profile",
+      "dependsOn": [
+        "pkg:generic/libkrun/libkrun@1.19.4?commit=728df8125077d0db44265f6e997c72b81b65c015",
+        "pkg:generic/libkrunfw@5.5.0"
+      ]
+    },
+    {
+      "ref": "pkg:generic/libkrun/krun-arch@0.1.0-1.19.4?commit=728df8125077d0db44265f6e997c72b81b65c015",
+      "dependsOn": [
+        "pkg:cargo/libc@0.2.183",
+        "pkg:cargo/vm-memory@0.17.1",
+        "pkg:cargo/vmm-sys-util@0.14.0",
+        "pkg:generic/libkrun/krun-arch-gen@0.1.0-1.19.4?commit=728df8125077d0db44265f6e997c72b81b65c015",
+        "pkg:generic/libkrun/krun-smbios@0.1.0-1.19.4?commit=728df8125077d0db44265f6e997c72b81b65c015",
+        "pkg:generic/libkrun/krun-utils@0.1.0-1.19.4?commit=728df8125077d0db44265f6e997c72b81b65c015"
+      ]
+    },
+    {
+      "ref": "pkg:generic/libkrun/krun-arch-gen@0.1.0-1.19.4?commit=728df8125077d0db44265f6e997c72b81b65c015",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:generic/libkrun/krun-aws-nitro@0.1.0-1.19.4?commit=728df8125077d0db44265f6e997c72b81b65c015",
+      "dependsOn": [
+        "pkg:cargo/libc@0.2.183",
+        "pkg:cargo/log@0.4.29",
+        "pkg:cargo/nix@0.30.1",
+        "pkg:cargo/signal-hook@0.3.18",
+        "pkg:cargo/tar@0.4.45",
+        "pkg:cargo/vsock@0.5.3",
+        "pkg:generic/libkrun/krun-devices@0.1.0-1.19.4?commit=728df8125077d0db44265f6e997c72b81b65c015"
+      ]
+    },
+    {
+      "ref": "pkg:generic/libkrun/krun-cpuid@0.1.0-1.19.4?commit=728df8125077d0db44265f6e997c72b81b65c015",
+      "dependsOn": ["pkg:cargo/vmm-sys-util@0.14.0"]
+    },
+    {
+      "ref": "pkg:generic/libkrun/krun-devices@0.1.0-1.19.4?commit=728df8125077d0db44265f6e997c72b81b65c015",
+      "dependsOn": [
+        "pkg:cargo/bitflags@1.3.2",
+        "pkg:cargo/crossbeam-channel@0.5.15",
+        "pkg:cargo/imago@0.2.3",
+        "pkg:cargo/libc@0.2.183",
+        "pkg:cargo/libloading@0.8.9",
+        "pkg:cargo/log@0.4.29",
+        "pkg:cargo/lru@0.16.3",
+        "pkg:cargo/nix@0.30.1",
+        "pkg:cargo/rand@0.9.2",
+        "pkg:cargo/virtio-bindings@0.2.7",
+        "pkg:cargo/vm-fdt@0.3.0",
+        "pkg:cargo/vm-memory@0.17.1",
+        "pkg:generic/libkrun/krun-arch@0.1.0-1.19.4?commit=728df8125077d0db44265f6e997c72b81b65c015",
+        "pkg:generic/libkrun/krun-hvf@0.1.0-1.19.4?commit=728df8125077d0db44265f6e997c72b81b65c015",
+        "pkg:generic/libkrun/krun-polly@0.1.0-1.19.4?commit=728df8125077d0db44265f6e997c72b81b65c015",
+        "pkg:generic/libkrun/krun-utils@0.1.0-1.19.4?commit=728df8125077d0db44265f6e997c72b81b65c015"
+      ]
+    },
+    {
+      "ref": "pkg:generic/libkrun/krun-display@0.1.0?commit=728df8125077d0db44265f6e997c72b81b65c015",
+      "dependsOn": [
+        "pkg:cargo/bindgen@0.72.1",
+        "pkg:cargo/bitflags@2.11.0",
+        "pkg:cargo/log@0.4.29",
+        "pkg:cargo/static_assertions@1.1.0",
+        "pkg:cargo/thiserror@2.0.18"
+      ]
+    },
+    {
+      "ref": "pkg:generic/libkrun/krun-hvf@0.1.0-1.19.4?commit=728df8125077d0db44265f6e997c72b81b65c015",
+      "dependsOn": [
+        "pkg:cargo/crossbeam-channel@0.5.15",
+        "pkg:cargo/libloading@0.8.9",
+        "pkg:cargo/log@0.4.29",
+        "pkg:generic/libkrun/krun-arch@0.1.0-1.19.4?commit=728df8125077d0db44265f6e997c72b81b65c015"
+      ]
+    },
+    {
+      "ref": "pkg:generic/libkrun/krun-init-blob@0.1.0-1.19.4?commit=728df8125077d0db44265f6e997c72b81b65c015",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:generic/libkrun/krun-input@0.1.0?commit=728df8125077d0db44265f6e997c72b81b65c015",
+      "dependsOn": [
+        "pkg:cargo/bindgen@0.72.1",
+        "pkg:cargo/bitflags@2.11.0",
+        "pkg:cargo/libc@0.2.183",
+        "pkg:cargo/log@0.4.29",
+        "pkg:cargo/static_assertions@1.1.0",
+        "pkg:cargo/thiserror@2.0.18"
+      ]
+    },
+    {
+      "ref": "pkg:generic/libkrun/krun-kernel@0.1.0-1.19.4?commit=728df8125077d0db44265f6e997c72b81b65c015",
+      "dependsOn": [
+        "pkg:cargo/vm-memory@0.17.1",
+        "pkg:generic/libkrun/krun-utils@0.1.0-1.19.4?commit=728df8125077d0db44265f6e997c72b81b65c015"
+      ]
+    },
+    {
+      "ref": "pkg:generic/libkrun/libkrun@1.19.4?commit=728df8125077d0db44265f6e997c72b81b65c015",
+      "dependsOn": [
+        "pkg:cargo/crossbeam-channel@0.5.15",
+        "pkg:cargo/env_logger@0.11.9",
+        "pkg:cargo/libc@0.2.183",
+        "pkg:cargo/libloading@0.8.9",
+        "pkg:cargo/log@0.4.29",
+        "pkg:cargo/once_cell@1.21.4",
+        "pkg:generic/libkrun/krun-devices@0.1.0-1.19.4?commit=728df8125077d0db44265f6e997c72b81b65c015",
+        "pkg:generic/libkrun/krun-hvf@0.1.0-1.19.4?commit=728df8125077d0db44265f6e997c72b81b65c015",
+        "pkg:generic/libkrun/krun-init-blob@0.1.0-1.19.4?commit=728df8125077d0db44265f6e997c72b81b65c015",
+        "pkg:generic/libkrun/krun-polly@0.1.0-1.19.4?commit=728df8125077d0db44265f6e997c72b81b65c015",
+        "pkg:generic/libkrun/krun-utils@0.1.0-1.19.4?commit=728df8125077d0db44265f6e997c72b81b65c015",
+        "pkg:generic/libkrun/krun-vmm@0.1.0-1.19.4?commit=728df8125077d0db44265f6e997c72b81b65c015"
+      ]
+    },
+    {
+      "ref": "pkg:generic/libkrun/krun-polly@0.1.0-1.19.4?commit=728df8125077d0db44265f6e997c72b81b65c015",
+      "dependsOn": [
+        "pkg:cargo/libc@0.2.183",
+        "pkg:generic/libkrun/krun-utils@0.1.0-1.19.4?commit=728df8125077d0db44265f6e997c72b81b65c015"
+      ]
+    },
+    {
+      "ref": "pkg:generic/libkrun/krun-rutabaga-gfx@0.1.0-1.19.4?commit=728df8125077d0db44265f6e997c72b81b65c015",
+      "dependsOn": [
+        "pkg:cargo/anyhow@1.0.102",
+        "pkg:cargo/cfg-if@1.0.4",
+        "pkg:cargo/libc@0.2.183",
+        "pkg:cargo/log@0.4.29",
+        "pkg:cargo/nix@0.30.1",
+        "pkg:cargo/pkg-config@0.3.32",
+        "pkg:cargo/remain@0.2.15",
+        "pkg:cargo/thiserror@1.0.69",
+        "pkg:cargo/vmm-sys-util@0.14.0",
+        "pkg:cargo/zerocopy@0.8.47"
+      ]
+    },
+    {
+      "ref": "pkg:generic/libkrun/krun-smbios@0.1.0-1.19.4?commit=728df8125077d0db44265f6e997c72b81b65c015",
+      "dependsOn": ["pkg:cargo/vm-memory@0.17.1"]
+    },
+    {
+      "ref": "pkg:generic/libkrun/krun-utils@0.1.0-1.19.4?commit=728df8125077d0db44265f6e997c72b81b65c015",
+      "dependsOn": [
+        "pkg:cargo/bitflags@1.3.2",
+        "pkg:cargo/crossbeam-channel@0.5.15",
+        "pkg:cargo/libc@0.2.183",
+        "pkg:cargo/log@0.4.29",
+        "pkg:cargo/nix@0.30.1",
+        "pkg:cargo/vmm-sys-util@0.14.0"
+      ]
+    },
+    {
+      "ref": "pkg:generic/libkrun/krun-vmm@0.1.0-1.19.4?commit=728df8125077d0db44265f6e997c72b81b65c015",
+      "dependsOn": [
+        "pkg:cargo/crossbeam-channel@0.5.15",
+        "pkg:cargo/flate2@1.1.9",
+        "pkg:cargo/libc@0.2.183",
+        "pkg:cargo/linux-loader@0.13.2",
+        "pkg:cargo/log@0.4.29",
+        "pkg:cargo/nix@0.30.1",
+        "pkg:cargo/vm-memory@0.17.1",
+        "pkg:cargo/vmm-sys-util@0.15.0",
+        "pkg:generic/libkrun/krun-arch-gen@0.1.0-1.19.4?commit=728df8125077d0db44265f6e997c72b81b65c015",
+        "pkg:generic/libkrun/krun-arch@0.1.0-1.19.4?commit=728df8125077d0db44265f6e997c72b81b65c015",
+        "pkg:generic/libkrun/krun-devices@0.1.0-1.19.4?commit=728df8125077d0db44265f6e997c72b81b65c015",
+        "pkg:generic/libkrun/krun-hvf@0.1.0-1.19.4?commit=728df8125077d0db44265f6e997c72b81b65c015",
+        "pkg:generic/libkrun/krun-kernel@0.1.0-1.19.4?commit=728df8125077d0db44265f6e997c72b81b65c015",
+        "pkg:generic/libkrun/krun-polly@0.1.0-1.19.4?commit=728df8125077d0db44265f6e997c72b81b65c015",
+        "pkg:generic/libkrun/krun-utils@0.1.0-1.19.4?commit=728df8125077d0db44265f6e997c72b81b65c015"
+      ]
+    },
+    {
+      "ref": "pkg:cargo/adler2@2.0.1",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:cargo/aho-corasick@1.1.4",
+      "dependsOn": ["pkg:cargo/memchr@2.8.0"]
+    },
+    {
+      "ref": "pkg:cargo/allocator-api2@0.2.21",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:cargo/anstream@0.6.21",
+      "dependsOn": [
+        "pkg:cargo/anstyle-parse@0.2.7",
+        "pkg:cargo/anstyle-query@1.1.5",
+        "pkg:cargo/anstyle@1.0.14",
+        "pkg:cargo/colorchoice@1.0.5",
+        "pkg:cargo/is_terminal_polyfill@1.70.2",
+        "pkg:cargo/utf8parse@0.2.2"
+      ]
+    },
+    {
+      "ref": "pkg:cargo/anstyle-parse@0.2.7",
+      "dependsOn": ["pkg:cargo/utf8parse@0.2.2"]
+    },
+    {
+      "ref": "pkg:cargo/anstyle-query@1.1.5",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:cargo/anstyle@1.0.14",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:cargo/anyhow@1.0.102",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:cargo/async-trait@0.1.89",
+      "dependsOn": [
+        "pkg:cargo/proc-macro2@1.0.106",
+        "pkg:cargo/quote@1.0.45",
+        "pkg:cargo/syn@2.0.117"
+      ]
+    },
+    {
+      "ref": "pkg:cargo/autocfg@1.5.0",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:cargo/bincode@2.0.1",
+      "dependsOn": ["pkg:cargo/bincode_derive@2.0.1", "pkg:cargo/unty@0.0.4"]
+    },
+    {
+      "ref": "pkg:cargo/bincode_derive@2.0.1",
+      "dependsOn": ["pkg:cargo/virtue@0.0.18"]
+    },
+    {
+      "ref": "pkg:cargo/bindgen@0.72.1",
+      "dependsOn": [
+        "pkg:cargo/bitflags@2.11.0",
+        "pkg:cargo/cexpr@0.6.0",
+        "pkg:cargo/clang-sys@1.8.1",
+        "pkg:cargo/itertools@0.13.0",
+        "pkg:cargo/proc-macro2@1.0.106",
+        "pkg:cargo/quote@1.0.45",
+        "pkg:cargo/regex@1.12.3",
+        "pkg:cargo/rustc-hash@2.1.1",
+        "pkg:cargo/shlex@1.3.0",
+        "pkg:cargo/syn@2.0.117"
+      ]
+    },
+    {
+      "ref": "pkg:cargo/bitflags@1.3.2",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:cargo/bitflags@2.11.0",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:cargo/cexpr@0.6.0",
+      "dependsOn": ["pkg:cargo/nom@7.1.3"]
+    },
+    {
+      "ref": "pkg:cargo/cfg-if@1.0.4",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:cargo/cfg_aliases@0.2.1",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:cargo/clang-sys@1.8.1",
+      "dependsOn": ["pkg:cargo/glob@0.3.3", "pkg:cargo/libc@0.2.183"]
+    },
+    {
+      "ref": "pkg:cargo/colorchoice@1.0.5",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:cargo/crc32fast@1.5.0",
+      "dependsOn": ["pkg:cargo/cfg-if@1.0.4"]
+    },
+    {
+      "ref": "pkg:cargo/crossbeam-channel@0.5.15",
+      "dependsOn": ["pkg:cargo/crossbeam-utils@0.8.21"]
+    },
+    {
+      "ref": "pkg:cargo/crossbeam-utils@0.8.21",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:cargo/either@1.15.0",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:cargo/env_filter@1.0.0",
+      "dependsOn": ["pkg:cargo/log@0.4.29", "pkg:cargo/regex@1.12.3"]
+    },
+    {
+      "ref": "pkg:cargo/env_logger@0.11.9",
+      "dependsOn": [
+        "pkg:cargo/anstream@0.6.21",
+        "pkg:cargo/anstyle@1.0.14",
+        "pkg:cargo/env_filter@1.0.0",
+        "pkg:cargo/jiff@0.2.23",
+        "pkg:cargo/log@0.4.29"
+      ]
+    },
+    {
+      "ref": "pkg:cargo/equivalent@1.0.2",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:cargo/errno@0.3.14",
+      "dependsOn": ["pkg:cargo/libc@0.2.183"]
+    },
+    {
+      "ref": "pkg:cargo/filetime@0.2.27",
+      "dependsOn": ["pkg:cargo/cfg-if@1.0.4", "pkg:cargo/libc@0.2.183"]
+    },
+    {
+      "ref": "pkg:cargo/flate2@1.1.9",
+      "dependsOn": ["pkg:cargo/crc32fast@1.5.0", "pkg:cargo/miniz_oxide@0.8.9"]
+    },
+    {
+      "ref": "pkg:cargo/foldhash@0.2.0",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:cargo/getrandom@0.3.4",
+      "dependsOn": ["pkg:cargo/cfg-if@1.0.4", "pkg:cargo/libc@0.2.183"]
+    },
+    {
+      "ref": "pkg:cargo/glob@0.3.3",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:cargo/hashbrown@0.16.1",
+      "dependsOn": [
+        "pkg:cargo/allocator-api2@0.2.21",
+        "pkg:cargo/equivalent@1.0.2",
+        "pkg:cargo/foldhash@0.2.0"
+      ]
+    },
+    {
+      "ref": "pkg:cargo/imago@0.2.3",
+      "dependsOn": [
+        "pkg:cargo/async-trait@0.1.89",
+        "pkg:cargo/bincode@2.0.1",
+        "pkg:cargo/cfg-if@1.0.4",
+        "pkg:cargo/libc@0.2.183",
+        "pkg:cargo/miniz_oxide@0.8.9",
+        "pkg:cargo/nix@0.30.1",
+        "pkg:cargo/page_size@0.6.0",
+        "pkg:cargo/rustc_version@0.4.1",
+        "pkg:cargo/tokio@1.50.0",
+        "pkg:cargo/tracing@0.1.44"
+      ]
+    },
+    {
+      "ref": "pkg:cargo/is_terminal_polyfill@1.70.2",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:cargo/itertools@0.13.0",
+      "dependsOn": ["pkg:cargo/either@1.15.0"]
+    },
+    {
+      "ref": "pkg:cargo/jiff@0.2.23",
+      "dependsOn": ["pkg:cargo/log@0.4.29", "pkg:cargo/serde_core@1.0.228"]
+    },
+    {
+      "ref": "pkg:cargo/libc@0.2.183",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:cargo/libloading@0.8.9",
+      "dependsOn": ["pkg:cargo/cfg-if@1.0.4"]
+    },
+    {
+      "ref": "pkg:cargo/linux-loader@0.13.2",
+      "dependsOn": ["pkg:cargo/vm-memory@0.17.1"]
+    },
+    {
+      "ref": "pkg:cargo/log@0.4.29",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:cargo/lru@0.16.3",
+      "dependsOn": ["pkg:cargo/hashbrown@0.16.1"]
+    },
+    {
+      "ref": "pkg:cargo/memchr@2.8.0",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:cargo/memoffset@0.9.1",
+      "dependsOn": ["pkg:cargo/autocfg@1.5.0"]
+    },
+    {
+      "ref": "pkg:cargo/minimal-lexical@0.2.1",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:cargo/miniz_oxide@0.8.9",
+      "dependsOn": ["pkg:cargo/adler2@2.0.1", "pkg:cargo/simd-adler32@0.3.8"]
+    },
+    {
+      "ref": "pkg:cargo/nix@0.30.1",
+      "dependsOn": [
+        "pkg:cargo/bitflags@2.11.0",
+        "pkg:cargo/cfg-if@1.0.4",
+        "pkg:cargo/cfg_aliases@0.2.1",
+        "pkg:cargo/libc@0.2.183",
+        "pkg:cargo/memoffset@0.9.1"
+      ]
+    },
+    {
+      "ref": "pkg:cargo/nix@0.31.2",
+      "dependsOn": [
+        "pkg:cargo/bitflags@2.11.0",
+        "pkg:cargo/cfg-if@1.0.4",
+        "pkg:cargo/cfg_aliases@0.2.1",
+        "pkg:cargo/libc@0.2.183",
+        "pkg:cargo/memoffset@0.9.1"
+      ]
+    },
+    {
+      "ref": "pkg:cargo/nom@7.1.3",
+      "dependsOn": ["pkg:cargo/memchr@2.8.0", "pkg:cargo/minimal-lexical@0.2.1"]
+    },
+    {
+      "ref": "pkg:cargo/once_cell@1.21.4",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:cargo/page_size@0.6.0",
+      "dependsOn": ["pkg:cargo/libc@0.2.183"]
+    },
+    {
+      "ref": "pkg:cargo/pin-project-lite@0.2.17",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:cargo/pkg-config@0.3.32",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:cargo/ppv-lite86@0.2.21",
+      "dependsOn": ["pkg:cargo/zerocopy@0.8.47"]
+    },
+    {
+      "ref": "pkg:cargo/proc-macro2@1.0.106",
+      "dependsOn": ["pkg:cargo/unicode-ident@1.0.24"]
+    },
+    {
+      "ref": "pkg:cargo/quote@1.0.45",
+      "dependsOn": ["pkg:cargo/proc-macro2@1.0.106"]
+    },
+    {
+      "ref": "pkg:cargo/rand@0.9.2",
+      "dependsOn": ["pkg:cargo/rand_chacha@0.9.0", "pkg:cargo/rand_core@0.9.5"]
+    },
+    {
+      "ref": "pkg:cargo/rand_chacha@0.9.0",
+      "dependsOn": ["pkg:cargo/ppv-lite86@0.2.21", "pkg:cargo/rand_core@0.9.5"]
+    },
+    {
+      "ref": "pkg:cargo/rand_core@0.9.5",
+      "dependsOn": ["pkg:cargo/getrandom@0.3.4"]
+    },
+    {
+      "ref": "pkg:cargo/regex-automata@0.4.14",
+      "dependsOn": [
+        "pkg:cargo/aho-corasick@1.1.4",
+        "pkg:cargo/memchr@2.8.0",
+        "pkg:cargo/regex-syntax@0.8.10"
+      ]
+    },
+    {
+      "ref": "pkg:cargo/regex-syntax@0.8.10",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:cargo/regex@1.12.3",
+      "dependsOn": [
+        "pkg:cargo/aho-corasick@1.1.4",
+        "pkg:cargo/memchr@2.8.0",
+        "pkg:cargo/regex-automata@0.4.14",
+        "pkg:cargo/regex-syntax@0.8.10"
+      ]
+    },
+    {
+      "ref": "pkg:cargo/remain@0.2.15",
+      "dependsOn": [
+        "pkg:cargo/proc-macro2@1.0.106",
+        "pkg:cargo/quote@1.0.45",
+        "pkg:cargo/syn@2.0.117"
+      ]
+    },
+    {
+      "ref": "pkg:cargo/rustc-hash@2.1.1",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:cargo/rustc_version@0.4.1",
+      "dependsOn": ["pkg:cargo/semver@1.0.27"]
+    },
+    {
+      "ref": "pkg:cargo/rustix@1.1.4",
+      "dependsOn": ["pkg:cargo/bitflags@2.11.0", "pkg:cargo/errno@0.3.14", "pkg:cargo/libc@0.2.183"]
+    },
+    {
+      "ref": "pkg:cargo/semver@1.0.27",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:cargo/serde_core@1.0.228",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:cargo/shlex@1.3.0",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:cargo/signal-hook-registry@1.4.8",
+      "dependsOn": ["pkg:cargo/errno@0.3.14", "pkg:cargo/libc@0.2.183"]
+    },
+    {
+      "ref": "pkg:cargo/signal-hook@0.3.18",
+      "dependsOn": ["pkg:cargo/libc@0.2.183", "pkg:cargo/signal-hook-registry@1.4.8"]
+    },
+    {
+      "ref": "pkg:cargo/simd-adler32@0.3.8",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:cargo/static_assertions@1.1.0",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:cargo/syn@2.0.117",
+      "dependsOn": [
+        "pkg:cargo/proc-macro2@1.0.106",
+        "pkg:cargo/quote@1.0.45",
+        "pkg:cargo/unicode-ident@1.0.24"
+      ]
+    },
+    {
+      "ref": "pkg:cargo/tar@0.4.45",
+      "dependsOn": ["pkg:cargo/filetime@0.2.27", "pkg:cargo/libc@0.2.183", "pkg:cargo/xattr@1.6.1"]
+    },
+    {
+      "ref": "pkg:cargo/thiserror-impl@1.0.69",
+      "dependsOn": [
+        "pkg:cargo/proc-macro2@1.0.106",
+        "pkg:cargo/quote@1.0.45",
+        "pkg:cargo/syn@2.0.117"
+      ]
+    },
+    {
+      "ref": "pkg:cargo/thiserror-impl@2.0.18",
+      "dependsOn": [
+        "pkg:cargo/proc-macro2@1.0.106",
+        "pkg:cargo/quote@1.0.45",
+        "pkg:cargo/syn@2.0.117"
+      ]
+    },
+    {
+      "ref": "pkg:cargo/thiserror@1.0.69",
+      "dependsOn": ["pkg:cargo/thiserror-impl@1.0.69"]
+    },
+    {
+      "ref": "pkg:cargo/thiserror@2.0.18",
+      "dependsOn": ["pkg:cargo/thiserror-impl@2.0.18"]
+    },
+    {
+      "ref": "pkg:cargo/tokio@1.50.0",
+      "dependsOn": ["pkg:cargo/pin-project-lite@0.2.17"]
+    },
+    {
+      "ref": "pkg:cargo/tracing-attributes@0.1.31",
+      "dependsOn": [
+        "pkg:cargo/proc-macro2@1.0.106",
+        "pkg:cargo/quote@1.0.45",
+        "pkg:cargo/syn@2.0.117"
+      ]
+    },
+    {
+      "ref": "pkg:cargo/tracing-core@0.1.36",
+      "dependsOn": ["pkg:cargo/once_cell@1.21.4"]
+    },
+    {
+      "ref": "pkg:cargo/tracing@0.1.44",
+      "dependsOn": [
+        "pkg:cargo/pin-project-lite@0.2.17",
+        "pkg:cargo/tracing-attributes@0.1.31",
+        "pkg:cargo/tracing-core@0.1.36"
+      ]
+    },
+    {
+      "ref": "pkg:cargo/unicode-ident@1.0.24",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:cargo/unty@0.0.4",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:cargo/utf8parse@0.2.2",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:cargo/virtio-bindings@0.2.7",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:cargo/virtue@0.0.18",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:cargo/vm-fdt@0.3.0",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:cargo/vm-memory@0.17.1",
+      "dependsOn": ["pkg:cargo/libc@0.2.183", "pkg:cargo/thiserror@2.0.18"]
+    },
+    {
+      "ref": "pkg:cargo/vmm-sys-util@0.14.0",
+      "dependsOn": ["pkg:cargo/libc@0.2.183"]
+    },
+    {
+      "ref": "pkg:cargo/vmm-sys-util@0.15.0",
+      "dependsOn": ["pkg:cargo/bitflags@1.3.2", "pkg:cargo/libc@0.2.183"]
+    },
+    {
+      "ref": "pkg:cargo/vsock@0.5.3",
+      "dependsOn": ["pkg:cargo/libc@0.2.183", "pkg:cargo/nix@0.31.2"]
+    },
+    {
+      "ref": "pkg:cargo/xattr@1.6.1",
+      "dependsOn": ["pkg:cargo/rustix@1.1.4"]
+    },
+    {
+      "ref": "pkg:cargo/zerocopy-derive@0.8.47",
+      "dependsOn": [
+        "pkg:cargo/proc-macro2@1.0.106",
+        "pkg:cargo/quote@1.0.45",
+        "pkg:cargo/syn@2.0.117"
+      ]
+    },
+    {
+      "ref": "pkg:cargo/zerocopy@0.8.47",
+      "dependsOn": ["pkg:cargo/zerocopy-derive@0.8.47"]
+    },
+    {
+      "ref": "pkg:generic/libkrunfw@5.5.0",
+      "dependsOn": ["pkg:generic/linux-kernel@6.12.91"]
+    },
+    {
+      "ref": "pkg:generic/linux-kernel@6.12.91",
+      "dependsOn": []
+    }
+  ]
+}

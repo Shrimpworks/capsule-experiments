@@ -1,0 +1,14 @@
+FD_API_CONTRACT_PASS case=valid-finalized-read-only-root
+FD_API_CONTRACT_PASS case=caller-flags-unchanged
+FD_API_CONTRACT_PASS case=caller-offset-unchanged
+FD_API_CONTRACT_PASS case=caller-pwrite-refused
+FD_API_CONTRACT_PASS case=duplicate-runtime-root-role-refused
+FD_API_CONTRACT_PASS case=path-vda-after-fd-role-refused
+FD_API_CONTRACT_PASS case=caller-close-after-api
+FD_API_CONTRACT_PASS case=closed-descriptor-refused
+FD_API_CONTRACT_PASS case=writable-descriptor-refused
+FD_API_CONTRACT_PASS case=linked-descriptor-refused
+FD_API_CONTRACT_PASS case=wrong-mode-refused
+FD_API_CONTRACT_PASS case=reused-wrong-object-refused
+FD_API_CONTRACT_PASS case=wrong-length-refused
+FD_API_CONTRACT_SUMMARY pass=13 fail=0

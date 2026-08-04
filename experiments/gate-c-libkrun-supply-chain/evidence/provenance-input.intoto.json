@@ -1,0 +1,90 @@
+{
+  "_type": "https://in-toto.io/Statement/v1",
+  "subject": [
+    {
+      "name": "libkrun.1.19.4.dylib",
+      "digest": {
+        "sha256": "24f14dbc56601bd59f5f4021aa55c57a2097d43b5134f7d398e54c529daf3372"
+      }
+    },
+    {
+      "name": "libkrunfw.5.dylib",
+      "digest": {
+        "sha256": "0b14f4b8005dafd33c38df5935b9efdb6381c724224b3967ba1cecbecf10b6e9"
+      }
+    }
+  ],
+  "predicateType": "https://slsa.dev/provenance/v1",
+  "predicate": {
+    "buildDefinition": {
+      "buildType": "https://capsule.invalid/buildtypes/libkrun-hvf-development-spike/v1",
+      "externalParameters": {
+        "target": "aarch64-apple-darwin",
+        "features": ["blk"],
+        "macOSDeploymentTarget": "14.0",
+        "pathRemap": "/private/tmp/capsule-libkrun-repro.*=/usr/src/libkrun"
+      },
+      "internalParameters": {
+        "developmentOnly": true,
+        "offlineCargo": true,
+        "cargoLocked": true,
+        "signed": false,
+        "notarized": false
+      },
+      "resolvedDependencies": [
+        {
+          "uri": "git+https://github.com/libkrun/libkrun",
+          "digest": {
+            "gitCommit": "728df8125077d0db44265f6e997c72b81b65c015"
+          }
+        },
+        {
+          "uri": "file:patches/0001-pin-libkrunfw-rpath.patch",
+          "digest": {
+            "sha256": "a845cce3cd479a73c6a698164dc1b466e8d67796018b107077504478e0ec9cd5"
+          }
+        },
+        {
+          "uri": "file:patches/0002-read-only-block-root-mount-flags.patch",
+          "digest": {
+            "sha256": "b2120d4cc848e138a28165906d6c5cc4da1efee8004e392a7ddddc2334136823"
+          }
+        },
+        {
+          "uri": "file:Cargo.lock",
+          "digest": {
+            "sha256": "9d5dc785636a264794a396ab478821c4ed33acae91650db8d72e8a35733f288c"
+          }
+        },
+        {
+          "uri": "https://github.com/libkrun/libkrunfw/releases/download/v5.5.0/libkrunfw-prebuilt-aarch64.tgz",
+          "digest": {
+            "sha256": "5bfae6efee63dbdf04a8fac2a69d772d9f900af2f54c4429b4acdfd6d86b9979"
+          }
+        },
+        {
+          "uri": "file:libkrunfw/kernel.c",
+          "digest": {
+            "sha256": "96561a4e5dccec0364a28ac32c5668e13e31180d083f412c9f8be7599380c70d"
+          }
+        }
+      ]
+    },
+    "runDetails": {
+      "builder": {
+        "id": "local-development-host;not-a-trusted-builder"
+      },
+      "metadata": {
+        "invocationId": "gate-c-libkrun-supply-chain-path-remap-control",
+        "startedOn": "2026-07-31T00:00:00Z",
+        "finishedOn": "2026-07-31T00:00:00Z"
+      },
+      "byproducts": [
+        {
+          "name": "limitations",
+          "content": "Unsigned local control only. Sysroot packages, Xcode SDK, toolchain archives, full libkrunfw/kernel sources, signer identity, and notarization are not completely represented; this statement must not be signed or treated as release provenance."
+        }
+      ]
+    }
+  }
+}

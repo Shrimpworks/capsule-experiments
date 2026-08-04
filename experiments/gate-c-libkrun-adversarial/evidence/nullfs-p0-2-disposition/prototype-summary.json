@@ -1,0 +1,60 @@
+{
+  "date": "2026-08-02",
+  "decision": "GOVERNED-PATCH",
+  "posture": "development-only prototype; no backend admission",
+  "libkrunCommit": "728df8125077d0db44265f6e997c72b81b65c015",
+  "libkrunVersion": "1.19.4",
+  "libkrunfwVersion": "5.5.0",
+  "prototype": {
+    "bootstrap": "/usr/local/libexec/capsule-init.krun inside the candidate block root",
+    "root": "/dev/vda ext4 ro,nosuid,nodev",
+    "network": "compiled out; implicit vsock disabled",
+    "fsDeviceConstructed": false,
+    "runnerHostDirectoryImports": false,
+    "runnerExternalKernelImports": false,
+    "libraryHostDirectoryExportsRemain": true
+  },
+  "hashes": {
+    "patch": "642d9e196cbb752347e06a8ce4ca35ea38ef94bf7e15ca9e1b136ed58229ef59",
+    "runnerAdHocSigned": "c9e755f2d3c42983a09c17fcb887033ffaa7de2b983c3ac43fa1abdec0ff5125",
+    "libkrunAdHocSigned": "868a2da2b4d962682ecbdda2d34e11bf6958871ecfde58d21e6048f2e6177248",
+    "libkrunfwAdHocSigned": "b0718c3aedab4bda07f7b508682acfa39fd6192a5551d5928e2226865d6ff9ee",
+    "init": "1a5c02412eea6f4ebdce37bf7f3d8d81a57613429962c95e9074e3684f0f3a69",
+    "rootDisk": "29b2acbd3836dfbde4ad017a736f96b8e25c7028e636191549dd9232327e9684",
+    "rawReport": "c5ae37cf552ced6f70a58bb4a9bbe3cf072db769278feef32d62d5ee387a2bef"
+  },
+  "adversarialRerun": {
+    "caseCount": 36,
+    "identityCaseCount": 4,
+    "inventoryExitCode": 0,
+    "inventoryTimedOut": false,
+    "virtioDevices": ["virtio_balloon", "virtio_rng", "virtio_console", "virtio_blk"],
+    "virtiofsDeviceObserved": false,
+    "virtiofsMountObserved": false,
+    "rootMount": "/dev/root / ext4 ro,nosuid,nodev,relatime",
+    "networkProbe": "denied: network is unreachable",
+    "vsockProbe": "unavailable",
+    "crossJobCheck": "tokenLeak=absent",
+    "crossJobWritableStateExercised": false,
+    "concurrentGuests": 4,
+    "concurrentGuestsGone": 4,
+    "expectedEnvironmentalFailures": [
+      "exact live runner identity tuple rejected because the probe was ad-hoc signed",
+      "wrong-path code-validity comparison unavailable under ad-hoc signing",
+      "wrong-start code-validity comparison unavailable under ad-hoc signing"
+    ]
+  },
+  "failedAlternate": {
+    "design": "external copy of the pinned kernel plus a bounded newc initramfs",
+    "result": "kernel panic before init; the valid initramfs did not supply a usable root on these pinned bytes",
+    "consequence": "not selected"
+  },
+  "limitations": [
+    "No valid Developer ID identity was installed; this is not installed-profile identity or App Sandbox evidence.",
+    "The current library still exports host-directory configuration APIs; only the retained runner import route is closed.",
+    "Writable cross-job scratch was not exercised because this root-only profile keeps /tmp read-only.",
+    "Runner status zero remains ambiguous after guest panic or missing completion and is not ordinary success evidence.",
+    "The governed patch has not passed independent source review, final installed-byte admission, P0-1 custody, P0-3 transport, or P0-4 packaging.",
+    "No user bytes were used or admitted."
+  ]
+}

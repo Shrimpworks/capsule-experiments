@@ -1,0 +1,70 @@
+{
+  "schemaVersion": "capsule.runtime-manifest-input.development.v1",
+  "generatedAt": "2026-07-31T00:00:00Z",
+  "status": "inadmissible-development-candidate",
+  "hostObservation": {
+    "architecture": "arm64",
+    "model": "MacBookPro18,4",
+    "macOS": "26.5.2",
+    "build": "25F84"
+  },
+  "declaredSupportFloor": {
+    "architecture": "arm64-apple-silicon",
+    "macOS": "14.0",
+    "validationStatus": "not-confirmed-on-floor-host"
+  },
+  "build": {
+    "libkrunVersion": "1.19.4",
+    "libkrunCommit": "728df8125077d0db44265f6e997c72b81b65c015",
+    "libkrunfwVersion": "5.5.0",
+    "kernelVersion": "6.12.91",
+    "features": ["blk"],
+    "explicitlyAbsentFeatures": ["net", "gpu", "snd", "input"],
+    "patches": [
+      {
+        "path": "../gate-c-libkrun-hvf/patches/0001-pin-libkrunfw-rpath.patch",
+        "sha256": "a845cce3cd479a73c6a698164dc1b466e8d67796018b107077504478e0ec9cd5"
+      },
+      {
+        "path": "../gate-c-libkrun-hvf/patches/0002-read-only-block-root-mount-flags.patch",
+        "sha256": "b2120d4cc848e138a28165906d6c5cc4da1efee8004e392a7ddddc2334136823"
+      }
+    ]
+  },
+  "observedLocalPackagedBytes": [
+    {
+      "role": "runner",
+      "path": "../gate-c-libkrun-hvf/.build/capsule-krun-runner",
+      "sha256": "cea127e2b25f227d16f1679b4b1abb68f846f7b21918630789ab528e2f49ec1e",
+      "signature": "ad-hoc hardened-runtime",
+      "minimumMacOS": "26.0"
+    },
+    {
+      "role": "libkrun",
+      "path": "../gate-c-libkrun-hvf/.build/lib/libkrun.1.19.4.dylib",
+      "sha256": "f78e833433a4801b4f9de7a12574eac05b63ac4e89e7f0f12c122f2bf7964d90",
+      "signature": "ad-hoc hardened-runtime",
+      "minimumMacOS": "11.0"
+    },
+    {
+      "role": "libkrunfw",
+      "path": "../gate-c-libkrun-hvf/.build/lib/libkrunfw.5.dylib",
+      "sha256": "d9916703334d32aaae08cdbc93a9066cc3ed9ddde9495a99f6e009715661f916",
+      "signature": "ad-hoc hardened-runtime",
+      "minimumMacOS": "26.0"
+    }
+  ],
+  "requiredButMissingFinalSubjects": [
+    "Developer-ID-signed and notarized app bundle digest",
+    "trusted guest launcher binary digest and build provenance",
+    "immutable root/runtime disk digest",
+    "Bun runtime digest and provenance",
+    "entitlement and Info.plist digests",
+    "complete bundled-license/source-publication manifest",
+    "accepted profile review and backend validation record digests"
+  ],
+  "admission": {
+    "decision": "no-go",
+    "reason": "The observed local bytes are ad-hoc signed, two components declare macOS 26.0, final runtime subjects are incomplete, and notarization/clean-floor-host validation was not performed."
+  }
+}

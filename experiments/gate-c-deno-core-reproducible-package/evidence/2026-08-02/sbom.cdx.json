@@ -1,0 +1,7067 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.6",
+  "version": 1,
+  "metadata": {
+    "component": {
+      "type": "application",
+      "bom-ref": "capsule-deno-core-runtime-bundle",
+      "name": "Capsule governed deno_core candidate bundle",
+      "version": "0.409.0-capsule-experiment",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "da8f755832a6fceba37078c58cc67c4136bc823acc75fe377ec4c1b98a8ef498"
+        }
+      ]
+    },
+    "properties": [
+      {
+        "name": "capsule:artifact-kind",
+        "value": "complete declared candidate-bundle SBOM"
+      },
+      {
+        "name": "capsule:admission",
+        "value": "none"
+      },
+      {
+        "name": "capsule:runtime-001",
+        "value": "unsupported"
+      },
+      {
+        "name": "capsule:cargo-lock-package-count",
+        "value": "193"
+      },
+      {
+        "name": "capsule:cargo-source-bundle-package-count",
+        "value": "191"
+      },
+      {
+        "name": "capsule:license-closure",
+        "value": "blocked-v8-third-party-notices"
+      }
+    ]
+  },
+  "components": [
+    {
+      "type": "library",
+      "bom-ref": "pkg:cargo/adler2@2.0.1",
+      "name": "adler2",
+      "version": "2.0.1",
+      "purl": "pkg:cargo/adler2@2.0.1",
+      "properties": [
+        {
+          "name": "capsule:source-role",
+          "value": "locked-registry-source"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "320119579fcad9c21884f5c4861d16174d0e06250625266f50fe6898340abefa"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "0BSD OR MIT OR Apache-2.0"
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/oyvindln/adler2"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:cargo/aho-corasick@1.1.4",
+      "name": "aho-corasick",
+      "version": "1.1.4",
+      "purl": "pkg:cargo/aho-corasick@1.1.4",
+      "properties": [
+        {
+          "name": "capsule:source-role",
+          "value": "locked-registry-source"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "ddd31a130427c27518df266943a5308ed92d4b226cc639f5a8f1002816174301"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "Unlicense OR MIT"
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/BurntSushi/aho-corasick"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:cargo/anyhow@1.0.104",
+      "name": "anyhow",
+      "version": "1.0.104",
+      "purl": "pkg:cargo/anyhow@1.0.104",
+      "properties": [
+        {
+          "name": "capsule:source-role",
+          "value": "locked-registry-source"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "330a5ed07fa54e4702c9d6c4174f74427fc0ef6e214bbd677ae50a5099946470"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT OR Apache-2.0"
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/dtolnay/anyhow"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:cargo/autocfg@1.5.1",
+      "name": "autocfg",
+      "version": "1.5.1",
+      "purl": "pkg:cargo/autocfg@1.5.1",
+      "properties": [
+        {
+          "name": "capsule:source-role",
+          "value": "locked-registry-source"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "f2032f911046de80f0a198e0901378627c33f59ea0ac00e363d481118bd70a53"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "Apache-2.0 OR MIT"
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/cuviper/autocfg"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:cargo/az@1.3.0",
+      "name": "az",
+      "version": "1.3.0",
+      "purl": "pkg:cargo/az@1.3.0",
+      "properties": [
+        {
+          "name": "capsule:source-role",
+          "value": "locked-registry-source"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "be5eb007b7cacc6c660343e96f650fedf4b5a77512399eb952ca6642cf8d13f7"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT/Apache-2.0"
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://gitlab.com/tspiteri/az"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:cargo/base64@0.22.1",
+      "name": "base64",
+      "version": "0.22.1",
+      "purl": "pkg:cargo/base64@0.22.1",
+      "properties": [
+        {
+          "name": "capsule:source-role",
+          "value": "locked-registry-source"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "72b3254f16251a8381aa12e40e3c4d2f0199f8c6508fbecb9d91f575e0fbb8c6"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT OR Apache-2.0"
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/marshallpierce/rust-base64"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:cargo/base64-simd@0.8.0",
+      "name": "base64-simd",
+      "version": "0.8.0",
+      "purl": "pkg:cargo/base64-simd@0.8.0",
+      "properties": [
+        {
+          "name": "capsule:source-role",
+          "value": "locked-registry-source"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "339abbe78e73178762e23bea9dfd08e697eb3f3301cd4be981c0f78ba5859195"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/Nugine/simd"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:cargo/bincode@1.3.3",
+      "name": "bincode",
+      "version": "1.3.3",
+      "purl": "pkg:cargo/bincode@1.3.3",
+      "properties": [
+        {
+          "name": "capsule:source-role",
+          "value": "locked-registry-source"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "b1f45e9417d87227c7a56d22e471c6206462cba514c7590c09aff4cf6d1ddcad"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/servo/bincode"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:cargo/bindgen@0.72.1",
+      "name": "bindgen",
+      "version": "0.72.1",
+      "purl": "pkg:cargo/bindgen@0.72.1",
+      "properties": [
+        {
+          "name": "capsule:source-role",
+          "value": "locked-registry-source"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "993776b509cfb49c750f11b8f07a46fa23e0a1386ffc01fb1e7d343efc387895"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "BSD-3-Clause"
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/rust-lang/rust-bindgen"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:cargo/bit-set@0.8.0",
+      "name": "bit-set",
+      "version": "0.8.0",
+      "purl": "pkg:cargo/bit-set@0.8.0",
+      "properties": [
+        {
+          "name": "capsule:source-role",
+          "value": "locked-registry-source"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "08807e080ed7f9d5433fa9b275196cfc35414f66a0c79d864dc51a0d825231a3"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "Apache-2.0 OR MIT"
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/contain-rs/bit-set"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:cargo/bit-vec@0.8.0",
+      "name": "bit-vec",
+      "version": "0.8.0",
+      "purl": "pkg:cargo/bit-vec@0.8.0",
+      "properties": [
+        {
+          "name": "capsule:source-role",
+          "value": "locked-registry-source"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "5e764a1d40d510daf35e07be9eb06e75770908c27d411ee6c92109c9840eaaf7"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "Apache-2.0 OR MIT"
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/contain-rs/bit-vec"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:cargo/bitflags@2.13.1",
+      "name": "bitflags",
+      "version": "2.13.1",
+      "purl": "pkg:cargo/bitflags@2.13.1",
+      "properties": [
+        {
+          "name": "capsule:source-role",
+          "value": "locked-registry-source"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "b588b76d00fde79687d7646a9b5bdf3cc0f655e0bbd080335a95d7e96f3587da"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT OR Apache-2.0"
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/bitflags/bitflags"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:cargo/bitvec@1.1.1",
+      "name": "bitvec",
+      "version": "1.1.1",
+      "purl": "pkg:cargo/bitvec@1.1.1",
+      "properties": [
+        {
+          "name": "capsule:source-role",
+          "value": "locked-registry-source"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "ddcec3d12c579d40898fe0a9a358a803c23e9c52ca3c425707f81c9436211837"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/bitvecto-rs/bitvec"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:cargo/boxed_error@0.2.3",
+      "name": "boxed_error",
+      "version": "0.2.3",
+      "purl": "pkg:cargo/boxed_error@0.2.3",
+      "properties": [
+        {
+          "name": "capsule:source-role",
+          "value": "locked-registry-source"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "17d4f95e880cfd28c4ca5a006cf7f6af52b4bcb7b5866f573b2faa126fb7affb"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/denoland/boxed_error"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:cargo/bumpalo@3.20.3",
+      "name": "bumpalo",
+      "version": "3.20.3",
+      "purl": "pkg:cargo/bumpalo@3.20.3",
+      "properties": [
+        {
+          "name": "capsule:source-role",
+          "value": "locked-registry-source"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "72f5acc6cb2ba439de613abc23857ec3d78374d8ed5ac84e9d11336e87da8649"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT OR Apache-2.0"
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/fitzgen/bumpalo"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:cargo/bytes@1.12.1",
+      "name": "bytes",
+      "version": "1.12.1",
+      "purl": "pkg:cargo/bytes@1.12.1",
+      "properties": [
+        {
+          "name": "capsule:source-role",
+          "value": "locked-registry-source"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "fc652a48c352aef3ea3aed32080501cf3ef6ed5da78602a020c991775b0aff04"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/tokio-rs/bytes"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:cargo/calendrical_calculations@0.2.4",
+      "name": "calendrical_calculations",
+      "version": "0.2.4",
+      "purl": "pkg:cargo/calendrical_calculations@0.2.4",
+      "properties": [
+        {
+          "name": "capsule:source-role",
+          "value": "locked-registry-source"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "5abbd6eeda6885048d357edc66748eea6e0268e3dd11f326fff5bd248d779c26"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "Apache-2.0"
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/unicode-org/icu4x"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:cargo/capacity_builder@0.5.0",
+      "name": "capacity_builder",
+      "version": "0.5.0",
+      "purl": "pkg:cargo/capacity_builder@0.5.0",
+      "properties": [
+        {
+          "name": "capsule:source-role",
+          "value": "locked-registry-source"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "8f2d24a6dcf0cd402a21b65d35340f3a49ff3475dc5fdac91d22d2733e6641c6"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/dsherret/capacity_builder"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:cargo/capacity_builder_macros@0.3.0",
+      "name": "capacity_builder_macros",
+      "version": "0.3.0",
+      "purl": "pkg:cargo/capacity_builder_macros@0.3.0",
+      "properties": [
+        {
+          "name": "capsule:source-role",
+          "value": "locked-registry-source"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "3b4a6cae9efc04cc6cbb8faf338d2c497c165c83e74509cf4dbedea948bbf6e5"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/dsherret/capacity_builder"
+        }
+      ]
+    },
+    {
+      "type": "application",
+      "bom-ref": "pkg:generic/capsule/capsule-deno-core-physical-omission@0.0.0",
+      "name": "capsule-deno-core-physical-omission",
+      "version": "0.0.0",
+      "purl": "pkg:generic/capsule/capsule-deno-core-physical-omission@0.0.0",
+      "properties": [
+        {
+          "name": "capsule:source-role",
+          "value": "repository-or-patched-path-source"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:cargo/cexpr@0.6.0",
+      "name": "cexpr",
+      "version": "0.6.0",
+      "purl": "pkg:cargo/cexpr@0.6.0",
+      "properties": [
+        {
+          "name": "capsule:source-role",
+          "value": "locked-registry-source"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "6fac387a98bb7c37292057cffc56d62ecb629900026402633ae9160df93a8766"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "Apache-2.0/MIT"
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/jethrogb/rust-cexpr"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:cargo/cfg-if@1.0.4",
+      "name": "cfg-if",
+      "version": "1.0.4",
+      "purl": "pkg:cargo/cfg-if@1.0.4",
+      "properties": [
+        {
+          "name": "capsule:source-role",
+          "value": "locked-registry-source"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "9330f8b2ff13f34540b44e946ef35111825727b38d33286ef986142615121801"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT OR Apache-2.0"
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/rust-lang/cfg-if"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:cargo/clang-sys@1.9.1",
+      "name": "clang-sys",
+      "version": "1.9.1",
+      "purl": "pkg:cargo/clang-sys@1.9.1",
+      "properties": [
+        {
+          "name": "capsule:source-role",
+          "value": "locked-registry-source"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "157a8ba7b480713b56f4c09fd13fc3e0a22a5dfab8097ba61cbc5feef950788a"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "Apache-2.0"
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/KyleMayes/clang-sys"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:cargo/cooked-waker@5.0.0",
+      "name": "cooked-waker",
+      "version": "5.0.0",
+      "purl": "pkg:cargo/cooked-waker@5.0.0",
+      "properties": [
+        {
+          "name": "capsule:source-role",
+          "value": "locked-registry-source"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "147be55d677052dabc6b22252d5dd0fd4c29c8c27aa4f2fbef0f94aa003b406f"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MPL-2.0"
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/Lucretiel/cooked-waker"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:cargo/core_maths@0.1.1",
+      "name": "core_maths",
+      "version": "0.1.1",
+      "purl": "pkg:cargo/core_maths@0.1.1",
+      "properties": [
+        {
+          "name": "capsule:source-role",
+          "value": "locked-registry-source"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "77745e017f5edba1a9c1d854f6f3a52dac8a12dd5af5d2f54aecf61e43d80d30"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/robertbastian/core_maths"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:cargo/crc32fast@1.5.0",
+      "name": "crc32fast",
+      "version": "1.5.0",
+      "purl": "pkg:cargo/crc32fast@1.5.0",
+      "properties": [
+        {
+          "name": "capsule:source-role",
+          "value": "locked-registry-source"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "9481c1c90cbf2ac953f07c8d4a58aa3945c425b7185c9154d67a65e4230da511"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT OR Apache-2.0"
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/srijs/rust-crc32fast"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:cargo/data-encoding@2.11.0",
+      "name": "data-encoding",
+      "version": "2.11.0",
+      "purl": "pkg:cargo/data-encoding@2.11.0",
+      "properties": [
+        {
+          "name": "capsule:source-role",
+          "value": "locked-registry-source"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "a4ae5f15dda3c708c0ade84bfee31ccab44a3da4f88015ed22f63732abe300c8"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/ia0/data-encoding"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:cargo/debugid@0.8.0",
+      "name": "debugid",
+      "version": "0.8.0",
+      "purl": "pkg:cargo/debugid@0.8.0",
+      "properties": [
+        {
+          "name": "capsule:source-role",
+          "value": "locked-registry-source"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "bef552e6f588e446098f6ba40d89ac146c8c7b64aade83c051ee00bb5d2bc18d"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "Apache-2.0"
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/getsentry/rust-debugid"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:generic/capsule/deno_core@0.409.0",
+      "name": "deno_core",
+      "version": "0.409.0",
+      "purl": "pkg:generic/capsule/deno_core@0.409.0",
+      "properties": [
+        {
+          "name": "capsule:source-role",
+          "value": "repository-or-patched-path-source"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "16b44f6f84139c39ec2f8d1b838412eb84ecaa9837103f7b12169896fd8778b4"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:cargo/deno_error@0.7.1",
+      "name": "deno_error",
+      "version": "0.7.1",
+      "purl": "pkg:cargo/deno_error@0.7.1",
+      "properties": [
+        {
+          "name": "capsule:source-role",
+          "value": "locked-registry-source"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "bfafd2219b29886a71aecbb3449e462deed1b2c474dc5b12f855f0e58c478931"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/denoland/deno_error"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:cargo/deno_error_macro@0.7.1",
+      "name": "deno_error_macro",
+      "version": "0.7.1",
+      "purl": "pkg:cargo/deno_error_macro@0.7.1",
+      "properties": [
+        {
+          "name": "capsule:source-role",
+          "value": "locked-registry-source"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "1c28ede88783f14cd8aae46ca89f230c226b40e4a81ab06fa52ed72af84beb2f"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/denoland/deno_error"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:cargo/deno_ops@0.285.0",
+      "name": "deno_ops",
+      "version": "0.285.0",
+      "purl": "pkg:cargo/deno_ops@0.285.0",
+      "properties": [
+        {
+          "name": "capsule:source-role",
+          "value": "locked-registry-source"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "65c02fede673301e8b47d19368e0f3146d020e5dfcc5ee31d020cbbe542b2a50"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/denoland/deno"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:cargo/deno_path_util@0.6.4",
+      "name": "deno_path_util",
+      "version": "0.6.4",
+      "purl": "pkg:cargo/deno_path_util@0.6.4",
+      "properties": [
+        {
+          "name": "capsule:source-role",
+          "value": "locked-registry-source"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "78c7e98943f0d068928906db0c7bde89de684fa32c6a8018caacc4cee2cdd72b"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/denoland/deno_path_util"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:cargo/deno_unsync@0.4.4",
+      "name": "deno_unsync",
+      "version": "0.4.4",
+      "purl": "pkg:cargo/deno_unsync@0.4.4",
+      "properties": [
+        {
+          "name": "capsule:source-role",
+          "value": "locked-registry-source"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "6742a724e8becb372a74c650a1aefb8924a5b8107f7d75b3848763ea24b27a87"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/denoland/deno_unsync"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:cargo/diplomat@0.15.0",
+      "name": "diplomat",
+      "version": "0.15.0",
+      "purl": "pkg:cargo/diplomat@0.15.0",
+      "properties": [
+        {
+          "name": "capsule:source-role",
+          "value": "locked-registry-source"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "7935649d00000f5c5d735448ad3dc07b9738160727017914cf42138b8e8e6611"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT OR Apache-2.0"
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/rust-diplomat/diplomat"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:cargo/diplomat-runtime@0.15.1",
+      "name": "diplomat-runtime",
+      "version": "0.15.1",
+      "purl": "pkg:cargo/diplomat-runtime@0.15.1",
+      "properties": [
+        {
+          "name": "capsule:source-role",
+          "value": "locked-registry-source"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "970ac38ad677632efcee6d517e783958da9bc78ec206d8d5e35b459ffc5e4864"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT OR Apache-2.0"
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/rust-diplomat/diplomat"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:cargo/diplomat_core@0.15.0",
+      "name": "diplomat_core",
+      "version": "0.15.0",
+      "purl": "pkg:cargo/diplomat_core@0.15.0",
+      "properties": [
+        {
+          "name": "capsule:source-role",
+          "value": "locked-registry-source"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "9cf41b94101a4bce993febaf0098092b0bb31deaf0ecaf6e0a2562465f61b383"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT OR Apache-2.0"
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/rust-diplomat/diplomat"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:cargo/displaydoc@0.2.7",
+      "name": "displaydoc",
+      "version": "0.2.7",
+      "purl": "pkg:cargo/displaydoc@0.2.7",
+      "properties": [
+        {
+          "name": "capsule:source-role",
+          "value": "locked-registry-source"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "c6232dd377dcc64799954cbd3a9bb882e9cdc1308ccd87b1c098f1fb2eaf82a8"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT OR Apache-2.0"
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/yaahc/displaydoc"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:cargo/either@1.17.0",
+      "name": "either",
+      "version": "1.17.0",
+      "purl": "pkg:cargo/either@1.17.0",
+      "properties": [
+        {
+          "name": "capsule:source-role",
+          "value": "locked-registry-source"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "9e5e8f6c15a24b9a3ee5efec809ccd006d3b30e8b3bb63c39af737c7f87daa1d"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT OR Apache-2.0"
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/rayon-rs/either"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:cargo/equivalent@1.0.2",
+      "name": "equivalent",
+      "version": "1.0.2",
+      "purl": "pkg:cargo/equivalent@1.0.2",
+      "properties": [
+        {
+          "name": "capsule:source-role",
+          "value": "locked-registry-source"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "877a4ace8713b0bcf2a4e7eec82529c029f1d0619886d18145fea96c3ffe5c0f"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "Apache-2.0 OR MIT"
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/indexmap-rs/equivalent"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:cargo/errno@0.3.14",
+      "name": "errno",
+      "version": "0.3.14",
+      "purl": "pkg:cargo/errno@0.3.14",
+      "properties": [
+        {
+          "name": "capsule:source-role",
+          "value": "locked-registry-source"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "39cab71617ae0d63f51a36d69f866391735b51691dbda63cf6f96d042b63efeb"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT OR Apache-2.0"
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/lambda-fairy/rust-errno"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:cargo/form_urlencoded@1.2.2",
+      "name": "form_urlencoded",
+      "version": "1.2.2",
+      "purl": "pkg:cargo/form_urlencoded@1.2.2",
+      "properties": [
+        {
+          "name": "capsule:source-role",
+          "value": "locked-registry-source"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "cb4cb245038516f5f85277875cdaa4f7d2c9a0fa0468de06ed190163b1581fcf"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT OR Apache-2.0"
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/servo/rust-url"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:cargo/fslock@0.2.1",
+      "name": "fslock",
+      "version": "0.2.1",
+      "purl": "pkg:cargo/fslock@0.2.1",
+      "properties": [
+        {
+          "name": "capsule:source-role",
+          "value": "locked-registry-source"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "04412b8935272e3a9bae6f48c7bfff74c2911f60525404edfdd28e49884c3bfb"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/brunoczim/fslock"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:cargo/funty@2.0.0",
+      "name": "funty",
+      "version": "2.0.0",
+      "purl": "pkg:cargo/funty@2.0.0",
+      "properties": [
+        {
+          "name": "capsule:source-role",
+          "value": "locked-registry-source"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "e6d5a32815ae3f33302d95fdcb2ce17862f8c65363dcfd29360480ba1001fc9c"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/myrrlyn/funty"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:cargo/futures@0.3.33",
+      "name": "futures",
+      "version": "0.3.33",
+      "purl": "pkg:cargo/futures@0.3.33",
+      "properties": [
+        {
+          "name": "capsule:source-role",
+          "value": "locked-registry-source"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "a88cf1f829d945f548cf8fec32c61b1f202b6d93b45848602fc02af4b12ad218"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT OR Apache-2.0"
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/rust-lang/futures-rs"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:cargo/futures-channel@0.3.33",
+      "name": "futures-channel",
+      "version": "0.3.33",
+      "purl": "pkg:cargo/futures-channel@0.3.33",
+      "properties": [
+        {
+          "name": "capsule:source-role",
+          "value": "locked-registry-source"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "262590f4fe6afeb0bc83be1daa64e52657fe185690a958af7f3ad0e92085c5ae"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT OR Apache-2.0"
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/rust-lang/futures-rs"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:cargo/futures-core@0.3.33",
+      "name": "futures-core",
+      "version": "0.3.33",
+      "purl": "pkg:cargo/futures-core@0.3.33",
+      "properties": [
+        {
+          "name": "capsule:source-role",
+          "value": "locked-registry-source"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "2cd50c473c80f6d7c3670a752354b8e569b1a7cbfdc0419ec88e5edad85e0dc7"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT OR Apache-2.0"
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/rust-lang/futures-rs"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:cargo/futures-executor@0.3.33",
+      "name": "futures-executor",
+      "version": "0.3.33",
+      "purl": "pkg:cargo/futures-executor@0.3.33",
+      "properties": [
+        {
+          "name": "capsule:source-role",
+          "value": "locked-registry-source"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "6754879cc9f2c66f88c6e5c35344bb0bdb0708b0352b1201815667c7eabc7458"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT OR Apache-2.0"
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/rust-lang/futures-rs"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:cargo/futures-io@0.3.33",
+      "name": "futures-io",
+      "version": "0.3.33",
+      "purl": "pkg:cargo/futures-io@0.3.33",
+      "properties": [
+        {
+          "name": "capsule:source-role",
+          "value": "locked-registry-source"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "4577ecaa3c4f96589d473f679a71b596316f6641bc350038b962a5daf0085d7a"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT OR Apache-2.0"
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/rust-lang/futures-rs"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:cargo/futures-macro@0.3.33",
+      "name": "futures-macro",
+      "version": "0.3.33",
+      "purl": "pkg:cargo/futures-macro@0.3.33",
+      "properties": [
+        {
+          "name": "capsule:source-role",
+          "value": "locked-registry-source"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "2d6d3cde68c518367be28956066ddfef33813991b77a55005a69dae04bf3b10b"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT OR Apache-2.0"
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/rust-lang/futures-rs"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:cargo/futures-sink@0.3.33",
+      "name": "futures-sink",
+      "version": "0.3.33",
+      "purl": "pkg:cargo/futures-sink@0.3.33",
+      "properties": [
+        {
+          "name": "capsule:source-role",
+          "value": "locked-registry-source"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "e34418ac499d6305c2fb5ad0ed2f6ac998c5f8ca209b4510f7f94242c647e307"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT OR Apache-2.0"
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/rust-lang/futures-rs"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:cargo/futures-task@0.3.33",
+      "name": "futures-task",
+      "version": "0.3.33",
+      "purl": "pkg:cargo/futures-task@0.3.33",
+      "properties": [
+        {
+          "name": "capsule:source-role",
+          "value": "locked-registry-source"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "b231ed28831efb4a61a08580c4bc233ec56bc009f4cd8f52da2c3cb97df0c109"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT OR Apache-2.0"
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/rust-lang/futures-rs"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:cargo/futures-util@0.3.33",
+      "name": "futures-util",
+      "version": "0.3.33",
+      "purl": "pkg:cargo/futures-util@0.3.33",
+      "properties": [
+        {
+          "name": "capsule:source-role",
+          "value": "locked-registry-source"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "a77a90a256fce34da66415271e30f94ee91c57b04b8a2c042d9cf3220179deaa"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT OR Apache-2.0"
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/rust-lang/futures-rs"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:cargo/getrandom@0.4.3",
+      "name": "getrandom",
+      "version": "0.4.3",
+      "purl": "pkg:cargo/getrandom@0.4.3",
+      "properties": [
+        {
+          "name": "capsule:source-role",
+          "value": "locked-registry-source"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "300e883d756b2e4ec94e02791f39b04b522276138852cfc41d9fb7e904106099"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT OR Apache-2.0"
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/rust-random/getrandom"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:cargo/glob@0.3.4",
+      "name": "glob",
+      "version": "0.3.4",
+      "purl": "pkg:cargo/glob@0.3.4",
+      "properties": [
+        {
+          "name": "capsule:source-role",
+          "value": "locked-registry-source"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "e4eba85ea1d0a966a983acd07deee566e67395d2d96b6fb39e62b5a833f1eb0b"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT OR Apache-2.0"
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/rust-lang/glob"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:cargo/gzip-header@1.1.0",
+      "name": "gzip-header",
+      "version": "1.1.0",
+      "purl": "pkg:cargo/gzip-header@1.1.0",
+      "properties": [
+        {
+          "name": "capsule:source-role",
+          "value": "locked-registry-source"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "86848f4fd157d91041a62c78046fb7b248bcc2dce78376d436a1756e9a038577"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT/Apache-2.0"
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/oyvindln/gzip-header"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:cargo/hashbrown@0.17.1",
+      "name": "hashbrown",
+      "version": "0.17.1",
+      "purl": "pkg:cargo/hashbrown@0.17.1",
+      "properties": [
+        {
+          "name": "capsule:source-role",
+          "value": "locked-registry-source"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "ed5909b6e89a2db4456e54cd5f673791d7eca6732202bbf2a9cc504fe2f9b84a"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT OR Apache-2.0"
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/rust-lang/hashbrown"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:cargo/heck@0.5.0",
+      "name": "heck",
+      "version": "0.5.0",
+      "purl": "pkg:cargo/heck@0.5.0",
+      "properties": [
+        {
+          "name": "capsule:source-role",
+          "value": "locked-registry-source"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "2304e00983f87ffb38b55b444b5e3b60a884b5d30c0fca7d82fe33449bbe55ea"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT OR Apache-2.0"
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/withoutboats/heck"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:cargo/home@0.5.12",
+      "name": "home",
+      "version": "0.5.12",
+      "purl": "pkg:cargo/home@0.5.12",
+      "properties": [
+        {
+          "name": "capsule:source-role",
+          "value": "locked-registry-source"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "cc627f471c528ff0c4a49e1d5e60450c8f6461dd6d10ba9dcd3a61d3dff7728d"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT OR Apache-2.0"
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/rust-lang/cargo"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:cargo/icu_calendar@2.2.1",
+      "name": "icu_calendar",
+      "version": "2.2.1",
+      "purl": "pkg:cargo/icu_calendar@2.2.1",
+      "properties": [
+        {
+          "name": "capsule:source-role",
+          "value": "locked-registry-source"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "a2b2acc6263f494f1df50685b53ff8e57869e47d5c6fe39c23d518ae9a4f3e45"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "Unicode-3.0"
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/unicode-org/icu4x"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:cargo/icu_calendar_data@2.2.0",
+      "name": "icu_calendar_data",
+      "version": "2.2.0",
+      "purl": "pkg:cargo/icu_calendar_data@2.2.0",
+      "properties": [
+        {
+          "name": "capsule:source-role",
+          "value": "locked-registry-source"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "118577bcf3a0fa7c6ac0a7d6e951814da84ee56b9b1f68fb4d8d10b08cefaf4d"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "Unicode-3.0"
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/unicode-org/icu4x"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:cargo/icu_collections@2.2.0",
+      "name": "icu_collections",
+      "version": "2.2.0",
+      "purl": "pkg:cargo/icu_collections@2.2.0",
+      "properties": [
+        {
+          "name": "capsule:source-role",
+          "value": "locked-registry-source"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "2984d1cd16c883d7935b9e07e44071dca8d917fd52ecc02c04d5fa0b5a3f191c"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "Unicode-3.0"
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/unicode-org/icu4x"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:cargo/icu_locale@2.2.0",
+      "name": "icu_locale",
+      "version": "2.2.0",
+      "purl": "pkg:cargo/icu_locale@2.2.0",
+      "properties": [
+        {
+          "name": "capsule:source-role",
+          "value": "locked-registry-source"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "d5a396343c7208121dc86e35623d3dfe19814a7613cfd14964994cdc9c9a2e26"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "Unicode-3.0"
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/unicode-org/icu4x"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:cargo/icu_locale_core@2.2.0",
+      "name": "icu_locale_core",
+      "version": "2.2.0",
+      "purl": "pkg:cargo/icu_locale_core@2.2.0",
+      "properties": [
+        {
+          "name": "capsule:source-role",
+          "value": "locked-registry-source"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "92219b62b3e2b4d88ac5119f8904c10f8f61bf7e95b640d25ba3075e6cac2c29"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "Unicode-3.0"
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/unicode-org/icu4x"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:cargo/icu_locale_data@2.2.0",
+      "name": "icu_locale_data",
+      "version": "2.2.0",
+      "purl": "pkg:cargo/icu_locale_data@2.2.0",
+      "properties": [
+        {
+          "name": "capsule:source-role",
+          "value": "locked-registry-source"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "d5fdcc9ac77c6d74ff5cf6e65ef3181d6af32003b16fce3a77fb451d2f695993"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "Unicode-3.0"
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/unicode-org/icu4x"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:cargo/icu_normalizer@2.2.0",
+      "name": "icu_normalizer",
+      "version": "2.2.0",
+      "purl": "pkg:cargo/icu_normalizer@2.2.0",
+      "properties": [
+        {
+          "name": "capsule:source-role",
+          "value": "locked-registry-source"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "c56e5ee99d6e3d33bd91c5d85458b6005a22140021cc324cea84dd0e72cff3b4"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "Unicode-3.0"
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/unicode-org/icu4x"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:cargo/icu_normalizer_data@2.2.0",
+      "name": "icu_normalizer_data",
+      "version": "2.2.0",
+      "purl": "pkg:cargo/icu_normalizer_data@2.2.0",
+      "properties": [
+        {
+          "name": "capsule:source-role",
+          "value": "locked-registry-source"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "da3be0ae77ea334f4da67c12f149704f19f81d1adf7c51cf482943e84a2bad38"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "Unicode-3.0"
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/unicode-org/icu4x"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:cargo/icu_properties@2.2.0",
+      "name": "icu_properties",
+      "version": "2.2.0",
+      "purl": "pkg:cargo/icu_properties@2.2.0",
+      "properties": [
+        {
+          "name": "capsule:source-role",
+          "value": "locked-registry-source"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "bee3b67d0ea5c2cca5003417989af8996f8604e34fb9ddf96208a033901e70de"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "Unicode-3.0"
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/unicode-org/icu4x"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:cargo/icu_properties_data@2.2.0",
+      "name": "icu_properties_data",
+      "version": "2.2.0",
+      "purl": "pkg:cargo/icu_properties_data@2.2.0",
+      "properties": [
+        {
+          "name": "capsule:source-role",
+          "value": "locked-registry-source"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "8e2bbb201e0c04f7b4b3e14382af113e17ba4f63e2c9d2ee626b720cbce54a14"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "Unicode-3.0"
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/unicode-org/icu4x"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:cargo/icu_provider@2.2.0",
+      "name": "icu_provider",
+      "version": "2.2.0",
+      "purl": "pkg:cargo/icu_provider@2.2.0",
+      "properties": [
+        {
+          "name": "capsule:source-role",
+          "value": "locked-registry-source"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "139c4cf31c8b5f33d7e199446eff9c1e02decfc2f0eec2c8d71f65befa45b421"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "Unicode-3.0"
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/unicode-org/icu4x"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:cargo/idna@1.1.0",
+      "name": "idna",
+      "version": "1.1.0",
+      "purl": "pkg:cargo/idna@1.1.0",
+      "properties": [
+        {
+          "name": "capsule:source-role",
+          "value": "locked-registry-source"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "3b0875f23caa03898994f6ddc501886a45c7d3d62d04d2d90788d47be1b1e4de"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT OR Apache-2.0"
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/servo/rust-url/"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:cargo/idna_adapter@1.2.2",
+      "name": "idna_adapter",
+      "version": "1.2.2",
+      "purl": "pkg:cargo/idna_adapter@1.2.2",
+      "properties": [
+        {
+          "name": "capsule:source-role",
+          "value": "locked-registry-source"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "cb68373c0d6620ef8105e855e7745e18b0d00d3bdb07fb532e434244cdb9a714"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "Apache-2.0 OR MIT"
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/hsivonen/idna_adapter"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:cargo/if_chain@1.0.3",
+      "name": "if_chain",
+      "version": "1.0.3",
+      "purl": "pkg:cargo/if_chain@1.0.3",
+      "properties": [
+        {
+          "name": "capsule:source-role",
+          "value": "locked-registry-source"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "cd62e6b5e86ea8eeeb8db1de02880a6abc01a397b2ebb64b5d74ac255318f5cb"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT/Apache-2.0"
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/lambda-fairy/if_chain"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:cargo/indexmap@2.14.0",
+      "name": "indexmap",
+      "version": "2.14.0",
+      "purl": "pkg:cargo/indexmap@2.14.0",
+      "properties": [
+        {
+          "name": "capsule:source-role",
+          "value": "locked-registry-source"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "d466e9454f08e4a911e14806c24e16fba1b4c121d1ea474396f396069cf949d9"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "Apache-2.0 OR MIT"
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/indexmap-rs/indexmap"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:cargo/inventory@0.3.24",
+      "name": "inventory",
+      "version": "0.3.24",
+      "purl": "pkg:cargo/inventory@0.3.24",
+      "properties": [
+        {
+          "name": "capsule:source-role",
+          "value": "locked-registry-source"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "a4f0c30c76f2f4ccee3fe55a2435f691ca00c0e4bd87abe4f4a851b1d4dac39b"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT OR Apache-2.0"
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/dtolnay/inventory"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:cargo/itertools@0.13.0",
+      "name": "itertools",
+      "version": "0.13.0",
+      "purl": "pkg:cargo/itertools@0.13.0",
+      "properties": [
+        {
+          "name": "capsule:source-role",
+          "value": "locked-registry-source"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "413ee7dfc52ee1a4949ceeb7dbc8a33f2d6c088194d9f922fb8318faf1f01186"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT OR Apache-2.0"
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/rust-itertools/itertools"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:cargo/itoa@1.0.18",
+      "name": "itoa",
+      "version": "1.0.18",
+      "purl": "pkg:cargo/itoa@1.0.18",
+      "properties": [
+        {
+          "name": "capsule:source-role",
+          "value": "locked-registry-source"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "8f42a60cbdf9a97f5d2305f08a87dc4e09308d1276d28c869c684d7777685682"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT OR Apache-2.0"
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/dtolnay/itoa"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:cargo/ixdtf@0.6.5",
+      "name": "ixdtf",
+      "version": "0.6.5",
+      "purl": "pkg:cargo/ixdtf@0.6.5",
+      "properties": [
+        {
+          "name": "capsule:source-role",
+          "value": "locked-registry-source"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "2ceaf4c6c48465bead8cb6a0b7c4ee0c86ecbb31239032b9c66ab9a08d2f3ee1"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "Unicode-3.0"
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/unicode-org/icu4x"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:cargo/js-sys@0.3.103",
+      "name": "js-sys",
+      "version": "0.3.103",
+      "purl": "pkg:cargo/js-sys@0.3.103",
+      "properties": [
+        {
+          "name": "capsule:source-role",
+          "value": "locked-registry-source"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "53b44bfcdb3f8d5837a46dae1ca9660a837176eee74a28b229bc626816589102"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT OR Apache-2.0"
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/wasm-bindgen/wasm-bindgen/tree/master/crates/js-sys"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:cargo/libc@0.2.189",
+      "name": "libc",
+      "version": "0.2.189",
+      "purl": "pkg:cargo/libc@0.2.189",
+      "properties": [
+        {
+          "name": "capsule:source-role",
+          "value": "locked-registry-source"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "3eaf3ede3fee6db1a4c2ee091bf8a8b4dccdc6d17f656fb07896ee72867612f2"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT OR Apache-2.0"
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/rust-lang/libc"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:cargo/libloading@0.8.9",
+      "name": "libloading",
+      "version": "0.8.9",
+      "purl": "pkg:cargo/libloading@0.8.9",
+      "properties": [
+        {
+          "name": "capsule:source-role",
+          "value": "locked-registry-source"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "d7c4b02199fee7c5d21a5ae7d8cfa79a6ef5bb2fc834d6e9058e89c825efdc55"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "ISC"
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/nagisa/rust_libloading/"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:cargo/libm@0.2.16",
+      "name": "libm",
+      "version": "0.2.16",
+      "purl": "pkg:cargo/libm@0.2.16",
+      "properties": [
+        {
+          "name": "capsule:source-role",
+          "value": "locked-registry-source"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "b6d2cec3eae94f9f509c767b45932f1ada8350c4bdb85af2fcab4a3c14807981"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/rust-lang/compiler-builtins"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:cargo/linux-raw-sys@0.4.15",
+      "name": "linux-raw-sys",
+      "version": "0.4.15",
+      "purl": "pkg:cargo/linux-raw-sys@0.4.15",
+      "properties": [
+        {
+          "name": "capsule:source-role",
+          "value": "locked-registry-source"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "d26c52dbd32dccf2d10cac7725f8eae5296885fb5703b261f7d0a0739ec807ab"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "Apache-2.0 WITH LLVM-exception OR Apache-2.0 OR MIT"
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/sunfishcode/linux-raw-sys"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:cargo/litemap@0.8.2",
+      "name": "litemap",
+      "version": "0.8.2",
+      "purl": "pkg:cargo/litemap@0.8.2",
+      "properties": [
+        {
+          "name": "capsule:source-role",
+          "value": "locked-registry-source"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "92daf443525c4cce67b150400bc2316076100ce0b3686209eb8cf3c31612e6f0"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "Unicode-3.0"
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/unicode-org/icu4x"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:cargo/lock_api@0.4.14",
+      "name": "lock_api",
+      "version": "0.4.14",
+      "purl": "pkg:cargo/lock_api@0.4.14",
+      "properties": [
+        {
+          "name": "capsule:source-role",
+          "value": "locked-registry-source"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "224399e74b87b5f3557511d98dff8b14089b3dadafcab6bb93eab67d3aace965"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT OR Apache-2.0"
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/Amanieu/parking_lot"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:cargo/log@0.4.33",
+      "name": "log",
+      "version": "0.4.33",
+      "purl": "pkg:cargo/log@0.4.33",
+      "properties": [
+        {
+          "name": "capsule:source-role",
+          "value": "locked-registry-source"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "0ceec5bc11778974d1bcb055b18002eba7f4b3518b6a0081b3af5f21666da9ad"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT OR Apache-2.0"
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/rust-lang/log"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:cargo/memchr@2.8.3",
+      "name": "memchr",
+      "version": "2.8.3",
+      "purl": "pkg:cargo/memchr@2.8.3",
+      "properties": [
+        {
+          "name": "capsule:source-role",
+          "value": "locked-registry-source"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "cf8baf1c55e62ffcace7a9f06f4bd9cd3f0c4beb022d3b367256b91b87513d98"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "Unlicense OR MIT"
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/BurntSushi/memchr"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:cargo/minimal-lexical@0.2.1",
+      "name": "minimal-lexical",
+      "version": "0.2.1",
+      "purl": "pkg:cargo/minimal-lexical@0.2.1",
+      "properties": [
+        {
+          "name": "capsule:source-role",
+          "value": "locked-registry-source"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "68354c5c6bd36d73ff3feceb05efa59b6acb7626617f4962be322a825e61f79a"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT/Apache-2.0"
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/Alexhuszagh/minimal-lexical"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:cargo/miniz_oxide@0.8.9",
+      "name": "miniz_oxide",
+      "version": "0.8.9",
+      "purl": "pkg:cargo/miniz_oxide@0.8.9",
+      "properties": [
+        {
+          "name": "capsule:source-role",
+          "value": "locked-registry-source"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "1fa76a2c86f704bdb222d66965fb3d63269ce38518b83cb0575fca855ebb6316"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT OR Zlib OR Apache-2.0"
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/Frommi/miniz_oxide/tree/master/miniz_oxide"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:cargo/mio@1.2.2",
+      "name": "mio",
+      "version": "1.2.2",
+      "purl": "pkg:cargo/mio@1.2.2",
+      "properties": [
+        {
+          "name": "capsule:source-role",
+          "value": "locked-registry-source"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "30d65c71f1ce40ab09135ce117d742b9f8a19ff91a41a8b57ed50bc2de59c427"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/tokio-rs/mio"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:cargo/nom@7.1.3",
+      "name": "nom",
+      "version": "7.1.3",
+      "purl": "pkg:cargo/nom@7.1.3",
+      "properties": [
+        {
+          "name": "capsule:source-role",
+          "value": "locked-registry-source"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "d273983c5a657a70a3e8f2a01329822f3b8c8172b73826411a55751e404a0a4a"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/Geal/nom"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:cargo/num-bigint@0.4.8",
+      "name": "num-bigint",
+      "version": "0.4.8",
+      "purl": "pkg:cargo/num-bigint@0.4.8",
+      "properties": [
+        {
+          "name": "capsule:source-role",
+          "value": "locked-registry-source"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "c89e69e7e0f03bea5ef08013795c25018e101932225a656383bd384495ecc367"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT OR Apache-2.0"
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/rust-num/num-bigint"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:cargo/num-integer@0.1.46",
+      "name": "num-integer",
+      "version": "0.1.46",
+      "purl": "pkg:cargo/num-integer@0.1.46",
+      "properties": [
+        {
+          "name": "capsule:source-role",
+          "value": "locked-registry-source"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "7969661fd2958a5cb096e56c8e1ad0444ac2bbcd0061bd28660485a44879858f"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT OR Apache-2.0"
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/rust-num/num-integer"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:cargo/num-traits@0.2.19",
+      "name": "num-traits",
+      "version": "0.2.19",
+      "purl": "pkg:cargo/num-traits@0.2.19",
+      "properties": [
+        {
+          "name": "capsule:source-role",
+          "value": "locked-registry-source"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "071dfc062690e90b734c0b2273ce72ad0ffa95f0c74596bc250dcfd960262841"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT OR Apache-2.0"
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/rust-num/num-traits"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:cargo/once_cell@1.21.4",
+      "name": "once_cell",
+      "version": "1.21.4",
+      "purl": "pkg:cargo/once_cell@1.21.4",
+      "properties": [
+        {
+          "name": "capsule:source-role",
+          "value": "locked-registry-source"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "9f7c3e4beb33f85d45ae3e3a1792185706c8e16d043238c593331cc7cd313b50"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT OR Apache-2.0"
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/matklad/once_cell"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:cargo/outref@0.5.2",
+      "name": "outref",
+      "version": "0.5.2",
+      "purl": "pkg:cargo/outref@0.5.2",
+      "properties": [
+        {
+          "name": "capsule:source-role",
+          "value": "locked-registry-source"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "1a80800c0488c3a21695ea981a54918fbb37abf04f4d0720c453632255e2ff0e"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/Nugine/outref"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:cargo/parking_lot@0.12.5",
+      "name": "parking_lot",
+      "version": "0.12.5",
+      "purl": "pkg:cargo/parking_lot@0.12.5",
+      "properties": [
+        {
+          "name": "capsule:source-role",
+          "value": "locked-registry-source"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "93857453250e3077bd71ff98b6a65ea6621a19bb0f559a85248955ac12c45a1a"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT OR Apache-2.0"
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/Amanieu/parking_lot"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:cargo/parking_lot_core@0.9.12",
+      "name": "parking_lot_core",
+      "version": "0.9.12",
+      "purl": "pkg:cargo/parking_lot_core@0.9.12",
+      "properties": [
+        {
+          "name": "capsule:source-role",
+          "value": "locked-registry-source"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "2621685985a2ebf1c516881c026032ac7deafcda1a2c9b7850dc81e3dfcb64c1"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT OR Apache-2.0"
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/Amanieu/parking_lot"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:cargo/paste@1.0.15",
+      "name": "paste",
+      "version": "1.0.15",
+      "purl": "pkg:cargo/paste@1.0.15",
+      "properties": [
+        {
+          "name": "capsule:source-role",
+          "value": "locked-registry-source"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "57c0d7b74b563b49d38dae00a0c37d4d6de9b432382b2892f0574ddcae73fd0a"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT OR Apache-2.0"
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/dtolnay/paste"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:cargo/percent-encoding@2.3.2",
+      "name": "percent-encoding",
+      "version": "2.3.2",
+      "purl": "pkg:cargo/percent-encoding@2.3.2",
+      "properties": [
+        {
+          "name": "capsule:source-role",
+          "value": "locked-registry-source"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "9b4f627cb1b25917193a259e49bdad08f671f8d9708acfd5fe0a8c1455d87220"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT OR Apache-2.0"
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/servo/rust-url/"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:cargo/pin-project@1.1.13",
+      "name": "pin-project",
+      "version": "1.1.13",
+      "purl": "pkg:cargo/pin-project@1.1.13",
+      "properties": [
+        {
+          "name": "capsule:source-role",
+          "value": "locked-registry-source"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "2466b2336ed02bcdca6b294417127b90ec92038d1d5c4fbeac971a922e0e0924"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "Apache-2.0 OR MIT"
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/taiki-e/pin-project"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:cargo/pin-project-internal@1.1.13",
+      "name": "pin-project-internal",
+      "version": "1.1.13",
+      "purl": "pkg:cargo/pin-project-internal@1.1.13",
+      "properties": [
+        {
+          "name": "capsule:source-role",
+          "value": "locked-registry-source"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "c96395f0a926bc13b1c17622aaddda1ecb55d49c8f1bf9777e4d877800a43f8b"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "Apache-2.0 OR MIT"
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/taiki-e/pin-project"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:cargo/pin-project-lite@0.2.17",
+      "name": "pin-project-lite",
+      "version": "0.2.17",
+      "purl": "pkg:cargo/pin-project-lite@0.2.17",
+      "properties": [
+        {
+          "name": "capsule:source-role",
+          "value": "locked-registry-source"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "a89322df9ebe1c1578d689c92318e070967d1042b512afbe49518723f4e6d5cd"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "Apache-2.0 OR MIT"
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/taiki-e/pin-project-lite"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:cargo/potential_utf@0.1.5",
+      "name": "potential_utf",
+      "version": "0.1.5",
+      "purl": "pkg:cargo/potential_utf@0.1.5",
+      "properties": [
+        {
+          "name": "capsule:source-role",
+          "value": "locked-registry-source"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "0103b1cef7ec0cf76490e969665504990193874ea05c85ff9bab8b911d0a0564"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "Unicode-3.0"
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/unicode-org/icu4x"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:cargo/prettyplease@0.2.37",
+      "name": "prettyplease",
+      "version": "0.2.37",
+      "purl": "pkg:cargo/prettyplease@0.2.37",
+      "properties": [
+        {
+          "name": "capsule:source-role",
+          "value": "locked-registry-source"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "479ca8adacdd7ce8f1fb39ce9ecccbfe93a3f1344b3d0d97f20bc0196208f62b"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT OR Apache-2.0"
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/dtolnay/prettyplease"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:cargo/proc-macro2@1.0.107",
+      "name": "proc-macro2",
+      "version": "1.0.107",
+      "purl": "pkg:cargo/proc-macro2@1.0.107",
+      "properties": [
+        {
+          "name": "capsule:source-role",
+          "value": "locked-registry-source"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "985e7ec9bb745e6ce6535b544d84d6cd6f7ad8bd711c398938ae983b91a766d9"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT OR Apache-2.0"
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/dtolnay/proc-macro2"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:cargo/quote@1.0.47",
+      "name": "quote",
+      "version": "1.0.47",
+      "purl": "pkg:cargo/quote@1.0.47",
+      "properties": [
+        {
+          "name": "capsule:source-role",
+          "value": "locked-registry-source"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "1fbf4db142a473a8d80c26bbf18454ed458bf8d26c8219c331daecfdbd079001"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT OR Apache-2.0"
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/dtolnay/quote"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:cargo/r-efi@6.0.0",
+      "name": "r-efi",
+      "version": "6.0.0",
+      "purl": "pkg:cargo/r-efi@6.0.0",
+      "properties": [
+        {
+          "name": "capsule:source-role",
+          "value": "locked-registry-source"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "f8dcc9c7d52a811697d2151c701e0d08956f92b0e24136cf4cf27b57a6a0d9bf"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT OR Apache-2.0 OR LGPL-2.1-or-later"
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/r-efi/r-efi"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:cargo/radium@0.7.0",
+      "name": "radium",
+      "version": "0.7.0",
+      "purl": "pkg:cargo/radium@0.7.0",
+      "properties": [
+        {
+          "name": "capsule:source-role",
+          "value": "locked-registry-source"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "dc33ff2d4973d518d823d61aa239014831e521c75da58e3df4840d3f47749d09"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/bitvecto-rs/radium"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:cargo/rand@0.8.7",
+      "name": "rand",
+      "version": "0.8.7",
+      "purl": "pkg:cargo/rand@0.8.7",
+      "properties": [
+        {
+          "name": "capsule:source-role",
+          "value": "locked-registry-source"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "22f6172bdec972074665ed81ed53b71da00bfc44b65a753cfde883ec4c702a1a"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT OR Apache-2.0"
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/rust-random/rand"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:cargo/rand_core@0.6.4",
+      "name": "rand_core",
+      "version": "0.6.4",
+      "purl": "pkg:cargo/rand_core@0.6.4",
+      "properties": [
+        {
+          "name": "capsule:source-role",
+          "value": "locked-registry-source"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "ec0be4795e2f6a28069bec0b5ff3e2ac9bafc99e6a9a7dc3547996c5c816922c"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT OR Apache-2.0"
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/rust-random/rand"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:cargo/redox_syscall@0.5.18",
+      "name": "redox_syscall",
+      "version": "0.5.18",
+      "purl": "pkg:cargo/redox_syscall@0.5.18",
+      "properties": [
+        {
+          "name": "capsule:source-role",
+          "value": "locked-registry-source"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "ed2bf2547551a7053d6fdfafda3f938979645c44812fbfcda098faae3f1a362d"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://gitlab.redox-os.org/redox-os/syscall"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:cargo/regex@1.13.1",
+      "name": "regex",
+      "version": "1.13.1",
+      "purl": "pkg:cargo/regex@1.13.1",
+      "properties": [
+        {
+          "name": "capsule:source-role",
+          "value": "locked-registry-source"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "f020237b6c8eed93db2e2cb53c00c60a8e1bc73da7d073199a1180401450218d"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT OR Apache-2.0"
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/rust-lang/regex"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:cargo/regex-automata@0.4.16",
+      "name": "regex-automata",
+      "version": "0.4.16",
+      "purl": "pkg:cargo/regex-automata@0.4.16",
+      "properties": [
+        {
+          "name": "capsule:source-role",
+          "value": "locked-registry-source"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "8fcfdb36bda0c880c5931cdc7a2bcdc8ba4556847b9d912bca70bc94708711ad"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT OR Apache-2.0"
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/rust-lang/regex"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:cargo/regex-syntax@0.8.11",
+      "name": "regex-syntax",
+      "version": "0.8.11",
+      "purl": "pkg:cargo/regex-syntax@0.8.11",
+      "properties": [
+        {
+          "name": "capsule:source-role",
+          "value": "locked-registry-source"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "d6f6ff9a378485b298a5286656da665ba74413d36db0979633275d2e708145d4"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT OR Apache-2.0"
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/rust-lang/regex"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:cargo/resb@0.1.2",
+      "name": "resb",
+      "version": "0.1.2",
+      "purl": "pkg:cargo/resb@0.1.2",
+      "properties": [
+        {
+          "name": "capsule:source-role",
+          "value": "locked-registry-source"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "22d392791f3c6802a1905a509e9d1a6039cbbcb5e9e00e5a6d3661f7c874f390"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "Unicode-3.0"
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/unicode-org/icu4x"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:cargo/rustc-hash@2.1.3",
+      "name": "rustc-hash",
+      "version": "2.1.3",
+      "purl": "pkg:cargo/rustc-hash@2.1.3",
+      "properties": [
+        {
+          "name": "capsule:source-role",
+          "value": "locked-registry-source"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "6b1e7f9a428571be2dc5bc0505c13fb6bf936822b894ec87abf8a08a4e51742d"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "Apache-2.0 OR MIT"
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/rust-lang/rustc-hash"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:cargo/rustix@0.38.44",
+      "name": "rustix",
+      "version": "0.38.44",
+      "purl": "pkg:cargo/rustix@0.38.44",
+      "properties": [
+        {
+          "name": "capsule:source-role",
+          "value": "locked-registry-source"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "fdb5bc1ae2baa591800df16c9ca78619bf65c0488b41b96ccec5d11220d8c154"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "Apache-2.0 WITH LLVM-exception OR Apache-2.0 OR MIT"
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/bytecodealliance/rustix"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:cargo/rustversion@1.0.23",
+      "name": "rustversion",
+      "version": "1.0.23",
+      "purl": "pkg:cargo/rustversion@1.0.23",
+      "properties": [
+        {
+          "name": "capsule:source-role",
+          "value": "locked-registry-source"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "cf54715a573b99ac80df0bc206da022bcd442c974952c7b9720069370852e21f"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT OR Apache-2.0"
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/dtolnay/rustversion"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:cargo/scopeguard@1.2.0",
+      "name": "scopeguard",
+      "version": "1.2.0",
+      "purl": "pkg:cargo/scopeguard@1.2.0",
+      "properties": [
+        {
+          "name": "capsule:source-role",
+          "value": "locked-registry-source"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "94143f37725109f92c262ed2cf5e59bce7498c01bcc1502d7b9afe439a4e9f49"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT OR Apache-2.0"
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/bluss/scopeguard"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:cargo/serde@1.0.229",
+      "name": "serde",
+      "version": "1.0.229",
+      "purl": "pkg:cargo/serde@1.0.229",
+      "properties": [
+        {
+          "name": "capsule:source-role",
+          "value": "locked-registry-source"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "4148590afebada386688f18773da617792bf2ef03ffc1e4cbd2b1d45b023e0ba"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT OR Apache-2.0"
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/serde-rs/serde"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:cargo/serde_core@1.0.229",
+      "name": "serde_core",
+      "version": "1.0.229",
+      "purl": "pkg:cargo/serde_core@1.0.229",
+      "properties": [
+        {
+          "name": "capsule:source-role",
+          "value": "locked-registry-source"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "67dca2c9c51e58a4791a4b1ed58308b39c64224d349a935ab5039aa360942a48"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT OR Apache-2.0"
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/serde-rs/serde"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:cargo/serde_derive@1.0.229",
+      "name": "serde_derive",
+      "version": "1.0.229",
+      "purl": "pkg:cargo/serde_derive@1.0.229",
+      "properties": [
+        {
+          "name": "capsule:source-role",
+          "value": "locked-registry-source"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "e7a5d71263a5a7d47b41f6b3f06ba276f10cc18b0931f1799f710578e2309348"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT OR Apache-2.0"
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/serde-rs/serde"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:cargo/serde_json@1.0.149",
+      "name": "serde_json",
+      "version": "1.0.149",
+      "purl": "pkg:cargo/serde_json@1.0.149",
+      "properties": [
+        {
+          "name": "capsule:source-role",
+          "value": "locked-registry-source"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "83fc039473c5595ace860d8c4fafa220ff474b3fc6bfdb4293327f1a37e94d86"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT OR Apache-2.0"
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/serde-rs/json"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:cargo/serde_v8@0.318.0",
+      "name": "serde_v8",
+      "version": "0.318.0",
+      "purl": "pkg:cargo/serde_v8@0.318.0",
+      "properties": [
+        {
+          "name": "capsule:source-role",
+          "value": "locked-registry-source"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "eb994c8fd6bc9746ac605f1c38219fc5eaa99ca4509db1b6519eefa0219b04a0"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/denoland/deno"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:cargo/shlex@1.3.0",
+      "name": "shlex",
+      "version": "1.3.0",
+      "purl": "pkg:cargo/shlex@1.3.0",
+      "properties": [
+        {
+          "name": "capsule:source-role",
+          "value": "locked-registry-source"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "0fda2ff0d084019ba4d7c6f371c95d8fd75ce3524c3cb8fb653a3023f6323e64"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT OR Apache-2.0"
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/comex/rust-shlex"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:cargo/signal-hook-registry@1.4.8",
+      "name": "signal-hook-registry",
+      "version": "1.4.8",
+      "purl": "pkg:cargo/signal-hook-registry@1.4.8",
+      "properties": [
+        {
+          "name": "capsule:source-role",
+          "value": "locked-registry-source"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "c4db69cba1110affc0e9f7bcd48bbf87b3f4fc7c61fc9155afd4c469eb3d6c1b"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT OR Apache-2.0"
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/vorner/signal-hook"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:cargo/slab@0.4.12",
+      "name": "slab",
+      "version": "0.4.12",
+      "purl": "pkg:cargo/slab@0.4.12",
+      "properties": [
+        {
+          "name": "capsule:source-role",
+          "value": "locked-registry-source"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "0c790de23124f9ab44544d7ac05d60440adc586479ce501c1d6d7da3cd8c9cf5"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/tokio-rs/slab"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:cargo/smallvec@1.15.2",
+      "name": "smallvec",
+      "version": "1.15.2",
+      "purl": "pkg:cargo/smallvec@1.15.2",
+      "properties": [
+        {
+          "name": "capsule:source-role",
+          "value": "locked-registry-source"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "8ed6a63f02c8539c91a8685a86f4099661ba3da017932f6ebbea6de3f0fa7c90"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT OR Apache-2.0"
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/servo/rust-smallvec"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:cargo/socket2@0.6.5",
+      "name": "socket2",
+      "version": "0.6.5",
+      "purl": "pkg:cargo/socket2@0.6.5",
+      "properties": [
+        {
+          "name": "capsule:source-role",
+          "value": "locked-registry-source"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "c3d1e2c7f27f8d4cb10542a02c49005dbd6e93095799d6f3be745fae9f8fedd4"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT OR Apache-2.0"
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/rust-lang/socket2"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:cargo/sourcemap@9.3.2",
+      "name": "sourcemap",
+      "version": "9.3.2",
+      "purl": "pkg:cargo/sourcemap@9.3.2",
+      "properties": [
+        {
+          "name": "capsule:source-role",
+          "value": "locked-registry-source"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "314d62a489431668f719ada776ca1d49b924db951b7450f8974c9ae51ab05ad7"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "BSD-3-Clause"
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/getsentry/rust-sourcemap"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:cargo/stable_deref_trait@1.2.1",
+      "name": "stable_deref_trait",
+      "version": "1.2.1",
+      "purl": "pkg:cargo/stable_deref_trait@1.2.1",
+      "properties": [
+        {
+          "name": "capsule:source-role",
+          "value": "locked-registry-source"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "6ce2be8dc25455e1f91df71bfa12ad37d7af1092ae736f3a6cd0e37bc7810596"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT OR Apache-2.0"
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/storyyeller/stable_deref_trait"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:cargo/static_assertions@1.1.0",
+      "name": "static_assertions",
+      "version": "1.1.0",
+      "purl": "pkg:cargo/static_assertions@1.1.0",
+      "properties": [
+        {
+          "name": "capsule:source-role",
+          "value": "locked-registry-source"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "a2eb9349b6444b326872e140eb1cf5e7c522154d69e7a0ffb0fb81c06b37543f"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT OR Apache-2.0"
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/nvzqz/static-assertions-rs"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:cargo/strck@1.0.0",
+      "name": "strck",
+      "version": "1.0.0",
+      "purl": "pkg:cargo/strck@1.0.0",
+      "properties": [
+        {
+          "name": "capsule:source-role",
+          "value": "locked-registry-source"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "42316e70da376f3d113a68d138a60d8a9883c604fe97942721ec2068dab13a9f"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/QnnOkabayashi/strck"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:cargo/stringcase@0.4.0",
+      "name": "stringcase",
+      "version": "0.4.0",
+      "purl": "pkg:cargo/stringcase@0.4.0",
+      "properties": [
+        {
+          "name": "capsule:source-role",
+          "value": "locked-registry-source"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "72abeda133c49d7bddece6c154728f83eec8172380c80ab7096da9487e20d27c"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/sttk/stringcase-rust"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:cargo/strum@0.27.2",
+      "name": "strum",
+      "version": "0.27.2",
+      "purl": "pkg:cargo/strum@0.27.2",
+      "properties": [
+        {
+          "name": "capsule:source-role",
+          "value": "locked-registry-source"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "af23d6f6c1a224baef9d3f61e287d2761385a5b88fdab4eb4c6f11aeb54c4bcf"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/Peternator7/strum"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:cargo/strum_macros@0.27.2",
+      "name": "strum_macros",
+      "version": "0.27.2",
+      "purl": "pkg:cargo/strum_macros@0.27.2",
+      "properties": [
+        {
+          "name": "capsule:source-role",
+          "value": "locked-registry-source"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "7695ce3845ea4b33927c055a39dc438a45b059f7c1b3d91d38d10355fb8cbca7"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/Peternator7/strum"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:cargo/syn@2.0.119",
+      "name": "syn",
+      "version": "2.0.119",
+      "purl": "pkg:cargo/syn@2.0.119",
+      "properties": [
+        {
+          "name": "capsule:source-role",
+          "value": "locked-registry-source"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "872831b642d1a07999a962a351ed35b955ea2cfc8f3862091e2a240a84f17297"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT OR Apache-2.0"
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/dtolnay/syn"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:cargo/syn@3.0.3",
+      "name": "syn",
+      "version": "3.0.3",
+      "purl": "pkg:cargo/syn@3.0.3",
+      "properties": [
+        {
+          "name": "capsule:source-role",
+          "value": "locked-registry-source"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "53e9bae58849f64dfa4f5d5ae372c8341f7305f82a3868709269343628b659a3"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT OR Apache-2.0"
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/dtolnay/syn"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:cargo/syn-match@0.3.1",
+      "name": "syn-match",
+      "version": "0.3.1",
+      "purl": "pkg:cargo/syn-match@0.3.1",
+      "properties": [
+        {
+          "name": "capsule:source-role",
+          "value": "locked-registry-source"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "54b8f0a9004d6aafa6a588602a1119e6cdaacec9921aa1605383e6e7d6258fd6"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/crowlKats/syn-match"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:cargo/synstructure@0.13.2",
+      "name": "synstructure",
+      "version": "0.13.2",
+      "purl": "pkg:cargo/synstructure@0.13.2",
+      "properties": [
+        {
+          "name": "capsule:source-role",
+          "value": "locked-registry-source"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "728a70f3dbaf5bab7f0c4b1ac8d7ae5ea60a4b5549c8a5914361c99147a709d2"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/mystor/synstructure"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:cargo/sys_traits@0.1.28",
+      "name": "sys_traits",
+      "version": "0.1.28",
+      "purl": "pkg:cargo/sys_traits@0.1.28",
+      "properties": [
+        {
+          "name": "capsule:source-role",
+          "value": "locked-registry-source"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "88826d6169418c98e8bc52a43f79d50907dfa3e87ba5161930d42c6f980b35ee"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/dsherret/sys_traits"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:cargo/sys_traits_macros@0.1.0",
+      "name": "sys_traits_macros",
+      "version": "0.1.0",
+      "purl": "pkg:cargo/sys_traits_macros@0.1.0",
+      "properties": [
+        {
+          "name": "capsule:source-role",
+          "value": "locked-registry-source"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "181f22127402abcf8ee5c83ccd5b408933fec36a6095cf82cda545634692657e"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/dsherret/sys_traits"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:cargo/tap@1.0.1",
+      "name": "tap",
+      "version": "1.0.1",
+      "purl": "pkg:cargo/tap@1.0.1",
+      "properties": [
+        {
+          "name": "capsule:source-role",
+          "value": "locked-registry-source"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "55937e1799185b12863d447f42597ed69d9928686b8d88a1df17376a097d8369"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/myrrlyn/tap"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:cargo/temporal_capi@0.2.4",
+      "name": "temporal_capi",
+      "version": "0.2.4",
+      "purl": "pkg:cargo/temporal_capi@0.2.4",
+      "properties": [
+        {
+          "name": "capsule:source-role",
+          "value": "locked-registry-source"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "c534c1ac4165fb410b5ccd12c79040573622865e881bb8caad70981806a141f1"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT OR Apache-2.0"
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/boa-dev/temporal"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:cargo/temporal_rs@0.2.4",
+      "name": "temporal_rs",
+      "version": "0.2.4",
+      "purl": "pkg:cargo/temporal_rs@0.2.4",
+      "properties": [
+        {
+          "name": "capsule:source-role",
+          "value": "locked-registry-source"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "b1afc06e45b0d63943c777d0233523fa2e23a12431a73c37b1c0366777b31717"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT OR Apache-2.0"
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/boa-dev/temporal"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:cargo/thiserror@2.0.19",
+      "name": "thiserror",
+      "version": "2.0.19",
+      "purl": "pkg:cargo/thiserror@2.0.19",
+      "properties": [
+        {
+          "name": "capsule:source-role",
+          "value": "locked-registry-source"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "09a43598840e33d5b0331f38c5e30d13bb11c11210a4b58f0d9b18a5a5eefcd9"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT OR Apache-2.0"
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/dtolnay/thiserror"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:cargo/thiserror-impl@2.0.19",
+      "name": "thiserror-impl",
+      "version": "2.0.19",
+      "purl": "pkg:cargo/thiserror-impl@2.0.19",
+      "properties": [
+        {
+          "name": "capsule:source-role",
+          "value": "locked-registry-source"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "43cbfe0cf76104d42a574802844187e84a305e531ed54455f11fbde0f10541cd"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT OR Apache-2.0"
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/dtolnay/thiserror"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:cargo/timezone_provider@0.2.4",
+      "name": "timezone_provider",
+      "version": "0.2.4",
+      "purl": "pkg:cargo/timezone_provider@0.2.4",
+      "properties": [
+        {
+          "name": "capsule:source-role",
+          "value": "locked-registry-source"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "48738555f588bc05b58cb55206843cde9875bb1fde50101dd1a7c50ac6535cd5"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT OR Apache-2.0"
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/boa-dev/temporal"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:cargo/tinystr@0.8.3",
+      "name": "tinystr",
+      "version": "0.8.3",
+      "purl": "pkg:cargo/tinystr@0.8.3",
+      "properties": [
+        {
+          "name": "capsule:source-role",
+          "value": "locked-registry-source"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "c8323304221c2a851516f22236c5722a72eaa19749016521d6dff0824447d96d"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "Unicode-3.0"
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/unicode-org/icu4x"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:cargo/tokio@1.53.1",
+      "name": "tokio",
+      "version": "1.53.1",
+      "purl": "pkg:cargo/tokio@1.53.1",
+      "properties": [
+        {
+          "name": "capsule:source-role",
+          "value": "locked-registry-source"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "202caea871b69668250d242070849eb495be178ed697a3e98aebce5bc81a0bed"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/tokio-rs/tokio"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:cargo/tokio-macros@2.7.2",
+      "name": "tokio-macros",
+      "version": "2.7.2",
+      "purl": "pkg:cargo/tokio-macros@2.7.2",
+      "properties": [
+        {
+          "name": "capsule:source-role",
+          "value": "locked-registry-source"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "78773a2a397f451582ce068015985c33193cf6dea8b74d2a639fe457b2f07b0e"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/tokio-rs/tokio"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:cargo/unicode-id-start@1.4.0",
+      "name": "unicode-id-start",
+      "version": "1.4.0",
+      "purl": "pkg:cargo/unicode-id-start@1.4.0",
+      "properties": [
+        {
+          "name": "capsule:source-role",
+          "value": "locked-registry-source"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "81b79ad29b5e19de4260020f8919b443b2ef0277d242ce532ec7b7a2cc8b6007"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "(MIT OR Apache-2.0) AND Unicode-3.0"
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/Boshen/unicode-id-start"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:cargo/unicode-ident@1.0.24",
+      "name": "unicode-ident",
+      "version": "1.0.24",
+      "purl": "pkg:cargo/unicode-ident@1.0.24",
+      "properties": [
+        {
+          "name": "capsule:source-role",
+          "value": "locked-registry-source"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "e6e4313cd5fcd3dad5cafa179702e2b244f760991f45397d14d4ebf38247da75"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "(MIT OR Apache-2.0) AND Unicode-3.0"
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/dtolnay/unicode-ident"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:cargo/url@2.5.8",
+      "name": "url",
+      "version": "2.5.8",
+      "purl": "pkg:cargo/url@2.5.8",
+      "properties": [
+        {
+          "name": "capsule:source-role",
+          "value": "locked-registry-source"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "ff67a8a4397373c3ef660812acab3268222035010ab8680ec4215f38ba3d0eed"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT OR Apache-2.0"
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/servo/rust-url"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:cargo/utf8_iter@1.0.4",
+      "name": "utf8_iter",
+      "version": "1.0.4",
+      "purl": "pkg:cargo/utf8_iter@1.0.4",
+      "properties": [
+        {
+          "name": "capsule:source-role",
+          "value": "locked-registry-source"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "b6c140620e7ffbb22c2dee59cafe6084a59b5ffc27a8859a5f0d494b5d52b6be"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "Apache-2.0 OR MIT"
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/hsivonen/utf8_iter"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:cargo/uuid@1.24.0",
+      "name": "uuid",
+      "version": "1.24.0",
+      "purl": "pkg:cargo/uuid@1.24.0",
+      "properties": [
+        {
+          "name": "capsule:source-role",
+          "value": "locked-registry-source"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "bf3923a6f5c4c6382e0b653c4117f48d631ea17f38ed86e2a828e6f7412f5239"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "Apache-2.0 OR MIT"
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/uuid-rs/uuid"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:cargo/v8@150.2.0",
+      "name": "v8",
+      "version": "150.2.0",
+      "purl": "pkg:cargo/v8@150.2.0",
+      "properties": [
+        {
+          "name": "capsule:source-role",
+          "value": "locked-registry-source"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "c7f4e905df70d6c00b95e69c5f0831fd5eb5889b0116ae2b30293578c19cd1bc"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/denoland/rusty_v8"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:cargo/vsimd@0.8.0",
+      "name": "vsimd",
+      "version": "0.8.0",
+      "purl": "pkg:cargo/vsimd@0.8.0",
+      "properties": [
+        {
+          "name": "capsule:source-role",
+          "value": "locked-registry-source"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "5c3082ca00d5a5ef149bb8b555a72ae84c9c59f7250f013ac822ac2e49b19c64"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/Nugine/simd"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:cargo/wasi@0.11.1%2Bwasi-snapshot-preview1",
+      "name": "wasi",
+      "version": "0.11.1+wasi-snapshot-preview1",
+      "purl": "pkg:cargo/wasi@0.11.1%2Bwasi-snapshot-preview1",
+      "properties": [
+        {
+          "name": "capsule:source-role",
+          "value": "locked-registry-source"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "ccf3ec651a847eb01de73ccad15eb7d99f80485de043efb2f370cd654f4ea44b"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "Apache-2.0 WITH LLVM-exception OR Apache-2.0 OR MIT"
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/bytecodealliance/wasi"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:cargo/wasm-bindgen@0.2.126",
+      "name": "wasm-bindgen",
+      "version": "0.2.126",
+      "purl": "pkg:cargo/wasm-bindgen@0.2.126",
+      "properties": [
+        {
+          "name": "capsule:source-role",
+          "value": "locked-registry-source"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "4b067c0c11094aef6b7a801c1e34a26affafdf3d051dba08456b868789aaf9a4"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT OR Apache-2.0"
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/wasm-bindgen/wasm-bindgen"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:cargo/wasm-bindgen-macro@0.2.126",
+      "name": "wasm-bindgen-macro",
+      "version": "0.2.126",
+      "purl": "pkg:cargo/wasm-bindgen-macro@0.2.126",
+      "properties": [
+        {
+          "name": "capsule:source-role",
+          "value": "locked-registry-source"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "167ce5e579f6bcf889c4f7175a8a5a585de84e8ff93976ce393efa5f2837aab1"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT OR Apache-2.0"
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/wasm-bindgen/wasm-bindgen/tree/master/crates/macro"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:cargo/wasm-bindgen-macro-support@0.2.126",
+      "name": "wasm-bindgen-macro-support",
+      "version": "0.2.126",
+      "purl": "pkg:cargo/wasm-bindgen-macro-support@0.2.126",
+      "properties": [
+        {
+          "name": "capsule:source-role",
+          "value": "locked-registry-source"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "f3997c7839262f4ef12cf90b818d6340c18e80f263f1a94bf157d0ec4420380e"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT OR Apache-2.0"
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/wasm-bindgen/wasm-bindgen/tree/master/crates/macro-support"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:cargo/wasm-bindgen-shared@0.2.126",
+      "name": "wasm-bindgen-shared",
+      "version": "0.2.126",
+      "purl": "pkg:cargo/wasm-bindgen-shared@0.2.126",
+      "properties": [
+        {
+          "name": "capsule:source-role",
+          "value": "locked-registry-source"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "dc1b4cb0cc549fcf58d7dfc081778139b3d283a081644e833e84682ad71cea24"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT OR Apache-2.0"
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/wasm-bindgen/wasm-bindgen/tree/master/crates/shared"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:cargo/wasm_dep_analyzer@0.4.0",
+      "name": "wasm_dep_analyzer",
+      "version": "0.4.0",
+      "purl": "pkg:cargo/wasm_dep_analyzer@0.4.0",
+      "properties": [
+        {
+          "name": "capsule:source-role",
+          "value": "locked-registry-source"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "a10e6b67c951a84de7029487e0e0a496860dae49f6699edd279d5ff35b8fbf54"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/denoland/wasm_dep_analyzer"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:cargo/which@6.0.3",
+      "name": "which",
+      "version": "6.0.3",
+      "purl": "pkg:cargo/which@6.0.3",
+      "properties": [
+        {
+          "name": "capsule:source-role",
+          "value": "locked-registry-source"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "b4ee928febd44d98f2f459a4a79bd4d928591333a494a10a868418ac1b39cf1f"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/harryfei/which-rs.git"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:cargo/winapi@0.3.9",
+      "name": "winapi",
+      "version": "0.3.9",
+      "purl": "pkg:cargo/winapi@0.3.9",
+      "properties": [
+        {
+          "name": "capsule:source-role",
+          "value": "locked-registry-source"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "5c839a674fcd7a98952e593242ea400abe93992746761e38641405d28b00f419"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT/Apache-2.0"
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/retep998/winapi-rs"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:cargo/winapi-i686-pc-windows-gnu@0.4.0",
+      "name": "winapi-i686-pc-windows-gnu",
+      "version": "0.4.0",
+      "purl": "pkg:cargo/winapi-i686-pc-windows-gnu@0.4.0",
+      "properties": [
+        {
+          "name": "capsule:source-role",
+          "value": "locked-registry-source"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "ac3b87c63620426dd9b991e5ce0329eff545bccbbb34f3be09ff6fb6ab51b7b6"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT/Apache-2.0"
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/retep998/winapi-rs"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:cargo/winapi-x86_64-pc-windows-gnu@0.4.0",
+      "name": "winapi-x86_64-pc-windows-gnu",
+      "version": "0.4.0",
+      "purl": "pkg:cargo/winapi-x86_64-pc-windows-gnu@0.4.0",
+      "properties": [
+        {
+          "name": "capsule:source-role",
+          "value": "locked-registry-source"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "712e227841d057c1ee1cd2fb22fa7e5a5461ae8e48fa2ca79ec42cfc1931183f"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT/Apache-2.0"
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/retep998/winapi-rs"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:cargo/windows-link@0.2.1",
+      "name": "windows-link",
+      "version": "0.2.1",
+      "purl": "pkg:cargo/windows-link@0.2.1",
+      "properties": [
+        {
+          "name": "capsule:source-role",
+          "value": "locked-registry-source"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "f0805222e57f7521d6a62e36fa9163bc891acd422f971defe97d64e70d0a4fe5"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT OR Apache-2.0"
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/microsoft/windows-rs"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:cargo/windows-sys@0.59.0",
+      "name": "windows-sys",
+      "version": "0.59.0",
+      "purl": "pkg:cargo/windows-sys@0.59.0",
+      "properties": [
+        {
+          "name": "capsule:source-role",
+          "value": "locked-registry-source"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "1e38bc4d79ed67fd075bcc251a1c39b32a1776bbe92e5bef1f0bf1f8c531853b"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT OR Apache-2.0"
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/microsoft/windows-rs"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:cargo/windows-sys@0.61.2",
+      "name": "windows-sys",
+      "version": "0.61.2",
+      "purl": "pkg:cargo/windows-sys@0.61.2",
+      "properties": [
+        {
+          "name": "capsule:source-role",
+          "value": "locked-registry-source"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "ae137229bcbd6cdf0f7b80a31df61766145077ddf49416a728b02cb3921ff3fc"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT OR Apache-2.0"
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/microsoft/windows-rs"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:cargo/windows-targets@0.52.6",
+      "name": "windows-targets",
+      "version": "0.52.6",
+      "purl": "pkg:cargo/windows-targets@0.52.6",
+      "properties": [
+        {
+          "name": "capsule:source-role",
+          "value": "locked-registry-source"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "9b724f72796e036ab90c1021d4780d4d3d648aca59e491e6b98e725b84e99973"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT OR Apache-2.0"
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/microsoft/windows-rs"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:cargo/windows_aarch64_gnullvm@0.52.6",
+      "name": "windows_aarch64_gnullvm",
+      "version": "0.52.6",
+      "purl": "pkg:cargo/windows_aarch64_gnullvm@0.52.6",
+      "properties": [
+        {
+          "name": "capsule:source-role",
+          "value": "locked-registry-source"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "32a4622180e7a0ec044bb555404c800bc9fd9ec262ec147edd5989ccd0c02cd3"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT OR Apache-2.0"
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/microsoft/windows-rs"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:cargo/windows_aarch64_msvc@0.52.6",
+      "name": "windows_aarch64_msvc",
+      "version": "0.52.6",
+      "purl": "pkg:cargo/windows_aarch64_msvc@0.52.6",
+      "properties": [
+        {
+          "name": "capsule:source-role",
+          "value": "locked-registry-source"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "09ec2a7bb152e2252b53fa7803150007879548bc709c039df7627cabbd05d469"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT OR Apache-2.0"
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/microsoft/windows-rs"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:cargo/windows_i686_gnu@0.52.6",
+      "name": "windows_i686_gnu",
+      "version": "0.52.6",
+      "purl": "pkg:cargo/windows_i686_gnu@0.52.6",
+      "properties": [
+        {
+          "name": "capsule:source-role",
+          "value": "locked-registry-source"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "8e9b5ad5ab802e97eb8e295ac6720e509ee4c243f69d781394014ebfe8bbfa0b"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT OR Apache-2.0"
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/microsoft/windows-rs"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:cargo/windows_i686_gnullvm@0.52.6",
+      "name": "windows_i686_gnullvm",
+      "version": "0.52.6",
+      "purl": "pkg:cargo/windows_i686_gnullvm@0.52.6",
+      "properties": [
+        {
+          "name": "capsule:source-role",
+          "value": "locked-registry-source"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "0eee52d38c090b3caa76c563b86c3a4bd71ef1a819287c19d586d7334ae8ed66"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT OR Apache-2.0"
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/microsoft/windows-rs"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:cargo/windows_i686_msvc@0.52.6",
+      "name": "windows_i686_msvc",
+      "version": "0.52.6",
+      "purl": "pkg:cargo/windows_i686_msvc@0.52.6",
+      "properties": [
+        {
+          "name": "capsule:source-role",
+          "value": "locked-registry-source"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "240948bc05c5e7c6dabba28bf89d89ffce3e303022809e73deaefe4f6ec56c66"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT OR Apache-2.0"
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/microsoft/windows-rs"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:cargo/windows_x86_64_gnu@0.52.6",
+      "name": "windows_x86_64_gnu",
+      "version": "0.52.6",
+      "purl": "pkg:cargo/windows_x86_64_gnu@0.52.6",
+      "properties": [
+        {
+          "name": "capsule:source-role",
+          "value": "locked-registry-source"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "147a5c80aabfbf0c7d901cb5895d1de30ef2907eb21fbbab29ca94c5b08b1a78"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT OR Apache-2.0"
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/microsoft/windows-rs"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:cargo/windows_x86_64_gnullvm@0.52.6",
+      "name": "windows_x86_64_gnullvm",
+      "version": "0.52.6",
+      "purl": "pkg:cargo/windows_x86_64_gnullvm@0.52.6",
+      "properties": [
+        {
+          "name": "capsule:source-role",
+          "value": "locked-registry-source"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "24d5b23dc417412679681396f2b49f3de8c1473deb516bd34410872eff51ed0d"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT OR Apache-2.0"
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/microsoft/windows-rs"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:cargo/windows_x86_64_msvc@0.52.6",
+      "name": "windows_x86_64_msvc",
+      "version": "0.52.6",
+      "purl": "pkg:cargo/windows_x86_64_msvc@0.52.6",
+      "properties": [
+        {
+          "name": "capsule:source-role",
+          "value": "locked-registry-source"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "589f6da84c646204747d1270a2a5661ea66ed1cced2631d546fdfb155959f9ec"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT OR Apache-2.0"
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/microsoft/windows-rs"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:cargo/winsafe@0.0.19",
+      "name": "winsafe",
+      "version": "0.0.19",
+      "purl": "pkg:cargo/winsafe@0.0.19",
+      "properties": [
+        {
+          "name": "capsule:source-role",
+          "value": "locked-registry-source"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "d135d17ab770252ad95e9a872d365cf3090e3be864a34ab46f48555993efc904"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/rodrigocfd/winsafe"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:cargo/writeable@0.6.3",
+      "name": "writeable",
+      "version": "0.6.3",
+      "purl": "pkg:cargo/writeable@0.6.3",
+      "properties": [
+        {
+          "name": "capsule:source-role",
+          "value": "locked-registry-source"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "1ffae5123b2d3fc086436f8834ae3ab053a283cfac8fe0a0b8eaae044768a4c4"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "Unicode-3.0"
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/unicode-org/icu4x"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:cargo/wyz@0.5.1",
+      "name": "wyz",
+      "version": "0.5.1",
+      "purl": "pkg:cargo/wyz@0.5.1",
+      "properties": [
+        {
+          "name": "capsule:source-role",
+          "value": "locked-registry-source"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "05f360fc0b24296329c78fda852a1e9ae82de9cf7b27dae4b7f62f118f77b9ed"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/myrrlyn/wyz"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:cargo/yoke@0.8.3",
+      "name": "yoke",
+      "version": "0.8.3",
+      "purl": "pkg:cargo/yoke@0.8.3",
+      "properties": [
+        {
+          "name": "capsule:source-role",
+          "value": "locked-registry-source"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "709fe23a0424b6a435d82152b1bd3fdfb0833487d5fa90d05d42762a9891fef5"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "Unicode-3.0"
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/unicode-org/icu4x"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:cargo/yoke-derive@0.8.2",
+      "name": "yoke-derive",
+      "version": "0.8.2",
+      "purl": "pkg:cargo/yoke-derive@0.8.2",
+      "properties": [
+        {
+          "name": "capsule:source-role",
+          "value": "locked-registry-source"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "de844c262c8848816172cef550288e7dc6c7b7814b4ee56b3e1553f275f1858e"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "Unicode-3.0"
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/unicode-org/icu4x"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:cargo/zerofrom@0.1.8",
+      "name": "zerofrom",
+      "version": "0.1.8",
+      "purl": "pkg:cargo/zerofrom@0.1.8",
+      "properties": [
+        {
+          "name": "capsule:source-role",
+          "value": "locked-registry-source"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "0ec05a11813ea801ff6d75110ad09cd0824ddba17dfe17128ea0d5f68e6c5272"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "Unicode-3.0"
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/unicode-org/icu4x"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:cargo/zerofrom-derive@0.1.7",
+      "name": "zerofrom-derive",
+      "version": "0.1.7",
+      "purl": "pkg:cargo/zerofrom-derive@0.1.7",
+      "properties": [
+        {
+          "name": "capsule:source-role",
+          "value": "locked-registry-source"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "11532158c46691caf0f2593ea8358fed6bbf68a0315e80aae9bd41fbade684a1"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "Unicode-3.0"
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/unicode-org/icu4x"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:cargo/zerotrie@0.2.4",
+      "name": "zerotrie",
+      "version": "0.2.4",
+      "purl": "pkg:cargo/zerotrie@0.2.4",
+      "properties": [
+        {
+          "name": "capsule:source-role",
+          "value": "locked-registry-source"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "0f9152d31db0792fa83f70fb2f83148effb5c1f5b8c7686c3459e361d9bc20bf"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "Unicode-3.0"
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/unicode-org/icu4x"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:cargo/zerovec@0.11.6",
+      "name": "zerovec",
+      "version": "0.11.6",
+      "purl": "pkg:cargo/zerovec@0.11.6",
+      "properties": [
+        {
+          "name": "capsule:source-role",
+          "value": "locked-registry-source"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "90f911cbc359ab6af17377d242225f4d75119aec87ea711a880987b18cd7b239"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "Unicode-3.0"
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/unicode-org/icu4x"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:cargo/zerovec-derive@0.11.3",
+      "name": "zerovec-derive",
+      "version": "0.11.3",
+      "purl": "pkg:cargo/zerovec-derive@0.11.3",
+      "properties": [
+        {
+          "name": "capsule:source-role",
+          "value": "locked-registry-source"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "625dc425cab0dca6dc3c3319506e6593dcb08a9f387ea3b284dbd52a92c40555"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "Unicode-3.0"
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/unicode-org/icu4x"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:cargo/zmij@1.0.23",
+      "name": "zmij",
+      "version": "1.0.23",
+      "purl": "pkg:cargo/zmij@1.0.23",
+      "properties": [
+        {
+          "name": "capsule:source-role",
+          "value": "locked-registry-source"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "29666d0abbfad1e3dc4dcf6144730dd3a3ab225bbbdac83319345b1b44ccfc1b"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/dtolnay/zmij"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "bom-ref": "pkg:cargo/zoneinfo64@0.3.0",
+      "name": "zoneinfo64",
+      "version": "0.3.0",
+      "purl": "pkg:cargo/zoneinfo64@0.3.0",
+      "properties": [
+        {
+          "name": "capsule:source-role",
+          "value": "locked-registry-source"
+        }
+      ],
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "ed6eb2607e906160c457fd573e9297e65029669906b9ac8fb1b5cd5e055f0705"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "Unicode-3.0"
+        }
+      ],
+      "externalReferences": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/unicode-org/icu4x"
+        }
+      ]
+    },
+    {
+      "type": "framework",
+      "bom-ref": "pkg:generic/rusty_v8@150.2.0?arch=aarch64&os=linux",
+      "name": "rusty_v8 prebuilt archive",
+      "version": "150.2.0",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "8d91df74c8a671c23f880e64038023f49e07ca85c96e15d76a87e2aac9b20595"
+        }
+      ],
+      "licenses": [
+        {
+          "expression": "MIT"
+        }
+      ],
+      "properties": [
+        {
+          "name": "capsule:source-commit",
+          "value": "d305e6afa7736f6e298c30ae6646f7709ee9382b"
+        },
+        {
+          "name": "capsule:notice-closure",
+          "value": "blocked"
+        }
+      ]
+    },
+    {
+      "type": "container",
+      "bom-ref": "pkg:oci/rust@1.95.0-bookworm?repository_digest=sha256:6258907abe69656e41cd992e0b705cdcfabcbbe3db374f92ed2d47121282d4a1",
+      "name": "Rust Bookworm builder and declared runtime root",
+      "version": "1.95.0-bookworm",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "6258907abe69656e41cd992e0b705cdcfabcbbe3db374f92ed2d47121282d4a1"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "capsule-deno-core-runtime-bundle",
+      "dependsOn": [
+        "pkg:generic/capsule/capsule-deno-core-physical-omission@0.0.0",
+        "pkg:generic/rusty_v8@150.2.0?arch=aarch64&os=linux",
+        "pkg:oci/rust@1.95.0-bookworm?repository_digest=sha256:6258907abe69656e41cd992e0b705cdcfabcbbe3db374f92ed2d47121282d4a1"
+      ]
+    },
+    {
+      "ref": "pkg:cargo/adler2@2.0.1",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:cargo/aho-corasick@1.1.4",
+      "dependsOn": ["pkg:cargo/memchr@2.8.3"]
+    },
+    {
+      "ref": "pkg:cargo/anyhow@1.0.104",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:cargo/autocfg@1.5.1",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:cargo/az@1.3.0",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:cargo/base64@0.22.1",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:cargo/base64-simd@0.8.0",
+      "dependsOn": ["pkg:cargo/outref@0.5.2", "pkg:cargo/vsimd@0.8.0"]
+    },
+    {
+      "ref": "pkg:cargo/bincode@1.3.3",
+      "dependsOn": ["pkg:cargo/serde@1.0.229"]
+    },
+    {
+      "ref": "pkg:cargo/bindgen@0.72.1",
+      "dependsOn": [
+        "pkg:cargo/bitflags@2.13.1",
+        "pkg:cargo/cexpr@0.6.0",
+        "pkg:cargo/clang-sys@1.9.1",
+        "pkg:cargo/itertools@0.13.0",
+        "pkg:cargo/log@0.4.33",
+        "pkg:cargo/prettyplease@0.2.37",
+        "pkg:cargo/proc-macro2@1.0.107",
+        "pkg:cargo/quote@1.0.47",
+        "pkg:cargo/regex@1.13.1",
+        "pkg:cargo/rustc-hash@2.1.3",
+        "pkg:cargo/shlex@1.3.0",
+        "pkg:cargo/syn@2.0.119"
+      ]
+    },
+    {
+      "ref": "pkg:cargo/bit-set@0.8.0",
+      "dependsOn": ["pkg:cargo/bit-vec@0.8.0"]
+    },
+    {
+      "ref": "pkg:cargo/bit-vec@0.8.0",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:cargo/bitflags@2.13.1",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:cargo/bitvec@1.1.1",
+      "dependsOn": [
+        "pkg:cargo/funty@2.0.0",
+        "pkg:cargo/radium@0.7.0",
+        "pkg:cargo/tap@1.0.1",
+        "pkg:cargo/wyz@0.5.1"
+      ]
+    },
+    {
+      "ref": "pkg:cargo/boxed_error@0.2.3",
+      "dependsOn": ["pkg:cargo/quote@1.0.47", "pkg:cargo/syn@2.0.119"]
+    },
+    {
+      "ref": "pkg:cargo/bumpalo@3.20.3",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:cargo/bytes@1.12.1",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:cargo/calendrical_calculations@0.2.4",
+      "dependsOn": ["pkg:cargo/core_maths@0.1.1", "pkg:cargo/displaydoc@0.2.7"]
+    },
+    {
+      "ref": "pkg:cargo/capacity_builder@0.5.0",
+      "dependsOn": ["pkg:cargo/capacity_builder_macros@0.3.0", "pkg:cargo/itoa@1.0.18"]
+    },
+    {
+      "ref": "pkg:cargo/capacity_builder_macros@0.3.0",
+      "dependsOn": ["pkg:cargo/quote@1.0.47", "pkg:cargo/syn@2.0.119"]
+    },
+    {
+      "ref": "pkg:generic/capsule/capsule-deno-core-physical-omission@0.0.0",
+      "dependsOn": [
+        "pkg:cargo/libc@0.2.189",
+        "pkg:cargo/serde_json@1.0.149",
+        "pkg:cargo/v8@150.2.0",
+        "pkg:generic/capsule/deno_core@0.409.0"
+      ]
+    },
+    {
+      "ref": "pkg:cargo/cexpr@0.6.0",
+      "dependsOn": ["pkg:cargo/nom@7.1.3"]
+    },
+    {
+      "ref": "pkg:cargo/cfg-if@1.0.4",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:cargo/clang-sys@1.9.1",
+      "dependsOn": ["pkg:cargo/glob@0.3.4", "pkg:cargo/libc@0.2.189", "pkg:cargo/libloading@0.8.9"]
+    },
+    {
+      "ref": "pkg:cargo/cooked-waker@5.0.0",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:cargo/core_maths@0.1.1",
+      "dependsOn": ["pkg:cargo/libm@0.2.16"]
+    },
+    {
+      "ref": "pkg:cargo/crc32fast@1.5.0",
+      "dependsOn": ["pkg:cargo/cfg-if@1.0.4"]
+    },
+    {
+      "ref": "pkg:cargo/data-encoding@2.11.0",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:cargo/debugid@0.8.0",
+      "dependsOn": ["pkg:cargo/serde@1.0.229", "pkg:cargo/uuid@1.24.0"]
+    },
+    {
+      "ref": "pkg:generic/capsule/deno_core@0.409.0",
+      "dependsOn": [
+        "pkg:cargo/anyhow@1.0.104",
+        "pkg:cargo/az@1.3.0",
+        "pkg:cargo/base64@0.22.1",
+        "pkg:cargo/bincode@1.3.3",
+        "pkg:cargo/bit-set@0.8.0",
+        "pkg:cargo/bit-vec@0.8.0",
+        "pkg:cargo/boxed_error@0.2.3",
+        "pkg:cargo/bytes@1.12.1",
+        "pkg:cargo/capacity_builder@0.5.0",
+        "pkg:cargo/cooked-waker@5.0.0",
+        "pkg:cargo/deno_error@0.7.1",
+        "pkg:cargo/deno_ops@0.285.0",
+        "pkg:cargo/deno_path_util@0.6.4",
+        "pkg:cargo/deno_unsync@0.4.4",
+        "pkg:cargo/futures@0.3.33",
+        "pkg:cargo/indexmap@2.14.0",
+        "pkg:cargo/inventory@0.3.24",
+        "pkg:cargo/libc@0.2.189",
+        "pkg:cargo/num-bigint@0.4.8",
+        "pkg:cargo/parking_lot@0.12.5",
+        "pkg:cargo/percent-encoding@2.3.2",
+        "pkg:cargo/pin-project@1.1.13",
+        "pkg:cargo/serde@1.0.229",
+        "pkg:cargo/serde_json@1.0.149",
+        "pkg:cargo/serde_v8@0.318.0",
+        "pkg:cargo/smallvec@1.15.2",
+        "pkg:cargo/sourcemap@9.3.2",
+        "pkg:cargo/static_assertions@1.1.0",
+        "pkg:cargo/sys_traits@0.1.28",
+        "pkg:cargo/thiserror@2.0.19",
+        "pkg:cargo/tokio@1.53.1",
+        "pkg:cargo/url@2.5.8",
+        "pkg:cargo/uuid@1.24.0",
+        "pkg:cargo/v8@150.2.0",
+        "pkg:cargo/wasm_dep_analyzer@0.4.0",
+        "pkg:cargo/windows-sys@0.59.0"
+      ]
+    },
+    {
+      "ref": "pkg:cargo/deno_error@0.7.1",
+      "dependsOn": [
+        "pkg:cargo/deno_error_macro@0.7.1",
+        "pkg:cargo/libc@0.2.189",
+        "pkg:cargo/serde@1.0.229",
+        "pkg:cargo/serde_json@1.0.149",
+        "pkg:cargo/tokio@1.53.1",
+        "pkg:cargo/url@2.5.8"
+      ]
+    },
+    {
+      "ref": "pkg:cargo/deno_error_macro@0.7.1",
+      "dependsOn": [
+        "pkg:cargo/proc-macro2@1.0.107",
+        "pkg:cargo/quote@1.0.47",
+        "pkg:cargo/syn@2.0.119"
+      ]
+    },
+    {
+      "ref": "pkg:cargo/deno_ops@0.285.0",
+      "dependsOn": [
+        "pkg:cargo/indexmap@2.14.0",
+        "pkg:cargo/proc-macro2@1.0.107",
+        "pkg:cargo/quote@1.0.47",
+        "pkg:cargo/stringcase@0.4.0",
+        "pkg:cargo/strum@0.27.2",
+        "pkg:cargo/strum_macros@0.27.2",
+        "pkg:cargo/syn-match@0.3.1",
+        "pkg:cargo/syn@2.0.119",
+        "pkg:cargo/thiserror@2.0.19"
+      ]
+    },
+    {
+      "ref": "pkg:cargo/deno_path_util@0.6.4",
+      "dependsOn": [
+        "pkg:cargo/deno_error@0.7.1",
+        "pkg:cargo/percent-encoding@2.3.2",
+        "pkg:cargo/sys_traits@0.1.28",
+        "pkg:cargo/thiserror@2.0.19",
+        "pkg:cargo/url@2.5.8"
+      ]
+    },
+    {
+      "ref": "pkg:cargo/deno_unsync@0.4.4",
+      "dependsOn": [
+        "pkg:cargo/futures-util@0.3.33",
+        "pkg:cargo/parking_lot@0.12.5",
+        "pkg:cargo/tokio@1.53.1"
+      ]
+    },
+    {
+      "ref": "pkg:cargo/diplomat@0.15.0",
+      "dependsOn": [
+        "pkg:cargo/diplomat_core@0.15.0",
+        "pkg:cargo/proc-macro2@1.0.107",
+        "pkg:cargo/quote@1.0.47",
+        "pkg:cargo/syn@2.0.119"
+      ]
+    },
+    {
+      "ref": "pkg:cargo/diplomat-runtime@0.15.1",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:cargo/diplomat_core@0.15.0",
+      "dependsOn": [
+        "pkg:cargo/proc-macro2@1.0.107",
+        "pkg:cargo/quote@1.0.47",
+        "pkg:cargo/serde@1.0.229",
+        "pkg:cargo/smallvec@1.15.2",
+        "pkg:cargo/strck@1.0.0",
+        "pkg:cargo/syn@2.0.119"
+      ]
+    },
+    {
+      "ref": "pkg:cargo/displaydoc@0.2.7",
+      "dependsOn": [
+        "pkg:cargo/proc-macro2@1.0.107",
+        "pkg:cargo/quote@1.0.47",
+        "pkg:cargo/syn@3.0.3"
+      ]
+    },
+    {
+      "ref": "pkg:cargo/either@1.17.0",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:cargo/equivalent@1.0.2",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:cargo/errno@0.3.14",
+      "dependsOn": ["pkg:cargo/libc@0.2.189", "pkg:cargo/windows-sys@0.61.2"]
+    },
+    {
+      "ref": "pkg:cargo/form_urlencoded@1.2.2",
+      "dependsOn": ["pkg:cargo/percent-encoding@2.3.2"]
+    },
+    {
+      "ref": "pkg:cargo/fslock@0.2.1",
+      "dependsOn": ["pkg:cargo/libc@0.2.189", "pkg:cargo/winapi@0.3.9"]
+    },
+    {
+      "ref": "pkg:cargo/funty@2.0.0",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:cargo/futures@0.3.33",
+      "dependsOn": [
+        "pkg:cargo/futures-channel@0.3.33",
+        "pkg:cargo/futures-core@0.3.33",
+        "pkg:cargo/futures-executor@0.3.33",
+        "pkg:cargo/futures-io@0.3.33",
+        "pkg:cargo/futures-sink@0.3.33",
+        "pkg:cargo/futures-task@0.3.33",
+        "pkg:cargo/futures-util@0.3.33"
+      ]
+    },
+    {
+      "ref": "pkg:cargo/futures-channel@0.3.33",
+      "dependsOn": ["pkg:cargo/futures-core@0.3.33", "pkg:cargo/futures-sink@0.3.33"]
+    },
+    {
+      "ref": "pkg:cargo/futures-core@0.3.33",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:cargo/futures-executor@0.3.33",
+      "dependsOn": [
+        "pkg:cargo/futures-core@0.3.33",
+        "pkg:cargo/futures-task@0.3.33",
+        "pkg:cargo/futures-util@0.3.33"
+      ]
+    },
+    {
+      "ref": "pkg:cargo/futures-io@0.3.33",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:cargo/futures-macro@0.3.33",
+      "dependsOn": [
+        "pkg:cargo/proc-macro2@1.0.107",
+        "pkg:cargo/quote@1.0.47",
+        "pkg:cargo/syn@2.0.119"
+      ]
+    },
+    {
+      "ref": "pkg:cargo/futures-sink@0.3.33",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:cargo/futures-task@0.3.33",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:cargo/futures-util@0.3.33",
+      "dependsOn": [
+        "pkg:cargo/futures-channel@0.3.33",
+        "pkg:cargo/futures-core@0.3.33",
+        "pkg:cargo/futures-io@0.3.33",
+        "pkg:cargo/futures-macro@0.3.33",
+        "pkg:cargo/futures-sink@0.3.33",
+        "pkg:cargo/futures-task@0.3.33",
+        "pkg:cargo/memchr@2.8.3",
+        "pkg:cargo/pin-project-lite@0.2.17",
+        "pkg:cargo/slab@0.4.12"
+      ]
+    },
+    {
+      "ref": "pkg:cargo/getrandom@0.4.3",
+      "dependsOn": ["pkg:cargo/cfg-if@1.0.4", "pkg:cargo/libc@0.2.189", "pkg:cargo/r-efi@6.0.0"]
+    },
+    {
+      "ref": "pkg:cargo/glob@0.3.4",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:cargo/gzip-header@1.1.0",
+      "dependsOn": ["pkg:cargo/crc32fast@1.5.0"]
+    },
+    {
+      "ref": "pkg:cargo/hashbrown@0.17.1",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:cargo/heck@0.5.0",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:cargo/home@0.5.12",
+      "dependsOn": ["pkg:cargo/windows-sys@0.61.2"]
+    },
+    {
+      "ref": "pkg:cargo/icu_calendar@2.2.1",
+      "dependsOn": [
+        "pkg:cargo/calendrical_calculations@0.2.4",
+        "pkg:cargo/displaydoc@0.2.7",
+        "pkg:cargo/icu_calendar_data@2.2.0",
+        "pkg:cargo/icu_locale@2.2.0",
+        "pkg:cargo/icu_locale_core@2.2.0",
+        "pkg:cargo/icu_provider@2.2.0",
+        "pkg:cargo/tinystr@0.8.3",
+        "pkg:cargo/zerovec@0.11.6"
+      ]
+    },
+    {
+      "ref": "pkg:cargo/icu_calendar_data@2.2.0",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:cargo/icu_collections@2.2.0",
+      "dependsOn": [
+        "pkg:cargo/displaydoc@0.2.7",
+        "pkg:cargo/potential_utf@0.1.5",
+        "pkg:cargo/utf8_iter@1.0.4",
+        "pkg:cargo/yoke@0.8.3",
+        "pkg:cargo/zerofrom@0.1.8",
+        "pkg:cargo/zerovec@0.11.6"
+      ]
+    },
+    {
+      "ref": "pkg:cargo/icu_locale@2.2.0",
+      "dependsOn": [
+        "pkg:cargo/icu_collections@2.2.0",
+        "pkg:cargo/icu_locale_core@2.2.0",
+        "pkg:cargo/icu_locale_data@2.2.0",
+        "pkg:cargo/icu_provider@2.2.0",
+        "pkg:cargo/potential_utf@0.1.5",
+        "pkg:cargo/tinystr@0.8.3",
+        "pkg:cargo/zerovec@0.11.6"
+      ]
+    },
+    {
+      "ref": "pkg:cargo/icu_locale_core@2.2.0",
+      "dependsOn": [
+        "pkg:cargo/displaydoc@0.2.7",
+        "pkg:cargo/litemap@0.8.2",
+        "pkg:cargo/serde@1.0.229",
+        "pkg:cargo/tinystr@0.8.3",
+        "pkg:cargo/writeable@0.6.3",
+        "pkg:cargo/zerovec@0.11.6"
+      ]
+    },
+    {
+      "ref": "pkg:cargo/icu_locale_data@2.2.0",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:cargo/icu_normalizer@2.2.0",
+      "dependsOn": [
+        "pkg:cargo/icu_collections@2.2.0",
+        "pkg:cargo/icu_normalizer_data@2.2.0",
+        "pkg:cargo/icu_properties@2.2.0",
+        "pkg:cargo/icu_provider@2.2.0",
+        "pkg:cargo/smallvec@1.15.2",
+        "pkg:cargo/zerovec@0.11.6"
+      ]
+    },
+    {
+      "ref": "pkg:cargo/icu_normalizer_data@2.2.0",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:cargo/icu_properties@2.2.0",
+      "dependsOn": [
+        "pkg:cargo/icu_collections@2.2.0",
+        "pkg:cargo/icu_locale_core@2.2.0",
+        "pkg:cargo/icu_properties_data@2.2.0",
+        "pkg:cargo/icu_provider@2.2.0",
+        "pkg:cargo/zerotrie@0.2.4",
+        "pkg:cargo/zerovec@0.11.6"
+      ]
+    },
+    {
+      "ref": "pkg:cargo/icu_properties_data@2.2.0",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:cargo/icu_provider@2.2.0",
+      "dependsOn": [
+        "pkg:cargo/displaydoc@0.2.7",
+        "pkg:cargo/icu_locale_core@2.2.0",
+        "pkg:cargo/serde@1.0.229",
+        "pkg:cargo/stable_deref_trait@1.2.1",
+        "pkg:cargo/writeable@0.6.3",
+        "pkg:cargo/yoke@0.8.3",
+        "pkg:cargo/zerofrom@0.1.8",
+        "pkg:cargo/zerotrie@0.2.4",
+        "pkg:cargo/zerovec@0.11.6"
+      ]
+    },
+    {
+      "ref": "pkg:cargo/idna@1.1.0",
+      "dependsOn": [
+        "pkg:cargo/idna_adapter@1.2.2",
+        "pkg:cargo/smallvec@1.15.2",
+        "pkg:cargo/utf8_iter@1.0.4"
+      ]
+    },
+    {
+      "ref": "pkg:cargo/idna_adapter@1.2.2",
+      "dependsOn": ["pkg:cargo/icu_normalizer@2.2.0", "pkg:cargo/icu_properties@2.2.0"]
+    },
+    {
+      "ref": "pkg:cargo/if_chain@1.0.3",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:cargo/indexmap@2.14.0",
+      "dependsOn": [
+        "pkg:cargo/equivalent@1.0.2",
+        "pkg:cargo/hashbrown@0.17.1",
+        "pkg:cargo/serde@1.0.229",
+        "pkg:cargo/serde_core@1.0.229"
+      ]
+    },
+    {
+      "ref": "pkg:cargo/inventory@0.3.24",
+      "dependsOn": ["pkg:cargo/rustversion@1.0.23"]
+    },
+    {
+      "ref": "pkg:cargo/itertools@0.13.0",
+      "dependsOn": ["pkg:cargo/either@1.17.0"]
+    },
+    {
+      "ref": "pkg:cargo/itoa@1.0.18",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:cargo/ixdtf@0.6.5",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:cargo/js-sys@0.3.103",
+      "dependsOn": [
+        "pkg:cargo/cfg-if@1.0.4",
+        "pkg:cargo/futures-util@0.3.33",
+        "pkg:cargo/wasm-bindgen@0.2.126"
+      ]
+    },
+    {
+      "ref": "pkg:cargo/libc@0.2.189",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:cargo/libloading@0.8.9",
+      "dependsOn": ["pkg:cargo/cfg-if@1.0.4", "pkg:cargo/windows-link@0.2.1"]
+    },
+    {
+      "ref": "pkg:cargo/libm@0.2.16",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:cargo/linux-raw-sys@0.4.15",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:cargo/litemap@0.8.2",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:cargo/lock_api@0.4.14",
+      "dependsOn": ["pkg:cargo/scopeguard@1.2.0"]
+    },
+    {
+      "ref": "pkg:cargo/log@0.4.33",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:cargo/memchr@2.8.3",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:cargo/minimal-lexical@0.2.1",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:cargo/miniz_oxide@0.8.9",
+      "dependsOn": ["pkg:cargo/adler2@2.0.1"]
+    },
+    {
+      "ref": "pkg:cargo/mio@1.2.2",
+      "dependsOn": [
+        "pkg:cargo/libc@0.2.189",
+        "pkg:cargo/wasi@0.11.1%2Bwasi-snapshot-preview1",
+        "pkg:cargo/windows-sys@0.61.2"
+      ]
+    },
+    {
+      "ref": "pkg:cargo/nom@7.1.3",
+      "dependsOn": ["pkg:cargo/memchr@2.8.3", "pkg:cargo/minimal-lexical@0.2.1"]
+    },
+    {
+      "ref": "pkg:cargo/num-bigint@0.4.8",
+      "dependsOn": [
+        "pkg:cargo/num-integer@0.1.46",
+        "pkg:cargo/num-traits@0.2.19",
+        "pkg:cargo/rand@0.8.7"
+      ]
+    },
+    {
+      "ref": "pkg:cargo/num-integer@0.1.46",
+      "dependsOn": ["pkg:cargo/num-traits@0.2.19"]
+    },
+    {
+      "ref": "pkg:cargo/num-traits@0.2.19",
+      "dependsOn": ["pkg:cargo/autocfg@1.5.1"]
+    },
+    {
+      "ref": "pkg:cargo/once_cell@1.21.4",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:cargo/outref@0.5.2",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:cargo/parking_lot@0.12.5",
+      "dependsOn": ["pkg:cargo/lock_api@0.4.14", "pkg:cargo/parking_lot_core@0.9.12"]
+    },
+    {
+      "ref": "pkg:cargo/parking_lot_core@0.9.12",
+      "dependsOn": [
+        "pkg:cargo/cfg-if@1.0.4",
+        "pkg:cargo/libc@0.2.189",
+        "pkg:cargo/redox_syscall@0.5.18",
+        "pkg:cargo/smallvec@1.15.2",
+        "pkg:cargo/windows-link@0.2.1"
+      ]
+    },
+    {
+      "ref": "pkg:cargo/paste@1.0.15",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:cargo/percent-encoding@2.3.2",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:cargo/pin-project@1.1.13",
+      "dependsOn": ["pkg:cargo/pin-project-internal@1.1.13"]
+    },
+    {
+      "ref": "pkg:cargo/pin-project-internal@1.1.13",
+      "dependsOn": [
+        "pkg:cargo/proc-macro2@1.0.107",
+        "pkg:cargo/quote@1.0.47",
+        "pkg:cargo/syn@2.0.119"
+      ]
+    },
+    {
+      "ref": "pkg:cargo/pin-project-lite@0.2.17",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:cargo/potential_utf@0.1.5",
+      "dependsOn": [
+        "pkg:cargo/serde_core@1.0.229",
+        "pkg:cargo/writeable@0.6.3",
+        "pkg:cargo/zerovec@0.11.6"
+      ]
+    },
+    {
+      "ref": "pkg:cargo/prettyplease@0.2.37",
+      "dependsOn": ["pkg:cargo/proc-macro2@1.0.107", "pkg:cargo/syn@2.0.119"]
+    },
+    {
+      "ref": "pkg:cargo/proc-macro2@1.0.107",
+      "dependsOn": ["pkg:cargo/unicode-ident@1.0.24"]
+    },
+    {
+      "ref": "pkg:cargo/quote@1.0.47",
+      "dependsOn": ["pkg:cargo/proc-macro2@1.0.107"]
+    },
+    {
+      "ref": "pkg:cargo/r-efi@6.0.0",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:cargo/radium@0.7.0",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:cargo/rand@0.8.7",
+      "dependsOn": ["pkg:cargo/rand_core@0.6.4"]
+    },
+    {
+      "ref": "pkg:cargo/rand_core@0.6.4",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:cargo/redox_syscall@0.5.18",
+      "dependsOn": ["pkg:cargo/bitflags@2.13.1"]
+    },
+    {
+      "ref": "pkg:cargo/regex@1.13.1",
+      "dependsOn": [
+        "pkg:cargo/aho-corasick@1.1.4",
+        "pkg:cargo/memchr@2.8.3",
+        "pkg:cargo/regex-automata@0.4.16",
+        "pkg:cargo/regex-syntax@0.8.11"
+      ]
+    },
+    {
+      "ref": "pkg:cargo/regex-automata@0.4.16",
+      "dependsOn": [
+        "pkg:cargo/aho-corasick@1.1.4",
+        "pkg:cargo/memchr@2.8.3",
+        "pkg:cargo/regex-syntax@0.8.11"
+      ]
+    },
+    {
+      "ref": "pkg:cargo/regex-syntax@0.8.11",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:cargo/resb@0.1.2",
+      "dependsOn": ["pkg:cargo/potential_utf@0.1.5", "pkg:cargo/serde_core@1.0.229"]
+    },
+    {
+      "ref": "pkg:cargo/rustc-hash@2.1.3",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:cargo/rustix@0.38.44",
+      "dependsOn": [
+        "pkg:cargo/bitflags@2.13.1",
+        "pkg:cargo/errno@0.3.14",
+        "pkg:cargo/libc@0.2.189",
+        "pkg:cargo/linux-raw-sys@0.4.15",
+        "pkg:cargo/windows-sys@0.59.0"
+      ]
+    },
+    {
+      "ref": "pkg:cargo/rustversion@1.0.23",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:cargo/scopeguard@1.2.0",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:cargo/serde@1.0.229",
+      "dependsOn": ["pkg:cargo/serde_core@1.0.229", "pkg:cargo/serde_derive@1.0.229"]
+    },
+    {
+      "ref": "pkg:cargo/serde_core@1.0.229",
+      "dependsOn": ["pkg:cargo/serde_derive@1.0.229"]
+    },
+    {
+      "ref": "pkg:cargo/serde_derive@1.0.229",
+      "dependsOn": [
+        "pkg:cargo/proc-macro2@1.0.107",
+        "pkg:cargo/quote@1.0.47",
+        "pkg:cargo/syn@3.0.3"
+      ]
+    },
+    {
+      "ref": "pkg:cargo/serde_json@1.0.149",
+      "dependsOn": [
+        "pkg:cargo/indexmap@2.14.0",
+        "pkg:cargo/itoa@1.0.18",
+        "pkg:cargo/memchr@2.8.3",
+        "pkg:cargo/serde@1.0.229",
+        "pkg:cargo/serde_core@1.0.229",
+        "pkg:cargo/zmij@1.0.23"
+      ]
+    },
+    {
+      "ref": "pkg:cargo/serde_v8@0.318.0",
+      "dependsOn": [
+        "pkg:cargo/deno_error@0.7.1",
+        "pkg:cargo/num-bigint@0.4.8",
+        "pkg:cargo/serde@1.0.229",
+        "pkg:cargo/smallvec@1.15.2",
+        "pkg:cargo/thiserror@2.0.19",
+        "pkg:cargo/v8@150.2.0"
+      ]
+    },
+    {
+      "ref": "pkg:cargo/shlex@1.3.0",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:cargo/signal-hook-registry@1.4.8",
+      "dependsOn": ["pkg:cargo/errno@0.3.14", "pkg:cargo/libc@0.2.189"]
+    },
+    {
+      "ref": "pkg:cargo/slab@0.4.12",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:cargo/smallvec@1.15.2",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:cargo/socket2@0.6.5",
+      "dependsOn": ["pkg:cargo/libc@0.2.189", "pkg:cargo/windows-sys@0.61.2"]
+    },
+    {
+      "ref": "pkg:cargo/sourcemap@9.3.2",
+      "dependsOn": [
+        "pkg:cargo/base64-simd@0.8.0",
+        "pkg:cargo/bitvec@1.1.1",
+        "pkg:cargo/data-encoding@2.11.0",
+        "pkg:cargo/debugid@0.8.0",
+        "pkg:cargo/if_chain@1.0.3",
+        "pkg:cargo/rustc-hash@2.1.3",
+        "pkg:cargo/serde@1.0.229",
+        "pkg:cargo/serde_json@1.0.149",
+        "pkg:cargo/unicode-id-start@1.4.0",
+        "pkg:cargo/url@2.5.8"
+      ]
+    },
+    {
+      "ref": "pkg:cargo/stable_deref_trait@1.2.1",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:cargo/static_assertions@1.1.0",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:cargo/strck@1.0.0",
+      "dependsOn": ["pkg:cargo/unicode-ident@1.0.24"]
+    },
+    {
+      "ref": "pkg:cargo/stringcase@0.4.0",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:cargo/strum@0.27.2",
+      "dependsOn": ["pkg:cargo/strum_macros@0.27.2"]
+    },
+    {
+      "ref": "pkg:cargo/strum_macros@0.27.2",
+      "dependsOn": [
+        "pkg:cargo/heck@0.5.0",
+        "pkg:cargo/proc-macro2@1.0.107",
+        "pkg:cargo/quote@1.0.47",
+        "pkg:cargo/syn@2.0.119"
+      ]
+    },
+    {
+      "ref": "pkg:cargo/syn@2.0.119",
+      "dependsOn": [
+        "pkg:cargo/proc-macro2@1.0.107",
+        "pkg:cargo/quote@1.0.47",
+        "pkg:cargo/unicode-ident@1.0.24"
+      ]
+    },
+    {
+      "ref": "pkg:cargo/syn@3.0.3",
+      "dependsOn": [
+        "pkg:cargo/proc-macro2@1.0.107",
+        "pkg:cargo/quote@1.0.47",
+        "pkg:cargo/unicode-ident@1.0.24"
+      ]
+    },
+    {
+      "ref": "pkg:cargo/syn-match@0.3.1",
+      "dependsOn": [
+        "pkg:cargo/proc-macro2@1.0.107",
+        "pkg:cargo/quote@1.0.47",
+        "pkg:cargo/syn@2.0.119"
+      ]
+    },
+    {
+      "ref": "pkg:cargo/synstructure@0.13.2",
+      "dependsOn": [
+        "pkg:cargo/proc-macro2@1.0.107",
+        "pkg:cargo/quote@1.0.47",
+        "pkg:cargo/syn@2.0.119"
+      ]
+    },
+    {
+      "ref": "pkg:cargo/sys_traits@0.1.28",
+      "dependsOn": ["pkg:cargo/sys_traits_macros@0.1.0"]
+    },
+    {
+      "ref": "pkg:cargo/sys_traits_macros@0.1.0",
+      "dependsOn": [
+        "pkg:cargo/proc-macro2@1.0.107",
+        "pkg:cargo/quote@1.0.47",
+        "pkg:cargo/syn@2.0.119"
+      ]
+    },
+    {
+      "ref": "pkg:cargo/tap@1.0.1",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:cargo/temporal_capi@0.2.4",
+      "dependsOn": [
+        "pkg:cargo/diplomat-runtime@0.15.1",
+        "pkg:cargo/diplomat@0.15.0",
+        "pkg:cargo/icu_calendar@2.2.1",
+        "pkg:cargo/icu_locale_core@2.2.0",
+        "pkg:cargo/num-traits@0.2.19",
+        "pkg:cargo/temporal_rs@0.2.4",
+        "pkg:cargo/timezone_provider@0.2.4",
+        "pkg:cargo/writeable@0.6.3",
+        "pkg:cargo/zoneinfo64@0.3.0"
+      ]
+    },
+    {
+      "ref": "pkg:cargo/temporal_rs@0.2.4",
+      "dependsOn": [
+        "pkg:cargo/calendrical_calculations@0.2.4",
+        "pkg:cargo/core_maths@0.1.1",
+        "pkg:cargo/icu_calendar@2.2.1",
+        "pkg:cargo/icu_locale_core@2.2.0",
+        "pkg:cargo/ixdtf@0.6.5",
+        "pkg:cargo/num-traits@0.2.19",
+        "pkg:cargo/timezone_provider@0.2.4",
+        "pkg:cargo/tinystr@0.8.3",
+        "pkg:cargo/writeable@0.6.3"
+      ]
+    },
+    {
+      "ref": "pkg:cargo/thiserror@2.0.19",
+      "dependsOn": ["pkg:cargo/thiserror-impl@2.0.19"]
+    },
+    {
+      "ref": "pkg:cargo/thiserror-impl@2.0.19",
+      "dependsOn": [
+        "pkg:cargo/proc-macro2@1.0.107",
+        "pkg:cargo/quote@1.0.47",
+        "pkg:cargo/syn@3.0.3"
+      ]
+    },
+    {
+      "ref": "pkg:cargo/timezone_provider@0.2.4",
+      "dependsOn": [
+        "pkg:cargo/tinystr@0.8.3",
+        "pkg:cargo/zerotrie@0.2.4",
+        "pkg:cargo/zerovec@0.11.6",
+        "pkg:cargo/zoneinfo64@0.3.0"
+      ]
+    },
+    {
+      "ref": "pkg:cargo/tinystr@0.8.3",
+      "dependsOn": [
+        "pkg:cargo/displaydoc@0.2.7",
+        "pkg:cargo/serde_core@1.0.229",
+        "pkg:cargo/zerovec@0.11.6"
+      ]
+    },
+    {
+      "ref": "pkg:cargo/tokio@1.53.1",
+      "dependsOn": [
+        "pkg:cargo/bytes@1.12.1",
+        "pkg:cargo/libc@0.2.189",
+        "pkg:cargo/mio@1.2.2",
+        "pkg:cargo/parking_lot@0.12.5",
+        "pkg:cargo/pin-project-lite@0.2.17",
+        "pkg:cargo/signal-hook-registry@1.4.8",
+        "pkg:cargo/socket2@0.6.5",
+        "pkg:cargo/tokio-macros@2.7.2",
+        "pkg:cargo/windows-sys@0.61.2"
+      ]
+    },
+    {
+      "ref": "pkg:cargo/tokio-macros@2.7.2",
+      "dependsOn": [
+        "pkg:cargo/proc-macro2@1.0.107",
+        "pkg:cargo/quote@1.0.47",
+        "pkg:cargo/syn@3.0.3"
+      ]
+    },
+    {
+      "ref": "pkg:cargo/unicode-id-start@1.4.0",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:cargo/unicode-ident@1.0.24",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:cargo/url@2.5.8",
+      "dependsOn": [
+        "pkg:cargo/form_urlencoded@1.2.2",
+        "pkg:cargo/idna@1.1.0",
+        "pkg:cargo/percent-encoding@2.3.2",
+        "pkg:cargo/serde@1.0.229",
+        "pkg:cargo/serde_derive@1.0.229"
+      ]
+    },
+    {
+      "ref": "pkg:cargo/utf8_iter@1.0.4",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:cargo/uuid@1.24.0",
+      "dependsOn": [
+        "pkg:cargo/getrandom@0.4.3",
+        "pkg:cargo/js-sys@0.3.103",
+        "pkg:cargo/wasm-bindgen@0.2.126"
+      ]
+    },
+    {
+      "ref": "pkg:cargo/v8@150.2.0",
+      "dependsOn": [
+        "pkg:cargo/bindgen@0.72.1",
+        "pkg:cargo/bitflags@2.13.1",
+        "pkg:cargo/fslock@0.2.1",
+        "pkg:cargo/gzip-header@1.1.0",
+        "pkg:cargo/home@0.5.12",
+        "pkg:cargo/miniz_oxide@0.8.9",
+        "pkg:cargo/paste@1.0.15",
+        "pkg:cargo/temporal_capi@0.2.4",
+        "pkg:cargo/which@6.0.3"
+      ]
+    },
+    {
+      "ref": "pkg:cargo/vsimd@0.8.0",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:cargo/wasi@0.11.1%2Bwasi-snapshot-preview1",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:cargo/wasm-bindgen@0.2.126",
+      "dependsOn": [
+        "pkg:cargo/cfg-if@1.0.4",
+        "pkg:cargo/once_cell@1.21.4",
+        "pkg:cargo/rustversion@1.0.23",
+        "pkg:cargo/wasm-bindgen-macro@0.2.126",
+        "pkg:cargo/wasm-bindgen-shared@0.2.126"
+      ]
+    },
+    {
+      "ref": "pkg:cargo/wasm-bindgen-macro@0.2.126",
+      "dependsOn": ["pkg:cargo/quote@1.0.47", "pkg:cargo/wasm-bindgen-macro-support@0.2.126"]
+    },
+    {
+      "ref": "pkg:cargo/wasm-bindgen-macro-support@0.2.126",
+      "dependsOn": [
+        "pkg:cargo/bumpalo@3.20.3",
+        "pkg:cargo/proc-macro2@1.0.107",
+        "pkg:cargo/quote@1.0.47",
+        "pkg:cargo/syn@2.0.119",
+        "pkg:cargo/wasm-bindgen-shared@0.2.126"
+      ]
+    },
+    {
+      "ref": "pkg:cargo/wasm-bindgen-shared@0.2.126",
+      "dependsOn": ["pkg:cargo/unicode-ident@1.0.24"]
+    },
+    {
+      "ref": "pkg:cargo/wasm_dep_analyzer@0.4.0",
+      "dependsOn": ["pkg:cargo/deno_error@0.7.1", "pkg:cargo/thiserror@2.0.19"]
+    },
+    {
+      "ref": "pkg:cargo/which@6.0.3",
+      "dependsOn": [
+        "pkg:cargo/either@1.17.0",
+        "pkg:cargo/home@0.5.12",
+        "pkg:cargo/rustix@0.38.44",
+        "pkg:cargo/winsafe@0.0.19"
+      ]
+    },
+    {
+      "ref": "pkg:cargo/winapi@0.3.9",
+      "dependsOn": [
+        "pkg:cargo/winapi-i686-pc-windows-gnu@0.4.0",
+        "pkg:cargo/winapi-x86_64-pc-windows-gnu@0.4.0"
+      ]
+    },
+    {
+      "ref": "pkg:cargo/winapi-i686-pc-windows-gnu@0.4.0",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:cargo/winapi-x86_64-pc-windows-gnu@0.4.0",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:cargo/windows-link@0.2.1",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:cargo/windows-sys@0.59.0",
+      "dependsOn": ["pkg:cargo/windows-targets@0.52.6"]
+    },
+    {
+      "ref": "pkg:cargo/windows-sys@0.61.2",
+      "dependsOn": ["pkg:cargo/windows-link@0.2.1"]
+    },
+    {
+      "ref": "pkg:cargo/windows-targets@0.52.6",
+      "dependsOn": [
+        "pkg:cargo/windows_aarch64_gnullvm@0.52.6",
+        "pkg:cargo/windows_aarch64_msvc@0.52.6",
+        "pkg:cargo/windows_i686_gnu@0.52.6",
+        "pkg:cargo/windows_i686_gnullvm@0.52.6",
+        "pkg:cargo/windows_i686_msvc@0.52.6",
+        "pkg:cargo/windows_x86_64_gnu@0.52.6",
+        "pkg:cargo/windows_x86_64_gnullvm@0.52.6",
+        "pkg:cargo/windows_x86_64_msvc@0.52.6"
+      ]
+    },
+    {
+      "ref": "pkg:cargo/windows_aarch64_gnullvm@0.52.6",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:cargo/windows_aarch64_msvc@0.52.6",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:cargo/windows_i686_gnu@0.52.6",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:cargo/windows_i686_gnullvm@0.52.6",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:cargo/windows_i686_msvc@0.52.6",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:cargo/windows_x86_64_gnu@0.52.6",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:cargo/windows_x86_64_gnullvm@0.52.6",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:cargo/windows_x86_64_msvc@0.52.6",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:cargo/winsafe@0.0.19",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:cargo/writeable@0.6.3",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:cargo/wyz@0.5.1",
+      "dependsOn": ["pkg:cargo/tap@1.0.1"]
+    },
+    {
+      "ref": "pkg:cargo/yoke@0.8.3",
+      "dependsOn": [
+        "pkg:cargo/stable_deref_trait@1.2.1",
+        "pkg:cargo/yoke-derive@0.8.2",
+        "pkg:cargo/zerofrom@0.1.8"
+      ]
+    },
+    {
+      "ref": "pkg:cargo/yoke-derive@0.8.2",
+      "dependsOn": [
+        "pkg:cargo/proc-macro2@1.0.107",
+        "pkg:cargo/quote@1.0.47",
+        "pkg:cargo/syn@2.0.119",
+        "pkg:cargo/synstructure@0.13.2"
+      ]
+    },
+    {
+      "ref": "pkg:cargo/zerofrom@0.1.8",
+      "dependsOn": ["pkg:cargo/zerofrom-derive@0.1.7"]
+    },
+    {
+      "ref": "pkg:cargo/zerofrom-derive@0.1.7",
+      "dependsOn": [
+        "pkg:cargo/proc-macro2@1.0.107",
+        "pkg:cargo/quote@1.0.47",
+        "pkg:cargo/syn@2.0.119",
+        "pkg:cargo/synstructure@0.13.2"
+      ]
+    },
+    {
+      "ref": "pkg:cargo/zerotrie@0.2.4",
+      "dependsOn": [
+        "pkg:cargo/displaydoc@0.2.7",
+        "pkg:cargo/yoke@0.8.3",
+        "pkg:cargo/zerofrom@0.1.8",
+        "pkg:cargo/zerovec@0.11.6"
+      ]
+    },
+    {
+      "ref": "pkg:cargo/zerovec@0.11.6",
+      "dependsOn": [
+        "pkg:cargo/serde@1.0.229",
+        "pkg:cargo/yoke@0.8.3",
+        "pkg:cargo/zerofrom@0.1.8",
+        "pkg:cargo/zerovec-derive@0.11.3"
+      ]
+    },
+    {
+      "ref": "pkg:cargo/zerovec-derive@0.11.3",
+      "dependsOn": [
+        "pkg:cargo/proc-macro2@1.0.107",
+        "pkg:cargo/quote@1.0.47",
+        "pkg:cargo/syn@2.0.119"
+      ]
+    },
+    {
+      "ref": "pkg:cargo/zmij@1.0.23",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:cargo/zoneinfo64@0.3.0",
+      "dependsOn": [
+        "pkg:cargo/calendrical_calculations@0.2.4",
+        "pkg:cargo/icu_locale_core@2.2.0",
+        "pkg:cargo/potential_utf@0.1.5",
+        "pkg:cargo/resb@0.1.2",
+        "pkg:cargo/serde@1.0.229"
+      ]
+    }
+  ],
+  "compositions": [
+    {
+      "aggregate": "incomplete",
+      "assemblies": ["capsule-deno-core-runtime-bundle"],
+      "dependencies": [
+        "pkg:generic/rusty_v8@150.2.0?arch=aarch64&os=linux",
+        "pkg:oci/rust@1.95.0-bookworm?repository_digest=sha256:6258907abe69656e41cd992e0b705cdcfabcbbe3db374f92ed2d47121282d4a1"
+      ]
+    }
+  ]
+}

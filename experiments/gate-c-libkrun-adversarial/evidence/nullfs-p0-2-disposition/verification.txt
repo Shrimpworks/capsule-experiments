@@ -1,0 +1,75 @@
+date=2026-08-02
+host=macOS 26.5.2 build 25F84 arm64
+libkrunCommit=728df8125077d0db44265f6e997c72b81b65c015
+rustc=1.93.1
+cargo=1.93.1
+go=1.26.5 darwin/arm64
+clang=Apple clang 21.0.0
+signing=ad-hoc,non-hardened,development-only
+
+command=make BLK=1 with retained patches, minimal-removal probe, and 0002-direct-block-root-bootstrap-probe.patch
+result=pass
+
+command=git apply --reverse --check patches/0002-direct-block-root-bootstrap-probe.patch against the built prototype tree
+result=pass
+
+command=audit-nullfs-alternate-source.sh .build/nullfs-alternate/capsule-krun-direct-root
+result=pass; direct block root present; fs-device construction absent; runner host-directory and external-kernel imports absent
+
+command=bounded external-kernel plus initramfs probe
+result=fail; valid newc archive did not provide a usable root; kernel panic before init
+
+command=bounded direct-block-root inventory boot before init remount hardening
+result=partial; boot completed without virtiofs, but root lacked nosuid,nodev
+
+command=bounded direct-block-root inventory boot after init remount hardening
+result=pass; only balloon,rng,console,block devices; no virtiofs device or mount; root ro,nosuid,nodev; network unreachable; vsock unavailable
+
+command=36-case adversarial harness plus four identity cases against direct-block-root prototype
+result=expected status 1 only for three ad-hoc-signing identity limitations
+caseCount=36
+identityCaseCount=4
+rawReportSha256=c5ae37cf552ced6f70a58bb4a9bbe3cf072db769278feef32d62d5ee387a2bef
+
+command=cross-job write-token then check-token
+result=token write rejected by read-only /tmp; next fresh VM reported tokenLeak=absent; writable scratch isolation not exercised in this track
+
+command=four concurrent completion-marker guests
+result=all four exited without timeout or forced kill and all processes were gone
+
+command=cargo test -p krun-devices --features blk --lib against governed prototype source
+result=pass; 47 passed, 0 failed
+
+command=cargo test -p libkrun --features blk --lib with pinned macOS Linux cross-compiler configuration
+result=pass; 1 passed, 0 failed; one pre-existing unnecessary-unsafe warning
+
+command=go test ./...; go vet ./...; GOCACHE=/private/tmp/capsule-nullfs-focused-go-cache go build ./... in adversarial experiment
+result=pass
+
+command=sh -n and shellcheck over the two new shell scripts
+result=pass
+
+command=clang -std=c17 -Wall -Wextra -Werror -fsyntax-only over the two new C probes
+result=pass
+
+command=fnm exec --using=22.22.1 -- pnpm install
+result=pass; lockfile current, 11 packages reused, 0 downloaded
+
+command=pnpm check; pnpm lint; pnpm test; pnpm verify:schemas
+result=pass; lint initially requested one JSON array formatting change and passed after that correction
+
+command=GOCACHE=/private/tmp/capsule-nullfs-repo-go-test go test ./...; isolated-cache go vet ./...; isolated-cache go build ./...
+result=pass
+
+command=git diff --check
+result=pass
+
+patchSha256=642d9e196cbb752347e06a8ce4ca35ea38ef94bf7e15ca9e1b136ed58229ef59
+runnerSha256=c9e755f2d3c42983a09c17fcb887033ffaa7de2b983c3ac43fa1abdec0ff5125
+libkrunSha256=868a2da2b4d962682ecbdda2d34e11bf6958871ecfde58d21e6048f2e6177248
+libkrunfwSha256=b0718c3aedab4bda07f7b508682acfa39fd6192a5551d5928e2226865d6ff9ee
+initSha256=1a5c02412eea6f4ebdce37bf7f3d8d81a57613429962c95e9074e3684f0f3a69
+rootDiskSha256=29b2acbd3836dfbde4ad017a736f96b8e25c7028e636191549dd9232327e9684
+
+decision=GOVERNED-PATCH
+posture=none; no backend admission or user-byte authorization

@@ -1,0 +1,37 @@
+diff --git a/Sources/Containerization/LinuxContainer.swift b/Sources/Containerization/LinuxContainer.swift
+index 7b1395b..6b1bd22 100644
+--- a/Sources/Containerization/LinuxContainer.swift
++++ b/Sources/Containerization/LinuxContainer.swift
+@@ -57,6 +57,8 @@ public final class LinuxContainer: Container, Sendable {
+         public var cpus: Int = 4
+         /// The memory in bytes to give to the container.
+         public var memoryInBytes: UInt64 = 1024.mib()
++        /// The maximum number of processes in the container's cgroup.
++        public var pidsLimit: Int64?
+         /// The hostname for the container.
+         public var hostname: String?
+         /// The system control options for the container.
+@@ -95,6 +97,7 @@ public final class LinuxContainer: Container, Sendable {
+             process: LinuxProcessConfiguration,
+             cpus: Int = 4,
+             memoryInBytes: UInt64 = 1024.mib(),
++            pidsLimit: Int64? = nil,
+             hostname: String? = nil,
+             sysctl: [String: String] = [:],
+             interfaces: [any Interface] = [],
+@@ -112,6 +115,7 @@ public final class LinuxContainer: Container, Sendable {
+             self.process = process
+             self.cpus = cpus
+             self.memoryInBytes = memoryInBytes
++            self.pidsLimit = pidsLimit
+             self.hostname = hostname
+             self.sysctl = sysctl
+             self.interfaces = interfaces
+@@ -410,5 +414,6 @@ public final class LinuxContainer: Container, Sendable {
+             cpu: LinuxCPU(
+                 quota: Int64(config.cpus * 100_000),
+                 period: 100_000
+-            )
++            ),
++            pids: config.pidsLimit.map { LinuxPids(limit: $0) }
+         )

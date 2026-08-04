@@ -1,0 +1,59 @@
+{
+  "schema": "capsule.deno-core-package-admission-checklist.v0",
+  "decision": "no-go-for-runtime-selection-adr",
+  "admissionEffect": "none; RUNTIME-001 remains unsupported",
+  "checks": [
+    {
+      "id": "immutable-inputs",
+      "status": "pass"
+    },
+    {
+      "id": "digest-pinned-no-apt-builder",
+      "status": "pass"
+    },
+    {
+      "id": "locked-offline-cargo-source-bundle",
+      "status": "pass"
+    },
+    {
+      "id": "clean-build-a",
+      "status": "pass"
+    },
+    {
+      "id": "clean-build-b",
+      "status": "pass"
+    },
+    {
+      "id": "complete-declared-bundle-byte-equality",
+      "status": "pass"
+    },
+    {
+      "id": "physical-three-op-registry-and-link-proof",
+      "status": "pass"
+    },
+    {
+      "id": "fixed-restoration-mutations",
+      "status": "pass"
+    },
+    {
+      "id": "independent-builder-provenance",
+      "status": "blocked",
+      "reason": "no second independently controlled Linux/arm64 builder or host available"
+    },
+    {
+      "id": "v8-source-license-notice-closure",
+      "status": "fail",
+      "reason": "official v8 crate excludes LICENSE* and no complete archive-corresponding notice manifest is retained"
+    },
+    {
+      "id": "standalone-runtime-root",
+      "status": "fail",
+      "reason": "candidate archive depends on the exact declared Bookworm root and four dynamic ELF subjects"
+    },
+    {
+      "id": "typescript-approved-byte-pipeline",
+      "status": "out-of-scope-blocker",
+      "reason": "deno_core candidate remains JavaScript-only and no schema/object-model change is authorized"
+    }
+  ]
+}

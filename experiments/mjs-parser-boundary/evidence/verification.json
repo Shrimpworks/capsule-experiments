@@ -1,0 +1,160 @@
+{
+  "manifestSha256": "05429b89cc3da9a249b75fc6847855c9c28040303b11e93281a03e70789d8a2a",
+  "cases": 33,
+  "candidates": {
+    "oxc": {
+      "outputSha256": "5ccc18cead8882909f7a3da5fbc74c1843c76bbb016b1727b6f997c36d0a8e66",
+      "deterministic": true,
+      "mismatches": []
+    },
+    "denoAst": {
+      "outputSha256": "88230d2e787fb7ab63239c08f182d45e3e0390a296bec4c710d710de759ed22f",
+      "deterministic": true,
+      "mismatches": [
+        {
+          "id": "parse-error-unterminated-string",
+          "expected": [
+            "parse_error",
+            "deny",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          "actual": [
+            "valid",
+            "allow",
+            "0",
+            "0",
+            "0",
+            "0"
+          ]
+        },
+        {
+          "id": "parse-error-empty-dynamic-import",
+          "expected": [
+            "parse_error",
+            "deny",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          "actual": [
+            "valid",
+            "deny",
+            "0",
+            "0",
+            "1",
+            "0"
+          ]
+        },
+        {
+          "id": "parse-error-duplicate-export",
+          "expected": [
+            "parse_error",
+            "deny",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          "actual": [
+            "valid",
+            "allow",
+            "0",
+            "0",
+            "0",
+            "0"
+          ]
+        },
+        {
+          "id": "parse-error-duplicate-lexical",
+          "expected": [
+            "parse_error",
+            "deny",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          "actual": [
+            "valid",
+            "allow",
+            "0",
+            "0",
+            "0",
+            "0"
+          ]
+        }
+      ]
+    },
+    "treeSitter": {
+      "outputSha256": "7ff29c83d5e1bac5d1e1198bc7fe56c1407c34bc164716c2d20dc983f57aa7eb",
+      "deterministic": true,
+      "mismatches": [
+        {
+          "id": "parse-error-empty-dynamic-import",
+          "expected": [
+            "parse_error",
+            "deny",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          "actual": [
+            "valid",
+            "deny",
+            "0",
+            "0",
+            "1",
+            "0"
+          ]
+        },
+        {
+          "id": "parse-error-duplicate-export",
+          "expected": [
+            "parse_error",
+            "deny",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          "actual": [
+            "valid",
+            "allow",
+            "0",
+            "0",
+            "0",
+            "0"
+          ]
+        },
+        {
+          "id": "parse-error-duplicate-lexical",
+          "expected": [
+            "parse_error",
+            "deny",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          "actual": [
+            "valid",
+            "allow",
+            "0",
+            "0",
+            "0",
+            "0"
+          ]
+        }
+      ]
+    },
+    "v8": {
+      "outputSha256": "68a7dec3f386e83b9fe7bd50e375f737dab53d0399ced5269ad2a35b15056477",
+      "note": "compile-module/GetModuleRequests control; dynamic import and import.meta are unsupported observations"
+    }
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "objectType": "capsule.typescript-transformer-profile",
+  "objectVersion": 0,
+  "transformer": "node:module.stripTypeScriptTypes",
+  "nodeVersion": "22.22.1",
+  "amaroVersion": "1.1.5",
+  "sourceArchive": {
+    "url": "https://nodejs.org/download/release/v22.22.1/node-v22.22.1.tar.xz",
+    "sha256": "87104b07e7acee748bcc5391e1bc69cf3571caa0fdfb8b1d6b5fd3f9599b7849"
+  },
+  "distribution": {
+    "platform": "darwin",
+    "architecture": "arm64",
+    "url": "https://nodejs.org/download/release/v22.22.1/node-v22.22.1-darwin-arm64.tar.xz",
+    "sha256": "261da057fb25ff2912dd6abb7842fc915ddf7947a2cb3c8cce90875d2b9bb667"
+  },
+  "executableSha256": "245e0321af97d3c21dd4e7104457334dfe3c3ba7982d0db75363e354565f8cbb"
+}

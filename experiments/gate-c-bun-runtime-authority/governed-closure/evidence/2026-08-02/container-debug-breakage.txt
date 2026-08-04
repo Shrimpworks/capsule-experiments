@@ -1,0 +1,21 @@
+scope=development-only local defensive owned fixture
+source.tag=bun-v1.3.14
+source.commit=0d9b296af33f2b851fcbf4df3e9ec89751734ba4
+profile=debug-no-asan
+
+nix.attempt.llvm=21.1.1
+nix.attempt.adjustments=override unsupported -gz=zstd with -gz=zlib; use Node 24 build driver after Bun 1.2.23 codegen event-loop hang
+nix.binary.version=1.3.14-debug
+nix.binary.revision=1.3.14-debug+0d9b296af
+nix.fixture.result=ABORT
+
+exactLlvm.attempt.llvm=21.1.8
+exactLlvm.binary.version=1.3.14-debug
+exactLlvm.binary.revision=1.3.14-debug+0d9b296af
+exactLlvm.fixture.result=ABORT
+
+assertion=intervalEnd - intervalStart < (ptrdiff_t)(16 * KB)
+location=.JavaScriptCore/PrivateHeaders/JavaScriptCore/FreeListInlines.h(63)
+function=JSC::FreeList::forEach
+interpretation=debug runtime evaluation is broken in this container construction; do not suppress or count it as a passing baseline
+release.control=PASS with binary sha256 c06708363d3903ee3e2fd11622ca14175784acaf4006b5d372bbb5588b31d52b

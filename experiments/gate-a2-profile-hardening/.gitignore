@@ -1,0 +1,4 @@
+go/.cache/
+typescript/dist/
+typescript/node_modules/
+swift/.build/

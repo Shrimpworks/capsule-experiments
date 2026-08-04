@@ -1,0 +1,94 @@
+{
+  "schema": "capsule.deno-core-runtime-root-sources.v0",
+  "retrievedUtc": "2026-08-03",
+  "engineeringInventoryNotLegalAdvice": true,
+  "packages": [
+    {
+      "binaryPackage": "libc6",
+      "version": "2.36-9+deb12u14",
+      "architecture": "arm64",
+      "sourcePackage": "glibc",
+      "snapshotFirstSeen": "20260504T025922Z",
+      "snapshotObjectSha1": "85af57bf1f9fa075163e51c99d9536154c21ab7e",
+      "url": "https://snapshot.debian.org/file/85af57bf1f9fa075163e51c99d9536154c21ab7e",
+      "size": 2324660,
+      "sha256": "01f4330719fd4f65580e16ea5a0527f372fca750e8f588d26deaf09f2d3b1cf4",
+      "noticePath": "usr/share/doc/libc6/copyright",
+      "noticeSha256": "40c7e1f2118531f038ca22999bd976901254e1bc5cd1b0f0211bdd064c599987"
+    },
+    {
+      "binaryPackage": "libgcc-s1",
+      "version": "12.2.0-14+deb12u1",
+      "architecture": "arm64",
+      "sourcePackage": "gcc-12",
+      "snapshotFirstSeen": "20250415T025012Z",
+      "snapshotObjectSha1": "6534755fbb89e7bd0ef86c53fce6f34b4f7bfbd4",
+      "url": "https://snapshot.debian.org/file/6534755fbb89e7bd0ef86c53fce6f34b4f7bfbd4",
+      "size": 34816,
+      "sha256": "576926b283613db80168ddf76380a3bd877602778cf0d226caa7bfbfa71eacf3",
+      "noticePackage": "gcc-12-base"
+    },
+    {
+      "binaryPackage": "gcc-12-base",
+      "version": "12.2.0-14+deb12u1",
+      "architecture": "arm64",
+      "sourcePackage": "gcc-12",
+      "snapshotFirstSeen": "20250415T025012Z",
+      "snapshotObjectSha1": "b9cd0c11e6c44ac368d9ece58640f1129ad57231",
+      "url": "https://snapshot.debian.org/file/b9cd0c11e6c44ac368d9ece58640f1129ad57231",
+      "size": 37624,
+      "sha256": "674cf6cba6d432bd200c45fe866c1652c7a53523cc2e7a613e05bc4abf7b5440",
+      "runtimeBytes": false,
+      "noticePath": "usr/share/doc/gcc-12-base/copyright",
+      "noticeSha256": "da8191658b3452ce9caf31638ba61dab31a38c619fa39df119812e050f592fd3"
+    }
+  ],
+  "sourceArtifacts": [
+    {
+      "sourcePackage": "glibc",
+      "version": "2.36-9+deb12u14",
+      "dscUrl": "https://snapshot.debian.org/file/702906fdb0f1b37205a2000b6715025fed8018cb",
+      "dscSha256": "cfe1f0b8dc1fa211ce5a45b3725cc38b29f88667f1140ebdca6de35cf9c6f1fd",
+      "orig": {
+        "name": "glibc_2.36.orig.tar.xz",
+        "url": "https://snapshot.debian.org/file/d034128a6116dcf9e76c92f898ec63f4f4e65786",
+        "size": 19363988,
+        "sha256": "a543c02070d46ccaf866957efd13f10c924daa74c86a90a0254db09a92a708ee"
+      },
+      "debian": {
+        "name": "glibc_2.36-9+deb12u14.debian.tar.xz",
+        "url": "https://snapshot.debian.org/file/42404623ac3ac7cb1bcce7dc7441ef3782c13871",
+        "size": 918488,
+        "sha256": "cf4ac9cd98185452cae3ef34e2e4ee12753e3d93fd0c62c61396d4a47eec902f"
+      }
+    },
+    {
+      "sourcePackage": "gcc-12",
+      "version": "12.2.0-14+deb12u1",
+      "dscUrl": "https://snapshot.debian.org/file/c371dc79be26e25d38c65ae287f8a38f5eeb6b92",
+      "dscSha256": "3aed0b189189c744dc9f4b74798a51d3e512ea85e492568db788a927c88e20ba",
+      "orig": {
+        "name": "gcc-12_12.2.0.orig.tar.gz",
+        "url": "https://snapshot.debian.org/file/c67d8293ff2f0298cc233b1055f92b531fd64873",
+        "size": 87090343,
+        "sha256": "b8298be16aeeb96a889c6afed0a8e2241b47452e89cc81fe65ea849d5c740fcb"
+      },
+      "debian": {
+        "name": "gcc-12_12.2.0-14+deb12u1.debian.tar.xz",
+        "url": "https://snapshot.debian.org/file/5357d3d159f6a261431477528b91e2ab6e1080b2",
+        "size": 1675204,
+        "sha256": "59f7f7763a0c355e3f27ff9e7ac80d06382b29939361a87e7b139226bfe7402e"
+      }
+    }
+  ],
+  "tracer": {
+    "package": "strace",
+    "version": "6.1-0.1",
+    "architecture": "arm64",
+    "runtimeRootMember": false,
+    "snapshotObjectSha1": "a572fbf9bf4e0355dc14c589305fa5155abba835",
+    "url": "https://snapshot.debian.org/file/a572fbf9bf4e0355dc14c589305fa5155abba835",
+    "size": 1192916,
+    "sha256": "751817724af91cb95df566a21a154f9a7dcdd938e700e5cb9a5a47eb19752ea2"
+  }
+}

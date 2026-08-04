@@ -1,0 +1,29 @@
+trace_scope=selected clone/exec/socket/open/close/mmap/mprotect families only
+
+deno_core_lines=111
+deno_core_bytes=9058
+deno_core_unique_tids=2
+deno_core_clone_calls=1 (CLONE_THREAD)
+deno_core_socket_calls=0
+deno_core_initial_execve=1
+deno_core_openat=15
+deno_core_close=15
+deno_core_mmap=54
+deno_core_mprotect=23
+deno_core_prot_exec_mappings=3 (dynamic-loader file mappings)
+deno_core_rwx_mprotect=0
+
+full_deno_lines=215
+full_deno_bytes=17128
+full_deno_unique_tids=4
+full_deno_clone_calls=3 (CLONE_THREAD)
+full_deno_socketpair=1 (AF_UNIX)
+full_deno_initial_execve=1
+full_deno_openat=43
+full_deno_close=38
+full_deno_mmap=76
+full_deno_mprotect=37
+full_deno_prot_exec_mappings=6
+full_deno_rwx_mapping=268435456 bytes PROT_READ|PROT_WRITE|PROT_EXEC
+
+interpretation=deno_core jitless is compatible with a later post-loader executable-mapping seal experiment; these traces are not a complete syscall policy or admission proof

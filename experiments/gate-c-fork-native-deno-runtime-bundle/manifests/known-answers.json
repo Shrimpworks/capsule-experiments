@@ -1,0 +1,62 @@
+{
+  "schemaVersion": 1,
+  "status": "comparison-oracles-only-not-fork-native-output",
+  "physicalOmission": {
+    "builtinOps": [
+      "op_get_ext_import_meta_proto",
+      "op_get_extras_binding_object",
+      "op_set_captured_bootstrap"
+    ],
+    "binary": {
+      "size": 68497544,
+      "sha256": "597baba6b9f50fc619ce667a352e19686f8c73efc6819d137b3c4081450fd6f5"
+    },
+    "snapshot": {
+      "size": 699980,
+      "sha256": "ef5f1e7883bbf62a6422957ff0eea51a06d4b35cad1f47dc9c9ae137ab8dfa0b"
+    },
+    "fixture": {
+      "sourceSha256": "a236a49337021c709875a6e921910418f8801b78627e504aaf93a5bb636622ca",
+      "inputSha256": "dcca912dd4ddd9c93c1efd3e6aecf33dd2d0c0ef75b36d0b8acf89cae752264a",
+      "answer": "{\"count\":3,\"label\":\"capsule-owned\",\"sum\":6}"
+    },
+    "patches": [
+      {
+        "order": 1,
+        "sha256": "f45fda69db3875dbd730aa9568cb88ff6cc35a25c8d82edb5fa3b521c19bac37"
+      },
+      {
+        "order": 2,
+        "sha256": "9dd33fd423ce98f030d80eba5cb386d5236b7ca103aa45b58ce5b36125d8061e"
+      }
+    ],
+    "restorationMutationSha256": "e0e98557b709437d464464922a3c4d4cc45af1832d32108d584cfe771125ee40"
+  },
+  "standaloneRoot": {
+    "entryCount": 22,
+    "regularFileBytes": 71871122,
+    "tar": {
+      "size": 71895040,
+      "sha256": "d1f600b4f88fcb369cd6d851bd55c7bed670898fad6cb7f7449a76a106c6d925"
+    },
+    "gzip": {
+      "size": 22192043,
+      "sha256": "b0e17261c513f1d16e350055c5b4809063b038783cb6b4c68937217458f79283"
+    },
+    "manifestSha256": "94132c7b77200c7ba343b44e1f66ee404fba32c6227268d63a9cc70831179623",
+    "packageSourcesSha256": "f19971dd4c264fc12558cfb893a4e8af1dbb4314313742f9d92fcb45017540e6",
+    "sbomSha256": "80b86726178494d1a06e5cde9fedd788cfad042b35cb3b9d95d6155a665f5fd5"
+  },
+  "typescriptBoundary": {
+    "profileSha256": "3bc25a01c3059776070a5354e7c6560d06f031ef0336c6a96d34c41f5577aec5",
+    "optionsSha256": "cbd7337986e8145ff812da60b79703c7b7a31929d5c9212fae48e4568249de7b",
+    "original": {
+      "size": 391,
+      "sha256": "697a9bed1307422ecae49d20f60dff7b367535f450fee514b63ffe4d5a22c6db"
+    },
+    "emitted": {
+      "size": 391,
+      "sha256": "f91911dd606409fed94c214381533f5ece3e2ae23ea861a3a55192cefad884cd"
+    }
+  }
+}

@@ -1,0 +1,8 @@
+.DS_Store
+**/.build/
+**/.runs/
+**/.swiftpm/
+**/build/
+**/node_modules/
+**/target/
+

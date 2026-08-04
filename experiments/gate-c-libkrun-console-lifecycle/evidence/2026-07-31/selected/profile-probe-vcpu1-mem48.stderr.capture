@@ -1,0 +1,35 @@
+CAPSULE_KRUN_READY pid=99507 profile=probe-vcpu1-mem48 vcpus=1 ramMiB=48 termination=graceful network=none root=block-ro
+CAPSULE_KRUN_AUTHORIZED pid=99507
+[2026-07-31T21:10:05.316377Z ERROR init_or_kernel] [    0.048977] Kernel panic - not syncing: System is deadlocked on memory
+[2026-07-31T21:10:05.316559Z ERROR init_or_kernel] [    0.049170] CPU: 0 UID: 0 PID: 107 Comm: cryptomgr_test Not tainted 6.12.91 #1
+[2026-07-31T21:10:05.316660Z ERROR init_or_kernel] [    0.049340] Hardware name: linux,dummy-virt (DT)
+[2026-07-31T21:10:05.316732Z ERROR init_or_kernel] [    0.049439] Call trace:
+[2026-07-31T21:10:05.316800Z ERROR init_or_kernel] [    0.049513]  dump_backtrace+0x94/0x114
+[2026-07-31T21:10:05.316852Z ERROR init_or_kernel] [    0.049580]  show_stack+0x18/0x24
+[2026-07-31T21:10:05.316904Z ERROR init_or_kernel] [    0.049632]  dump_stack_lvl+0x34/0x8c
+[2026-07-31T21:10:05.316958Z ERROR init_or_kernel] [    0.049684]  dump_stack+0x18/0x24
+[2026-07-31T21:10:05.317015Z ERROR init_or_kernel] [    0.049738]  panic+0x328/0x33c
+[2026-07-31T21:10:05.317104Z ERROR init_or_kernel] [    0.049794]  pagefault_out_of_memory+0x0/0x68
+[2026-07-31T21:10:05.317195Z ERROR init_or_kernel] [    0.049883]  __alloc_pages_may_oom+0xdc/0x188
+[2026-07-31T21:10:05.317284Z ERROR init_or_kernel] [    0.049973]  __alloc_pages_slowpath.constprop.0+0x550/0x7b8
+[2026-07-31T21:10:05.317412Z ERROR init_or_kernel] [    0.050063]  __alloc_pages_noprof+0x1bc/0x224
+[2026-07-31T21:10:05.317508Z ERROR init_or_kernel] [    0.050191]  alloc_pages_bulk_noprof+0x1e8/0x538
+[2026-07-31T21:10:05.317601Z ERROR init_or_kernel] [    0.050288]  vm_area_alloc_pages+0x60/0x1c8
+[2026-07-31T21:10:05.317640Z ERROR init_or_kernel] [    0.050386]  __vmalloc_area_node+0xd4/0x35c
+[2026-07-31T21:10:05.317681Z ERROR init_or_kernel] [    0.050419]  __vmalloc_node_range_noprof+0xd8/0x1fc
+[2026-07-31T21:10:05.317731Z ERROR init_or_kernel] [    0.050460]  vmalloc_node_noprof+0x5c/0x6c
+[2026-07-31T21:10:05.317781Z ERROR init_or_kernel] [    0.050512]  crypto_scomp_init_tfm+0xb4/0x108
+[2026-07-31T21:10:05.317842Z ERROR init_or_kernel] [    0.050559]  crypto_create_tfm_node+0x50/0x100
+[2026-07-31T21:10:05.317889Z ERROR init_or_kernel] [    0.050622]  crypto_init_scomp_ops_async+0x3c/0xb0
+[2026-07-31T21:10:05.317965Z ERROR init_or_kernel] [    0.050667]  crypto_acomp_init_tfm+0x88/0x94
+[2026-07-31T21:10:05.318015Z ERROR init_or_kernel] [    0.050745]  crypto_create_tfm_node+0x50/0x100
+[2026-07-31T21:10:05.318127Z ERROR init_or_kernel] [    0.050794]  crypto_alloc_tfm_node+0x6c/0x158
+[2026-07-31T21:10:05.318172Z ERROR init_or_kernel] [    0.050908]  crypto_alloc_acomp+0x24/0x30
+[2026-07-31T21:10:05.318232Z ERROR init_or_kernel] [    0.050955]  alg_test_comp+0x98/0x130
+[2026-07-31T21:10:05.318303Z ERROR init_or_kernel] [    0.051011]  alg_test+0x154/0x694
+[2026-07-31T21:10:05.318372Z ERROR init_or_kernel] [    0.051091]  cryptomgr_test+0x24/0x40
+[2026-07-31T21:10:05.318437Z ERROR init_or_kernel] [    0.051154]  kthread+0xd4/0xd8
+[2026-07-31T21:10:05.318512Z ERROR init_or_kernel] [    0.051221]  ret_from_fork+0x10/0x20
+[2026-07-31T21:10:05.318584Z ERROR init_or_kernel] [    0.051296] Kernel Offset: disabled
+[2026-07-31T21:10:05.318726Z ERROR init_or_kernel] [    0.051404] CPU features: 0x00,0000000c,00862928,6607f723
+[2026-07-31T21:10:05.318815Z ERROR init_or_kernel] [    0.051505] Memory Limit: none

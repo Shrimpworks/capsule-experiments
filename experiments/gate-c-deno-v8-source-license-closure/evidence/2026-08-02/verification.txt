@@ -1,0 +1,30 @@
+Verification date: 2026-08-02
+Branch: codex/deno-v8-source-license-closure
+Baseline: cb987e1459663bf5be428655f8c350d3fdd556e0
+
+Toolchains:
+- Node.js v22.22.1
+- pnpm 10.28.2
+- Go 1.26.5 darwin/arm64
+
+Focused evidence:
+- node generate-evidence.mjs against exact local inputs: PASS
+- semantic comparison of all six regenerated JSON manifests: PASS
+- sh experiments/gate-c-deno-v8-source-license-closure/verify.sh: PASS
+- git diff --check: PASS
+
+Repository-required verification:
+- pnpm install: PASS (lockfile current; no packages downloaded)
+- pnpm check: PASS
+- pnpm lint: PASS
+- pnpm test: PASS
+- pnpm verify:schemas: PASS
+- pnpm format:check: PASS
+- pnpm site:build: PASS
+- go test ./...: PASS
+- go vet ./...: PASS
+- go build ./...: PASS
+
+Decision emitted by focused verifier:
+sourceLicenseClosure=SOURCE-LICENSE-CLOSURE-NO-GO
+runtimeAdmission=false

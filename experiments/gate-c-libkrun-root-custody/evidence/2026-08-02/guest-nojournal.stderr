@@ -1,0 +1,4 @@
+RUNNER_DESCRIPTOR_ACCEPT fd=4 path=/dev/fd/4 access=0 dev=16777232 ino=114928173 nlink=0 length=134217728 digest=01012163484a9a186636149102456e88efc2bbbb14f65b34dae833141bd3b4a4
+RUNNER_START root=/dev/fd/4
+LIBKRUN_ROOT_OPEN consumer=1 path=/dev/fd/4 requestedAccess=0 result=7 resultAccess=0 openedStat=0 openedDev=16777232 openedIno=114928173 inheritedStat=0 inheritedDev=16777232 inheritedIno=114928173 identityMatch=true errno=0
+LIBKRUN_ROOT_OPEN consumer=2 path=/dev/fd/4 requestedAccess=0 result=8 resultAccess=0 openedStat=0 openedDev=16777232 openedIno=114928173 inheritedStat=0 inheritedDev=16777232 inheritedIno=114928173 identityMatch=true errno=0

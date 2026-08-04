@@ -1,0 +1,33 @@
+date=2026-08-02
+scope=fixed-fixture governed-deno-core candidate; owned same-host Linux/arm64 containers
+
+reproducibility.level=same-host-independent-clean-containers
+binary.size=68497544
+binary.sha256=597baba6b9f50fc619ce667a352e19686f8c73efc6819d137b3c4081450fd6f5
+snapshot.size=699980
+snapshot.sha256=ef5f1e7883bbf62a6422957ff0eea51a06d4b35cad1f47dc9c9ae137ab8dfa0b
+bundle.size=20983063
+bundle.sha256=da8f755832a6fceba37078c58cc67c4136bc823acc75fe377ec4c1b98a8ef498
+completeDeclaredPackageBytes.equal=true
+
+finalLink.symbol.1=deno_core::ops_builtin_v8::op_get_ext_import_meta_proto
+finalLink.symbol.2=deno_core::ops_builtin_v8::op_get_extras_binding_object
+finalLink.symbol.3=deno_core::ops_builtin_v8::op_set_captured_bootstrap
+finalLink.otherBuiltinOpSymbols=0
+
+runtime.fixedFixture=pass
+runtime.sealedGlobals=pass
+runtime.staticDynamicImportAndRawTypescriptRefusal=pass
+runtime.unlistedSourceInputRefusal=pass
+runtime.constructionMutations=pass
+runtime.postSealSyscallMutations=pass
+runtime.extraDescriptorMutation=pass
+runtime.restoredOpPrintMutation=pass; four-op binary rejected before fixture
+
+elf.class=ELF64
+elf.machine=AArch64
+elf.type=PIE
+elf.interpreter=/lib/ld-linux-aarch64.so.1
+elf.needed=libgcc_s.so.1,libm.so.6,libc.so.6,ld-linux-aarch64.so.1
+elf.runtimeRoot=rust:1.95.0-bookworm@sha256:6258907abe69656e41cd992e0b705cdcfabcbbe3db374f92ed2d47121282d4a1
+elf.bundleStandalone=false

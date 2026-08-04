@@ -1,0 +1,124 @@
+{
+  "runs": [
+    {
+      "run": "unsandboxed-07d498672119352d",
+      "attachmentApi": "krun_add_read_only_raw_root_fd",
+      "attachmentRole": "runtime-root:vda:raw:read-only",
+      "conjunctivePass": true,
+      "descriptorNegatives": {
+        "reusedFdExit": 77,
+        "reusedFdRejectedBeforeKrun": true,
+        "wrongFdExit": 125
+      },
+      "descriptorTransfer": "direct-fork-exec-inheritance",
+      "device": 16777232,
+      "finalizedDescriptorDigest": "b442fe91619a2542c059038b66221923f15fd5fae5de98ae531415ae12586ef1",
+      "inode": 115955875,
+      "length": 134217728,
+      "linkCount": 0,
+      "mode": "unsandboxed",
+      "modeBits": "0o400",
+      "pathExistsAfterFinalization": false,
+      "runner": {
+        "callerDescriptorClosedAfterApi": true,
+        "exit": 0,
+        "fdNativeAccepted": true,
+        "guestDigest": "b442fe91619a2542c059038b66221923f15fd5fae5de98ae531415ae12586ef1",
+        "guestLength": 134217728,
+        "libkrunRootPathOpenCount": 0,
+        "postStopDescriptorDigest": "b442fe91619a2542c059038b66221923f15fd5fae5de98ae531415ae12586ef1"
+      },
+      "sourceManifestDigest": "b442fe91619a2542c059038b66221923f15fd5fae5de98ae531415ae12586ef1"
+    },
+    {
+      "run": "unsandboxed-257b69f46d0cc1a3",
+      "attachmentApi": "krun_add_read_only_raw_root_fd",
+      "attachmentRole": "runtime-root:vda:raw:read-only",
+      "conjunctivePass": true,
+      "descriptorNegatives": {
+        "reusedFdExit": 77,
+        "reusedFdRejectedBeforeKrun": true,
+        "wrongFdExit": 125
+      },
+      "descriptorTransfer": "direct-fork-exec-inheritance",
+      "device": 16777232,
+      "finalizedDescriptorDigest": "b442fe91619a2542c059038b66221923f15fd5fae5de98ae531415ae12586ef1",
+      "inode": 115955907,
+      "length": 134217728,
+      "linkCount": 0,
+      "mode": "unsandboxed",
+      "modeBits": "0o400",
+      "pathExistsAfterFinalization": false,
+      "runner": {
+        "callerDescriptorClosedAfterApi": true,
+        "exit": 0,
+        "fdNativeAccepted": true,
+        "guestDigest": "b442fe91619a2542c059038b66221923f15fd5fae5de98ae531415ae12586ef1",
+        "guestLength": 134217728,
+        "libkrunRootPathOpenCount": 0,
+        "postStopDescriptorDigest": "b442fe91619a2542c059038b66221923f15fd5fae5de98ae531415ae12586ef1"
+      },
+      "sourceManifestDigest": "b442fe91619a2542c059038b66221923f15fd5fae5de98ae531415ae12586ef1"
+    },
+    {
+      "run": "unsandboxed-1707a32810c0a802",
+      "attachmentApi": "krun_add_read_only_raw_root_fd",
+      "attachmentRole": "runtime-root:vda:raw:read-only",
+      "conjunctivePass": true,
+      "descriptorNegatives": {
+        "reusedFdExit": 77,
+        "reusedFdRejectedBeforeKrun": true,
+        "wrongFdExit": 125
+      },
+      "descriptorTransfer": "direct-fork-exec-inheritance",
+      "device": 16777232,
+      "finalizedDescriptorDigest": "b442fe91619a2542c059038b66221923f15fd5fae5de98ae531415ae12586ef1",
+      "inode": 115955917,
+      "length": 134217728,
+      "linkCount": 0,
+      "mode": "unsandboxed",
+      "modeBits": "0o400",
+      "pathExistsAfterFinalization": false,
+      "runner": {
+        "callerDescriptorClosedAfterApi": true,
+        "exit": 0,
+        "fdNativeAccepted": true,
+        "guestDigest": "b442fe91619a2542c059038b66221923f15fd5fae5de98ae531415ae12586ef1",
+        "guestLength": 134217728,
+        "libkrunRootPathOpenCount": 0,
+        "postStopDescriptorDigest": "b442fe91619a2542c059038b66221923f15fd5fae5de98ae531415ae12586ef1"
+      },
+      "sourceManifestDigest": "b442fe91619a2542c059038b66221923f15fd5fae5de98ae531415ae12586ef1"
+    },
+    {
+      "run": "unsandboxed-3823085eb39f9c4e",
+      "attachmentApi": "krun_add_read_only_raw_root_fd",
+      "attachmentRole": "runtime-root:vda:raw:read-only",
+      "conjunctivePass": true,
+      "descriptorNegatives": {
+        "reusedFdExit": 77,
+        "reusedFdRejectedBeforeKrun": true,
+        "wrongFdExit": 125
+      },
+      "descriptorTransfer": "direct-fork-exec-inheritance",
+      "device": 16777232,
+      "finalizedDescriptorDigest": "b442fe91619a2542c059038b66221923f15fd5fae5de98ae531415ae12586ef1",
+      "inode": 115955926,
+      "length": 134217728,
+      "linkCount": 0,
+      "mode": "unsandboxed",
+      "modeBits": "0o400",
+      "pathExistsAfterFinalization": false,
+      "runner": {
+        "callerDescriptorClosedAfterApi": true,
+        "exit": 0,
+        "fdNativeAccepted": true,
+        "guestDigest": "b442fe91619a2542c059038b66221923f15fd5fae5de98ae531415ae12586ef1",
+        "guestLength": 134217728,
+        "libkrunRootPathOpenCount": 0,
+        "postStopDescriptorDigest": "b442fe91619a2542c059038b66221923f15fd5fae5de98ae531415ae12586ef1"
+      },
+      "sourceManifestDigest": "b442fe91619a2542c059038b66221923f15fd5fae5de98ae531415ae12586ef1"
+    }
+  ]
+}

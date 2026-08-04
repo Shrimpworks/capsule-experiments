@@ -1,0 +1,33 @@
+{
+  "attempt": "crash-after-go",
+  "outcome": "recovered",
+  "termination": "forced-kill",
+  "runnerPid": 499,
+  "profile": "vcpu1-mem128",
+  "wallLimitMillis": 0,
+  "graceMillis": 0,
+  "controlReadyMillis": 0,
+  "elapsedMillis": 260,
+  "teardownMillis": 260,
+  "identityVerifiedAtStart": true,
+  "identityVerifiedBeforeTerm": true,
+  "identityVerifiedBeforeKill": true,
+  "exitCode": -1,
+  "runnerUserCPUZero": false,
+  "runnerUserCpuMillis": 0,
+  "runnerSystemCpuMillis": 0,
+  "runnerMaxRssBytes": 0,
+  "controllerMaxRssBytes": 0,
+  "stdout": {
+    "mode": "",
+    "observedBytes": 0,
+    "retainedBytes": 0,
+    "truncated": false
+  },
+  "stderr": {
+    "mode": "",
+    "observedBytes": 0,
+    "retainedBytes": 0,
+    "truncated": false
+  }
+}

@@ -1,0 +1,39 @@
+/Users/dsteele/.codex/worktrees/ee77/capsule-corp/experiments/mjs-parser-boundary/fixtures/cases/allow-empty.mjs	valid	indeterminate	0	unsupported	unsupported
+/Users/dsteele/.codex/worktrees/ee77/capsule-corp/experiments/mjs-parser-boundary/fixtures/cases/allow-cap-exact.mjs	valid	indeterminate	0	unsupported	unsupported
+/Users/dsteele/.codex/worktrees/ee77/capsule-corp/experiments/mjs-parser-boundary/fixtures/cases/deny-cap-plus-one.mjs	too_large	deny	0	unsupported	unsupported
+/Users/dsteele/.codex/worktrees/ee77/capsule-corp/experiments/mjs-parser-boundary/fixtures/cases/deny-invalid-utf8.mjs	invalid_utf8	deny	0	unsupported	unsupported
+/Users/dsteele/.codex/worktrees/ee77/capsule-corp/experiments/mjs-parser-boundary/fixtures/cases/allow-local-export.mjs	valid	indeterminate	0	unsupported	unsupported
+/Users/dsteele/.codex/worktrees/ee77/capsule-corp/experiments/mjs-parser-boundary/fixtures/cases/allow-object-property-import-meta.mjs	valid	indeterminate	0	unsupported	unsupported
+/Users/dsteele/.codex/worktrees/ee77/capsule-corp/experiments/mjs-parser-boundary/fixtures/cases/allow-object-method-import.mjs	valid	indeterminate	0	unsupported	unsupported
+/Users/dsteele/.codex/worktrees/ee77/capsule-corp/experiments/mjs-parser-boundary/fixtures/cases/allow-string-comment-lookalikes.mjs	valid	indeterminate	0	unsupported	unsupported
+/Users/dsteele/.codex/worktrees/ee77/capsule-corp/experiments/mjs-parser-boundary/fixtures/cases/allow-regex-lookalike.mjs	valid	indeterminate	0	unsupported	unsupported
+/Users/dsteele/.codex/worktrees/ee77/capsule-corp/experiments/mjs-parser-boundary/fixtures/cases/allow-eval-string-data.mjs	valid	indeterminate	0	unsupported	unsupported
+/Users/dsteele/.codex/worktrees/ee77/capsule-corp/experiments/mjs-parser-boundary/fixtures/cases/allow-shadowed-commonjs.mjs	valid	indeterminate	0	unsupported	unsupported
+/Users/dsteele/.codex/worktrees/ee77/capsule-corp/experiments/mjs-parser-boundary/fixtures/cases/deny-static-import.mjs	valid	deny	1	unsupported	unsupported
+/Users/dsteele/.codex/worktrees/ee77/capsule-corp/experiments/mjs-parser-boundary/fixtures/cases/deny-side-effect-import.mjs	valid	deny	1	unsupported	unsupported
+/Users/dsteele/.codex/worktrees/ee77/capsule-corp/experiments/mjs-parser-boundary/fixtures/cases/deny-export-named-from.mjs	valid	deny	1	unsupported	unsupported
+/Users/dsteele/.codex/worktrees/ee77/capsule-corp/experiments/mjs-parser-boundary/fixtures/cases/deny-export-all-from.mjs	valid	deny	1	unsupported	unsupported
+/Users/dsteele/.codex/worktrees/ee77/capsule-corp/experiments/mjs-parser-boundary/fixtures/cases/deny-dynamic-import.mjs	valid	indeterminate	0	unsupported	unsupported
+/Users/dsteele/.codex/worktrees/ee77/capsule-corp/experiments/mjs-parser-boundary/fixtures/cases/deny-dynamic-computed.mjs	valid	indeterminate	0	unsupported	unsupported
+/Users/dsteele/.codex/worktrees/ee77/capsule-corp/experiments/mjs-parser-boundary/fixtures/cases/deny-import-meta.mjs	valid	indeterminate	0	unsupported	unsupported
+/Users/dsteele/.codex/worktrees/ee77/capsule-corp/experiments/mjs-parser-boundary/fixtures/cases/deny-import-meta-comment.mjs	valid	indeterminate	0	unsupported	unsupported
+/Users/dsteele/.codex/worktrees/ee77/capsule-corp/experiments/mjs-parser-boundary/fixtures/cases/deny-template-interpolation.mjs	valid	indeterminate	0	unsupported	unsupported
+/Users/dsteele/.codex/worktrees/ee77/capsule-corp/experiments/mjs-parser-boundary/fixtures/cases/deny-regex-division-scanner-stop.mjs	valid	indeterminate	0	unsupported	unsupported
+/Users/dsteele/.codex/worktrees/ee77/capsule-corp/experiments/mjs-parser-boundary/fixtures/cases/deny-import-attributes.mjs	valid	deny	1	unsupported	unsupported
+/Users/dsteele/.codex/worktrees/ee77/capsule-corp/experiments/mjs-parser-boundary/fixtures/cases/deny-export-namespace-from.mjs	valid	deny	1	unsupported	unsupported
+/Users/dsteele/.codex/worktrees/ee77/capsule-corp/experiments/mjs-parser-boundary/fixtures/cases/parse-error-unterminated-string.mjs	parse_error	deny	0	unsupported	unsupported
+/Users/dsteele/.codex/worktrees/ee77/capsule-corp/experiments/mjs-parser-boundary/fixtures/cases/parse-error-recovery-before-import.mjs	parse_error	deny	0	unsupported	unsupported
+/Users/dsteele/.codex/worktrees/ee77/capsule-corp/experiments/mjs-parser-boundary/fixtures/cases/parse-error-empty-dynamic-import.mjs	parse_error	deny	0	unsupported	unsupported
+/Users/dsteele/.codex/worktrees/ee77/capsule-corp/experiments/mjs-parser-boundary/fixtures/cases/parse-error-import-binding.mjs	parse_error	deny	0	unsupported	unsupported
+/Users/dsteele/.codex/worktrees/ee77/capsule-corp/experiments/mjs-parser-boundary/fixtures/cases/parse-error-duplicate-export.mjs	parse_error	deny	0	unsupported	unsupported
+/Users/dsteele/.codex/worktrees/ee77/capsule-corp/experiments/mjs-parser-boundary/fixtures/cases/parse-error-duplicate-lexical.mjs	parse_error	deny	0	unsupported	unsupported
+/Users/dsteele/.codex/worktrees/ee77/capsule-corp/experiments/mjs-parser-boundary/fixtures/cases/restore-static-import.mjs	valid	deny	1	unsupported	unsupported
+/Users/dsteele/.codex/worktrees/ee77/capsule-corp/experiments/mjs-parser-boundary/fixtures/cases/restore-export-from.mjs	valid	deny	1	unsupported	unsupported
+/Users/dsteele/.codex/worktrees/ee77/capsule-corp/experiments/mjs-parser-boundary/fixtures/cases/restore-dynamic-import.mjs	valid	indeterminate	0	unsupported	unsupported
+/Users/dsteele/.codex/worktrees/ee77/capsule-corp/experiments/mjs-parser-boundary/fixtures/cases/restore-import-meta.mjs	valid	indeterminate	0	unsupported	unsupported
+main.mjs:22: Uncaught SyntaxError: Invalid or unexpected token
+main.mjs:22: Uncaught SyntaxError: Unexpected token ';'
+main.mjs:6: Uncaught SyntaxError: import() requires a specifier
+main.mjs:18: Uncaught SyntaxError: Unexpected token '}'
+main.mjs:44: Uncaught SyntaxError: Duplicate export of 'value'
+main.mjs:19: Uncaught SyntaxError: Identifier 'value' has already been declared

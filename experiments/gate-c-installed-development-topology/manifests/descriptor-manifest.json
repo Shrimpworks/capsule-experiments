@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "purpose": "capsule.p0-4a.runner-descriptors",
+  "closed": true,
+  "descriptors": [
+    { "fd": 0, "role": "stdin-null", "access": "read-only" },
+    { "fd": 1, "role": "stdout-bounded-harness", "access": "write-only" },
+    { "fd": 2, "role": "stderr-bounded-harness", "access": "write-only" },
+    { "fd": 3, "role": "runtime-root-candidate", "access": "read-only" },
+    { "fd": 4, "role": "source-port-host-end", "access": "write-only" },
+    { "fd": 5, "role": "input-port-host-end", "access": "write-only" },
+    { "fd": 6, "role": "completion-port-host-end", "access": "read-only" },
+    { "fd": 7, "role": "record-before-start-control", "access": "read-only" }
+  ],
+  "forbiddenAmbientRoles": [
+    "approval-key",
+    "supervisor-evidence-key",
+    "database",
+    "network-socket",
+    "xpc-connection",
+    "temporary-directory",
+    "writable-runtime-root"
+  ],
+  "limitations": [
+    "This manifest is an early host-runner descriptor candidate, not the P0-3 frozen port contract.",
+    "The harness uses pipes and placeholder root bytes; it does not start libkrun or a guest.",
+    "Descriptor roles, port directionality, caps, and control semantics remain provisional."
+  ]
+}

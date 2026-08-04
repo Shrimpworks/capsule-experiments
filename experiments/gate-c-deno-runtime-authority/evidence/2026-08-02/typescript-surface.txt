@@ -1,0 +1,11 @@
+retrieval_date=2026-08-02
+candidate=deno_ast 0.53.3
+crate_sha256=6f7c1384d87fc0a6439a065312fbef8f6ac6128689dbc2831b28b3a1d4f3a4e6
+source_commit=8bd7154d96b6dcb7120ad9ed38595e22411f3fd1
+license=MIT
+features=default-features false; transpiling
+transpiling_expands_to=emit, proposal, react, transforms, typescript, utils, visit
+locked_packages_total=180 (one marker package plus 179 resolved dependencies)
+resolver_toolchain=rustc/cargo 1.93.1 host metadata resolution
+decision=pre-approval transform preferred; exact TS, emitted JS, source map, options, and full locked toolchain must be registered before approval
+limitation=surface count is packages, not audited LOC; no transformer was implemented or admitted

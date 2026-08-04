@@ -1,0 +1,16 @@
+manifest=verified sha256=70f6c89f4703b26dbd98cbb19d402b6a1dfe87280b857e401b30fe5b00af08fa components=18 effectiveMinimumOS=26.0 backendAdmitted=false
+INSTALLED-BYTE-READBACK PASS exact closed component manifest verified after copy
+operation=register ok=true serviceStatus=enabled
+SERVICE-REGISTRATION PASS embedded SMAppService LaunchAgent registration succeeded
+SERVICE-ACTIVATION PASS exact registered per-user Supervisor started without host-root authority; initial Mach lookup auto-activation remains unproven
+result=reply clientRole=client clientBuild=p0-4a-current service=com.capsulecorp.spike.p0-4a-installed-topology.supervisor.from-client status=0 serverRole=supervisor serverBuild=p0-4a-current serverPid=44979 serverInstance=582407bb7885519c60adb114ee8cba2c serverIdentity=true messageIdentity=true euidValid=true asidValid=true localEuid=501 localAsid=100023 observedPeerEuid=501 observedPeerAsid=100023 reason=accepted
+PROCESS-IDENTITY PASS exact bidirectional code requirement, live message identity, EUID, and audit session pid=44979
+result=peer-denied clientRole=client clientBuild=p0-4a-stale service=com.capsulecorp.spike.p0-4a-installed-topology.supervisor.from-client reason=Connection interrupted
+MIXED-LIVE-COMPONENT PASS same-identifier stale client with different CDHash was denied
+result=reply clientRole=client clientBuild=p0-4a-current service=com.capsulecorp.spike.p0-4a-installed-topology.supervisor.from-client status=0 serverRole=supervisor serverBuild=p0-4a-current serverPid=45151 serverInstance=62a186d0584f26fb9f78c73aceae0e86 serverIdentity=true messageIdentity=true euidValid=true asidValid=true localEuid=501 localAsid=100023 observedPeerEuid=501 observedPeerAsid=100023 reason=accepted
+CRASH-RECONNECT PASS explicit per-user kickstart plus a fresh XPC connection reached a new Supervisor pid=45151 instance=62a186d0584f26fb9f78c73aceae0e86
+Gatekeeper=REJECTED status=3
+DISTRIBUTION GAP no complete notarized/Gatekeeper-accepted package evidence status=3
+SIGNING GAP no Apple-issued code-signing identity was available; exact CDHash checks used ad-hoc identities and cannot establish Team enrollment
+RUN COMPLETE registrationMode=smappservice backendAdmitted=false
+operation=unregister ok=true serviceStatus=not-registered

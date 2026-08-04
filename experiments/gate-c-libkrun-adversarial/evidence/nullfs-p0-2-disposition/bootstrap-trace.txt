@@ -1,0 +1,39 @@
+date=2026-08-02
+libkrunCommit=728df8125077d0db44265f6e997c72b81b65c015
+libkrunVersion=1.19.4
+libkrunfwVersion=5.5.0
+
+stock.commandLine=DEFAULT_KERNEL_CMDLINE plus init=/init.krun and KRUN_BLOCK_ROOT_* environment
+stock.defaultRoot=rootfstype=virtiofs, mounted from fs_id /dev/root
+stock.fsServer=Server<AugmentFs<NullFs>> when shared_dir=None
+stock.bootstrapFile=one-shot /init.krun from init_blob::INIT_BINARY
+stock.bootstrapDirectories=/dev,/proc,/sys,/newroot from AugmentFs virtual entries
+stock.initStage1=mount devtmpfs,proc,sysfs,cgroup2,devpts,tmpfs-shm on dummy root
+stock.blockPivot=mount /dev/vda at /newroot, MS_MOVE it to /, chroot, mount system filesystems again
+stock.rootFlags=retained patch translates exact ro,nosuid,nodev into generic mount flags
+
+probe.initramfs=external copy of exact krunfw kernel plus valid uncompressed SVR4-newc archive
+probe.initramfsContents=/init.krun,/dev,/proc,/sys,/newroot
+probe.initramfsResult=kernel panic before init; no inventory or completion
+
+selected.commandLine=root=/dev/vda rootfstype=ext4 ro rootwait init=/usr/local/libexec/capsule-init.krun KRUN_DIRECT_BLOCK_ROOT=1
+selected.kernel=unchanged internal pinned krunfw kernel route
+selected.rootComposition=the candidate immutable block root contains the exact pinned init.krun
+selected.rootHardening=init.krun remounts / with MS_REMOUNT|MS_RDONLY|MS_NOSUID|MS_NODEV before workload launch
+selected.blockProfile=only /dev/vda,ext4,ro,nosuid,nodev is accepted by the prototype helper
+selected.fsDevice=none constructed by krun_set_root_disk_remount
+selected.runnerImports=krun_set_root_disk_remount present; krun_set_root,krun_add_virtiofs*,krun_set_kernel,krun_set_firmware absent
+selected.libraryExports=host-directory APIs remain exported and require installed route-closure evidence
+
+observed.inventory=virtio_balloon,virtio_rng,virtio_console,virtio_blk
+observed.virtiofsDevice=absent
+observed.virtiofsMount=absent
+observed.rootMount=/dev/root / ext4 ro,nosuid,nodev,relatime
+observed.network=unreachable
+observed.vsock=unavailable
+observed.crossJobToken=absent; writable state not exercised because /tmp remained read-only
+
+inference=the dummy virtiofs root is a bootstrap delivery mechanism, not a block-I/O requirement
+inference=placing the same trusted init in the candidate runtime root is a credible removal route
+limitation=absence is established only for this prototype topology, not for arbitrary callers or final installed bytes
+posture=none

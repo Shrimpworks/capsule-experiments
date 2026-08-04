@@ -1,0 +1,31 @@
+{
+  "sourceCommit": "728df8125077d0db44265f6e997c72b81b65c015",
+  "buildFeatures": {
+    "blk": true,
+    "initBlob": true,
+    "net": false,
+    "gpu": false,
+    "sound": false,
+    "input": false,
+    "efi": false,
+    "tee": false,
+    "awsNitro": false
+  },
+  "signingLimitation": "ad-hoc non-hardened rerun because no valid Developer ID identity was installed",
+  "startedAt": "2026-08-02T14:46:19.720113Z",
+  "completedAt": "2026-08-02T14:46:29.263427Z",
+  "caseCount": 36,
+  "identityCaseCount": 4,
+  "rootDiskSha256": "06c36b72b6db42bc068c0ce940f581a7748a65ab46d564ed11bb443d1bfc553b",
+  "rawReportSha256": "408d55e5c96662eec8408c7dae9fb02a696971542660ad076fa868a7a992eb87",
+  "guestInventoryStdoutSha256": "d644bd5e0e048411150336811ee697efcc7e84980f0228f91f2c366885ab1a92",
+  "guestCompletionStdout": "completionMarker=valid-profile\n",
+  "failures": [
+    "minimal block-root guest exposed an unrequested virtiofs device",
+    "exact live runner identity tuple rejected",
+    "identity.wrong-path could not establish that the copied/live code requirement remained valid",
+    "identity.wrong-start could not establish that the copied/live code requirement remained valid"
+  ],
+  "identityFailureInterpretation": "Expected limitation of the ad-hoc non-hardened rerun; it is not exact installed-profile identity evidence.",
+  "nullFsDisposition": "survives; minimal removal falsified; no accepted residual-surface corpus exists"
+}

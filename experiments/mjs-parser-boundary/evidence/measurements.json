@@ -1,0 +1,114 @@
+{
+  "oxc": {
+    "inputBytes": 262144,
+    "coldProcessMs": {
+      "median": 4.209333000000001,
+      "p95": 5.257834000000003
+    },
+    "warmAmortizedMs": {
+      "median": 1.0299187500000002,
+      "p95": 1.1336875000000006
+    },
+    "memory": {
+      "maximumResidentBytes": 2195456,
+      "peakMemoryFootprintBytes": 1294648,
+      "raw": "real 0.00\nuser 0.00\nsys 0.00\n             2195456  maximum resident set size\n                   0  average shared memory size\n                   0  average unshared data size\n                   0  average unshared stack size\n                 303  page reclaims\n                   0  page faults\n                   0  swaps\n                   0  block input operations\n                   0  block output operations\n                   1  messages sent\n                   0  messages received\n                   0  signals received\n                   0  voluntary context switches\n                   4  involuntary context switches\n            18229026  instructions retired\n             9933504  cycles elapsed\n             1294648  peak memory footprint\n"
+    },
+    "hangFault": {
+      "code": null,
+      "signal": "SIGKILL",
+      "killedByDeadline": true,
+      "elapsedMs": 102.77850000000001
+    },
+    "abortFault": {
+      "code": null,
+      "signal": "SIGABRT",
+      "killedByDeadline": false,
+      "elapsedMs": 21.028125000000045
+    }
+  },
+  "denoAst": {
+    "inputBytes": 262144,
+    "coldProcessMs": {
+      "median": 3.131375000000048,
+      "p95": 5.867624999999975
+    },
+    "warmAmortizedMs": {
+      "median": 0.27172500000000355,
+      "p95": 0.33970415000000004
+    },
+    "memory": {
+      "maximumResidentBytes": 2752512,
+      "peakMemoryFootprintBytes": 1638736,
+      "raw": "real 0.00\nuser 0.00\nsys 0.00\n             2752512  maximum resident set size\n                   0  average shared memory size\n                   0  average unshared data size\n                   0  average unshared stack size\n                 337  page reclaims\n                   0  page faults\n                   0  swaps\n                   0  block input operations\n                   0  block output operations\n                   1  messages sent\n                   0  messages received\n                   0  signals received\n                   0  voluntary context switches\n                   4  involuntary context switches\n            16466230  instructions retired\n             6375270  cycles elapsed\n             1638736  peak memory footprint\n"
+    },
+    "hangFault": {
+      "code": null,
+      "signal": "SIGKILL",
+      "killedByDeadline": true,
+      "elapsedMs": 101.49883399999999
+    },
+    "abortFault": {
+      "code": null,
+      "signal": "SIGABRT",
+      "killedByDeadline": false,
+      "elapsedMs": 16.472083999999995
+    }
+  },
+  "treeSitter": {
+    "inputBytes": 262144,
+    "coldProcessMs": {
+      "median": 6.663499999999999,
+      "p95": 9.630999999999972
+    },
+    "warmAmortizedMs": {
+      "median": 3.6322228999999995,
+      "p95": 3.7814562500000077
+    },
+    "memory": {
+      "maximumResidentBytes": 2048000,
+      "peakMemoryFootprintBytes": 1261880,
+      "raw": "real 0.00\nuser 0.00\nsys 0.00\n             2048000  maximum resident set size\n                   0  average shared memory size\n                   0  average unshared data size\n                   0  average unshared stack size\n                 292  page reclaims\n                   0  page faults\n                   0  swaps\n                   0  block input operations\n                   0  block output operations\n                   1  messages sent\n                   0  messages received\n                   0  signals received\n                   0  voluntary context switches\n                   5  involuntary context switches\n            86518742  instructions retired\n            18532806  cycles elapsed\n             1261880  peak memory footprint\n"
+    },
+    "hangFault": {
+      "code": null,
+      "signal": "SIGKILL",
+      "killedByDeadline": true,
+      "elapsedMs": 102.45533299999988
+    },
+    "abortFault": {
+      "code": null,
+      "signal": "SIGABRT",
+      "killedByDeadline": false,
+      "elapsedMs": 16.778125000000045
+    }
+  },
+  "v8": {
+    "inputBytes": 262144,
+    "coldProcessMs": {
+      "median": 6.68745899999999,
+      "p95": 10.13779099999988
+    },
+    "warmAmortizedMs": {
+      "median": 0.42228125000000316,
+      "p95": 0.44842499999999746
+    },
+    "memory": {
+      "maximumResidentBytes": 10567680,
+      "peakMemoryFootprintBytes": 5178328,
+      "raw": "real 0.00\nuser 0.00\nsys 0.00\n            10567680  maximum resident set size\n                   0  average shared memory size\n                   0  average unshared data size\n                   0  average unshared stack size\n                 854  page reclaims\n                   0  page faults\n                   0  swaps\n                   0  block input operations\n                   0  block output operations\n                   1  messages sent\n                   0  messages received\n                   0  signals received\n                   0  voluntary context switches\n                  39  involuntary context switches\n            41009988  instructions retired\n            17133744  cycles elapsed\n             5178328  peak memory footprint\n"
+    },
+    "hangFault": {
+      "code": null,
+      "signal": "SIGKILL",
+      "killedByDeadline": true,
+      "elapsedMs": 102.29212499999994
+    },
+    "abortFault": {
+      "code": null,
+      "signal": "SIGABRT",
+      "killedByDeadline": false,
+      "elapsedMs": 18.95033400000011
+    }
+  }
+}

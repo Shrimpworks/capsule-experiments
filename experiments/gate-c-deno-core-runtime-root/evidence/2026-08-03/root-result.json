@@ -1,0 +1,20 @@
+{
+  "schema": "capsule.deno-core-runtime-root-result.v0",
+  "decision": "standalone-dynamic-root-pass-no-runtime-admission",
+  "entryManifest": "../../../manifests/runtime-root-files.tsv",
+  "entryCount": 22,
+  "entryCap": 22,
+  "totalRegularFileBytes": 71871122,
+  "normalizedRootTar": {
+    "size": 71895040,
+    "sha256": "d1f600b4f88fcb369cd6d851bd55c7bed670898fad6cb7f7449a76a106c6d925"
+  },
+  "compressedRoot": {
+    "size": 22192043,
+    "sha256": "b0e1726171c08669c1c3bba70b1aae89c07270c306a1dd4fa6919ec69f579283"
+  },
+  "reproducibility": "complete normalized tar and gzip bytes equal across two clean same-host containers at different host paths",
+  "runtime001": "unsupported",
+  "runtimeSelected": false,
+  "externalIsolation": "not tested"
+}

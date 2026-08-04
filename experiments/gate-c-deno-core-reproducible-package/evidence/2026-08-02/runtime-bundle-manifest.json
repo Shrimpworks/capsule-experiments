@@ -1,0 +1,163 @@
+{
+  "schema": "capsule.runtime-bundle-candidate.v0",
+  "status": "experiment-only; not admitted; not signed",
+  "name": "governed-deno-core-0.409.0-linux-arm64",
+  "architecture": "aarch64",
+  "operatingSystem": "linux",
+  "repositoryBaseline": "54489437f75465f6ed7b9ef4477bc5557bf5b923",
+  "files": [
+    {
+      "mode": "0755",
+      "path": "bundle/bin/capsule-deno-core-physical-omission",
+      "size": 68497544,
+      "sha256": "597baba6b9f50fc619ce667a352e19686f8c73efc6819d137b3c4081450fd6f5"
+    },
+    {
+      "mode": "0644",
+      "path": "bundle/share/capsule-deno-core/capsule_core_snapshot.bin",
+      "size": 699980,
+      "sha256": "ef5f1e7883bbf62a6422957ff0eea51a06d4b35cad1f47dc9c9ae137ab8dfa0b"
+    }
+  ],
+  "archive": {
+    "path": "capsule-deno-core-runtime-bundle.tar.gz",
+    "size": 20983063,
+    "sha256": "da8f755832a6fceba37078c58cc67c4136bc823acc75fe377ec4c1b98a8ef498"
+  },
+  "snapshot": {
+    "embeddedInBinary": true,
+    "separateCopyPurpose": "review and byte-verification evidence",
+    "priorSnapshot": null,
+    "extensions": [],
+    "extensionTranspiler": null,
+    "runtimeCallback": null
+  },
+  "wrapper": {
+    "cargoTomlSha256": "e5579313ff60de2aada63e45371ac50dc7a1510eda4bf2a759e9d37460f05cdd",
+    "cargoLockSha256": "a039052af6c8f0afba2fb210a984f36e3e5693dbcf6aaf60c3c2fda76932c014",
+    "buildRsSha256": "317942cb7240435886e2107a1217db7ae7c0580393577f4f563731011554388a",
+    "mainRsSha256": "2797c74c1aedb599661110e8d7c093a4868bf17490ad5bf44952eb7416067de7",
+    "fixtureAllowlist": [
+      {
+        "path": "fixtures/deno-core-seal.js",
+        "sha256": "470df9c208470e74a272ff4ba590a8072837e7e5f6b84122567b470815d90cb7",
+        "size": 440
+      },
+      {
+        "path": "fixtures/dynamic-import.js",
+        "sha256": "4e0ad56d7973d258de1f9c95e35c3cd03d912b7d73f579835f37ab8428823c15",
+        "size": 63
+      },
+      {
+        "path": "fixtures/input.json",
+        "sha256": "dcca912dd4ddd9c93c1efd3e6aecf33dd2d0c0ef75b36d0b8acf89cae752264a",
+        "size": 50
+      },
+      {
+        "path": "fixtures/nominal.js",
+        "sha256": "a236a49337021c709875a6e921910418f8801b78627e504aaf93a5bb636622ca",
+        "size": 159
+      },
+      {
+        "path": "fixtures/nominal.ts",
+        "sha256": "69722494db25fe5c381f432c807f1350cd76bddf6af1537d13714fb45989df63",
+        "size": 231
+      },
+      {
+        "path": "fixtures/refused-input.json",
+        "sha256": "2fbd3add3d9ad7c30442cdfe0720cbeb6b932b64ef14eaf902729591bff00d96",
+        "size": 53
+      },
+      {
+        "path": "fixtures/refused-source.js",
+        "sha256": "45cab14f2cba12de9143963fc7b68c44bf87c7edbb583b8f94a5ed9fc332b91c",
+        "size": 57
+      },
+      {
+        "path": "fixtures/static-import.js",
+        "sha256": "2313b778badd73558cb347f3f9bab9971ead6735658f2baf72e478f1f2189558",
+        "size": 101
+      }
+    ],
+    "arbitraryInput": false
+  },
+  "construction": {
+    "denoCore": "0.409.0",
+    "defaultFeatures": false,
+    "features": ["reactor-tokio", "v8_use_custom_libcxx"],
+    "patchQueue": [
+      {
+        "order": 1,
+        "path": "patches/0001-physically-allowlist-bootstrap-ops.patch",
+        "sha256": "f45fda69db3875dbd730aa9568cb88ff6cc35a25c8d82edb5fa3b521c19bac37",
+        "purpose": "physically reduce the sole built-in op registry to three reviewed bootstrap ops"
+      },
+      {
+        "order": 2,
+        "path": "patches/0002-canonicalize-snapshot-module-order.patch",
+        "sha256": "9dd33fd423ce98f030d80eba5cb386d5236b7ca103aa45b58ce5b36125d8061e",
+        "purpose": "sort the existing snapshot sidecar module-name vector before serialization"
+      }
+    ],
+    "builtinOps": [
+      "op_get_ext_import_meta_proto",
+      "op_get_extras_binding_object",
+      "op_set_captured_bootstrap"
+    ],
+    "extensions": [],
+    "moduleLoader": null,
+    "inspector": false,
+    "v8Flags": ["--jitless", "--random-seed=42"]
+  },
+  "builder": {
+    "image": "rust:1.95.0-bookworm@sha256:6258907abe69656e41cd992e0b705cdcfabcbbe3db374f92ed2d47121282d4a1",
+    "platformImageId": "sha256:7cf1e580ef5539f03b58560753e8ab84c8c360960d99dff714004aa98f203977",
+    "dockerfileSha256": "41169037f061d156b72975e0ad737a809e78dce186eae3d9d7380a7a7c744e5a",
+    "cargoConfigSha256": "097c35d86602f9db763e4d4e5af9e6955f7b3611cdb58c30767428edb8671a95",
+    "checkInputsScriptSha256": "36705a700aa8e105713a76addfb7b323e6f46efbbb50f47e1f081313cceed15b",
+    "sourceAcquisitionScriptSha256": "db21c1fecc1954250687762a10de443914ef70a048d5ac0a364a1ee5e47d2bbe",
+    "buildTwiceScriptSha256": "a162f03bc281de9c98e487bf67aec283be0274e4f74c8c9f17dc5657567a6f45",
+    "aptOrPackageManagerDuringBuild": false,
+    "networkDuringRetainedBuild": false,
+    "rustc": "1.95.0 (59807616e1fa2540724bfbac14d7976d7e4a3860)",
+    "cargo": "1.95.0 (f2d3ce0bd 2026-03-21)",
+    "llvm": "22.1.2",
+    "binutils": "2.40-2",
+    "gcc": "12.2.0-3",
+    "glibc": "2.36-9+deb12u14",
+    "environment": {
+      "CARGO_HOME": "/cargo-home",
+      "CARGO_NET_OFFLINE": "true",
+      "CARGO_TARGET_DIR": "/target",
+      "RUSTY_V8_ARCHIVE": "/inputs/rusty-v8.a.gz",
+      "SOURCE_DATE_EPOCH": "0",
+      "TZ": "UTC",
+      "LC_ALL": "C",
+      "LANG": "C",
+      "TMPDIR": "/target/tmp"
+    },
+    "fixedPaths": ["/workspace", "/cargo-home", "/target"],
+    "command": "/usr/bin/setarch aarch64 -R cargo build --locked --offline --release -j1",
+    "buildOnlySecurityException": "seccomp=unconfined permits personality(2) for setarch -R; network remains none, root read-only, capabilities dropped, no-new-privileges set"
+  },
+  "dynamicRuntimeRoot": {
+    "standalone": false,
+    "exactRoot": "rust:1.95.0-bookworm@sha256:6258907abe69656e41cd992e0b705cdcfabcbbe3db374f92ed2d47121282d4a1",
+    "elfInterpreter": "/lib/ld-linux-aarch64.so.1",
+    "needed": ["ld-linux-aarch64.so.1", "libc.so.6", "libgcc_s.so.1", "libm.so.6"],
+    "limitation": "the two-file archive binds but does not embed its dynamic Linux root; a later runtime-selection ADR must define the complete runtime root"
+  },
+  "evidence": {
+    "sbom": "sbom.cdx.json",
+    "provenance": "provenance.intoto.json",
+    "sourceInventory": "source-bundle-inventory.json",
+    "licenseInventory": "license-and-source.json",
+    "reproducibility": "reproducibility.json"
+  },
+  "admission": {
+    "runtimeSelected": false,
+    "runtime001": "unsupported",
+    "signing": "not performed",
+    "backendOrGuest": "not exercised"
+  }
+}

@@ -1,0 +1,12 @@
+retrieval_date=2026-08-02
+host_product=macOS 26.5.2
+host_build=25F84
+host_kernel=Darwin 25.5.0
+host_cpu=Apple M1 Max
+docker_client=29.6.1
+docker_server=29.6.1
+rust_base_reference=rust:1.95.0-bookworm@sha256:6258907abe69656e41cd992e0b705cdcfabcbbe3db374f92ed2d47121282d4a1
+rust_base_image_id=sha256:7cf1e580ef5539f03b58560753e8ab84c8c360960d99dff714004aa98f203977
+measurement_image_id=sha256:b8483b5baafc8f085feb4a48ef34993b182de50d86ed03fd13b98b166e7a0ad6
+measurement_packages=strace 6.1-0.1; GNU time 1.9-0.2 (live Debian indices; not admission-grade)
+authorized_environment=owned isolated local Linux/arm64 Docker development container

@@ -1,0 +1,17 @@
+candidate=Capsule-owned deno_core 0.409.0 prototype
+module_loader=none
+inspector=false
+v8_flags=--jitless --random-seed=42
+custom_extensions=capsule_builtin_gate (no ops, no JS)
+builtin_ops_total=99
+builtin_ops_enabled=3
+builtin_ops_disabled_by_middleware=96
+disabled_sample_ops=op_print/op_panic/op_memory_usage each threw Error
+static_import=refused: Module loading is not supported.
+dynamic_import=refused: event loop Error: op is disabled
+typescript=refused: V8 SyntaxError
+worker=absent
+webassembly=absent under --jitless
+post_seal=Deno/__bootstrap/console/process/Worker/WebAssembly/SharedArrayBuffer/Atomics/Date/Temporal undefined
+mutations=enable op/add extension/add loader/activate inspector/remove jitless all refused by construction manifest
+conclusion=NO-GO: 99 built-ins remain physically linked and registered; middleware disabling is not omission

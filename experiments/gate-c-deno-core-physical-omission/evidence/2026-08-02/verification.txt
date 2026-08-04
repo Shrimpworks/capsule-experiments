@@ -1,0 +1,33 @@
+date=2026-08-02
+
+[focused]
+PASS check-inputs.sh exact deno_core, Deno source, and rusty_v8 archives
+PASS review-phase-a.sh: GO, 99 original ops, one-file physical lower bound, zero generated outputs
+PASS git apply reverse checks for physical allowlist and canonical snapshot-order patches
+PASS cargo fmt --manifest-path probe/Cargo.toml -- --check
+PASS two clean locked/offline Linux/arm64 -j1 builds under the retained canonical-order/ASLR-controlled profile
+PASS binary cmp and snapshot cmp
+PASS final binary SHA-256 597baba6b9f50fc619ce667a352e19686f8c73efc6819d137b3c4081450fd6f5
+PASS final snapshot SHA-256 ef5f1e7883bbf62a6422957ff0eea51a06d4b35cad1f47dc9c9ae137ab8dfa0b
+PASS final-link symbol inventory: exactly three allowed built-in op symbols
+PASS verify-runtime.sh: nominal, sealed globals, static/dynamic import, raw TypeScript, unlisted source/input, four construction mutations, four syscall mutations, extra descriptor, restored op_print
+PASS trace-seal.sh: nominal completion with no post-seal process, socket, or executable-mapping restoration
+
+[repository]
+PASS pnpm install (Node 22.22.1, pnpm 10.28.2; lockfile unchanged)
+PASS pnpm check
+PASS pnpm lint
+PASS pnpm test
+PASS pnpm verify:schemas
+PASS pnpm format:check
+PASS pnpm site:build
+PASS go test ./... (GOCACHE confined to /private/tmp/capsule-deno-go-cache)
+PASS go vet ./... (same confined GOCACHE)
+PASS go build ./... (same confined GOCACHE)
+PASS git diff --check
+
+[diagnostic-not-a-product-failure]
+The first repository lint invocation traversed the ignored extracted upstream .work source and
+reported upstream Biome diagnostics. The generated tree was moved intact to
+/private/tmp/capsule-deno-physical-work-final. The full required suite then passed against the
+tracked checkout state seen by CI and a fresh clone. No upstream generated source is retained.

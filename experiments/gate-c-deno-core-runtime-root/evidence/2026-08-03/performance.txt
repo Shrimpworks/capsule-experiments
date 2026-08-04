@@ -1,0 +1,9 @@
+date=2026-08-03
+measurement=host-observed docker CLI plus fresh scratch-container plus governed process start and fixed fixture
+environment=owned Apple M1 Max; Docker Desktop 4.81.0; LinuxKit 6.12.76; native Linux/arm64; sequential
+limitation=supporting same-host warm-cache measurement; not libkrun,cold-host,guest,or production latency
+count=20
+min.ns=107508959
+p50.ns=125631458
+mean.ns=127760469
+max.ns=146589041

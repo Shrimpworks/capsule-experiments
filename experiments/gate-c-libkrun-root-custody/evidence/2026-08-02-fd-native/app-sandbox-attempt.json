@@ -1,0 +1,31 @@
+{
+  "run": "sandboxed-c3e2b5335ac853ca",
+  "attachmentApi": "krun_add_read_only_raw_root_fd",
+  "attachmentRole": "runtime-root:vda:raw:read-only",
+  "conjunctivePass": false,
+  "descriptorNegatives": {
+    "reusedFdExit": -6,
+    "runnerInitialization": "SIGABRT-before-main",
+    "wrongFdExit": -6
+  },
+  "descriptorTransfer": "direct-fork-exec-inheritance",
+  "device": 16777232,
+  "environmentalLimitation": "ad-hoc App Sandbox bundle aborted in secinit before main; this host has no valid code-signing identity, so the installed signed App Sandbox case remains untested",
+  "finalizedDescriptorDigest": "b442fe91619a2542c059038b66221923f15fd5fae5de98ae531415ae12586ef1",
+  "inode": 115955961,
+  "length": 134217728,
+  "linkCount": 0,
+  "mode": "sandboxed",
+  "modeBits": "0o400",
+  "pathExistsAfterFinalization": false,
+  "runner": {
+    "callerDescriptorClosedAfterApi": false,
+    "exit": -6,
+    "fdNativeAccepted": false,
+    "guestDigest": null,
+    "guestLength": null,
+    "libkrunRootPathOpenCount": 0,
+    "postStopDescriptorDigest": "b442fe91619a2542c059038b66221923f15fd5fae5de98ae531415ae12586ef1"
+  },
+  "sourceManifestDigest": "b442fe91619a2542c059038b66221923f15fd5fae5de98ae531415ae12586ef1"
+}

@@ -1,0 +1,40 @@
+{
+  "schemaVersion": 1,
+  "retrieved": "2026-08-02",
+  "crate": {
+    "name": "v8",
+    "version": "150.2.0",
+    "sha256": "c7f4e905df70d6c00b95e69c5f0831fd5eb5889b0116ae2b30293578c19cd1bc",
+    "vcsCommit": "d305e6afa7736f6e298c30ae6646f7709ee9382b",
+    "cargoVcsDirty": true
+  },
+  "release": {
+    "repository": "https://github.com/denoland/rusty_v8",
+    "url": "https://github.com/denoland/rusty_v8/releases/tag/v150.2.0",
+    "tag": "v150.2.0",
+    "tagCommit": "d305e6afa7736f6e298c30ae6646f7709ee9382b",
+    "releaseId": 355124236,
+    "publishedAt": "2026-07-16T13:53:21Z",
+    "asset": {
+      "id": 479244251,
+      "name": "librusty_v8_simdutf_release_aarch64-unknown-linux-gnu.a.gz",
+      "size": 37576362,
+      "sha256": "8d91df74c8a671c23f880e64038023f49e07ca85c96e15d76a87e2aac9b20595",
+      "createdAt": "2026-07-16T14:08:24Z",
+      "url": "https://github.com/denoland/rusty_v8/releases/download/v150.2.0/librusty_v8_simdutf_release_aarch64-unknown-linux-gnu.a.gz"
+    }
+  },
+  "workflow": {
+    "runId": 29503514733,
+    "runUrl": "https://github.com/denoland/rusty_v8/actions/runs/29503514733",
+    "attempt": 2,
+    "headSha": "d305e6afa7736f6e298c30ae6646f7709ee9382b",
+    "jobId": 87701498072,
+    "jobUrl": "https://github.com/denoland/rusty_v8/actions/runs/29503514733/job/87701498072",
+    "jobName": "release aarch64-unknown-linux-gnu  simdutf",
+    "conclusion": "success",
+    "runnerLabel": "ubuntu-22.04-xl",
+    "logAccess": "HTTP 403 without authenticated Actions-log access"
+  },
+  "relationship": "crate vcs metadata -> exact signed rusty_v8 commit/tag -> exact successful release job -> GitHub release asset digest"
+}

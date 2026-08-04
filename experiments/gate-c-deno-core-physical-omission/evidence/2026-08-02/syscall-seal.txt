@@ -1,0 +1,26 @@
+trace.command=strace -f -qq -e trace=process,network,mmap,mprotect,prlimit64,prctl,seccomp,openat,close,write /probe --source /fixtures/nominal.js --input /fixtures/input.json
+trace.fullTransient.sha256=2783703433011500fc9ff25e2b78befb9f1e3a8f59c0090f6af54cbcbbbfb40f
+trace.fullTransient.lines=124
+trace.fullTransient.bytes=9972
+trace.retention=bounded relevant post-bootstrap slice below; regenerate with scripts/trace-seal.sh
+
+9 write(2, "CAPSULE_HOST_SEAL_BEGIN\n", 24) = 24
+9 openat(AT_FDCWD, "/proc/self/fd", O_RDONLY|O_NONBLOCK|O_CLOEXEC|O_DIRECTORY) = 3
+9 prlimit64(0, RLIMIT_NOFILE, {rlim_cur=3, rlim_max=3}, NULL) = 0
+9 prctl(PR_SET_NO_NEW_PRIVS, 1, 0, 0, 0) = 0
+9 seccomp(SECCOMP_SET_MODE_FILTER, SECCOMP_FILTER_FLAG_TSYNC, {len=27, filter=ADDRESS}) = 0
+9 write(2, "CAPSULE_HOST_SEAL_ACTIVE\n", 25) = 25
+9 write(1, "{\"count\":3,\"label\":\"capsule-owned\",\"sum\":6}\n", 44) = 44
+10 openat(AT_FDCWD, "/sys/devices/system/cpu/online", O_RDONLY|O_CLOEXEC) = -1 EMFILE
+10 openat(AT_FDCWD, "/proc/stat", O_RDONLY|O_CLOEXEC) = -1 EMFILE
+9 mmap(ADDRESS, 65536, PROT_NONE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS, -1, 0) = ADDRESS
+9 mmap(ADDRESS, 65536, PROT_NONE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS, -1, 0) = ADDRESS
+
+postSeal.processSyscalls=0
+postSeal.socketSyscalls=0
+postSeal.executableMappings=0
+postSeal.successfulOpenat=0
+postSeal.failedOpenatEmfile=2
+postSeal.nonExecutableCleanupMappings=2
+
+interpretation=point-in-time syscall/descriptor seal is feasible for this fixed construction; existing V8 worker remains and this is not an all-syscall closure or continuous-integrity claim
