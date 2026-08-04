@@ -1,79 +1,66 @@
-# Fork-native governed runtime-bundle research handoff
+# Fork-native governed runtime-bundle handoff
 
-Date: 2026-08-03
+Date: 2026-08-04
 
-Parent/orchestrator task: `019fc2de-552d-77a0-aa47-35ac39d02edc`
-
-## Question and defensive scope
-
-Defensively validate the first clean fork-native governed Deno/`rusty_v8` runtime bundle using
-only the Capsule repository, exact merged commits in the user-owned `dills122/deno` and
-`dills122/rusty_v8` forks, fixed benign Capsule fixtures, controlled local inspection/builders,
-and owned isolated network-disabled build/test environments. No unrelated system, identity,
-credential, user data, arbitrary workload, backend, guest, deployment, or signing service was
-accessed. This is build/profile evidence only.
-
-## Method
-
-- Synced Capsule from `origin/main` at `91c4aa4`, including merged PRs #60 and #61, before creating
-  `codex/fork-native-deno-runtime-bundle`.
-- Read the mandated Capsule architecture, technical design, threat model, feasibility, Gate C,
-  ADR, retained Deno/V8/package/root/TypeScript evidence, and the fork-local governance handoffs.
-- Queried and cloned only the two named forks.
-- Verified exact heads, merge commits and parents, upstream ancestry, tree identities, governed
-  Deno source/patch/fixture oracles, `rusty_v8` 20-gitlink source lock, and builder/tool/output
-  locks.
-- Applied the required fail-fast architecture check before prefetch or compilation.
+Parent task: `019fc2de-552d-77a0-aa47-35ac39d02edc`
 
 ## Result
 
-**LINUX/ARM64 CONSTRUCTION BLOCKED; NO BUILD OR RUNTIME ADMISSION.**
+**PASSED — EXACT CLEAN CONSTRUCTION ONLY.** Runtime selection/admission remains
+**IN_PROGRESS / UNSUPPORTED**.
 
-The Deno governed head is exact and passes its fork-local source/fixture/restoration verifier. The
-merged `rusty_v8` follow-up head is exact and closes the source/build-publication contract only for
-Linux/amd64. It has no Linux/arm64 builder profile. The experiment therefore did not run prefetch,
-build, tests, root assembly, or reproduction, and did not substitute amd64.
+The exact merged `Shrimpworks/deno` head `9adb0b68…1bed` and `Shrimpworks/rusty_v8` head
+`80e863dd…b15` constructed the clean unsigned Linux/arm64 runtime bundle using connected
+digest-only prefetch followed by network-disabled build/test/evidence collection. No fork or
+product package contains imported experiment code. No guest, release, signature, deployment,
+backend, arbitrary workload, unrelated system, identity, or credential was used.
 
-## Exact refs and architecture
+## Subjects
 
-- Deno head `9adb0b68b55bca81644827f1e7749a3acb091bed`; merge
-  `ea18b9dc21ff8ebd19347be7095f47937ee14ec2`; anchor
-  `14eea3160ae5834476aa3b9d317b8d41d991b982`.
-- `rusty_v8` follow-up head `a43ee7486c3e05bce5d6e5db586b3e2e688c33cf`; merge
-  `a31b8f39dc6933d5635367e8ccb67d70f2cc2385`; anchor
-  `d305e6afa7736f6e298c30ae6646f7709ee9382b`.
-- Stale `rusty_v8` original head `17698caedb8721c132a3e2f08f7ab0ae212f313a` was not used as
-  the terminal identity.
-- Requested build architecture: Linux/arm64, `aarch64-unknown-linux-gnu`.
-- Only supported governed fork architecture: Linux/amd64,
-  `x86_64-unknown-linux-gnu`.
+- `rusty_v8` archive gzip: `1ae209c9e4ba5803d010d2c79ee4cc0af0126c5a7ebcca211c7e41deaede4cd2`
+  (byte-equal to comparison-only workflow run 30925045754).
+- Deno binary: `56d3acefd2cc2f5136a0b8143c47131e49a58fbf66382dfd3e84f715ce8e2898`.
+- Snapshot: `4e8965217d5a6675a880326eee6f690bbeec7e7cb243decf2f3e9f453a871a2c`.
+- Two-file Deno bundle: `0cc08f93e82fcfe68b033e8807975a3bd67068a817da811a87a73aedc3f23937`.
+- 22-entry root manifest: `100832dbb37737f29341bc5404df6d4405b8d6b706f274028892801fa88e7de8`.
+- Root tar: `9c46b45c4d220aedcc47c9ee53e875bc71d31d0b881b51740aaa9b882b5741e6`.
+- Root gzip: `e847651b35cd425dd8f6fe3bd45d693aff0af244e3a7bd30c629fa125cac62e8`.
 
-No new artifact identities exist. Prior exact binary, snapshot, root, and TypeScript identities are
-retained only in `manifests/known-answers.json` as non-fork-native comparison oracles.
+The old binary `597baba6…6f5`, snapshot `ef5f1e78…fa0b`, and root `b0e17261…79283` are
+superseded comparison answers. The root difference is closed to the binary and snapshot entries;
+the remaining 20 entries are exact.
 
 ## Retained evidence
 
-- Decision and exact blocker: `RESULTS.md`.
-- Closed intended material/output contract: `manifests/input-contract.json`.
-- Prior known answers and their role limits: `manifests/known-answers.json`.
-- Ref/ancestry/tree/lock observations: `evidence/2026-08-03/ref-verification.json`.
-- Reusable offline verifier: `scripts/verify.sh`.
-- Canonical reconciliation: Capsule project, feasibility, Gate C plan, evidence ledger, governed
-  Deno plan, and control-evidence matrix.
+- Canonical decision: `RESULTS.md`.
+- Exact input/output contract: `manifests/input-contract.json`.
+- Canonical result and subject manifest: `evidence/2026-08-04/result.json` and
+  `runtime-bundle-manifest.json`.
+- Ref, environment, comparison, root-entry, descriptor, file-open, source/license, SBOM, unsigned
+  provenance, and artifact checksum evidence: `evidence/2026-08-04/`.
+- Full successful and failed logs are retained there, including V8 Docker ENOSPC recovery, Deno
+  lock-closure failures, four-CPU snapshot variance, the post-build harness resume, and root tests.
+- Direct repeatable contracts: `builder/` and `scripts/`.
 
-## Verification and confidence
+Verification checks exact refs/trees/merge ancestry and fork-local verifiers, all JSON closure,
+Cargo count/license closure, three final-link symbols, fixed/sealed/module/syscall/restoration
+results, file-open and descriptor closure, 14 root mutations, A/B artifact equality, V8 oracle and
+build-metadata attribution, caps, source/SBOM/provenance closure, and admission refusal.
 
-Focused verification checks JSON structure and exact retained identities, canonical evidence-file
-digests, architecture fail-closed state, fork heads/parents/ancestry/trees, the Deno fork-local
-verifier, the `rusty_v8` source-lock verifier, and stale-head rejection. Repository-wide required
-verification is recorded in the pull-request handoff.
+## Operational facts
 
-Confidence is high that current merged fork inputs cannot construct the requested arm64 bundle.
-Confidence intentionally does not extend to the success or byte identity of a future arm64 build.
+The deterministic Deno snapshot profile requires one visible logical CPU pinned to CPU set 0 in
+addition to `setarch aarch64 -R`, `SOURCE_DATE_EPOCH=0`, fixed `/workspace` paths, offline Cargo,
+and the exact builder image. Four visible logical CPUs produced a retained two-byte snapshot
+payload variance on this host and must remain fail-closed; do not normalize those bytes.
 
-## Recommended next decision
+Docker Desktop ENOSPC recovery removed only verified disposable task-owned GN object
+intermediates after the completed archive matched its oracle. The exact fixed test, QEMU run,
+collector, and release verifier resumed network-disabled. No unrelated Docker data was pruned.
 
-Authorize the smallest `dills122/rusty_v8` follow-up: add a fully digest-pinned Linux/arm64 sibling
-builder/publication profile based on `a43ee748`, with connected digest-checked prefetch and a
-network-disabled build/test/evidence phase. After that merges, rerun this Capsule experiment from
-empty output/cache state. Do not publish/sign a release or alter `RUNTIME-001` in that fork task.
+## Next composed-profile boundary
+
+The smallest next task is not another runtime build. It is a separately authorized external-
+isolation composition using these exact unsigned subjects, followed by independent-builder/host
+reproduction and an explicit selection/admission review. Do not invoke a guest from this handoff,
+publish or sign these artifacts, or change `RUNTIME-001` before that review.

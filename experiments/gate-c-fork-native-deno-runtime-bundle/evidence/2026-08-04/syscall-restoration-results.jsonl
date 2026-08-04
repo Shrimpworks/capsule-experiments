@@ -1,0 +1,4 @@
+{"mutation":"socket","result":"denied","errno":1}
+{"mutation":"clone","result":"denied","errno":1}
+{"mutation":"execve","result":"denied","errno":1}
+{"mutation":"exec-mmap","result":"denied","errno":1}

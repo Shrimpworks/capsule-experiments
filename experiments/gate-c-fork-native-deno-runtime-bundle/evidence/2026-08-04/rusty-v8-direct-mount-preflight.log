@@ -1,0 +1,6 @@
+
+[1mWhat's next:[0m
+    Debug this container error with Gordon → docker ai "help me fix this container error"
+docker: Error response from daemon: error while creating mount source path '/host_mnt/Users/dsteele/Documents/Codex/2026-08-04/capsule-fork-native-arm64-rebuild/work/rusty_v8': mkdir /host_mnt/Users/dsteele/Documents: operation not permitted
+
+Run 'docker run --help' for more information

@@ -1,0 +1,165 @@
+{
+  "_type": "https://in-toto.io/Statement/v1",
+  "subject": [
+    {
+      "name": "deno/binary",
+      "digest": {
+        "sha256": "56d3acefd2cc2f5136a0b8143c47131e49a58fbf66382dfd3e84f715ce8e2898"
+      }
+    },
+    {
+      "name": "deno/snapshot",
+      "digest": {
+        "sha256": "4e8965217d5a6675a880326eee6f690bbeec7e7cb243decf2f3e9f453a871a2c"
+      }
+    },
+    {
+      "name": "runtime-root/rootfs.tar.gz",
+      "digest": {
+        "sha256": "e847651b35cd425dd8f6fe3bd45d693aff0af244e3a7bd30c629fa125cac62e8"
+      }
+    }
+  ],
+  "predicateType": "https://slsa.dev/provenance/v1",
+  "predicate": {
+    "buildDefinition": {
+      "buildType": "https://capsule.local/experiments/fork-native-deno-runtime-bundle/v1",
+      "externalParameters": {
+        "target": "aarch64-unknown-linux-gnu",
+        "denoHead": "9adb0b68b55bca81644827f1e7749a3acb091bed",
+        "rustyV8Head": "80e863ddb942a4aa2b384e794fc23e35b9d2bb15",
+        "networkBoundary": "connected digest-only prefetch; network-none build/test/evidence"
+      },
+      "internalParameters": {
+        "sourceDateEpoch": 0,
+        "locale": "C",
+        "timezone": "UTC",
+        "aslr": "disabled for Cargo and descendants",
+        "fixedWorkspace": "/workspace",
+        "snapshotBuilderLogicalCpus": 1,
+        "snapshotBuilderCpuSet": "0"
+      },
+      "resolvedDependencies": [
+        {
+          "uri": "pkg:github/Shrimpworks/deno@9adb0b68b55b",
+          "digest": {
+            "gitCommit": "9adb0b68b55bca81644827f1e7749a3acb091bed"
+          }
+        },
+        {
+          "uri": "pkg:github/Shrimpworks/rusty_v8@80e863ddb942",
+          "digest": {
+            "gitCommit": "80e863ddb942a4aa2b384e794fc23e35b9d2bb15"
+          }
+        },
+        {
+          "uri": "file:rusty-v8/provenance.intoto.json",
+          "digest": {
+            "sha256": "9ba3debd274f85f419883a2475789348437a1ea89027b4a3517487936cf7df3f"
+          }
+        },
+        {
+          "uri": "file:cargo-source-bundle.tar.gz",
+          "digest": {
+            "sha256": "1e96e49a516e4cf6a9ec79acae9a9eb3d0ee52b332695fa11476a97e1e50d1d4"
+          }
+        },
+        {
+          "uri": "file:runtime-inputs/gcc-12-base_12.2.0-14+deb12u1_arm64.deb",
+          "digest": {
+            "sha256": "674cf6cba6d432bd200c45fe866c1652c7a53523cc2e7a613e05bc4abf7b5440"
+          }
+        },
+        {
+          "uri": "file:runtime-inputs/gcc-12_12.2.0-14+deb12u1.debian.tar.xz",
+          "digest": {
+            "sha256": "59f7f7763a0c355e3f27ff9e7ac80d06382b29939361a87e7b139226bfe7402e"
+          }
+        },
+        {
+          "uri": "file:runtime-inputs/gcc-12_12.2.0-14+deb12u1.dsc",
+          "digest": {
+            "sha256": "3aed0b189189c744dc9f4b74798a51d3e512ea85e492568db788a927c88e20ba"
+          }
+        },
+        {
+          "uri": "file:runtime-inputs/gcc-12_12.2.0.orig.tar.gz",
+          "digest": {
+            "sha256": "b8298be16aeeb96a889c6afed0a8e2241b47452e89cc81fe65ea849d5c740fcb"
+          }
+        },
+        {
+          "uri": "file:runtime-inputs/glibc_2.36-9+deb12u14.debian.tar.xz",
+          "digest": {
+            "sha256": "cf4ac9cd98185452cae3ef34e2e4ee12753e3d93fd0c62c61396d4a47eec902f"
+          }
+        },
+        {
+          "uri": "file:runtime-inputs/glibc_2.36-9+deb12u14.dsc",
+          "digest": {
+            "sha256": "cfe1f0b8dc1fa211ce5a45b3725cc38b29f88667f1140ebdca6de35cf9c6f1fd"
+          }
+        },
+        {
+          "uri": "file:runtime-inputs/glibc_2.36.orig.tar.xz",
+          "digest": {
+            "sha256": "a543c02070d46ccaf866957efd13f10c924daa74c86a90a0254db09a92a708ee"
+          }
+        },
+        {
+          "uri": "file:runtime-inputs/libc6_2.36-9+deb12u14_arm64.deb",
+          "digest": {
+            "sha256": "01f4330719fd4f65580e16ea5a0527f372fca750e8f588d26deaf09f2d3b1cf4"
+          }
+        },
+        {
+          "uri": "file:runtime-inputs/libgcc-s1_12.2.0-14+deb12u1_arm64.deb",
+          "digest": {
+            "sha256": "576926b283613db80168ddf76380a3bd877602778cf0d226caa7bfbfa71eacf3"
+          }
+        },
+        {
+          "uri": "file:runtime-inputs/strace_6.1-0.1_arm64.deb",
+          "digest": {
+            "sha256": "751817724af91cb95df566a21a154f9a7dcdd938e700e5cb9a5a47eb19752ea2"
+          }
+        }
+      ]
+    },
+    "runDetails": {
+      "builder": {
+        "id": "pkg:oci/rust@1.95.0-bookworm?repository_digest=sha256:6258907abe69656e41cd992e0b705cdcfabcbbe3db374f92ed2d47121282d4a1"
+      },
+      "metadata": {
+        "invocationId": "capsule-fork-native-arm64-2026-08-04-local-same-host"
+      },
+      "byproducts": [
+        {
+          "name": "comparison.json",
+          "digest": {
+            "sha256": "6909a680a4c5111865a8eb6cb1c5a004eb90479c692b0d152d5ad352a70b333b"
+          }
+        },
+        {
+          "name": "sbom.cdx.json",
+          "digest": {
+            "sha256": "b2b2e68db9acaa40cf0f6d3004b104b0e0d0aed6b9f1b8cb2583a65061454651"
+          }
+        },
+        {
+          "name": "source-license-closure.json",
+          "digest": {
+            "sha256": "cb1446c52206dd23f5e502cfde265629c2d69142b43260a58cf8eabde68dd6ee"
+          }
+        }
+      ],
+      "limitations": [
+        "unsigned experiment-generated provenance",
+        "same Apple Silicon Docker Desktop/LinuxKit host for local rusty_v8, Deno A/B, and root A/B",
+        "the local rusty_v8 build is an amd64-host to arm64-target cross build under Docker platform emulation",
+        "GitHub run 30925045754 is comparison evidence, not an input to the local reconstruction",
+        "no independent second builder or libkrun/HVF guest was exercised"
+      ]
+    }
+  }
+}

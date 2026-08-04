@@ -1,0 +1,3 @@
+deno_core::ops_builtin_v8::op_get_ext_import_meta_proto
+deno_core::ops_builtin_v8::op_get_extras_binding_object
+deno_core::ops_builtin_v8::op_set_captured_bootstrap

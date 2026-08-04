@@ -1,0 +1,144 @@
+9     execve("/candidate/lib/ld-linux-aarch64.so.1", ["/candidate/lib/ld-linux-aarch64.so.1", "--inhibit-cache", "--library-path", "/candidate/lib/aarch64-linux-gnu", "/candidate/bin/capsule-deno-core-physical-omission", "--source", "/candidate/fixtures/nominal.js", "--input", "/candidate/fixtures/input.json"], 0xffffde1ca600 /* 0 vars */) = 0
+9     openat(AT_FDCWD</>, "/candidate/bin/capsule-deno-core-physical-omission", O_RDONLY|O_CLOEXEC) = 3</candidate/bin/capsule-deno-core-physical-omission>
+9     mmap(NULL, 50228624, PROT_NONE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0xffff8e8e9000
+9     mmap(0xffff8e8f0000, 50163088, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3</candidate/bin/capsule-deno-core-physical-omission>, 0) = 0xffff8e8f0000
+9     mprotect(0xffff917db000, 45056, PROT_NONE) = 0
+9     mmap(0xffff917e6000, 765952, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3</candidate/bin/capsule-deno-core-physical-omission>, 0x2ef6000) = 0xffff917e6000
+9     mmap(0xffff918a1000, 155024, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS, -1, 0) = 0xffff918a1000
+9     mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0xffff9190d000
+9     faccessat(AT_FDCWD</>, "/etc/ld.so.preload", R_OK) = -1 ENOENT (No such file or directory)
+9     openat(AT_FDCWD</>, "/candidate/lib/aarch64-linux-gnu/tls/aarch64/atomics/libgcc_s.so.1", O_RDONLY|O_CLOEXEC) = -1 ENOENT (No such file or directory)
+9     newfstatat(AT_FDCWD</>, "/candidate/lib/aarch64-linux-gnu/tls/aarch64/atomics", 0xffffe23a0a30, 0) = -1 ENOENT (No such file or directory)
+9     openat(AT_FDCWD</>, "/candidate/lib/aarch64-linux-gnu/tls/aarch64/libgcc_s.so.1", O_RDONLY|O_CLOEXEC) = -1 ENOENT (No such file or directory)
+9     newfstatat(AT_FDCWD</>, "/candidate/lib/aarch64-linux-gnu/tls/aarch64", 0xffffe23a0a30, 0) = -1 ENOENT (No such file or directory)
+9     openat(AT_FDCWD</>, "/candidate/lib/aarch64-linux-gnu/tls/atomics/libgcc_s.so.1", O_RDONLY|O_CLOEXEC) = -1 ENOENT (No such file or directory)
+9     newfstatat(AT_FDCWD</>, "/candidate/lib/aarch64-linux-gnu/tls/atomics", 0xffffe23a0a30, 0) = -1 ENOENT (No such file or directory)
+9     openat(AT_FDCWD</>, "/candidate/lib/aarch64-linux-gnu/tls/libgcc_s.so.1", O_RDONLY|O_CLOEXEC) = -1 ENOENT (No such file or directory)
+9     newfstatat(AT_FDCWD</>, "/candidate/lib/aarch64-linux-gnu/tls", 0xffffe23a0a30, 0) = -1 ENOENT (No such file or directory)
+9     openat(AT_FDCWD</>, "/candidate/lib/aarch64-linux-gnu/aarch64/atomics/libgcc_s.so.1", O_RDONLY|O_CLOEXEC) = -1 ENOENT (No such file or directory)
+9     newfstatat(AT_FDCWD</>, "/candidate/lib/aarch64-linux-gnu/aarch64/atomics", 0xffffe23a0a30, 0) = -1 ENOENT (No such file or directory)
+9     openat(AT_FDCWD</>, "/candidate/lib/aarch64-linux-gnu/aarch64/libgcc_s.so.1", O_RDONLY|O_CLOEXEC) = -1 ENOENT (No such file or directory)
+9     newfstatat(AT_FDCWD</>, "/candidate/lib/aarch64-linux-gnu/aarch64", 0xffffe23a0a30, 0) = -1 ENOENT (No such file or directory)
+9     openat(AT_FDCWD</>, "/candidate/lib/aarch64-linux-gnu/atomics/libgcc_s.so.1", O_RDONLY|O_CLOEXEC) = -1 ENOENT (No such file or directory)
+9     newfstatat(AT_FDCWD</>, "/candidate/lib/aarch64-linux-gnu/atomics", 0xffffe23a0a30, 0) = -1 ENOENT (No such file or directory)
+9     openat(AT_FDCWD</>, "/candidate/lib/aarch64-linux-gnu/libgcc_s.so.1", O_RDONLY|O_CLOEXEC) = 3</candidate/lib/aarch64-linux-gnu/libgcc_s.so.1>
+9     newfstatat(3</candidate/lib/aarch64-linux-gnu/libgcc_s.so.1>, "", {st_mode=S_IFREG|0644, st_size=133448, ...}, AT_EMPTY_PATH) = 0
+9     mmap(NULL, 262856, PROT_NONE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0xffff8e8af000
+9     mmap(0xffff8e8b0000, 197320, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3</candidate/lib/aarch64-linux-gnu/libgcc_s.so.1>, 0) = 0xffff8e8b0000
+9     mprotect(0xffff8e8c4000, 110592, PROT_NONE) = 0
+9     mmap(0xffff8e8df000, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3</candidate/lib/aarch64-linux-gnu/libgcc_s.so.1>, 0x1f000) = 0xffff8e8df000
+9     openat(AT_FDCWD</>, "/candidate/lib/aarch64-linux-gnu/libm.so.6", O_RDONLY|O_CLOEXEC) = 3</candidate/lib/aarch64-linux-gnu/libm.so.6>
+9     newfstatat(3</candidate/lib/aarch64-linux-gnu/libm.so.6>, "", {st_mode=S_IFREG|0644, st_size=591960, ...}, AT_EMPTY_PATH) = 0
+9     mmap(NULL, 721008, PROT_NONE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0xffff8e7ff000
+9     mmap(0xffff8e800000, 655472, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3</candidate/lib/aarch64-linux-gnu/libm.so.6>, 0) = 0xffff8e800000
+9     mprotect(0xffff8e882000, 118784, PROT_NONE) = 0
+9     mmap(0xffff8e89f000, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3</candidate/lib/aarch64-linux-gnu/libm.so.6>, 0x8f000) = 0xffff8e89f000
+9     openat(AT_FDCWD</>, "/candidate/lib/aarch64-linux-gnu/libc.so.6", O_RDONLY|O_CLOEXEC) = 3</candidate/lib/aarch64-linux-gnu/libc.so.6>
+9     newfstatat(3</candidate/lib/aarch64-linux-gnu/libc.so.6>, "", {st_mode=S_IFREG|0644, st_size=1651408, ...}, AT_EMPTY_PATH) = 0
+9     mmap(NULL, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0xffff9190b000
+9     mmap(NULL, 1826912, PROT_NONE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0xffff8e641000
+9     mmap(0xffff8e650000, 1761376, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3</candidate/lib/aarch64-linux-gnu/libc.so.6>, 0) = 0xffff8e650000
+9     mprotect(0xffff8e7dc000, 65536, PROT_NONE) = 0
+9     mmap(0xffff8e7ec000, 24576, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3</candidate/lib/aarch64-linux-gnu/libc.so.6>, 0x18c000) = 0xffff8e7ec000
+9     mmap(0xffff8e7f2000, 49248, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS, -1, 0) = 0xffff8e7f2000
+9     mmap(NULL, 12288, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0xffff91908000
+9     mprotect(0xffff8e7ec000, 16384, PROT_READ) = 0
+9     mprotect(0xffff8e89f000, 4096, PROT_READ) = 0
+9     mprotect(0xffff8e8df000, 4096, PROT_READ) = 0
+9     mprotect(0xffff917e6000, 565248, PROT_READ) = 0
+9     mprotect(0xffff9190e000, 8192, PROT_READ) = 0
+9     openat(AT_FDCWD</>, "/proc/self/maps", O_RDONLY|O_CLOEXEC) = 3</proc/9/maps>
+9     newfstatat(3</proc/9/maps>, "", {st_mode=S_IFREG|0444, st_size=0, ...}, AT_EMPTY_PATH) = 0
+9     mmap(NULL, 20480, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS|MAP_STACK, -1, 0) = 0xffff91903000
+9     mprotect(0xffff91903000, 4096, PROT_NONE) = 0
+9     statx(AT_FDCWD</>, "/candidate/fixtures/nominal.js", AT_STATX_SYNC_AS_STAT|AT_SYMLINK_NOFOLLOW, STATX_ALL, {stx_mask=STATX_ALL|STATX_MNT_ID, stx_attributes=0, stx_mode=S_IFREG|0644, stx_size=159, ...}) = 0
+9     openat(AT_FDCWD</>, "/candidate/fixtures/nominal.js", O_RDONLY|O_CLOEXEC) = 3</candidate/fixtures/nominal.js>
+9     statx(3</candidate/fixtures/nominal.js>, "", AT_STATX_SYNC_AS_STAT|AT_EMPTY_PATH, STATX_ALL, {stx_mask=STATX_ALL|STATX_MNT_ID, stx_attributes=0, stx_mode=S_IFREG|0644, stx_size=159, ...}) = 0
+9     statx(AT_FDCWD</>, "/candidate/fixtures/input.json", AT_STATX_SYNC_AS_STAT|AT_SYMLINK_NOFOLLOW, STATX_ALL, {stx_mask=STATX_ALL|STATX_MNT_ID, stx_attributes=0, stx_mode=S_IFREG|0644, stx_size=50, ...}) = 0
+9     openat(AT_FDCWD</>, "/candidate/fixtures/input.json", O_RDONLY|O_CLOEXEC) = 3</candidate/fixtures/input.json>
+9     statx(3</candidate/fixtures/input.json>, "", AT_STATX_SYNC_AS_STAT|AT_EMPTY_PATH, STATX_ALL, {stx_mask=STATX_ALL|STATX_MNT_ID, stx_attributes=0, stx_mode=S_IFREG|0644, stx_size=50, ...}) = 0
+9     openat(AT_FDCWD</>, "/proc/self/cgroup", O_RDONLY|O_CLOEXEC) = 3</proc/9/cgroup>
+9     statx(3</proc/9/cgroup>, "", AT_STATX_SYNC_AS_STAT|AT_EMPTY_PATH, STATX_ALL, {stx_mask=STATX_BASIC_STATS|STATX_MNT_ID, stx_attributes=0, stx_mode=S_IFREG|0444, stx_size=0, ...}) = 0
+9     statx(AT_FDCWD</>, "/sys/fs/cgroup/cgroup.controllers", AT_STATX_SYNC_AS_STAT, STATX_ALL, {stx_mask=STATX_BASIC_STATS|STATX_MNT_ID, stx_attributes=0, stx_mode=S_IFREG|0444, stx_size=0, ...}) = 0
+9     openat(AT_FDCWD</>, "/sys/fs/cgroup/cpu.max", O_RDONLY|O_CLOEXEC) = 3</sys/fs/cgroup/cpu.max>
+9     statx(3</sys/fs/cgroup/cpu.max>, "", AT_STATX_SYNC_AS_STAT|AT_EMPTY_PATH, STATX_ALL, {stx_mask=STATX_BASIC_STATS|STATX_MNT_ID, stx_attributes=0, stx_mode=S_IFREG|0644, stx_size=0, ...}) = 0
+9     mmap(NULL, 8454144, PROT_NONE, MAP_PRIVATE|MAP_ANONYMOUS|MAP_STACK, -1, 0) = 0xffff8de40000
+9     mprotect(0xffff8de50000, 8388608, PROT_READ|PROT_WRITE) = 0
+9     clone(child_stack=0xffff8e64e880, flags=CLONE_VM|CLONE_FS|CLONE_FILES|CLONE_SIGHAND|CLONE_THREAD|CLONE_SYSVSEM|CLONE_SETTLS|CLONE_PARENT_SETTID|CLONE_CHILD_CLEARTID, parent_tid=[10], tls=0xffff8e64f700, child_tidptr=0xffff8e64f090) = 10
+10    prctl(PR_SET_NAME, "V8 DefaultWorke"...) = 0
+10    mmap(NULL, 134217728, PROT_NONE, MAP_PRIVATE|MAP_ANONYMOUS|MAP_NORESERVE, -1, 0) = 0xffff85e00000
+10    mprotect(0xffff88000000, 135168, PROT_READ|PROT_WRITE) = 0
+9     mprotect(0xffff91880000, 65536, PROT_READ) = 0
+10    mmap(NULL, 65536, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0 <unfinished ...>
+9     openat(AT_FDCWD</>, "/dev/urandom", O_RDONLY) = 3</dev/urandom<char 1:9>>
+10    <... mmap resumed>)               = 0xffff8de30000
+9     newfstatat(3</dev/urandom<char 1:9>>, "", {st_mode=S_IFCHR|0666, st_rdev=makedev(0x1, 0x9), ...}, AT_EMPTY_PATH) = 0
+10    prctl(PR_SET_VMA, PR_SET_VMA_ANON_NAME, 0xffff8de30000, 65536, "absl") = -1 EINVAL (Invalid argument)
+9     mmap(NULL, 134279168, PROT_NONE, MAP_PRIVATE|MAP_ANONYMOUS|MAP_NORESERVE, -1, 0) = 0xffff7fff1000
+9     openat(AT_FDCWD</>, "/dev/urandom", O_RDONLY) = 3</dev/urandom<char 1:9>>
+9     newfstatat(3</dev/urandom<char 1:9>>, "", {st_mode=S_IFCHR|0666, st_rdev=makedev(0x1, 0x9), ...}, AT_EMPTY_PATH) = 0
+9     prctl(PR_SET_VMA, PR_SET_VMA_ANON_NAME, 0xffff80000000, 134217728, "v8-pointer-table") = -1 EINVAL (Invalid argument)
+9     mmap(NULL, 524288, PROT_NONE, MAP_PRIVATE|MAP_ANONYMOUS|MAP_NORESERVE, -1, 0) = 0xffff8ddb0000
+9     mprotect(0xffff8ddb0000, 16384, PROT_READ|PROT_WRITE) = 0
+9     mmap(0x2000000000, 51539603456, PROT_NONE, MAP_PRIVATE|MAP_ANONYMOUS|MAP_NORESERVE, -1, 0) = 0x2000000000
+9     mmap(NULL, 278528, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0xffff8dd6c000
+9     mmap(NULL, 139264, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0xffff8dd4a000
+9     openat(AT_FDCWD</>, "/proc/self/maps", O_RDONLY|O_CLOEXEC) = 3</proc/9/maps>
+9     newfstatat(3</proc/9/maps>, "", {st_mode=S_IFREG|0444, st_size=0, ...}, AT_EMPTY_PATH) = 0
+9     mmap(0x143ad00000, 520192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x143ad00000
+9     mmap(0x3892640000, 520192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x3892640000
+9     mmap(0x11f7b80000, 520192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x11f7b80000
+9     mmap(0x1f57c00000, 520192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x1f57c00000
+9     mmap(0x587380000, 520192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x587380000
+9     mmap(0x57cbc0000, 520192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x57cbc0000
+9     mmap(0x38194c0000, 520192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x38194c0000
+9     mmap(0x188aa40000, 520192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x188aa40000
+9     mmap(0x1d47300000, 520192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x1d47300000
+9     mprotect(0x143ad00000, 262144, PROT_READ) = 0
+9     mprotect(0x3892640000, 262144, PROT_READ) = 0
+9     mprotect(0x11f7b80000, 262144, PROT_READ) = 0
+9     mprotect(0x1f57c00000, 262144, PROT_READ) = 0
+9     mprotect(0x587380000, 262144, PROT_READ) = 0
+9     mprotect(0x57cbc0000, 262144, PROT_READ) = 0
+9     mprotect(0x38194c0000, 262144, PROT_READ) = 0
+9     mprotect(0x188aa40000, 81920, PROT_READ) = 0
+9     mprotect(0x1d47300000, 53248, PROT_READ) = 0
+9     openat(AT_FDCWD</>, "/dev/urandom", O_RDONLY) = 3</dev/urandom<char 1:9>>
+9     newfstatat(3</dev/urandom<char 1:9>>, "", {st_mode=S_IFCHR|0666, st_rdev=makedev(0x1, 0x9), ...}, AT_EMPTY_PATH) = 0
+9     mmap(NULL, 268496896, PROT_NONE, MAP_PRIVATE|MAP_ANONYMOUS|MAP_NORESERVE, -1, 0) = 0xffff6fff1000
+9     openat(AT_FDCWD</>, "/dev/urandom", O_RDONLY) = 3</dev/urandom<char 1:9>>
+9     newfstatat(3</dev/urandom<char 1:9>>, "", {st_mode=S_IFCHR|0666, st_rdev=makedev(0x1, 0x9), ...}, AT_EMPTY_PATH) = 0
+9     prctl(PR_SET_VMA, PR_SET_VMA_ANON_NAME, 0xffff70000000, 268435456, "v8-pointer-table") = -1 EINVAL (Invalid argument)
+9     mprotect(0xffff70000000, 65536, PROT_READ) = 0
+9     mmap(0x2f70a40000, 520192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x2f70a40000
+9     mmap(0x2c23140000, 520192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x2c23140000
+9     mprotect(0xffff70010000, 65536, PROT_READ|PROT_WRITE) = 0
+9     mmap(0x143ad10000, 65536, PROT_NONE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS, -1, 0) = 0x143ad10000
+9     mmap(0x143ad30000, 65536, PROT_NONE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS, -1, 0) = 0x143ad30000
+9     mmap(0x3892650000, 65536, PROT_NONE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS, -1, 0) = 0x3892650000
+9     mmap(0x3892670000, 65536, PROT_NONE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS, -1, 0) = 0x3892670000
+9     mmap(0x1f57c30000, 65536, PROT_NONE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS, -1, 0) = 0x1f57c30000
+9     mmap(0x1f57c10000, 65536, PROT_NONE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS, -1, 0) = 0x1f57c10000
+9     mmap(0x11f7b90000, 65536, PROT_NONE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS, -1, 0) = 0x11f7b90000
+9     mmap(0x11f7bb0000, 65536, PROT_NONE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS, -1, 0) = 0x11f7bb0000
+9     mmap(0x587390000, 65536, PROT_NONE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS, -1, 0) = 0x587390000
+9     mmap(0x5873b0000, 65536, PROT_NONE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS, -1, 0) = 0x5873b0000
+9     mmap(0x57cbd0000, 65536, PROT_NONE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS, -1, 0) = 0x57cbd0000
+9     mmap(0x57cbf0000, 65536, PROT_NONE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS, -1, 0) = 0x57cbf0000
+9     mmap(0x2d74300000, 520192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x2d74300000
+9     mmap(0x2d42c80000, 520192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x2d42c80000
+9     openat(AT_FDCWD</>, "/proc/self/fd", O_RDONLY|O_NONBLOCK|O_CLOEXEC|O_DIRECTORY) = 3</proc/9/fd>
+9     newfstatat(3</proc/9/fd>, "", {st_mode=S_IFDIR|0500, st_size=4, ...}, AT_EMPTY_PATH) = 0
+9     readlinkat(AT_FDCWD</>, "/proc/self/fd/0", "/dev/null", 256) = 9
+9     readlinkat(AT_FDCWD</>, "/proc/self/fd/1", "pipe:[65160]", 256) = 12
+9     readlinkat(AT_FDCWD</>, "/proc/self/fd/2", "pipe:[65161]", 256) = 12
+9     readlinkat(AT_FDCWD</>, "/proc/self/fd/3", "/proc/9/fd", 256) = 10
+9     prctl(PR_SET_NO_NEW_PRIVS, 1, 0, 0, 0) = 0
+9     seccomp(SECCOMP_SET_MODE_FILTER, SECCOMP_FILTER_FLAG_TSYNC, {len=27, filter=0xaaaabf77d4a0}) = 0
+10    openat(AT_FDCWD</>, "/sys/devices/system/cpu/online", O_RDONLY|O_CLOEXEC) = -1 EMFILE (Too many open files)
+10    openat(AT_FDCWD</>, "/proc/stat", O_RDONLY|O_CLOEXEC) = -1 EMFILE (Too many open files)
+9     mmap(0xffff70010000, 65536, PROT_NONE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS, -1, 0) = 0xffff70010000
+9     mmap(0xffff70000000, 65536, PROT_NONE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS, -1, 0) = 0xffff70000000
+9     exit_group(0)                     = ?
+10    +++ exited with 0 +++
+9     +++ exited with 0 +++

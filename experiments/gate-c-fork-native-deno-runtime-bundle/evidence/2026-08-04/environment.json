@@ -1,0 +1,57 @@
+{
+  "schemaVersion": 1,
+  "observedUtcDate": "2026-08-04",
+  "physicalHost": {
+    "operatingSystem": "macOS 26.5.2 (25F84)",
+    "kernel": "Darwin 25.5.0 xnu-12377.121.10~1/RELEASE_ARM64_T6000",
+    "architecture": "arm64",
+    "availableFilesystemBytesBeforeBuild": 260263378944
+  },
+  "dockerServer": {
+    "version": "29.6.1",
+    "operatingSystem": "Docker Desktop",
+    "kernelOperatingSystem": "linux",
+    "architecture": "arm64",
+    "cpus": 10,
+    "memoryBytes": 12528381952,
+    "storageDriver": "overlay2"
+  },
+  "rustyV8Builder": {
+    "image": "docker.io/library/rust@sha256:307d198027388f780db83929487de35084a73ecbaa31319989438db38103439f",
+    "buildPlatform": "linux/amd64",
+    "targetPlatform": "linux/arm64",
+    "method": "cross-under-Docker-platform-emulation",
+    "workspaceTransport": "fresh-governed-docker-volume",
+    "volume": "rusty-v8-governed-arm64-80e863ddb942",
+    "carrier": "rusty-v8-governed-arm64-carrier-80e863ddb942",
+    "directBindMount": "refused-by-Docker-Desktop-protected-directory-boundary-before-prefetch",
+    "independentBuilder": false
+  },
+  "denoAndRootBuilder": {
+    "image": "rust:1.95.0-bookworm@sha256:6258907abe69656e41cd992e0b705cdcfabcbbe3db374f92ed2d47121282d4a1",
+    "platformImageId": "sha256:7cf1e580ef5539f03b58560753e8ab84c8c360960d99dff714004aa98f203977",
+    "platform": "linux/arm64",
+    "workspace": "/workspace",
+    "snapshotBuilderLogicalCpus": 1,
+    "snapshotBuilderCpuSet": "0",
+    "aslr": "disabled-with-setarch-aarch64-R",
+    "hostTransport": "fresh-task-owned-/private/tmp-stage",
+    "independentBuilder": false
+  },
+  "storageRecovery": {
+    "event": "Docker daemon ENOSPC after completed rusty_v8 archive construction while compiling the fixed test",
+    "removedScope": "4078 task-owned GN object intermediates only",
+    "removedBytes": 390904352,
+    "unrelatedDockerStatePruned": false,
+    "archiveVerifiedBeforeRemoval": true,
+    "resumeScriptSha256": "be5573f27149fa88448d3d6e302bfa72f5f8169401891db4d5c0c6007182b72a"
+  },
+  "limitations": [
+    "one physical Apple Silicon host and one Docker Desktop/LinuxKit daemon",
+    "Docker platform emulation is used for the rusty_v8 amd64-host cross-build contract",
+    "same-host A/B equality is not independent-builder equality",
+    "decisive containers used network none while the macOS host remained connected",
+    "GitHub Actions run 30925045754 is a comparison oracle only",
+    "no libkrun, HVF, guest, signing service, release, deployment, or runtime admission"
+  ]
+}

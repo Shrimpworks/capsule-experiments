@@ -1,0 +1,35 @@
+{
+  "schema": "capsule.deno-fork-native-failed-attempt.v0",
+  "attempt": "independent network-disabled containers with canonical /workspace/target and four visible logical CPUs",
+  "status": "failed-closed",
+  "buildA": {
+    "binary": {
+      "sha256": "d07340f293ff46032fc89ae126ac321cf3b5a51800c6978c1499eef05205d12f",
+      "size": 68497624
+    },
+    "snapshot": {
+      "sha256": "80a17accdd71442c482493bfbae94be253184c5a454f822121f81b2e0751a733",
+      "size": 699988
+    }
+  },
+  "buildB": {
+    "binary": {
+      "sha256": "b46b4065587f12048fb3ca1fbaf65577e25ff2e3269ed0d97d071d7e186dfaa5",
+      "size": 68497624
+    },
+    "snapshot": {
+      "sha256": "6351457608a4de03c97e39eacafac63872457e44cfe7215266a0b26c4d04c641",
+      "size": 699988
+    }
+  },
+  "difference": {
+    "snapshotPayloadOffsetsOneBased": [651528, 651529],
+    "snapshotChecksumOffsetsOneBased": [9, 10, 11, 12],
+    "binaryDifferentBytes": 26,
+    "binaryAttribution": "twenty GNU build-id bytes plus the six embedded snapshot bytes",
+    "aslrDiagnostic": "two fresh setarch aarch64 -R containers exposed identical heap, libc, and loader mappings"
+  },
+  "observation": "Canonical path identity and disabled process ASLR were insufficient with four visible logical CPUs. The differing five-byte little-endian snapshot payload value shifted by 0x120; no byte was accepted or rewritten.",
+  "remediation": "Reset only task-owned targets and outputs and test a declared single-logical-CPU snapshot builder boundary, which constrains deno_core's V8 platform thread-pool selection without changing either governed fork or any output byte after construction.",
+  "securityPropertiesChanged": false
+}

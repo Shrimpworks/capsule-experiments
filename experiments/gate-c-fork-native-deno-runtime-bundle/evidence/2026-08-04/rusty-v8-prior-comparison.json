@@ -1,0 +1,39 @@
+{
+  "schemaVersion": 1,
+  "priorOfficial": {
+    "source": "https://github.com/denoland/rusty_v8/releases/download/v150.2.0/librusty_v8_simdutf_release_aarch64-unknown-linux-gnu.a.gz",
+    "role": "retained-comparison-input-only",
+    "gzip": {
+      "size": 37576362,
+      "sha256": "8d91df74c8a671c23f880e64038023f49e07ca85c96e15d76a87e2aac9b20595"
+    },
+    "archive": {
+      "size": 184764194,
+      "sha256": "072ddc8f6682e70a7c8e5dada8fd60d67a4b3628576854efcd56b5a087a919ab",
+      "memberCount": 1877
+    }
+  },
+  "governedGithubOracle": {
+    "run": 30925045754,
+    "head": "80e863ddb942a4aa2b384e794fc23e35b9d2bb15",
+    "role": "retained-comparison-oracle-only",
+    "gzip": {
+      "size": 37674703,
+      "sha256": "1ae209c9e4ba5803d010d2c79ee4cc0af0126c5a7ebcca211c7e41deaede4cd2"
+    },
+    "archive": {
+      "size": 184789162,
+      "sha256": "e964d6b1b3689e91f8cf488d8a9f05764a03434b2e2e8347be5067300d39a7de",
+      "memberCount": 1877
+    }
+  },
+  "orderedArchiveMemberList": "equal",
+  "archiveBytes": "different",
+  "attribution": {
+    "prior": "official prebuilt archive retained by the earlier experiment",
+    "governed": "exact fork-native source build at 80e863ddb942a4aa2b384e794fc23e35b9d2bb15 using linux-arm64-release-simdutf-v1",
+    "sourceMembershipChanged": false,
+    "builderAndPublicationProvenanceChanged": true,
+    "normalizationOrRewrite": false
+  }
+}

@@ -1,0 +1,9 @@
+^DCAPSULE_HOST_SEAL_BEGIN
+CAPSULE_HOST_SEAL_ACTIVE
+rootMutationChecks=pass
+elfDynamicClosure=pass
+CAPSULE_HOST_SEAL_BEGIN
+CAPSULE_HOST_SEAL_ACTIVE
+scratchRootNominal=pass
+callerEnvironmentMutation=refused-before-execution
+loaderFileOpenClosure=pass

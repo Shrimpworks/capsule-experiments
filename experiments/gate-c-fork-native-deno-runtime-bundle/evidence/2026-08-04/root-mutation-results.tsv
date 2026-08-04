@@ -1,0 +1,15 @@
+mutation	result	reason
+missing-loader	pass	closed manifest rejected mutation
+substituted-loader	pass	closed manifest rejected mutation
+mutated-loader	pass	closed manifest rejected mutation
+missing-library	pass	closed manifest rejected mutation
+substituted-library	pass	closed manifest rejected mutation
+mutated-library	pass	closed manifest rejected mutation
+missing-snapshot	pass	closed manifest rejected mutation
+wrong-mode	pass	closed manifest rejected mutation
+wrong-owner	pass	closed manifest rejected mutation
+extra-file	pass	closed manifest rejected mutation
+relocated-entry	pass	closed manifest rejected mutation
+version-requirement	pass	closed manifest rejected mutation
+manifest-digest	pass	mutated expected digest rejected
+version-runtime-link	pass	mutated GLIBC requirement rejected by packaged loader

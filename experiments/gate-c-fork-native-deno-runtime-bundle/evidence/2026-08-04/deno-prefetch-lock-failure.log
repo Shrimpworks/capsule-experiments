@@ -1,0 +1,6 @@
+^D    Updating crates.io index
+error: cannot update the lock file /workspace/probe/Cargo.lock because --locked was passed to prevent this
+help: to generate the lock file without accessing the network, remove the --locked flag and use --offline instead.
+
+[1mWhat's next:[0m
+    Debug this container error with Gordon → docker ai "help me fix this container error"

@@ -1,0 +1,152 @@
+{
+  "schema": "capsule.rusty-v8-local-oracle-comparison.v1",
+  "local": {
+    "role": "clean-reconstruction-consumed-by-deno-build",
+    "sourceCommit": "80e863ddb942a4aa2b384e794fc23e35b9d2bb15"
+  },
+  "oracle": {
+    "role": "comparison-only-never-a-construction-input",
+    "githubRun": 30925045754,
+    "artifactId": 8902402057,
+    "artifactName": "rusty-v8-v150.2.0-linux-arm64-unsigned",
+    "zipSize": 239176470,
+    "zipSha256": "fa3840a7803554f34f20e6c400dba8db425f38d8f815ab3f6d12ac9aa2089d9c",
+    "sourceCommit": "80e863ddb942a4aa2b384e794fc23e35b9d2bb15"
+  },
+  "expectedFileCount": 11,
+  "equalCount": 6,
+  "differentCount": 5,
+  "files": {
+    "artifact-sha256sums.txt": {
+      "local": {
+        "size": 770,
+        "sha256": "7418b55184c0e160dba70e21e4717376f0cecd7e79d9c53ce93ebeb4c77a289c"
+      },
+      "oracle": {
+        "size": 770,
+        "sha256": "f64b0254f2edf2dded32d7a79a2dabb6b661e1a8cf572ce874f0ae5b579dfe52"
+      },
+      "result": "different-retained"
+    },
+    "build-metadata.tar.gz": {
+      "local": {
+        "size": 1788292,
+        "sha256": "89b8ac74baddab900c6399bdf95739352deb664f07692ec8d5c2c0b01033935c"
+      },
+      "oracle": {
+        "size": 1803967,
+        "sha256": "dde18da7489adeac797d42b51291f5bcb7d3ef5563bd30393a7b18c2067d79d1"
+      },
+      "result": "different-retained"
+    },
+    "corresponding-source.tar.gz": {
+      "local": {
+        "size": 202703184,
+        "sha256": "8cf75b005e0dfe7e4b8c0a424e3350ed6701a53c9531d8e3ee3a67d5c14a2eff"
+      },
+      "oracle": {
+        "size": 202703184,
+        "sha256": "8cf75b005e0dfe7e4b8c0a424e3350ed6701a53c9531d8e3ee3a67d5c14a2eff"
+      },
+      "result": "byte-equal"
+    },
+    "fixed-verification.txt": {
+      "local": {
+        "size": 138,
+        "sha256": "fca2291b04fbafcb2d0d331246fd805ca7fcf28831a6ba8a6d198ad5d009de73"
+      },
+      "oracle": {
+        "size": 138,
+        "sha256": "cc972ee08cc2e723f9672535ccb1fe5341ebf4f136ca8119eaf3a970b146e51d"
+      },
+      "result": "different-retained"
+    },
+    "librusty_v8_simdutf_release_aarch64-unknown-linux-gnu.a.gz": {
+      "local": {
+        "size": 37674703,
+        "sha256": "1ae209c9e4ba5803d010d2c79ee4cc0af0126c5a7ebcca211c7e41deaede4cd2"
+      },
+      "oracle": {
+        "size": 37674703,
+        "sha256": "1ae209c9e4ba5803d010d2c79ee4cc0af0126c5a7ebcca211c7e41deaede4cd2"
+      },
+      "result": "byte-equal"
+    },
+    "licenses-notices.tar.gz": {
+      "local": {
+        "size": 1945095,
+        "sha256": "336aade62182917a7251116c2deca73ef3a51758f025b02b3b90f4423adc7314"
+      },
+      "oracle": {
+        "size": 1945095,
+        "sha256": "336aade62182917a7251116c2deca73ef3a51758f025b02b3b90f4423adc7314"
+      },
+      "result": "byte-equal"
+    },
+    "provenance.intoto.json": {
+      "local": {
+        "size": 32372,
+        "sha256": "9ba3debd274f85f419883a2475789348437a1ea89027b4a3517487936cf7df3f"
+      },
+      "oracle": {
+        "size": 32367,
+        "sha256": "377e5f0588a5f5dd74597287ff4bb70836cb106a729c16dd1cc52d46a9702e8b"
+      },
+      "result": "different-retained"
+    },
+    "release-manifest.json": {
+      "local": {
+        "size": 1743,
+        "sha256": "92183e13e5bf3d6cdf13e12610024643c49990aec98a6571e74bea77a08c0e2c"
+      },
+      "oracle": {
+        "size": 1743,
+        "sha256": "9dd57fe8ab08725549b53d6f416dc2191484bc78044adc74e442cde5e71f8735"
+      },
+      "result": "different-retained"
+    },
+    "sbom.cdx.json": {
+      "local": {
+        "size": 152583,
+        "sha256": "fb776c27efcefc56a03371bdef093ec79e36657c795dc12dd68edc50421b4675"
+      },
+      "oracle": {
+        "size": 152583,
+        "sha256": "fb776c27efcefc56a03371bdef093ec79e36657c795dc12dd68edc50421b4675"
+      },
+      "result": "byte-equal"
+    },
+    "sbom.spdx.json": {
+      "local": {
+        "size": 173987,
+        "sha256": "6d2da4c12ba771265753b14e489aa42ef8bc76ce0cdbca00bcea9d4f126b4b5d"
+      },
+      "oracle": {
+        "size": 173987,
+        "sha256": "6d2da4c12ba771265753b14e489aa42ef8bc76ce0cdbca00bcea9d4f126b4b5d"
+      },
+      "result": "byte-equal"
+    },
+    "src_binding_simdutf_release_aarch64-unknown-linux-gnu.rs": {
+      "local": {
+        "size": 40369,
+        "sha256": "8603f09ab95e79620ea29f73933c09ae3618c6f924472c0ce36d5c614d1ceba4"
+      },
+      "oracle": {
+        "size": 40369,
+        "sha256": "8603f09ab95e79620ea29f73933c09ae3618c6f924472c0ce36d5c614d1ceba4"
+      },
+      "result": "byte-equal"
+    }
+  },
+  "attribution": {
+    "build-metadata.tar.gz": "retained physical-host identity plus governed build/Ninja timing metadata; exact member comparison retained separately",
+    "fixed-verification.txt": "the fixed get_version result is identical, while the retained test-harness elapsed time is 0.09s locally versus 0.02s in GitHub Actions",
+    "provenance.intoto.json": "local-unassigned invocation plus the local fixed-verification and build-metadata subjects supersede GitHub run 30925045754 metadata",
+    "release-manifest.json": "closed manifest transitively records the local fixed-verification, provenance, and build-metadata digests",
+    "artifact-sha256sums.txt": "checksum closure transitively records the local fixed-verification and build-metadata digests"
+  },
+  "unexplainedFiles": [],
+  "decision": "comparison-closed",
+  "normalizationApplied": false
+}

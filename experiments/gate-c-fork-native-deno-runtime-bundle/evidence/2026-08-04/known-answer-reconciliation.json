@@ -1,0 +1,21 @@
+{
+  "schemaVersion": 1,
+  "subject": "prior-standalone-root-gzip-known-answer",
+  "suppliedByCurrentTask": "b0e1726171c08669c1c3bba70b1aae89c07270c306a1dd4fa6919ec69f579283",
+  "canonicalRuntimeRootResult": {
+    "path": "experiments/gate-c-deno-core-runtime-root/evidence/2026-08-03/root-result.json",
+    "fileSha256": "75fce2f1f172d3da6dc67ddbf7074f32ffdc381d5995bb2abbae2ad8a65e75e2",
+    "rootGzipSha256": "b0e1726171c08669c1c3bba70b1aae89c07270c306a1dd4fa6919ec69f579283"
+  },
+  "canonicalRuntimeRootGenerator": {
+    "path": "experiments/gate-c-deno-core-runtime-root/generate-evidence.mjs",
+    "expectedRootGzipSha256": "b0e1726171c08669c1c3bba70b1aae89c07270c306a1dd4fa6919ec69f579283"
+  },
+  "staleBlockedExperimentValue": "b0e17261c513f1d16e350055c5b4809063b038783cb6b4c68937217458f79283",
+  "occurrencesOfStaleFullValueBeforeCorrection": [
+    "experiments/gate-c-fork-native-deno-runtime-bundle/manifests/known-answers.json",
+    "experiments/gate-c-fork-native-deno-runtime-bundle/scripts/verify.sh"
+  ],
+  "decision": "correct-the-stale-blocked-experiment-copy-to-the-user-supplied-and-canonical-retained-root-result",
+  "normalizationOrArtifactRewrite": false
+}

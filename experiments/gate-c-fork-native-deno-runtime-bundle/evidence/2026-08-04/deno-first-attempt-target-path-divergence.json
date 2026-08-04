@@ -1,0 +1,28 @@
+{
+  "schema": "capsule.deno-fork-native-failed-attempt.v0",
+  "attempt": "network-disabled same-container build with label-specific target paths",
+  "status": "failed-closed",
+  "buildA": {
+    "binary": {
+      "sha256": "b46b4065587f12048fb3ca1fbaf65577e25ff2e3269ed0d97d071d7e186dfaa5",
+      "size": 68497624
+    },
+    "snapshot": {
+      "sha256": "6351457608a4de03c97e39eacafac63872457e44cfe7215266a0b26c4d04c641",
+      "size": 699988
+    }
+  },
+  "buildB": {
+    "binary": {
+      "sha256": "d07340f293ff46032fc89ae126ac321cf3b5a51800c6978c1499eef05205d12f",
+      "size": 68497624
+    },
+    "snapshot": {
+      "sha256": "80a17accdd71442c482493bfbae94be253184c5a454f822121f81b2e0751a733",
+      "size": 699988
+    }
+  },
+  "observation": "The first orchestration used /workspace/target-a and /workspace/target-b in one container. The snapshot differed at two payload bytes plus its four-byte checksum, and the binaries also differed. The byte difference was not accepted or normalized.",
+  "remediation": "Reset only task-owned targets and outputs, preserve this failure evidence and the full log, and retry independent network-disabled containers using the same declared /workspace/target path before moving each completed target aside.",
+  "securityPropertiesChanged": false
+}

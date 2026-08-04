@@ -1,0 +1,86 @@
+{
+  "schemaVersion": 1,
+  "observedUtcDate": "2026-08-04",
+  "capsuleExperiments": {
+    "base": "3e9c9cbc3e0314439771151f1fd99c2b3a5a50b9",
+    "tree": "80aa5f9cc6e445d1e0c4e082eb357379b6d1599d",
+    "remoteMain": "3e9c9cbc3e0314439771151f1fd99c2b3a5a50b9",
+    "staleBaseRejected": true
+  },
+  "remoteRefs": {
+    "denoGovernedBranch": "ea18b9dc21ff8ebd19347be7095f47937ee14ec2",
+    "denoPullRequestHead": "9adb0b68b55bca81644827f1e7749a3acb091bed",
+    "rustyV8GovernedBranch": "cbf56de2e1156b1cf1561fdbaea7172a0aa056f4",
+    "rustyV8Arm64Branch": "80e863ddb942a4aa2b384e794fc23e35b9d2bb15",
+    "rustyV8PullRequestHead": "80e863ddb942a4aa2b384e794fc23e35b9d2bb15"
+  },
+  "deno": {
+    "repository": "https://github.com/Shrimpworks/deno.git",
+    "upstreamCommit": "14eea3160ae5834476aa3b9d317b8d41d991b982",
+    "upstreamTree": "2732e7fb4f51907ce8a95ac068481c28185a21d2",
+    "head": "9adb0b68b55bca81644827f1e7749a3acb091bed",
+    "headTree": "72edd0f7b5f83b918945860653714e344c8a303f",
+    "merge": "ea18b9dc21ff8ebd19347be7095f47937ee14ec2",
+    "mergeTree": "72edd0f7b5f83b918945860653714e344c8a303f",
+    "mergeParents": [
+      "14eea3160ae5834476aa3b9d317b8d41d991b982",
+      "9adb0b68b55bca81644827f1e7749a3acb091bed"
+    ],
+    "upstreamAncestor": true,
+    "headMergeTreeEqual": true,
+    "governanceDocumentSha256": "da22a7856b49bc06a1fb4921f1f97eb1c8951d80572ec0f4efcc55d586da8f32",
+    "verifierSha256": "a880c599ee538b655c614d7da4111b05e62cb66a9bcca4cd4ddae1cc44c47aaa",
+    "workflowSha256": "d97707a55edbc3d0e58ff7e0cec60331b8a2a0a40c0aa9a846ba63fe9bb4c58a",
+    "forkVerifier": "pass-three-ops-fixed-fixtures-restoration-refused-admission-none"
+  },
+  "rustyV8": {
+    "repository": "https://github.com/Shrimpworks/rusty_v8.git",
+    "upstreamCommit": "d305e6afa7736f6e298c30ae6646f7709ee9382b",
+    "upstreamTree": "e55bc850420d20b1ea2230eef9da6e26c07ef765",
+    "head": "80e863ddb942a4aa2b384e794fc23e35b9d2bb15",
+    "headTree": "d8950a7a1ee907761720b23d24eaa9b63aa33b10",
+    "merge": "cbf56de2e1156b1cf1561fdbaea7172a0aa056f4",
+    "mergeTree": "d8950a7a1ee907761720b23d24eaa9b63aa33b10",
+    "mergeParents": [
+      "eddede228a9214c4dfb6a85aeca22abc0679100d",
+      "80e863ddb942a4aa2b384e794fc23e35b9d2bb15"
+    ],
+    "upstreamAncestor": true,
+    "headMergeTreeEqual": true,
+    "rejectedTerminalHeads": [
+      "17698caedb8721c132a3e2f08f7ab0ae212f313a",
+      "a43ee7486c3e05bce5d6e5db586b3e2e688c33cf",
+      "c774d71b9b1d0021a5283b07d9185d6ec4d41b95",
+      "e21917350e48cc920c9ed1984e671a6bb2113df0"
+    ],
+    "sourceLockSha256": "df1630e159dfec398ca8d71305431d441b6953efc910de63f4c0e6e28f251855",
+    "builderLockSha256": "da45206bfdea87b0dc3ddb9ec31babdce264862174ec30450baddee2d8c1f70b",
+    "expectedOutputsSha256": "da5543735995f960bfd1a22489b242e706c8c4a2aa7392c2644004a6e464b17d",
+    "governanceDocumentSha256": "9718b669a1ba992ba8bcb24d7501fcfa0420a2e2590dc5b6d83716d1ad4809e1",
+    "workflowSha256": "3e71cb609aeeebda0b6b30cde58570290d8d6ce3d3e7016eddc9cfa2cc34671c",
+    "runArm64BuilderSha256": "453c602252e06a210005cee9bb0cd69946a2702a52e91accf76491f949b7227b",
+    "runArm64VolumeBuilderSha256": "da8104f5a999ede2e6b03d593c4b7a90697a109f560901554fc333547ff9ad45",
+    "prefetchArm64Sha256": "c7c30384b9e80fbca7f0f0cb5013d99a053024b33c75a99cf28dd472c7bf1b9a",
+    "buildArm64OfflineSha256": "20ea937273c384f336e1f3988ffdba9cea8d7cd2290394826af078872f5ec426",
+    "collectArm64EvidenceSha256": "4ce7bb047cdb03099cedea29ef0a5ede3a5dbaa8b64332331de3618fc961511b",
+    "verifyArm64InputsSha256": "7381a88e11968434e98c3f1abfef033fddbbaf03224e29741c68039a75ee0157",
+    "verifyArm64ReleaseSha256": "ccc037eb969df2500d5b5b2f5edf1e521f688bcf1fbd9cacadcee75d02c302ef",
+    "profile": "linux-arm64-release-simdutf-v1",
+    "buildPlatform": "linux/amd64",
+    "target": "aarch64-unknown-linux-gnu",
+    "method": "cross",
+    "gitlinks": 20,
+    "crossPackages": 22,
+    "forkVerifier": "pass-arm64-profile-20-gitlinks-22-cross-packages-amd64-contract-preserved"
+  },
+  "oracle": {
+    "run": 30925045754,
+    "job": 92045163917,
+    "head": "80e863ddb942a4aa2b384e794fc23e35b9d2bb15",
+    "artifactId": 8902402057,
+    "artifactName": "rusty-v8-v150.2.0-linux-arm64-unsigned",
+    "artifactZipSize": 239176470,
+    "artifactZipSha256": "fa3840a7803554f34f20e6c400dba8db425f38d8f815ab3f6d12ac9aa2089d9c",
+    "role": "comparison-only-not-reconstruction-input"
+  }
+}
