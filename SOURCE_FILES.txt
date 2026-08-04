@@ -712,10 +712,12 @@ experiments/supervisor-owner-lock-boundary/owner_lock_probe.py
 experiments/supervisor-owner-lock-boundary/run.sh
 experiments/supervisor-owner-lock-installed-g3/README.md
 experiments/supervisor-owner-lock-installed-g3/RESULTS.md
+experiments/supervisor-owner-lock-installed-g3/diagnose-local-signing.sh
 experiments/supervisor-owner-lock-installed-g3/discover-local.sh
 experiments/supervisor-owner-lock-installed-g3/entitlements/Bootstrap.entitlements
 experiments/supervisor-owner-lock-installed-g3/entitlements/Supervisor.entitlements
 experiments/supervisor-owner-lock-installed-g3/evidence/2026-08-03/local-discovery.json
+experiments/supervisor-owner-lock-installed-g3/evidence/2026-08-04/local-followup.json
 experiments/supervisor-owner-lock-installed-g3/fixtures/identity-contract.json
 experiments/supervisor-owner-lock-installed-g3/run-noncredential.sh
 experiments/supervisor-owner-lock-installed-g3/tests/test_contract.py

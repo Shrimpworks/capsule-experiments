@@ -1,0 +1,70 @@
+{
+  "format": "capsule.supervisor.owner-lock-g3.local-followup",
+  "version": 0,
+  "date": "2026-08-04",
+  "repositoryBaseline": "566e323",
+  "authorizedScope": "owned current macOS development host; public signing/profile metadata and one harmless temporary exact-selector signing probe only",
+  "expected": {
+    "developmentCertificateSha1": "1638CFBD9250A00B4DBD81AE8FD1C790B42F61E3",
+    "teamIdentifier": "W4QUR9FUL4"
+  },
+  "observedValidIdentities": [
+    {
+      "sha1": "1638CFBD9250A00B4DBD81AE8FD1C790B42F61E3",
+      "displayName": "Apple Development: Dylan Steele (W4QUR9FUL4)",
+      "kind": "Apple Development"
+    },
+    {
+      "sha1": "AD70CEDCA605604676C2853A229AA4664AD3F750",
+      "displayName": "Developer ID Application: Dylan Steele (3DDR84M4JS)",
+      "kind": "Developer ID Application"
+    }
+  ],
+  "observedSelectedDevelopmentCertificate": {
+    "sha1": "1638CFBD9250A00B4DBD81AE8FD1C790B42F61E3",
+    "sha256": "8C7A75BACEBF113E8B421A267C4F08B92112DEEE7228ADD855724018DB0C9891",
+    "subjectCommonName": "Apple Development: Dylan Steele (W4QUR9FUL4)",
+    "subjectOrganizationalUnit": "3DDR84M4JS",
+    "notBefore": "2026-07-31T16:46:46Z",
+    "notAfter": "2027-07-31T16:46:45Z"
+  },
+  "observedSignedProbe": {
+    "signingSelectorSha1": "1638CFBD9250A00B4DBD81AE8FD1C790B42F61E3",
+    "identifier": "com.capsulecorp.spike.owner-lock-g3.signing-diagnostic",
+    "teamIdentifier": "3DDR84M4JS",
+    "cdHashSha256Truncated": "e344302aa6936c610afd38fe1c756e43f1596c31",
+    "cdHashSha256Full": "e344302aa6936c610afd38fe1c756e43f1596c31fa0ac4df34afd1dfccecc045",
+    "signedByteSha256": "0208b614ddfbbf316674ae913533a12c8338d6cc39fd6d62a3b0e1240a6d4d1f",
+    "entitlements": {},
+    "defaultDesignatedRequirement": "identifier \"com.capsulecorp.spike.owner-lock-g3.signing-diagnostic\" and anchor apple generic and certificate leaf[subject.CN] = \"Apple Development: Dylan Steele (W4QUR9FUL4)\" and certificate 1[field.1.2.840.113635.100.6.2.1] /* exists */",
+    "defaultDesignatedRequirementIsAdmissionRequirement": false,
+    "explicitExpectedTeamRequirement": "identifier \"com.capsulecorp.spike.owner-lock-g3.signing-diagnostic\" and anchor apple generic and certificate leaf[subject.OU] = \"W4QUR9FUL4\" and certificate leaf[field.1.2.840.113635.100.6.1.12] /* exists */",
+    "explicitExpectedTeamRequirementSatisfied": false,
+    "retainedBytes": false
+  },
+  "profileCacheDiscovery": {
+    "locationsChecked": [
+      "~/Library/Developer/Xcode/UserData/Provisioning Profiles",
+      "~/Library/MobileDevice/Provisioning Profiles"
+    ],
+    "profileCount": 3,
+    "w4BootstrapProfileFound": false,
+    "w4SupervisorProfileFound": false,
+    "observedTeams": ["3DDR84M4JS"]
+  },
+  "decision": "NO-GO",
+  "cause": "the exact development SHA-1 was selected, but that certificate itself has subject OU 3DDR84M4JS and codesign emits TeamIdentifier 3DDR84M4JS; its misleading W4 common name is not Team evidence",
+  "blockers": [
+    "no local Apple Development certificate whose subject OU and emitted TeamIdentifier equal W4QUR9FUL4",
+    "no exact W4 macOS App Development profile for either G3 role in either standard local cache",
+    "the protected Supervisor-root bootstrap authority/topology is not selected",
+    "no signed per-installation bootstrap record or installation-root signing mechanism is implemented",
+    "G2 still uses a trusted absolute test-only StorePath rather than a descriptor-relative closed store entry"
+  ],
+  "explicitlyNotRun": [
+    "W4 fixture build, installation, service registration, or launch",
+    "protected-root creation or owner-lock/store opening",
+    "session, crash, update, downgrade, rollback, logout-login, or reboot matrix",
+    "Developer ID signing, notarization, stapling, Gatekeeper, clean-host, minimum-OS, backend, runtime, or guest work"
+  ]
+}

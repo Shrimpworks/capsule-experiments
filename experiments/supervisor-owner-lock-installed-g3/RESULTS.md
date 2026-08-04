@@ -11,6 +11,42 @@ available, and the protected-root bootstrap/signed-record composition is not yet
 existing G1/G2 noncredential no-guest mechanics continue to pass, but they do not advance
 OWNER-001 or installed distribution/storage claims beyond `local-mechanic`.
 
+## Exact-selector follow-up on 2026-08-04
+
+The follow-up ran from current `origin/main` baseline `566e323` and reproduced the result with the
+exact SHA-1 selector. `security find-identity` still exposes exactly these two valid local
+identities:
+
+- Apple Development SHA-1 `1638CFBD9250A00B4DBD81AE8FD1C790B42F61E3`, displayed as
+  `Apple Development: Dylan Steele (W4QUR9FUL4)`; and
+- Developer ID Application SHA-1 `AD70CEDCA605604676C2853A229AA4664AD3F750`, historical Team
+  `3DDR84M4JS`.
+
+The development selector did not choose the Developer ID identity or a 3DDR fallback. The selected
+development certificate itself has subject `OU=3DDR84M4JS`. Signing a new harmless temporary probe
+with the exact development SHA-1 again emitted `TeamIdentifier=3DDR84M4JS`.
+
+The follow-up also found a requirement-construction defect in the original diagnostic evidence:
+the `codesign`-generated default designated requirement binds the certificate common name
+`Apple Development: Dylan Steele (W4QUR9FUL4)` but does not bind `subject.OU` or the emitted Team.
+It therefore must not be used as W4 admission evidence. An explicit requirement containing
+`certificate leaf[subject.OU] = "W4QUR9FUL4"` and the Apple Development certificate extension
+refused the signed probe, as required. Future installed admission must additionally match the
+emitted TeamIdentifier, role signing identifier, enrolled exact CDHash set, and effective
+entitlement digest.
+
+Both standard local provisioning-profile caches were checked for `.provisionprofile` and
+`.mobileprovision` files. Only the three already retained Xcode profiles exist. Their profile Team,
+entitlement Team, and application identifiers are all 3DDR-scoped; none matches either exact W4 G3
+role. The installed protected-root/bootstrap/store-open experiment therefore remained blocked
+before build, install, state creation, service registration, or launch. No Developer ID signing,
+notarization, runtime, backend, or guest operation ran. The harmless identity probe had no
+entitlements; without valid W4 profiles, no W4 signed-byte App Sandbox/application-identifier/
+Team-identifier entitlement match could be built or claimed.
+
+The tightened scripts and public-metadata readback are retained in this experiment and
+[`evidence/2026-08-04/local-followup.json`](evidence/2026-08-04/local-followup.json).
+
 ## Question and defensive scope
 
 The experiment asked what the current owned Mac could prove about an exact W4 Apple-signed,
@@ -38,6 +74,10 @@ public certificate metadata for differentiation and was never used to sign.
 The common-name suffix is display text; the certificate subject OU and the TeamIdentifier embedded
 by `codesign` are the security-relevant Team evidence. Treating the label as W4 would have admitted
 the exact historical Team this task prohibited. No installed signing followed that mismatch.
+
+The default designated requirement is likewise insufficient: its common-name predicate repeats
+the misleading display text. An explicit expected-Team OU predicate is mandatory and fails closed
+for the observed certificate.
 
 Machine-readable public metadata is retained at
 [`evidence/2026-08-03/local-discovery.json`](evidence/2026-08-03/local-discovery.json). It contains
@@ -133,6 +173,11 @@ store name descriptor-relative to the retained root and validate its file policy
 6. After those actions, rerun build/sign/readback, `SMAppService`, protected-container negative,
    crash/restart, update/mix/downgrade, session, and safe logout/login/reboot cases on this host.
    Clean-host/minimum-OS and Developer ID/notarization remain separately deferred.
+
+Before any installed rerun, both repository diagnostics must pass: `discover-local.sh` must find
+the exact two W4 role profiles, and the explicitly authorized `diagnose-local-signing.sh` must show
+that the exact SHA-1 emits W4 and satisfies the explicit W4 OU requirement. A display-name-only or
+default-designated-requirement pass is not sufficient.
 
 ## Claim boundary
 

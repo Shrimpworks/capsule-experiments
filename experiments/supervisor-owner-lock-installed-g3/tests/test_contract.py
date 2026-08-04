@@ -6,6 +6,9 @@ from pathlib import Path
 
 EXPERIMENT = Path(__file__).resolve().parents[1]
 CONTRACT = json.loads((EXPERIMENT / "fixtures" / "identity-contract.json").read_text())
+FOLLOWUP = json.loads(
+    (EXPERIMENT / "evidence" / "2026-08-04" / "local-followup.json").read_text()
+)
 
 
 def admits_component(*, expected, observed):
@@ -155,6 +158,36 @@ class IdentityContractTests(unittest.TestCase):
         self.assertTrue(
             admits_component(expected=restored_expectation, observed=restored)
         )
+
+    def test_followup_retains_exact_selector_cause_and_no_go(self):
+        expected = FOLLOWUP["expected"]
+        selected = FOLLOWUP["observedSelectedDevelopmentCertificate"]
+        probe = FOLLOWUP["observedSignedProbe"]
+        profiles = FOLLOWUP["profileCacheDiscovery"]
+
+        self.assertEqual(FOLLOWUP["decision"], "NO-GO")
+        self.assertEqual(selected["sha1"], expected["developmentCertificateSha1"])
+        self.assertEqual(probe["signingSelectorSha1"], selected["sha1"])
+        self.assertNotEqual(selected["subjectOrganizationalUnit"], expected["teamIdentifier"])
+        self.assertEqual(probe["teamIdentifier"], selected["subjectOrganizationalUnit"])
+        self.assertFalse(probe["defaultDesignatedRequirementIsAdmissionRequirement"])
+        self.assertIn("subject.CN", probe["defaultDesignatedRequirement"])
+        self.assertIn("subject.OU", probe["explicitExpectedTeamRequirement"])
+        self.assertIn(
+            "1.2.840.113635.100.6.1.12", probe["explicitExpectedTeamRequirement"]
+        )
+        self.assertFalse(probe["explicitExpectedTeamRequirementSatisfied"])
+        self.assertFalse(probe["retainedBytes"])
+        self.assertFalse(profiles["w4BootstrapProfileFound"])
+        self.assertFalse(profiles["w4SupervisorProfileFound"])
+
+    def test_signing_diagnostic_has_explicit_opt_in_and_no_historical_fallback(self):
+        script = (EXPERIMENT / "diagnose-local-signing.sh").read_text()
+        self.assertIn("CAPSULE_AUTHORIZED_SIGNING_PROBE", script)
+        self.assertIn("certificate leaf[subject.OU]", script)
+        self.assertIn("1.2.840.113635.100.6.1.12", script)
+        self.assertIn("defaultDesignatedRequirementIsAdmissionRequirement=false", script)
+        self.assertNotIn("3DDR84M4JS", script)
 
 
 if __name__ == "__main__":

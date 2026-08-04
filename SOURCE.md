@@ -1,7 +1,10 @@
 # Source and provenance
 
 This archive was mechanically copied from the tracked `experiments/` tree at
-Capsule commit `566e3234b79fee9470822cd386f41b4d776af70d` on 2026-08-04.
+Capsule commit `566e3234b79fee9470822cd386f41b4d776af70d` on 2026-08-04. Before the
+Capsule cleanup branch merged, the `supervisor-owner-lock-installed-g3`
+experiment advanced on `main`; that complete subtree was refreshed from Capsule
+commit `810cbcc03eb7a03f678668af5f7e34391107aad7` on the same date.
 
 The copy preserves tracked file bytes, executable modes, symlinks, and relative
 paths. Ignored local build outputs, caches, credentials, signing material, and
@@ -15,4 +18,3 @@ SBOM, and license evidence before reuse.
 The source commit remains the rollback point until the corresponding Capsule
 cleanup pull request is merged. If the archive verification fails, do not delete
 or rewrite the source experiment tree.
-

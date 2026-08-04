@@ -7,6 +7,8 @@ g3_go_cache="${TMPDIR:-/tmp}/capsule-owner-lock-g3-go-cache"
 mkdir -p "$g3_go_cache"
 export GOCACHE="$g3_go_cache"
 
+sh -n "$experiment_dir/discover-local.sh"
+sh -n "$experiment_dir/diagnose-local-signing.sh"
 python3 -m unittest discover -s "$experiment_dir/tests" -p 'test_*.py'
 
 cd "$repository_dir"

@@ -15,10 +15,11 @@ and limitations recorded by each experiment.
 ## Archive snapshot
 
 - Source repository: `dills122/capsule-corp`
-- Source commit: `566e3234b79fee9470822cd386f41b4d776af70d`
+- Base source commit: `566e3234b79fee9470822cd386f41b4d776af70d`
+- G3 evidence refresh: `810cbcc03eb7a03f678668af5f7e34391107aad7`
 - Archived path: `experiments/`
 - Snapshot date: 2026-08-04
-- Tracked files: 744
+- Tracked files: 746
 
 `SOURCE_FILES.txt` lists every path copied from the source commit.
 `SHA256SUMS` binds the archived file bytes. The original relative layout is
@@ -34,4 +35,3 @@ fixtures, and links to immutable evidence.
 Archived experiments may be rerun defensively against their named local
 fixtures and owned test environments. They must not be imported by Capsule
 product packages or treated as current product behavior.
-

@@ -66,9 +66,20 @@ owner-before-store order, sorted no-guest recovery, owner-session composition, l
 ordered shutdown, process death, and reacquisition.
 
 The optional [`discover-local.sh`](discover-local.sh) is read-only. It prints public certificate,
-profile-Team, OS, and toolchain metadata and returns nonzero unless the exact certificate actually
-emits Team `W4QUR9FUL4` and an exact W4 profile exists for each role. It never invokes
+profile-Team/application/platform/expiry, OS, and toolchain metadata from both standard local
+profile-cache locations. It returns nonzero unless the exact certificate subject OU is Team
+`W4QUR9FUL4` and an exact W4 macOS profile exists for each role. Certificate discovery refuses an
+ambiguous common-name lookup rather than trusting the display label. The script never invokes
 `codesign --sign`, Xcode automatic provisioning, or an Apple service.
+
+[`diagnose-local-signing.sh`](diagnose-local-signing.sh) is a separate, explicit local-signing
+diagnostic. It runs only with `CAPSULE_AUTHORIZED_SIGNING_PROBE=1`, selects the exact SHA-1, signs a
+temporary harmless copy of `/usr/bin/true`, reads back the emitted TeamIdentifier and default
+designated requirement, and verifies an explicit requirement containing
+`certificate leaf[subject.OU] = "W4QUR9FUL4"` plus the Apple Development certificate extension.
+The default designated requirement is diagnostic metadata only: on this certificate it binds the
+misleading W4 common name but not the actual Team OU. The temporary bytes are always removed and no
+key material is exported.
 
 ## Claim boundary
 
