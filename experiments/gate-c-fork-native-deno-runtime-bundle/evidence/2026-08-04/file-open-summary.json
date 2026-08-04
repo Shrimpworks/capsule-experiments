@@ -1,0 +1,41 @@
+{
+  "schema": "capsule.deno-core-runtime-root-file-open.v0",
+  "result": "pass",
+  "environmentVariablesAtExec": 0,
+  "successfulFilePaths": [
+    "/candidate/bin/capsule-deno-core-physical-omission",
+    "/candidate/fixtures/input.json",
+    "/candidate/fixtures/nominal.js",
+    "/candidate/lib/aarch64-linux-gnu/libc.so.6",
+    "/candidate/lib/aarch64-linux-gnu/libgcc_s.so.1",
+    "/candidate/lib/aarch64-linux-gnu/libm.so.6",
+    "/dev/urandom",
+    "/proc/self/cgroup",
+    "/proc/self/fd",
+    "/proc/self/maps",
+    "/sys/fs/cgroup/cgroup.controllers",
+    "/sys/fs/cgroup/cpu.max"
+  ],
+  "expectedNegativePaths": [
+    "/etc/ld.so.preload",
+    "/candidate/lib/aarch64-linux-gnu/{tls,aarch64,atomics hwcap variants}",
+    "/sys/devices/system/cpu/online after descriptor seal",
+    "/proc/stat after descriptor seal"
+  ],
+  "forbiddenBookwormConfigOrDataPathsObserved": false,
+  "processExecCount": 1,
+  "v8WorkerThreadCloneCount": 1,
+  "socketSyscallsObserved": false,
+  "executableMappings": [
+    "mmap(0xffff8e8f0000, 50163088, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3</candidate/bin/capsule-deno-core-physical-omission>, 0) = 0xffff8e8f0000",
+    "mmap(0xffff8e8b0000, 197320, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3</candidate/lib/aarch64-linux-gnu/libgcc_s.so.1>, 0) = 0xffff8e8b0000",
+    "mmap(0xffff8e800000, 655472, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3</candidate/lib/aarch64-linux-gnu/libm.so.6>, 0) = 0xffff8e800000",
+    "mmap(0xffff8e650000, 1761376, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3</candidate/lib/aarch64-linux-gnu/libc.so.6>, 0) = 0xffff8e650000"
+  ],
+  "executableMappingAfterHostSeal": false,
+  "limitations": [
+    "procfs, cgroupfs, and /dev/urandom are declared Linux kernel/device inputs, not runtime-root package bytes",
+    "the trace harness is an owned Docker Desktop Linux/arm64 container, not the future libkrun guest",
+    "strace runs only in the evidence harness and is not a runtime-root member"
+  ]
+}

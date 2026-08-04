@@ -1,0 +1,118 @@
+{
+  "schema": "capsule.fork-native-source-license-closure.v1",
+  "engineeringInventoryNotLegalAdvice": true,
+  "result": "closed-for-declared-build-and-runtime-materials",
+  "deno": {
+    "head": "9adb0b68b55bca81644827f1e7749a3acb091bed",
+    "tree": "72edd0f7b5f83b918945860653714e344c8a303f",
+    "sourceArchive": {
+      "name": "sources/Shrimpworks-deno-source.tar.gz",
+      "path": "/private/tmp/capsule-fork-native-deno-9adb0b68-20260804/inputs/Shrimpworks-deno-9adb0b68b55b-source.tar.gz",
+      "size": 32342282,
+      "sha256": "d117cc1594c9876717deba66a7792c7d5520cdf6379642b412931614b848bd54"
+    },
+    "license": "MIT"
+  },
+  "cargo": {
+    "lockSha256": "4dd8f08c8b223adbf3468fce5fe9e0468dfe9f4a255129cc304cb604fa0d389d",
+    "sourceBundle": {
+      "name": "sources/cargo-source-bundle.tar.gz",
+      "path": "/private/tmp/capsule-fork-native-deno-9adb0b68-20260804/cache/cargo-source-bundle.tar.gz",
+      "size": 70134953,
+      "sha256": "1e96e49a516e4cf6a9ec79acae9a9eb3d0ee52b332695fa11476a97e1e50d1d4"
+    },
+    "packages": 193,
+    "registrySources": 189,
+    "registrySourcesWithLicenseExpression": 189
+  },
+  "rustyV8": {
+    "head": "80e863ddb942a4aa2b384e794fc23e35b9d2bb15",
+    "correspondingSource": {
+      "sha256": "8cf75b005e0dfe7e4b8c0a424e3350ed6701a53c9531d8e3ee3a67d5c14a2eff",
+      "size": 202703184
+    },
+    "licensesNotices": {
+      "sha256": "336aade62182917a7251116c2deca73ef3a51758f025b02b3b90f4423adc7314",
+      "size": 1945095
+    },
+    "cyclonedx": {
+      "sha256": "fb776c27efcefc56a03371bdef093ec79e36657c795dc12dd68edc50421b4675",
+      "size": 152583
+    },
+    "spdx": {
+      "sha256": "6d2da4c12ba771265753b14e489aa42ef8bc76ce0cdbca00bcea9d4f126b4b5d",
+      "size": 173987
+    },
+    "provenance": {
+      "sha256": "9ba3debd274f85f419883a2475789348437a1ea89027b4a3517487936cf7df3f",
+      "size": 32372
+    }
+  },
+  "dynamicRoot": {
+    "packageSourcesManifest": "experiments/gate-c-deno-core-runtime-root/manifests/package-sources.json",
+    "inputs": [
+      {
+        "name": "runtime-inputs/gcc-12-base_12.2.0-14+deb12u1_arm64.deb",
+        "path": "/private/tmp/capsule-fork-native-deno-9adb0b68-20260804/inputs/runtime/gcc-12-base_12.2.0-14+deb12u1_arm64.deb",
+        "size": 37624,
+        "sha256": "674cf6cba6d432bd200c45fe866c1652c7a53523cc2e7a613e05bc4abf7b5440"
+      },
+      {
+        "name": "runtime-inputs/gcc-12_12.2.0-14+deb12u1.debian.tar.xz",
+        "path": "/private/tmp/capsule-fork-native-deno-9adb0b68-20260804/inputs/runtime/gcc-12_12.2.0-14+deb12u1.debian.tar.xz",
+        "size": 1675204,
+        "sha256": "59f7f7763a0c355e3f27ff9e7ac80d06382b29939361a87e7b139226bfe7402e"
+      },
+      {
+        "name": "runtime-inputs/gcc-12_12.2.0-14+deb12u1.dsc",
+        "path": "/private/tmp/capsule-fork-native-deno-9adb0b68-20260804/inputs/runtime/gcc-12_12.2.0-14+deb12u1.dsc",
+        "size": 27330,
+        "sha256": "3aed0b189189c744dc9f4b74798a51d3e512ea85e492568db788a927c88e20ba"
+      },
+      {
+        "name": "runtime-inputs/gcc-12_12.2.0.orig.tar.gz",
+        "path": "/private/tmp/capsule-fork-native-deno-9adb0b68-20260804/inputs/runtime/gcc-12_12.2.0.orig.tar.gz",
+        "size": 87090343,
+        "sha256": "b8298be16aeeb96a889c6afed0a8e2241b47452e89cc81fe65ea849d5c740fcb"
+      },
+      {
+        "name": "runtime-inputs/glibc_2.36-9+deb12u14.debian.tar.xz",
+        "path": "/private/tmp/capsule-fork-native-deno-9adb0b68-20260804/inputs/runtime/glibc_2.36-9+deb12u14.debian.tar.xz",
+        "size": 918488,
+        "sha256": "cf4ac9cd98185452cae3ef34e2e4ee12753e3d93fd0c62c61396d4a47eec902f"
+      },
+      {
+        "name": "runtime-inputs/glibc_2.36-9+deb12u14.dsc",
+        "path": "/private/tmp/capsule-fork-native-deno-9adb0b68-20260804/inputs/runtime/glibc_2.36-9+deb12u14.dsc",
+        "size": 9765,
+        "sha256": "cfe1f0b8dc1fa211ce5a45b3725cc38b29f88667f1140ebdca6de35cf9c6f1fd"
+      },
+      {
+        "name": "runtime-inputs/glibc_2.36.orig.tar.xz",
+        "path": "/private/tmp/capsule-fork-native-deno-9adb0b68-20260804/inputs/runtime/glibc_2.36.orig.tar.xz",
+        "size": 19363988,
+        "sha256": "a543c02070d46ccaf866957efd13f10c924daa74c86a90a0254db09a92a708ee"
+      },
+      {
+        "name": "runtime-inputs/libc6_2.36-9+deb12u14_arm64.deb",
+        "path": "/private/tmp/capsule-fork-native-deno-9adb0b68-20260804/inputs/runtime/libc6_2.36-9+deb12u14_arm64.deb",
+        "size": 2324660,
+        "sha256": "01f4330719fd4f65580e16ea5a0527f372fca750e8f588d26deaf09f2d3b1cf4"
+      },
+      {
+        "name": "runtime-inputs/libgcc-s1_12.2.0-14+deb12u1_arm64.deb",
+        "path": "/private/tmp/capsule-fork-native-deno-9adb0b68-20260804/inputs/runtime/libgcc-s1_12.2.0-14+deb12u1_arm64.deb",
+        "size": 34816,
+        "sha256": "576926b283613db80168ddf76380a3bd877602778cf0d226caa7bfbfa71eacf3"
+      },
+      {
+        "name": "runtime-inputs/strace_6.1-0.1_arm64.deb",
+        "path": "/private/tmp/capsule-fork-native-deno-9adb0b68-20260804/inputs/runtime/strace_6.1-0.1_arm64.deb",
+        "size": 1192916,
+        "sha256": "751817724af91cb95df566a21a154f9a7dcdd938e700e5cb9a5a47eb19752ea2"
+      }
+    ]
+  },
+  "unsigned": true,
+  "published": false
+}

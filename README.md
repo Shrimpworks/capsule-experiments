@@ -19,7 +19,7 @@ and limitations recorded by each experiment.
 - G3 evidence refresh: `810cbcc03eb7a03f678668af5f7e34391107aad7`
 - Archived path: `experiments/`
 - Snapshot date: 2026-08-04
-- Tracked files: 746
+- Tracked files: 831
 
 `SOURCE_FILES.txt` lists every path copied from the source commit.
 `SHA256SUMS` binds the archived file bytes. The original relative layout is

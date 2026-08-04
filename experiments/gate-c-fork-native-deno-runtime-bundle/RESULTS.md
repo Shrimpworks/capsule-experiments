@@ -1,112 +1,110 @@
 # Fork-native governed runtime-bundle result
 
-Date: 2026-08-03
+Date: 2026-08-04
 
-Decision: **LINUX/ARM64 CONSTRUCTION BLOCKED; NO BUILD OR RUNTIME ADMISSION**
+Decision: **PASSED — EXACT CLEAN CONSTRUCTION ONLY**
 
-Admission effect: none. No release was built, published, or signed; no profile was selected or
-admitted; `RUNTIME-001` remains unsupported and execution requiring it must refuse.
+Runtime selection/admission: **IN_PROGRESS / UNSUPPORTED**. Unsigned, unpublished, not deployed,
+and not composed with a libkrun/HVF guest.
 
 ## Question and answer
 
-Can the exact merged governed Deno and `rusty_v8` fork commits construct the first clean
-fork-native standalone Capsule runtime bundle for the intended Linux/arm64 profile, with connected
-prefetch limited to declared digest-pinned inputs and a decisive network-disabled build/test phase?
+Can the exact merged governed fork commits construct a clean standalone Linux/arm64 Capsule
+runtime bundle from empty task output/cache state, using connected digest-only prefetch followed by
+network-disabled build, test, and evidence collection, while reproducing or explicitly superseding
+the retained binary, snapshot, and 22-entry root known answers?
 
-No, not from the current merged fork state. The Deno governed source line is usable as an exact
-source input, but the `rusty_v8` governed builder/publication line supports only Linux/amd64. The
-experiment stopped before prefetch or compilation, as required, instead of relabeling an amd64
-result as arm64.
+**Yes, for that exact construction question.** The governed `rusty_v8` archive reproduces the
+owned CI oracle exactly. The Deno binary, snapshot, and root are internally reproducible and
+explicitly supersede the older known answers under the declared fork-native input/profile set.
+No difference was normalized or rewritten.
 
-## Independently verified fork state
+## Refs and locks
 
-Public refs resolved exactly to the requested heads and merges:
-
-| Fork | Governed head | Merge commit | Upstream anchor | Result |
+| Fork | Head | Merge | Upstream anchor | Tree |
 | --- | --- | --- | --- | --- |
-| `dills122/deno` | `9adb0b68b55bca81644827f1e7749a3acb091bed` | `ea18b9dc21ff8ebd19347be7095f47937ee14ec2` | `14eea3160ae5834476aa3b9d317b8d41d991b982` | Exact ancestor and merge-parent checks passed. |
-| `dills122/rusty_v8` | `a43ee7486c3e05bce5d6e5db586b3e2e688c33cf` | `a31b8f39dc6933d5635367e8ccb67d70f2cc2385` | `d305e6afa7736f6e298c30ae6646f7709ee9382b` | Exact ancestor and merge-parent checks passed. |
+| `Shrimpworks/deno` | `9adb0b68b55bca81644827f1e7749a3acb091bed` | `ea18b9dc21ff8ebd19347be7095f47937ee14ec2` | `14eea3160ae5834476aa3b9d317b8d41d991b982` | `72edd0f7b5f83b918945860653714e344c8a303f` |
+| `Shrimpworks/rusty_v8` | `80e863ddb942a4aa2b384e794fc23e35b9d2bb15` | `cbf56de2e1156b1cf1561fdbaea7172a0aa056f4` | `d305e6afa7736f6e298c30ae6646f7709ee9382b` | `d8950a7a1ee907761720b23d24eaa9b63aa33b10` |
 
-The consumed `rusty_v8` head is the follow-up `a43ee748`, not stale original head
-`17698ca`. The follow-up is merged on top of the original governed PR, so that old commit remains
-history but is not used as the terminal source identity.
+The Deno source archive is `d117cc15…bd54`; the direct-workspace Cargo source bundle is
+`1e96e49a…d1d4`; the exact Cargo lock is `4dd8f08c…389d`. The `rusty_v8` corresponding-source
+archive is `8cf75b00…2eff`. Ref verification also closed all 20 recursive gitlinks, the 22-package
+cross-tool closure, builder/source/output locks, merge parents, and stale-head rejection.
 
-The fork-local Deno verifier passed and observed:
+## Build method
 
-- exact upstream anchor;
-- exactly three governed built-in ops;
-- exact ordered patch digests `f45fda69...bac37` and `9dd33fd4...061e`;
-- fixed nominal answer `{"count":3,"label":"capsule-owned","sum":6}`;
-- fixed sealed-global answer;
-- exact `op_print` restoration mutation refusal; and
-- no admission claim.
+The task began with absent output, Cargo source cache, V8 build volume, compiler cache, and root
+directories. Connected phases fetched only declared digest-pinned inputs. Decisive build, fixed
+tests, runtime tests, root assembly, mutation tests, tracing, and evidence collection ran in
+network-disabled containers. Neither governed fork received Capsule experiment code or product
+package changes; the Deno harness consumed the fork workspaces directly.
 
-The fork-local `rusty_v8` input verifier passed the exact baseline and 20-gitlink source closure.
-Independent inspection also bound the `source.lock.json`, `builder.lock.json`, output contract, and
-all governed build/prefetch/collection/verification scripts by digest.
+The clean `rusty_v8` volume build completed the ARM64 archive. Docker Desktop then exhausted its
+virtual disk while compiling the fixed test. The completed raw archive already matched the oracle
+and was verified before recovery. Only 4,078 disposable task-owned GN object intermediates
+(390,904,352 bytes) were removed; unrelated Docker state was not pruned. The exact fork test,
+QEMU ARM64 execution, collection, and release verifier then resumed with network disabled. The
+final 11-file unsigned bundle passed its cap and closure checks.
 
-## Exact fail-fast blocker
+The Deno build used 189 registry sources plus four exact path packages from the governed workspace.
+Two four-logical-CPU trials failed closed: snapshots differed at two payload bytes plus their
+checksum, and the binaries differed only at those embedded bytes and GNU build ID. Canonical target
+paths and `setarch aarch64 -R` were verified, but four-thread V8 platform scheduling remained
+sensitive on this host. The final profile declared one visible logical CPU pinned to CPU set 0;
+fresh network-disabled A/B containers then produced byte-identical binary, snapshot, and bundle.
+The built restored-`op_print` negative control and runtime corpus passed after a retained harness
+path-variable resume; the already-built subjects were not changed.
 
-The merged `rusty_v8` governance document explicitly selects:
+## Artifact identities and comparison
 
-```text
-host: linux/amd64
-target: x86_64-unknown-linux-gnu
-profile: linux-amd64-release-simdutf-v1
-```
+| Subject | Current | Prior/oracle | Result |
+| --- | --- | --- | --- |
+| `rusty_v8` archive gzip | `1ae209c9…4cd2` | workflow 30925045754 `1ae209c9…4cd2` | equal |
+| Deno binary | `56d3acef…2898` | `597baba6…6f5` | superseded |
+| Snapshot | `4e896521…1a2c` | `ef5f1e78…fa0b` | superseded |
+| 22-entry root gzip | `e847651b…62e8` | `b0e17261…79283` | superseded |
 
-The architecture is not a single replaceable label. The following are all amd64-specific:
+The local and oracle `rusty_v8` release bundles have 6 of 11 files byte-equal. The five different
+files are fully attributed to elapsed time, host/build metadata, invocation/subject provenance,
+and checksum/manifest cascades. Build metadata has 16 of 23 members equal; the seven differences
+are host identity/timing, action-pool depth, and their deterministic graph/tool renderings. Both
+comparisons report `comparison-closed`, no unexplained file, and no normalization.
 
-- the Docker builder platform digest and `--platform linux/amd64` invocation;
-- the Rust host toolchain and Cargo target;
-- the Chromium Clang archive and V8 Rust toolchain under `Linux_x64`;
-- apt.llvm.org amd64 `libclang`/`libLLVM` packages and extracted library path;
-- the Chromium amd64 sysroot;
-- the GN and Ninja CIPD packages;
-- offline build/test target and GN output directory;
-- static archive and generated-binding filenames; and
-- release manifest profile, provenance builder identity, evidence collector, and verifier.
+The current root has the same 22 paths, modes, ownership, link target, and package bytes as the
+prior root. Twenty entries are byte-identical. Only the current governed binary (80 bytes larger)
+and snapshot (8 bytes larger) differ, increasing regular bytes from 71,871,122 to 71,871,210. That
+fully accounts for the root manifest, tar, and gzip identity changes.
 
-`governance/v150.2.0/README.md` itself states that Linux/arm64 remains required before Capsule can
-replace its retained Linux/arm64 evidence. No arm64 builder image digest, host-tool closure,
-aarch64 sysroot/toolchain tuple, arm64 expected output contract, or arm64 workflow job exists.
+## Verification
 
-## Closed intended contract
+The final link contains only:
 
-`manifests/input-contract.json` defines the intended Linux/arm64 contract and refuses construction
-while any required source archive, tool, source/license/notice subject, generated build metadata,
-SBOM, unsigned provenance, standalone-root subject, or exact output identity is missing. It binds
-the exact governed fork commits and prior root/fixture oracles but marks all prior binary/snapshot/
-root identities as comparison-only. A fork-native build must independently reproduce or explicitly
-supersede them; it may not inherit the official prebuilt V8 archive as though the fork built it.
+1. `op_get_ext_import_meta_proto`
+2. `op_get_extras_binding_object`
+3. `op_set_captured_bootstrap`
 
-## Smallest next fork change
+The runtime observed the same ordered three-op registry and fixed JSON result. Sealed globals,
+physical omission, no static/dynamic module request, `moduleLoader: none`, no inspector/extensions,
+descriptor `[0,1,2]`, four syscall refusals, restored four-op refusal, exact ELF dynamic closure,
+loader/file-open closure, and 14 root mutations all passed. The file trace observed no socket
+syscall and no executable mapping after the host seal. Root and artifact caps passed.
 
-Add one reviewable Linux/arm64 sibling profile to `dills122/rusty_v8`, based on follow-up head
-`a43ee7486c3e05bce5d6e5db586b3e2e688c33cf`, without weakening the amd64 contract:
+Source/license/notice closure includes the Deno source archive, all 193 Cargo packages, all 189
+registry checksums and license expressions, the full `rusty_v8` corresponding-source and notice
+subjects, both V8 SBOM formats, Debian binary/source inputs, a complete CycloneDX 1.6 composition,
+artifact checksums, and unsigned in-toto/SLSA provenance.
 
-1. Add an arm64 builder lock containing an exact Linux/arm64 image digest, host Rust toolchain,
-   aarch64 target/sysroot, host-executable GN/Ninja, Clang, libclang/bindgen runtime, V8 Rust
-   toolchain, environment, and concurrency.
-2. Parameterize or add arm64-specific prefetch, offline build, evidence collection, output names,
-   release verification, and a workflow job whose decisive phase uses `--network none`.
-3. Retain the exact effective `args.gn`, `build.ninja`, generated build settings, GN target graph,
-   Ninja graph/deps, archive members, submodule status, tool versions, complete corresponding
-   source, notices, SBOM, and unsigned provenance for `aarch64-unknown-linux-gnu`.
-4. Run the fixed upstream version test and publish only a CI artifact; do not sign, release, or
-   admit it.
+## Confidence and limitations
 
-Only after that change merges should Capsule perform the clean empty-cache arm64 build, assemble
-the fork-native Deno candidate and 22-entry root, and run reproduction, final-link, descriptor,
-syscall-seal, TypeScript emitted-JS fixture, and restoration checks.
+Confidence is high for exact same-host construction and the retained closed corpus. It is not an
+independent-builder result: local V8, Deno A/B, and root A/B ran through the same Apple Silicon
+Docker Desktop/LinuxKit host. The V8 build is an amd64-host-to-arm64 cross build; Deno/root execute
+as Linux/arm64 containers. `--network none` applied to decisive containers, but the macOS host
+remained connected and Docker isolation was not independently attested. CI run 30925045754 is only
+a comparison oracle. No guest, signing service, release channel, deployment, or arbitrary workload
+was exercised.
 
-## Limitations and confidence
-
-Confidence is high in the blocker because it is asserted by the fork documentation and repeated
-through every machine-readable lock and build/output script. No compilation was attempted, so this
-result makes no claim about eventual arm64 build success, output identity, standalone bundle
-identity, syscall behavior, descriptor behavior, same-host equality, or independent builders.
-
-The prior binary `597baba6...6f5`, snapshot `ef5f1e78...fa0b`, and root
-`b0e17261...79283` remain exact retained comparison oracles only. They are not fork-native outputs
-from these merged commits.
+The next boundary is a separately authorized composed-profile task: place this exact unsigned root
+inside the intended external-isolation mechanism, repeat admission-relevant evidence on an
+independent builder/host, and make a separate runtime-selection decision. Until then
+`RUNTIME-001` remains unsupported.

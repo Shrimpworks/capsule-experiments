@@ -1,0 +1,47 @@
+{
+  "schema": "capsule.deno-core-physical-omission.v0",
+  "denoCore": "0.409.0",
+  "customSnapshot": true,
+  "extensions": [],
+  "builtinOps": [
+    "op_get_ext_import_meta_proto",
+    "op_get_extras_binding_object",
+    "op_set_captured_bootstrap"
+  ],
+  "moduleLoader": "none",
+  "inspector": false,
+  "v8Flags": [
+    "--jitless",
+    "--random-seed=42"
+  ],
+  "hostSeal": {
+    "linuxArm64": true,
+    "noNewPrivileges": true,
+    "seccompTsync": true,
+    "descriptorLimit": 3,
+    "inheritedDescriptors": [
+      0,
+      1,
+      2
+    ],
+    "denied": [
+      "clone",
+      "clone3",
+      "execve",
+      "execveat",
+      "socket",
+      "socketpair",
+      "executable mmap",
+      "executable mprotect"
+    ]
+  },
+  "observed": {
+    "coreOps": [
+      "op_get_ext_import_meta_proto",
+      "op_get_extras_binding_object",
+      "op_set_captured_bootstrap"
+    ],
+    "hasWorker": false,
+    "hasWebAssembly": false
+  }
+}

@@ -18,3 +18,15 @@ SBOM, and license evidence before reuse.
 The source commit remains the rollback point until the corresponding Capsule
 cleanup pull request is merged. If the archive verification fails, do not delete
 or rewrite the source experiment tree.
+
+## Fork-native Linux/arm64 follow-up
+
+On 2026-08-04, branch `codex/fork-native-arm64-rebuild` added the defensive
+fork-native Linux/arm64 reconstruction result under
+`experiments/gate-c-fork-native-deno-runtime-bundle/`, based on archive commit
+`3e9c9cbc3e0314439771151f1fd99c2b3a5a50b9`. The follow-up consumes exact public
+`Shrimpworks/deno` and `Shrimpworks/rusty_v8` refs, retains only experiment code
+and evidence, and does not import code into either fork or Capsule product
+packages. `SOURCE_FILES.txt` and `SHA256SUMS` were refreshed to bind the complete
+831-file `experiments/` tree after this addition. Retained `.log` files are
+marked non-text so Git preserves their exact captured bytes.

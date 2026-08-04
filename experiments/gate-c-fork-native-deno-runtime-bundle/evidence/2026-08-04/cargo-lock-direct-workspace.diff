@@ -1,0 +1,20 @@
+--- capsule-experiments/experiments/gate-c-deno-core-physical-omission/probe/Cargo.lock	2026-08-04 14:18:30
++++ capsule-experiments/experiments/gate-c-fork-native-deno-runtime-bundle/builder/Cargo.lock	2026-08-04 15:56:16
+@@ -311,8 +311,6 @@
+ [[package]]
+ name = "deno_ops"
+ version = "0.285.0"
+-source = "registry+https://github.com/rust-lang/crates.io-index"
+-checksum = "65c02fede673301e8b47d19368e0f3146d020e5dfcc5ee31d020cbbe542b2a50"
+ dependencies = [
+  "indexmap",
+  "proc-macro2",
+@@ -1167,8 +1165,6 @@
+ [[package]]
+ name = "serde_v8"
+ version = "0.318.0"
+-source = "registry+https://github.com/rust-lang/crates.io-index"
+-checksum = "eb994c8fd6bc9746ac605f1c38219fc5eaa99ca4509db1b6519eefa0219b04a0"
+ dependencies = [
+  "deno_error",
+  "num-bigint",

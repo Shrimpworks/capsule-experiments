@@ -1,0 +1,7 @@
+fixedResult=pass
+sealedGlobals=pass
+descriptorManifest=pass-[0,1,2]
+staticModuleRequest=refused
+dynamicModuleRequest=refused
+syscallRestoration=refused
+restoredOpPrintBinary=refused-four-op-registry

@@ -1,0 +1,297 @@
+{
+  "schema": "capsule.rusty-v8-build-metadata-comparison.v1",
+  "memberCount": 23,
+  "equalCount": 16,
+  "differentCount": 7,
+  "members": {
+    ".ninja_deps": {
+      "local": {
+        "size": 7358628,
+        "sha256": "25d52fb962bb2cd7b2f0b99c4b85f7aa9c2d429dd7e1475fcdf70a379332b8a0"
+      },
+      "oracle": {
+        "size": 7358628,
+        "sha256": "ff6ab9bc571a687feb71f1ba24621acdc71aacdbe5c4bd90c14baabce5716008"
+      },
+      "result": "different-retained"
+    },
+    ".ninja_log": {
+      "local": {
+        "size": 852651,
+        "sha256": "e2c088651628c913764303649bc1d1c5813fbcc5eca738fbc08f8616047f7e58"
+      },
+      "oracle": {
+        "size": 852298,
+        "sha256": "c851c254479efb7da6880a6387e425052460e97000e7c88b0659579885178d00"
+      },
+      "result": "different-retained"
+    },
+    "archive-architecture.txt": {
+      "local": {
+        "size": 933,
+        "sha256": "70c1104e055aa64c88f34aae1ce5c93bb8aad0855312180c37badd0c72901d87"
+      },
+      "oracle": {
+        "size": 933,
+        "sha256": "70c1104e055aa64c88f34aae1ce5c93bb8aad0855312180c37badd0c72901d87"
+      },
+      "result": "byte-equal"
+    },
+    "archive-members.txt": {
+      "local": {
+        "size": 31820,
+        "sha256": "3645c81e94f5e12475dfb6c8dbf4b110a0dd05db3517f6865a4cf01747179c35"
+      },
+      "oracle": {
+        "size": 31820,
+        "sha256": "3645c81e94f5e12475dfb6c8dbf4b110a0dd05db3517f6865a4cf01747179c35"
+      },
+      "result": "byte-equal"
+    },
+    "args.gn": {
+      "local": {
+        "size": 337,
+        "sha256": "d897b863f28a0bc3eed28dc9434066585fdcbe3853c82c9b49b6e764d9768ef0"
+      },
+      "oracle": {
+        "size": 337,
+        "sha256": "d897b863f28a0bc3eed28dc9434066585fdcbe3853c82c9b49b6e764d9768ef0"
+      },
+      "result": "byte-equal"
+    },
+    "build.ninja": {
+      "local": {
+        "size": 126014,
+        "sha256": "13234bead9964432509dd3c5845ca7becb7f0d4f0f38c285ea5adebdbf913273"
+      },
+      "oracle": {
+        "size": 126013,
+        "sha256": "018cb74ada6816a74fddc0d63f4b7911000d9710436bbd6749448287570d052e"
+      },
+      "result": "different-retained"
+    },
+    "builder-linux-arm64.lock.json": {
+      "local": {
+        "size": 13148,
+        "sha256": "da45206bfdea87b0dc3ddb9ec31babdce264862174ec30450baddee2d8c1f70b"
+      },
+      "oracle": {
+        "size": 13148,
+        "sha256": "da45206bfdea87b0dc3ddb9ec31babdce264862174ec30450baddee2d8c1f70b"
+      },
+      "result": "byte-equal"
+    },
+    "builder-package-manifest.txt": {
+      "local": {
+        "size": 10625,
+        "sha256": "1ff2c194bc5f73f292cbbc123ab91d553646f2eac905915eefc6820689fab967"
+      },
+      "oracle": {
+        "size": 10625,
+        "sha256": "1ff2c194bc5f73f292cbbc123ab91d553646f2eac905915eefc6820689fab967"
+      },
+      "result": "byte-equal"
+    },
+    "clean-cache-proof.json": {
+      "local": {
+        "size": 312,
+        "sha256": "dd15b289ff726c9cd73fa35edb66ba8d76b0f321013f4a7157d70011ec2cb4c5"
+      },
+      "oracle": {
+        "size": 312,
+        "sha256": "dd15b289ff726c9cd73fa35edb66ba8d76b0f321013f4a7157d70011ec2cb4c5"
+      },
+      "result": "byte-equal"
+    },
+    "generated-build-settings.json": {
+      "local": {
+        "size": 10458,
+        "sha256": "f5d77c1d640c5e5302b84efcd3fa313c40b62ffbe0287dbbfa86f487500cf739"
+      },
+      "oracle": {
+        "size": 10458,
+        "sha256": "f5d77c1d640c5e5302b84efcd3fa313c40b62ffbe0287dbbfa86f487500cf739"
+      },
+      "result": "byte-equal"
+    },
+    "gn-args-list.txt": {
+      "local": {
+        "size": 113603,
+        "sha256": "325d50475f9469ad51abb77825c87a110e912777bdfda280cc918a2016506bb5"
+      },
+      "oracle": {
+        "size": 113603,
+        "sha256": "325d50475f9469ad51abb77825c87a110e912777bdfda280cc918a2016506bb5"
+      },
+      "result": "byte-equal"
+    },
+    "gn-target.json": {
+      "local": {
+        "size": 12876,
+        "sha256": "a3fee2f0a0b8fc009b3c32c46ac4ad962ac3f9f150a6e86eaf51e4de2d4571e5"
+      },
+      "oracle": {
+        "size": 12876,
+        "sha256": "a3fee2f0a0b8fc009b3c32c46ac4ad962ac3f9f150a6e86eaf51e4de2d4571e5"
+      },
+      "result": "byte-equal"
+    },
+    "governed-build.log": {
+      "local": {
+        "size": 2653,
+        "sha256": "ce0c5f35e27a5ba14ed2c63b224d1073ae9cb5bb84969207908ce20240f07a07"
+      },
+      "oracle": {
+        "size": 2654,
+        "sha256": "07f649593cb96e1e61590aa99b547207eabba47dc13331da513d7435a6c484fd"
+      },
+      "result": "different-retained"
+    },
+    "governed.patch": {
+      "local": {
+        "size": 197807,
+        "sha256": "765e94656248b5d3d92239d224f82046898e88beb1d15a79be796db168a1bf07"
+      },
+      "oracle": {
+        "size": 197807,
+        "sha256": "765e94656248b5d3d92239d224f82046898e88beb1d15a79be796db168a1bf07"
+      },
+      "result": "byte-equal"
+    },
+    "host-environment.json": {
+      "local": {
+        "size": 437,
+        "sha256": "6a1c611da3b2e4667e65b4ea7969ed56187756189b4c8e1c8f5d061df300b596"
+      },
+      "oracle": {
+        "size": 398,
+        "sha256": "4ac775be2d95d6c85e5e8785c43023b05c8b3ef2663f6355db9b08c0843bb836"
+      },
+      "result": "different-retained"
+    },
+    "ninja-commands.txt": {
+      "local": {
+        "size": 18632470,
+        "sha256": "1b5faac9092b450713db8b40f1bcd0b2c08d9d413696b86ed97fbe82f0e4b4f0"
+      },
+      "oracle": {
+        "size": 18632470,
+        "sha256": "1b5faac9092b450713db8b40f1bcd0b2c08d9d413696b86ed97fbe82f0e4b4f0"
+      },
+      "result": "byte-equal"
+    },
+    "ninja-deps.txt": {
+      "local": {
+        "size": 25,
+        "sha256": "d71ed8908287291629b14de471627bee7fe7cc2c20dcddd8db4c0f37cccc455b"
+      },
+      "oracle": {
+        "size": 25,
+        "sha256": "d71ed8908287291629b14de471627bee7fe7cc2c20dcddd8db4c0f37cccc455b"
+      },
+      "result": "byte-equal"
+    },
+    "ninja-graph.dot": {
+      "local": {
+        "size": 3755266,
+        "sha256": "891484e40ff9e82732e2c52a73c9da49dc3e89beb865aae590adc209bf4b2008"
+      },
+      "oracle": {
+        "size": 3838306,
+        "sha256": "e0147807f91c9e1014113854f70b4b18be619f61906229cd3923819b128ffe5d"
+      },
+      "result": "different-retained"
+    },
+    "prefetch-evidence.json": {
+      "local": {
+        "size": 42649,
+        "sha256": "1d2698656c87f0ddf561d6958aeba83c59d15e37510f38f3355632aaf98039ad"
+      },
+      "oracle": {
+        "size": 42649,
+        "sha256": "1d2698656c87f0ddf561d6958aeba83c59d15e37510f38f3355632aaf98039ad"
+      },
+      "result": "byte-equal"
+    },
+    "project.json": {
+      "local": {
+        "size": 10654132,
+        "sha256": "0245087df32e975dddd899e246cbdbaffd579d935c3cb4add39f04fc575797ed"
+      },
+      "oracle": {
+        "size": 10654132,
+        "sha256": "0245087df32e975dddd899e246cbdbaffd579d935c3cb4add39f04fc575797ed"
+      },
+      "result": "byte-equal"
+    },
+    "source.lock.json": {
+      "local": {
+        "size": 4502,
+        "sha256": "df1630e159dfec398ca8d71305431d441b6953efc910de63f4c0e6e28f251855"
+      },
+      "oracle": {
+        "size": 4502,
+        "sha256": "df1630e159dfec398ca8d71305431d441b6953efc910de63f4c0e6e28f251855"
+      },
+      "result": "byte-equal"
+    },
+    "submodules.txt": {
+      "local": {
+        "size": 1647,
+        "sha256": "d288e29d9033ca137ebaf13407e2b18fc3f1c7f50b7497c5fc4bc432d5f1aeac"
+      },
+      "oracle": {
+        "size": 1647,
+        "sha256": "d288e29d9033ca137ebaf13407e2b18fc3f1c7f50b7497c5fc4bc432d5f1aeac"
+      },
+      "result": "byte-equal"
+    },
+    "tool-versions.json": {
+      "local": {
+        "size": 1923,
+        "sha256": "772d1d236d1c44764c582d2d649d85e8b42fb529619651af890ece8846f82518"
+      },
+      "oracle": {
+        "size": 1931,
+        "sha256": "f1461961cfc205ebd90580811be9fb932840ffdae528cbbebf90dab277220744"
+      },
+      "result": "different-retained"
+    }
+  },
+  "different": [
+    ".ninja_deps",
+    ".ninja_log",
+    "build.ninja",
+    "governed-build.log",
+    "host-environment.json",
+    "ninja-graph.dot",
+    "tool-versions.json"
+  ],
+  "attribution": {
+    ".ninja_deps": "Ninja dependency database retains filesystem observations from the individual build",
+    ".ninja_log": "Ninja log retains per-command monotonic timings and output mtimes from the individual build",
+    "build.ninja": "the governed action-pool depth records 10 locally available CPUs versus 4 on the GitHub runner; all other bytes are equal",
+    "governed-build.log": "Cargo/Ninja log retains individual build progress and elapsed timing",
+    "host-environment.json": "physical host and Docker daemon identities differ between local Apple Silicon Docker Desktop and GitHub Actions",
+    "ninja-graph.dot": "Ninja emits ephemeral in-process pointer identifiers; the full graph is equal after deterministic first-occurrence pointer renaming",
+    "tool-versions.json": "all exact tool versions are equal; Cargo reports the emulated local builder OS as Linux versus Debian 12.0.0 in GitHub Actions"
+  },
+  "semanticProofs": {
+    "buildNinjaDiffLimitedToAvailableCpuActionPoolDepth": true,
+    "buildNinjaActionPoolDepth": {
+      "local": 10,
+      "oracle": 4
+    },
+    "ninjaGraphEqualAfterDeterministicPointerRenaming": true,
+    "toolVersionsEqualAfterCargoOsObservation": true,
+    "cargoOsObservation": {
+      "local": "Linux [64-bit]",
+      "oracle": "Debian 12.0.0 [64-bit]"
+    }
+  },
+  "semanticProofFailures": [],
+  "unexplained": [],
+  "missingExpectedDifference": [],
+  "normalizationApplied": false,
+  "decision": "comparison-closed"
+}

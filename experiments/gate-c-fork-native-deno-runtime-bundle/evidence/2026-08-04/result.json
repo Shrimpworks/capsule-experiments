@@ -1,0 +1,292 @@
+{
+  "schema": "capsule.fork-native-deno-runtime-result.v1",
+  "decision": "PASSED-EXACT-CLEAN-CONSTRUCTION-ONLY",
+  "runtimeSelectionAdmission": "IN_PROGRESS-UNSUPPORTED",
+  "fixedResult": {
+    "count": 3,
+    "label": "capsule-owned",
+    "sum": 6
+  },
+  "artifacts": {
+    "denoBinary": {
+      "name": "deno/binary",
+      "path": "/private/tmp/capsule-fork-native-deno-9adb0b68-20260804/out/build-a/bundle/bin/capsule-deno-core-physical-omission",
+      "size": 68497624,
+      "sha256": "56d3acefd2cc2f5136a0b8143c47131e49a58fbf66382dfd3e84f715ce8e2898"
+    },
+    "denoSnapshot": {
+      "name": "deno/snapshot",
+      "path": "/private/tmp/capsule-fork-native-deno-9adb0b68-20260804/out/build-a/bundle/share/capsule-deno-core/capsule_core_snapshot.bin",
+      "size": 699988,
+      "sha256": "4e8965217d5a6675a880326eee6f690bbeec7e7cb243decf2f3e9f453a871a2c"
+    },
+    "denoTwoFileBundle": {
+      "name": "deno/two-file-bundle",
+      "path": "/private/tmp/capsule-fork-native-deno-9adb0b68-20260804/out/build-a/capsule-deno-core-runtime-bundle.tar.gz",
+      "size": 20983891,
+      "sha256": "0cc08f93e82fcfe68b033e8807975a3bd67068a817da811a87a73aedc3f23937"
+    },
+    "runtimeRootManifest": {
+      "name": "runtime-root/manifest",
+      "path": "/private/tmp/capsule-fork-native-deno-9adb0b68-20260804/out/runtime-root-files.tsv",
+      "size": 1807,
+      "sha256": "100832dbb37737f29341bc5404df6d4405b8d6b706f274028892801fa88e7de8"
+    },
+    "runtimeRootTar": {
+      "name": "runtime-root/rootfs.tar",
+      "path": "/private/tmp/capsule-fork-native-deno-9adb0b68-20260804/root-a/rootfs.tar",
+      "size": 71895040,
+      "sha256": "9c46b45c4d220aedcc47c9ee53e875bc71d31d0b881b51740aaa9b882b5741e6"
+    },
+    "runtimeRootGzip": {
+      "name": "runtime-root/rootfs.tar.gz",
+      "path": "/private/tmp/capsule-fork-native-deno-9adb0b68-20260804/root-a/rootfs.tar.gz",
+      "size": 22192615,
+      "sha256": "e847651b35cd425dd8f6fe3bd45d693aff0af244e3a7bd30c629fa125cac62e8"
+    },
+    "denoSource": {
+      "name": "sources/Shrimpworks-deno-source.tar.gz",
+      "path": "/private/tmp/capsule-fork-native-deno-9adb0b68-20260804/inputs/Shrimpworks-deno-9adb0b68b55b-source.tar.gz",
+      "size": 32342282,
+      "sha256": "d117cc1594c9876717deba66a7792c7d5520cdf6379642b412931614b848bd54"
+    },
+    "cargoSource": {
+      "name": "sources/cargo-source-bundle.tar.gz",
+      "path": "/private/tmp/capsule-fork-native-deno-9adb0b68-20260804/cache/cargo-source-bundle.tar.gz",
+      "size": 70134953,
+      "sha256": "1e96e49a516e4cf6a9ec79acae9a9eb3d0ee52b332695fa11476a97e1e50d1d4"
+    }
+  },
+  "reproducibility": {
+    "denoBinary": {
+      "buildA": {
+        "name": "denoBinary/build-a",
+        "path": "/private/tmp/capsule-fork-native-deno-9adb0b68-20260804/out/build-a/bundle/bin/capsule-deno-core-physical-omission",
+        "size": 68497624,
+        "sha256": "56d3acefd2cc2f5136a0b8143c47131e49a58fbf66382dfd3e84f715ce8e2898"
+      },
+      "buildB": {
+        "name": "denoBinary/build-b",
+        "path": "/private/tmp/capsule-fork-native-deno-9adb0b68-20260804/out/build-b/bundle/bin/capsule-deno-core-physical-omission",
+        "size": 68497624,
+        "sha256": "56d3acefd2cc2f5136a0b8143c47131e49a58fbf66382dfd3e84f715ce8e2898"
+      },
+      "result": "byte-equal"
+    },
+    "denoSnapshot": {
+      "buildA": {
+        "name": "denoSnapshot/build-a",
+        "path": "/private/tmp/capsule-fork-native-deno-9adb0b68-20260804/out/build-a/bundle/share/capsule-deno-core/capsule_core_snapshot.bin",
+        "size": 699988,
+        "sha256": "4e8965217d5a6675a880326eee6f690bbeec7e7cb243decf2f3e9f453a871a2c"
+      },
+      "buildB": {
+        "name": "denoSnapshot/build-b",
+        "path": "/private/tmp/capsule-fork-native-deno-9adb0b68-20260804/out/build-b/bundle/share/capsule-deno-core/capsule_core_snapshot.bin",
+        "size": 699988,
+        "sha256": "4e8965217d5a6675a880326eee6f690bbeec7e7cb243decf2f3e9f453a871a2c"
+      },
+      "result": "byte-equal"
+    },
+    "denoTwoFileBundle": {
+      "buildA": {
+        "name": "denoTwoFileBundle/build-a",
+        "path": "/private/tmp/capsule-fork-native-deno-9adb0b68-20260804/out/build-a/capsule-deno-core-runtime-bundle.tar.gz",
+        "size": 20983891,
+        "sha256": "0cc08f93e82fcfe68b033e8807975a3bd67068a817da811a87a73aedc3f23937"
+      },
+      "buildB": {
+        "name": "denoTwoFileBundle/build-b",
+        "path": "/private/tmp/capsule-fork-native-deno-9adb0b68-20260804/out/build-b/capsule-deno-core-runtime-bundle.tar.gz",
+        "size": 20983891,
+        "sha256": "0cc08f93e82fcfe68b033e8807975a3bd67068a817da811a87a73aedc3f23937"
+      },
+      "result": "byte-equal"
+    },
+    "runtimeRootManifest": {
+      "buildA": {
+        "name": "runtimeRootManifest/build-a",
+        "path": "/private/tmp/capsule-fork-native-deno-9adb0b68-20260804/root-a/runtime-root-files.tsv",
+        "size": 1807,
+        "sha256": "100832dbb37737f29341bc5404df6d4405b8d6b706f274028892801fa88e7de8"
+      },
+      "buildB": {
+        "name": "runtimeRootManifest/build-b",
+        "path": "/private/tmp/capsule-fork-native-deno-9adb0b68-20260804/root-b/runtime-root-files.tsv",
+        "size": 1807,
+        "sha256": "100832dbb37737f29341bc5404df6d4405b8d6b706f274028892801fa88e7de8"
+      },
+      "result": "byte-equal"
+    },
+    "runtimeRootTar": {
+      "buildA": {
+        "name": "runtimeRootTar/build-a",
+        "path": "/private/tmp/capsule-fork-native-deno-9adb0b68-20260804/root-a/rootfs.tar",
+        "size": 71895040,
+        "sha256": "9c46b45c4d220aedcc47c9ee53e875bc71d31d0b881b51740aaa9b882b5741e6"
+      },
+      "buildB": {
+        "name": "runtimeRootTar/build-b",
+        "path": "/private/tmp/capsule-fork-native-deno-9adb0b68-20260804/root-b/rootfs.tar",
+        "size": 71895040,
+        "sha256": "9c46b45c4d220aedcc47c9ee53e875bc71d31d0b881b51740aaa9b882b5741e6"
+      },
+      "result": "byte-equal"
+    },
+    "runtimeRootGzip": {
+      "buildA": {
+        "name": "runtimeRootGzip/build-a",
+        "path": "/private/tmp/capsule-fork-native-deno-9adb0b68-20260804/root-a/rootfs.tar.gz",
+        "size": 22192615,
+        "sha256": "e847651b35cd425dd8f6fe3bd45d693aff0af244e3a7bd30c629fa125cac62e8"
+      },
+      "buildB": {
+        "name": "runtimeRootGzip/build-b",
+        "path": "/private/tmp/capsule-fork-native-deno-9adb0b68-20260804/root-b/rootfs.tar.gz",
+        "size": 22192615,
+        "sha256": "e847651b35cd425dd8f6fe3bd45d693aff0af244e3a7bd30c629fa125cac62e8"
+      },
+      "result": "byte-equal"
+    }
+  },
+  "comparison": {
+    "schema": "capsule.fork-native-runtime-comparison.v1",
+    "rustyV8Archive": {
+      "current": "1ae209c9e4ba5803d010d2c79ee4cc0af0126c5a7ebcca211c7e41deaede4cd2",
+      "prior": "1ae209c9e4ba5803d010d2c79ee4cc0af0126c5a7ebcca211c7e41deaede4cd2",
+      "result": "equal",
+      "oracleRun": 30925045754
+    },
+    "denoBinary": {
+      "current": "56d3acefd2cc2f5136a0b8143c47131e49a58fbf66382dfd3e84f715ce8e2898",
+      "prior": "597baba6b9f50fc619ce667a352e19686f8c73efc6819d137b3c4081450fd6f5",
+      "result": "different"
+    },
+    "denoSnapshot": {
+      "current": "4e8965217d5a6675a880326eee6f690bbeec7e7cb243decf2f3e9f453a871a2c",
+      "prior": "ef5f1e7883bbf62a6422957ff0eea51a06d4b35cad1f47dc9c9ae137ab8dfa0b",
+      "result": "different"
+    },
+    "runtimeRootGzip": {
+      "current": "e847651b35cd425dd8f6fe3bd45d693aff0af244e3a7bd30c629fa125cac62e8",
+      "prior": "b0e1726171c08669c1c3bba70b1aae89c07270c306a1dd4fa6919ec69f579283",
+      "result": "different"
+    },
+    "runtimeRootEntries": {
+      "schema": "capsule.fork-native-runtime-root-entry-comparison.v1",
+      "priorManifest": {
+        "name": "runtime-root/prior-manifest",
+        "path": "/Users/dsteele/Documents/Codex/2026-08-04/capsule-fork-native-arm64-rebuild/capsule-experiments/experiments/gate-c-deno-core-runtime-root/manifests/runtime-root-files.tsv",
+        "size": 1807,
+        "sha256": "94132c7b77200c7ba343b44e1f66ee404fba32c6227268d63a9cc70831179623"
+      },
+      "currentManifest": {
+        "name": "runtime-root/manifest",
+        "path": "/private/tmp/capsule-fork-native-deno-9adb0b68-20260804/out/runtime-root-files.tsv",
+        "size": 1807,
+        "sha256": "100832dbb37737f29341bc5404df6d4405b8d6b706f274028892801fa88e7de8"
+      },
+      "priorEntryCount": 22,
+      "currentEntryCount": 22,
+      "equalEntryCount": 20,
+      "differentEntryCount": 2,
+      "differences": [
+        {
+          "path": "bin/capsule-deno-core-physical-omission",
+          "prior": [
+            "bin/capsule-deno-core-physical-omission",
+            "file",
+            "755",
+            "0",
+            "0",
+            "68497544",
+            "597baba6b9f50fc619ce667a352e19686f8c73efc6819d137b3c4081450fd6f5",
+            "-"
+          ],
+          "current": [
+            "bin/capsule-deno-core-physical-omission",
+            "file",
+            "755",
+            "0",
+            "0",
+            "68497624",
+            "56d3acefd2cc2f5136a0b8143c47131e49a58fbf66382dfd3e84f715ce8e2898",
+            "-"
+          ]
+        },
+        {
+          "path": "share/capsule-deno-core/capsule_core_snapshot.bin",
+          "prior": [
+            "share/capsule-deno-core/capsule_core_snapshot.bin",
+            "file",
+            "644",
+            "0",
+            "0",
+            "699980",
+            "ef5f1e7883bbf62a6422957ff0eea51a06d4b35cad1f47dc9c9ae137ab8dfa0b",
+            "-"
+          ],
+          "current": [
+            "share/capsule-deno-core/capsule_core_snapshot.bin",
+            "file",
+            "644",
+            "0",
+            "0",
+            "699988",
+            "4e8965217d5a6675a880326eee6f690bbeec7e7cb243decf2f3e9f453a871a2c",
+            "-"
+          ]
+        }
+      ],
+      "attribution": "only exact governed Deno binary and snapshot members may differ; no root bytes are normalized or rewritten"
+    },
+    "decision": "comparison-closed",
+    "unexplainedDifferences": [],
+    "attribution": {
+      "versionedInputs": [
+        "Shrimpworks/deno@9adb0b68b55bca81644827f1e7749a3acb091bed",
+        "Shrimpworks/rusty_v8@80e863ddb942a4aa2b384e794fc23e35b9d2bb15",
+        "rusty_v8 archive 1ae209c9e4ba5803d010d2c79ee4cc0af0126c5a7ebcca211c7e41deaede4cd2",
+        "direct governed Deno workspace path /workspace/deno/libs/core",
+        "rust:1.95.0-bookworm@sha256:6258907abe69656e41cd992e0b705cdcfabcbbe3db374f92ed2d47121282d4a1",
+        "single visible logical CPU pinned to CPU set 0 for snapshot construction"
+      ],
+      "denoBinary": "supersedes the prior binary because the exact governed rusty_v8 archive, direct fork workspace source path, and independently serialized current snapshot replace the prior official-prebuilt construction inputs",
+      "denoSnapshot": "supersedes the prior snapshot under the exact governed rusty_v8 archive and declared single-logical-CPU fork-native snapshot boundary; clean builds A and B are byte-equal",
+      "runtimeRootGzip": "supersedes the prior root solely through the versioned binary and snapshot entries; all other 20 closed-root entries are byte-identical",
+      "outputRewriteOrNormalization": false,
+      "rule": "different identities are retained as superseding fork-native bytes and are never rewritten to prior known answers"
+    }
+  },
+  "rootEntries": 22,
+  "rootRegularFileBytes": 71871210,
+  "verification": {
+    "sameHostDenoBuildAB": "byte-equal",
+    "sameHostRootBuildAB": "byte-equal",
+    "builtinOps": [
+      "op_get_ext_import_meta_proto",
+      "op_get_extras_binding_object",
+      "op_set_captured_bootstrap"
+    ],
+    "fixedResult": {
+      "count": 3,
+      "label": "capsule-owned",
+      "sum": 6
+    },
+    "moduleLoader": "none",
+    "descriptors": [
+      0,
+      1,
+      2
+    ],
+    "syscallSeal": "pass",
+    "fileOpenClosure": "pass",
+    "restorationMutations": "pass"
+  },
+  "admission": {
+    "signed": false,
+    "published": false,
+    "runtimeProfileSelected": false,
+    "runtime001": "unsupported"
+  }
+}

@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
   "objectType": "capsule.fork-native-deno-runtime-bundle-input-contract",
-  "status": "blocked-arm64-builder-absent",
-  "scope": "build-profile-evidence-only",
+  "status": "constructed-and-verified-not-admitted",
+  "scope": "exact-clean-fork-native-construction-only",
   "target": {
     "os": "linux",
     "architecture": "arm64",
@@ -11,23 +11,26 @@
   },
   "forks": {
     "deno": {
-      "repository": "https://github.com/dills122/deno.git",
+      "repository": "https://github.com/Shrimpworks/deno.git",
       "upstreamCommit": "14eea3160ae5834476aa3b9d317b8d41d991b982",
       "governedHead": "9adb0b68b55bca81644827f1e7749a3acb091bed",
       "mergeCommit": "ea18b9dc21ff8ebd19347be7095f47937ee14ec2",
       "tree": "72edd0f7b5f83b918945860653714e344c8a303f",
       "sourceArchiveRequired": true,
-      "sourceArchiveSha256": "unavailable-until-arm64-candidate-construction"
+      "sourceArchiveSha256": "d117cc1594c9876717deba66a7792c7d5520cdf6379642b412931614b848bd54"
     },
     "rustyV8": {
-      "repository": "https://github.com/dills122/rusty_v8.git",
+      "repository": "https://github.com/Shrimpworks/rusty_v8.git",
       "upstreamCommit": "d305e6afa7736f6e298c30ae6646f7709ee9382b",
-      "governedHead": "a43ee7486c3e05bce5d6e5db586b3e2e688c33cf",
-      "mergeCommit": "a31b8f39dc6933d5635367e8ccb67d70f2cc2385",
-      "tree": "0e9be42766efb165119aaa4f13a4a43693d251e4",
-      "rejectedTerminalHead": "17698caedb8721c132a3e2f08f7ab0ae212f313a",
+      "governedHead": "80e863ddb942a4aa2b384e794fc23e35b9d2bb15",
+      "mergeCommit": "cbf56de2e1156b1cf1561fdbaea7172a0aa056f4",
+      "tree": "d8950a7a1ee907761720b23d24eaa9b63aa33b10",
+      "rejectedStaleHeads": [
+        "a43ee7486c3e05bce5d6e5db586b3e2e688c33cf",
+        "17698caedb8721c132a3e2f08f7ab0ae212f313a"
+      ],
       "sourceArchiveRequired": true,
-      "sourceArchiveSha256": "unavailable-until-arm64-profile-exists"
+      "sourceArchiveSha256": "8cf75b005e0dfe7e4b8c0a424e3350ed6701a53c9531d8e3ee3a67d5c14a2eff"
     }
   },
   "requiredMaterials": [
@@ -38,6 +41,8 @@
     "digest-pinned Linux/arm64 builder image",
     "digest-pinned host Rust, Clang, libclang/bindgen, GN, Ninja, sysroot, and V8 Rust toolchain inputs",
     "complete locked Cargo source closure",
+    "direct governed Deno workspace Cargo lock 4dd8f08c8b223adbf3468fce5fe9e0468dfe9f4a255129cc304cb604fa0d389d",
+    "single-logical-CPU snapshot construction with CPU set 0",
     "effective args.gn, build.ninja, generated build settings, GN target graph, Ninja graph and dependency closure",
     "exact archive members and linked-component closure",
     "complete licenses, notices, and corresponding-source publication set",
@@ -61,7 +66,7 @@
   "requiredOutputs": [
     "Linux/arm64 rusty_v8 static archive and generated bindings",
     "governed deno_core candidate binary and snapshot",
-    "normalized standalone runtime root",
+    "deterministic closed standalone runtime root",
     "source and license/notice archives",
     "build metadata archive",
     "SBOM",
@@ -70,6 +75,15 @@
     "physical-op, final-link, descriptor, syscall-seal, fixture, and restoration results",
     "same-host clean-build equality record"
   ],
+  "constructedOutputs": {
+    "rustyV8ArchiveSha256": "1ae209c9e4ba5803d010d2c79ee4cc0af0126c5a7ebcca211c7e41deaede4cd2",
+    "denoBinarySha256": "56d3acefd2cc2f5136a0b8143c47131e49a58fbf66382dfd3e84f715ce8e2898",
+    "denoSnapshotSha256": "4e8965217d5a6675a880326eee6f690bbeec7e7cb243decf2f3e9f453a871a2c",
+    "denoTwoFileBundleSha256": "0cc08f93e82fcfe68b033e8807975a3bd67068a817da811a87a73aedc3f23937",
+    "runtimeRootManifestSha256": "100832dbb37737f29341bc5404df6d4405b8d6b706f274028892801fa88e7de8",
+    "runtimeRootTarSha256": "9c46b45c4d220aedcc47c9ee53e875bc71d31d0b881b51740aaa9b882b5741e6",
+    "runtimeRootGzipSha256": "e847651b35cd425dd8f6fe3bd45d693aff0af244e3a7bd30c629fa125cac62e8"
+  },
   "admission": {
     "signed": false,
     "published": false,

@@ -1,0 +1,79 @@
+^Dverified arm64 profile from baseline d305e6afa7736f6e298c30ae6646f7709ee9382b, 20 gitlinks, 22 cross packages, and preserved Linux/amd64 contract
+resumeReason=task-owned-gn-object-cleanup-after-docker-enospc
+governedArchiveBeforeResume=e964d6b1b3689e91f8cf488d8a9f05764a03434b2e2e8347be5067300d39a7de
+warning: /workspace/Cargo.toml: file `/workspace/build.rs` found to be present in multiple build targets:
+  * `integration-test` target `build`
+  * `build-script` target `build-script-build`
+   Compiling zoneinfo64 v0.3.0
+   Compiling regex-syntax v0.8.6
+   Compiling nom v7.1.3
+   Compiling toml_parser v1.0.2
+   Compiling syn v2.0.106
+   Compiling toml_datetime v0.7.0
+   Compiling rustversion v1.0.22
+   Compiling toml_writer v1.0.2
+   Compiling ryu v1.0.20
+   Compiling timezone_provider v0.2.3
+   Compiling itoa v1.0.15
+   Compiling temporal_rs v0.2.3
+   Compiling regex-automata v0.4.10
+   Compiling serde_json v1.0.143
+   Compiling cexpr v0.6.0
+   Compiling toml v0.9.5
+   Compiling rustix v0.38.44
+   Compiling regex v1.11.2
+   Compiling temporal_capi v0.2.3
+   Compiling prettyplease v0.2.37
+   Compiling crc32fast v1.5.0
+   Compiling clang-sys v1.8.1
+   Compiling target-triple v0.1.4
+warning: v8@150.2.0: Not using sccache or ccache
+   Compiling itertools v0.13.0
+   Compiling bindgen v0.72.0
+   Compiling adler2 v2.0.1
+   Compiling shlex v1.3.0
+   Compiling rustc-hash v2.1.1
+   Compiling home v0.5.11
+   Compiling log v0.4.27
+   Compiling termcolor v1.4.1
+   Compiling which v6.0.3
+   Compiling miniz_oxide v0.8.9
+   Compiling trybuild v1.0.110
+   Compiling v8 v150.2.0 (/workspace)
+   Compiling gzip-header v1.0.0
+   Compiling fslock v0.2.1
+   Compiling align-data v0.1.0
+   Compiling bytes v1.10.1
+    Finished `release` profile [optimized] target(s) in 48.61s
+  Executable tests/test_api.rs (target/governed-v150.2.0-linux-arm64/aarch64-unknown-linux-gnu/release/deps/test_api-7e99f25d6cb338e5)
+ELF Header:
+  Magic:   7f 45 4c 46 02 01 01 00 00 00 00 00 00 00 00 00 
+  Class:                             ELF64
+  Data:                              2's complement, little endian
+  Version:                           1 (current)
+  OS/ABI:                            UNIX - System V
+  ABI Version:                       0
+  Type:                              DYN (Position-Independent Executable file)
+  Machine:                           AArch64
+  Version:                           0x1
+  Entry point address:               0x16bdc0
+  Start of program headers:          64 (bytes into file)
+  Start of section headers:          77896504 (bytes into file)
+  Flags:                             0x0
+  Size of this header:               64 (bytes)
+  Size of program headers:           56 (bytes)
+  Number of program headers:         10
+  Size of section headers:           64 (bytes)
+  Number of section headers:         34
+  Section header string table index: 33
+
+running 1 test
+test get_version ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 247 filtered out; finished in 0.09s
+
+Filesystem      Size  Used Avail Use% Mounted on
+/dev/vda1       134G  127G  652M 100% /workspace
+verified governed arm64 bundle with 11 files, 1875 archive members, and 244513236 capped bytes
+governedArchiveAfterResume=e964d6b1b3689e91f8cf488d8a9f05764a03434b2e2e8347be5067300d39a7de
+resumeResult=all-required-fixed-tests-evidence-and-bundle-verification-passed

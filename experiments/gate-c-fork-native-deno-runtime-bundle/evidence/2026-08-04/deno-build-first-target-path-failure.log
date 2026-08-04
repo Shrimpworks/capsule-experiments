@@ -1,0 +1,1926 @@
+^D   Compiling proc-macro2 v1.0.107
+   Compiling unicode-ident v1.0.24
+   Compiling quote v1.0.47
+   Compiling syn v2.0.119
+   Compiling syn v3.0.3
+   Compiling synstructure v0.13.2
+   Compiling zerofrom-derive v0.1.7
+   Compiling yoke-derive v0.8.2
+   Compiling zerovec-derive v0.11.3
+   Compiling displaydoc v0.2.7
+   Compiling libc v0.2.189
+   Compiling serde_core v1.0.229
+   Compiling serde_derive v1.0.229
+   Compiling zerofrom v0.1.8
+   Compiling stable_deref_trait v1.2.1
+   Compiling yoke v0.8.3
+   Compiling cfg-if v1.0.4
+   Compiling zerovec v0.11.6
+   Compiling libm v0.2.16
+   Compiling icu_normalizer_data v2.2.0
+   Compiling icu_properties_data v2.2.0
+   Compiling writeable v0.6.3
+   Compiling smallvec v1.15.2
+   Compiling serde v1.0.229
+   Compiling memchr v2.8.3
+   Compiling potential_utf v0.1.5
+   Compiling tinystr v0.8.3
+   Compiling parking_lot_core v0.9.12
+   Compiling litemap v0.8.2
+   Compiling icu_locale_core v2.2.0
+   Compiling autocfg v1.5.1
+   Compiling num-traits v0.2.19
+   Compiling zerotrie v0.2.4
+   Compiling zmij v1.0.23
+   Compiling icu_locale_data v2.2.0
+   Compiling utf8_iter v1.0.4
+   Compiling icu_collections v2.2.0
+   Compiling icu_provider v2.2.0
+   Compiling serde_json v1.0.149
+   Compiling icu_calendar_data v2.2.0
+   Compiling glob v0.3.4
+   Compiling clang-sys v1.9.1
+   Compiling tokio-macros v2.7.2
+   Compiling prettyplease v0.2.37
+   Compiling crc32fast v1.5.0
+   Compiling bitflags v2.13.1
+   Compiling either v1.17.0
+   Compiling thiserror v2.0.19
+   Compiling rustix v0.38.44
+   Compiling minimal-lexical v0.2.1
+   Compiling regex-syntax v0.8.11
+   Compiling regex-automata v0.4.16
+   Compiling nom v7.1.3
+   Compiling libloading v0.8.9
+   Compiling getrandom v0.4.3
+   Compiling bindgen v0.72.1
+   Compiling linux-raw-sys v0.4.15
+   Compiling rustc-hash v2.1.3
+   Compiling cexpr v0.6.0
+   Compiling regex v1.13.1
+   Compiling itertools v0.13.0
+   Compiling thiserror-impl v2.0.19
+   Compiling home v0.5.12
+   Compiling log v0.4.33
+   Compiling adler2 v2.0.1
+   Compiling shlex v1.3.0
+   Compiling miniz_oxide v0.8.9
+   Compiling which v6.0.3
+   Compiling gzip-header v1.1.0
+   Compiling fslock v0.2.1
+   Compiling futures-macro v0.3.33
+   Compiling deno_error_macro v0.7.1
+   Compiling strck v1.0.0
+   Compiling equivalent v1.0.2
+   Compiling hashbrown v0.17.1
+   Compiling pin-project-lite v0.2.17
+   Compiling radium v0.7.0
+   Compiling indexmap v2.14.0
+   Compiling diplomat_core v0.15.0
+   Compiling icu_properties v2.2.0
+   Compiling icu_normalizer v2.2.0
+   Compiling core_maths v0.1.1
+   Compiling scopeguard v1.2.0
+   Compiling lock_api v0.4.14
+   Compiling calendrical_calculations v0.2.4
+   Compiling idna_adapter v1.2.2
+   Compiling diplomat v0.15.0
+   Compiling errno v0.3.14
+   Compiling percent-encoding v2.3.2
+   Compiling paste v1.0.15
+   Compiling itoa v1.0.18
+   Compiling form_urlencoded v1.2.2
+   Compiling signal-hook-registry v1.4.8
+   Compiling idna v1.1.0
+   Compiling parking_lot v0.12.5
+   Compiling resb v0.1.2
+   Compiling mio v1.2.2
+   Compiling socket2 v0.6.5
+   Compiling bytes v1.12.1
+   Compiling tokio v1.53.1
+   Compiling zoneinfo64 v0.3.0
+   Compiling url v2.5.8
+   Compiling icu_locale v2.2.0
+   Compiling sys_traits_macros v0.1.0
+   Compiling futures-sink v0.3.33
+   Compiling anyhow v1.0.104
+   Compiling futures-core v0.3.33
+   Compiling futures-channel v0.3.33
+   Compiling icu_calendar v2.2.1
+   Compiling timezone_provider v0.2.4
+   Compiling heck v0.5.0
+   Compiling futures-io v0.3.33
+   Compiling slab v0.4.12
+   Compiling ixdtf v0.6.5
+   Compiling futures-task v0.3.33
+   Compiling futures-util v0.3.33
+   Compiling temporal_rs v0.2.4
+   Compiling strum_macros v0.27.2
+   Compiling deno_error v0.7.1
+   Compiling v8 v150.2.0
+   Compiling capacity_builder_macros v0.3.0
+   Compiling pin-project-internal v1.1.13
+   Compiling tap v1.0.1
+   Compiling rand_core v0.6.4
+   Compiling diplomat-runtime v0.15.1
+   Compiling temporal_capi v0.2.4
+   Compiling rand v0.8.7
+   Compiling wyz v0.5.1
+   Compiling uuid v1.24.0
+   Compiling strum v0.27.2
+   Compiling num-integer v0.1.46
+   Compiling syn-match v0.3.1
+   Compiling vsimd v0.8.0
+   Compiling funty v2.0.0
+   Compiling outref v0.5.2
+   Compiling stringcase v0.4.0
+   Compiling deno_ops v0.285.0 (/workspace/deno/libs/ops)
+   Compiling base64-simd v0.8.0
+   Compiling bitvec v1.1.1
+   Compiling num-bigint v0.4.8
+   Compiling debugid v0.8.0
+   Compiling futures-executor v0.3.33
+   Compiling sys_traits v0.1.28
+   Compiling boxed_error v0.2.3
+   Compiling data-encoding v2.11.0
+   Compiling bit-vec v0.8.0
+   Compiling if_chain v1.0.3
+   Compiling unicode-id-start v1.4.0
+   Compiling sourcemap v9.3.2
+   Compiling bit-set v0.8.0
+   Compiling deno_path_util v0.6.4
+   Compiling futures v0.3.33
+   Compiling serde_v8 v0.318.0 (/workspace/deno/libs/serde_v8)
+   Compiling pin-project v1.1.13
+   Compiling capacity_builder v0.5.0
+   Compiling wasm_dep_analyzer v0.4.0
+   Compiling deno_unsync v0.4.4
+   Compiling bincode v1.3.3
+   Compiling base64 v0.22.1
+   Compiling static_assertions v1.1.0
+   Compiling az v1.3.0
+   Compiling cooked-waker v5.0.0
+   Compiling inventory v0.3.24
+   Compiling deno_core v0.409.0 (/workspace/deno/libs/core)
+warning: use of deprecated method `tokio::net::TcpStream::set_linger`: `SO_LINGER` causes the socket to block the thread on drop
+   --> /workspace/deno/libs/core/uv_compat/tcp.rs:818:17
+    |
+818 |       && stream.set_linger(Some(std::time::Duration::ZERO)).is_err()
+    |                 ^^^^^^^^^^
+    |
+    = note: `#[warn(deprecated)]` on by default
+
+warning: constant `STANDARD_BUFFER_SIZE` is never used
+ --> /workspace/deno/libs/core/io/buffer_strategy.rs:4:7
+  |
+4 | const STANDARD_BUFFER_SIZE: usize = 64 * 1024;
+  |       ^^^^^^^^^^^^^^^^^^^^
+  |
+  = note: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default
+
+warning: constant `TINY_BUFFER_SIZE` is never used
+ --> /workspace/deno/libs/core/io/buffer_strategy.rs:6:7
+  |
+6 | const TINY_BUFFER_SIZE: usize = 1024;
+  |       ^^^^^^^^^^^^^^^^
+
+warning: constant `MAX_GROW_LEN` is never used
+ --> /workspace/deno/libs/core/io/buffer_strategy.rs:7:7
+  |
+7 | const MAX_GROW_LEN: usize = 16 * 1024 * 1024;
+  |       ^^^^^^^^^^^^
+
+warning: enum `SizeClass` is never used
+  --> /workspace/deno/libs/core/io/buffer_strategy.rs:10:6
+   |
+10 | enum SizeClass {
+   |      ^^^^^^^^^
+
+warning: associated items `from_size_hint`, `initial_buffer_size`, and `expected_remaining` are never used
+  --> /workspace/deno/libs/core/io/buffer_strategy.rs:26:6
+   |
+25 | impl SizeClass {
+   | -------------- associated items in this implementation
+26 |   fn from_size_hint(min: usize, maybe_max: Option<usize>) -> Self {
+   |      ^^^^^^^^^^^^^^
+...
+51 |   fn initial_buffer_size(&self) -> usize {
+   |      ^^^^^^^^^^^^^^^^^^^
+...
+72 |   fn expected_remaining(&self) -> usize {
+   |      ^^^^^^^^^^^^^^^^^^
+
+warning: struct `AdaptiveBufferStrategy` is never constructed
+  --> /workspace/deno/libs/core/io/buffer_strategy.rs:88:12
+   |
+88 | pub struct AdaptiveBufferStrategy {
+   |            ^^^^^^^^^^^^^^^^^^^^^^
+
+warning: associated items `new_from_hint_u64`, `new_from_hint`, `buffer_size`, and `notify_read` are never used
+   --> /workspace/deno/libs/core/io/buffer_strategy.rs:105:10
+    |
+ 98 | impl AdaptiveBufferStrategy {
+    | --------------------------- associated items in this implementation
+...
+105 |   pub fn new_from_hint_u64(min: u64, maybe_max: Option<u64>) -> Self {
+    |          ^^^^^^^^^^^^^^^^^
+...
+109 |   pub fn new_from_hint(min: usize, maybe_max: Option<usize>) -> Self {
+    |          ^^^^^^^^^^^^^
+...
+124 |   pub fn buffer_size(&self) -> usize {
+    |          ^^^^^^^^^^^
+...
+128 |   pub fn notify_read(&mut self, nread: usize) {
+    |          ^^^^^^^^^^^
+
+warning: field `import_sync_eval_stack` is never read
+   --> /workspace/deno/libs/core/modules/map.rs:300:14
+    |
+270 | pub(crate) struct ModuleMap {
+    |                   --------- field in this struct
+...
+300 |   pub(crate) import_sync_eval_stack: RefCell<Vec<ModuleId>>,
+    |              ^^^^^^^^^^^^^^^^^^^^^^
+
+warning: methods `get_module` and `captured_bootstrap` are never used
+    --> /workspace/deno/libs/core/modules/map.rs:2668:17
+     |
+ 336 | impl ModuleMap {
+     | -------------- methods in this implementation
+...
+2668 |   pub(crate) fn get_module<'s, 'i>(
+     |                 ^^^^^^^^^^
+...
+3477 |   pub(crate) fn captured_bootstrap(&self) -> Option<v8::Global<v8::Value>> {
+     |                 ^^^^^^^^^^^^^^^^^^
+
+warning: variant `Sync` is never constructed
+  --> /workspace/deno/libs/core/modules/recursive_load.rs:48:3
+   |
+46 | pub enum SideModuleKind {
+   |          -------------- variant in this enum
+47 |   Async,
+48 |   Sync,
+   |   ^^^^
+   |
+   = note: `SideModuleKind` has derived impls for the traits `Clone` and `Debug`, but these are intentionally ignored during dead code analysis
+
+warning: field `runtime_state` is never read
+   --> /workspace/deno/libs/core/ops.rs:107:3
+    |
+ 83 | pub struct OpCtx {
+    |            ----- field in this struct
+...
+107 |   runtime_state: *const JsRuntimeState,
+    |   ^^^^^^^^^^^^^
+
+warning: method `runtime_state` is never used
+   --> /workspace/deno/libs/core/ops.rs:210:17
+    |
+110 | impl OpCtx {
+    | ---------- method in this implementation
+...
+210 |   pub(crate) fn runtime_state(&self) -> &JsRuntimeState {
+    |                 ^^^^^^^^^^^^^
+
+warning: associated function `call` is never used
+  --> /workspace/deno/libs/core/ops_builtin.rs:52:1
+   |
+52 | #[op2(fast)]
+   | ^^^^^^^^^^^^ associated function in this implementation
+
+warning: associated function `call` is never used
+  --> /workspace/deno/libs/core/ops_builtin.rs:72:1
+   |
+72 | #[op2(fast)]
+   | ^^^^^^^^^^^^ associated function in this implementation
+
+warning: associated function `call` is never used
+  --> /workspace/deno/libs/core/ops_builtin.rs:78:1
+   |
+78 | #[op2]
+   | ^^^^^^ associated function in this implementation
+
+warning: associated function `call` is never used
+  --> /workspace/deno/libs/core/ops_builtin.rs:91:1
+   |
+91 | #[op2]
+   | ^^^^^^ associated function in this implementation
+
+warning: associated function `call` is never used
+  --> /workspace/deno/libs/core/ops_builtin.rs:97:1
+   |
+97 | #[op2(async(deferred), fast)]
+   | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ associated function in this implementation
+
+warning: associated function `call` is never used
+   --> /workspace/deno/libs/core/ops_builtin.rs:103:1
+    |
+103 | #[op2(async(deferred), fast)]
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ associated function in this implementation
+
+warning: associated function `call` is never used
+   --> /workspace/deno/libs/core/ops_builtin.rs:119:1
+    |
+119 | #[op2(fast)]
+    | ^^^^^^^^^^^^ associated function in this implementation
+
+warning: associated function `call` is never used
+   --> /workspace/deno/libs/core/ops_builtin.rs:128:1
+    |
+128 | #[op2(fast)]
+    | ^^^^^^^^^^^^ associated function in this implementation
+
+warning: associated function `call` is never used
+   --> /workspace/deno/libs/core/ops_builtin.rs:201:1
+    |
+201 | #[op2(fast)]
+    | ^^^^^^^^^^^^ associated function in this implementation
+
+warning: associated function `call` is never used
+   --> /workspace/deno/libs/core/ops_builtin.rs:217:1
+    |
+217 | #[op2(fast)]
+    | ^^^^^^^^^^^^ associated function in this implementation
+
+warning: function `get_resource` is never used
+   --> /workspace/deno/libs/core/ops_builtin.rs:233:4
+    |
+233 | fn get_resource(
+    |    ^^^^^^^^^^^^
+
+warning: associated function `call` is never used
+   --> /workspace/deno/libs/core/ops_builtin.rs:251:1
+    |
+251 | #[op2(promise_id)]
+    | ^^^^^^^^^^^^^^^^^^ associated function in this implementation
+
+warning: associated function `call` is never used
+   --> /workspace/deno/libs/core/ops_builtin.rs:264:1
+    |
+264 | #[op2(promise_id)]
+    | ^^^^^^^^^^^^^^^^^^ associated function in this implementation
+
+warning: associated function `call` is never used
+   --> /workspace/deno/libs/core/ops_builtin.rs:300:1
+    |
+300 | #[op2(promise_id)]
+    | ^^^^^^^^^^^^^^^^^^ associated function in this implementation
+
+warning: associated function `call` is never used
+   --> /workspace/deno/libs/core/ops_builtin.rs:314:1
+    |
+314 | #[op2(fast)]
+    | ^^^^^^^^^^^^ associated function in this implementation
+
+warning: associated function `call` is never used
+   --> /workspace/deno/libs/core/ops_builtin.rs:328:1
+    |
+328 | #[op2(fast)]
+    | ^^^^^^^^^^^^ associated function in this implementation
+
+warning: associated function `call` is never used
+   --> /workspace/deno/libs/core/ops_builtin.rs:343:1
+    |
+343 | #[op2]
+    | ^^^^^^ associated function in this implementation
+
+warning: associated function `call` is never used
+   --> /workspace/deno/libs/core/ops_builtin.rs:378:1
+    |
+378 | #[op2(promise_id)]
+    | ^^^^^^^^^^^^^^^^^^ associated function in this implementation
+
+warning: associated function `call` is never used
+   --> /workspace/deno/libs/core/ops_builtin.rs:435:1
+    |
+435 | #[op2]
+    | ^^^^^^ associated function in this implementation
+
+warning: associated function `call` is never used
+   --> /workspace/deno/libs/core/ops_builtin.rs:450:1
+    |
+450 | #[op2]
+    | ^^^^^^ associated function in this implementation
+
+warning: associated function `call` is never used
+   --> /workspace/deno/libs/core/ops_builtin.rs:463:1
+    |
+463 | #[op2(fast)]
+    | ^^^^^^^^^^^^ associated function in this implementation
+
+warning: associated function `call` is never used
+   --> /workspace/deno/libs/core/ops_builtin.rs:476:1
+    |
+476 | #[op2(fast)]
+    | ^^^^^^^^^^^^ associated function in this implementation
+
+warning: associated function `call` is never used
+   --> /workspace/deno/libs/core/ops_builtin.rs:482:1
+    |
+482 | #[op2]
+    | ^^^^^^ associated function in this implementation
+
+warning: associated function `call` is never used
+   --> /workspace/deno/libs/core/ops_builtin.rs:488:1
+    |
+488 | #[op2(fast)]
+    | ^^^^^^^^^^^^ associated function in this implementation
+
+warning: function `do_load_job` is never used
+   --> /workspace/deno/libs/core/ops_builtin.rs:496:10
+    |
+496 | async fn do_load_job<'s, 'i>(
+    |          ^^^^^^^^^^^
+
+warning: function `wrap_module` is never used
+   --> /workspace/deno/libs/core/ops_builtin.rs:564:4
+    |
+564 | fn wrap_module<'s, 'i>(
+    |    ^^^^^^^^^^^
+
+warning: associated function `call` is never used
+   --> /workspace/deno/libs/core/ops_builtin.rs:631:1
+    |
+631 | #[op2(reentrant)]
+    | ^^^^^^^^^^^^^^^^^ associated function in this implementation
+
+warning: associated function `call` is never used
+   --> /workspace/deno/libs/core/ops_builtin.rs:736:1
+    |
+736 | #[op2(reentrant)]
+    | ^^^^^^^^^^^^^^^^^ associated function in this implementation
+
+warning: associated function `call` is never used
+ --> /workspace/deno/libs/core/ops_builtin_types.rs:5:1
+  |
+5 | #[op2(fast, no_side_effects)]
+  | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ associated function in this implementation
+
+warning: associated function `call` is never used
+  --> /workspace/deno/libs/core/ops_builtin_types.rs:10:1
+   |
+10 | #[op2(fast, no_side_effects)]
+   | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ associated function in this implementation
+
+warning: associated function `call` is never used
+  --> /workspace/deno/libs/core/ops_builtin_types.rs:15:1
+   |
+15 | #[op2(fast, no_side_effects)]
+   | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ associated function in this implementation
+
+warning: associated function `call` is never used
+  --> /workspace/deno/libs/core/ops_builtin_types.rs:20:1
+   |
+20 | #[op2(fast, no_side_effects)]
+   | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ associated function in this implementation
+
+warning: associated function `call` is never used
+  --> /workspace/deno/libs/core/ops_builtin_types.rs:25:1
+   |
+25 | #[op2(fast, no_side_effects)]
+   | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ associated function in this implementation
+
+warning: associated function `call` is never used
+  --> /workspace/deno/libs/core/ops_builtin_types.rs:30:1
+   |
+30 | #[op2(fast, no_side_effects)]
+   | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ associated function in this implementation
+
+warning: associated function `call` is never used
+  --> /workspace/deno/libs/core/ops_builtin_types.rs:35:1
+   |
+35 | #[op2(fast, no_side_effects)]
+   | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ associated function in this implementation
+
+warning: associated function `call` is never used
+  --> /workspace/deno/libs/core/ops_builtin_types.rs:40:1
+   |
+40 | #[op2(fast, no_side_effects)]
+   | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ associated function in this implementation
+
+warning: associated function `call` is never used
+  --> /workspace/deno/libs/core/ops_builtin_types.rs:49:1
+   |
+49 | #[op2(fast, no_side_effects)]
+   | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ associated function in this implementation
+
+warning: associated function `call` is never used
+  --> /workspace/deno/libs/core/ops_builtin_types.rs:54:1
+   |
+54 | #[op2(fast, no_side_effects)]
+   | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ associated function in this implementation
+
+warning: associated function `call` is never used
+  --> /workspace/deno/libs/core/ops_builtin_types.rs:59:1
+   |
+59 | #[op2(fast, no_side_effects)]
+   | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ associated function in this implementation
+
+warning: associated function `call` is never used
+  --> /workspace/deno/libs/core/ops_builtin_types.rs:64:1
+   |
+64 | #[op2(fast, no_side_effects)]
+   | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ associated function in this implementation
+
+warning: associated function `call` is never used
+  --> /workspace/deno/libs/core/ops_builtin_types.rs:69:1
+   |
+69 | #[op2(fast, no_side_effects)]
+   | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ associated function in this implementation
+
+warning: associated function `call` is never used
+  --> /workspace/deno/libs/core/ops_builtin_types.rs:74:1
+   |
+74 | #[op2(fast, no_side_effects)]
+   | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ associated function in this implementation
+
+warning: associated function `call` is never used
+  --> /workspace/deno/libs/core/ops_builtin_types.rs:79:1
+   |
+79 | #[op2(fast, no_side_effects)]
+   | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ associated function in this implementation
+
+warning: associated function `call` is never used
+  --> /workspace/deno/libs/core/ops_builtin_types.rs:84:1
+   |
+84 | #[op2(fast, reentrant)] // may be invoked by `format_exception_cb`
+   | ^^^^^^^^^^^^^^^^^^^^^^^ associated function in this implementation
+
+warning: associated function `call` is never used
+  --> /workspace/deno/libs/core/ops_builtin_types.rs:89:1
+   |
+89 | #[op2(fast, no_side_effects)]
+   | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ associated function in this implementation
+
+warning: associated function `call` is never used
+  --> /workspace/deno/libs/core/ops_builtin_types.rs:94:1
+   |
+94 | #[op2(fast, no_side_effects)]
+   | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ associated function in this implementation
+
+warning: associated function `call` is never used
+  --> /workspace/deno/libs/core/ops_builtin_types.rs:99:1
+   |
+99 | #[op2(fast, no_side_effects)]
+   | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ associated function in this implementation
+
+warning: associated function `call` is never used
+   --> /workspace/deno/libs/core/ops_builtin_types.rs:104:1
+    |
+104 | #[op2(fast, no_side_effects)]
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ associated function in this implementation
+
+warning: associated function `call` is never used
+   --> /workspace/deno/libs/core/ops_builtin_types.rs:109:1
+    |
+109 | #[op2(fast, no_side_effects)]
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ associated function in this implementation
+
+warning: associated function `call` is never used
+   --> /workspace/deno/libs/core/ops_builtin_types.rs:114:1
+    |
+114 | #[op2(fast, no_side_effects)]
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ associated function in this implementation
+
+warning: associated function `call` is never used
+   --> /workspace/deno/libs/core/ops_builtin_types.rs:119:1
+    |
+119 | #[op2(fast, no_side_effects)]
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ associated function in this implementation
+
+warning: associated function `call` is never used
+   --> /workspace/deno/libs/core/ops_builtin_types.rs:124:1
+    |
+124 | #[op2(fast, no_side_effects)]
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ associated function in this implementation
+
+warning: associated function `call` is never used
+   --> /workspace/deno/libs/core/ops_builtin_types.rs:129:1
+    |
+129 | #[op2(fast, no_side_effects)]
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ associated function in this implementation
+
+warning: associated function `call` is never used
+   --> /workspace/deno/libs/core/ops_builtin_types.rs:134:1
+    |
+134 | #[op2(fast, no_side_effects)]
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ associated function in this implementation
+
+warning: associated function `call` is never used
+   --> /workspace/deno/libs/core/ops_builtin_types.rs:139:1
+    |
+139 | #[op2(fast, no_side_effects)]
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ associated function in this implementation
+
+warning: associated function `call` is never used
+   --> /workspace/deno/libs/core/ops_builtin_types.rs:144:1
+    |
+144 | #[op2(fast, no_side_effects)]
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ associated function in this implementation
+
+warning: associated function `call` is never used
+  --> /workspace/deno/libs/core/ops_builtin_v8.rs:30:1
+   |
+30 | #[op2(fast)]
+   | ^^^^^^^^^^^^ associated function in this implementation
+
+warning: associated function `call` is never used
+  --> /workspace/deno/libs/core/ops_builtin_v8.rs:44:1
+   |
+44 | #[op2(fast)]
+   | ^^^^^^^^^^^^ associated function in this implementation
+
+warning: associated function `call` is never used
+  --> /workspace/deno/libs/core/ops_builtin_v8.rs:54:1
+   |
+54 | #[op2(fast)]
+   | ^^^^^^^^^^^^ associated function in this implementation
+
+warning: associated function `call` is never used
+  --> /workspace/deno/libs/core/ops_builtin_v8.rs:60:1
+   |
+60 | #[op2(fast)]
+   | ^^^^^^^^^^^^ associated function in this implementation
+
+warning: associated function `call` is never used
+  --> /workspace/deno/libs/core/ops_builtin_v8.rs:66:1
+   |
+66 | #[op2(fast)]
+   | ^^^^^^^^^^^^ associated function in this implementation
+
+warning: associated function `call` is never used
+  --> /workspace/deno/libs/core/ops_builtin_v8.rs:72:1
+   |
+72 | #[op2(fast)]
+   | ^^^^^^^^^^^^ associated function in this implementation
+
+warning: associated function `call` is never used
+  --> /workspace/deno/libs/core/ops_builtin_v8.rs:87:1
+   |
+87 | #[op2]
+   | ^^^^^^ associated function in this implementation
+
+warning: associated function `call` is never used
+   --> /workspace/deno/libs/core/ops_builtin_v8.rs:106:1
+    |
+106 | #[op2]
+    | ^^^^^^ associated function in this implementation
+
+warning: associated function `call` is never used
+   --> /workspace/deno/libs/core/ops_builtin_v8.rs:132:1
+    |
+132 | #[op2(fast)]
+    | ^^^^^^^^^^^^ associated function in this implementation
+
+warning: associated function `call` is never used
+   --> /workspace/deno/libs/core/ops_builtin_v8.rs:149:1
+    |
+149 | #[op2(fast)]
+    | ^^^^^^^^^^^^ associated function in this implementation
+
+warning: associated function `call` is never used
+   --> /workspace/deno/libs/core/ops_builtin_v8.rs:164:1
+    |
+164 | #[op2(fast)]
+    | ^^^^^^^^^^^^ associated function in this implementation
+
+warning: associated function `call` is never used
+   --> /workspace/deno/libs/core/ops_builtin_v8.rs:177:1
+    |
+177 | #[op2(fast)]
+    | ^^^^^^^^^^^^ associated function in this implementation
+
+warning: associated function `call` is never used
+   --> /workspace/deno/libs/core/ops_builtin_v8.rs:183:1
+    |
+183 | #[op2(reentrant)]
+    | ^^^^^^^^^^^^^^^^^ associated function in this implementation
+
+warning: associated function `call` is never used
+   --> /workspace/deno/libs/core/ops_builtin_v8.rs:203:1
+    |
+203 | #[op2(reentrant)]
+    | ^^^^^^^^^^^^^^^^^ associated function in this implementation
+
+warning: associated function `call` is never used
+   --> /workspace/deno/libs/core/ops_builtin_v8.rs:232:1
+    |
+232 | #[op2(nofast, reentrant)]
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^ associated function in this implementation
+
+warning: associated function `call` is never used
+   --> /workspace/deno/libs/core/ops_builtin_v8.rs:242:1
+    |
+242 | #[op2]
+    | ^^^^^^ associated function in this implementation
+
+warning: struct `EvalContextError` is never constructed
+   --> /workspace/deno/libs/core/ops_builtin_v8.rs:266:12
+    |
+266 | pub struct EvalContextError<'s> {
+    |            ^^^^^^^^^^^^^^^^
+
+warning: method `to_v8` is never used
+   --> /workspace/deno/libs/core/ops_builtin_v8.rs:273:6
+    |
+272 | impl<'s> EvalContextError<'s> {
+    | ----------------------------- method in this implementation
+273 |   fn to_v8<'i>(
+    |      ^^^^^
+
+warning: associated function `call` is never used
+   --> /workspace/deno/libs/core/ops_builtin_v8.rs:287:1
+    |
+287 | #[op2(reentrant)]
+    | ^^^^^^^^^^^^^^^^^ associated function in this implementation
+
+warning: associated function `call` is never used
+   --> /workspace/deno/libs/core/ops_builtin_v8.rs:408:1
+    |
+408 | #[op2(reentrant)]
+    | ^^^^^^^^^^^^^^^^^ associated function in this implementation
+
+warning: associated function `call` is never used
+   --> /workspace/deno/libs/core/ops_builtin_v8.rs:535:1
+    |
+535 | #[op2]
+    | ^^^^^^ associated function in this implementation
+
+warning: associated function `call` is never used
+   --> /workspace/deno/libs/core/ops_builtin_v8.rs:552:1
+    |
+552 | #[op2]
+    | ^^^^^^ associated function in this implementation
+
+warning: associated function `call` is never used
+   --> /workspace/deno/libs/core/ops_builtin_v8.rs:822:1
+    |
+822 | #[op2(reentrant)]
+    | ^^^^^^^^^^^^^^^^^ associated function in this implementation
+
+warning: associated function `call` is never used
+   --> /workspace/deno/libs/core/ops_builtin_v8.rs:935:1
+    |
+935 | #[op2(reentrant)]
+    | ^^^^^^^^^^^^^^^^^ associated function in this implementation
+
+warning: associated function `call` is never used
+    --> /workspace/deno/libs/core/ops_builtin_v8.rs:1112:1
+     |
+1112 | #[op2(reentrant)]
+     | ^^^^^^^^^^^^^^^^^ associated function in this implementation
+
+warning: associated function `call` is never used
+    --> /workspace/deno/libs/core/ops_builtin_v8.rs:1173:1
+     |
+1173 | #[op2]
+     | ^^^^^^ associated function in this implementation
+
+warning: associated function `call` is never used
+    --> /workspace/deno/libs/core/ops_builtin_v8.rs:1198:1
+     |
+1198 | #[op2(fast)]
+     | ^^^^^^^^^^^^ associated function in this implementation
+
+warning: associated function `call` is never used
+    --> /workspace/deno/libs/core/ops_builtin_v8.rs:1248:1
+     |
+1248 | #[op2]
+     | ^^^^^^ associated function in this implementation
+
+warning: associated function `call` is never used
+    --> /workspace/deno/libs/core/ops_builtin_v8.rs:1264:1
+     |
+1264 | #[op2]
+     | ^^^^^^ associated function in this implementation
+
+warning: associated function `call` is never used
+    --> /workspace/deno/libs/core/ops_builtin_v8.rs:1305:1
+     |
+1305 | #[op2]
+     | ^^^^^^ associated function in this implementation
+
+warning: struct `MemoryUsage` is never constructed
+    --> /workspace/deno/libs/core/ops_builtin_v8.rs:1323:12
+     |
+1323 | pub struct MemoryUsage {
+     |            ^^^^^^^^^^^
+
+warning: associated function `call` is never used
+    --> /workspace/deno/libs/core/ops_builtin_v8.rs:1333:1
+     |
+1333 | #[op2]
+     | ^^^^^^ associated function in this implementation
+
+warning: associated function `call` is never used
+    --> /workspace/deno/libs/core/ops_builtin_v8.rs:1357:1
+     |
+1357 | #[op2(fast)]
+     | ^^^^^^^^^^^^ associated function in this implementation
+
+warning: associated function `call` is never used
+    --> /workspace/deno/libs/core/ops_builtin_v8.rs:1418:1
+     |
+1418 | #[op2(nofast, reentrant)]
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^ associated function in this implementation
+
+warning: associated function `call` is never used
+    --> /workspace/deno/libs/core/ops_builtin_v8.rs:1445:1
+     |
+1445 | #[op2(reentrant)]
+     | ^^^^^^^^^^^^^^^^^ associated function in this implementation
+
+warning: associated function `call` is never used
+    --> /workspace/deno/libs/core/ops_builtin_v8.rs:1456:1
+     |
+1456 | #[op2(fast, reentrant)]
+     | ^^^^^^^^^^^^^^^^^^^^^^^ associated function in this implementation
+
+warning: associated function `call` is never used
+    --> /workspace/deno/libs/core/ops_builtin_v8.rs:1465:1
+     |
+1465 | #[op2]
+     | ^^^^^^ associated function in this implementation
+
+warning: function `write_line_and_col_to_ret_buf` is never used
+    --> /workspace/deno/libs/core/ops_builtin_v8.rs:1476:4
+     |
+1476 | fn write_line_and_col_to_ret_buf(
+     |    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: associated function `call` is never used
+    --> /workspace/deno/libs/core/ops_builtin_v8.rs:1485:1
+     |
+1485 | #[op2]
+     | ^^^^^^ associated function in this implementation
+
+warning: associated function `call` is never used
+    --> /workspace/deno/libs/core/ops_builtin_v8.rs:1555:1
+     |
+1555 | #[op2]
+     | ^^^^^^ associated function in this implementation
+
+warning: associated function `call` is never used
+    --> /workspace/deno/libs/core/ops_builtin_v8.rs:1571:1
+     |
+1571 | #[op2(fast)]
+     | ^^^^^^^^^^^^ associated function in this implementation
+
+warning: associated function `call` is never used
+    --> /workspace/deno/libs/core/ops_builtin_v8.rs:1586:1
+     |
+1586 | #[op2(fast)]
+     | ^^^^^^^^^^^^ associated function in this implementation
+
+warning: function `upgrade_snapshotted_ops_with_fast_calls` is never used
+   --> /workspace/deno/libs/core/runtime/bindings.rs:613:15
+    |
+613 | pub(crate) fn upgrade_snapshotted_ops_with_fast_calls<'s, 'i>(
+    |               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: function `ensure_fast_ops_upgraded` is never used
+   --> /workspace/deno/libs/core/runtime/bindings.rs:747:15
+    |
+747 | pub(crate) fn ensure_fast_ops_upgraded(scope: &mut v8::PinScope) {
+    |               ^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: function `method_needs_fast_call_upgrade` is never used
+   --> /workspace/deno/libs/core/runtime/bindings.rs:789:4
+    |
+789 | fn method_needs_fast_call_upgrade(op_ctx: &OpCtx) -> bool {
+    |    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: associated function `has_more_work` is never used
+   --> /workspace/deno/libs/core/runtime/jsruntime.rs:781:17
+    |
+712 | impl JsRuntime {
+    | -------------- associated function in this implementation
+...
+781 |   pub(crate) fn has_more_work(scope: &mut v8::PinScope) -> bool {
+    |                 ^^^^^^^^^^^^^
+
+warning: associated function `new_from_scope` is never used
+    --> /workspace/deno/libs/core/runtime/jsruntime.rs:3068:10
+     |
+3012 | impl EventLoopPendingState {
+     | -------------------------- associated function in this implementation
+...
+3068 |   pub fn new_from_scope(scope: &mut v8::PinScope) -> Self {
+     |          ^^^^^^^^^^^^^^
+
+warning: methods `set_enabled` and `submit` are never used
+  --> /workspace/deno/libs/core/runtime/stats.rs:42:17
+   |
+41 | impl RuntimeActivityTraces {
+   | -------------------------- methods in this implementation
+42 |   pub(crate) fn set_enabled(&self, enabled: bool) {
+   |                 ^^^^^^^^^^^
+...
+49 |   pub(crate) fn submit(
+   |                 ^^^^^^
+
+warning: static `DEFAULT` is never used
+  --> /workspace/deno/libs/core/runtime/v8_static_strings.rs:25:3
+   |
+25 |   DEFAULT = "default",
+   |   ^^^^^^^
+   |
+   = note: this warning originates in the macro `v8_static_strings` (in Nightly builds, run with -Z macro-backtrace for more info)
+
+warning: static `ESMODULE` is never used
+  --> /workspace/deno/libs/core/runtime/v8_static_strings.rs:52:3
+   |
+52 |   ESMODULE = "__esModule",
+   |   ^^^^^^^^
+   |
+   = note: this warning originates in the macro `v8_static_strings` (in Nightly builds, run with -Z macro-backtrace for more info)
+
+warning: function `immediate_idle_noop_cb` is never used
+    --> /workspace/deno/libs/core/uv_compat.rs:1346:22
+     |
+1346 | unsafe extern "C" fn immediate_idle_noop_cb(_: *mut uv_idle_t) {}
+     |                      ^^^^^^^^^^^^^^^^^^^^^^
+
+warning: methods `make_ref` and `make_unref` are never used
+    --> /workspace/deno/libs/core/uv_compat.rs:1384:10
+     |
+1348 | impl ImmediateCheckHandle {
+     | ------------------------- methods in this implementation
+...
+1384 |   pub fn make_ref(&self) {
+     |          ^^^^^^^^
+...
+1392 |   pub fn make_unref(&self) {
+     |          ^^^^^^^^^^
+
+warning: `deno_core` (lib) generated 121 warnings
+   Compiling capsule-deno-core-physical-omission v0.0.0 (/workspace/probe)
+warning: `deno_core` (lib) generated 121 warnings (121 duplicates)
+    Finished `release` profile [optimized] target(s) in 3m 08s
+   Compiling unicode-ident v1.0.24
+   Compiling proc-macro2 v1.0.107
+   Compiling quote v1.0.47
+   Compiling syn v2.0.119
+   Compiling syn v3.0.3
+   Compiling synstructure v0.13.2
+   Compiling zerofrom-derive v0.1.7
+   Compiling yoke-derive v0.8.2
+   Compiling zerovec-derive v0.11.3
+   Compiling displaydoc v0.2.7
+   Compiling libc v0.2.189
+   Compiling serde_core v1.0.229
+   Compiling serde_derive v1.0.229
+   Compiling zerofrom v0.1.8
+   Compiling stable_deref_trait v1.2.1
+   Compiling yoke v0.8.3
+   Compiling cfg-if v1.0.4
+   Compiling zerovec v0.11.6
+   Compiling icu_properties_data v2.2.0
+   Compiling libm v0.2.16
+   Compiling icu_normalizer_data v2.2.0
+   Compiling writeable v0.6.3
+   Compiling memchr v2.8.3
+   Compiling smallvec v1.15.2
+   Compiling serde v1.0.229
+   Compiling potential_utf v0.1.5
+   Compiling tinystr v0.8.3
+   Compiling litemap v0.8.2
+   Compiling parking_lot_core v0.9.12
+   Compiling icu_locale_core v2.2.0
+   Compiling autocfg v1.5.1
+   Compiling num-traits v0.2.19
+   Compiling zerotrie v0.2.4
+   Compiling zmij v1.0.23
+   Compiling icu_locale_data v2.2.0
+   Compiling utf8_iter v1.0.4
+   Compiling icu_collections v2.2.0
+   Compiling icu_provider v2.2.0
+   Compiling icu_calendar_data v2.2.0
+   Compiling serde_json v1.0.149
+   Compiling glob v0.3.4
+   Compiling clang-sys v1.9.1
+   Compiling tokio-macros v2.7.2
+   Compiling prettyplease v0.2.37
+   Compiling crc32fast v1.5.0
+   Compiling thiserror v2.0.19
+   Compiling either v1.17.0
+   Compiling rustix v0.38.44
+   Compiling bitflags v2.13.1
+   Compiling regex-syntax v0.8.11
+   Compiling minimal-lexical v0.2.1
+   Compiling nom v7.1.3
+   Compiling regex-automata v0.4.16
+   Compiling libloading v0.8.9
+   Compiling linux-raw-sys v0.4.15
+   Compiling getrandom v0.4.3
+   Compiling bindgen v0.72.1
+   Compiling rustc-hash v2.1.3
+   Compiling regex v1.13.1
+   Compiling cexpr v0.6.0
+   Compiling itertools v0.13.0
+   Compiling thiserror-impl v2.0.19
+   Compiling log v0.4.33
+   Compiling shlex v1.3.0
+   Compiling adler2 v2.0.1
+   Compiling home v0.5.12
+   Compiling which v6.0.3
+   Compiling miniz_oxide v0.8.9
+   Compiling gzip-header v1.1.0
+   Compiling fslock v0.2.1
+   Compiling deno_error_macro v0.7.1
+   Compiling futures-macro v0.3.33
+   Compiling strck v1.0.0
+   Compiling hashbrown v0.17.1
+   Compiling radium v0.7.0
+   Compiling pin-project-lite v0.2.17
+   Compiling equivalent v1.0.2
+   Compiling indexmap v2.14.0
+   Compiling diplomat_core v0.15.0
+   Compiling icu_normalizer v2.2.0
+   Compiling core_maths v0.1.1
+   Compiling icu_properties v2.2.0
+   Compiling scopeguard v1.2.0
+   Compiling lock_api v0.4.14
+   Compiling idna_adapter v1.2.2
+   Compiling calendrical_calculations v0.2.4
+   Compiling diplomat v0.15.0
+   Compiling errno v0.3.14
+   Compiling paste v1.0.15
+   Compiling percent-encoding v2.3.2
+   Compiling itoa v1.0.18
+   Compiling form_urlencoded v1.2.2
+   Compiling signal-hook-registry v1.4.8
+   Compiling idna v1.1.0
+   Compiling parking_lot v0.12.5
+   Compiling resb v0.1.2
+   Compiling mio v1.2.2
+   Compiling socket2 v0.6.5
+   Compiling bytes v1.12.1
+   Compiling tokio v1.53.1
+   Compiling zoneinfo64 v0.3.0
+   Compiling url v2.5.8
+   Compiling icu_locale v2.2.0
+   Compiling sys_traits_macros v0.1.0
+   Compiling futures-core v0.3.33
+   Compiling anyhow v1.0.104
+   Compiling futures-sink v0.3.33
+   Compiling futures-channel v0.3.33
+   Compiling icu_calendar v2.2.1
+   Compiling timezone_provider v0.2.4
+   Compiling futures-task v0.3.33
+   Compiling ixdtf v0.6.5
+   Compiling futures-io v0.3.33
+   Compiling heck v0.5.0
+   Compiling slab v0.4.12
+   Compiling futures-util v0.3.33
+   Compiling strum_macros v0.27.2
+   Compiling temporal_rs v0.2.4
+   Compiling deno_error v0.7.1
+   Compiling v8 v150.2.0
+   Compiling pin-project-internal v1.1.13
+   Compiling capacity_builder_macros v0.3.0
+   Compiling tap v1.0.1
+   Compiling rand_core v0.6.4
+   Compiling diplomat-runtime v0.15.1
+   Compiling temporal_capi v0.2.4
+   Compiling rand v0.8.7
+   Compiling wyz v0.5.1
+   Compiling uuid v1.24.0
+   Compiling strum v0.27.2
+   Compiling num-integer v0.1.46
+   Compiling syn-match v0.3.1
+   Compiling stringcase v0.4.0
+   Compiling vsimd v0.8.0
+   Compiling outref v0.5.2
+   Compiling funty v2.0.0
+   Compiling bitvec v1.1.1
+   Compiling base64-simd v0.8.0
+   Compiling deno_ops v0.285.0 (/workspace/deno/libs/ops)
+   Compiling num-bigint v0.4.8
+   Compiling debugid v0.8.0
+   Compiling futures-executor v0.3.33
+   Compiling sys_traits v0.1.28
+   Compiling boxed_error v0.2.3
+   Compiling bit-vec v0.8.0
+   Compiling if_chain v1.0.3
+   Compiling unicode-id-start v1.4.0
+   Compiling data-encoding v2.11.0
+   Compiling sourcemap v9.3.2
+   Compiling bit-set v0.8.0
+   Compiling deno_path_util v0.6.4
+   Compiling futures v0.3.33
+   Compiling serde_v8 v0.318.0 (/workspace/deno/libs/serde_v8)
+   Compiling capacity_builder v0.5.0
+   Compiling pin-project v1.1.13
+   Compiling wasm_dep_analyzer v0.4.0
+   Compiling deno_unsync v0.4.4
+   Compiling bincode v1.3.3
+   Compiling cooked-waker v5.0.0
+   Compiling az v1.3.0
+   Compiling base64 v0.22.1
+   Compiling static_assertions v1.1.0
+   Compiling inventory v0.3.24
+   Compiling deno_core v0.409.0 (/workspace/deno/libs/core)
+warning: use of deprecated method `tokio::net::TcpStream::set_linger`: `SO_LINGER` causes the socket to block the thread on drop
+   --> /workspace/deno/libs/core/uv_compat/tcp.rs:818:17
+    |
+818 |       && stream.set_linger(Some(std::time::Duration::ZERO)).is_err()
+    |                 ^^^^^^^^^^
+    |
+    = note: `#[warn(deprecated)]` on by default
+
+warning: constant `STANDARD_BUFFER_SIZE` is never used
+ --> /workspace/deno/libs/core/io/buffer_strategy.rs:4:7
+  |
+4 | const STANDARD_BUFFER_SIZE: usize = 64 * 1024;
+  |       ^^^^^^^^^^^^^^^^^^^^
+  |
+  = note: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default
+
+warning: constant `TINY_BUFFER_SIZE` is never used
+ --> /workspace/deno/libs/core/io/buffer_strategy.rs:6:7
+  |
+6 | const TINY_BUFFER_SIZE: usize = 1024;
+  |       ^^^^^^^^^^^^^^^^
+
+warning: constant `MAX_GROW_LEN` is never used
+ --> /workspace/deno/libs/core/io/buffer_strategy.rs:7:7
+  |
+7 | const MAX_GROW_LEN: usize = 16 * 1024 * 1024;
+  |       ^^^^^^^^^^^^
+
+warning: enum `SizeClass` is never used
+  --> /workspace/deno/libs/core/io/buffer_strategy.rs:10:6
+   |
+10 | enum SizeClass {
+   |      ^^^^^^^^^
+
+warning: associated items `from_size_hint`, `initial_buffer_size`, and `expected_remaining` are never used
+  --> /workspace/deno/libs/core/io/buffer_strategy.rs:26:6
+   |
+25 | impl SizeClass {
+   | -------------- associated items in this implementation
+26 |   fn from_size_hint(min: usize, maybe_max: Option<usize>) -> Self {
+   |      ^^^^^^^^^^^^^^
+...
+51 |   fn initial_buffer_size(&self) -> usize {
+   |      ^^^^^^^^^^^^^^^^^^^
+...
+72 |   fn expected_remaining(&self) -> usize {
+   |      ^^^^^^^^^^^^^^^^^^
+
+warning: struct `AdaptiveBufferStrategy` is never constructed
+  --> /workspace/deno/libs/core/io/buffer_strategy.rs:88:12
+   |
+88 | pub struct AdaptiveBufferStrategy {
+   |            ^^^^^^^^^^^^^^^^^^^^^^
+
+warning: associated items `new_from_hint_u64`, `new_from_hint`, `buffer_size`, and `notify_read` are never used
+   --> /workspace/deno/libs/core/io/buffer_strategy.rs:105:10
+    |
+ 98 | impl AdaptiveBufferStrategy {
+    | --------------------------- associated items in this implementation
+...
+105 |   pub fn new_from_hint_u64(min: u64, maybe_max: Option<u64>) -> Self {
+    |          ^^^^^^^^^^^^^^^^^
+...
+109 |   pub fn new_from_hint(min: usize, maybe_max: Option<usize>) -> Self {
+    |          ^^^^^^^^^^^^^
+...
+124 |   pub fn buffer_size(&self) -> usize {
+    |          ^^^^^^^^^^^
+...
+128 |   pub fn notify_read(&mut self, nread: usize) {
+    |          ^^^^^^^^^^^
+
+warning: field `import_sync_eval_stack` is never read
+   --> /workspace/deno/libs/core/modules/map.rs:300:14
+    |
+270 | pub(crate) struct ModuleMap {
+    |                   --------- field in this struct
+...
+300 |   pub(crate) import_sync_eval_stack: RefCell<Vec<ModuleId>>,
+    |              ^^^^^^^^^^^^^^^^^^^^^^
+
+warning: methods `get_module` and `captured_bootstrap` are never used
+    --> /workspace/deno/libs/core/modules/map.rs:2668:17
+     |
+ 336 | impl ModuleMap {
+     | -------------- methods in this implementation
+...
+2668 |   pub(crate) fn get_module<'s, 'i>(
+     |                 ^^^^^^^^^^
+...
+3477 |   pub(crate) fn captured_bootstrap(&self) -> Option<v8::Global<v8::Value>> {
+     |                 ^^^^^^^^^^^^^^^^^^
+
+warning: variant `Sync` is never constructed
+  --> /workspace/deno/libs/core/modules/recursive_load.rs:48:3
+   |
+46 | pub enum SideModuleKind {
+   |          -------------- variant in this enum
+47 |   Async,
+48 |   Sync,
+   |   ^^^^
+   |
+   = note: `SideModuleKind` has derived impls for the traits `Clone` and `Debug`, but these are intentionally ignored during dead code analysis
+
+warning: field `runtime_state` is never read
+   --> /workspace/deno/libs/core/ops.rs:107:3
+    |
+ 83 | pub struct OpCtx {
+    |            ----- field in this struct
+...
+107 |   runtime_state: *const JsRuntimeState,
+    |   ^^^^^^^^^^^^^
+
+warning: method `runtime_state` is never used
+   --> /workspace/deno/libs/core/ops.rs:210:17
+    |
+110 | impl OpCtx {
+    | ---------- method in this implementation
+...
+210 |   pub(crate) fn runtime_state(&self) -> &JsRuntimeState {
+    |                 ^^^^^^^^^^^^^
+
+warning: associated function `call` is never used
+  --> /workspace/deno/libs/core/ops_builtin.rs:52:1
+   |
+52 | #[op2(fast)]
+   | ^^^^^^^^^^^^ associated function in this implementation
+
+warning: associated function `call` is never used
+  --> /workspace/deno/libs/core/ops_builtin.rs:72:1
+   |
+72 | #[op2(fast)]
+   | ^^^^^^^^^^^^ associated function in this implementation
+
+warning: associated function `call` is never used
+  --> /workspace/deno/libs/core/ops_builtin.rs:78:1
+   |
+78 | #[op2]
+   | ^^^^^^ associated function in this implementation
+
+warning: associated function `call` is never used
+  --> /workspace/deno/libs/core/ops_builtin.rs:91:1
+   |
+91 | #[op2]
+   | ^^^^^^ associated function in this implementation
+
+warning: associated function `call` is never used
+  --> /workspace/deno/libs/core/ops_builtin.rs:97:1
+   |
+97 | #[op2(async(deferred), fast)]
+   | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ associated function in this implementation
+
+warning: associated function `call` is never used
+   --> /workspace/deno/libs/core/ops_builtin.rs:103:1
+    |
+103 | #[op2(async(deferred), fast)]
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ associated function in this implementation
+
+warning: associated function `call` is never used
+   --> /workspace/deno/libs/core/ops_builtin.rs:119:1
+    |
+119 | #[op2(fast)]
+    | ^^^^^^^^^^^^ associated function in this implementation
+
+warning: associated function `call` is never used
+   --> /workspace/deno/libs/core/ops_builtin.rs:128:1
+    |
+128 | #[op2(fast)]
+    | ^^^^^^^^^^^^ associated function in this implementation
+
+warning: associated function `call` is never used
+   --> /workspace/deno/libs/core/ops_builtin.rs:201:1
+    |
+201 | #[op2(fast)]
+    | ^^^^^^^^^^^^ associated function in this implementation
+
+warning: associated function `call` is never used
+   --> /workspace/deno/libs/core/ops_builtin.rs:217:1
+    |
+217 | #[op2(fast)]
+    | ^^^^^^^^^^^^ associated function in this implementation
+
+warning: function `get_resource` is never used
+   --> /workspace/deno/libs/core/ops_builtin.rs:233:4
+    |
+233 | fn get_resource(
+    |    ^^^^^^^^^^^^
+
+warning: associated function `call` is never used
+   --> /workspace/deno/libs/core/ops_builtin.rs:251:1
+    |
+251 | #[op2(promise_id)]
+    | ^^^^^^^^^^^^^^^^^^ associated function in this implementation
+
+warning: associated function `call` is never used
+   --> /workspace/deno/libs/core/ops_builtin.rs:264:1
+    |
+264 | #[op2(promise_id)]
+    | ^^^^^^^^^^^^^^^^^^ associated function in this implementation
+
+warning: associated function `call` is never used
+   --> /workspace/deno/libs/core/ops_builtin.rs:300:1
+    |
+300 | #[op2(promise_id)]
+    | ^^^^^^^^^^^^^^^^^^ associated function in this implementation
+
+warning: associated function `call` is never used
+   --> /workspace/deno/libs/core/ops_builtin.rs:314:1
+    |
+314 | #[op2(fast)]
+    | ^^^^^^^^^^^^ associated function in this implementation
+
+warning: associated function `call` is never used
+   --> /workspace/deno/libs/core/ops_builtin.rs:328:1
+    |
+328 | #[op2(fast)]
+    | ^^^^^^^^^^^^ associated function in this implementation
+
+warning: associated function `call` is never used
+   --> /workspace/deno/libs/core/ops_builtin.rs:343:1
+    |
+343 | #[op2]
+    | ^^^^^^ associated function in this implementation
+
+warning: associated function `call` is never used
+   --> /workspace/deno/libs/core/ops_builtin.rs:378:1
+    |
+378 | #[op2(promise_id)]
+    | ^^^^^^^^^^^^^^^^^^ associated function in this implementation
+
+warning: associated function `call` is never used
+   --> /workspace/deno/libs/core/ops_builtin.rs:435:1
+    |
+435 | #[op2]
+    | ^^^^^^ associated function in this implementation
+
+warning: associated function `call` is never used
+   --> /workspace/deno/libs/core/ops_builtin.rs:450:1
+    |
+450 | #[op2]
+    | ^^^^^^ associated function in this implementation
+
+warning: associated function `call` is never used
+   --> /workspace/deno/libs/core/ops_builtin.rs:463:1
+    |
+463 | #[op2(fast)]
+    | ^^^^^^^^^^^^ associated function in this implementation
+
+warning: associated function `call` is never used
+   --> /workspace/deno/libs/core/ops_builtin.rs:476:1
+    |
+476 | #[op2(fast)]
+    | ^^^^^^^^^^^^ associated function in this implementation
+
+warning: associated function `call` is never used
+   --> /workspace/deno/libs/core/ops_builtin.rs:482:1
+    |
+482 | #[op2]
+    | ^^^^^^ associated function in this implementation
+
+warning: associated function `call` is never used
+   --> /workspace/deno/libs/core/ops_builtin.rs:488:1
+    |
+488 | #[op2(fast)]
+    | ^^^^^^^^^^^^ associated function in this implementation
+
+warning: function `do_load_job` is never used
+   --> /workspace/deno/libs/core/ops_builtin.rs:496:10
+    |
+496 | async fn do_load_job<'s, 'i>(
+    |          ^^^^^^^^^^^
+
+warning: function `wrap_module` is never used
+   --> /workspace/deno/libs/core/ops_builtin.rs:564:4
+    |
+564 | fn wrap_module<'s, 'i>(
+    |    ^^^^^^^^^^^
+
+warning: associated function `call` is never used
+   --> /workspace/deno/libs/core/ops_builtin.rs:631:1
+    |
+631 | #[op2(reentrant)]
+    | ^^^^^^^^^^^^^^^^^ associated function in this implementation
+
+warning: associated function `call` is never used
+   --> /workspace/deno/libs/core/ops_builtin.rs:736:1
+    |
+736 | #[op2(reentrant)]
+    | ^^^^^^^^^^^^^^^^^ associated function in this implementation
+
+warning: associated function `call` is never used
+ --> /workspace/deno/libs/core/ops_builtin_types.rs:5:1
+  |
+5 | #[op2(fast, no_side_effects)]
+  | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ associated function in this implementation
+
+warning: associated function `call` is never used
+  --> /workspace/deno/libs/core/ops_builtin_types.rs:10:1
+   |
+10 | #[op2(fast, no_side_effects)]
+   | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ associated function in this implementation
+
+warning: associated function `call` is never used
+  --> /workspace/deno/libs/core/ops_builtin_types.rs:15:1
+   |
+15 | #[op2(fast, no_side_effects)]
+   | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ associated function in this implementation
+
+warning: associated function `call` is never used
+  --> /workspace/deno/libs/core/ops_builtin_types.rs:20:1
+   |
+20 | #[op2(fast, no_side_effects)]
+   | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ associated function in this implementation
+
+warning: associated function `call` is never used
+  --> /workspace/deno/libs/core/ops_builtin_types.rs:25:1
+   |
+25 | #[op2(fast, no_side_effects)]
+   | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ associated function in this implementation
+
+warning: associated function `call` is never used
+  --> /workspace/deno/libs/core/ops_builtin_types.rs:30:1
+   |
+30 | #[op2(fast, no_side_effects)]
+   | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ associated function in this implementation
+
+warning: associated function `call` is never used
+  --> /workspace/deno/libs/core/ops_builtin_types.rs:35:1
+   |
+35 | #[op2(fast, no_side_effects)]
+   | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ associated function in this implementation
+
+warning: associated function `call` is never used
+  --> /workspace/deno/libs/core/ops_builtin_types.rs:40:1
+   |
+40 | #[op2(fast, no_side_effects)]
+   | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ associated function in this implementation
+
+warning: associated function `call` is never used
+  --> /workspace/deno/libs/core/ops_builtin_types.rs:49:1
+   |
+49 | #[op2(fast, no_side_effects)]
+   | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ associated function in this implementation
+
+warning: associated function `call` is never used
+  --> /workspace/deno/libs/core/ops_builtin_types.rs:54:1
+   |
+54 | #[op2(fast, no_side_effects)]
+   | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ associated function in this implementation
+
+warning: associated function `call` is never used
+  --> /workspace/deno/libs/core/ops_builtin_types.rs:59:1
+   |
+59 | #[op2(fast, no_side_effects)]
+   | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ associated function in this implementation
+
+warning: associated function `call` is never used
+  --> /workspace/deno/libs/core/ops_builtin_types.rs:64:1
+   |
+64 | #[op2(fast, no_side_effects)]
+   | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ associated function in this implementation
+
+warning: associated function `call` is never used
+  --> /workspace/deno/libs/core/ops_builtin_types.rs:69:1
+   |
+69 | #[op2(fast, no_side_effects)]
+   | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ associated function in this implementation
+
+warning: associated function `call` is never used
+  --> /workspace/deno/libs/core/ops_builtin_types.rs:74:1
+   |
+74 | #[op2(fast, no_side_effects)]
+   | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ associated function in this implementation
+
+warning: associated function `call` is never used
+  --> /workspace/deno/libs/core/ops_builtin_types.rs:79:1
+   |
+79 | #[op2(fast, no_side_effects)]
+   | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ associated function in this implementation
+
+warning: associated function `call` is never used
+  --> /workspace/deno/libs/core/ops_builtin_types.rs:84:1
+   |
+84 | #[op2(fast, reentrant)] // may be invoked by `format_exception_cb`
+   | ^^^^^^^^^^^^^^^^^^^^^^^ associated function in this implementation
+
+warning: associated function `call` is never used
+  --> /workspace/deno/libs/core/ops_builtin_types.rs:89:1
+   |
+89 | #[op2(fast, no_side_effects)]
+   | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ associated function in this implementation
+
+warning: associated function `call` is never used
+  --> /workspace/deno/libs/core/ops_builtin_types.rs:94:1
+   |
+94 | #[op2(fast, no_side_effects)]
+   | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ associated function in this implementation
+
+warning: associated function `call` is never used
+  --> /workspace/deno/libs/core/ops_builtin_types.rs:99:1
+   |
+99 | #[op2(fast, no_side_effects)]
+   | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ associated function in this implementation
+
+warning: associated function `call` is never used
+   --> /workspace/deno/libs/core/ops_builtin_types.rs:104:1
+    |
+104 | #[op2(fast, no_side_effects)]
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ associated function in this implementation
+
+warning: associated function `call` is never used
+   --> /workspace/deno/libs/core/ops_builtin_types.rs:109:1
+    |
+109 | #[op2(fast, no_side_effects)]
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ associated function in this implementation
+
+warning: associated function `call` is never used
+   --> /workspace/deno/libs/core/ops_builtin_types.rs:114:1
+    |
+114 | #[op2(fast, no_side_effects)]
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ associated function in this implementation
+
+warning: associated function `call` is never used
+   --> /workspace/deno/libs/core/ops_builtin_types.rs:119:1
+    |
+119 | #[op2(fast, no_side_effects)]
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ associated function in this implementation
+
+warning: associated function `call` is never used
+   --> /workspace/deno/libs/core/ops_builtin_types.rs:124:1
+    |
+124 | #[op2(fast, no_side_effects)]
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ associated function in this implementation
+
+warning: associated function `call` is never used
+   --> /workspace/deno/libs/core/ops_builtin_types.rs:129:1
+    |
+129 | #[op2(fast, no_side_effects)]
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ associated function in this implementation
+
+warning: associated function `call` is never used
+   --> /workspace/deno/libs/core/ops_builtin_types.rs:134:1
+    |
+134 | #[op2(fast, no_side_effects)]
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ associated function in this implementation
+
+warning: associated function `call` is never used
+   --> /workspace/deno/libs/core/ops_builtin_types.rs:139:1
+    |
+139 | #[op2(fast, no_side_effects)]
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ associated function in this implementation
+
+warning: associated function `call` is never used
+   --> /workspace/deno/libs/core/ops_builtin_types.rs:144:1
+    |
+144 | #[op2(fast, no_side_effects)]
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ associated function in this implementation
+
+warning: associated function `call` is never used
+  --> /workspace/deno/libs/core/ops_builtin_v8.rs:30:1
+   |
+30 | #[op2(fast)]
+   | ^^^^^^^^^^^^ associated function in this implementation
+
+warning: associated function `call` is never used
+  --> /workspace/deno/libs/core/ops_builtin_v8.rs:44:1
+   |
+44 | #[op2(fast)]
+   | ^^^^^^^^^^^^ associated function in this implementation
+
+warning: associated function `call` is never used
+  --> /workspace/deno/libs/core/ops_builtin_v8.rs:54:1
+   |
+54 | #[op2(fast)]
+   | ^^^^^^^^^^^^ associated function in this implementation
+
+warning: associated function `call` is never used
+  --> /workspace/deno/libs/core/ops_builtin_v8.rs:60:1
+   |
+60 | #[op2(fast)]
+   | ^^^^^^^^^^^^ associated function in this implementation
+
+warning: associated function `call` is never used
+  --> /workspace/deno/libs/core/ops_builtin_v8.rs:66:1
+   |
+66 | #[op2(fast)]
+   | ^^^^^^^^^^^^ associated function in this implementation
+
+warning: associated function `call` is never used
+  --> /workspace/deno/libs/core/ops_builtin_v8.rs:72:1
+   |
+72 | #[op2(fast)]
+   | ^^^^^^^^^^^^ associated function in this implementation
+
+warning: associated function `call` is never used
+  --> /workspace/deno/libs/core/ops_builtin_v8.rs:87:1
+   |
+87 | #[op2]
+   | ^^^^^^ associated function in this implementation
+
+warning: associated function `call` is never used
+   --> /workspace/deno/libs/core/ops_builtin_v8.rs:106:1
+    |
+106 | #[op2]
+    | ^^^^^^ associated function in this implementation
+
+warning: associated function `call` is never used
+   --> /workspace/deno/libs/core/ops_builtin_v8.rs:132:1
+    |
+132 | #[op2(fast)]
+    | ^^^^^^^^^^^^ associated function in this implementation
+
+warning: associated function `call` is never used
+   --> /workspace/deno/libs/core/ops_builtin_v8.rs:149:1
+    |
+149 | #[op2(fast)]
+    | ^^^^^^^^^^^^ associated function in this implementation
+
+warning: associated function `call` is never used
+   --> /workspace/deno/libs/core/ops_builtin_v8.rs:164:1
+    |
+164 | #[op2(fast)]
+    | ^^^^^^^^^^^^ associated function in this implementation
+
+warning: associated function `call` is never used
+   --> /workspace/deno/libs/core/ops_builtin_v8.rs:177:1
+    |
+177 | #[op2(fast)]
+    | ^^^^^^^^^^^^ associated function in this implementation
+
+warning: associated function `call` is never used
+   --> /workspace/deno/libs/core/ops_builtin_v8.rs:183:1
+    |
+183 | #[op2(reentrant)]
+    | ^^^^^^^^^^^^^^^^^ associated function in this implementation
+
+warning: associated function `call` is never used
+   --> /workspace/deno/libs/core/ops_builtin_v8.rs:203:1
+    |
+203 | #[op2(reentrant)]
+    | ^^^^^^^^^^^^^^^^^ associated function in this implementation
+
+warning: associated function `call` is never used
+   --> /workspace/deno/libs/core/ops_builtin_v8.rs:232:1
+    |
+232 | #[op2(nofast, reentrant)]
+    | ^^^^^^^^^^^^^^^^^^^^^^^^^ associated function in this implementation
+
+warning: associated function `call` is never used
+   --> /workspace/deno/libs/core/ops_builtin_v8.rs:242:1
+    |
+242 | #[op2]
+    | ^^^^^^ associated function in this implementation
+
+warning: struct `EvalContextError` is never constructed
+   --> /workspace/deno/libs/core/ops_builtin_v8.rs:266:12
+    |
+266 | pub struct EvalContextError<'s> {
+    |            ^^^^^^^^^^^^^^^^
+
+warning: method `to_v8` is never used
+   --> /workspace/deno/libs/core/ops_builtin_v8.rs:273:6
+    |
+272 | impl<'s> EvalContextError<'s> {
+    | ----------------------------- method in this implementation
+273 |   fn to_v8<'i>(
+    |      ^^^^^
+
+warning: associated function `call` is never used
+   --> /workspace/deno/libs/core/ops_builtin_v8.rs:287:1
+    |
+287 | #[op2(reentrant)]
+    | ^^^^^^^^^^^^^^^^^ associated function in this implementation
+
+warning: associated function `call` is never used
+   --> /workspace/deno/libs/core/ops_builtin_v8.rs:408:1
+    |
+408 | #[op2(reentrant)]
+    | ^^^^^^^^^^^^^^^^^ associated function in this implementation
+
+warning: associated function `call` is never used
+   --> /workspace/deno/libs/core/ops_builtin_v8.rs:535:1
+    |
+535 | #[op2]
+    | ^^^^^^ associated function in this implementation
+
+warning: associated function `call` is never used
+   --> /workspace/deno/libs/core/ops_builtin_v8.rs:552:1
+    |
+552 | #[op2]
+    | ^^^^^^ associated function in this implementation
+
+warning: associated function `call` is never used
+   --> /workspace/deno/libs/core/ops_builtin_v8.rs:822:1
+    |
+822 | #[op2(reentrant)]
+    | ^^^^^^^^^^^^^^^^^ associated function in this implementation
+
+warning: associated function `call` is never used
+   --> /workspace/deno/libs/core/ops_builtin_v8.rs:935:1
+    |
+935 | #[op2(reentrant)]
+    | ^^^^^^^^^^^^^^^^^ associated function in this implementation
+
+warning: associated function `call` is never used
+    --> /workspace/deno/libs/core/ops_builtin_v8.rs:1112:1
+     |
+1112 | #[op2(reentrant)]
+     | ^^^^^^^^^^^^^^^^^ associated function in this implementation
+
+warning: associated function `call` is never used
+    --> /workspace/deno/libs/core/ops_builtin_v8.rs:1173:1
+     |
+1173 | #[op2]
+     | ^^^^^^ associated function in this implementation
+
+warning: associated function `call` is never used
+    --> /workspace/deno/libs/core/ops_builtin_v8.rs:1198:1
+     |
+1198 | #[op2(fast)]
+     | ^^^^^^^^^^^^ associated function in this implementation
+
+warning: associated function `call` is never used
+    --> /workspace/deno/libs/core/ops_builtin_v8.rs:1248:1
+     |
+1248 | #[op2]
+     | ^^^^^^ associated function in this implementation
+
+warning: associated function `call` is never used
+    --> /workspace/deno/libs/core/ops_builtin_v8.rs:1264:1
+     |
+1264 | #[op2]
+     | ^^^^^^ associated function in this implementation
+
+warning: associated function `call` is never used
+    --> /workspace/deno/libs/core/ops_builtin_v8.rs:1305:1
+     |
+1305 | #[op2]
+     | ^^^^^^ associated function in this implementation
+
+warning: struct `MemoryUsage` is never constructed
+    --> /workspace/deno/libs/core/ops_builtin_v8.rs:1323:12
+     |
+1323 | pub struct MemoryUsage {
+     |            ^^^^^^^^^^^
+
+warning: associated function `call` is never used
+    --> /workspace/deno/libs/core/ops_builtin_v8.rs:1333:1
+     |
+1333 | #[op2]
+     | ^^^^^^ associated function in this implementation
+
+warning: associated function `call` is never used
+    --> /workspace/deno/libs/core/ops_builtin_v8.rs:1357:1
+     |
+1357 | #[op2(fast)]
+     | ^^^^^^^^^^^^ associated function in this implementation
+
+warning: associated function `call` is never used
+    --> /workspace/deno/libs/core/ops_builtin_v8.rs:1418:1
+     |
+1418 | #[op2(nofast, reentrant)]
+     | ^^^^^^^^^^^^^^^^^^^^^^^^^ associated function in this implementation
+
+warning: associated function `call` is never used
+    --> /workspace/deno/libs/core/ops_builtin_v8.rs:1445:1
+     |
+1445 | #[op2(reentrant)]
+     | ^^^^^^^^^^^^^^^^^ associated function in this implementation
+
+warning: associated function `call` is never used
+    --> /workspace/deno/libs/core/ops_builtin_v8.rs:1456:1
+     |
+1456 | #[op2(fast, reentrant)]
+     | ^^^^^^^^^^^^^^^^^^^^^^^ associated function in this implementation
+
+warning: associated function `call` is never used
+    --> /workspace/deno/libs/core/ops_builtin_v8.rs:1465:1
+     |
+1465 | #[op2]
+     | ^^^^^^ associated function in this implementation
+
+warning: function `write_line_and_col_to_ret_buf` is never used
+    --> /workspace/deno/libs/core/ops_builtin_v8.rs:1476:4
+     |
+1476 | fn write_line_and_col_to_ret_buf(
+     |    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: associated function `call` is never used
+    --> /workspace/deno/libs/core/ops_builtin_v8.rs:1485:1
+     |
+1485 | #[op2]
+     | ^^^^^^ associated function in this implementation
+
+warning: associated function `call` is never used
+    --> /workspace/deno/libs/core/ops_builtin_v8.rs:1555:1
+     |
+1555 | #[op2]
+     | ^^^^^^ associated function in this implementation
+
+warning: associated function `call` is never used
+    --> /workspace/deno/libs/core/ops_builtin_v8.rs:1571:1
+     |
+1571 | #[op2(fast)]
+     | ^^^^^^^^^^^^ associated function in this implementation
+
+warning: associated function `call` is never used
+    --> /workspace/deno/libs/core/ops_builtin_v8.rs:1586:1
+     |
+1586 | #[op2(fast)]
+     | ^^^^^^^^^^^^ associated function in this implementation
+
+warning: function `upgrade_snapshotted_ops_with_fast_calls` is never used
+   --> /workspace/deno/libs/core/runtime/bindings.rs:613:15
+    |
+613 | pub(crate) fn upgrade_snapshotted_ops_with_fast_calls<'s, 'i>(
+    |               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: function `ensure_fast_ops_upgraded` is never used
+   --> /workspace/deno/libs/core/runtime/bindings.rs:747:15
+    |
+747 | pub(crate) fn ensure_fast_ops_upgraded(scope: &mut v8::PinScope) {
+    |               ^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: function `method_needs_fast_call_upgrade` is never used
+   --> /workspace/deno/libs/core/runtime/bindings.rs:789:4
+    |
+789 | fn method_needs_fast_call_upgrade(op_ctx: &OpCtx) -> bool {
+    |    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: associated function `has_more_work` is never used
+   --> /workspace/deno/libs/core/runtime/jsruntime.rs:781:17
+    |
+712 | impl JsRuntime {
+    | -------------- associated function in this implementation
+...
+781 |   pub(crate) fn has_more_work(scope: &mut v8::PinScope) -> bool {
+    |                 ^^^^^^^^^^^^^
+
+warning: associated function `new_from_scope` is never used
+    --> /workspace/deno/libs/core/runtime/jsruntime.rs:3068:10
+     |
+3012 | impl EventLoopPendingState {
+     | -------------------------- associated function in this implementation
+...
+3068 |   pub fn new_from_scope(scope: &mut v8::PinScope) -> Self {
+     |          ^^^^^^^^^^^^^^
+
+warning: methods `set_enabled` and `submit` are never used
+  --> /workspace/deno/libs/core/runtime/stats.rs:42:17
+   |
+41 | impl RuntimeActivityTraces {
+   | -------------------------- methods in this implementation
+42 |   pub(crate) fn set_enabled(&self, enabled: bool) {
+   |                 ^^^^^^^^^^^
+...
+49 |   pub(crate) fn submit(
+   |                 ^^^^^^
+
+warning: static `DEFAULT` is never used
+  --> /workspace/deno/libs/core/runtime/v8_static_strings.rs:25:3
+   |
+25 |   DEFAULT = "default",
+   |   ^^^^^^^
+   |
+   = note: this warning originates in the macro `v8_static_strings` (in Nightly builds, run with -Z macro-backtrace for more info)
+
+warning: static `ESMODULE` is never used
+  --> /workspace/deno/libs/core/runtime/v8_static_strings.rs:52:3
+   |
+52 |   ESMODULE = "__esModule",
+   |   ^^^^^^^^
+   |
+   = note: this warning originates in the macro `v8_static_strings` (in Nightly builds, run with -Z macro-backtrace for more info)
+
+warning: function `immediate_idle_noop_cb` is never used
+    --> /workspace/deno/libs/core/uv_compat.rs:1346:22
+     |
+1346 | unsafe extern "C" fn immediate_idle_noop_cb(_: *mut uv_idle_t) {}
+     |                      ^^^^^^^^^^^^^^^^^^^^^^
+
+warning: methods `make_ref` and `make_unref` are never used
+    --> /workspace/deno/libs/core/uv_compat.rs:1384:10
+     |
+1348 | impl ImmediateCheckHandle {
+     | ------------------------- methods in this implementation
+...
+1384 |   pub fn make_ref(&self) {
+     |          ^^^^^^^^
+...
+1392 |   pub fn make_unref(&self) {
+     |          ^^^^^^^^^^
+
+warning: `deno_core` (lib) generated 121 warnings
+   Compiling capsule-deno-core-physical-omission v0.0.0 (/workspace/probe)
+warning: `deno_core` (lib) generated 121 warnings (121 duplicates)
+    Finished `release` profile [optimized] target(s) in 3m 10s
+out/build-a/bundle-manifest.tsv out/build-b/bundle-manifest.tsv differ: char 14, line 1
+
+[1mWhat's next:[0m
+    Debug this container error with Gordon → docker ai "help me fix this container error"

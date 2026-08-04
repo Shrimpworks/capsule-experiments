@@ -1,0 +1,187 @@
+verified arm64 profile from baseline d305e6afa7736f6e298c30ae6646f7709ee9382b, 20 gitlinks, 22 cross packages, and preserved Linux/amd64 contract
+::group::governed arm64 stage: arm64-link-probe
+governed-arm64-stage=arm64-link-probe exit-status=0
+::endgroup::
+::group::governed arm64 stage: arm64-link-probe-readelf
+ELF Header:
+  Magic:   7f 45 4c 46 02 01 01 00 00 00 00 00 00 00 00 00 
+  Class:                             ELF64
+  Data:                              2's complement, little endian
+  Version:                           1 (current)
+  OS/ABI:                            UNIX - System V
+  ABI Version:                       0
+  Type:                              DYN (Position-Independent Executable file)
+  Machine:                           AArch64
+  Version:                           0x1
+  Entry point address:               0x600
+  Start of program headers:          64 (bytes into file)
+  Start of section headers:          68520 (bytes into file)
+  Flags:                             0x0
+  Size of this header:               64 (bytes)
+  Size of program headers:           56 (bytes)
+  Number of program headers:         9
+  Size of section headers:           64 (bytes)
+  Number of section headers:         29
+  Section header string table index: 28
+governed-arm64-stage=arm64-link-probe-readelf exit-status=0
+::endgroup::
+::group::governed arm64 stage: arm64-link-probe-qemu
+governed-arm64-stage=arm64-link-probe-qemu exit-status=0
+::endgroup::
+::group::governed arm64 stage: cargo-build
+warning: /workspace/Cargo.toml: file `/workspace/build.rs` found to be present in multiple build targets:
+  * `integration-test` target `build`
+  * `build-script` target `build-script-build`
+   Compiling proc-macro2 v1.0.101
+   Compiling unicode-ident v1.0.18
+   Compiling quote v1.0.45
+   Compiling stable_deref_trait v1.2.0
+   Compiling serde_core v1.0.228
+   Compiling libm v0.2.15
+   Compiling litemap v0.8.0
+   Compiling writeable v0.6.2
+   Compiling cfg-if v1.0.3
+   Compiling glob v0.3.3
+   Compiling libc v0.2.175
+   Compiling icu_locale_data v2.2.0
+   Compiling prettyplease v0.2.37
+   Compiling serde v1.0.228
+   Compiling clang-sys v1.8.1
+   Compiling bitflags v2.9.3
+   Compiling icu_calendar_data v2.2.0
+   Compiling core_maths v0.1.1
+   Compiling utf8_iter v1.0.4
+   Compiling rustix v0.38.44
+   Compiling autocfg v1.5.0
+   Compiling memchr v2.7.5
+   Compiling regex-syntax v0.8.6
+   Compiling syn v2.0.106
+   Compiling crc32fast v1.5.0
+   Compiling minimal-lexical v0.2.1
+   Compiling either v1.15.0
+   Compiling num-traits v0.2.19
+   Compiling nom v7.1.3
+   Compiling libloading v0.8.8
+   Compiling linux-raw-sys v0.4.15
+   Compiling bindgen v0.72.0
+   Compiling regex-automata v0.4.10
+   Compiling itertools v0.13.0
+   Compiling cexpr v0.6.0
+   Compiling strck v1.0.0
+   Compiling synstructure v0.13.2
+   Compiling regex v1.11.2
+   Compiling smallvec v1.15.1
+   Compiling adler2 v2.0.1
+   Compiling shlex v1.3.0
+   Compiling zerovec-derive v0.11.3
+   Compiling zerofrom-derive v0.1.6
+   Compiling yoke-derive v0.8.2
+   Compiling displaydoc v0.2.5
+   Compiling serde_derive v1.0.228
+   Compiling home v0.5.11
+   Compiling rustc-hash v2.1.1
+   Compiling log v0.4.27
+   Compiling miniz_oxide v0.8.9
+   Compiling which v6.0.3
+   Compiling gzip-header v1.0.0
+   Compiling zerofrom v0.1.6
+   Compiling zerotrie v0.2.4
+   Compiling calendrical_calculations v0.2.4
+   Compiling fslock v0.2.1
+   Compiling yoke v0.8.2
+   Compiling ixdtf v0.6.4
+   Compiling paste v1.0.15
+   Compiling zerovec v0.11.6
+   Compiling diplomat-runtime v0.15.1
+   Compiling diplomat_core v0.15.0
+   Compiling tinystr v0.8.3
+   Compiling potential_utf v0.1.3
+   Compiling resb v0.1.2
+   Compiling icu_collections v2.2.0
+   Compiling icu_locale_core v2.2.0
+   Compiling v8 v150.2.0 (/workspace)
+   Compiling diplomat v0.15.0
+   Compiling icu_provider v2.2.0
+   Compiling zoneinfo64 v0.3.0
+   Compiling icu_locale v2.2.0
+   Compiling timezone_provider v0.2.3
+   Compiling icu_calendar v2.2.1
+   Compiling temporal_rs v0.2.3
+   Compiling temporal_capi v0.2.3
+warning: v8@150.2.0: Not using sccache or ccache
+    Finished `release` profile [optimized] target(s) in 69m 31s
+governed-arm64-stage=cargo-build exit-status=0
+::endgroup::
+::group::governed arm64 stage: fixed-test-compile
+warning: /workspace/Cargo.toml: file `/workspace/build.rs` found to be present in multiple build targets:
+  * `integration-test` target `build`
+  * `build-script` target `build-script-build`
+   Compiling serde_core v1.0.228
+   Compiling serde v1.0.228
+   Compiling proc-macro2 v1.0.101
+   Compiling cfg-if v1.0.3
+   Compiling quote v1.0.45
+   Compiling memchr v2.7.5
+   Compiling unicode-ident v1.0.18
+   Compiling libc v0.2.175
+   Compiling bitflags v2.9.3
+   Compiling prettyplease v0.2.37
+   Compiling clang-sys v1.8.1
+   Compiling glob v0.3.3
+   Compiling serde_json v1.0.143
+   Compiling either v1.15.0
+   Compiling winnow v0.7.13
+   Compiling regex-syntax v0.8.6
+   Compiling target-triple v0.1.4
+   Compiling minimal-lexical v0.2.1
+   Compiling libloading v0.8.8
+   Compiling syn v2.0.106
+   Compiling toml_parser v1.0.2
+   Compiling resb v0.1.2
+   Compiling regex-automata v0.4.10
+   Compiling nom v7.1.3
+   Compiling rustix v0.38.44
+   Compiling crc32fast v1.5.0
+   Compiling linux-raw-sys v0.4.15
+   Compiling zoneinfo64 v0.3.0
+   Compiling serde_spanned v1.0.0
+   Compiling toml_datetime v0.7.0
+rustc-LLVM ERROR: IO failure on output stream: No space left on device
+rustc-LLVM ERROR: IO failure on output stream: No space left on device
+error: could not compile `toml_parser` (lib)
+
+Caused by:
+  No space left on device (os error 28)
+
+Caused by:
+  failed to parse process output: `/workspace/.governed-cache-arm64/rust-toolchain/bin/rustc --crate-name toml_parser --edition=2021 /workspace/.governed-cache-arm64/cargo-home/registry/src/index.crates.io-1949cf8c6b5b557f/toml_parser-1.0.2/src/lib.rs --error-format=json --json=diagnostic-rendered-ansi,artifacts,future-incompat --crate-type lib --emit=dep-info,metadata,link -C opt-level=3 -C embed-bitcode=no --warn=rust_2018_idioms '--warn=clippy::zero_sized_map_values' '--warn=clippy::wildcard_imports' '--warn=clippy::verbose_file_reads' '--warn=clippy::use_self' --warn=unused_qualifications --warn=unused_macro_rules --warn=unused_lifetimes --warn=unsafe_op_in_unsafe_fn --warn=unreachable_pub --allow=unnameable_types '--warn=clippy::uninlined_format_args' '--warn=clippy::trait_duplication_in_bounds' '--warn=clippy::todo' '--warn=clippy::string_to_string' '--warn=clippy::string_lit_as_bytes' '--warn=clippy::string_add_assign' '--warn=clippy::string_add' '--warn=clippy::str_to_string' '--warn=clippy::semicolon_if_nothing_returned' '--warn=clippy::self_named_module_files' '--warn=clippy::same_functions_in_if_condition' '--allow=clippy::result_large_err' '--warn=clippy::rest_pat_in_fully_bound_structs' '--warn=clippy::ref_option_ref' '--warn=clippy::redundant_feature_names' '--warn=clippy::rc_mutex' '--warn=clippy::ptr_as_ptr' '--warn=clippy::path_buf_push_overwrite' '--warn=clippy::negative_feature_names' '--warn=clippy::needless_for_each' '--allow=clippy::needless_continue' '--allow=clippy::needless_bool' '--warn=clippy::mutex_integer' '--warn=clippy::mem_forget' '--warn=clippy::macro_use_imports' '--warn=clippy::lossy_float_literal' '--warn=clippy::linkedlist' '--allow=clippy::let_and_return' '--warn=clippy::large_types_passed_by_value' '--warn=clippy::large_stack_arrays' '--warn=clippy::large_digit_groups' '--warn=clippy::invalid_upcast_comparisons' '--warn=clippy::infinite_loop' '--warn=clippy::inefficient_to_string' '--warn=clippy::inconsistent_struct_constructor' '--warn=clippy::imprecise_flops' '--warn=clippy::implicit_clone' '--allow=clippy::if_same_then_else' '--allow=clippy::get_first' '--warn=clippy::from_iter_instead_of_collect' '--warn=clippy::fn_params_excessive_bools' '--warn=clippy::float_cmp_const' '--warn=clippy::flat_map_option' '--warn=clippy::filter_map_next' '--warn=clippy::fallible_impl_from' '--warn=clippy::explicit_into_iter_loop' '--warn=clippy::explicit_deref_methods' '--warn=clippy::expl_impl_clone_on_copy' '--warn=clippy::enum_glob_use' '--warn=clippy::empty_enum' '--warn=clippy::doc_markdown' '--warn=clippy::debug_assert_with_mut_call' '--warn=clippy::dbg_macro' '--warn=clippy::create_dir' '--allow=clippy::collapsible_else_if' '--warn=clippy::checked_conversions' '--allow=clippy::branches_sharing_code' '--allow=clippy::bool_assert_comparison' --cfg 'feature="alloc"' --cfg 'feature="std"' --check-cfg 'cfg(docsrs,test)' --check-cfg 'cfg(feature, values("alloc", "debug", "default", "simd", "std", "unsafe"))' -C metadata=930edaa8b8ef9e73 -C extra-filename=-f667a7714bfcd53d --out-dir /workspace/target/governed-v150.2.0-linux-arm64/aarch64-unknown-linux-gnu/release/deps --target aarch64-unknown-linux-gnu -C linker=/workspace/scripts/governed/link_arm64.sh -C strip=debuginfo -L dependency=/workspace/target/governed-v150.2.0-linux-arm64/aarch64-unknown-linux-gnu/release/deps -L dependency=/workspace/target/governed-v150.2.0-linux-arm64/release/deps --extern winnow=/workspace/target/governed-v150.2.0-linux-arm64/aarch64-unknown-linux-gnu/release/deps/libwinnow-57f4639ec9fb984e.rmeta --cap-lints allow` (exit status: 101)
+warning: build failed, waiting for other jobs to finish...
+tee: /workspace/target/governed-v150.2.0-linux-arm64/fixed-test-compile.log: No space left on device
+error: could not compile `regex-syntax` (lib)
+
+Caused by:
+  No space left on device (os error 28)
+
+Caused by:
+  failed to parse process output: `/workspace/.governed-cache-arm64/rust-toolchain/bin/rustc --crate-name regex_syntax --edition=2021 /workspace/.governed-cache-arm64/cargo-home/registry/src/index.crates.io-1949cf8c6b5b557f/regex-syntax-0.8.6/src/lib.rs --error-format=json --json=diagnostic-rendered-ansi,artifacts,future-incompat --crate-type lib --emit=dep-info,metadata,link -C opt-level=3 -C embed-bitcode=no --cfg 'feature="std"' --cfg 'feature="unicode-perl"' --check-cfg 'cfg(docsrs,test)' --check-cfg 'cfg(feature, values("arbitrary", "default", "std", "unicode", "unicode-age", "unicode-bool", "unicode-case", "unicode-gencat", "unicode-perl", "unicode-script", "unicode-segment"))' -C metadata=87bebc925216f648 -C extra-filename=-10db963e6b03f3c1 --out-dir /workspace/target/governed-v150.2.0-linux-arm64/aarch64-unknown-linux-gnu/release/deps --target aarch64-unknown-linux-gnu -C linker=/workspace/scripts/governed/link_arm64.sh -C strip=debuginfo -L dependency=/workspace/target/governed-v150.2.0-linux-arm64/aarch64-unknown-linux-gnu/release/deps -L dependency=/workspace/target/governed-v150.2.0-linux-arm64/release/deps --cap-lints allow` (exit status: 101)
+error: failed to write to `/workspace/target/governed-v150.2.0-linux-arm64/aarch64-unknown-linux-gnu/release/deps/rmetaFYaEy0/full.rmeta`: No space left on device (os error 28)
+
+error: could not compile `nom` (lib) due to 1 previous error
+error: failed to write to `/workspace/target/governed-v150.2.0-linux-arm64/aarch64-unknown-linux-gnu/release/deps/rmetaSaESa3/full.rmeta`: No space left on device (os error 28)
+
+error: could not compile `regex-automata` (lib) due to 1 previous error
+error: couldn't create a temp dir: No space left on device (os error 28) at path "/workspace/target/governed-v150.2.0-linux-arm64/aarch64-unknown-linux-gnu/release/deps/rmetaDbCo57"
+
+error: could not compile `toml_datetime` (lib) due to 1 previous error
+error: failed to write to `/workspace/target/governed-v150.2.0-linux-arm64/aarch64-unknown-linux-gnu/release/deps/rmetas0Bh4u/full.rmeta`: No space left on device (os error 28)
+
+error: could not compile `zoneinfo64` (lib) due to 1 previous error
+error: failed to write to `/workspace/target/governed-v150.2.0-linux-arm64/aarch64-unknown-linux-gnu/release/deps/rmetaprhV0t/full.rmeta`: No space left on device (os error 28)
+
+error: could not compile `syn` (lib) due to 1 previous error
+governed-arm64-stage=fixed-test-compile exit-status=101
+::endgroup::
+retained bounded arm64 blocker phase=fixed-test-compile exit-status=101 files=10 bytes=52535
+
+[1mWhat's next:[0m
+    Debug this container error with Gordon → docker ai "help me fix this container error"
