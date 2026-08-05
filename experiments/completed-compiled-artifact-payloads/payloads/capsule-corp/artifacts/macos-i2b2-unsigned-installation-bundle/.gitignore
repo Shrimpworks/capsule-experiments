@@ -1,0 +1,3 @@
+dist/*
+!dist/Capsule.app/
+!dist/Capsule.app/**

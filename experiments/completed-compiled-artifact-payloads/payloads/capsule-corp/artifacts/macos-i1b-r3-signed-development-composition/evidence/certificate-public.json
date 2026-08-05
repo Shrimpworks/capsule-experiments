@@ -1,0 +1,19 @@
+{
+  "schema": "capsule.macos-installation.i1b-r3-certificate-public/v1",
+  "status": "PASSED",
+  "source": "public certificate metadata read from the user's login Keychain; private key material was neither read nor exported",
+  "purpose": "Apple Development",
+  "subject": "C=US,O=Dylan Steele,OU=3DDR84M4JS,CN=Apple Development: Dylan Steele (W4QUR9FUL4),UID=GSQP72QY5T",
+  "issuer": "Apple Worldwide Developer Relations Certification Authority G3",
+  "serialHex": "2680E3A814E45A8A4AC3C2B2EF09023E",
+  "notBefore": "2026-08-04",
+  "notAfter": "2027-08-04",
+  "sha1": "80A4969BCD1B3926020888094B9D812A283D3793",
+  "sha256": "D3E9FBDDBC342F747C3649B5A6FFB307A575827404E02D638C11B6B795A09629",
+  "teamIdentifier": "3DDR84M4JS",
+  "keyAlgorithm": "RSA",
+  "keyBits": 2048,
+  "privateKeyPairedAndUsable": true,
+  "olderAppleDevelopmentSelected": false,
+  "developerIdSelected": false
+}

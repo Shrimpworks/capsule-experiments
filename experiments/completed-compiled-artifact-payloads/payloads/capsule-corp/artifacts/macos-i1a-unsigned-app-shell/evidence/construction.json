@@ -1,0 +1,73 @@
+{
+  "schema": "capsule.macos-installation.i1a-unsigned-construction/v1",
+  "status": "PASSED",
+  "scope": "unsigned-bytes-and-layout-only",
+  "profileId": "capsule.macos-installation.no-guest/i0",
+  "intendedDevelopmentTeamId": "3DDR84M4JS",
+  "intendedTeamState": "inactive-metadata-only",
+  "appleIdentityUsed": false,
+  "provisioningProfilePresent": false,
+  "keychainAccessed": false,
+  "serviceRegistered": false,
+  "processLaunched": false,
+  "networkUsed": false,
+  "executionState": "disabled",
+  "activation": {
+    "decision": "refuse",
+    "reason": "signing-profile-inactive"
+  },
+  "build": {
+    "target": "arm64-apple-macos14.0",
+    "sdkPathRedactedToBasename": "MacOSX26.5.sdk",
+    "swiftc": "Apple Swift version 6.3.3 (swiftlang-6.3.3.1.3 clang-2100.1.1.101)\nTarget: arm64-apple-macosx26.0",
+    "deterministicCleanDirectories": 2,
+    "byteIdentical": true,
+    "network": "not-used"
+  },
+  "brokerExecutable": {
+    "path": "dist/Capsule.app/Contents/MacOS/Capsule",
+    "bytes": 59928,
+    "sha256": "365b8ebb5bb7dbd8823db7cc292c1b5807baa0fda4d09ba2d2905df7bee3cd5f",
+    "identity": {
+      "signature": "linker-adhoc-no-apple-identity",
+      "teamIdentifier": null,
+      "codesignDisplayOnly": true,
+      "signingOperationUsed": false
+    }
+  },
+  "bundleManifest": {
+    "path": "dist/Capsule.app/Contents/Resources/CapsuleConstruction/bundle-manifest.json",
+    "bytes": 5546,
+    "sha256": "5bd80097775908031b1a4c90680e8c7656cc5e9f97df2cc187592f75ee67a56f",
+    "files": 23
+  },
+  "readback": {
+    "manifestSha256": "5bd80097775908031b1a4c90680e8c7656cc5e9f97df2cc187592f75ee67a56f",
+    "bundleFileCount": 23,
+    "roleCount": 7,
+    "activationDecision": "refuse",
+    "activationReason": "signing-profile-inactive"
+  },
+  "placeholders": [
+    {
+      "role": "capsule.role.agent-daemon/v0",
+      "path": "dist/Capsule.app/Contents/Library/Helpers/CapsuleDaemon.app/Contents/MacOS/CapsuleDaemon",
+      "executable": false,
+      "activation": "refuse",
+      "guestCreation": "impossible-no-program-bytes"
+    },
+    {
+      "role": "capsule.role.execution-supervisor/v0",
+      "path": "dist/Capsule.app/Contents/Library/Helpers/CapsuleSupervisor.app/Contents/MacOS/CapsuleSupervisor",
+      "executable": false,
+      "activation": "refuse",
+      "guestCreation": "impossible-no-program-bytes"
+    }
+  ],
+  "limitations": [
+    "No Apple identity, provisioning profile, TeamIdentifier, CDHash enrollment, or effective signed-entitlement evidence exists.",
+    "No application, service, launcher, parser, runtime, backend, or guest was installed, registered, or launched.",
+    "Private XPC and SMAppService reachability remain unproved until separately authorized I1B/R3 installed evidence.",
+    "The daemon and Supervisor files are inert non-executable test-only placeholders, not product binaries."
+  ]
+}

@@ -1,0 +1,61 @@
+{
+  "schema": "capsule.macos-installation.i1b-r3-refusal-matrix/v1",
+  "status": "PASSED",
+  "scope": "local copies of exact signed Capsule test bundle only",
+  "executionState": "disabled",
+  "developerIdUsed": false,
+  "unrelatedCredentialUsed": false,
+  "cases": [
+    {
+      "name": "missing-profile",
+      "status": "PASSED",
+      "expected": "refused",
+      "refusalClass": "profile-presence"
+    },
+    {
+      "name": "tampered-profile",
+      "status": "PASSED",
+      "expected": "refused",
+      "refusalClass": "profile-cms-or-metadata"
+    },
+    {
+      "name": "changed-entitlement",
+      "status": "PASSED",
+      "expected": "refused",
+      "refusalClass": "effective-entitlement-set"
+    },
+    {
+      "name": "wrong-identifier",
+      "status": "PASSED",
+      "expected": "refused",
+      "refusalClass": "signing-identifier"
+    },
+    {
+      "name": "ad-hoc-replacement",
+      "status": "PASSED",
+      "expected": "refused",
+      "refusalClass": "certificate-and-team"
+    },
+    {
+      "name": "unsigned-byte-replacement",
+      "status": "PASSED",
+      "expected": "refused",
+      "refusalClass": "nested-code-seal"
+    },
+    {
+      "name": "stale-mixed-bundle",
+      "status": "PASSED",
+      "expected": "refused",
+      "refusalClass": "enrolled-signed-byte-set",
+      "repairRequired": true,
+      "daemonAndBrokerRolesDisabled": true
+    },
+    {
+      "name": "wrong-team",
+      "status": "PASSED",
+      "expected": "refused",
+      "refusalClass": "enrolled-team-identifier",
+      "method": "synthetic expected-Team mismatch; no unrelated signing identity used"
+    }
+  ]
+}

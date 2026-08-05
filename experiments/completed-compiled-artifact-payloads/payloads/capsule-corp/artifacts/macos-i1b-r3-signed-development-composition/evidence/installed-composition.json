@@ -1,0 +1,101 @@
+{
+  "schema": "capsule.macos-installation.i1b-r3-installed-composition/v1",
+  "status": "PASSED",
+  "authorizedEnvironment": "user-owned local Mac; exact Capsule test components only",
+  "installPath": "/Users/dsteele/Applications/Capsule.app",
+  "serviceLabels": ["com.capsulecorp.capsule.daemon", "com.capsulecorp.capsule.supervisor"],
+  "executionState": "disabled",
+  "attemptsEnabled": false,
+  "approvalKeyOperation": false,
+  "authorityStoreMutation": false,
+  "runtimeAction": false,
+  "backendAction": false,
+  "guestAction": false,
+  "appGroupUsed": false,
+  "sharedResultCacheContainerUsed": false,
+  "observations": {
+    "brokerStatus": {
+      "role": "broker-status-app",
+      "execution": "disabled",
+      "attempts": "disabled",
+      "backend": "absent",
+      "guest": "absent",
+      "privateScratchCleanup": "passed"
+    },
+    "statusAppStarted": true,
+    "registration": {
+      "daemon": "enabled",
+      "supervisor": "enabled",
+      "execution": "disabled"
+    },
+    "serviceStatus": {
+      "daemon": "enabled",
+      "supervisor": "enabled",
+      "execution": "disabled"
+    },
+    "registeredServiceLaunch": {
+      "com.capsulecorp.capsule.daemon": {
+        "registered": true,
+        "lastExitCode": 0
+      },
+      "com.capsulecorp.capsule.supervisor": {
+        "registered": true,
+        "lastExitCode": 0
+      }
+    },
+    "brokerPrivateValidator": {
+      "own_service_cold_start": "connection-interrupted",
+      "own_service": "connection-interrupted",
+      "wrong_method": "connection-interrupted",
+      "tampered_request": "connection-interrupted",
+      "wrong_service": "connection-invalid",
+      "parser_spawn": "prohibited-by-inactive-policy",
+      "execution": "disabled"
+    },
+    "daemonPrivateValidator": {
+      "evidence": "signed daemon exits zero only after private-scratch cleanup and own/cross-role/method/tamper closed matrix",
+      "lastExitCode": 0
+    },
+    "processesAfterProbes": []
+  },
+  "cleanup": {
+    "status": "PASSED",
+    "installRemoved": true,
+    "servicesBefore": {
+      "com.capsulecorp.capsule.daemon": false,
+      "com.capsulecorp.capsule.supervisor": false
+    },
+    "servicesAfter": {
+      "com.capsulecorp.capsule.daemon": false,
+      "com.capsulecorp.capsule.supervisor": false
+    },
+    "processesBefore": [],
+    "processesAfter": [],
+    "containersBefore": {
+      "/Users/dsteele/Library/Containers/com.capsulecorp.capsule.broker": true,
+      "/Users/dsteele/Library/Containers/com.capsulecorp.capsule.daemon": true,
+      "/Users/dsteele/Library/Containers/com.capsulecorp.capsule.supervisor": true,
+      "/Users/dsteele/Library/Containers/com.capsulecorp.capsule.source-validator.daemon.v1": true,
+      "/Users/dsteele/Library/Containers/com.capsulecorp.capsule.source-validator.approval-broker.v1": true,
+      "/Users/dsteele/Library/Containers/com.capsulecorp.capsule.source-validator-parser.daemon.v1": false,
+      "/Users/dsteele/Library/Containers/com.capsulecorp.capsule.source-validator-parser.approval-broker.v1": false
+    },
+    "containersAfter": {
+      "/Users/dsteele/Library/Containers/com.capsulecorp.capsule.broker": true,
+      "/Users/dsteele/Library/Containers/com.capsulecorp.capsule.daemon": true,
+      "/Users/dsteele/Library/Containers/com.capsulecorp.capsule.supervisor": true,
+      "/Users/dsteele/Library/Containers/com.capsulecorp.capsule.source-validator.daemon.v1": true,
+      "/Users/dsteele/Library/Containers/com.capsulecorp.capsule.source-validator.approval-broker.v1": true,
+      "/Users/dsteele/Library/Containers/com.capsulecorp.capsule.source-validator-parser.daemon.v1": false,
+      "/Users/dsteele/Library/Containers/com.capsulecorp.capsule.source-validator-parser.approval-broker.v1": false
+    },
+    "platformManagedContainerRootsRetained": [
+      "/Users/dsteele/Library/Containers/com.capsulecorp.capsule.broker",
+      "/Users/dsteele/Library/Containers/com.capsulecorp.capsule.daemon",
+      "/Users/dsteele/Library/Containers/com.capsulecorp.capsule.supervisor",
+      "/Users/dsteele/Library/Containers/com.capsulecorp.capsule.source-validator.daemon.v1",
+      "/Users/dsteele/Library/Containers/com.capsulecorp.capsule.source-validator.approval-broker.v1"
+    ],
+    "nonPlatformPrivateScratch": "removed"
+  }
+}

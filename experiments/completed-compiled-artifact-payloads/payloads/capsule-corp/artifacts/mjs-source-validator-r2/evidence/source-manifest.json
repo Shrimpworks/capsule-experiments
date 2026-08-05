@@ -1,0 +1,822 @@
+{
+  "schema": "capsule.source-validator.unsigned-source-manifest/v1",
+  "artifact": "capsule-source-validator-role-bundles-r2",
+  "target": "aarch64-apple-darwin",
+  "cargoLockSha256": "2710320593e127b50ec5ba8b33e66b32ba16f8db83238edd64b3e8e633a19890",
+  "lockedPackageCount": 75,
+  "targetComponentCount": 74,
+  "sourceInputs": [
+    {
+      "path": "Cargo.toml",
+      "bytes": 607,
+      "sha256": "f2d2a3b65e61e88afa44a39b62294a1b79c664f51ca57eada6f2352b31eba736"
+    },
+    {
+      "path": "Cargo.lock",
+      "bytes": 18064,
+      "sha256": "2710320593e127b50ec5ba8b33e66b32ba16f8db83238edd64b3e8e633a19890"
+    },
+    {
+      "path": "LICENSE",
+      "bytes": 177,
+      "sha256": "0fa499785550855d614d015356c5d68d59d65bdd44c8283cc5e7eda5e9ec2340"
+    },
+    {
+      "path": "rust-toolchain.toml",
+      "bytes": 86,
+      "sha256": "178b5d2a8314b0701714395332f6218fecd503e82c7b166c51895c2ab8a2ff2e"
+    },
+    {
+      "path": "src/lib.rs",
+      "bytes": 11780,
+      "sha256": "cf8902dd362f2f86c85c8d3dd996f5d59f575b782008dcbdef1a44e61a58e2c6"
+    },
+    {
+      "path": "src/bin/daemon.rs",
+      "bytes": 143,
+      "sha256": "44f4bfcd81904e518cfbdac311d86de3fa6c816be515639b364ebcba7b36ad55"
+    },
+    {
+      "path": "src/bin/approval_broker.rs",
+      "bytes": 151,
+      "sha256": "3a169f49e6ca479a2cdcf621d84639e8c32f359830d993d48712f70360b21931"
+    },
+    {
+      "path": "launcher/launcher.c",
+      "bytes": 6926,
+      "sha256": "933b5ea1714f70f6405525c9010333283b6b08174d06729dc3d331a2bac22f01"
+    },
+    {
+      "path": "launcher/daemon-Info.plist",
+      "bytes": 888,
+      "sha256": "635815858bfc8e9d5d412883589b7578830028f629e0b60b587900e8a66382d3"
+    },
+    {
+      "path": "launcher/broker-Info.plist",
+      "bytes": 897,
+      "sha256": "7b511e617326192134ae9f7469a65f9540d437806ecc55ecb750435bc131c285"
+    },
+    {
+      "path": "scripts/reproduce.sh",
+      "bytes": 5452,
+      "sha256": "6921eb367c973298d9ffc54682a738716dc2bf9889dc80c637926ba495c690d0"
+    },
+    {
+      "path": "scripts/generate-evidence.mjs",
+      "bytes": 12861,
+      "sha256": "1dd2bb32adbe048ad07f72656f0c7b4f465e9babc6f693691338a709828ecb8a"
+    },
+    {
+      "path": "scripts/verify-evidence.mjs",
+      "bytes": 3787,
+      "sha256": "2f684058024da0b502dfaf4104bd7233b7f27a16d8b213c16003db73d9c1207d"
+    },
+    {
+      "path": "scripts/verify-process.mjs",
+      "bytes": 2378,
+      "sha256": "a3755564c8f73ddf5fff06d34364e677b76f13893dd684d91d27b39c91e34ab8"
+    }
+  ],
+  "packages": [
+    {
+      "name": "allocator-api2",
+      "version": "0.2.21",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "registryChecksum": null,
+      "licenseExpression": "MIT OR Apache-2.0",
+      "licenseFile": null,
+      "sourceFileCount": 26,
+      "sourceBytes": 294010
+    },
+    {
+      "name": "autocfg",
+      "version": "1.5.1",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "registryChecksum": null,
+      "licenseExpression": "Apache-2.0 OR MIT",
+      "licenseFile": null,
+      "sourceFileCount": 24,
+      "sourceBytes": 62101
+    },
+    {
+      "name": "bitflags",
+      "version": "2.13.1",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "registryChecksum": null,
+      "licenseExpression": "MIT OR Apache-2.0",
+      "licenseFile": null,
+      "sourceFileCount": 65,
+      "sourceBytes": 244202
+    },
+    {
+      "name": "block-buffer",
+      "version": "0.10.4",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "registryChecksum": null,
+      "licenseExpression": "MIT OR Apache-2.0",
+      "licenseFile": null,
+      "sourceFileCount": 11,
+      "sourceBytes": 35045
+    },
+    {
+      "name": "capsule-mjs-source-validator-r2",
+      "version": "0.1.0",
+      "source": "repository",
+      "registryChecksum": null,
+      "licenseExpression": null,
+      "licenseFile": "LICENSE",
+      "sourceFileCount": 14,
+      "sourceBytes": 64197
+    },
+    {
+      "name": "castaway",
+      "version": "0.2.4",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "registryChecksum": null,
+      "licenseExpression": "MIT",
+      "licenseFile": null,
+      "sourceFileCount": 17,
+      "sourceBytes": 43353
+    },
+    {
+      "name": "cfg-if",
+      "version": "1.0.4",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "registryChecksum": null,
+      "licenseExpression": "MIT OR Apache-2.0",
+      "licenseFile": null,
+      "sourceFileCount": 15,
+      "sourceBytes": 25728
+    },
+    {
+      "name": "compact_str",
+      "version": "0.9.1",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "registryChecksum": null,
+      "licenseExpression": "MIT",
+      "licenseFile": null,
+      "sourceFileCount": 36,
+      "sourceBytes": 395404
+    },
+    {
+      "name": "cow-utils",
+      "version": "0.1.3",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "registryChecksum": null,
+      "licenseExpression": "MIT",
+      "licenseFile": null,
+      "sourceFileCount": 11,
+      "sourceBytes": 19879
+    },
+    {
+      "name": "cpufeatures",
+      "version": "0.2.17",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "registryChecksum": null,
+      "licenseExpression": "MIT OR Apache-2.0",
+      "licenseFile": null,
+      "sourceFileCount": 17,
+      "sourceBytes": 44350
+    },
+    {
+      "name": "crypto-common",
+      "version": "0.1.7",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "registryChecksum": null,
+      "licenseExpression": "MIT OR Apache-2.0",
+      "licenseFile": null,
+      "sourceFileCount": 10,
+      "sourceBytes": 28572
+    },
+    {
+      "name": "digest",
+      "version": "0.10.7",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "registryChecksum": null,
+      "licenseExpression": "MIT OR Apache-2.0",
+      "licenseFile": null,
+      "sourceFileCount": 22,
+      "sourceBytes": 87402
+    },
+    {
+      "name": "dragonbox_ecma",
+      "version": "0.1.12",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "registryChecksum": null,
+      "licenseExpression": "Apache-2.0 WITH LLVM-exception OR BSL-1.0",
+      "licenseFile": null,
+      "sourceFileCount": 26,
+      "sourceBytes": 162956
+    },
+    {
+      "name": "either",
+      "version": "1.17.0",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "registryChecksum": null,
+      "licenseExpression": "MIT OR Apache-2.0",
+      "licenseFile": null,
+      "sourceFileCount": 16,
+      "sourceBytes": 91786
+    },
+    {
+      "name": "fastrand",
+      "version": "2.5.0",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "registryChecksum": null,
+      "licenseExpression": "Apache-2.0 OR MIT",
+      "licenseFile": null,
+      "sourceFileCount": 14,
+      "sourceBytes": 74279
+    },
+    {
+      "name": "generic-array",
+      "version": "0.14.7",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "registryChecksum": null,
+      "licenseExpression": "MIT",
+      "licenseFile": null,
+      "sourceFileCount": 17,
+      "sourceBytes": 67829
+    },
+    {
+      "name": "hashbrown",
+      "version": "0.17.1",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "registryChecksum": null,
+      "licenseExpression": "MIT OR Apache-2.0",
+      "licenseFile": null,
+      "sourceFileCount": 51,
+      "sourceBytes": 889655
+    },
+    {
+      "name": "itertools",
+      "version": "0.15.0",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "registryChecksum": null,
+      "licenseExpression": "MIT OR Apache-2.0",
+      "licenseFile": null,
+      "sourceFileCount": 92,
+      "sourceBytes": 812638
+    },
+    {
+      "name": "itoa",
+      "version": "1.0.18",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "registryChecksum": null,
+      "licenseExpression": "MIT OR Apache-2.0",
+      "licenseFile": null,
+      "sourceFileCount": 15,
+      "sourceBytes": 51103
+    },
+    {
+      "name": "libc",
+      "version": "0.2.189",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "registryChecksum": null,
+      "licenseExpression": "MIT OR Apache-2.0",
+      "licenseFile": null,
+      "sourceFileCount": 405,
+      "sourceBytes": 4503691
+    },
+    {
+      "name": "memchr",
+      "version": "2.8.3",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "registryChecksum": null,
+      "licenseExpression": "Unlicense OR MIT",
+      "licenseFile": null,
+      "sourceFileCount": 60,
+      "sourceBytes": 588689
+    },
+    {
+      "name": "nonmax",
+      "version": "0.5.5",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "registryChecksum": null,
+      "licenseExpression": "MIT OR Apache-2.0",
+      "licenseFile": null,
+      "sourceFileCount": 12,
+      "sourceBytes": 39146
+    },
+    {
+      "name": "num-bigint",
+      "version": "0.5.1",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "registryChecksum": null,
+      "licenseExpression": "MIT OR Apache-2.0",
+      "licenseFile": null,
+      "sourceFileCount": 56,
+      "sourceBytes": 528949
+    },
+    {
+      "name": "num-integer",
+      "version": "0.1.46",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "registryChecksum": null,
+      "licenseExpression": "MIT OR Apache-2.0",
+      "licenseFile": null,
+      "sourceFileCount": 17,
+      "sourceBytes": 109885
+    },
+    {
+      "name": "num-traits",
+      "version": "0.2.19",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "registryChecksum": null,
+      "licenseExpression": "MIT OR Apache-2.0",
+      "licenseFile": null,
+      "sourceFileCount": 30,
+      "sourceBytes": 273988
+    },
+    {
+      "name": "owo-colors",
+      "version": "4.3.0",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "registryChecksum": null,
+      "licenseExpression": "MIT",
+      "licenseFile": null,
+      "sourceFileCount": 23,
+      "sourceBytes": 161566
+    },
+    {
+      "name": "oxc_allocator",
+      "version": "0.140.0",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "registryChecksum": null,
+      "licenseExpression": "MIT",
+      "licenseFile": null,
+      "sourceFileCount": 47,
+      "sourceBytes": 610289
+    },
+    {
+      "name": "oxc_ast_macros",
+      "version": "0.140.0",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "registryChecksum": null,
+      "licenseExpression": "MIT",
+      "licenseFile": null,
+      "sourceFileCount": 12,
+      "sourceBytes": 113355
+    },
+    {
+      "name": "oxc_ast_visit",
+      "version": "0.140.0",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "registryChecksum": null,
+      "licenseExpression": "MIT",
+      "licenseFile": null,
+      "sourceFileCount": 14,
+      "sourceBytes": 420322
+    },
+    {
+      "name": "oxc_ast",
+      "version": "0.140.0",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "registryChecksum": null,
+      "licenseExpression": "MIT",
+      "licenseFile": null,
+      "sourceFileCount": 46,
+      "sourceBytes": 3397563
+    },
+    {
+      "name": "oxc_data_structures",
+      "version": "0.140.0",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "registryChecksum": null,
+      "licenseExpression": "MIT",
+      "licenseFile": null,
+      "sourceFileCount": 23,
+      "sourceBytes": 243729
+    },
+    {
+      "name": "oxc_diagnostics",
+      "version": "0.140.0",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "registryChecksum": null,
+      "licenseExpression": "MIT",
+      "licenseFile": null,
+      "sourceFileCount": 9,
+      "sourceBytes": 46582
+    },
+    {
+      "name": "oxc_ecmascript",
+      "version": "0.140.0",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "registryChecksum": null,
+      "licenseExpression": "MIT",
+      "licenseFile": null,
+      "sourceFileCount": 46,
+      "sourceBytes": 269975
+    },
+    {
+      "name": "oxc_estree",
+      "version": "0.140.0",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "registryChecksum": null,
+      "licenseExpression": "MIT",
+      "licenseFile": null,
+      "sourceFileCount": 17,
+      "sourceBytes": 82472
+    },
+    {
+      "name": "oxc_index",
+      "version": "5.0.0",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "registryChecksum": null,
+      "licenseExpression": "MIT",
+      "licenseFile": null,
+      "sourceFileCount": 11,
+      "sourceBytes": 109491
+    },
+    {
+      "name": "oxc_parser",
+      "version": "0.140.0",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "registryChecksum": null,
+      "licenseExpression": "MIT",
+      "licenseFile": null,
+      "sourceFileCount": 54,
+      "sourceBytes": 933612
+    },
+    {
+      "name": "oxc_regular_expression",
+      "version": "0.140.0",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "registryChecksum": null,
+      "licenseExpression": "MIT",
+      "licenseFile": null,
+      "sourceFileCount": 47,
+      "sourceBytes": 326456
+    },
+    {
+      "name": "oxc_semantic",
+      "version": "0.140.0",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "registryChecksum": null,
+      "licenseExpression": "MIT",
+      "licenseFile": null,
+      "sourceFileCount": 34,
+      "sourceBytes": 472195
+    },
+    {
+      "name": "oxc_span",
+      "version": "0.140.0",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "registryChecksum": null,
+      "licenseExpression": "MIT",
+      "licenseFile": null,
+      "sourceFileCount": 15,
+      "sourceBytes": 85837
+    },
+    {
+      "name": "oxc_str",
+      "version": "0.140.0",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "registryChecksum": null,
+      "licenseExpression": "MIT",
+      "licenseFile": null,
+      "sourceFileCount": 10,
+      "sourceBytes": 54965
+    },
+    {
+      "name": "oxc_syntax",
+      "version": "0.140.0",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "registryChecksum": null,
+      "licenseExpression": "MIT",
+      "licenseFile": null,
+      "sourceFileCount": 28,
+      "sourceBytes": 140153
+    },
+    {
+      "name": "oxc-miette-derive",
+      "version": "3.0.1",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "registryChecksum": null,
+      "licenseExpression": "Apache-2.0",
+      "licenseFile": null,
+      "sourceFileCount": 20,
+      "sourceBytes": 83760
+    },
+    {
+      "name": "oxc-miette",
+      "version": "3.0.1",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "registryChecksum": null,
+      "licenseExpression": "Apache-2.0",
+      "licenseFile": null,
+      "sourceFileCount": 50,
+      "sourceBytes": 410212
+    },
+    {
+      "name": "percent-encoding",
+      "version": "2.3.2",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "registryChecksum": null,
+      "licenseExpression": "MIT OR Apache-2.0",
+      "licenseFile": null,
+      "sourceFileCount": 9,
+      "sourceBytes": 35549
+    },
+    {
+      "name": "phf_generator",
+      "version": "0.14.0",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "registryChecksum": null,
+      "licenseExpression": "MIT",
+      "licenseFile": null,
+      "sourceFileCount": 12,
+      "sourceBytes": 69789
+    },
+    {
+      "name": "phf_macros",
+      "version": "0.14.0",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "registryChecksum": null,
+      "licenseExpression": "MIT",
+      "licenseFile": null,
+      "sourceFileCount": 10,
+      "sourceBytes": 82673
+    },
+    {
+      "name": "phf_shared",
+      "version": "0.14.0",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "registryChecksum": null,
+      "licenseExpression": "MIT",
+      "licenseFile": null,
+      "sourceFileCount": 11,
+      "sourceBytes": 67366
+    },
+    {
+      "name": "phf",
+      "version": "0.14.0",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "registryChecksum": null,
+      "licenseExpression": "MIT",
+      "licenseFile": null,
+      "sourceFileCount": 13,
+      "sourceBytes": 104098
+    },
+    {
+      "name": "proc-macro2",
+      "version": "1.0.107",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "registryChecksum": null,
+      "licenseExpression": "MIT OR Apache-2.0",
+      "licenseFile": null,
+      "sourceFileCount": 34,
+      "sourceBytes": 270290
+    },
+    {
+      "name": "quote",
+      "version": "1.0.47",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "registryChecksum": null,
+      "licenseExpression": "MIT OR Apache-2.0",
+      "licenseFile": null,
+      "sourceFileCount": 36,
+      "sourceBytes": 136867
+    },
+    {
+      "name": "rustc-hash",
+      "version": "2.1.3",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "registryChecksum": null,
+      "licenseExpression": "Apache-2.0 OR MIT",
+      "licenseFile": null,
+      "sourceFileCount": 15,
+      "sourceBytes": 43963
+    },
+    {
+      "name": "rustversion",
+      "version": "1.0.23",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "registryChecksum": null,
+      "licenseExpression": "MIT OR Apache-2.0",
+      "licenseFile": null,
+      "sourceFileCount": 40,
+      "sourceBytes": 78162
+    },
+    {
+      "name": "ryu",
+      "version": "1.0.23",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "registryChecksum": null,
+      "licenseExpression": "Apache-2.0 OR BSL-1.0",
+      "licenseFile": null,
+      "sourceFileCount": 39,
+      "sourceBytes": 183100
+    },
+    {
+      "name": "self_cell",
+      "version": "1.3.0",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "registryChecksum": null,
+      "licenseExpression": "Apache-2.0 OR GPL-2.0-only",
+      "licenseFile": null,
+      "sourceFileCount": 9,
+      "sourceBytes": 84400
+    },
+    {
+      "name": "seq-macro",
+      "version": "0.3.6",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "registryChecksum": null,
+      "licenseExpression": "MIT OR Apache-2.0",
+      "licenseFile": null,
+      "sourceFileCount": 23,
+      "sourceBytes": 54082
+    },
+    {
+      "name": "serde_core",
+      "version": "1.0.229",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "registryChecksum": null,
+      "licenseExpression": "MIT OR Apache-2.0",
+      "licenseFile": null,
+      "sourceFileCount": 28,
+      "sourceBytes": 392885
+    },
+    {
+      "name": "serde",
+      "version": "1.0.229",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "registryChecksum": null,
+      "licenseExpression": "MIT OR Apache-2.0",
+      "licenseFile": null,
+      "sourceFileCount": 34,
+      "sourceBytes": 561562
+    },
+    {
+      "name": "sha2",
+      "version": "0.10.9",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "registryChecksum": null,
+      "licenseExpression": "MIT OR Apache-2.0",
+      "licenseFile": null,
+      "sourceFileCount": 32,
+      "sourceBytes": 114057
+    },
+    {
+      "name": "siphasher",
+      "version": "1.0.3",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "registryChecksum": null,
+      "licenseExpression": "MIT/Apache-2.0",
+      "licenseFile": null,
+      "sourceFileCount": 16,
+      "sourceBytes": 59810
+    },
+    {
+      "name": "smallvec",
+      "version": "1.15.2",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "registryChecksum": null,
+      "licenseExpression": "MIT OR Apache-2.0",
+      "licenseFile": null,
+      "sourceFileCount": 13,
+      "sourceBytes": 143590
+    },
+    {
+      "name": "smawk",
+      "version": "0.3.3",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "registryChecksum": null,
+      "licenseExpression": "MIT",
+      "licenseFile": null,
+      "sourceFileCount": 19,
+      "sourceBytes": 104210
+    },
+    {
+      "name": "static_assertions",
+      "version": "1.1.0",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "registryChecksum": null,
+      "licenseExpression": "MIT OR Apache-2.0",
+      "licenseFile": null,
+      "sourceFileCount": 18,
+      "sourceBytes": 64602
+    },
+    {
+      "name": "syn",
+      "version": "2.0.119",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "registryChecksum": null,
+      "licenseExpression": "MIT OR Apache-2.0",
+      "licenseFile": null,
+      "sourceFileCount": 106,
+      "sourceBytes": 2306630
+    },
+    {
+      "name": "syn",
+      "version": "3.0.3",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "registryChecksum": null,
+      "licenseExpression": "MIT OR Apache-2.0",
+      "licenseFile": null,
+      "sourceFileCount": 105,
+      "sourceBytes": 2360759
+    },
+    {
+      "name": "textwrap",
+      "version": "0.16.2",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "registryChecksum": null,
+      "licenseExpression": "MIT",
+      "licenseFile": null,
+      "sourceFileCount": 27,
+      "sourceBytes": 212888
+    },
+    {
+      "name": "thiserror-impl",
+      "version": "2.0.19",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "registryChecksum": null,
+      "licenseExpression": "MIT OR Apache-2.0",
+      "licenseFile": null,
+      "sourceFileCount": 18,
+      "sourceBytes": 96154
+    },
+    {
+      "name": "thiserror",
+      "version": "2.0.19",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "registryChecksum": null,
+      "licenseExpression": "MIT OR Apache-2.0",
+      "licenseFile": null,
+      "sourceFileCount": 106,
+      "sourceBytes": 118676
+    },
+    {
+      "name": "typenum",
+      "version": "1.20.1",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "registryChecksum": null,
+      "licenseExpression": "MIT OR Apache-2.0",
+      "licenseFile": null,
+      "sourceFileCount": 27,
+      "sourceBytes": 1231434
+    },
+    {
+      "name": "unicode-id-start",
+      "version": "1.4.0",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "registryChecksum": null,
+      "licenseExpression": "(MIT OR Apache-2.0) AND Unicode-3.0",
+      "licenseFile": null,
+      "sourceFileCount": 28,
+      "sourceBytes": 340365
+    },
+    {
+      "name": "unicode-ident",
+      "version": "1.0.24",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "registryChecksum": null,
+      "licenseExpression": "(MIT OR Apache-2.0) AND Unicode-3.0",
+      "licenseFile": null,
+      "sourceFileCount": 27,
+      "sourceBytes": 336830
+    },
+    {
+      "name": "unicode-linebreak",
+      "version": "0.1.5",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "registryChecksum": null,
+      "licenseExpression": "Apache-2.0",
+      "licenseFile": null,
+      "sourceFileCount": 8,
+      "sourceBytes": 89803
+    },
+    {
+      "name": "unicode-segmentation",
+      "version": "1.13.3",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "registryChecksum": null,
+      "licenseExpression": "MIT OR Apache-2.0",
+      "licenseFile": null,
+      "sourceFileCount": 20,
+      "sourceBytes": 674291
+    },
+    {
+      "name": "unicode-width",
+      "version": "0.2.2",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "registryChecksum": null,
+      "licenseExpression": "MIT OR Apache-2.0",
+      "licenseFile": null,
+      "sourceFileCount": 16,
+      "sourceBytes": 2372286
+    },
+    {
+      "name": "version_check",
+      "version": "0.9.5",
+      "source": "registry+https://github.com/rust-lang/crates.io-index",
+      "registryChecksum": null,
+      "licenseExpression": "MIT/Apache-2.0",
+      "licenseFile": null,
+      "sourceFileCount": 14,
+      "sourceBytes": 60157
+    }
+  ]
+}

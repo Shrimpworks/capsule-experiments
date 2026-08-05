@@ -1,0 +1,21 @@
+{
+  "schema": "capsule.macos-installation.i1a-construction-status/v1",
+  "checkpoint": "I1A",
+  "profileId": "capsule.macos-installation.no-guest/i0",
+  "intendedDevelopmentTeamId": "3DDR84M4JS",
+  "intendedTeamState": "inactive-metadata-only",
+  "appleIdentityUsed": false,
+  "provisioningProfilePresent": false,
+  "codeSigningMutationUsed": false,
+  "serviceRegistrationState": "inactive-not-registered",
+  "bootstrapState": "inactive-not-created",
+  "approvalState": "absent",
+  "attemptsEnabled": false,
+  "runtimePresent": false,
+  "backendPresent": false,
+  "guestPresent": false,
+  "executionState": "permanently-disabled-in-i1a",
+  "activationDecision": "refuse",
+  "activationReason": "signing-profile-inactive",
+  "credentialedNextSlice": "I1B-and-Source-Validator-R3-separate-authorization-required"
+}

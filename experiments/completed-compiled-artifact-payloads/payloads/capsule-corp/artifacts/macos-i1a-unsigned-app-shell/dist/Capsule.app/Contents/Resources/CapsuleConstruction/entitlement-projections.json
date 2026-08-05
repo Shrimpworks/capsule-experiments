@@ -1,0 +1,591 @@
+{
+  "schema": "capsule.macos-installation.i1a-entitlement-projections/v1",
+  "profileId": "capsule.macos-installation.no-guest/i0",
+  "projectionState": "expected-only-signing-inactive",
+  "entitlements": [
+    {
+      "recordVersion": 0,
+      "roleId": "capsule.role.approval-broker/v0",
+      "key": "com.apple.security.app-sandbox",
+      "disposition": "required-true",
+      "valueIdentity": "true",
+      "source": "app-sandbox-baseline"
+    },
+    {
+      "recordVersion": 0,
+      "roleId": "capsule.role.approval-broker/v0",
+      "key": "com.apple.security.get-task-allow",
+      "disposition": "required-absent",
+      "valueIdentity": "absent",
+      "source": "hardened-runtime-baseline"
+    },
+    {
+      "recordVersion": 0,
+      "roleId": "capsule.role.approval-broker/v0",
+      "key": "com.apple.security.cs.disable-library-validation",
+      "disposition": "required-absent",
+      "valueIdentity": "absent",
+      "source": "closed-native-loading"
+    },
+    {
+      "recordVersion": 0,
+      "roleId": "capsule.role.approval-broker/v0",
+      "key": "com.apple.security.cs.allow-jit",
+      "disposition": "required-absent",
+      "valueIdentity": "absent",
+      "source": "closed-native-loading"
+    },
+    {
+      "recordVersion": 0,
+      "roleId": "capsule.role.approval-broker/v0",
+      "key": "com.apple.security.cs.allow-unsigned-executable-memory",
+      "disposition": "required-absent",
+      "valueIdentity": "absent",
+      "source": "closed-native-loading"
+    },
+    {
+      "recordVersion": 0,
+      "roleId": "capsule.role.approval-broker/v0",
+      "key": "com.apple.security.hypervisor",
+      "disposition": "required-absent",
+      "valueIdentity": "absent",
+      "source": "no-guest-profile"
+    },
+    {
+      "recordVersion": 0,
+      "roleId": "capsule.role.agent-daemon/v0",
+      "key": "com.apple.security.app-sandbox",
+      "disposition": "required-true",
+      "valueIdentity": "true",
+      "source": "app-sandbox-baseline"
+    },
+    {
+      "recordVersion": 0,
+      "roleId": "capsule.role.agent-daemon/v0",
+      "key": "com.apple.security.get-task-allow",
+      "disposition": "required-absent",
+      "valueIdentity": "absent",
+      "source": "hardened-runtime-baseline"
+    },
+    {
+      "recordVersion": 0,
+      "roleId": "capsule.role.agent-daemon/v0",
+      "key": "com.apple.security.cs.disable-library-validation",
+      "disposition": "required-absent",
+      "valueIdentity": "absent",
+      "source": "closed-native-loading"
+    },
+    {
+      "recordVersion": 0,
+      "roleId": "capsule.role.agent-daemon/v0",
+      "key": "com.apple.security.cs.allow-jit",
+      "disposition": "required-absent",
+      "valueIdentity": "absent",
+      "source": "closed-native-loading"
+    },
+    {
+      "recordVersion": 0,
+      "roleId": "capsule.role.agent-daemon/v0",
+      "key": "com.apple.security.cs.allow-unsigned-executable-memory",
+      "disposition": "required-absent",
+      "valueIdentity": "absent",
+      "source": "closed-native-loading"
+    },
+    {
+      "recordVersion": 0,
+      "roleId": "capsule.role.agent-daemon/v0",
+      "key": "com.apple.security.hypervisor",
+      "disposition": "required-absent",
+      "valueIdentity": "absent",
+      "source": "no-guest-profile"
+    },
+    {
+      "recordVersion": 0,
+      "roleId": "capsule.role.execution-supervisor/v0",
+      "key": "com.apple.security.app-sandbox",
+      "disposition": "required-true",
+      "valueIdentity": "true",
+      "source": "app-sandbox-baseline"
+    },
+    {
+      "recordVersion": 0,
+      "roleId": "capsule.role.execution-supervisor/v0",
+      "key": "com.apple.security.get-task-allow",
+      "disposition": "required-absent",
+      "valueIdentity": "absent",
+      "source": "hardened-runtime-baseline"
+    },
+    {
+      "recordVersion": 0,
+      "roleId": "capsule.role.execution-supervisor/v0",
+      "key": "com.apple.security.cs.disable-library-validation",
+      "disposition": "required-absent",
+      "valueIdentity": "absent",
+      "source": "closed-native-loading"
+    },
+    {
+      "recordVersion": 0,
+      "roleId": "capsule.role.execution-supervisor/v0",
+      "key": "com.apple.security.cs.allow-jit",
+      "disposition": "required-absent",
+      "valueIdentity": "absent",
+      "source": "closed-native-loading"
+    },
+    {
+      "recordVersion": 0,
+      "roleId": "capsule.role.execution-supervisor/v0",
+      "key": "com.apple.security.cs.allow-unsigned-executable-memory",
+      "disposition": "required-absent",
+      "valueIdentity": "absent",
+      "source": "closed-native-loading"
+    },
+    {
+      "recordVersion": 0,
+      "roleId": "capsule.role.execution-supervisor/v0",
+      "key": "com.apple.security.hypervisor",
+      "disposition": "required-absent",
+      "valueIdentity": "absent",
+      "source": "no-guest-profile"
+    },
+    {
+      "recordVersion": 0,
+      "roleId": "capsule.role.source-validator-launcher.daemon/v1",
+      "key": "com.apple.security.app-sandbox",
+      "disposition": "required-true",
+      "valueIdentity": "true",
+      "source": "app-sandbox-baseline"
+    },
+    {
+      "recordVersion": 0,
+      "roleId": "capsule.role.source-validator-launcher.daemon/v1",
+      "key": "com.apple.security.get-task-allow",
+      "disposition": "required-absent",
+      "valueIdentity": "absent",
+      "source": "hardened-runtime-baseline"
+    },
+    {
+      "recordVersion": 0,
+      "roleId": "capsule.role.source-validator-launcher.daemon/v1",
+      "key": "com.apple.security.cs.disable-library-validation",
+      "disposition": "required-absent",
+      "valueIdentity": "absent",
+      "source": "closed-native-loading"
+    },
+    {
+      "recordVersion": 0,
+      "roleId": "capsule.role.source-validator-launcher.daemon/v1",
+      "key": "com.apple.security.cs.allow-jit",
+      "disposition": "required-absent",
+      "valueIdentity": "absent",
+      "source": "closed-native-loading"
+    },
+    {
+      "recordVersion": 0,
+      "roleId": "capsule.role.source-validator-launcher.daemon/v1",
+      "key": "com.apple.security.cs.allow-unsigned-executable-memory",
+      "disposition": "required-absent",
+      "valueIdentity": "absent",
+      "source": "closed-native-loading"
+    },
+    {
+      "recordVersion": 0,
+      "roleId": "capsule.role.source-validator-launcher.daemon/v1",
+      "key": "com.apple.security.hypervisor",
+      "disposition": "required-absent",
+      "valueIdentity": "absent",
+      "source": "no-guest-profile"
+    },
+    {
+      "recordVersion": 0,
+      "roleId": "capsule.role.source-validator-parser.daemon/v1",
+      "key": "com.apple.security.app-sandbox",
+      "disposition": "required-true",
+      "valueIdentity": "true",
+      "source": "app-sandbox-baseline"
+    },
+    {
+      "recordVersion": 0,
+      "roleId": "capsule.role.source-validator-parser.daemon/v1",
+      "key": "com.apple.security.get-task-allow",
+      "disposition": "required-absent",
+      "valueIdentity": "absent",
+      "source": "hardened-runtime-baseline"
+    },
+    {
+      "recordVersion": 0,
+      "roleId": "capsule.role.source-validator-parser.daemon/v1",
+      "key": "com.apple.security.cs.disable-library-validation",
+      "disposition": "required-absent",
+      "valueIdentity": "absent",
+      "source": "closed-native-loading"
+    },
+    {
+      "recordVersion": 0,
+      "roleId": "capsule.role.source-validator-parser.daemon/v1",
+      "key": "com.apple.security.cs.allow-jit",
+      "disposition": "required-absent",
+      "valueIdentity": "absent",
+      "source": "closed-native-loading"
+    },
+    {
+      "recordVersion": 0,
+      "roleId": "capsule.role.source-validator-parser.daemon/v1",
+      "key": "com.apple.security.cs.allow-unsigned-executable-memory",
+      "disposition": "required-absent",
+      "valueIdentity": "absent",
+      "source": "closed-native-loading"
+    },
+    {
+      "recordVersion": 0,
+      "roleId": "capsule.role.source-validator-parser.daemon/v1",
+      "key": "com.apple.security.hypervisor",
+      "disposition": "required-absent",
+      "valueIdentity": "absent",
+      "source": "no-guest-profile"
+    },
+    {
+      "recordVersion": 0,
+      "roleId": "capsule.role.source-validator-launcher.approval-broker/v1",
+      "key": "com.apple.security.app-sandbox",
+      "disposition": "required-true",
+      "valueIdentity": "true",
+      "source": "app-sandbox-baseline"
+    },
+    {
+      "recordVersion": 0,
+      "roleId": "capsule.role.source-validator-launcher.approval-broker/v1",
+      "key": "com.apple.security.get-task-allow",
+      "disposition": "required-absent",
+      "valueIdentity": "absent",
+      "source": "hardened-runtime-baseline"
+    },
+    {
+      "recordVersion": 0,
+      "roleId": "capsule.role.source-validator-launcher.approval-broker/v1",
+      "key": "com.apple.security.cs.disable-library-validation",
+      "disposition": "required-absent",
+      "valueIdentity": "absent",
+      "source": "closed-native-loading"
+    },
+    {
+      "recordVersion": 0,
+      "roleId": "capsule.role.source-validator-launcher.approval-broker/v1",
+      "key": "com.apple.security.cs.allow-jit",
+      "disposition": "required-absent",
+      "valueIdentity": "absent",
+      "source": "closed-native-loading"
+    },
+    {
+      "recordVersion": 0,
+      "roleId": "capsule.role.source-validator-launcher.approval-broker/v1",
+      "key": "com.apple.security.cs.allow-unsigned-executable-memory",
+      "disposition": "required-absent",
+      "valueIdentity": "absent",
+      "source": "closed-native-loading"
+    },
+    {
+      "recordVersion": 0,
+      "roleId": "capsule.role.source-validator-launcher.approval-broker/v1",
+      "key": "com.apple.security.hypervisor",
+      "disposition": "required-absent",
+      "valueIdentity": "absent",
+      "source": "no-guest-profile"
+    },
+    {
+      "recordVersion": 0,
+      "roleId": "capsule.role.source-validator-parser.approval-broker/v1",
+      "key": "com.apple.security.app-sandbox",
+      "disposition": "required-true",
+      "valueIdentity": "true",
+      "source": "app-sandbox-baseline"
+    },
+    {
+      "recordVersion": 0,
+      "roleId": "capsule.role.source-validator-parser.approval-broker/v1",
+      "key": "com.apple.security.get-task-allow",
+      "disposition": "required-absent",
+      "valueIdentity": "absent",
+      "source": "hardened-runtime-baseline"
+    },
+    {
+      "recordVersion": 0,
+      "roleId": "capsule.role.source-validator-parser.approval-broker/v1",
+      "key": "com.apple.security.cs.disable-library-validation",
+      "disposition": "required-absent",
+      "valueIdentity": "absent",
+      "source": "closed-native-loading"
+    },
+    {
+      "recordVersion": 0,
+      "roleId": "capsule.role.source-validator-parser.approval-broker/v1",
+      "key": "com.apple.security.cs.allow-jit",
+      "disposition": "required-absent",
+      "valueIdentity": "absent",
+      "source": "closed-native-loading"
+    },
+    {
+      "recordVersion": 0,
+      "roleId": "capsule.role.source-validator-parser.approval-broker/v1",
+      "key": "com.apple.security.cs.allow-unsigned-executable-memory",
+      "disposition": "required-absent",
+      "valueIdentity": "absent",
+      "source": "closed-native-loading"
+    },
+    {
+      "recordVersion": 0,
+      "roleId": "capsule.role.source-validator-parser.approval-broker/v1",
+      "key": "com.apple.security.hypervisor",
+      "disposition": "required-absent",
+      "valueIdentity": "absent",
+      "source": "no-guest-profile"
+    },
+    {
+      "recordVersion": 0,
+      "roleId": "capsule.role.approval-broker/v0",
+      "key": "com.apple.security.files.user-selected.read-only",
+      "disposition": "required-absent",
+      "valueIdentity": "absent",
+      "source": "no-guest-inline-json-profile"
+    },
+    {
+      "recordVersion": 0,
+      "roleId": "capsule.role.approval-broker/v0",
+      "key": "keychain-access-groups",
+      "disposition": "inactive-unresolved",
+      "valueIdentity": "epoch-scoped-broker-group-unset",
+      "source": "signing-dependent"
+    },
+    {
+      "recordVersion": 0,
+      "roleId": "capsule.role.approval-broker/v0",
+      "key": "com.apple.security.application-groups",
+      "disposition": "inactive-unresolved",
+      "valueIdentity": "pairwise-broker-supervisor-group-or-private-service-unselected",
+      "source": "ipc-topology-dependent"
+    },
+    {
+      "recordVersion": 0,
+      "roleId": "capsule.role.agent-daemon/v0",
+      "key": "keychain-access-groups",
+      "disposition": "required-absent",
+      "valueIdentity": "absent",
+      "source": "daemon-key-exclusion"
+    },
+    {
+      "recordVersion": 0,
+      "roleId": "capsule.role.agent-daemon/v0",
+      "key": "com.apple.security.files.user-selected.read-only",
+      "disposition": "required-absent",
+      "valueIdentity": "absent",
+      "source": "broker-only-file-selection"
+    },
+    {
+      "recordVersion": 0,
+      "roleId": "capsule.role.agent-daemon/v0",
+      "key": "com.apple.security.application-groups",
+      "disposition": "inactive-unresolved",
+      "valueIdentity": "pairwise-daemon-supervisor-group-or-private-service-unselected",
+      "source": "ipc-topology-dependent"
+    },
+    {
+      "recordVersion": 0,
+      "roleId": "capsule.role.execution-supervisor/v0",
+      "key": "keychain-access-groups",
+      "disposition": "inactive-unresolved",
+      "valueIdentity": "epoch-scoped-supervisor-evidence-group-unset",
+      "source": "signing-dependent"
+    },
+    {
+      "recordVersion": 0,
+      "roleId": "capsule.role.execution-supervisor/v0",
+      "key": "com.apple.security.files.user-selected.read-only",
+      "disposition": "required-absent",
+      "valueIdentity": "absent",
+      "source": "broker-only-file-selection"
+    },
+    {
+      "recordVersion": 0,
+      "roleId": "capsule.role.execution-supervisor/v0",
+      "key": "com.apple.security.application-groups",
+      "disposition": "inactive-unresolved",
+      "valueIdentity": "two-pairwise-groups-or-private-services-unselected",
+      "source": "ipc-topology-dependent"
+    },
+    {
+      "recordVersion": 0,
+      "roleId": "capsule.role.source-validator-launcher.daemon/v1",
+      "key": "keychain-access-groups",
+      "disposition": "required-absent",
+      "valueIdentity": "absent",
+      "source": "validator-no-key-authority"
+    },
+    {
+      "recordVersion": 0,
+      "roleId": "capsule.role.source-validator-launcher.daemon/v1",
+      "key": "com.apple.security.application-groups",
+      "disposition": "required-absent",
+      "valueIdentity": "absent",
+      "source": "validator-role-separation"
+    },
+    {
+      "recordVersion": 0,
+      "roleId": "capsule.role.source-validator-launcher.daemon/v1",
+      "key": "com.apple.security.files.user-selected.read-only",
+      "disposition": "required-absent",
+      "valueIdentity": "absent",
+      "source": "validator-copied-source-only"
+    },
+    {
+      "recordVersion": 0,
+      "roleId": "capsule.role.source-validator-launcher.daemon/v1",
+      "key": "com.apple.security.network.client",
+      "disposition": "required-absent",
+      "valueIdentity": "absent",
+      "source": "validator-no-network"
+    },
+    {
+      "recordVersion": 0,
+      "roleId": "capsule.role.source-validator-launcher.daemon/v1",
+      "key": "com.apple.security.network.server",
+      "disposition": "required-absent",
+      "valueIdentity": "absent",
+      "source": "validator-no-network"
+    },
+    {
+      "recordVersion": 0,
+      "roleId": "capsule.role.source-validator-parser.daemon/v1",
+      "key": "keychain-access-groups",
+      "disposition": "required-absent",
+      "valueIdentity": "absent",
+      "source": "validator-no-key-authority"
+    },
+    {
+      "recordVersion": 0,
+      "roleId": "capsule.role.source-validator-parser.daemon/v1",
+      "key": "com.apple.security.application-groups",
+      "disposition": "required-absent",
+      "valueIdentity": "absent",
+      "source": "validator-role-separation"
+    },
+    {
+      "recordVersion": 0,
+      "roleId": "capsule.role.source-validator-parser.daemon/v1",
+      "key": "com.apple.security.files.user-selected.read-only",
+      "disposition": "required-absent",
+      "valueIdentity": "absent",
+      "source": "validator-copied-source-only"
+    },
+    {
+      "recordVersion": 0,
+      "roleId": "capsule.role.source-validator-parser.daemon/v1",
+      "key": "com.apple.security.network.client",
+      "disposition": "required-absent",
+      "valueIdentity": "absent",
+      "source": "validator-no-network"
+    },
+    {
+      "recordVersion": 0,
+      "roleId": "capsule.role.source-validator-parser.daemon/v1",
+      "key": "com.apple.security.network.server",
+      "disposition": "required-absent",
+      "valueIdentity": "absent",
+      "source": "validator-no-network"
+    },
+    {
+      "recordVersion": 0,
+      "roleId": "capsule.role.source-validator-launcher.approval-broker/v1",
+      "key": "keychain-access-groups",
+      "disposition": "required-absent",
+      "valueIdentity": "absent",
+      "source": "validator-no-key-authority"
+    },
+    {
+      "recordVersion": 0,
+      "roleId": "capsule.role.source-validator-launcher.approval-broker/v1",
+      "key": "com.apple.security.application-groups",
+      "disposition": "required-absent",
+      "valueIdentity": "absent",
+      "source": "validator-role-separation"
+    },
+    {
+      "recordVersion": 0,
+      "roleId": "capsule.role.source-validator-launcher.approval-broker/v1",
+      "key": "com.apple.security.files.user-selected.read-only",
+      "disposition": "required-absent",
+      "valueIdentity": "absent",
+      "source": "validator-copied-source-only"
+    },
+    {
+      "recordVersion": 0,
+      "roleId": "capsule.role.source-validator-launcher.approval-broker/v1",
+      "key": "com.apple.security.network.client",
+      "disposition": "required-absent",
+      "valueIdentity": "absent",
+      "source": "validator-no-network"
+    },
+    {
+      "recordVersion": 0,
+      "roleId": "capsule.role.source-validator-launcher.approval-broker/v1",
+      "key": "com.apple.security.network.server",
+      "disposition": "required-absent",
+      "valueIdentity": "absent",
+      "source": "validator-no-network"
+    },
+    {
+      "recordVersion": 0,
+      "roleId": "capsule.role.source-validator-parser.approval-broker/v1",
+      "key": "keychain-access-groups",
+      "disposition": "required-absent",
+      "valueIdentity": "absent",
+      "source": "validator-no-key-authority"
+    },
+    {
+      "recordVersion": 0,
+      "roleId": "capsule.role.source-validator-parser.approval-broker/v1",
+      "key": "com.apple.security.application-groups",
+      "disposition": "required-absent",
+      "valueIdentity": "absent",
+      "source": "validator-role-separation"
+    },
+    {
+      "recordVersion": 0,
+      "roleId": "capsule.role.source-validator-parser.approval-broker/v1",
+      "key": "com.apple.security.files.user-selected.read-only",
+      "disposition": "required-absent",
+      "valueIdentity": "absent",
+      "source": "validator-copied-source-only"
+    },
+    {
+      "recordVersion": 0,
+      "roleId": "capsule.role.source-validator-parser.approval-broker/v1",
+      "key": "com.apple.security.network.client",
+      "disposition": "required-absent",
+      "valueIdentity": "absent",
+      "source": "validator-no-network"
+    },
+    {
+      "recordVersion": 0,
+      "roleId": "capsule.role.source-validator-parser.approval-broker/v1",
+      "key": "com.apple.security.network.server",
+      "disposition": "required-absent",
+      "valueIdentity": "absent",
+      "source": "validator-no-network"
+    },
+    {
+      "recordVersion": 0,
+      "roleId": "capsule.role.source-validator-parser.daemon/v1",
+      "key": "com.apple.security.inherit",
+      "disposition": "inactive-unresolved",
+      "valueIdentity": "signed-parser-child-shape-unset",
+      "source": "r3-r4-signing-and-confinement-dependent"
+    },
+    {
+      "recordVersion": 0,
+      "roleId": "capsule.role.source-validator-parser.approval-broker/v1",
+      "key": "com.apple.security.inherit",
+      "disposition": "inactive-unresolved",
+      "valueIdentity": "signed-parser-child-shape-unset",
+      "source": "r3-r4-signing-and-confinement-dependent"
+    }
+  ]
+}

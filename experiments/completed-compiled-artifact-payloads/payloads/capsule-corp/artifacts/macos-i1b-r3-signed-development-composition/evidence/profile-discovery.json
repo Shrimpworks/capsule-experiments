@@ -1,0 +1,86 @@
+{
+  "schema": "capsule.macos-installation.i1b-r3-profile-discovery/v1",
+  "status": "PASSED",
+  "teamIdentifier": "3DDR84M4JS",
+  "portalCertificateRecord": {
+    "id": "3SAN55Q9AW",
+    "certificateSha1": "80A4969BCD1B3926020888094B9D812A283D3793",
+    "expires": "2027-08-04",
+    "source": "Apple Developer portal public certificate metadata"
+  },
+  "createdExplicitAppIdentifiers": [
+    {
+      "identifier": "com.capsulecorp.capsule.broker",
+      "description": "Capsule I1B Broker Development Test"
+    },
+    {
+      "identifier": "com.capsulecorp.capsule.daemon",
+      "description": "Capsule I1B Daemon Development Test"
+    },
+    {
+      "identifier": "com.capsulecorp.capsule.supervisor",
+      "description": "Capsule I1B Supervisor Development Test"
+    }
+  ],
+  "exactProfilesFound": [
+    {
+      "role": "approval-broker",
+      "portalId": "48RAS23ZS7",
+      "uuid": "b4d28777-7b78-44b0-a717-be0460e6a7e8",
+      "name": "Capsule I1B Broker Development 3DDR",
+      "applicationIdentifier": "3DDR84M4JS.com.capsulecorp.capsule.broker",
+      "creationDate": "2026-08-05T00:40:19Z",
+      "expirationDate": "2027-08-05T00:40:19Z",
+      "certificateSha1": "80A4969BCD1B3926020888094B9D812A283D3793",
+      "profileSha256": "36da9abf0d0249cf6241f02055227f19ed69531a0b6b478645aeaba8baaec837",
+      "entitlementsSha256": "1054ae06d5102a740691b1abc0fb45f14da74c2671dc229e9b57a7125dee95c9"
+    },
+    {
+      "role": "daemon",
+      "portalId": "Q6WB4TDQ43",
+      "uuid": "a1e56e08-e96f-4a39-b2dd-2351835304cf",
+      "name": "Capsule I1B Daemon Development 3DDR",
+      "applicationIdentifier": "3DDR84M4JS.com.capsulecorp.capsule.daemon",
+      "creationDate": "2026-08-05T00:44:09Z",
+      "expirationDate": "2027-08-05T00:44:09Z",
+      "certificateSha1": "80A4969BCD1B3926020888094B9D812A283D3793",
+      "profileSha256": "676df1559866f17305d99cdbf615a156ecdf61d6d5bfb783eb6d4852a14086e1",
+      "entitlementsSha256": "290f582cacd4b902aa4ca67173c527733555db617587c9d7c88ca5c8de1637f5"
+    },
+    {
+      "role": "supervisor",
+      "portalId": "7RV8KA4SBS",
+      "uuid": "7e27acf1-48fc-4c57-ad43-4b1caa9c12a8",
+      "name": "Capsule I1B Supervisor Development 3DDR",
+      "applicationIdentifier": "3DDR84M4JS.com.capsulecorp.capsule.supervisor",
+      "creationDate": "2026-08-05T00:45:18Z",
+      "expirationDate": "2027-08-05T00:45:18Z",
+      "certificateSha1": "80A4969BCD1B3926020888094B9D812A283D3793",
+      "profileSha256": "3cf8ca483c72fb20bbaf13a7fff3a0412ea2ae80ac9c0d687eec326456819ab1",
+      "entitlementsSha256": "63ac49a5403f9ae23bc74ef27e3bc60ae9cf1312a78cc34fb4fae04a8da33b62"
+    }
+  ],
+  "profileProperties": {
+    "provisionedDeviceMatch": true,
+    "provisionedDeviceCount": 1,
+    "profileEntitlementKeys": [
+      "com.apple.application-identifier",
+      "com.apple.developer.team-identifier",
+      "keychain-access-groups"
+    ],
+    "implicitUnusedKeychainAllowlist": "3DDR84M4JS.*"
+  },
+  "rejectedLocalProfileClasses": [
+    "same-Team Gate B profiles with unrelated explicit App IDs",
+    "same-Team wildcard macOS development profile with application identifier 3DDR84M4JS.*",
+    "profiles selecting more than the one explicitly authorized development certificate"
+  ],
+  "wildcardProfileObservedAfterSupportedXcodeAutomaticProvisioningProbe": {
+    "uuid": "fb364b7e-1726-43ed-b2cb-9612bb9ee9a5",
+    "applicationIdentifier": "3DDR84M4JS.*",
+    "accepted": false
+  },
+  "source": "exact App IDs and profiles created in Apple Developer portal; profiles downloaded by supported Xcode account integration",
+  "rawProfileRetainedInRepository": false,
+  "secretsRetained": false
+}

@@ -1,0 +1,206 @@
+{
+  "schema": "capsule.macos-installation.i1b-r3-signed-enrollment/v1",
+  "status": "PASSED",
+  "teamIdentifier": "3DDR84M4JS",
+  "certificateSha1": "80A4969BCD1B3926020888094B9D812A283D3793",
+  "distribution": "Apple Development",
+  "notarizationUsed": false,
+  "developerIdUsed": false,
+  "executionState": "disabled",
+  "attemptState": "disabled",
+  "runtimePresent": false,
+  "backendPresent": false,
+  "guestPresent": false,
+  "unsignedManifestSha256": "38ef5c28966528b30a1c79ed2ecc0c6580441b7236ba0c77413115e62175e569",
+  "profiles": [
+    {
+      "role": "approval-broker",
+      "uuid": "b4d28777-7b78-44b0-a717-be0460e6a7e8",
+      "name": "Capsule I1B Broker Development 3DDR",
+      "teamIdentifier": "3DDR84M4JS",
+      "applicationIdentifier": "3DDR84M4JS.com.capsulecorp.capsule.broker",
+      "creationDate": "2026-08-05T00:40:19Z",
+      "expirationDate": "2027-08-05T00:40:19Z",
+      "certificateSha1": "80A4969BCD1B3926020888094B9D812A283D3793",
+      "profileSha256": "36da9abf0d0249cf6241f02055227f19ed69531a0b6b478645aeaba8baaec837",
+      "entitlementsSha256": "1054ae06d5102a740691b1abc0fb45f14da74c2671dc229e9b57a7125dee95c9",
+      "profileEntitlementKeys": [
+        "com.apple.application-identifier",
+        "com.apple.developer.team-identifier",
+        "keychain-access-groups"
+      ],
+      "implicitUnusedKeychainAllowlist": "3DDR84M4JS.*",
+      "provisionedDeviceMatch": true,
+      "provisionedDeviceCount": 1,
+      "source": "Apple Developer portal/Xcode cache; raw profile not retained in repository"
+    },
+    {
+      "role": "daemon",
+      "uuid": "a1e56e08-e96f-4a39-b2dd-2351835304cf",
+      "name": "Capsule I1B Daemon Development 3DDR",
+      "teamIdentifier": "3DDR84M4JS",
+      "applicationIdentifier": "3DDR84M4JS.com.capsulecorp.capsule.daemon",
+      "creationDate": "2026-08-05T00:44:09Z",
+      "expirationDate": "2027-08-05T00:44:09Z",
+      "certificateSha1": "80A4969BCD1B3926020888094B9D812A283D3793",
+      "profileSha256": "676df1559866f17305d99cdbf615a156ecdf61d6d5bfb783eb6d4852a14086e1",
+      "entitlementsSha256": "290f582cacd4b902aa4ca67173c527733555db617587c9d7c88ca5c8de1637f5",
+      "profileEntitlementKeys": [
+        "com.apple.application-identifier",
+        "com.apple.developer.team-identifier",
+        "keychain-access-groups"
+      ],
+      "implicitUnusedKeychainAllowlist": "3DDR84M4JS.*",
+      "provisionedDeviceMatch": true,
+      "provisionedDeviceCount": 1,
+      "source": "Apple Developer portal/Xcode cache; raw profile not retained in repository"
+    },
+    {
+      "role": "supervisor",
+      "uuid": "7e27acf1-48fc-4c57-ad43-4b1caa9c12a8",
+      "name": "Capsule I1B Supervisor Development 3DDR",
+      "teamIdentifier": "3DDR84M4JS",
+      "applicationIdentifier": "3DDR84M4JS.com.capsulecorp.capsule.supervisor",
+      "creationDate": "2026-08-05T00:45:18Z",
+      "expirationDate": "2027-08-05T00:45:18Z",
+      "certificateSha1": "80A4969BCD1B3926020888094B9D812A283D3793",
+      "profileSha256": "3cf8ca483c72fb20bbaf13a7fff3a0412ea2ae80ac9c0d687eec326456819ab1",
+      "entitlementsSha256": "63ac49a5403f9ae23bc74ef27e3bc60ae9cf1312a78cc34fb4fae04a8da33b62",
+      "profileEntitlementKeys": [
+        "com.apple.application-identifier",
+        "com.apple.developer.team-identifier",
+        "keychain-access-groups"
+      ],
+      "implicitUnusedKeychainAllowlist": "3DDR84M4JS.*",
+      "provisionedDeviceMatch": true,
+      "provisionedDeviceCount": 1,
+      "source": "Apple Developer portal/Xcode cache; raw profile not retained in repository"
+    }
+  ],
+  "signedComponents": [
+    {
+      "role": "approval-broker",
+      "relativePath": ".",
+      "executableRelativePath": "Contents/MacOS/Capsule",
+      "identifier": "com.capsulecorp.capsule.broker",
+      "teamIdentifier": "3DDR84M4JS",
+      "certificateSha1": "80A4969BCD1B3926020888094B9D812A283D3793",
+      "cdHash": "eb41013d722c3c06336ee86c08b4a08b65ec0769",
+      "signedExecutableSha256": "2c835a47a58097b6942b84fb6ce70e1146d87808524ae7cc0ad35f45ee416684",
+      "effectiveEntitlementKeys": [
+        "com.apple.application-identifier",
+        "com.apple.developer.team-identifier",
+        "com.apple.security.app-sandbox"
+      ],
+      "constraints": ["Self", "Library"],
+      "platformLibraries": [
+        "/usr/lib/libSystem.B.dylib",
+        "/System/Library/Frameworks/AppKit.framework/Versions/C/AppKit",
+        "/System/Library/Frameworks/Foundation.framework/Versions/C/Foundation",
+        "/System/Library/Frameworks/ServiceManagement.framework/Versions/A/ServiceManagement",
+        "/usr/lib/libobjc.A.dylib",
+        "/usr/lib/swift/libswiftCore.dylib",
+        "/usr/lib/swift/libswiftCoreFoundation.dylib",
+        "/usr/lib/swift/libswiftCoreImage.dylib",
+        "/usr/lib/swift/libswiftDarwin.dylib",
+        "/usr/lib/swift/libswiftDispatch.dylib",
+        "/usr/lib/swift/libswiftIOKit.dylib",
+        "/usr/lib/swift/libswiftMetal.dylib",
+        "/usr/lib/swift/libswiftOSLog.dylib",
+        "/usr/lib/swift/libswiftObjectiveC.dylib",
+        "/usr/lib/swift/libswiftQuartzCore.dylib",
+        "/usr/lib/swift/libswiftSpatial.dylib",
+        "/usr/lib/swift/libswiftUniformTypeIdentifiers.dylib",
+        "/usr/lib/swift/libswiftXPC.dylib",
+        "/usr/lib/swift/libswiftos.dylib",
+        "/usr/lib/swift/libswiftsimd.dylib"
+      ]
+    },
+    {
+      "role": "daemon",
+      "relativePath": "Contents/Library/Helpers/CapsuleDaemon.app",
+      "executableRelativePath": "Contents/Library/Helpers/CapsuleDaemon.app/Contents/MacOS/CapsuleDaemon",
+      "identifier": "com.capsulecorp.capsule.daemon",
+      "teamIdentifier": "3DDR84M4JS",
+      "certificateSha1": "80A4969BCD1B3926020888094B9D812A283D3793",
+      "cdHash": "64d992a16544df69505645300ee7b747330f47d8",
+      "signedExecutableSha256": "b854e1d5f2aa65d7bc180b9ee9354c24696e22dce8908c60b6dd1cfeab3dbaf2",
+      "effectiveEntitlementKeys": [
+        "com.apple.application-identifier",
+        "com.apple.developer.team-identifier",
+        "com.apple.security.app-sandbox"
+      ],
+      "constraints": ["Self", "Parent", "Library"],
+      "platformLibraries": ["/usr/lib/libSystem.B.dylib"]
+    },
+    {
+      "role": "supervisor",
+      "relativePath": "Contents/Library/Helpers/CapsuleSupervisor.app",
+      "executableRelativePath": "Contents/Library/Helpers/CapsuleSupervisor.app/Contents/MacOS/CapsuleSupervisor",
+      "identifier": "com.capsulecorp.capsule.supervisor",
+      "teamIdentifier": "3DDR84M4JS",
+      "certificateSha1": "80A4969BCD1B3926020888094B9D812A283D3793",
+      "cdHash": "c90ae523ec940db3b9ec7ca88896dfe5f6ba5aeb",
+      "signedExecutableSha256": "a0a5af0a7fd758e285f887e407894760cecc453e6e627f509cedd5408533caa8",
+      "effectiveEntitlementKeys": [
+        "com.apple.application-identifier",
+        "com.apple.developer.team-identifier",
+        "com.apple.security.app-sandbox"
+      ],
+      "constraints": ["Self", "Parent", "Library"],
+      "platformLibraries": ["/usr/lib/libSystem.B.dylib"]
+    },
+    {
+      "role": "daemon-validator-launcher",
+      "relativePath": "Contents/Library/Helpers/CapsuleDaemon.app/Contents/XPCServices/CapsuleSourceValidatorDaemon.xpc",
+      "executableRelativePath": "Contents/Library/Helpers/CapsuleDaemon.app/Contents/XPCServices/CapsuleSourceValidatorDaemon.xpc/Contents/MacOS/CapsuleSourceValidatorDaemonLauncher",
+      "identifier": "com.capsulecorp.capsule.source-validator.daemon.v1",
+      "teamIdentifier": "3DDR84M4JS",
+      "certificateSha1": "80A4969BCD1B3926020888094B9D812A283D3793",
+      "cdHash": "be2f7bdddda1fe0434671460adc5c0e04cc1acde",
+      "signedExecutableSha256": "a22bf4c22427a748f706713ee54e3f0fc71fead8435260135a3566aaf1020328",
+      "effectiveEntitlementKeys": ["com.apple.security.app-sandbox"],
+      "constraints": ["Self", "Parent", "Responsible", "Library"],
+      "platformLibraries": ["/usr/lib/libSystem.B.dylib"]
+    },
+    {
+      "role": "broker-validator-launcher",
+      "relativePath": "Contents/XPCServices/CapsuleSourceValidatorBroker.xpc",
+      "executableRelativePath": "Contents/XPCServices/CapsuleSourceValidatorBroker.xpc/Contents/MacOS/CapsuleSourceValidatorBrokerLauncher",
+      "identifier": "com.capsulecorp.capsule.source-validator.approval-broker.v1",
+      "teamIdentifier": "3DDR84M4JS",
+      "certificateSha1": "80A4969BCD1B3926020888094B9D812A283D3793",
+      "cdHash": "425e0459c3c6bafe512bf40e2745afc1e7c5dc33",
+      "signedExecutableSha256": "937d9b240d8a8ac3aeaa7d0e2ec85225450e774b5f09ed2a1953cefb5644838b",
+      "effectiveEntitlementKeys": ["com.apple.security.app-sandbox"],
+      "constraints": ["Self", "Parent", "Responsible", "Library"],
+      "platformLibraries": ["/usr/lib/libSystem.B.dylib"]
+    },
+    {
+      "role": "daemon-parser-child",
+      "relativePath": "Contents/Library/Helpers/CapsuleDaemon.app/Contents/XPCServices/CapsuleSourceValidatorDaemon.xpc/Contents/Resources/capsule-mjs-source-validator-daemon",
+      "executableRelativePath": "Contents/Library/Helpers/CapsuleDaemon.app/Contents/XPCServices/CapsuleSourceValidatorDaemon.xpc/Contents/Resources/capsule-mjs-source-validator-daemon",
+      "identifier": "com.capsulecorp.capsule.source-validator-parser.daemon.v1",
+      "teamIdentifier": "3DDR84M4JS",
+      "certificateSha1": "80A4969BCD1B3926020888094B9D812A283D3793",
+      "cdHash": "09702923f0fb7a47edae43b2aa652c4345114ddf",
+      "signedExecutableSha256": "f653641c017fe9c92695b075d72a33de764930c97af267cca9501261a642a3c7",
+      "effectiveEntitlementKeys": ["com.apple.security.app-sandbox", "com.apple.security.inherit"],
+      "constraints": ["Self", "Parent", "Responsible", "Library"],
+      "platformLibraries": ["/usr/lib/libSystem.B.dylib"]
+    },
+    {
+      "role": "broker-parser-child",
+      "relativePath": "Contents/XPCServices/CapsuleSourceValidatorBroker.xpc/Contents/Resources/capsule-mjs-source-validator-approval-broker",
+      "executableRelativePath": "Contents/XPCServices/CapsuleSourceValidatorBroker.xpc/Contents/Resources/capsule-mjs-source-validator-approval-broker",
+      "identifier": "com.capsulecorp.capsule.source-validator-parser.approval-broker.v1",
+      "teamIdentifier": "3DDR84M4JS",
+      "certificateSha1": "80A4969BCD1B3926020888094B9D812A283D3793",
+      "cdHash": "976e9baed0e89ff49f68ab4763169b2a5d901717",
+      "signedExecutableSha256": "c8f1e25862ef3d3bd25d361cb67654dc57d263d60cdea8dfbcf8c2c1579081ee",
+      "effectiveEntitlementKeys": ["com.apple.security.app-sandbox", "com.apple.security.inherit"],
+      "constraints": ["Self", "Parent", "Responsible", "Library"],
+      "platformLibraries": ["/usr/lib/libSystem.B.dylib"]
+    }
+  ]
+}

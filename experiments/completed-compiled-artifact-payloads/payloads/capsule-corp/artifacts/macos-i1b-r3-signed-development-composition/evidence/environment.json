@@ -1,0 +1,15 @@
+{
+  "schema": "capsule.macos-installation.i1b-r3-environment/v1",
+  "status": "PASSED",
+  "authorizedEnvironment": "user-owned local Apple-silicon Mac",
+  "operatingSystem": "macOS 26.5.2 (25F84)",
+  "architecture": "arm64",
+  "xcode": "26.6 (17F113)",
+  "macOSSDK": "26.5",
+  "distribution": "Apple Development only",
+  "notarizationUsed": false,
+  "developerIdUsed": false,
+  "runtimePresent": false,
+  "backendPresent": false,
+  "guestPresent": false
+}

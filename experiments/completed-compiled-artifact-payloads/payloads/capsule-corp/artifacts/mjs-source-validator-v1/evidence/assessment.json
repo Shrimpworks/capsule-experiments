@@ -1,0 +1,31 @@
+{
+  "schema": "capsule.source-validator.assessment/v1",
+  "decision": "V1-ARTIFACT-RETAINED-NOT-ENROLLED",
+  "artifactSha256": "ba2a6b38be6b4eea8c067887cf80988756e2f4a551d128bf2dabdaf7f2ecb600",
+  "cargoLockSha256": "a79e9fd9fb6c1273c56fdada6eeea02f547b45a4dd8a146264f697fea6bdee45",
+  "evidence": {
+    "buildManifestSha256": "c008a2879bb1c76451b2021784cdd854ffe7e6d6027baf3cb2be7b87093466a0",
+    "sourceManifestSha256": "c360ecae060856ff48f44de7b23986e15edb063f3e6597c75b6b0ee8000c0779",
+    "licenseReportSha256": "ef2ee476f3b8dc543ff007d40d9e1aa0ee45cb80785328ed0da26584cd8db747",
+    "sbomSha256": "59e5521445938dd3ac6257aa7a29d31d28db3a5f62b2b62bd305019b540c4e21",
+    "provenanceSha256": "476881cd201962861917ab11dc6fed8c0bd2f3913f87d0cd02ec2087d38d2b01",
+    "reproductionSha256": "3f9363ce08700a38a437f089cba615a977c050e33f48942fe2bd59239a2a54f8"
+  },
+  "passed": [
+    "exact Oxc 0.140.0 parser/AST/visitor/semantic mode",
+    "Rust 1.95.0 and complete locked offline dependency graph",
+    "V0 request/result byte compatibility and all 28 M1 HOLD outcomes",
+    "parser and semantic diagnostic typed refusals with zero counts",
+    "same-host two-clean-directory byte-for-byte reproduction",
+    "complete registry-checksum, license/notice, source and CycloneDX inventories",
+    "valid identity-free linker ad-hoc signature with retained CodeDirectory digest"
+  ],
+  "blockers": [
+    "no independent builder or clean-host reproduction",
+    "no installation-authority artifact signature or assessment signature; linker ad-hoc signing grants no identity",
+    "no V2 fixed launch descriptor, sandbox, descriptor closure or resource/deadline proof",
+    "no vulnerability-monitoring owner, response SLA or release cadence",
+    "no daemon/Broker consumer and no runtime no-loader evidence"
+  ],
+  "authority": "The artifact is unwired and cannot approve, register, retain state, use keys, launch a backend, or create a guest."
+}

@@ -1,0 +1,87 @@
+{
+  "schema": "capsule.source-validator.unsigned-build-manifest/v1",
+  "target": "aarch64-apple-darwin",
+  "macosDeploymentTarget": "14.0",
+  "network": "offline",
+  "roles": [
+    {
+      "role": "daemon",
+      "serviceIdentifier": "com.capsulecorp.capsule.source-validator.daemon.v1",
+      "bundlePath": "dist/CapsuleSourceValidatorDaemon.xpc",
+      "infoPlist": {
+        "path": "dist/CapsuleSourceValidatorDaemon.xpc/Contents/Info.plist",
+        "bytes": 888,
+        "sha256": "635815858bfc8e9d5d412883589b7578830028f629e0b60b587900e8a66382d3"
+      },
+      "launcher": {
+        "path": "dist/CapsuleSourceValidatorDaemon.xpc/Contents/MacOS/CapsuleSourceValidatorDaemonLauncher",
+        "bytes": 35464,
+        "sha256": "4bc270c84f166dfb077d84458940411073f3c70a7f70db2e4af48601500b36cc",
+        "appleIdentity": null,
+        "dylibs": [
+          "/usr/lib/libSystem.B.dylib"
+        ]
+      },
+      "parser": {
+        "path": "dist/CapsuleSourceValidatorDaemon.xpc/Contents/Resources/capsule-mjs-source-validator-daemon",
+        "bytes": 1146560,
+        "sha256": "f54c349e3a61b06e0b4d482bc1ed28924ffe712a7ff2531f504e7b57917defc7",
+        "appleIdentity": null,
+        "dylibs": [
+          "/usr/lib/libSystem.B.dylib"
+        ]
+      },
+      "resourcePolicy": {
+        "path": "dist/CapsuleSourceValidatorDaemon.xpc/Contents/Resources/resource-policy-inactive.bin",
+        "bytes": 256,
+        "sha256": "c198dac71f3b5c2d2e8cca34fc3e9c01ff7b8093ef1a881d8160a34800ff1098",
+        "activation": "inactive",
+        "activeMeasurements": false
+      }
+    },
+    {
+      "role": "approval-broker",
+      "serviceIdentifier": "com.capsulecorp.capsule.source-validator.approval-broker.v1",
+      "bundlePath": "dist/CapsuleSourceValidatorBroker.xpc",
+      "infoPlist": {
+        "path": "dist/CapsuleSourceValidatorBroker.xpc/Contents/Info.plist",
+        "bytes": 897,
+        "sha256": "7b511e617326192134ae9f7469a65f9540d437806ecc55ecb750435bc131c285"
+      },
+      "launcher": {
+        "path": "dist/CapsuleSourceValidatorBroker.xpc/Contents/MacOS/CapsuleSourceValidatorBrokerLauncher",
+        "bytes": 35464,
+        "sha256": "81284de5ba54e2288602bee4e9aca4e4513211b560bacfd1286b7ab57c922613",
+        "appleIdentity": null,
+        "dylibs": [
+          "/usr/lib/libSystem.B.dylib"
+        ]
+      },
+      "parser": {
+        "path": "dist/CapsuleSourceValidatorBroker.xpc/Contents/Resources/capsule-mjs-source-validator-approval-broker",
+        "bytes": 1146560,
+        "sha256": "7abac7da99f4b9edef77bb5ecfff135e8b752e5ed656664632272079b5408577",
+        "appleIdentity": null,
+        "dylibs": [
+          "/usr/lib/libSystem.B.dylib"
+        ]
+      },
+      "resourcePolicy": {
+        "path": "dist/CapsuleSourceValidatorBroker.xpc/Contents/Resources/resource-policy-inactive.bin",
+        "bytes": 256,
+        "sha256": "b0ce8504190b5fe9b0a0296c22340a6439ab453cb32f32c19ddb6e594698568d",
+        "activation": "inactive",
+        "activeMeasurements": false
+      }
+    }
+  ],
+  "dependencyGraph": {
+    "lockedPackages": 75,
+    "targetComponents": 74
+  },
+  "signing": {
+    "appleIdentityUsed": false,
+    "enrollment": "not-enrolled",
+    "note": "Mach-O files carry only build-tool linker signatures."
+  }
+}

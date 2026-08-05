@@ -1,0 +1,58 @@
+{
+  "_type": "https://in-toto.io/Statement/v1",
+  "subject": [
+    {
+      "name": "dist/capsule-mjs-source-validator-aarch64-apple-darwin",
+      "digest": {
+        "sha256": "ba2a6b38be6b4eea8c067887cf80988756e2f4a551d128bf2dabdaf7f2ecb600"
+      }
+    }
+  ],
+  "predicateType": "https://slsa.dev/provenance/v1",
+  "predicate": {
+    "buildDefinition": {
+      "buildType": "https://capsule.local/source-validator-rust-offline/v1",
+      "externalParameters": {
+        "target": "aarch64-apple-darwin",
+        "toolchain": "rustc 1.95.0 (59807616e 2026-04-14)",
+        "cargoArguments": "build --release --locked --offline --target aarch64-apple-darwin"
+      },
+      "internalParameters": {
+        "rustflags": "--remap-path-prefix=<source>=/usr/src/capsule-mjs-source-validator",
+        "sourceDateEpoch": 0
+      },
+      "resolvedDependencies": [
+        {
+          "uri": "file:Cargo.lock",
+          "digest": {
+            "sha256": "a79e9fd9fb6c1273c56fdada6eeea02f547b45a4dd8a146264f697fea6bdee45"
+          }
+        },
+        {
+          "uri": "file:evidence/source-manifest.json",
+          "digest": {
+            "sha256": "c360ecae060856ff48f44de7b23986e15edb063f3e6597c75b6b0ee8000c0779"
+          }
+        }
+      ]
+    },
+    "runDetails": {
+      "builder": {
+        "id": "https://capsule.local/untrusted-same-host-builder/v1"
+      },
+      "metadata": {
+        "invocationId": "capsule-mjs-validator-v1-same-host-reproduction"
+      },
+      "byproducts": [
+        {
+          "name": "evidence/build-manifest.json",
+          "digest": {
+            "sha256": "c008a2879bb1c76451b2021784cdd854ffe7e6d6027baf3cb2be7b87093466a0"
+          }
+        }
+      ]
+    }
+  },
+  "signatures": [],
+  "limitation": "Unsigned same-host provenance; no installation authority, independent builder, transparency log, or release signature is claimed."
+}
