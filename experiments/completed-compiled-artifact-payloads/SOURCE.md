@@ -1,7 +1,7 @@
 # Source binding
 
 - Source repository: `https://github.com/Shrimpworks/capsule-corp`
-- Source commit: `d11cf94704ea8647614f4c8f4424e90821f2dcb3`
+- Source commit: `bd926f436003d61a70c0312d9605804b2735449e`
 - Source branch state: freshly fetched `origin/main`; archive task branch started at exact `50108417ebf1aa45788a4e9a6b4ca6b4448e9972` in this repository
 - Authorized environment: repository-local files and controlled temporary copies only
 - Copy scope: six completed artifact trees, including V2's V1-dependent process harness, plus the

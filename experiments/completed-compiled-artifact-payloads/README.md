@@ -4,7 +4,7 @@ Work item: completed one-time compiled artifact payload retention
 
 Status: `PASSED` for exact byte retention, closed inventory, cross-artifact copy verification, and archived mutation-test sources.
 
-Scope: repository-local, non-production evidence copied from `Shrimpworks/capsule-corp` commit `d11cf94704ea8647614f4c8f4424e90821f2dcb3`. No binary is installed, signed, launched, or published as a Release asset by this archive.
+Scope: repository-local, non-production evidence copied from `Shrimpworks/capsule-corp` commit `bd926f436003d61a70c0312d9605804b2735449e`. No binary is installed, signed, launched, or published as a Release asset by this archive.
 
 This archive preserves six completed Capsule artifact trees:
 

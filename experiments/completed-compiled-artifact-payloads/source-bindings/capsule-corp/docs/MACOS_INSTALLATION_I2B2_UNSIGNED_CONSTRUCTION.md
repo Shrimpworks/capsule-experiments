@@ -56,12 +56,12 @@ and the only activation decision is `refuse` with reason `unsigned-profile-inact
 
 | Object | Bytes/count | SHA-256 |
 | --- | ---: | --- |
-| I2B2 profile | 15,226 bytes | `a061291fe76d3bb460673adf25a322b0aa6d87d43619503eacaf3889eef4144b` |
-| I2B2 bundle manifest | 7,649 bytes | `f706e3597958a6f694de7fb7c57f3e66d9cd5cd6a7f99e389de40018923c5c5d` |
+| I2B2 profile | 15,226 bytes | `7c6d410bd99b165a7f882914ca889d8796366d6ba60f0c76d5b30577abc6f5b7` |
+| I2B2 bundle manifest | 7,649 bytes | `e92f7629774258f1dff68df7882b663479916c5feb4110db5460de3cef0af903` |
 | I1A bundle manifest link | 5,546 bytes | `5bd80097775908031b1a4c90680e8c7656cc5e9f97df2cc187592f75ee67a56f` |
 | I1A construction evidence link | 2,848 bytes | `31f79bdbd3dae29f6cfa340683ce59bc445041db0da12a66b1c051abc3db6ae5` |
 | I1B signed enrollment link | 10,643 bytes | `afc7002032fc1ff4ead29269e7a370d94524aff42ca9181827a03233a31fbc94` |
-| I2B1 fixture manifest link | 19,015 bytes | `70f8613a19c8d035adcec6b2a3e99fb5f0b611ce3a8cba90edadffc0b24bb4d0` |
+| I2B1 fixture manifest link | 25,916 bytes | `9f1b8a86be9ada8e6afa4b913aef027dfe031d9ab69b0d0913c4f63132163203` |
 
 The closed bundle contains 31 files and eight roles. Profile readback observes 252 recursively
 visited concrete fields. Recursive schema field authority adds 141 paths, bringing the repository

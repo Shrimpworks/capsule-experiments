@@ -71,7 +71,7 @@ test("profile and bundle known answers retain exact cross-links and inactive inp
   );
   assert.equal(
     profile.bootstrapObjects.fixtureManifest.sha256,
-    "70f8613a19c8d035adcec6b2a3e99fb5f0b611ce3a8cba90edadffc0b24bb4d0",
+    "9f1b8a86be9ada8e6afa4b913aef027dfe031d9ab69b0d0913c4f63132163203",
   );
   assert.equal(
     profile.services[1].serviceName,

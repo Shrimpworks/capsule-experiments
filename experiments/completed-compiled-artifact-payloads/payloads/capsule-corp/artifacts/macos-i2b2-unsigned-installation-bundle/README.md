@@ -38,7 +38,7 @@ Reproduce in two clean directories and independently verify:
 ./artifacts/macos-i2b2-unsigned-installation-bundle/scripts/reproduce.sh
 node artifacts/macos-i2b2-unsigned-installation-bundle/scripts/verify-bundle.mjs \
   artifacts/macos-i2b2-unsigned-installation-bundle/dist/Capsule.app \
-  f706e3597958a6f694de7fb7c57f3e66d9cd5cd6a7f99e389de40018923c5c5d
+  e92f7629774258f1dff68df7882b663479916c5feb4110db5460de3cef0af903
 ```
 
 The reproducer performs repository-local file construction, plist linting, comparison, and

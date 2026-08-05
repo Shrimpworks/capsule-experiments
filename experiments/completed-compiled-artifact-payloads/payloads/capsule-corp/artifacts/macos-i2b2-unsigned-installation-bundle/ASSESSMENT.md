@@ -10,9 +10,9 @@ wrong-profile, wrong-service, unsafe-entitlement, active-signing, bootstrap-crea
 store-created, and cap-plus-one cases before any side effect.
 
 The profile is 15,226 bytes at SHA-256
-`a061291fe76d3bb460673adf25a322b0aa6d87d43619503eacaf3889eef4144b`. The bundle manifest is
+`7c6d410bd99b165a7f882914ca889d8796366d6ba60f0c76d5b30577abc6f5b7`. The bundle manifest is
 7,649 bytes at SHA-256
-`f706e3597958a6f694de7fb7c57f3e66d9cd5cd6a7f99e389de40018923c5c5d`.
+`e92f7629774258f1dff68df7882b663479916c5feb4110db5460de3cef0af903`.
 
 ## What remains blocked
 
