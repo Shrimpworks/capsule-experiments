@@ -1,0 +1,4 @@
+Cargo.toml whitespace=-blank-at-eof
+crates/trusted-launcher/Cargo.toml whitespace=-blank-at-eof
+source/extract-krunfw-kernel.c whitespace=-blank-at-eof
+evidence/2026-08-05/build-output-evidence/* whitespace=-trailing-space,-blank-at-eof

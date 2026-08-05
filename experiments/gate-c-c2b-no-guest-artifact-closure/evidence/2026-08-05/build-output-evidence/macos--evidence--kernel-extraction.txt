@@ -1,0 +1,3 @@
+kernelLoad=0x80000000
+kernelEntry=0x80000000
+kernelSize=24117248

@@ -1,0 +1,4 @@
+390a4786a20d45f1c691ec8c203f84f5e9d372a30e98f867cc8309a144ca6798  ./capsule-c2b-runtime-root.ext4
+4f4f2c8bc037c3226b183ad0d6daf35395c49467dfe5786d10a33290adf585cd  ./capsule-init.krun
+fd255394a26affadb1226d3f724494e76fc89785a5cced027a7bb9859d7da32d  ./capsule-launcher
+b6571460647a67bfb14132445bf8354a616f9bbf956aecd2410da2fb5c9492c7  ./runtime-root-files.tsv

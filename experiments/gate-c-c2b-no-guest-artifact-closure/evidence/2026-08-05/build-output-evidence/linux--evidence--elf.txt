@@ -1,0 +1,112 @@
+out/linux/capsule-init.krun: ELF 64-bit LSB executable, ARM aarch64, version 1 (SYSV), statically linked, for GNU/Linux 3.7.0, stripped
+ELF Header:
+  Magic:   7f 45 4c 46 02 01 01 00 00 00 00 00 00 00 00 00 
+  Class:                             ELF64
+  Data:                              2's complement, little endian
+  Version:                           1 (current)
+  OS/ABI:                            UNIX - System V
+  ABI Version:                       0
+  Type:                              EXEC (Executable file)
+  Machine:                           AArch64
+  Version:                           0x1
+  Entry point address:               0x4045c0
+  Start of program headers:          64 (bytes into file)
+  Start of section headers:          928480 (bytes into file)
+  Flags:                             0x0
+  Size of this header:               64 (bytes)
+  Size of program headers:           56 (bytes)
+  Number of program headers:         7
+  Size of section headers:           64 (bytes)
+  Number of section headers:         26
+  Section header string table index: 25
+
+Program Headers:
+  Type           Offset             VirtAddr           PhysAddr
+                 FileSiz            MemSiz              Flags  Align
+  LOAD           0x0000000000000000 0x0000000000400000 0x0000000000400000
+                 0x00000000000d2162 0x00000000000d2162  R E    0x10000
+  LOAD           0x00000000000daef8 0x00000000004eaef8 0x00000000004eaef8
+                 0x0000000000007a88 0x000000000000d0f8  RW     0x10000
+  NOTE           0x00000000000001c8 0x00000000004001c8 0x00000000004001c8
+                 0x0000000000000020 0x0000000000000020  R      0x4
+  TLS            0x00000000000daef8 0x00000000004eaef8 0x00000000004eaef8
+                 0x0000000000000018 0x0000000000000078  R      0x8
+  GNU_EH_FRAME   0x00000000000bc140 0x00000000004bc140 0x00000000004bc140
+                 0x0000000000002e74 0x0000000000002e74  R      0x4
+  GNU_STACK      0x0000000000000000 0x0000000000000000 0x0000000000000000
+                 0x0000000000000000 0x0000000000000000  RW     0x10
+  GNU_RELRO      0x00000000000daef8 0x00000000004eaef8 0x00000000004eaef8
+                 0x0000000000005108 0x0000000000005108  R      0x1
+
+ Section to Segment mapping:
+  Segment Sections...
+   00     .note.ABI-tag .rela.plt .init .plt .text __libc_freeres_fn .fini .rodata .eh_frame_hdr .eh_frame .gcc_except_table 
+   01     .tdata .init_array .fini_array .data.rel.ro .got .data __libc_subfreeres __libc_IO_vtables __libc_atexit .bss __libc_freeres_ptrs 
+   02     .note.ABI-tag 
+   03     .tdata .tbss 
+   04     .eh_frame_hdr 
+   05     
+   06     .tdata .init_array .fini_array .data.rel.ro .got 
+
+There is no dynamic section in this file.
+
+Displaying notes found in: .note.ABI-tag
+  Owner                Data size 	Description
+  GNU                  0x00000010	NT_GNU_ABI_TAG (ABI version tag)
+    OS: Linux, ABI: 3.7.0
+out/linux/capsule-launcher: ELF 64-bit LSB executable, ARM aarch64, version 1 (SYSV), statically linked, for GNU/Linux 3.7.0, stripped
+ELF Header:
+  Magic:   7f 45 4c 46 02 01 01 00 00 00 00 00 00 00 00 00 
+  Class:                             ELF64
+  Data:                              2's complement, little endian
+  Version:                           1 (current)
+  OS/ABI:                            UNIX - System V
+  ABI Version:                       0
+  Type:                              EXEC (Executable file)
+  Machine:                           AArch64
+  Version:                           0x1
+  Entry point address:               0x404800
+  Start of program headers:          64 (bytes into file)
+  Start of section headers:          994256 (bytes into file)
+  Flags:                             0x0
+  Size of this header:               64 (bytes)
+  Size of program headers:           56 (bytes)
+  Number of program headers:         7
+  Size of section headers:           64 (bytes)
+  Number of section headers:         26
+  Section header string table index: 25
+
+Program Headers:
+  Type           Offset             VirtAddr           PhysAddr
+                 FileSiz            MemSiz              Flags  Align
+  LOAD           0x0000000000000000 0x0000000000400000 0x0000000000400000
+                 0x00000000000e1f1a 0x00000000000e1f1a  R E    0x10000
+  LOAD           0x00000000000eac40 0x00000000004fac40 0x00000000004fac40
+                 0x0000000000007e30 0x000000000000df28  RW     0x10000
+  NOTE           0x00000000000001c8 0x00000000004001c8 0x00000000004001c8
+                 0x0000000000000020 0x0000000000000020  R      0x4
+  TLS            0x00000000000eac40 0x00000000004fac40 0x00000000004fac40
+                 0x0000000000000040 0x00000000000000c0  R      0x8
+  GNU_EH_FRAME   0x00000000000c8bf0 0x00000000004c8bf0 0x00000000004c8bf0
+                 0x00000000000035b4 0x00000000000035b4  R      0x4
+  GNU_STACK      0x0000000000000000 0x0000000000000000 0x0000000000000000
+                 0x0000000000000000 0x0000000000000000  RW     0x10
+  GNU_RELRO      0x00000000000eac40 0x00000000004fac40 0x00000000004fac40
+                 0x00000000000053c0 0x00000000000053c0  R      0x1
+
+ Section to Segment mapping:
+  Segment Sections...
+   00     .note.ABI-tag .rela.plt .init .plt .text __libc_freeres_fn .fini .rodata .eh_frame_hdr .eh_frame .gcc_except_table 
+   01     .tdata .init_array .fini_array .data.rel.ro .got .data __libc_subfreeres __libc_IO_vtables __libc_atexit .bss __libc_freeres_ptrs 
+   02     .note.ABI-tag 
+   03     .tdata .tbss 
+   04     .eh_frame_hdr 
+   05     
+   06     .tdata .init_array .fini_array .data.rel.ro .got 
+
+There is no dynamic section in this file.
+
+Displaying notes found in: .note.ABI-tag
+  Owner                Data size 	Description
+  GNU                  0x00000010	NT_GNU_ABI_TAG (ABI version tag)
+    OS: Linux, ABI: 3.7.0

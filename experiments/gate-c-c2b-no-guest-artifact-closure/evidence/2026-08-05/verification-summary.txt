@@ -1,0 +1,6 @@
+PASSED scoped: six final sub-artifact byte identities constructed reproducibly.
+PASSED candidate: one exact runtime-bundle manifest constructed; canonical authority remains null/unadmitted.
+PASSED build-only: host runner descriptor/root/argv/env preflight and eight fixed cases.
+BLOCKED parent: final host runner, separate firmware identity, exact unsupported limits, composed profile, and guest-only evidence remain.
+NO GUEST / NO LIBKRUN START / NO HVF / NO RELEASE / NO SIGNATURE / NO ADMISSION.
+Declared output files compared byte-for-byte: 34.

@@ -1,0 +1,6 @@
+capsule-host-runner-preflight:   Mach-O 64-bit executable arm64
+extract-krunfw-kernel:           Mach-O 64-bit executable arm64
+run-host-runner-preflight-tests: Mach-O 64-bit executable arm64
+libkrun.1.dylib:                 Mach-O 64-bit dynamically linked shared library arm64
+libkrunfw.5.dylib:               Mach-O 64-bit dynamically linked shared library arm64
+linux-6.12.91-arm64.bin:         Linux kernel ARM64 boot executable Image, little-endian, 4K pages

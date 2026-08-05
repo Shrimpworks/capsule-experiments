@@ -1,0 +1,243 @@
+{
+  "contract": "capsule.governed-deno-core.runtime-bundle-candidate/c2b-no-guest-v1",
+  "version": 1,
+  "status": "build-only-candidate-unadmitted",
+  "identity": "capsule.governed-deno-core-c2b-no-guest-artifact-pack/c1-c2a-v1",
+  "canonicalBindings": {
+    "c1": {
+      "bytes": 9289,
+      "sha256": "d5d75e638a15be6c9f4a3230d17309d085f6ec103a73b64d9e0fd656a5423c9e"
+    },
+    "c2a": {
+      "bytes": 26850,
+      "sha256": "d4ce88888186266f5d251e6246c889b1fd46d7746bb0ba56bcc4b3ce4675992f"
+    },
+    "c2bPassiveBinding": {
+      "bytes": 8221,
+      "sha256": "3540d5224bdc81edbceafa1f0f17ac119904a70feab604957ab349dd116961a6"
+    }
+  },
+  "governedRuntime": {
+    "binary": {
+      "bytes": 68496520,
+      "sha256": "e781a90236cdf1272a9a16189c6be033164fa25a5aa9e52376ef998982ec0a77",
+      "path": "/usr/local/bin/capsule-deno-core-c2b-fixed-fixture"
+    },
+    "snapshot": {
+      "bytes": 699988,
+      "sha256": "4e8965217d5a6675a880326eee6f690bbeec7e7cb243decf2f3e9f453a871a2c",
+      "path": "/usr/local/share/capsule-deno-core/capsule_core_snapshot.bin"
+    },
+    "twoFileBundleSha256": "ad908b8289c86f25c3413713fa3e60c4c8bb91fec0d52763e870d7a186865ee6"
+  },
+  "buildSources": {
+    "aggregateSha256": "de90eb4522a97ec6b56b3af4464576e41442a2114f94a0c7d63b743fef84d10a",
+    "files": [
+      {
+        "selectedPath": "Cargo.lock",
+        "bytes": 237,
+        "mode": "0644",
+        "sha256": "9078797fca93a3b8acc7b57ebc486302f389cddfa5fe4d05c163c995a60fdfe4"
+      },
+      {
+        "selectedPath": "Cargo.toml",
+        "bytes": 194,
+        "mode": "0644",
+        "sha256": "f26566d3950a5ba10a1ed7e0893f160d36d0701071e8b418f8a8485f1a79ce24"
+      },
+      {
+        "selectedPath": "config/cargo-vendor.toml.in",
+        "bytes": 135,
+        "mode": "0644",
+        "sha256": "13d686aa3b13286c3e6aaf220284eb53aa964e10a150e6099e0566199cd67ea3"
+      },
+      {
+        "selectedPath": "crates/trusted-init/Cargo.toml",
+        "bytes": 175,
+        "mode": "0644",
+        "sha256": "fae75a9691e183f7a12f4bc7c5d1d91f419662bfc71635718b5ad54ddada5cff"
+      },
+      {
+        "selectedPath": "crates/trusted-init/src/main.rs",
+        "bytes": 4269,
+        "mode": "0644",
+        "sha256": "6dcc0b75f013c69e4fbd997ab4d9b9263f8c1f241581e671d446d5dbcc79f1ba"
+      },
+      {
+        "selectedPath": "crates/trusted-launcher/Cargo.toml",
+        "bytes": 179,
+        "mode": "0644",
+        "sha256": "4ff6962f9bc48541510a53a977c619f7f2363aec3325b6fae39b2f4179be9efc"
+      },
+      {
+        "selectedPath": "crates/trusted-launcher/src/main.rs",
+        "bytes": 5682,
+        "mode": "0644",
+        "sha256": "aabd4c902140b0f12164124645de9ef7572f0f8f109abb35b9679b1750824786"
+      },
+      {
+        "selectedPath": "fixtures/completion.frame",
+        "bytes": 259,
+        "mode": "0644",
+        "sha256": "544d3d32b0923cd63608041fd8c80103f7d8429afd89416bc078e0e5c5fe3542"
+      },
+      {
+        "selectedPath": "fixtures/input.frame",
+        "bytes": 188,
+        "mode": "0644",
+        "sha256": "4da508f1b4ccbafaa9dcb6356dc681a5b20d6b2078bb9d842099e43a2ce9cfa6"
+      },
+      {
+        "selectedPath": "fixtures/source.frame",
+        "bytes": 255,
+        "mode": "0644",
+        "sha256": "b22548b8750321fe9886e817a8fd4e5abade30a45ef5409e1c50a81af2c89046"
+      },
+      {
+        "selectedPath": "scripts/build-linux-artifacts.sh",
+        "bytes": 5173,
+        "mode": "0755",
+        "sha256": "ebb863af20de628404db58225f8303f02f317a0c1d1ae2a8f49c45d531aeb152"
+      },
+      {
+        "selectedPath": "scripts/build-macos-artifacts.sh",
+        "bytes": 3407,
+        "mode": "0755",
+        "sha256": "243862de4fe440bf54b779164a0378677163763f5532b4bacc372a109a76b080"
+      },
+      {
+        "selectedPath": "scripts/generate-fixtures.mjs",
+        "bytes": 2955,
+        "mode": "0644",
+        "sha256": "78e1537f5b16aa51a60c5d2996330dbf381795d290be4c37c3cff627c5819293"
+      },
+      {
+        "selectedPath": "scripts/prepare-stage.sh",
+        "bytes": 2414,
+        "mode": "0755",
+        "sha256": "09ebb2772ae6286491dabd5f8a5664a1d5c259be1cbade0e18ba5b39abafd731"
+      },
+      {
+        "selectedPath": "source/extract-krunfw-kernel.c",
+        "bytes": 1028,
+        "mode": "0644",
+        "sha256": "32881f9c553b48b6994fcbb5dcc6516f929315d6aa13785d467e289e51dc56d2"
+      },
+      {
+        "selectedPath": "source/host-runner-preflight.c",
+        "bytes": 3042,
+        "mode": "0644",
+        "sha256": "9fc542306a6da9dec0b8ee931d0c39d5c33d7d2dd68e45636e89eca9e6271401"
+      },
+      {
+        "selectedPath": "source/run-host-runner-preflight-tests.c",
+        "bytes": 5910,
+        "mode": "0644",
+        "sha256": "74f9850b5b0495041823e10324238781e1e303128ea539af8c2d3bd321bf06ac"
+      }
+    ]
+  },
+  "toolchains": {
+    "macos": {
+      "operatingSystem": "macOS 26.5.2 build 25F84 arm64",
+      "rustc": "1.93.1 (01f6ddf75 2026-02-11)",
+      "cargo": "1.93.1 (083ac5135 2025-12-15)",
+      "clang": "Apple clang 21.0.0 (clang-2100.1.1.101)"
+    },
+    "linuxBuilder": {
+      "imageId": "sha256:7cf1e580ef5539f03b58560753e8ab84c8c360960d99dff714004aa98f203977",
+      "repoDigest": "rust@sha256:6258907abe69656e41cd992e0b705cdcfabcbbe3db374f92ed2d47121282d4a1",
+      "rustc": "1.95.0 (59807616e 2026-04-14)",
+      "cargo": "1.95.0 (f2d3ce0bd 2026-03-21)",
+      "e2fsprogs": "1.47.0",
+      "binutils": "2.40",
+      "file": "5.44"
+    }
+  },
+  "artifacts": {
+    "governedLibkrun": {
+      "selectedPath": "artifact-pack/macos/libkrun.1.dylib",
+      "bytes": 4426736,
+      "mode": "0755",
+      "sha256": "f8e05177ce57a6f773f86d6755a29fe3f2bab92140dfe8caa33663a28584ae52"
+    },
+    "libkrunfw": {
+      "selectedPath": "artifact-pack/macos/libkrunfw.5.dylib",
+      "bytes": 24339104,
+      "mode": "0755",
+      "sha256": "0b14f4b8005dafd33c38df5935b9efdb6381c724224b3967ba1cecbecf10b6e9"
+    },
+    "guestKernel": {
+      "selectedPath": "artifact-pack/macos/linux-6.12.91-arm64.bin",
+      "bytes": 24117248,
+      "mode": "0644",
+      "sha256": "b50a4165215d5d897ab3614606a2105756cf8f2b2510cbceda9dc06057a5622d"
+    },
+    "trustedInit": {
+      "selectedPath": "/usr/local/libexec/capsule-init.krun",
+      "bytes": 930144,
+      "mode": "0755",
+      "sha256": "4f4f2c8bc037c3226b183ad0d6daf35395c49467dfe5786d10a33290adf585cd"
+    },
+    "trustedLauncher": {
+      "selectedPath": "/usr/local/libexec/capsule-launcher",
+      "bytes": 995920,
+      "mode": "0755",
+      "sha256": "fd255394a26affadb1226d3f724494e76fc89785a5cced027a7bb9859d7da32d"
+    },
+    "rawRuntimeRoot": {
+      "selectedPath": "artifact-pack/linux/capsule-c2b-runtime-root.ext4",
+      "bytes": 134217728,
+      "mode": "0644",
+      "sha256": "390a4786a20d45f1c691ec8c203f84f5e9d372a30e98f867cc8309a144ca6798"
+    },
+    "runtimeRootFiles": {
+      "selectedPath": "artifact-pack/linux/runtime-root-files.tsv",
+      "bytes": 1456,
+      "mode": "0644",
+      "sha256": "b6571460647a67bfb14132445bf8354a616f9bbf956aecd2410da2fb5c9492c7"
+    }
+  },
+  "descriptorRealization": {
+    "runner": "build-only preflight realizes exact 0..7 modes, closes >=8, validates one-byte G and unlinked owned O_RDONLY 0400 root; not a final host runner",
+    "guestInit": "close_range(0, UINT_MAX), then exact 0..5 device opens; no descriptor >=6",
+    "launcher": "exact 0..5 validation; closes source/input after fixed-frame equality; completion fd5 CLOEXEC before child",
+    "child": {
+      "executable": "/usr/local/bin/capsule-deno-core-c2b-fixed-fixture",
+      "argv": [
+        "/usr/local/bin/capsule-deno-core-c2b-fixed-fixture"
+      ],
+      "environment": [],
+      "cwd": "/",
+      "stdin": "/dev/null",
+      "stdout": "dedicated launcher pipe",
+      "stderr": "dedicated launcher pipe",
+      "inheritedCompletionFd": false
+    }
+  },
+  "exactCaps": {
+    "sourcePhysicalBytes": 262296,
+    "inputPhysicalBytes": 262296,
+    "completionPhysicalBytes": 262368,
+    "completionRetainBytes": 262369,
+    "runtimeStdoutRetainBytes": 262369,
+    "runtimeStderrRetainBytes": 4194
+  },
+  "unsupportedUnselected": {
+    "cpuTimeLimitMs": null,
+    "hostVmmMemoryLimitBytes": null,
+    "scratchMaximumBytes": null,
+    "composedProfileIdentity": null,
+    "composedProfileDigest": null
+  },
+  "evidence": {
+    "sourceRefs": "bfe102f41154d0bf9f4bef9caf82c305254c323bd56538128b993cfdf93724e9",
+    "verification": "c0ad705d877f677cbec4cded2d45284703e76ed9b2febda02332898c7e715a9f",
+    "mutations": "82169eed59add58bb9cb0e3a2cb0c98aed955b19bf8580d7a98940dfe3680aa1",
+    "sbom": "6d4539e11d18043ee9287fc88f16904a89c1c66836e1d8350aaf8572e9bbf0ec",
+    "licenses": "11fbebda3ea8c5dd9c750767f93a3d991e79459627a05e76ed4d9e715a1e8d99"
+  },
+  "noGuestAssertion": true,
+  "admission": false,
+  "selfDigestOfNullFormSha256": "4f875a69afcee05371c9d3cb75d61a278c01f6fd428d97196030ece058a907bd"
+}

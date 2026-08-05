@@ -1,0 +1,47 @@
+dumpe2fs 1.47.0 (5-Feb-2023)
+Filesystem volume name:   CAPSULE_C2B_V1
+Last mounted on:          <not available>
+Filesystem UUID:          c2b00000-0000-4000-8000-000000000001
+Filesystem magic number:  0xEF53
+Filesystem revision #:    1 (dynamic)
+Filesystem features:      ext_attr resize_inode filetype extent 64bit flex_bg sparse_super large_file huge_file dir_nlink extra_isize metadata_csum
+Filesystem flags:         unsigned_directory_hash 
+Default mount options:    user_xattr acl
+Filesystem state:         clean
+Errors behavior:          Continue
+Filesystem OS type:       Linux
+Inode count:              32768
+Block count:              32768
+Reserved block count:     0
+Overhead clusters:        2067
+Free blocks:              12719
+Free inodes:              32737
+First block:              0
+Block size:               4096
+Fragment size:            4096
+Group descriptor size:    64
+Reserved GDT blocks:      15
+Blocks per group:         32768
+Fragments per group:      32768
+Inodes per group:         32768
+Inode blocks per group:   2048
+Flex block group size:    16
+Filesystem created:       Sat Jan  1 00:00:00 2000
+Last mount time:          n/a
+Last write time:          Sat Jan  1 00:00:00 2000
+Mount count:              0
+Maximum mount count:      -1
+Last checked:             Sat Jan  1 00:00:00 2000
+Check interval:           0 (<none>)
+Lifetime writes:          70 MB
+Reserved blocks uid:      0 (user root)
+Reserved blocks gid:      0 (group root)
+First inode:              11
+Inode size:	          256
+Required extra isize:     32
+Desired extra isize:      32
+Default directory hash:   half_md4
+Directory Hash Seed:      c2b00000-0000-4000-8000-000000000001
+Checksum type:            crc32c
+Checksum:                 0xdb2a2557
+
