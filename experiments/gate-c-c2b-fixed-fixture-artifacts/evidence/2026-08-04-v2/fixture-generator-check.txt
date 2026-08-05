@@ -1,0 +1,6 @@
+binding.identity=capsule.governed-deno-core.c2b-fixed-fixture/c1-c2a-v1
+binding.sha256=41350bcfc854338ded5e62f77475daf86486351356104dbbf647a8f8b5f11946
+source.sha256=c8e940feb89b342de2d5e6bd13c413226676de9a539fce34c4107516e635b475
+input.sha256=9de0c909cfb111bd99c3b0b5f7a10972894270c2867022a71b6b6f3c0cd1af6e
+completion.sha256=bb7234ee486b0fbccc2091859ec93499e6a14ea7d6e091cdef60a0e2a6e8371c
+mode=check

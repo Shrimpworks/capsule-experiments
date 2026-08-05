@@ -1,0 +1,2 @@
+CAPSULE_HOST_SEAL_BEGIN
+Error: "unexpected inherited descriptors: [0, 1, 2, 3]"

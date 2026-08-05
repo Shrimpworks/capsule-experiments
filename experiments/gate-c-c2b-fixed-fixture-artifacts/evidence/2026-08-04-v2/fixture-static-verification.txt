@@ -1,0 +1,7 @@
+binding.identity=capsule.governed-deno-core.c2b-fixed-fixture/c1-c2a-v1
+binding.sha256=41350bcfc854338ded5e62f77475daf86486351356104dbbf647a8f8b5f11946
+fixture.knownAnswer={"doubled":42,"echo":"capsule-c2a"}
+fixture.mutations=22
+runtime.fixedFixtureOnly=true
+runtime.admission=none
+guestExecution=NOT_RUN

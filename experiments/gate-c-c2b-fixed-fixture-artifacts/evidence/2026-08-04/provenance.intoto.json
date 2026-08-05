@@ -1,0 +1,71 @@
+{
+  "_type": "https://in-toto.io/Statement/v1",
+  "subject": [
+    {
+      "name": "runtime/binary",
+      "digest": {
+        "sha256": "e781a90236cdf1272a9a16189c6be033164fa25a5aa9e52376ef998982ec0a77"
+      }
+    },
+    {
+      "name": "runtime/snapshot",
+      "digest": {
+        "sha256": "4e8965217d5a6675a880326eee6f690bbeec7e7cb243decf2f3e9f453a871a2c"
+      }
+    },
+    {
+      "name": "runtime/two-file-bundle",
+      "digest": {
+        "sha256": "ad908b8289c86f25c3413713fa3e60c4c8bb91fec0d52763e870d7a186865ee6"
+      }
+    }
+  ],
+  "predicateType": "https://slsa.dev/provenance/v1",
+  "predicate": {
+    "buildDefinition": {
+      "buildType": "https://capsule.local/experiments/c2b-fixed-fixture-runtime/v1",
+      "externalParameters": {
+        "denoCommit": "da10f70f0bbb83e0c2b45df50761c557e1e6f43f",
+        "bindingSha256": "41350bcfc854338ded5e62f77475daf86486351356104dbbf647a8f8b5f11946",
+        "target": "aarch64-unknown-linux-gnu",
+        "networkBoundary": "connected digest-only acquisition; network-none build/test/evidence"
+      },
+      "resolvedDependencies": [
+        {
+          "uri": "pkg:github/Shrimpworks/deno@da10f70f0bbb83e0c2b45df50761c557e1e6f43f",
+          "digest": {
+            "gitCommit": "da10f70f0bbb83e0c2b45df50761c557e1e6f43f"
+          }
+        },
+        {
+          "uri": "pkg:github/Shrimpworks/rusty_v8@80e863ddb942a4aa2b384e794fc23e35b9d2bb15",
+          "digest": {
+            "gitCommit": "80e863ddb942a4aa2b384e794fc23e35b9d2bb15"
+          }
+        },
+        {
+          "uri": "file:cargo-source-bundle.tar.gz",
+          "digest": {
+            "sha256": "1e96e49a516e4cf6a9ec79acae9a9eb3d0ee52b332695fa11476a97e1e50d1d4"
+          }
+        }
+      ]
+    },
+    "runDetails": {
+      "builder": {
+        "id": "pkg:oci/rust@1.95.0-bookworm?repository_digest=sha256:6258907abe69656e41cd992e0b705cdcfabcbbe3db374f92ed2d47121282d4a1"
+      },
+      "metadata": {
+        "invocationId": "capsule-c2b-fixed-fixture-2026-08-04-same-host"
+      },
+      "limitations": [
+        "unsigned experiment-generated provenance",
+        "same Apple Silicon Docker Desktop/LinuxKit host for both builds",
+        "linux/arm64 builder executed through Docker platform emulation",
+        "no independent second builder",
+        "no VM, HVF, libkrun, guest, runtime selection, or admission was exercised",
+        "runtime root and composed profile are deferred to canonical capsule-corp reconciliation"
+      ]
+    }
+  }
+}
