@@ -1,0 +1,21 @@
+{
+  "schema": "capsule.c2.final-governed-artifacts.mutation-dispositions.v1",
+  "status": "BLOCKED-BEFORE-FINAL-ARTIFACTS",
+  "staticChecks": [
+    { "mutation": "substitute-c2a-source-with-runtime-fixture", "disposition": "REFUSED" },
+    { "mutation": "substitute-c2a-input-with-runtime-fixture", "disposition": "REFUSED" },
+    { "mutation": "synthesize-c2a-result-from-different-runtime-workload", "disposition": "REFUSED" },
+    { "mutation": "extend-runtime-fixed-source-list-without-new-candidate", "disposition": "REFUSED" },
+    { "mutation": "use-historical-final-artifact-identity", "disposition": "REFUSED" },
+    { "mutation": "use-partial-offline-build-output", "disposition": "REFUSED" }
+  ],
+  "c2aRestorationMutations": {
+    "count": 18,
+    "disposition": "NOT_RUN-C2B-ONLY-AND-NO-COMPOSED-PROFILE"
+  },
+  "c2bCases": {
+    "count": 91,
+    "disposition": "NOT_RUN-SEPARATE-AUTHORIZATION-REQUIRED"
+  },
+  "guestExecution": "NOT_RUN"
+}

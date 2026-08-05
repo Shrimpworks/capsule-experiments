@@ -1,0 +1,62 @@
+{
+  "objectType": "capsule.c2.final-governed-artifacts.blocked-construction",
+  "schemaVersion": 1,
+  "date": "2026-08-04",
+  "status": "BLOCKED",
+  "scope": "static-build-time-only-no-vm-no-guest",
+  "inputs": {
+    "c1Fixture": {
+      "size": 9289,
+      "sha256": "d5d75e638a15be6c9f4a3230d17309d085f6ec103a73b64d9e0fd656a5423c9e"
+    },
+    "c2aFixture": {
+      "size": 26850,
+      "sha256": "d4ce88888186266f5d251e6246c889b1fd46d7746bb0ba56bcc4b3ce4675992f"
+    },
+    "runtimeCandidate": {
+      "candidateId": "governed-deno-core-linux-arm64-rc-2026-08-04-1",
+      "selfDigestSha256": "78cf2e99e58a4e79413f22889dd19f794ac7cdce3e4ec5c167d6c2051d19afaa"
+    },
+    "libkrunFivePatchAggregateSha256": "d19fd0ff159c699acccda2621519de45a09408bf3847b418ac34e02b79e805d5"
+  },
+  "blockingInterface": {
+    "code": "C2_RUNTIME_FIXED_FIXTURE_MISMATCH",
+    "runtimeHarnessSha256": "2797c74c1aedb599661110e8d7c093a4868bf17490ad5bf44952eb7416067de7",
+    "requiredSourceSha256": "c8e940feb89b342de2d5e6bd13c413226676de9a539fce34c4107516e635b475",
+    "requiredInputSha256": "9de0c909cfb111bd99c3b0b5f7a10972894270c2867022a71b6b6f3c0cd1af6e",
+    "runtimeNominalSourceSha256": "a236a49337021c709875a6e921910418f8801b78627e504aaf93a5bb636622ca",
+    "runtimeInputSha256": "dcca912dd4ddd9c93c1efd3e6aecf33dd2d0c0ef75b36d0b8acf89cae752264a",
+    "substitutionAllowed": false
+  },
+  "requiredArtifacts": [
+    { "role": "host-runner", "size": null, "sha256": null },
+    { "role": "governed-libkrun-dylib", "size": null, "sha256": null },
+    { "role": "libkrunfw-dylib", "size": null, "sha256": null },
+    { "role": "firmware", "size": null, "sha256": null },
+    { "role": "guest-kernel", "size": null, "sha256": null },
+    { "role": "trusted-init", "size": null, "sha256": null },
+    { "role": "trusted-launcher", "size": null, "sha256": null },
+    { "role": "raw-runtime-root", "size": null, "sha256": null },
+    { "role": "governed-runtime-bundle-manifest", "size": null, "sha256": null }
+  ],
+  "composedProfile": {
+    "identity": null,
+    "sha256": null,
+    "selfDigestSha256": null,
+    "admitted": false
+  },
+  "build": {
+    "connectedPrefetch": "PASSED-263-cargo-archives",
+    "decisiveOfflineBuild": "INTERRUPTED-AFTER-BLOCKER-CONFIRMED",
+    "partialBytesAdmissible": false,
+    "guestExecution": "NOT_RUN",
+    "independentBuilder": false
+  },
+  "downstream": {
+    "c2b": "BLOCKED",
+    "runtimeSelection": "BLOCKED",
+    "runtimeAdmission": "BLOCKED",
+    "runtime001": "unsupported",
+    "vmm001": "unsupported"
+  }
+}
