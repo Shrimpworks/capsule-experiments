@@ -1,0 +1,37 @@
+{
+  "schema": "capsule.c2.final-governed-artifacts.build-boundary.v1",
+  "builder": {
+    "rustyV8Image": "docker.io/library/rust@sha256:307d198027388f780db83929487de35084a73ecbaa31319989438db38103439f",
+    "workspaceTransport": "fresh-isolated-docker-volume",
+    "sourceHead": "80e863ddb942a4aa2b384e794fc23e35b9d2bb15",
+    "sourceTree": "d8950a7a1ee907761720b23d24eaa9b63aa33b10"
+  },
+  "connectedAcquisition": {
+    "status": "PASSED",
+    "cargoArchives": 263,
+    "exactSubmodules": 20,
+    "exactCrossPackages": 22
+  },
+  "decisiveBuild": {
+    "network": "none",
+    "capabilities": "all-dropped",
+    "noNewPrivileges": true,
+    "arm64LinkProbe": "PASSED",
+    "arm64ReadelfProbe": "PASSED",
+    "arm64QemuSelfTest": "PASSED",
+    "compilation": "INTERRUPTED-AFTER-STATIC-BLOCKER-CONFIRMED",
+    "partialOutputRetainedAsArtifact": false
+  },
+  "removedDisposableDockerState": {
+    "broadPrune": false,
+    "volumes": [
+      { "name": "rusty-v8-governed-arm64-80e863ddb942", "observedSize": "9.5GB" },
+      { "name": "rusty-v8-governed-arm64-80e863ddb942-c2final", "observedSize": "901MB", "role": "failed-linked-worktree-seed" },
+      { "name": "rusty-v8-governed-arm64-80e863ddb942-c2final", "observedSize": "9.1GB", "role": "interrupted-standalone-clone-build" }
+    ],
+    "recoverable": false
+  },
+  "sameHostReproducibilityClaim": false,
+  "independentBuilderClaim": false,
+  "guestExecution": "NOT_RUN"
+}

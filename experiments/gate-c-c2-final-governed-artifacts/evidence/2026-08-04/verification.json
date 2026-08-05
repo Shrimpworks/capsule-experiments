@@ -1,0 +1,17 @@
+{
+  "result": "PASS-EXPECTED-BLOCKED",
+  "blockingInterface": "C2_RUNTIME_FIXED_FIXTURE_MISMATCH",
+  "c2a": {
+    "fixtureSha256": "d4ce88888186266f5d251e6246c889b1fd46d7746bb0ba56bcc4b3ce4675992f",
+    "sourceSha256": "c8e940feb89b342de2d5e6bd13c413226676de9a539fce34c4107516e635b475",
+    "inputSha256": "9de0c909cfb111bd99c3b0b5f7a10972894270c2867022a71b6b6f3c0cd1af6e"
+  },
+  "runtime": {
+    "candidateSelfDigestSha256": "78cf2e99e58a4e79413f22889dd19f794ac7cdce3e4ec5c167d6c2051d19afaa",
+    "harnessSha256": "2797c74c1aedb599661110e8d7c093a4868bf17490ad5bf44952eb7416067de7",
+    "sourceFixtureCount": 5
+  },
+  "libkrunPatchAggregateSha256": "d19fd0ff159c699acccda2621519de45a09408bf3847b418ac34e02b79e805d5",
+  "finalArtifactIdentities": "all-null",
+  "guestExecution": "NOT_RUN"
+}

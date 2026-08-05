@@ -1,0 +1,11 @@
+newVerifier=PASS-EXPECTED-BLOCKED
+canonicalReleaseCandidateVerifier=PASSED-offline-verification-only
+canonicalReleaseCandidateSelfDigest=78cf2e99e58a4e79413f22889dd19f794ac7cdce3e4ec5c167d6c2051d19afaa
+focusedNodeTests=25-pass-0-fail
+rustyV8Baseline=d305e6afa7736f6e298c30ae6646f7709ee9382b
+rustyV8ExactGitlinks=20
+rustyV8CrossPackages=22
+libkrunPatchReconstruction=PASS-exact-commit-base
+libkrunPatchAggregate=d19fd0ff159c699acccda2621519de45a09408bf3847b418ac34e02b79e805d5
+finalArtifactIdentities=all-null
+guestExecution=NOT_RUN

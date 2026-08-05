@@ -1,0 +1,56 @@
+{
+  "schema": "capsule.c2.final-governed-artifacts.source-ref-verification.v1",
+  "date": "2026-08-04",
+  "repositories": {
+    "capsuleExperiments": {
+      "repository": "https://github.com/Shrimpworks/capsule-experiments.git",
+      "evidenceMerge": "fa03d7043b4f0653081d6c5733d597f49f6efd1c",
+      "evidenceTree": "f80775335232ff4750f62998e5cc4d8e120ce90e"
+    },
+    "capsuleCorp": {
+      "repository": "https://github.com/Shrimpworks/capsule-corp.git",
+      "reviewedMain": "bf8a93b2eebad069400e7291bbf6d7af1a43f305",
+      "tree": "af4ce8a97c874be14ff60b091807d941ea875fef"
+    },
+    "deno": {
+      "repository": "https://github.com/Shrimpworks/deno.git",
+      "upstream": "14eea3160ae5834476aa3b9d317b8d41d991b982",
+      "governedHead": "9adb0b68b55bca81644827f1e7749a3acb091bed",
+      "governedTree": "72edd0f7b5f83b918945860653714e344c8a303f",
+      "merge": "ea18b9dc21ff8ebd19347be7095f47937ee14ec2",
+      "mergeParents": [
+        "14eea3160ae5834476aa3b9d317b8d41d991b982",
+        "9adb0b68b55bca81644827f1e7749a3acb091bed"
+      ]
+    },
+    "rustyV8": {
+      "repository": "https://github.com/Shrimpworks/rusty_v8.git",
+      "upstream": "d305e6afa7736f6e298c30ae6646f7709ee9382b",
+      "governedHead": "80e863ddb942a4aa2b384e794fc23e35b9d2bb15",
+      "governedTree": "d8950a7a1ee907761720b23d24eaa9b63aa33b10",
+      "merge": "cbf56de2e1156b1cf1561fdbaea7172a0aa056f4",
+      "mergeParents": [
+        "eddede228a9214c4dfb6a85aeca22abc0679100d",
+        "80e863ddb942a4aa2b384e794fc23e35b9d2bb15"
+      ],
+      "submodules": 20,
+      "crossPackages": 22
+    },
+    "libkrun": {
+      "repository": "https://github.com/Shrimpworks/libkrun.git",
+      "upstream": "728df8125077d0db44265f6e997c72b81b65c015",
+      "governedBase": "4ea8d1de861ed1c0636fc800b6da8fb71a086aa5",
+      "governedHead": "8a2c91943793668f31a1cf7af431933be935bb58",
+      "governedTree": "ffa4131ddcc6ec66edd623381dae94189ccd3fee",
+      "merge": "cf0333cdba478cc34a8570a65b38412da7fd3ecc",
+      "mergeParents": [
+        "4ea8d1de861ed1c0636fc800b6da8fb71a086aa5",
+        "8a2c91943793668f31a1cf7af431933be935bb58"
+      ],
+      "patchAggregateSha256": "d19fd0ff159c699acccda2621519de45a09408bf3847b418ac34e02b79e805d5",
+      "baselineMovableBranchMatchesRetainedBase": false,
+      "exactCommitReconstructionMatches": true
+    }
+  },
+  "guestExecution": "NOT_RUN"
+}
