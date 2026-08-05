@@ -1,0 +1,67 @@
+{
+  "schema": "capsule.macos-installation.i1b-r3-verification/v1",
+  "status": "PASSED",
+  "node": "22.22.1",
+  "pnpm": "10.28.2",
+  "commands": [
+    {
+      "command": "pnpm install",
+      "status": "PASSED"
+    },
+    {
+      "command": "pnpm check",
+      "status": "PASSED"
+    },
+    {
+      "command": "pnpm lint",
+      "status": "PASSED",
+      "result": "120 files; no fixes"
+    },
+    {
+      "command": "pnpm test",
+      "status": "PASSED",
+      "result": "package tests plus 79 repository tests"
+    },
+    {
+      "command": "pnpm verify:schemas",
+      "status": "PASSED"
+    },
+    {
+      "command": "pnpm verify:adrs",
+      "status": "PASSED",
+      "result": "38 ADR files"
+    },
+    {
+      "command": "go test ./...",
+      "status": "PASSED"
+    },
+    {
+      "command": "go vet ./...",
+      "status": "PASSED"
+    },
+    {
+      "command": "go build ./...",
+      "status": "PASSED"
+    },
+    {
+      "command": "golangci-lint run ./...",
+      "status": "PASSED",
+      "result": "0 issues"
+    },
+    {
+      "command": "go run golang.org/x/vuln/cmd/govulncheck@latest ./...",
+      "status": "PASSED",
+      "result": "0 called vulnerabilities"
+    },
+    {
+      "command": "run-refusal-matrix.mjs",
+      "status": "PASSED",
+      "result": "8 of 8 expected refusals"
+    },
+    {
+      "command": "run-installed-composition.mjs",
+      "status": "PASSED",
+      "result": "exact install, private-service probes, unregister, removal, and non-platform scratch cleanup"
+    }
+  ]
+}

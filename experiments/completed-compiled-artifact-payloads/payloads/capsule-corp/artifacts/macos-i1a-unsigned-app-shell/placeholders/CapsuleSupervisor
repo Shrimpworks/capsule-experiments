@@ -1,0 +1,6 @@
+CAPSULE I1A TEST-ONLY PLACEHOLDER
+role=capsule.role.execution-supervisor/v0
+activation=refuse
+executable=false
+execution=disabled
+guest-creation=impossible-no-program-bytes

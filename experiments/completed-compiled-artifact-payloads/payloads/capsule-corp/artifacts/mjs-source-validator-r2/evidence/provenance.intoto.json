@@ -1,0 +1,86 @@
+{
+  "_type": "https://in-toto.io/Statement/v1",
+  "subject": [
+    {
+      "name": "dist/CapsuleSourceValidatorDaemon.xpc/Contents/Info.plist",
+      "digest": {
+        "sha256": "635815858bfc8e9d5d412883589b7578830028f629e0b60b587900e8a66382d3"
+      }
+    },
+    {
+      "name": "dist/CapsuleSourceValidatorDaemon.xpc/Contents/MacOS/CapsuleSourceValidatorDaemonLauncher",
+      "digest": {
+        "sha256": "4bc270c84f166dfb077d84458940411073f3c70a7f70db2e4af48601500b36cc"
+      }
+    },
+    {
+      "name": "dist/CapsuleSourceValidatorDaemon.xpc/Contents/Resources/capsule-mjs-source-validator-daemon",
+      "digest": {
+        "sha256": "f54c349e3a61b06e0b4d482bc1ed28924ffe712a7ff2531f504e7b57917defc7"
+      }
+    },
+    {
+      "name": "dist/CapsuleSourceValidatorDaemon.xpc/Contents/Resources/resource-policy-inactive.bin",
+      "digest": {
+        "sha256": "c198dac71f3b5c2d2e8cca34fc3e9c01ff7b8093ef1a881d8160a34800ff1098"
+      }
+    },
+    {
+      "name": "dist/CapsuleSourceValidatorBroker.xpc/Contents/Info.plist",
+      "digest": {
+        "sha256": "7b511e617326192134ae9f7469a65f9540d437806ecc55ecb750435bc131c285"
+      }
+    },
+    {
+      "name": "dist/CapsuleSourceValidatorBroker.xpc/Contents/MacOS/CapsuleSourceValidatorBrokerLauncher",
+      "digest": {
+        "sha256": "81284de5ba54e2288602bee4e9aca4e4513211b560bacfd1286b7ab57c922613"
+      }
+    },
+    {
+      "name": "dist/CapsuleSourceValidatorBroker.xpc/Contents/Resources/capsule-mjs-source-validator-approval-broker",
+      "digest": {
+        "sha256": "7abac7da99f4b9edef77bb5ecfff135e8b752e5ed656664632272079b5408577"
+      }
+    },
+    {
+      "name": "dist/CapsuleSourceValidatorBroker.xpc/Contents/Resources/resource-policy-inactive.bin",
+      "digest": {
+        "sha256": "b0ce8504190b5fe9b0a0296c22340a6439ab453cb32f32c19ddb6e594698568d"
+      }
+    }
+  ],
+  "predicateType": "https://slsa.dev/provenance/v1",
+  "predicate": {
+    "buildDefinition": {
+      "buildType": "https://capsulecorp.example/source-validator/unsigned-role-bundles-r2/v1",
+      "externalParameters": {
+        "target": "aarch64-apple-darwin",
+        "macosDeploymentTarget": "14.0",
+        "network": "offline"
+      },
+      "internalParameters": {
+        "sourceManifestSha256": "8b49f7811a9d30795eeecf98d5c673e36d588126e5e088e663eb14c6f3e66dd1",
+        "cargoLockSha256": "2710320593e127b50ec5ba8b33e66b32ba16f8db83238edd64b3e8e633a19890"
+      },
+      "resolvedDependencies": []
+    },
+    "runDetails": {
+      "builder": {
+        "id": "local-unsigned-same-host-builder"
+      },
+      "metadata": {
+        "invocationId": "not-retained",
+        "startedOn": null,
+        "finishedOn": null
+      },
+      "byproducts": []
+    },
+    "capsuleLimitations": {
+      "signed": false,
+      "independentBuilder": false,
+      "installed": false,
+      "enrolled": false
+    }
+  }
+}

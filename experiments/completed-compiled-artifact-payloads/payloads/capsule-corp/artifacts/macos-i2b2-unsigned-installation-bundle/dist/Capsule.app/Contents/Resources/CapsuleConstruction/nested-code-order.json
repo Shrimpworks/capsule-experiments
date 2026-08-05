@@ -1,0 +1,13 @@
+{
+  "schema": "capsule.macos-installation.i1a-nested-code-order/v1",
+  "state": "ordering-only-no-signing-invoked",
+  "deepestFirst": [
+    "Capsule.app/Contents/Library/Helpers/CapsuleDaemon.app/Contents/XPCServices/CapsuleSourceValidatorDaemon.xpc/Contents/Resources/capsule-mjs-source-validator-daemon",
+    "Capsule.app/Contents/XPCServices/CapsuleSourceValidatorBroker.xpc/Contents/Resources/capsule-mjs-source-validator-approval-broker",
+    "Capsule.app/Contents/Library/Helpers/CapsuleDaemon.app/Contents/XPCServices/CapsuleSourceValidatorDaemon.xpc",
+    "Capsule.app/Contents/XPCServices/CapsuleSourceValidatorBroker.xpc",
+    "Capsule.app/Contents/Library/Helpers/CapsuleDaemon.app",
+    "Capsule.app/Contents/Library/Helpers/CapsuleSupervisor.app",
+    "Capsule.app"
+  ]
+}

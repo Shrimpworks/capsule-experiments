@@ -1,0 +1,17 @@
+{
+  "schema": "capsule.macos-installation.i2b2-constraint-projection/v0",
+  "state": "inactive-unsigned-refusing",
+  "teamIdentifier": "3DDR84M4JS",
+  "serviceName": "3DDR84M4JS.com.capsulecorp.capsule.bootstrap.v0.supervisor",
+  "callerSigningIdentifier": "com.capsulecorp.capsule.trust-bootstrap.v1",
+  "listenerSigningIdentifier": "com.capsulecorp.capsule.supervisor",
+  "callerCodeDirectoryHashSet": [],
+  "listenerCodeDirectoryHashSet": [],
+  "effectiveEntitlementDigestSet": [],
+  "hardenedRuntimeRequired": true,
+  "getTaskAllowRequiredAbsent": true,
+  "expectedEffectiveUidState": "unavailable-until-i2b3-installed-readback",
+  "auditSessionState": "unavailable-until-i2b3-installed-readback",
+  "activationDecision": "refuse",
+  "activationReason": "signed-profile-and-cdhash-bindings-unavailable"
+}

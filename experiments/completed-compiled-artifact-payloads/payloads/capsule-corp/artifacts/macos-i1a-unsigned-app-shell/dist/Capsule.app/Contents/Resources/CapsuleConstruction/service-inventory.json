@@ -1,0 +1,78 @@
+{
+  "schema": "capsule.macos-installation.i1a-service-inventory/v1",
+  "profileId": "capsule.macos-installation.no-guest/i0",
+  "services": [
+    {
+      "recordVersion": 0,
+      "serviceId": "capsule.service.daemon-agent/i0",
+      "serviceName": "com.capsulecorp.capsule.daemon",
+      "serviceClass": "smappservice-agent-candidate",
+      "ownerRoleId": "capsule.role.agent-daemon/v0",
+      "peerRoleId": "capsule.role.approval-broker/v0",
+      "protocolIdentity": "none",
+      "methodIdentities": "",
+      "reachability": "containing-application-registration-only",
+      "activationState": "inactive-refusing"
+    },
+    {
+      "recordVersion": 0,
+      "serviceId": "capsule.service.supervisor-agent/i0",
+      "serviceName": "com.capsulecorp.capsule.supervisor",
+      "serviceClass": "smappservice-agent-candidate",
+      "ownerRoleId": "capsule.role.execution-supervisor/v0",
+      "peerRoleId": "capsule.role.approval-broker/v0",
+      "protocolIdentity": "none",
+      "methodIdentities": "",
+      "reachability": "containing-application-registration-only",
+      "activationState": "inactive-refusing"
+    },
+    {
+      "recordVersion": 0,
+      "serviceId": "capsule.service.supervisor.daemon/v0",
+      "serviceName": "com.capsulecorp.capsule.supervisor.daemon.v0",
+      "serviceClass": "supervisor-mach-listener",
+      "ownerRoleId": "capsule.role.execution-supervisor/v0",
+      "peerRoleId": "capsule.role.agent-daemon/v0",
+      "protocolIdentity": "capsule.execution-supervisor.local.v0",
+      "methodIdentities": "RegisterPlanV0,RequestAttemptV0",
+      "reachability": "pairwise-transport-unresolved-refusing",
+      "activationState": "inactive-refusing"
+    },
+    {
+      "recordVersion": 0,
+      "serviceId": "capsule.service.supervisor.broker/v0",
+      "serviceName": "com.capsulecorp.capsule.supervisor.broker.v0",
+      "serviceClass": "supervisor-mach-listener",
+      "ownerRoleId": "capsule.role.execution-supervisor/v0",
+      "peerRoleId": "capsule.role.approval-broker/v0",
+      "protocolIdentity": "capsule.execution-supervisor.local.v0",
+      "methodIdentities": "GetRegisteredPlanV0,SubmitApprovalV0",
+      "reachability": "pairwise-transport-unresolved-refusing",
+      "activationState": "inactive-refusing"
+    },
+    {
+      "recordVersion": 0,
+      "serviceId": "capsule.service.source-validator.daemon/v1",
+      "serviceName": "com.capsulecorp.capsule.source-validator.daemon.v1",
+      "serviceClass": "role-private-xpc",
+      "ownerRoleId": "capsule.role.source-validator-launcher.daemon/v1",
+      "peerRoleId": "capsule.role.agent-daemon/v0",
+      "protocolIdentity": "capsule.source-validator.protocol/v1",
+      "methodIdentities": "capsule.source-validator.validate-mjs-source.daemon/v1",
+      "reachability": "role-private-reachability-unproven-refusing",
+      "activationState": "inactive-refusing"
+    },
+    {
+      "recordVersion": 0,
+      "serviceId": "capsule.service.source-validator.approval-broker/v1",
+      "serviceName": "com.capsulecorp.capsule.source-validator.approval-broker.v1",
+      "serviceClass": "role-private-xpc",
+      "ownerRoleId": "capsule.role.source-validator-launcher.approval-broker/v1",
+      "peerRoleId": "capsule.role.approval-broker/v0",
+      "protocolIdentity": "capsule.source-validator.protocol/v1",
+      "methodIdentities": "capsule.source-validator.validate-mjs-source.approval-broker/v1",
+      "reachability": "role-private-reachability-unproven-refusing",
+      "activationState": "inactive-refusing"
+    }
+  ]
+}

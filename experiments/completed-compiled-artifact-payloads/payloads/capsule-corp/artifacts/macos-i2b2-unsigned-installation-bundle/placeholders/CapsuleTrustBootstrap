@@ -1,0 +1,9 @@
+CAPSULE I2B2 TEST-ONLY PLACEHOLDER
+role=capsule.role.trust-bootstrap-coordinator
+signing-identifier=com.capsulecorp.capsule.trust-bootstrap.v1
+activation=refuse
+signing=unavailable
+key-operation=unavailable
+service-registration=unavailable
+state-creation=unavailable
+guest-creation=impossible-no-program-bytes

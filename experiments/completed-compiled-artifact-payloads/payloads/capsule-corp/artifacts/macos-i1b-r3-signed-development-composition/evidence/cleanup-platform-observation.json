@@ -1,0 +1,37 @@
+{
+  "schema": "capsule.macos-installation.i1b-r3-platform-container-observation/v1",
+  "status": "PASSED",
+  "classification": "platform-managed sandbox roots retained; non-platform private scratch removed",
+  "platformManagedContainerRoots": [
+    "/Users/dsteele/Library/Containers/com.capsulecorp.capsule.broker",
+    "/Users/dsteele/Library/Containers/com.capsulecorp.capsule.daemon",
+    "/Users/dsteele/Library/Containers/com.capsulecorp.capsule.supervisor",
+    "/Users/dsteele/Library/Containers/com.capsulecorp.capsule.source-validator.daemon.v1",
+    "/Users/dsteele/Library/Containers/com.capsulecorp.capsule.source-validator.approval-broker.v1"
+  ],
+  "directRootRemoval": {
+    "result": "refused",
+    "fixedPathClass": "exact test container root only",
+    "error": "EPERM on .com.apple.containermanagerd.metadata.plist"
+  },
+  "finderTrashRemoval": {
+    "result": "refused",
+    "fixedPathClass": "exact test container root only",
+    "error": "Finder permission error -5000"
+  },
+  "fullDiskAccessRequested": false,
+  "fullDiskAccessUsed": false,
+  "fixedPrivateScratchSelfTest": {
+    "roles": [
+      "com.capsulecorp.capsule.broker",
+      "com.capsulecorp.capsule.daemon",
+      "com.capsulecorp.capsule.supervisor"
+    ],
+    "marker": "Library/Caches/CapsuleI1BR3/fixed-benign-scratch",
+    "result": "created-enumerated-removed",
+    "residualNonPlatformScratch": false
+  },
+  "installRemoved": true,
+  "servicesUnregistered": true,
+  "namedProcessesRemaining": 0
+}

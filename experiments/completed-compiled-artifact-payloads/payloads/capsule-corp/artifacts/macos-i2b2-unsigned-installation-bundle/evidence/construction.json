@@ -1,0 +1,70 @@
+{
+  "schema": "capsule.macos-installation.i2b2-unsigned-construction/v0",
+  "status": "PASSED",
+  "scope": "unsigned-installation-only-bytes-and-layout",
+  "profileId": "capsule.macos-installation.unsigned-installation-only/i2b2",
+  "intendedDevelopmentTeamId": "3DDR84M4JS",
+  "appleIdentityUsed": false,
+  "provisioningProfilePresent": false,
+  "keychainAccessed": false,
+  "serviceRegistered": false,
+  "processLaunched": false,
+  "networkUsed": false,
+  "filesystemStateCreated": false,
+  "signingOperationUsed": false,
+  "bootstrapRequestCreated": false,
+  "bootstrapRecordCreated": false,
+  "supervisorStoreCreated": false,
+  "attemptsEnabled": false,
+  "runtimePresent": false,
+  "backendPresent": false,
+  "guestPresent": false,
+  "construction": {
+    "deterministicCleanDirectories": 2,
+    "byteIdentical": true,
+    "source": "checked-in-I1A-tree-plus-closed-I2B2-declared-inputs"
+  },
+  "profile": {
+    "path": "schemas/conformance/macos-i2b2-unsigned-installation/profile.json",
+    "bytes": 15226,
+    "sha256": "a061291fe76d3bb460673adf25a322b0aa6d87d43619503eacaf3889eef4144b",
+    "recursivelyClassifiedFields": 252
+  },
+  "bundleManifest": {
+    "path": "dist/Capsule.app/Contents/Resources/CapsuleI2B2/bundle-manifest.json",
+    "bytes": 7649,
+    "sha256": "f706e3597958a6f694de7fb7c57f3e66d9cd5cd6a7f99e389de40018923c5c5d",
+    "files": 31
+  },
+  "readback": {
+    "manifestSha256": "f706e3597958a6f694de7fb7c57f3e66d9cd5cd6a7f99e389de40018923c5c5d",
+    "bundleFileCount": 31,
+    "roleCount": 8,
+    "fieldCount": 252,
+    "activationDecision": "refuse",
+    "activationReason": "unsigned-profile-inactive"
+  },
+  "refusals": [
+    "missing",
+    "extra",
+    "duplicate",
+    "mixed",
+    "substituted",
+    "wrong-role",
+    "wrong-profile",
+    "wrong-service",
+    "unsafe-entitlement",
+    "active-signing",
+    "bootstrap-created",
+    "store-created",
+    "profile-cap-plus-one",
+    "manifest-cap-plus-one",
+    "bundle-path-cap-plus-one"
+  ],
+  "limitations": [
+    "Coordinator and Supervisor files remain inert non-executable placeholders; no production wrapper or key implementation exists.",
+    "Entitlement, Keychain-group, App-Group, service, and constraint files are unsigned inactive declared inputs, not effective platform authority.",
+    "Signed containing-release, component-profile, CDHash, effective-entitlement, EUID, audit-session, and installed-container bindings remain unavailable until separately authorized I2B3.",
+    "No signing, installation, registration, launch, Keychain, protected-root, owner, store, runtime, backend, or guest operation occurred."
+  ]
+}

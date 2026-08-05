@@ -1,0 +1,319 @@
+{
+  "schema": "capsule.macos-installation.i2b2-unsigned-profile/v0",
+  "checkpoint": "I2B2",
+  "status": "unsigned-declared-inputs-only",
+  "profileId": "capsule.macos-installation.unsigned-installation-only/i2b2",
+  "intendedDevelopmentTeamId": "3DDR84M4JS",
+  "containingRelease": {
+    "identity": "capsule.macos-installation.i2b2-containing-release/v0",
+    "baseProfileId": "capsule.macos-installation.no-guest/i0",
+    "i1aBundleManifest": {
+      "path": "artifacts/macos-i1a-unsigned-app-shell/dist/Capsule.app/Contents/Resources/CapsuleConstruction/bundle-manifest.json",
+      "bytes": 5546,
+      "sha256": "5bd80097775908031b1a4c90680e8c7656cc5e9f97df2cc187592f75ee67a56f"
+    },
+    "i1aConstructionEvidence": {
+      "path": "artifacts/macos-i1a-unsigned-app-shell/evidence/construction.json",
+      "bytes": 2848,
+      "sha256": "31f79bdbd3dae29f6cfa340683ce59bc445041db0da12a66b1c051abc3db6ae5"
+    },
+    "i1bSignedDevelopmentEnrollment": {
+      "path": "artifacts/macos-i1b-r3-signed-development-composition/evidence/signed-enrollment.json",
+      "bytes": 10643,
+      "sha256": "afc7002032fc1ff4ead29269e7a370d94524aff42ca9181827a03233a31fbc94"
+    },
+    "signedI2B3ReleaseDigestState": "unavailable-no-signing-performed",
+    "signedI2B3ComponentProfileDigestState": "unavailable-no-signed-readback"
+  },
+  "roles": [
+    {
+      "roleId": "capsule.role.approval-broker/v0",
+      "containingRoleId": "",
+      "bundlePath": "Capsule.app",
+      "executablePath": "Capsule.app/Contents/MacOS/Capsule",
+      "bundleIdentifier": "com.capsulecorp.capsule.broker",
+      "signingIdentifier": "com.capsulecorp.capsule.broker",
+      "required": true,
+      "sourceProfile": "capsule.macos-installation.no-guest/i0"
+    },
+    {
+      "roleId": "capsule.role.agent-daemon/v0",
+      "containingRoleId": "capsule.role.approval-broker/v0",
+      "bundlePath": "Capsule.app/Contents/Library/Helpers/CapsuleDaemon.app",
+      "executablePath": "Capsule.app/Contents/Library/Helpers/CapsuleDaemon.app/Contents/MacOS/CapsuleDaemon",
+      "bundleIdentifier": "com.capsulecorp.capsule.daemon",
+      "signingIdentifier": "com.capsulecorp.capsule.daemon",
+      "required": true,
+      "sourceProfile": "capsule.macos-installation.no-guest/i0"
+    },
+    {
+      "roleId": "capsule.role.execution-supervisor/v0",
+      "containingRoleId": "capsule.role.approval-broker/v0",
+      "bundlePath": "Capsule.app/Contents/Library/Helpers/CapsuleSupervisor.app",
+      "executablePath": "Capsule.app/Contents/Library/Helpers/CapsuleSupervisor.app/Contents/MacOS/CapsuleSupervisor",
+      "bundleIdentifier": "com.capsulecorp.capsule.supervisor",
+      "signingIdentifier": "com.capsulecorp.capsule.supervisor",
+      "required": true,
+      "sourceProfile": "capsule.macos-installation.no-guest/i0"
+    },
+    {
+      "roleId": "capsule.role.source-validator-launcher.daemon/v1",
+      "containingRoleId": "capsule.role.agent-daemon/v0",
+      "bundlePath": "Capsule.app/Contents/Library/Helpers/CapsuleDaemon.app/Contents/XPCServices/CapsuleSourceValidatorDaemon.xpc",
+      "executablePath": "Capsule.app/Contents/Library/Helpers/CapsuleDaemon.app/Contents/XPCServices/CapsuleSourceValidatorDaemon.xpc/Contents/MacOS/CapsuleSourceValidatorDaemonLauncher",
+      "bundleIdentifier": "com.capsulecorp.capsule.source-validator.daemon.v1",
+      "signingIdentifier": "com.capsulecorp.capsule.source-validator.daemon.v1",
+      "required": true,
+      "sourceProfile": "capsule.macos-installation.no-guest/i0"
+    },
+    {
+      "roleId": "capsule.role.source-validator-parser.daemon/v1",
+      "containingRoleId": "capsule.role.source-validator-launcher.daemon/v1",
+      "bundlePath": "Capsule.app/Contents/Library/Helpers/CapsuleDaemon.app/Contents/XPCServices/CapsuleSourceValidatorDaemon.xpc/Contents/Resources/capsule-mjs-source-validator-daemon",
+      "executablePath": "Capsule.app/Contents/Library/Helpers/CapsuleDaemon.app/Contents/XPCServices/CapsuleSourceValidatorDaemon.xpc/Contents/Resources/capsule-mjs-source-validator-daemon",
+      "bundleIdentifier": "",
+      "signingIdentifier": "com.capsulecorp.capsule.source-validator-parser.daemon.v1",
+      "required": true,
+      "sourceProfile": "capsule.macos-installation.no-guest/i0"
+    },
+    {
+      "roleId": "capsule.role.source-validator-launcher.approval-broker/v1",
+      "containingRoleId": "capsule.role.approval-broker/v0",
+      "bundlePath": "Capsule.app/Contents/XPCServices/CapsuleSourceValidatorBroker.xpc",
+      "executablePath": "Capsule.app/Contents/XPCServices/CapsuleSourceValidatorBroker.xpc/Contents/MacOS/CapsuleSourceValidatorBrokerLauncher",
+      "bundleIdentifier": "com.capsulecorp.capsule.source-validator.approval-broker.v1",
+      "signingIdentifier": "com.capsulecorp.capsule.source-validator.approval-broker.v1",
+      "required": true,
+      "sourceProfile": "capsule.macos-installation.no-guest/i0"
+    },
+    {
+      "roleId": "capsule.role.source-validator-parser.approval-broker/v1",
+      "containingRoleId": "capsule.role.source-validator-launcher.approval-broker/v1",
+      "bundlePath": "Capsule.app/Contents/XPCServices/CapsuleSourceValidatorBroker.xpc/Contents/Resources/capsule-mjs-source-validator-approval-broker",
+      "executablePath": "Capsule.app/Contents/XPCServices/CapsuleSourceValidatorBroker.xpc/Contents/Resources/capsule-mjs-source-validator-approval-broker",
+      "bundleIdentifier": "",
+      "signingIdentifier": "com.capsulecorp.capsule.source-validator-parser.approval-broker.v1",
+      "required": true,
+      "sourceProfile": "capsule.macos-installation.no-guest/i0"
+    },
+    {
+      "roleId": "capsule.role.trust-bootstrap-coordinator",
+      "containingRoleId": "capsule.role.approval-broker/v0",
+      "bundlePath": "Capsule.app/Contents/XPCServices/CapsuleTrustBootstrap.xpc",
+      "executablePath": "Capsule.app/Contents/XPCServices/CapsuleTrustBootstrap.xpc/Contents/MacOS/CapsuleTrustBootstrap",
+      "bundleIdentifier": "com.capsulecorp.capsule.trust-bootstrap.v1",
+      "signingIdentifier": "com.capsulecorp.capsule.trust-bootstrap.v1",
+      "required": true,
+      "sourceProfile": "capsule.macos-installation.unsigned-installation-only/i2b2"
+    }
+  ],
+  "executableInputs": [
+    {
+      "roleId": "capsule.role.trust-bootstrap-coordinator",
+      "identityClass": "inert-non-executable-placeholder",
+      "path": "artifacts/macos-i2b2-unsigned-installation-bundle/placeholders/CapsuleTrustBootstrap",
+      "bytes": 310,
+      "sha256": "ea4d8b971c3bb6dbc56d9aed2bc936e3da6dfc13942d58e745bbc639d2264a11"
+    },
+    {
+      "roleId": "capsule.role.trust-bootstrap-coordinator",
+      "identityClass": "closed-info-plist",
+      "path": "artifacts/macos-i2b2-unsigned-installation-bundle/templates/coordinator-Info.plist",
+      "bytes": 987,
+      "sha256": "a6c0b54c8a8c591b27fc0694fcbab600fb73f2e50c635ad3d9549a8582e23275"
+    },
+    {
+      "roleId": "capsule.role.execution-supervisor/v0",
+      "identityClass": "inactive-launch-agent-descriptor",
+      "path": "artifacts/macos-i2b2-unsigned-installation-bundle/templates/supervisor-LaunchAgent.plist",
+      "bytes": 679,
+      "sha256": "d8a2710617cf90ef46642e1ea009dd75b0ffe8f7acf8dcd1def8f58f2aa16266"
+    }
+  ],
+  "services": [
+    {
+      "serviceId": "capsule.service.trust-bootstrap.private-xpc/v0",
+      "serviceName": "com.capsulecorp.capsule.trust-bootstrap.v1",
+      "ownerRoleId": "capsule.role.trust-bootstrap-coordinator",
+      "peerRoleId": "capsule.role.approval-broker/v0",
+      "protocolIdentity": "private-containing-application-invocation-only",
+      "methodSet": "fixed-setup-invocation-no-generic-signing",
+      "activationState": "inactive-not-launched"
+    },
+    {
+      "serviceId": "capsule.service.supervisor-protected-root-bootstrap/v0",
+      "serviceName": "3DDR84M4JS.com.capsulecorp.capsule.bootstrap.v0.supervisor",
+      "ownerRoleId": "capsule.role.execution-supervisor/v0",
+      "peerRoleId": "capsule.role.trust-bootstrap-coordinator",
+      "protocolIdentity": "capsule.supervisor-protected-root-bootstrap/xpc-v0",
+      "methodSet": "prepare-observe-and-finalize-only",
+      "activationState": "inactive-not-registered"
+    }
+  ],
+  "entitlements": [
+    {
+      "roleId": "capsule.role.trust-bootstrap-coordinator",
+      "key": "com.apple.security.app-sandbox",
+      "disposition": "required-true-when-signed",
+      "valueIdentity": "true",
+      "activationState": "inactive-unsigned-refusing"
+    },
+    {
+      "roleId": "capsule.role.trust-bootstrap-coordinator",
+      "key": "com.apple.security.application-groups",
+      "disposition": "required-exact-when-signed",
+      "valueIdentity": "3DDR84M4JS.com.capsulecorp.capsule.bootstrap.v0",
+      "activationState": "inactive-unsigned-refusing"
+    },
+    {
+      "roleId": "capsule.role.trust-bootstrap-coordinator",
+      "key": "keychain-access-groups",
+      "disposition": "required-exact-when-signed",
+      "valueIdentity": "3DDR84M4JS.com.capsulecorp.capsule.trust-bootstrap.installation-root.epoch-1",
+      "activationState": "inactive-unsigned-refusing"
+    },
+    {
+      "roleId": "capsule.role.execution-supervisor/v0",
+      "key": "com.apple.security.app-sandbox",
+      "disposition": "required-true-when-signed",
+      "valueIdentity": "true",
+      "activationState": "inactive-unsigned-refusing"
+    },
+    {
+      "roleId": "capsule.role.execution-supervisor/v0",
+      "key": "com.apple.security.application-groups",
+      "disposition": "required-exact-when-signed",
+      "valueIdentity": "3DDR84M4JS.com.capsulecorp.capsule.bootstrap.v0",
+      "activationState": "inactive-unsigned-refusing"
+    },
+    {
+      "roleId": "capsule.role.execution-supervisor/v0",
+      "key": "keychain-access-groups",
+      "disposition": "required-exact-when-signed",
+      "valueIdentity": "3DDR84M4JS.com.capsulecorp.capsule.supervisor.bootstrap-anchor.epoch-1",
+      "activationState": "inactive-unsigned-refusing"
+    },
+    {
+      "roleId": "capsule.role.approval-broker/v0",
+      "key": "com.apple.security.application-groups",
+      "disposition": "required-absent",
+      "valueIdentity": "3DDR84M4JS.com.capsulecorp.capsule.bootstrap.v0",
+      "activationState": "inactive-unsigned-refusing"
+    },
+    {
+      "roleId": "capsule.role.agent-daemon/v0",
+      "key": "com.apple.security.application-groups",
+      "disposition": "required-absent",
+      "valueIdentity": "3DDR84M4JS.com.capsulecorp.capsule.bootstrap.v0",
+      "activationState": "inactive-unsigned-refusing"
+    }
+  ],
+  "entitlementInputs": [
+    {
+      "path": "artifacts/macos-i2b2-unsigned-installation-bundle/Entitlements/coordinator.plist",
+      "bytes": 538,
+      "sha256": "69f87c966ca533380789a89180324e631905be004af9efbf5b2c9ffa19a486a4"
+    },
+    {
+      "path": "artifacts/macos-i2b2-unsigned-installation-bundle/Entitlements/supervisor.plist",
+      "bytes": 532,
+      "sha256": "a8690d8fc85cf06f84cf632ed945fdaaa5e99587fdc0d36b82a35308676076bb"
+    }
+  ],
+  "constraints": {
+    "projection": {
+      "path": "artifacts/macos-i2b2-unsigned-installation-bundle/Constraints/coordinator-supervisor-bootstrap.json",
+      "bytes": 809,
+      "sha256": "896433d332220c816422d5f6b09fe3c729ecbcf6598e974adea9565873bcc718"
+    },
+    "teamIdentifier": "3DDR84M4JS",
+    "coordinatorSigningIdentifier": "com.capsulecorp.capsule.trust-bootstrap.v1",
+    "supervisorSigningIdentifier": "com.capsulecorp.capsule.supervisor",
+    "activeCodeDirectoryHashSetState": "unavailable-no-signing-performed",
+    "activeEffectiveEntitlementDigestSetState": "unavailable-no-signing-performed",
+    "activationDecision": "refuse"
+  },
+  "bootstrapObjects": {
+    "fixtureManifest": {
+      "path": "schemas/conformance/i2b-bootstrap-v0/manifest.json",
+      "bytes": 19015,
+      "sha256": "70f8613a19c8d035adcec6b2a3e99fb5f0b611ce3a8cba90edadffc0b24bb4d0"
+    },
+    "request": {
+      "objectType": "capsule.supervisor-bootstrap-request",
+      "version": 0,
+      "purpose": "capsule.installation.bootstrap.request",
+      "audience": "capsule.execution-supervisor.bootstrap",
+      "mediaType": "application/capsule.supervisor-bootstrap-request+cbor;v=0",
+      "containingReleaseBinding": "signed-i2b3-containing-release-digest-required",
+      "i1ProfileBinding": "exact-i1b-signed-development-enrollment-source-required",
+      "componentProfileBinding": "signed-i2b3-component-profile-digest-required",
+      "signingState": "unavailable-no-key-or-signer"
+    },
+    "record": {
+      "objectType": "capsule.supervisor-bootstrap-record",
+      "version": 0,
+      "purpose": "capsule.installation.bootstrap.record",
+      "audience": "capsule.execution-supervisor",
+      "mediaType": "application/capsule.supervisor-bootstrap-record+cbor;v=0",
+      "containingReleaseBinding": "exact-request-binding-required",
+      "i1ProfileBinding": "exact-request-binding-required",
+      "componentProfileBinding": "exact-request-binding-required",
+      "signingState": "unavailable-no-key-or-signer"
+    }
+  },
+  "protectedState": {
+    "stateRootClass": "supervisor-private-app-sandbox",
+    "privateParentName": "CapsuleSupervisor",
+    "stateRootName": "supervisor.state",
+    "pendingJournalName": "CapsuleSupervisor.bootstrap-pending",
+    "stagingRootPrefix": "supervisor.state.staging.",
+    "publishIntentName": "supervisor.state.publish-intent",
+    "ownerEntryName": "supervisor.owner",
+    "ownerMode": 384,
+    "ownerLinkCount": 1,
+    "ownerProfile": "darwin-openat-flock-v0",
+    "storeEntryName": "supervisor.store",
+    "storeFormat": "capsule.supervisor-store/fixed-v1",
+    "storeProfile": "conformance-non-product-no-guest",
+    "requestEntryName": "supervisor.bootstrap-request",
+    "recordEntryName": "supervisor.bootstrap-record",
+    "ordinaryStartupOperation": "open-without-create"
+  },
+  "stateProjection": {
+    "signingState": "unsigned-no-apple-identity",
+    "provisioningProfileState": "absent",
+    "coordinatorExecutableState": "inert-non-executable-placeholder",
+    "supervisorExecutableState": "preserved-i1a-inert-non-executable-placeholder",
+    "serviceRegistrationState": "inactive-not-registered",
+    "serviceLaunchState": "inactive-not-launched",
+    "coordinatorSigningState": "unavailable",
+    "installationRootKeyState": "absent",
+    "bootstrapRequestState": "absent",
+    "bootstrapRecordState": "absent",
+    "protectedRootState": "absent-no-create",
+    "ownerState": "absent-no-create",
+    "storeState": "absent-no-create",
+    "attemptsEnabled": false,
+    "runtimePresent": false,
+    "backendPresent": false,
+    "guestPresent": false,
+    "activationDecision": "refuse",
+    "activationReason": "unsigned-profile-inactive"
+  },
+  "cleanupRepair": {
+    "cleanupProjection": "remove-unsigned-bundle-copy-only",
+    "protectedStateMutation": "none",
+    "appGroupMutation": "none",
+    "keychainMutation": "none",
+    "serviceMutation": "none",
+    "repairProjection": "missing-or-mixed-input-refuse-before-side-effect",
+    "nextGate": "I2B3-separate-authorization-signing-key-container-service-handoff"
+  },
+  "readbackCaps": {
+    "profileRawBytes": 65536,
+    "bundleManifestRawBytes": 262144,
+    "bundleFileCount": 31,
+    "bundlePathUtf8Bytes": 1024
+  }
+}

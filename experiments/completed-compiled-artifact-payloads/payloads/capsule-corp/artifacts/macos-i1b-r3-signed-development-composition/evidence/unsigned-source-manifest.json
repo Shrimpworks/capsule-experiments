@@ -1,0 +1,137 @@
+{
+  "schema": "capsule.macos-installation.i1b-r3-unsigned-manifest/v1",
+  "status": "unsigned-source-identity-before-credentialed-signing",
+  "teamIdentifier": "3DDR84M4JS",
+  "preferredCertificateSha1": "80A4969BCD1B3926020888094B9D812A283D3793",
+  "executionState": "disabled",
+  "runtimePresent": false,
+  "backendPresent": false,
+  "guestPresent": false,
+  "i1aSourceManifestSha256": "5bd80097775908031b1a4c90680e8c7656cc5e9f97df2cc187592f75ee67a56f",
+  "r2UnsignedIdentities": [
+    {
+      "role": "daemon",
+      "infoPlistSha256": "635815858bfc8e9d5d412883589b7578830028f629e0b60b587900e8a66382d3",
+      "launcherSha256": "4bc270c84f166dfb077d84458940411073f3c70a7f70db2e4af48601500b36cc",
+      "parserSha256": "f54c349e3a61b06e0b4d482bc1ed28924ffe712a7ff2531f504e7b57917defc7",
+      "resourcePolicySha256": "c198dac71f3b5c2d2e8cca34fc3e9c01ff7b8093ef1a881d8160a34800ff1098"
+    },
+    {
+      "role": "approval-broker",
+      "infoPlistSha256": "7b511e617326192134ae9f7469a65f9540d437806ecc55ecb750435bc131c285",
+      "launcherSha256": "81284de5ba54e2288602bee4e9aca4e4513211b560bacfd1286b7ab57c922613",
+      "parserSha256": "7abac7da99f4b9edef77bb5ecfff135e8b752e5ed656664632272079b5408577",
+      "resourcePolicySha256": "b0ce8504190b5fe9b0a0296c22340a6439ab453cb32f32c19ddb6e594698568d"
+    }
+  ],
+  "files": [
+    {
+      "path": "Contents/Info.plist",
+      "bytes": 1056,
+      "mode": "0644",
+      "sha256": "1b1ce06ada2b0b45226f280d390fe9be5602214ce554845c40ea5439bf2ce82f"
+    },
+    {
+      "path": "Contents/Library/Helpers/CapsuleDaemon.app/Contents/Info.plist",
+      "bytes": 786,
+      "mode": "0644",
+      "sha256": "48d1e13893f77cb615605c2ec307f642fc8ed2e4bc59f35c980e637cbeb6c847"
+    },
+    {
+      "path": "Contents/Library/Helpers/CapsuleDaemon.app/Contents/MacOS/CapsuleDaemon",
+      "bytes": 36688,
+      "mode": "0755",
+      "sha256": "d402e024ee6d315f2b29644cddb697e32cb1c16aa8e07d8361360cbb01d9abeb"
+    },
+    {
+      "path": "Contents/Library/Helpers/CapsuleDaemon.app/Contents/Resources/CapsuleI1BR3/request-daemon.bin",
+      "bytes": 273,
+      "mode": "0644",
+      "sha256": "7e388687da643527d37118bf7d2bc6c77a1bbdabab9b7c23e0c05e90993ba932"
+    },
+    {
+      "path": "Contents/Library/Helpers/CapsuleDaemon.app/Contents/XPCServices/CapsuleSourceValidatorDaemon.xpc/Contents/Info.plist",
+      "bytes": 888,
+      "mode": "0644",
+      "sha256": "635815858bfc8e9d5d412883589b7578830028f629e0b60b587900e8a66382d3"
+    },
+    {
+      "path": "Contents/Library/Helpers/CapsuleDaemon.app/Contents/XPCServices/CapsuleSourceValidatorDaemon.xpc/Contents/MacOS/CapsuleSourceValidatorDaemonLauncher",
+      "bytes": 35464,
+      "mode": "0755",
+      "sha256": "4bc270c84f166dfb077d84458940411073f3c70a7f70db2e4af48601500b36cc"
+    },
+    {
+      "path": "Contents/Library/Helpers/CapsuleDaemon.app/Contents/XPCServices/CapsuleSourceValidatorDaemon.xpc/Contents/Resources/capsule-mjs-source-validator-daemon",
+      "bytes": 1146560,
+      "mode": "0755",
+      "sha256": "f54c349e3a61b06e0b4d482bc1ed28924ffe712a7ff2531f504e7b57917defc7"
+    },
+    {
+      "path": "Contents/Library/Helpers/CapsuleDaemon.app/Contents/XPCServices/CapsuleSourceValidatorDaemon.xpc/Contents/Resources/resource-policy-inactive.bin",
+      "bytes": 256,
+      "mode": "0644",
+      "sha256": "c198dac71f3b5c2d2e8cca34fc3e9c01ff7b8093ef1a881d8160a34800ff1098"
+    },
+    {
+      "path": "Contents/Library/Helpers/CapsuleSupervisor.app/Contents/Info.plist",
+      "bytes": 798,
+      "mode": "0644",
+      "sha256": "6740dc8ac4cc958b4051eb35911104d181c60ecd183a9948b42a2eb69cd31052"
+    },
+    {
+      "path": "Contents/Library/Helpers/CapsuleSupervisor.app/Contents/MacOS/CapsuleSupervisor",
+      "bytes": 34336,
+      "mode": "0755",
+      "sha256": "57b1c1bae66f51bbb082e1b484f9d9239791b8326d48106fc8de6d253e078305"
+    },
+    {
+      "path": "Contents/Library/LaunchAgents/com.capsulecorp.capsule.daemon.plist",
+      "bytes": 736,
+      "mode": "0644",
+      "sha256": "028909c6edb9d5a3771620aa4b3b6a6fa847ec682c5bde3d9e8fb0a87f86e5e5"
+    },
+    {
+      "path": "Contents/Library/LaunchAgents/com.capsulecorp.capsule.supervisor.plist",
+      "bytes": 752,
+      "mode": "0644",
+      "sha256": "d06bf2092cd8868d6dd1e6c6b3eb7098f79f9275f8e59f08cf056b14a59a1aea"
+    },
+    {
+      "path": "Contents/MacOS/Capsule",
+      "bytes": 80584,
+      "mode": "0755",
+      "sha256": "e0d8ee2bfbf9a5b8278b4f131b15726fff62073f50857325ddefd4022e8c424d"
+    },
+    {
+      "path": "Contents/Resources/CapsuleI1BR3/request-approval-broker.bin",
+      "bytes": 273,
+      "mode": "0644",
+      "sha256": "a19eea21d15a7e8b414de140f563f7acdaf64427be052419313a79ace9351824"
+    },
+    {
+      "path": "Contents/XPCServices/CapsuleSourceValidatorBroker.xpc/Contents/Info.plist",
+      "bytes": 897,
+      "mode": "0644",
+      "sha256": "7b511e617326192134ae9f7469a65f9540d437806ecc55ecb750435bc131c285"
+    },
+    {
+      "path": "Contents/XPCServices/CapsuleSourceValidatorBroker.xpc/Contents/MacOS/CapsuleSourceValidatorBrokerLauncher",
+      "bytes": 35464,
+      "mode": "0755",
+      "sha256": "81284de5ba54e2288602bee4e9aca4e4513211b560bacfd1286b7ab57c922613"
+    },
+    {
+      "path": "Contents/XPCServices/CapsuleSourceValidatorBroker.xpc/Contents/Resources/capsule-mjs-source-validator-approval-broker",
+      "bytes": 1146560,
+      "mode": "0755",
+      "sha256": "7abac7da99f4b9edef77bb5ecfff135e8b752e5ed656664632272079b5408577"
+    },
+    {
+      "path": "Contents/XPCServices/CapsuleSourceValidatorBroker.xpc/Contents/Resources/resource-policy-inactive.bin",
+      "bytes": 256,
+      "mode": "0644",
+      "sha256": "b0ce8504190b5fe9b0a0296c22340a6439ab453cb32f32c19ddb6e594698568d"
+    }
+  ]
+}

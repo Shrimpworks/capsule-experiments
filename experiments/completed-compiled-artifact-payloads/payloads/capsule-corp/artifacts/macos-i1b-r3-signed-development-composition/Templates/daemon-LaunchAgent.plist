@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+  <key>Label</key>
+  <string>com.capsulecorp.capsule.daemon</string>
+  <key>BundleProgram</key>
+  <string>Contents/Library/Helpers/CapsuleDaemon.app/Contents/MacOS/CapsuleDaemon</string>
+  <key>KeepAlive</key><false/>
+  <key>RunAtLoad</key><false/>
+  <key>LimitLoadToSessionType</key><string>Aqua</string>
+  <key>SpawnConstraint</key>
+  <dict>
+    <key>team-identifier</key><string>3DDR84M4JS</string>
+    <key>signing-identifier</key><string>com.capsulecorp.capsule.daemon</string>
+    <key>validation-category</key><integer>3</integer>
+  </dict>
+</dict>
+</plist>
