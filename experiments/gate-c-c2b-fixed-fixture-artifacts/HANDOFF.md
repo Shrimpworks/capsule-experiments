@@ -4,7 +4,7 @@
 
 The localized fixture/candidate mismatch is fixed on the real owned Deno fork.
 Draft source PR: [`Shrimpworks/deno#2`](https://github.com/Shrimpworks/deno/pull/2).
-Exact commit: `da10f70f0bbb83e0c2b45df50761c557e1e6f43f`.
+Exact commit: `29b71f06c2df5ab06721ccbb7bc744fb8104356e`.
 
 The candidate runtime artifacts reproduced byte-for-byte in two clean,
 network-disabled builds:
@@ -20,6 +20,13 @@ The build-only immutable supplement remains
 `capsule.governed-deno-core.c2b-fixed-fixture/c1-c2a-v1`, SHA-256
 `41350bcfc854338ded5e62f77475daf86486351356104dbbf647a8f8b5f11946`.
 Any byte change requires a new version and identity.
+
+The current v2 runtime-build evidence identity is
+`capsule.c2b-fixed-fixture.runtime-build-evidence/c1-c2a-v2`, self-digest
+`732301bf8553b0c59b3fe0e4f2b9e070dcc3a1b478e742dc13bd438873b7e488`.
+The prior v1 evidence self-digest
+`6a673b88dc99e8939bc46ec88fb4f869caf7a9ff5909aa445e62afc5a3a83f87`
+remains retained and is not reinterpreted.
 
 ## Required next authorization
 

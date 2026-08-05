@@ -3,7 +3,7 @@ set -eu
 
 test "$(pwd)" = /workspace
 test "$(sed -n 's/^commit=//p' inputs/source-ref.txt)" = \
-  da10f70f0bbb83e0c2b45df50761c557e1e6f43f
+  29b71f06c2df5ab06721ccbb7bc744fb8104356e
 test ! -e target
 test ! -e out
 test ! -e cache

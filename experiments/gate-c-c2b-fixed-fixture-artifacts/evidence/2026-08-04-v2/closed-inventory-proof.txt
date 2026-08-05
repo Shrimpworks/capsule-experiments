@@ -1,0 +1,4 @@
+closedInventory.retainedFiles=10
+closedInventory.positive=pass
+closedInventory.extraFile=refused
+closedInventory.extraFileName=UNAUTHORIZED.txt

@@ -1,0 +1,180 @@
+{
+  "objectType": "capsule.c2b-fixed-fixture.runtime-build-evidence",
+  "schemaVersion": 1,
+  "identity": "capsule.c2b-fixed-fixture.runtime-build-evidence/c1-c2a-v2",
+  "status": "passed-fixed-fixture-non-guest-build-only",
+  "selfDigest": {
+    "algorithm": "sha256",
+    "rule": "UTF-8 pretty JSON with selfDigest.sha256 null and trailing LF",
+    "sha256": "732301bf8553b0c59b3fe0e4f2b9e070dcc3a1b478e742dc13bd438873b7e488"
+  },
+  "unchangedPassiveContracts": {
+    "c1": {
+      "bytes": 9289,
+      "sha256": "d5d75e638a15be6c9f4a3230d17309d085f6ec103a73b64d9e0fd656a5423c9e"
+    },
+    "c2a": {
+      "bytes": 26850,
+      "sha256": "d4ce88888186266f5d251e6246c889b1fd46d7746bb0ba56bcc4b3ce4675992f"
+    }
+  },
+  "immutableBuildOnlySupplement": {
+    "identity": "capsule.governed-deno-core.c2b-fixed-fixture/c1-c2a-v1",
+    "sha256": "41350bcfc854338ded5e62f77475daf86486351356104dbbf647a8f8b5f11946",
+    "canonicalRegistrationAuthority": false
+  },
+  "predecessorBuildEvidence": {
+    "identity": "capsule.c2b-fixed-fixture.runtime-build-evidence/c1-c2a-v1",
+    "retainedPath": "experiments/gate-c-c2b-fixed-fixture-artifacts/evidence/2026-08-04/runtime-build-evidence-manifest.json",
+    "selfDigest": "6a673b88dc99e8939bc46ec88fb4f869caf7a9ff5909aa445e62afc5a3a83f87",
+    "reason": "superseded only by exact governed fork formatter-policy commit"
+  },
+  "sources": {
+    "deno": {
+      "repository": "https://github.com/Shrimpworks/deno.git",
+      "base": "ea18b9dc21ff8ebd19347be7095f47937ee14ec2",
+      "commit": "29b71f06c2df5ab06721ccbb7bc744fb8104356e",
+      "tree": "172e57551fe5a6683f11c886a81f9634023a5514",
+      "draftPullRequest": "https://github.com/Shrimpworks/deno/pull/2",
+      "sourceArchive": {
+        "bytes": 32352414,
+        "sha256": "7073152cccd4df42d5081ecec5c8ab36f8d6914039faa806060656d55a9e4cf3"
+      }
+    },
+    "rustyV8": {
+      "repository": "https://github.com/Shrimpworks/rusty_v8.git",
+      "commit": "80e863ddb942a4aa2b384e794fc23e35b9d2bb15",
+      "archiveSha256": "1ae209c9e4ba5803d010d2c79ee4cc0af0126c5a7ebcca211c7e41deaede4cd2",
+      "bindingSha256": "8603f09ab95e79620ea29f73933c09ae3618c6f924472c0ce36d5c614d1ceba4",
+      "sourceChanged": false
+    }
+  },
+  "fixedFixture": {
+    "source": {
+      "mediaType": "application/capsule.javascript-source;v=0;module=esm",
+      "bytes": 103,
+      "sha256": "c8e940feb89b342de2d5e6bd13c413226676de9a539fce34c4107516e635b475"
+    },
+    "input": {
+      "mediaType": "application/json",
+      "bytes": 36,
+      "sha256": "9de0c909cfb111bd99c3b0b5f7a10972894270c2867022a71b6b6f3c0cd1af6e"
+    },
+    "completion": {
+      "mediaType": "application/json",
+      "bytes": 35,
+      "sha256": "bb7234ee486b0fbccc2091859ec93499e6a14ea7d6e091cdef60a0e2a6e8371c"
+    }
+  },
+  "artifacts": {
+    "binary": {
+      "bytes": 68496520,
+      "sha256": "e781a90236cdf1272a9a16189c6be033164fa25a5aa9e52376ef998982ec0a77"
+    },
+    "snapshot": {
+      "bytes": 699988,
+      "sha256": "4e8965217d5a6675a880326eee6f690bbeec7e7cb243decf2f3e9f453a871a2c"
+    },
+    "twoFileBundle": {
+      "bytes": 20981992,
+      "sha256": "ad908b8289c86f25c3413713fa3e60c4c8bb91fec0d52763e870d7a186865ee6"
+    },
+    "bundleManifest": {
+      "bytes": 244,
+      "sha256": "e3572e934b20a3fdfdd4b3abe2261d1348cd61bbc3523058fc2f5baac2724442"
+    }
+  },
+  "construction": {
+    "acquisition": "two independent connected digest-only stages",
+    "decisiveBuild": "two independent network-disabled empty-target/output builds",
+    "builder": "rust:1.95.0-bookworm@sha256:6258907abe69656e41cd992e0b705cdcfabcbbe3db374f92ed2d47121282d4a1",
+    "target": "aarch64-unknown-linux-gnu",
+    "sourceDateEpoch": 0,
+    "logicalCpus": 1,
+    "cpuSet": "0",
+    "normalizationApplied": false,
+    "sameHostReproducibility": "byte-equal",
+    "independentBuilder": false
+  },
+  "validation": {
+    "closedGeneratedInventory": {
+      "retainedFiles": 10,
+      "extraFileMutation": "refused-before-formatter"
+    },
+    "exactKnownAnswer": "pass",
+    "fixtureAndAuthorityMutations": {
+      "count": 22,
+      "names": [
+        "missing-source",
+        "wrong-source",
+        "substituted-source",
+        "source-cap-plus-one",
+        "source-media",
+        "source-loader-request",
+        "source-dynamic-loader-request",
+        "missing-input",
+        "wrong-input",
+        "substituted-input",
+        "input-cap-plus-one",
+        "input-media",
+        "source-digest",
+        "source-length",
+        "input-digest",
+        "input-length",
+        "restoration-extension",
+        "restoration-module-loader",
+        "restoration-inspector",
+        "restoration-jit",
+        "restoration-code-generation",
+        "restoration-descriptor"
+      ],
+      "result": "refused-before-evaluation"
+    },
+    "callerArgumentEnvironmentDescriptorInjection": "refused-before-evaluation",
+    "restorationSyscalls": [
+      {
+        "mutation": "socket",
+        "result": "denied",
+        "errno": 1
+      },
+      {
+        "mutation": "clone",
+        "result": "denied",
+        "errno": 1
+      },
+      {
+        "mutation": "execve",
+        "result": "denied",
+        "errno": 1
+      },
+      {
+        "mutation": "exec-mmap",
+        "result": "denied",
+        "errno": 1
+      }
+    ],
+    "exactThreeOpFinalLink": "pass",
+    "elfAudit": "pass"
+  },
+  "authority": {
+    "fixedFixtureOnly": true,
+    "arbitrarySource": false,
+    "callerPaths": false,
+    "callerArguments": false,
+    "callerEnvironment": false,
+    "loaderOrModuleRequests": false,
+    "runtimeSelection": false,
+    "runtimeAdmission": false
+  },
+  "deferredByCanonicalGate": {
+    "capsuleCorpBindingReconciliationPr": "required-before-composed-profile-or-guest",
+    "runtimeRoot": "not-constructed-in-this-callback",
+    "composedProfile": "not-constructed-in-this-callback"
+  },
+  "unsupported": {
+    "c2b": "BLOCKED-pending-separate-owned-guest-authorization-and-run",
+    "runtime001": true,
+    "vmm001": true,
+    "guestExecution": "NOT_RUN"
+  }
+}

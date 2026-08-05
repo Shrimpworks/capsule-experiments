@@ -5,11 +5,11 @@ test "$(pwd)" = /workspace
 test "${GOVERNED_NETWORK_MODE:-}" = none
 test "$(nproc)" = 1
 test "$(sed -n 's/^commit=//p' inputs/source-ref.txt)" = \
-  da10f70f0bbb83e0c2b45df50761c557e1e6f43f
+  29b71f06c2df5ab06721ccbb7bc744fb8104356e
 test "$(git -C deno rev-parse HEAD)" = \
-  da10f70f0bbb83e0c2b45df50761c557e1e6f43f
+  29b71f06c2df5ab06721ccbb7bc744fb8104356e
 test "$(git -C deno rev-parse 'HEAD^{tree}')" = \
-  d06b5d1a0a6b863c73ac24a9e21e32060865f279
+  172e57551fe5a6683f11c886a81f9634023a5514
 test -z "$(git -C deno status --porcelain)"
 test ! -e target
 test ! -e out

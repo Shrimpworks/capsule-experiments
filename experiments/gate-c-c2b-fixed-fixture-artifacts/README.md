@@ -27,8 +27,8 @@ alter `rusty_v8` or `libkrun` source.
 
 The Deno source change is retained in draft PR
 [`Shrimpworks/deno#2`](https://github.com/Shrimpworks/deno/pull/2) at commit
-`da10f70f0bbb83e0c2b45df50761c557e1e6f43f` and tree
-`d06b5d1a0a6b863c73ac24a9e21e32060865f279`. Two independently acquired,
+`29b71f06c2df5ab06721ccbb7bc744fb8104356e` and tree
+`172e57551fe5a6683f11c886a81f9634023a5514`. Two independently acquired,
 empty-state, network-disabled builds were byte-equal without output
 normalization.
 
@@ -38,9 +38,12 @@ normalization.
 | Snapshot | 699,988 | `4e8965217d5a6675a880326eee6f690bbeec7e7cb243decf2f3e9f453a871a2c` |
 | Deterministic two-file bundle | 20,981,992 | `ad908b8289c86f25c3413713fa3e60c4c8bb91fec0d52763e870d7a186865ee6` |
 
-The non-canonical runtime-build evidence manifest self-digest is
-`6a673b88dc99e8939bc46ec88fb4f869caf7a9ff5909aa445e62afc5a3a83f87`.
+The non-canonical v2 runtime-build evidence manifest self-digest is
+`732301bf8553b0c59b3fe0e4f2b9e070dcc3a1b478e742dc13bd438873b7e488`.
 It is evidence identity only and is not a composed runtime-profile identity.
+The v1 source/evidence identity remains retained at
+`evidence/2026-08-04/`; it was superseded only because the exact Deno fork
+commit changed for the closed-inventory formatter policy.
 
 The fixed known answer passed, all 22 fixture/authority mutations were refused
 before evaluation, caller argument/environment/extra-descriptor injection was
@@ -56,13 +59,13 @@ delivered, a separate user-visible `capsule-corp` PR must define and validate
 the passive immutable supplement in the canonical versioned object model.
 
 See [RESULTS.md](RESULTS.md), [HANDOFF.md](HANDOFF.md), and the retained
-[`evidence/2026-08-04/`](evidence/2026-08-04/) directory.
+[`evidence/2026-08-04-v2/`](evidence/2026-08-04-v2/) directory.
 
 ## Verification
 
 ```sh
 node experiments/gate-c-c2b-fixed-fixture-artifacts/scripts/verify.mjs \
   DENO_CHECKOUT CAPSULE_CORP_CHECKOUT \
-  /private/tmp/capsule-c2b-fixed-fixture-runtime-a \
-  /private/tmp/capsule-c2b-fixed-fixture-runtime-b
+  /private/tmp/capsule-c2b-fixed-fixture-runtime-v2-a \
+  /private/tmp/capsule-c2b-fixed-fixture-runtime-v2-b
 ```

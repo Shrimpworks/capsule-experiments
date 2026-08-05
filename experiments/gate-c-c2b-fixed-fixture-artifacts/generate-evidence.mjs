@@ -19,7 +19,7 @@ if (!stageA || !stageB || !deno || !corp) {
   throw new Error("usage: generate-evidence.mjs STAGE_A STAGE_B DENO CORP");
 }
 
-const evidence = join(experiment, "evidence", "2026-08-04");
+const evidence = join(experiment, "evidence", "2026-08-04-v2");
 mkdirSync(evidence, { recursive: true });
 const sha256Bytes = (bytes) =>
   createHash("sha256").update(bytes).digest("hex");
@@ -38,8 +38,8 @@ const run = (command, args, cwd) =>
   execFileSync(command, args, { cwd, encoding: "utf8" });
 
 const expected = {
-  denoCommit: "da10f70f0bbb83e0c2b45df50761c557e1e6f43f",
-  denoTree: "d06b5d1a0a6b863c73ac24a9e21e32060865f279",
+  denoCommit: "29b71f06c2df5ab06721ccbb7bc744fb8104356e",
+  denoTree: "172e57551fe5a6683f11c886a81f9634023a5514",
   denoBase: "ea18b9dc21ff8ebd19347be7095f47937ee14ec2",
   binding:
     "41350bcfc854338ded5e62f77475daf86486351356104dbbf647a8f8b5f11946",
@@ -50,7 +50,7 @@ const expected = {
   completion:
     "bb7234ee486b0fbccc2091859ec93499e6a14ea7d6e091cdef60a0e2a6e8371c",
   sourceArchive:
-    "6f04adbc2fc8c698f81e1606f5c2b4185b7288a4cc13ab6e70f1d58d9136b786",
+    "7073152cccd4df42d5081ecec5c8ab36f8d6914039faa806060656d55a9e4cf3",
   cargoSource:
     "1e96e49a516e4cf6a9ec79acae9a9eb3d0ee52b332695fa11476a97e1e50d1d4",
   cargoLock:
@@ -86,8 +86,13 @@ check(sha256(join(fixtureRoot, "binding.json")) === expected.binding,
   "binding bytes changed");
 const generatorLog = run("node", [join(fixtureRoot, "generate.mjs"), c1Path, c2aPath, "check"], deno);
 const verifierLog = run("node", [join(fixtureRoot, "verify.mjs")], deno);
+const inventoryLog = run("node", [
+  join(experiment, "scripts", "test-closed-inventory.mjs"),
+  fixtureRoot,
+], repository);
 writeFileSync(join(evidence, "fixture-generator-check.txt"), generatorLog);
 writeFileSync(join(evidence, "fixture-static-verification.txt"), verifierLog);
+writeFileSync(join(evidence, "closed-inventory-proof.txt"), inventoryLog);
 
 const paths = {
   binary: "out/runtime/bundle/bin/capsule-deno-core-c2b-fixed-fixture",
@@ -115,7 +120,7 @@ for (const [name, path] of Object.entries(paths)) {
   comparison[name] = { result: "byte-equal", buildA: a, buildB: b };
 }
 for (const [name, path] of Object.entries({
-  denoSourceArchive: "inputs/Shrimpworks-deno-da10f70f0bbb-source.tar.gz",
+  denoSourceArchive: "inputs/Shrimpworks-deno-29b71f06c2df-source.tar.gz",
   cargoSourceBundle: "cache/cargo-source-bundle.tar.gz",
   cargoLock: "probe/Cargo.lock",
 })) {
@@ -291,7 +296,7 @@ writeJson("source-notice-closure.json", sourceClosure);
 const manifest = {
   objectType: "capsule.c2b-fixed-fixture.runtime-build-evidence",
   schemaVersion: 1,
-  identity: "capsule.c2b-fixed-fixture.runtime-build-evidence/c1-c2a-v1",
+  identity: "capsule.c2b-fixed-fixture.runtime-build-evidence/c1-c2a-v2",
   status: "passed-fixed-fixture-non-guest-build-only",
   selfDigest: {
     algorithm: "sha256",
@@ -306,6 +311,14 @@ const manifest = {
     identity: "capsule.governed-deno-core.c2b-fixed-fixture/c1-c2a-v1",
     sha256: expected.binding,
     canonicalRegistrationAuthority: false,
+  },
+  predecessorBuildEvidence: {
+    identity: "capsule.c2b-fixed-fixture.runtime-build-evidence/c1-c2a-v1",
+    retainedPath:
+      "experiments/gate-c-c2b-fixed-fixture-artifacts/evidence/2026-08-04/runtime-build-evidence-manifest.json",
+    selfDigest:
+      "6a673b88dc99e8939bc46ec88fb4f869caf7a9ff5909aa445e62afc5a3a83f87",
+    reason: "superseded only by exact governed fork formatter-policy commit",
   },
   sources: {
     deno: {
@@ -349,6 +362,10 @@ const manifest = {
     independentBuilder: false,
   },
   validation: {
+    closedGeneratedInventory: {
+      retainedFiles: 10,
+      extraFileMutation: "refused-before-formatter",
+    },
     exactKnownAnswer: "pass",
     fixtureAndAuthorityMutations: {
       count: fixtureMutations.length,
@@ -412,7 +429,7 @@ const provenance = {
     },
     runDetails: {
       builder: { id: "pkg:oci/rust@1.95.0-bookworm?repository_digest=sha256:6258907abe69656e41cd992e0b705cdcfabcbbe3db374f92ed2d47121282d4a1" },
-      metadata: { invocationId: "capsule-c2b-fixed-fixture-2026-08-04-same-host" },
+      metadata: { invocationId: "capsule-c2b-fixed-fixture-2026-08-04-v2-same-host" },
       limitations: [
         "unsigned experiment-generated provenance",
         "same Apple Silicon Docker Desktop/LinuxKit host for both builds",
@@ -431,6 +448,8 @@ writeJson("result.json", {
   denoDraftPullRequest: "https://github.com/Shrimpworks/deno/pull/2",
   artifacts: manifest.artifacts,
   candidateSelfDigest: manifest.selfDigest.sha256,
+  predecessorCandidateSelfDigest:
+    "6a673b88dc99e8939bc46ec88fb4f869caf7a9ff5909aa445e62afc5a3a83f87",
   sameHostReproducibility: "byte-equal",
   canonicalCapsuleCorpGate: "PENDING",
   c2b: "BLOCKED",
@@ -439,7 +458,7 @@ writeJson("result.json", {
   guestExecution: "NOT_RUN",
 });
 
-writeFileSync(join(evidence, "commands.md"), `# Exact commands\n\nThe absolute stage paths are task-owned empty-state paths. Both decisive builds used:\n\n\`\`\`sh\n./scripts/prepare-runtime-stage.sh DENO RUSTY_V8_BUNDLE /private/tmp/capsule-c2b-fixed-fixture-runtime-{a|b} {a|b}\ndocker run --rm --platform linux/arm64 --network bridge ... sh scripts/prefetch-runtime.sh\ndocker run --rm --platform linux/arm64 --network none --read-only --cap-drop ALL --security-opt no-new-privileges --security-opt seccomp=unconfined --memory 10g --cpus 1 --cpuset-cpus 0 --tmpfs /tmp:rw,nosuid,nodev -e GOVERNED_NETWORK_MODE=none -v STAGE:/workspace -w /workspace rust:1.95.0-bookworm@sha256:6258907abe69656e41cd992e0b705cdcfabcbbe3db374f92ed2d47121282d4a1 sh scripts/build-runtime-offline.sh\n\`\`\`\n\nRestoration validation used the same builder restrictions and \`--network none\` with \`scripts/test-runtime-restoration-offline.sh\`. No guest command was run.\n`);
+writeFileSync(join(evidence, "commands.md"), `# Exact commands\n\nThe absolute stage paths are task-owned empty-state paths. Both decisive builds used:\n\n\`\`\`sh\n./scripts/prepare-runtime-stage.sh DENO RUSTY_V8_BUNDLE /private/tmp/capsule-c2b-fixed-fixture-runtime-v2-{a|b} v2-{a|b}\ndocker run --rm --platform linux/arm64 --network bridge ... sh scripts/prefetch-runtime.sh\ndocker run --rm --platform linux/arm64 --network none --read-only --cap-drop ALL --security-opt no-new-privileges --security-opt seccomp=unconfined --memory 10g --cpus 1 --cpuset-cpus 0 --tmpfs /tmp:rw,nosuid,nodev -e GOVERNED_NETWORK_MODE=none -v STAGE:/workspace -w /workspace rust:1.95.0-bookworm@sha256:6258907abe69656e41cd992e0b705cdcfabcbbe3db374f92ed2d47121282d4a1 sh scripts/build-runtime-offline.sh\n\`\`\`\n\nRestoration validation used the same builder restrictions and \`--network none\` with \`scripts/test-runtime-restoration-offline.sh\`. No guest command was run.\n`);
 writeFileSync(join(evidence, "verification-summary.txt"),
   `decision=PASSED-FIXED-FIXTURE-NON-GUEST-BUILD-ONLY\nbuildAandB=byte-equal\nfixtureKnownAnswer=pass\nfixtureMutations=22-refused\ncallerInjection=refused-before-evaluation\nrestorationMutations=4-denied\nfinalLink=exact-three-op-registry\nnetworkDuringDecisiveBuild=none\nguestExecution=NOT_RUN\ncanonicalCapsuleCorpGate=PENDING\nc2b=BLOCKED\nruntime001=unsupported\nvmm001=unsupported\n`);
 

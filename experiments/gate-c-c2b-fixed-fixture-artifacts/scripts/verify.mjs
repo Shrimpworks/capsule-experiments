@@ -5,7 +5,8 @@ import { dirname, join, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 
 const experiment = resolve(dirname(fileURLToPath(import.meta.url)), "..");
-const evidence = join(experiment, "evidence", "2026-08-04");
+const evidence = join(experiment, "evidence", "2026-08-04-v2");
+const predecessorEvidence = join(experiment, "evidence", "2026-08-04");
 const [deno, corp, stageA, stageB] = process.argv.slice(2).map((path) =>
   resolve(path)
 );
@@ -39,8 +40,17 @@ manifest.selfDigest.sha256 = null;
 check(sha256Bytes(Buffer.from(`${JSON.stringify(manifest, null, 2)}\n`)) === selfDigest,
   "candidate self-digest mismatch");
 check(selfDigest ===
-  "6a673b88dc99e8939bc46ec88fb4f869caf7a9ff5909aa445e62afc5a3a83f87",
+  "732301bf8553b0c59b3fe0e4f2b9e070dcc3a1b478e742dc13bd438873b7e488",
   "unexpected candidate self-digest");
+const predecessor = JSON.parse(readFileSync(join(
+  predecessorEvidence,
+  "runtime-build-evidence-manifest.json",
+), "utf8"));
+check(predecessor.identity ===
+  "capsule.c2b-fixed-fixture.runtime-build-evidence/c1-c2a-v1" &&
+  predecessor.selfDigest.sha256 ===
+    "6a673b88dc99e8939bc46ec88fb4f869caf7a9ff5909aa445e62afc5a3a83f87",
+"predecessor build evidence was not retained exactly");
 
 const result = json("result.json");
 check(result.decision === "PASSED-FIXED-FIXTURE-NON-GUEST-BUILD-ONLY",
@@ -125,7 +135,7 @@ check(provenance._type === "https://in-toto.io/Statement/v1" &&
 "provenance closure mismatch");
 
 check(run("git", ["rev-parse", "HEAD"], deno).trim() ===
-  "da10f70f0bbb83e0c2b45df50761c557e1e6f43f", "Deno ref mismatch");
+  "29b71f06c2df5ab06721ccbb7bc744fb8104356e", "Deno ref mismatch");
 check(run("git", ["status", "--porcelain"], deno) === "", "Deno worktree dirty");
 const c1 = join(corp,
   "schemas/conformance/c1-governed-deno-core/controlled-development-profile.json");
@@ -138,10 +148,23 @@ check(sha256(c2a) ===
   "d4ce88888186266f5d251e6246c889b1fd46d7746bb0ba56bcc4b3ce4675992f",
 "C2A changed");
 const fixture = join(deno, "tools/capsule/governed-deno-core/c2b-fixture");
+const governedOutput = run("node", [
+  join(deno, "tools/capsule/governed-deno-core/verify.mjs"),
+], deno);
+check(governedOutput.includes("fixture.mutations=22") &&
+  governedOutput.includes("guestExecution=NOT_RUN"),
+"outer governed verification mismatch");
 run("node", [join(fixture, "generate.mjs"), c1, c2a, "check"], deno);
 const staticOutput = run("node", [join(fixture, "verify.mjs")], deno);
 check(staticOutput.includes("fixture.mutations=22") &&
   staticOutput.includes("guestExecution=NOT_RUN"), "fork static verification mismatch");
+const inventoryOutput = run("node", [
+  join(experiment, "scripts", "test-closed-inventory.mjs"),
+  fixture,
+], experiment);
+check(inventoryOutput.includes("closedInventory.retainedFiles=10") &&
+  inventoryOutput.includes("closedInventory.extraFile=refused"),
+"closed inventory proof mismatch");
 
 console.log(`candidate.selfDigest=${selfDigest}`);
 console.log("buildAandB=byte-equal");

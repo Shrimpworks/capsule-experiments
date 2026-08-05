@@ -12,13 +12,13 @@ stage=$3
 label=$4
 experiment=$(CDPATH='' cd -- "$(dirname "$0")/.." && pwd)
 prior=$(CDPATH='' cd -- "$experiment/../gate-c-fork-native-deno-runtime-bundle" && pwd)
-expected_head=da10f70f0bbb83e0c2b45df50761c557e1e6f43f
-expected_tree=d06b5d1a0a6b863c73ac24a9e21e32060865f279
+expected_head=29b71f06c2df5ab06721ccbb7bc744fb8104356e
+expected_tree=172e57551fe5a6683f11c886a81f9634023a5514
 
 case "$label:$stage" in
-  a:/private/tmp/capsule-c2b-fixed-fixture-runtime-a) ;;
-  b:/private/tmp/capsule-c2b-fixed-fixture-runtime-b) ;;
-  *) echo "stage and label must be the exact task-owned a or b path" >&2; exit 1 ;;
+  v2-a:/private/tmp/capsule-c2b-fixed-fixture-runtime-v2-a) ;;
+  v2-b:/private/tmp/capsule-c2b-fixed-fixture-runtime-v2-b) ;;
+  *) echo "stage and label must be the exact task-owned v2-a or v2-b path" >&2; exit 1 ;;
 esac
 
 test ! -e "$stage"
@@ -64,8 +64,8 @@ cp "$experiment/builder/build-runtime-offline.sh" "$stage/scripts/build-runtime-
 chmod 0755 "$stage/scripts/"*.sh
 
 git -C "$stage/deno" archive --format=tar \
-  --prefix=Shrimpworks-deno-da10f70f0bbb/ "$expected_head" \
-  | gzip -n -9 > "$stage/inputs/Shrimpworks-deno-da10f70f0bbb-source.tar.gz"
+  --prefix=Shrimpworks-deno-29b71f06c2df/ "$expected_head" \
+  | gzip -n -9 > "$stage/inputs/Shrimpworks-deno-29b71f06c2df-source.tar.gz"
 
 cat > "$stage/inputs/source-ref.txt" <<EOF
 repository=https://github.com/Shrimpworks/deno.git
@@ -81,4 +81,4 @@ printf 'stage=%s\n' "$stage"
 printf 'deno.head=%s\n' "$expected_head"
 printf 'deno.tree=%s\n' "$expected_tree"
 printf 'deno.sourceArchive.sha256=%s\n' \
-  "$(shasum -a 256 "$stage/inputs/Shrimpworks-deno-da10f70f0bbb-source.tar.gz" | awk '{print $1}')"
+  "$(shasum -a 256 "$stage/inputs/Shrimpworks-deno-29b71f06c2df-source.tar.gz" | awk '{print $1}')"

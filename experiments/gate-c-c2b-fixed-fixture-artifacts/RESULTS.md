@@ -13,9 +13,9 @@ delivery, runtime selection/admission, `RUNTIME-001`, or `VMM-001`.
 ## Exact inputs
 
 - Deno governed base: `ea18b9dc21ff8ebd19347be7095f47937ee14ec2`
-- Deno fixed-fixture commit: `da10f70f0bbb83e0c2b45df50761c557e1e6f43f`
-- Deno tree: `d06b5d1a0a6b863c73ac24a9e21e32060865f279`
-- Deno source archive: `6f04adbc2fc8c698f81e1606f5c2b4185b7288a4cc13ab6e70f1d58d9136b786`
+- Deno fixed-fixture commit: `29b71f06c2df5ab06721ccbb7bc744fb8104356e`
+- Deno tree: `172e57551fe5a6683f11c886a81f9634023a5514`
+- Deno source archive: `7073152cccd4df42d5081ecec5c8ab36f8d6914039faa806060656d55a9e4cf3`
 - Immutable build-only binding: `41350bcfc854338ded5e62f77475daf86486351356104dbbf647a8f8b5f11946`
 - C1 fixture: `d5d75e638a15be6c9f4a3230d17309d085f6ec103a73b64d9e0fd656a5423c9e`
 - C2A fixture: `d4ce88888186266f5d251e6246c889b1fd46d7746bb0ba56bcc4b3ce4675992f`
@@ -37,9 +37,15 @@ source changed.
 | Snapshot | 699,988 | `4e8965217d5a6675a880326eee6f690bbeec7e7cb243decf2f3e9f453a871a2c` | byte-equal |
 | Two-file bundle | 20,981,992 | `ad908b8289c86f25c3413713fa3e60c4c8bb91fec0d52763e870d7a186865ee6` | byte-equal |
 
-The runtime-build evidence manifest has self-digest
-`6a673b88dc99e8939bc46ec88fb4f869caf7a9ff5909aa445e62afc5a3a83f87`.
+The v2 runtime-build evidence manifest has self-digest
+`732301bf8553b0c59b3fe0e4f2b9e070dcc3a1b478e742dc13bd438873b7e488`.
 It deliberately does not stand in for the canonical composed profile.
+
+The v1 manifest and self-digest
+`6a673b88dc99e8939bc46ec88fb4f869caf7a9ff5909aa445e62afc5a3a83f87`
+remain unchanged under `evidence/2026-08-04/`. V2 supersedes it solely because
+the Deno fork commit/source archive changed for the formatter-policy and closed
+inventory proof; it does not reinterpret v1 or alter the immutable supplement.
 
 ## Method and verification
 
@@ -53,6 +59,8 @@ descendants, no compiler object cache, and Docker `--network none`.
 Observed checks:
 
 - exact generator readback against unchanged C1/C2A bytes;
+- closed 10-file excluded-directory inventory, including a mechanical extra-file
+  refusal and an outer hash pin on the inner verifier;
 - exact fixed known answer `{"doubled":42,"echo":"capsule-c2a"}`;
 - 22 missing/wrong/substituted/media/digest/length/cap/loader/restoration
   mutations refused before evaluation;
