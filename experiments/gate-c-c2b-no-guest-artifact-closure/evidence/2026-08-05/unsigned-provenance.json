@@ -1,0 +1,37 @@
+{
+  "predicateType": "https://slsa.dev/provenance/v1",
+  "unsigned": true,
+  "slsaLevelClaim": "none",
+  "subject": [
+    {
+      "name": "runtime-bundle-candidate.json",
+      "digest": {
+        "sha256": "d37c9311cf21e87cf693594ebb6bbf6c29bcb50d13c3f8a5e8334a0f02d30607"
+      }
+    }
+  ],
+  "builder": {
+    "macos": "macOS 26.5.2 build 25F84 arm64; rustc/cargo 1.93.1; Apple clang 21.0.0",
+    "linux": "sha256:7cf1e580ef5539f03b58560753e8ab84c8c360960d99dff714004aa98f203977",
+    "linuxRepoDigest": "rust@sha256:6258907abe69656e41cd992e0b705cdcfabcbbe3db374f92ed2d47121282d4a1"
+  },
+  "invocation": {
+    "macosNetwork": "deny network*",
+    "linuxNetwork": "none",
+    "sourceDateEpoch": 0,
+    "filesystemFakeTime": 946684800
+  },
+  "materials": {
+    "sourceRefs": "bfe102f41154d0bf9f4bef9caf82c305254c323bd56538128b993cfdf93724e9",
+    "sbom": "6d4539e11d18043ee9287fc88f16904a89c1c66836e1d8350aaf8572e9bbf0ec",
+    "licenseInventory": "11fbebda3ea8c5dd9c750767f93a3d991e79459627a05e76ed4d9e715a1e8d99"
+  },
+  "noGuestAssertion": true,
+  "excluded": [
+    "signature",
+    "notarization",
+    "release publication",
+    "product wiring",
+    "runtime/profile admission"
+  ]
+}

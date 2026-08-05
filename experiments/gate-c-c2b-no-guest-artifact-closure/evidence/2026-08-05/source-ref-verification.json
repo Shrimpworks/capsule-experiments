@@ -1,0 +1,66 @@
+{
+  "contract": "capsule.c2b-no-guest.source-ref-verification/v1",
+  "observedAt": "2026-08-05",
+  "refs": {
+    "capsuleCorp": {
+      "mergeCommit": "9c7f44011e8e03a680f9f1b6e76dc75ec3973667",
+      "sourceHead": "d0daf0f5376c9bc26e7e97a2cdddf4cde1459795",
+      "mergeTree": "ace237a070b7fafac66dad5be82205af27be4799",
+      "sourceTree": "ace237a070b7fafac66dad5be82205af27be4799"
+    },
+    "deno": {
+      "mergeCommit": "4cce46bafccd0df9d1709cf406cd03c05b5daa0b",
+      "sourceHead": "29b71f06c2df5ab06721ccbb7bc744fb8104356e",
+      "mergeTree": "172e57551fe5a6683f11c886a81f9634023a5514",
+      "sourceTree": "172e57551fe5a6683f11c886a81f9634023a5514"
+    },
+    "capsuleExperimentsBaseline": {
+      "mergeCommit": "22b9eb2e92d17398e2844ad122e6c28faaf3a678",
+      "sourceHead": "e016386ce6260dbca9f451cc07986fae24dfb334",
+      "mergeTree": "0e7651e7555f063506cef38cca23b58628394514",
+      "sourceTree": "cc03aca8841fa4d2f57eab3365faf6715e4eac34"
+    },
+    "rustyV8": {
+      "commit": "80e863ddb942a4aa2b384e794fc23e35b9d2bb15",
+      "tree": "d8950a7a1ee907761720b23d24eaa9b63aa33b10"
+    },
+    "libkrun": {
+      "upstreamCommit": "728df8125077d0db44265f6e997c72b81b65c015",
+      "governedBase": "4ea8d1de861ed1c0636fc800b6da8fb71a086aa5",
+      "sourceHead": "8a2c91943793668f31a1cf7af431933be935bb58",
+      "mergeCommit": "cf0333cdba478cc34a8570a65b38412da7fd3ecc",
+      "mergeTree": "ffa4131ddcc6ec66edd623381dae94189ccd3fee",
+      "sourceTree": "ffa4131ddcc6ec66edd623381dae94189ccd3fee",
+      "cargoLockSha256": "9d5dc785636a264794a396ab478821c4ed33acae91650db8d72e8a35733f288c"
+    }
+  },
+  "canonicalInputs": {
+    "c1": {
+      "bytes": 9289,
+      "sha256": "d5d75e638a15be6c9f4a3230d17309d085f6ec103a73b64d9e0fd656a5423c9e"
+    },
+    "c2a": {
+      "bytes": 26850,
+      "sha256": "d4ce88888186266f5d251e6246c889b1fd46d7746bb0ba56bcc4b3ce4675992f"
+    },
+    "c2bPassiveBinding": {
+      "bytes": 8221,
+      "sha256": "3540d5224bdc81edbceafa1f0f17ac119904a70feab604957ab349dd116961a6"
+    },
+    "forkSupplement": {
+      "sha256": "41350bcfc854338ded5e62f77475daf86486351356104dbbf647a8f8b5f11946"
+    },
+    "buildEvidenceV2SelfDigest": {
+      "sha256": "732301bf8553b0c59b3fe0e4f2b9e070dcc3a1b478e742dc13bd438873b7e488"
+    }
+  },
+  "acquisitionInputs": {
+    "libkrunfwCommit": "ec4b297964877d83432f9ccda6dad8ff6e9de3e4",
+    "libkrunfwReleaseArchiveSha256": "5bfae6efee63dbdf04a8fac2a69d772d9f900af2f54c4429b4acdfd6d86b9979",
+    "libkrunfwSourceArchiveSha256": "ef7207ebbada2657f8a0f128535a91099d10c082e3deb5c14bf2fe35ccd04fd0",
+    "linux61291SourceArchiveSha256": "0ff2ab9e169f9f1948557471fbb450d3018f8c5b77caf288e1a3982582597969",
+    "kernelCInputSha256": "96561a4e5dccec0364a28ac32c5668e13e31180d083f412c9f8be7599380c70d",
+    "libc6DebSha256": "01f4330719fd4f65580e16ea5a0527f372fca750e8f588d26deaf09f2d3b1cf4",
+    "libgccS1DebSha256": "576926b283613db80168ddf76380a3bd877602778cf0d226caa7bfbfa71eacf3"
+  }
+}

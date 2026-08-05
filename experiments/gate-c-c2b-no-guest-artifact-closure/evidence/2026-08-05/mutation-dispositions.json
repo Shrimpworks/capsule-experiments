@@ -1,0 +1,21 @@
+{
+  "contract": "capsule.c2b-no-guest.mutation-dispositions/v1",
+  "observed": [
+    "exact 0-through-7 runner preflight manifest passed to the mandatory build-only refusal",
+    "missing fd7 refused",
+    "extra fd8 refused",
+    "wrong fd5 access mode refused",
+    "wrong record-before-start byte refused",
+    "linked runtime root refused",
+    "extra argv refused",
+    "extra environment refused"
+  ],
+  "canonicalRestorationMutations": {
+    "MUT-001..MUT-010": "not-rerun; retained canonical passive/fork evidence only",
+    "MUT-011": "PASSED-build-only-runner-subset; missing/extra/wrong-mode cases refused",
+    "MUT-012..MUT-014": "PASSED-static-source-closure; guest/runtime observation not authorized",
+    "MUT-015..MUT-017": "BLOCKED-unsupported-or-unselected-values-preserved",
+    "MUT-018": "PASSED-manifest; nulls remain null and historical substitution is forbidden"
+  },
+  "limitation": "No guest, libkrun start API, HVF, composed profile, or workload was invoked."
+}

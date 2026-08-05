@@ -1,0 +1,165 @@
+{
+  "contract": "capsule.c2b-no-guest.build-verification/v1",
+  "result": "PASSED-exact-declared-output-equality",
+  "builds": [
+    "clean-stage-a",
+    "clean-stage-b"
+  ],
+  "acquisitionNetwork": "connected-only-before-decisive-builds; digest-pinned declared inputs",
+  "decisiveMacosNetwork": "sandbox-exec deny network*",
+  "decisiveLinuxNetwork": "docker --network none; no default route",
+  "outputComparison": {
+    "method": "recursive inventory plus SHA-256 and byte equality",
+    "files": 34
+  },
+  "retainedBuildEvidence": {
+    "aggregateSha256": "c535b27c924edb595a8017ba924d258612c7bde026727ce605cdc1be96d0fd9f",
+    "files": [
+      {
+        "path": "build-output-evidence/macos--SHA256SUMS",
+        "bytes": 550,
+        "sha256": "f939e5d28227e7fb2ea3f374eb26d722943054fade8caaac8d1225eb99dbd982"
+      },
+      {
+        "path": "build-output-evidence/macos--evidence--file.txt",
+        "bytes": 465,
+        "sha256": "cde01d2508848ad0f383c121f742065dc1b82db1c2f2cc9d302b25144d1b4616"
+      },
+      {
+        "path": "build-output-evidence/macos--evidence--kernel-extraction.txt",
+        "bytes": 65,
+        "sha256": "71ba5da8883f302a062d1bd1147e9e3bae75c2f2aea639ef180a25aa679f80be"
+      },
+      {
+        "path": "build-output-evidence/macos--evidence--libkrun-exports.txt",
+        "bytes": 2550,
+        "sha256": "56ba3267ee95d133c378c14a300bc38f21d865784c581447a03fd9573343524e"
+      },
+      {
+        "path": "build-output-evidence/macos--evidence--libkrun-macho.txt",
+        "bytes": 6467,
+        "sha256": "f9c00eb4381e84c44ac43f97d75b7fdd2be0e7626c931b0c75c9ce74985f381a"
+      },
+      {
+        "path": "build-output-evidence/macos--evidence--libkrunfw-macho.txt",
+        "bytes": 3014,
+        "sha256": "16bc3f79c7a4312498d2584a87360af3078d1c2aeac31a5c85d088c1b27621b9"
+      },
+      {
+        "path": "build-output-evidence/macos--evidence--preflight-mutations.txt",
+        "bytes": 381,
+        "sha256": "ac5a2abdee810a372df9f0d7da914205c72606329e10a81464096218e1de79bf"
+      },
+      {
+        "path": "build-output-evidence/macos--evidence--runner-loads.txt",
+        "bytes": 186,
+        "sha256": "761c6e6fa6fee71d4654e4a66360a48c635c8bca778628273939c62dd526482d"
+      },
+      {
+        "path": "build-output-evidence/linux--SHA256SUMS",
+        "bytes": 360,
+        "sha256": "4893434a58c54073bc37a1f520ed32fdb1ed68a47663370a18fb91e83641eca1"
+      },
+      {
+        "path": "build-output-evidence/linux--runtime-root-files.tsv",
+        "bytes": 1456,
+        "sha256": "b6571460647a67bfb14132445bf8354a616f9bbf956aecd2410da2fb5c9492c7"
+      },
+      {
+        "path": "build-output-evidence/linux--evidence--e2fsck.txt",
+        "bytes": 297,
+        "sha256": "0adb6b278f974bd244162fbca72cbcd2c468d354a739c563ac17906fbe8a304a"
+      },
+      {
+        "path": "build-output-evidence/linux--evidence--elf.txt",
+        "bytes": 5819,
+        "sha256": "fb18729b0a829f0b2f9ede35fa986982265a2f4726fb1e97fec6c2c6e7f68e9f"
+      },
+      {
+        "path": "build-output-evidence/linux--evidence--ext4-bin.txt",
+        "bytes": 129,
+        "sha256": "531859118eb852ff57a86f59aef294914d9d77ddc16b680d3d65ac7e16c66097"
+      },
+      {
+        "path": "build-output-evidence/linux--evidence--ext4-deterministic-inodes.txt",
+        "bytes": 588,
+        "sha256": "bb20ff71b78c2306957c8ee065b11ed74fcd3379e2229ba3786fe404797af02d"
+      },
+      {
+        "path": "build-output-evidence/linux--evidence--ext4-libexec.txt",
+        "bytes": 149,
+        "sha256": "eb394d88cc58f61b9c01ec42817765fbfde7c340303042f6dfe0d1306e34b83d"
+      },
+      {
+        "path": "build-output-evidence/linux--evidence--ext4-superblock.txt",
+        "bytes": 1748,
+        "sha256": "0895cc6af6bf95aa0100394ce4a74ef0ea77ba9d777a141d588b75600d32580c"
+      },
+      {
+        "path": "build-output-evidence/macos--host-runner-disassembly.txt",
+        "bytes": 11784,
+        "sha256": "c98baffaf4e02d5493347c8b4b29116e0c2a9e82c6555f2a6932874f80583016"
+      }
+    ]
+  },
+  "staticChecks": [
+    "Mach-O load commands and exported libkrun symbols retained",
+    "guest init and launcher are AArch64 static PIE ELF with no NEEDED entries",
+    "governed runtime NEEDED set is libgcc_s.so.1, libm.so.6, libc.so.6, ld-linux-aarch64.so.1",
+    "ext4 e2fsck read-only check passed; no journal; fixed UUID and hash seed",
+    "runtime-root file inventory contains no shell, package system, etc, var, home, root, or opt",
+    "host preflight disassembly contains no call to any krun_* symbol"
+  ],
+  "noGuestAssertion": true,
+  "prohibitedInvocationsObserved": [],
+  "artifacts": {
+    "hostRunnerPreflight": {
+      "selectedPath": "artifact-pack/macos/capsule-host-runner-preflight",
+      "bytes": 34864,
+      "mode": "0755",
+      "sha256": "4d56480bec2a34cd2d23f83f199e9eb62951ac66e53319ae45991af7b4000922"
+    },
+    "governedLibkrun": {
+      "selectedPath": "artifact-pack/macos/libkrun.1.dylib",
+      "bytes": 4426736,
+      "mode": "0755",
+      "sha256": "f8e05177ce57a6f773f86d6755a29fe3f2bab92140dfe8caa33663a28584ae52"
+    },
+    "libkrunfw": {
+      "selectedPath": "artifact-pack/macos/libkrunfw.5.dylib",
+      "bytes": 24339104,
+      "mode": "0755",
+      "sha256": "0b14f4b8005dafd33c38df5935b9efdb6381c724224b3967ba1cecbecf10b6e9"
+    },
+    "guestKernel": {
+      "selectedPath": "artifact-pack/macos/linux-6.12.91-arm64.bin",
+      "bytes": 24117248,
+      "mode": "0644",
+      "sha256": "b50a4165215d5d897ab3614606a2105756cf8f2b2510cbceda9dc06057a5622d"
+    },
+    "trustedInit": {
+      "selectedPath": "/usr/local/libexec/capsule-init.krun",
+      "bytes": 930144,
+      "mode": "0755",
+      "sha256": "4f4f2c8bc037c3226b183ad0d6daf35395c49467dfe5786d10a33290adf585cd"
+    },
+    "trustedLauncher": {
+      "selectedPath": "/usr/local/libexec/capsule-launcher",
+      "bytes": 995920,
+      "mode": "0755",
+      "sha256": "fd255394a26affadb1226d3f724494e76fc89785a5cced027a7bb9859d7da32d"
+    },
+    "rawRuntimeRoot": {
+      "selectedPath": "artifact-pack/linux/capsule-c2b-runtime-root.ext4",
+      "bytes": 134217728,
+      "mode": "0644",
+      "sha256": "390a4786a20d45f1c691ec8c203f84f5e9d372a30e98f867cc8309a144ca6798"
+    },
+    "runtimeRootFiles": {
+      "selectedPath": "artifact-pack/linux/runtime-root-files.tsv",
+      "bytes": 1456,
+      "mode": "0644",
+      "sha256": "b6571460647a67bfb14132445bf8354a616f9bbf956aecd2410da2fb5c9492c7"
+    }
+  }
+}

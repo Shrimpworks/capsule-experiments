@@ -1,0 +1,8 @@
+PASSED exact-manifest: build-only preflight passed
+PASSED missing-fd7: missing descriptor
+PASSED extra-fd8: unexpected inherited descriptor
+PASSED wrong-fd5-mode: wrong access mode
+PASSED bad-control: control byte is missing or wrong
+PASSED linked-root: runtime root must be owned
+PASSED extra-argv: caller arguments are forbidden
+PASSED extra-env: caller environment is forbidden

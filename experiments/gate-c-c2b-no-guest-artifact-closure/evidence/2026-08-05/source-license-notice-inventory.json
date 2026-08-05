@@ -1,0 +1,52 @@
+{
+  "contract": "capsule.c2b-no-guest.source-license-notice-inventory/v1",
+  "components": [
+    {
+      "component": "capsule-experiments harness",
+      "license": "Apache-2.0",
+      "source": "this archive commit"
+    },
+    {
+      "component": "Shrimpworks/deno",
+      "license": "MIT",
+      "source": "4cce46bafccd0df9d1709cf406cd03c05b5daa0b"
+    },
+    {
+      "component": "Shrimpworks/rusty_v8",
+      "license": "MIT",
+      "source": "80e863ddb942a4aa2b384e794fc23e35b9d2bb15"
+    },
+    {
+      "component": "Shrimpworks/libkrun",
+      "license": "Apache-2.0",
+      "source": "cf0333cdba478cc34a8570a65b38412da7fd3ecc"
+    },
+    {
+      "component": "libkrunfw wrapper",
+      "license": "LGPL-2.1-only",
+      "source": "ec4b297964877d83432f9ccda6dad8ff6e9de3e4"
+    },
+    {
+      "component": "embedded/extracted Linux kernel",
+      "license": "GPL-2.0-only",
+      "source": "Linux 6.12.91 plus retained libkrunfw patches"
+    },
+    {
+      "component": "Debian glibc runtime files",
+      "license": "LGPL-2.1-or-later and component notices",
+      "source": "libc6_2.36-9+deb12u14_arm64.deb"
+    },
+    {
+      "component": "Debian libgcc runtime file",
+      "license": "GPL-3.0-or-later WITH GCC-exception-3.1 and component notices",
+      "source": "libgcc-s1_12.2.0-14+deb12u1_arm64.deb"
+    },
+    {
+      "component": "Rust crates",
+      "license": "package-specific; lockfile inventory in SBOM",
+      "source": "200 Cargo.lock package records with vendored license files retained in acquisition closure"
+    }
+  ],
+  "noticesInMinimalRoot": "none; minimal runtime root intentionally excludes documentation; redistribution must accompany the archived source/license inputs and applicable notices",
+  "releaseDisposition": "not-a-release; unsigned; not published"
+}

@@ -1,0 +1,96 @@
+{
+  "contract": "capsule.c2b-no-guest.artifact-closure-report/v1",
+  "status": {
+    "scopedSubArtifacts": "PASSED",
+    "parentC2b": "BLOCKED",
+    "parentGovernedRuntime": "IN_PROGRESS-TRENDING_GOOD"
+  },
+  "constructedFinalIdentities": [
+    {
+      "role": "governed-libkrun-dylib",
+      "selectedPath": "artifact-pack/macos/libkrun.1.dylib",
+      "bytes": 4426736,
+      "mode": "0755",
+      "sha256": "f8e05177ce57a6f773f86d6755a29fe3f2bab92140dfe8caa33663a28584ae52",
+      "admitted": false
+    },
+    {
+      "role": "libkrunfw-dylib",
+      "selectedPath": "artifact-pack/macos/libkrunfw.5.dylib",
+      "bytes": 24339104,
+      "mode": "0755",
+      "sha256": "0b14f4b8005dafd33c38df5935b9efdb6381c724224b3967ba1cecbecf10b6e9",
+      "admitted": false
+    },
+    {
+      "role": "guest-kernel",
+      "selectedPath": "artifact-pack/macos/linux-6.12.91-arm64.bin",
+      "bytes": 24117248,
+      "mode": "0644",
+      "sha256": "b50a4165215d5d897ab3614606a2105756cf8f2b2510cbceda9dc06057a5622d",
+      "admitted": false
+    },
+    {
+      "role": "trusted-init",
+      "selectedPath": "/usr/local/libexec/capsule-init.krun",
+      "bytes": 930144,
+      "mode": "0755",
+      "sha256": "4f4f2c8bc037c3226b183ad0d6daf35395c49467dfe5786d10a33290adf585cd",
+      "admitted": false
+    },
+    {
+      "role": "trusted-launcher",
+      "selectedPath": "/usr/local/libexec/capsule-launcher",
+      "bytes": 995920,
+      "mode": "0755",
+      "sha256": "fd255394a26affadb1226d3f724494e76fc89785a5cced027a7bb9859d7da32d",
+      "admitted": false
+    },
+    {
+      "role": "raw-runtime-root",
+      "selectedPath": "artifact-pack/linux/capsule-c2b-runtime-root.ext4",
+      "bytes": 134217728,
+      "mode": "0644",
+      "sha256": "390a4786a20d45f1c691ec8c203f84f5e9d372a30e98f867cc8309a144ca6798",
+      "admitted": false
+    }
+  ],
+  "constructedCandidate": {
+    "role": "governed-runtime-bundle-manifest",
+    "selectedPath": "manifests/runtime-bundle-candidate.json",
+    "bytes": 8845,
+    "sha256": "d37c9311cf21e87cf693594ebb6bbf6c29bcb50d13c3f8a5e8334a0f02d30607",
+    "admitted": false,
+    "canonicalAuthorityStillNull": true
+  },
+  "retainedPreflightOnly": {
+    "role": "host-runner",
+    "selectedPath": "artifact-pack/macos/capsule-host-runner-preflight",
+    "bytes": 34864,
+    "mode": "0755",
+    "sha256": "4d56480bec2a34cd2d23f83f199e9eb62951ac66e53319ae45991af7b4000922",
+    "finalArtifactIdentityClosed": false,
+    "reason": "no libkrun calls; package-directory dyld fallback is observed; launch/configuration/teardown and guest evidence remain absent"
+  },
+  "remainingNulls": [
+    "host-runner final artifact identity",
+    "separate firmware runnable byte identity",
+    "composed runtime profile identity and digest",
+    "cpu time limit",
+    "host VMM memory limit",
+    "scratch maximum",
+    "guest-observed child/transport/root/device/teardown evidence"
+  ],
+  "evidence": {
+    "runtimeManifest": "d37c9311cf21e87cf693594ebb6bbf6c29bcb50d13c3f8a5e8334a0f02d30607",
+    "provenance": "e52044d6edf96485a3792e6955ba15109220ec9151ab22c862bbac07a9b4ea68",
+    "verification": "c0ad705d877f677cbec4cded2d45284703e76ed9b2febda02332898c7e715a9f",
+    "mutations": "82169eed59add58bb9cb0e3a2cb0c98aed955b19bf8580d7a98940dfe3680aa1",
+    "sourceRefs": "bfe102f41154d0bf9f4bef9caf82c305254c323bd56538128b993cfdf93724e9",
+    "sbom": "6d4539e11d18043ee9287fc88f16904a89c1c66836e1d8350aaf8572e9bbf0ec",
+    "licenses": "11fbebda3ea8c5dd9c750767f93a3d991e79459627a05e76ed4d9e715a1e8d99"
+  },
+  "admission": false,
+  "noGuestAssertion": true,
+  "selfDigestOfNullFormSha256": "400ceae0c45903e35fb9b62f0d525abe59e6cfc9522e46210ddc57c3a443cbce"
+}
