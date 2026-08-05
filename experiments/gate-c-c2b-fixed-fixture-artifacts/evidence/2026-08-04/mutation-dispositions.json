@@ -1,0 +1,142 @@
+{
+  "schema": "capsule.c2b-fixed-fixture.runtime-mutations.v1",
+  "fixedFixtureContract": [
+    {
+      "name": "missing-source",
+      "result": "refused-before-evaluation"
+    },
+    {
+      "name": "wrong-source",
+      "result": "refused-before-evaluation"
+    },
+    {
+      "name": "substituted-source",
+      "result": "refused-before-evaluation"
+    },
+    {
+      "name": "source-cap-plus-one",
+      "result": "refused-before-evaluation"
+    },
+    {
+      "name": "source-media",
+      "result": "refused-before-evaluation"
+    },
+    {
+      "name": "source-loader-request",
+      "result": "refused-before-evaluation"
+    },
+    {
+      "name": "source-dynamic-loader-request",
+      "result": "refused-before-evaluation"
+    },
+    {
+      "name": "missing-input",
+      "result": "refused-before-evaluation"
+    },
+    {
+      "name": "wrong-input",
+      "result": "refused-before-evaluation"
+    },
+    {
+      "name": "substituted-input",
+      "result": "refused-before-evaluation"
+    },
+    {
+      "name": "input-cap-plus-one",
+      "result": "refused-before-evaluation"
+    },
+    {
+      "name": "input-media",
+      "result": "refused-before-evaluation"
+    },
+    {
+      "name": "source-digest",
+      "result": "refused-before-evaluation"
+    },
+    {
+      "name": "source-length",
+      "result": "refused-before-evaluation"
+    },
+    {
+      "name": "input-digest",
+      "result": "refused-before-evaluation"
+    },
+    {
+      "name": "input-length",
+      "result": "refused-before-evaluation"
+    },
+    {
+      "name": "restoration-extension",
+      "result": "refused-before-evaluation"
+    },
+    {
+      "name": "restoration-module-loader",
+      "result": "refused-before-evaluation"
+    },
+    {
+      "name": "restoration-inspector",
+      "result": "refused-before-evaluation"
+    },
+    {
+      "name": "restoration-jit",
+      "result": "refused-before-evaluation"
+    },
+    {
+      "name": "restoration-code-generation",
+      "result": "refused-before-evaluation"
+    },
+    {
+      "name": "restoration-descriptor",
+      "result": "refused-before-evaluation"
+    }
+  ],
+  "callerSurface": [
+    {
+      "name": "argument",
+      "result": "refused-before-evaluation"
+    },
+    {
+      "name": "environment",
+      "result": "refused-before-evaluation"
+    },
+    {
+      "name": "descriptor",
+      "result": "refused-before-evaluation"
+    }
+  ],
+  "sealedSyscalls": [
+    {
+      "mutation": "socket",
+      "result": "denied",
+      "errno": 1
+    },
+    {
+      "mutation": "clone",
+      "result": "denied",
+      "errno": 1
+    },
+    {
+      "mutation": "execve",
+      "result": "denied",
+      "errno": 1
+    },
+    {
+      "mutation": "exec-mmap",
+      "result": "denied",
+      "errno": 1
+    }
+  ],
+  "deferredToPostCanonicalRootAndComposedProfileWork": [
+    "missing-artifact",
+    "wrong-artifact",
+    "substituted-artifact",
+    "raw-root-readback-and-positional-io",
+    "framed-transport-cap-plus-one",
+    "launcher-and-init-restoration"
+  ],
+  "guestOnly": [
+    "libkrun-hvf-guest-boot",
+    "guest-console-transport",
+    "guest-teardown-and-reset"
+  ]
+}

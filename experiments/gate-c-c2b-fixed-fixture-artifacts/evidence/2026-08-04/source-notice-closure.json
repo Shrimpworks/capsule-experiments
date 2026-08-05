@@ -1,0 +1,43 @@
+{
+  "schema": "capsule.c2b-fixed-fixture.source-notice-closure.v1",
+  "result": "closed-for-declared-runtime-candidate-materials",
+  "engineeringInventoryNotLegalAdvice": true,
+  "deno": {
+    "repository": "https://github.com/Shrimpworks/deno.git",
+    "commit": "da10f70f0bbb83e0c2b45df50761c557e1e6f43f",
+    "tree": "d06b5d1a0a6b863c73ac24a9e21e32060865f279",
+    "sourceArchive": {
+      "bytes": 32351495,
+      "sha256": "6f04adbc2fc8c698f81e1606f5c2b4185b7288a4cc13ab6e70f1d58d9136b786"
+    },
+    "license": {
+      "path": "LICENSE.md",
+      "sha256": "f62497fffecc0852960c8d3e6934b9db86d16396e9b604072e923892cae3a588",
+      "expression": "MIT"
+    }
+  },
+  "cargo": {
+    "lock": {
+      "bytes": 45815,
+      "sha256": "4dd8f08c8b223adbf3468fce5fe9e0468dfe9f4a255129cc304cb604fa0d389d"
+    },
+    "sourceBundle": {
+      "bytes": 70134953,
+      "sha256": "1e96e49a516e4cf6a9ec79acae9a9eb3d0ee52b332695fa11476a97e1e50d1d4"
+    },
+    "registrySources": 189,
+    "priorCompleteSbomInput": "experiments/gate-c-fork-native-deno-runtime-bundle/evidence/2026-08-04/sbom.cdx.json"
+  },
+  "rustyV8": {
+    "repository": "https://github.com/Shrimpworks/rusty_v8.git",
+    "commit": "80e863ddb942a4aa2b384e794fc23e35b9d2bb15",
+    "archiveSha256": "1ae209c9e4ba5803d010d2c79ee4cc0af0126c5a7ebcca211c7e41deaede4cd2",
+    "bindingSha256": "8603f09ab95e79620ea29f73933c09ae3618c6f924472c0ce36d5c614d1ceba4",
+    "notices": {
+      "retainedPath": "experiments/gate-c-fork-native-deno-runtime-bundle/evidence/2026-08-04/rusty-v8-licenses-notices.tar.gz",
+      "sha256": "336aade62182917a7251116c2deca73ef3a51758f025b02b3b90f4423adc7314"
+    }
+  },
+  "unsigned": true,
+  "published": false
+}

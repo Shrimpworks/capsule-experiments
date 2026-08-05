@@ -1,0 +1,8 @@
+networkMode=none
+compilerCache=absent
+snapshotBuilderLogicalCpus=1
+snapshotBuilderCpuSet=0
+targetExistedBeforeBuild=false
+outputExistedBeforeBuild=false
+guestExecution=NOT_RUN
+runtimeAdmission=false

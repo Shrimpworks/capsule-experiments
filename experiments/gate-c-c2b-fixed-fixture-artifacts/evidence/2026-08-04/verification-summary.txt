@@ -1,0 +1,13 @@
+decision=PASSED-FIXED-FIXTURE-NON-GUEST-BUILD-ONLY
+buildAandB=byte-equal
+fixtureKnownAnswer=pass
+fixtureMutations=22-refused
+callerInjection=refused-before-evaluation
+restorationMutations=4-denied
+finalLink=exact-three-op-registry
+networkDuringDecisiveBuild=none
+guestExecution=NOT_RUN
+canonicalCapsuleCorpGate=PENDING
+c2b=BLOCKED
+runtime001=unsupported
+vmm001=unsupported
