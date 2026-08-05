@@ -6,15 +6,20 @@ Status: `PASSED` for exact byte retention, closed inventory, cross-artifact copy
 
 Scope: repository-local, non-production evidence copied from `Shrimpworks/capsule-corp` commit `d11cf94704ea8647614f4c8f4424e90821f2dcb3`. No binary is installed, signed, launched, or published as a Release asset by this archive.
 
-This archive preserves five completed Capsule artifact trees:
+This archive preserves six completed Capsule artifact trees:
 
 - Source Validator v1;
+- Source Validator V2's Darwin-only process-profile harness, which binds and executes the exact V1
+  payload only as one-time local evidence;
 - Source Validator R2 unsigned role bundles;
 - macOS I1A unsigned application shell;
 - macOS I1B/Source Validator R3 signed-development evidence; and
 - macOS I2B2 unsigned installation bundle.
 
-`payloads/capsule-corp/artifacts/` preserves exact compiled payloads, manifests, evidence, sources, and reproduction scripts. `source-bindings/capsule-corp/` preserves the Capsule tests and canonical documents that bound those bytes at the source commit. `SOURCE_FILES.txt` and `SHA256SUMS` close the copied inventory.
+`payloads/capsule-corp/artifacts/` preserves exact compiled payloads, dependent harnesses,
+manifests, evidence, sources, and reproduction scripts. `source-bindings/capsule-corp/` preserves
+the Capsule tests and canonical documents that bound those bytes at the source commit.
+`SOURCE_FILES.txt` and `SHA256SUMS` close the copied inventory.
 
 The archive contains 15 tracked Mach-O placements representing six unique compiled identities. R2's four role-distinct launcher/parser identities are copied unchanged into I1A and I2B2; I1A's app-shell executable is copied unchanged into I2B2. Six inactive 256-byte resource-policy placements represent two role-distinct policy identities. Source Validator v1 retains one 160-byte artifact-profile vector. R3 retains signed executable identities as evidence records only; signed executable payloads were never tracked and are not claimed as Release assets.
 

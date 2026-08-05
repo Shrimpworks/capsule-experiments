@@ -186,6 +186,13 @@ adf610b2840872df15361689d4bcc055953fa8bc16904f173f51af1d565f0179  payloads/capsu
 3a77389b06908f1d7a4ce51762a8882f3c6a19b977d6ef6a25a9147486af4fbb  payloads/capsule-corp/artifacts/mjs-source-validator-v1/scripts/verify-process.mjs
 32402e5d95b6f6b51920ea37b45f691c7e868e09a989fb90e34a23c34616ddee  payloads/capsule-corp/artifacts/mjs-source-validator-v1/src/lib.rs
 4633acbe70ec915bf24d1fef330ce9e24d8014054e9da764bcb3307ca1e3f706  payloads/capsule-corp/artifacts/mjs-source-validator-v1/src/main.rs
+ef503a36f96c0f2bff37d9791888227c14178b8993820004f14a19243ac5281c  payloads/capsule-corp/artifacts/mjs-source-validator-v2/OBSERVATIONS.md
+ce3fd93970e405a3c12af9fa6a085815aad91b5f6a13a64a7f71e772ffb4df4f  payloads/capsule-corp/artifacts/mjs-source-validator-v2/profile_darwin_test.go
+ac5081ca3fa836d70bdcb67077f7d4f7765295e9996a9033d4bbe947fb7ae578  payloads/capsule-corp/artifacts/mjs-source-validator-v2/PROFILE.json
+dae027e843d03ae87c80c690d9847fb9e7300e1de7765a9d753fc308fd312f9c  payloads/capsule-corp/artifacts/mjs-source-validator-v2/README.md
+c33d1b2d8735b9f1483ec3312c462540f1f5335d5b7a474823b40e2990f3ea28  payloads/capsule-corp/artifacts/mjs-source-validator-v2/testdata/child.entitlements
+18a4a017db483fb4726323f4caea8b50044a45760d05fb4a71db179c0f525ade  payloads/capsule-corp/artifacts/mjs-source-validator-v2/testdata/profile_bootstrap.c
+e051560f2b936372c596f6610a1f201c3f6b607aee61fce28efda193ba169ce7  payloads/capsule-corp/artifacts/mjs-source-validator-v2/testdata/profile_probe.c
 0a63c3e735b65fee58a9a4bd731798f29a221e03fa54b911d4c540ab6e88aba1  source-bindings/capsule-corp/docs/adr/0034-freeze-mjs-first-release-contract.md
 80fcf440aa6e39078cab2afc4921f0cd4c1174a3d921a15780fe68339d49f84f  source-bindings/capsule-corp/docs/adr/0035-select-disposable-mjs-source-validator.md
 ceb4dda204f1793f4a08871db30feb4ddd54ab4a631bb02046ebbe94c9090614  source-bindings/capsule-corp/docs/adr/0036-select-role-separated-source-validator-launchers.md

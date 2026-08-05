@@ -113,7 +113,7 @@ if (process.argv.includes("--write")) {
 
 assert.equal(await readFile(join(archiveRoot, "SOURCE_FILES.txt"), "utf8"), sourceFilesBytes(entries), "SOURCE_FILES.txt changed or inventory is open");
 assert.equal(await readFile(join(archiveRoot, "SHA256SUMS"), "utf8"), sha256SumsBytes(entries), "SHA256SUMS changed or payload bytes changed");
-assert.equal(entries.length, 203, "copied file count changed");
+assert.equal(entries.length, 210, "copied file count changed");
 await verifyPayloadClosure();
 
-console.log(`verified ${entries.length} copied files, 15 Mach-O placements, six unique compiled identities, and closed cross-artifact copies`);
+console.log(`verified ${entries.length} copied files, 15 Mach-O placements, six unique compiled identities, V2's V1-dependent harness, and closed cross-artifact copies`);

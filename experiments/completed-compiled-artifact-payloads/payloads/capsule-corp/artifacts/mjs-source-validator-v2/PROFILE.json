@@ -1,0 +1,85 @@
+{
+  "schema": "capsule.mjs-source-validator-v2-checkpoint/v0",
+  "workStatus": "BLOCKED",
+  "controlEvidence": "test-only-local-mechanism-and-platform-stop",
+  "productAdmission": "not-enrolled",
+  "target": {
+    "pathRole": "mjs-source-validator-v1-fixed-test-object",
+    "bytes": 1146656,
+    "sha256": "ba2a6b38be6b4eea8c067887cf80988756e2f4a551d128bf2dabdaf7f2ecb600",
+    "artifactProfileIdentitySha256": "cfadcedc3e983377b964e0465c1f7127a307acbfda15ad8a02d7a302e82b4ce7",
+    "signature": "identity-free-linker-ad-hoc",
+    "enrolled": false
+  },
+  "candidateDescriptor": {
+    "argv": [
+      "capsule-mjs-source-validator-aarch64-apple-darwin",
+      "--artifact-profile-digest=cfadcedc3e983377b964e0465c1f7127a307acbfda15ad8a02d7a302e82b4ce7"
+    ],
+    "environment": [],
+    "cwd": "fresh-owned-empty-directory-via-fd-3",
+    "roleFileDescriptors": {
+      "0": "one-v0-request-max-262224-bytes",
+      "1": "one-v0-result-exactly-138-bytes",
+      "2": "zero-byte-diagnostic-cap",
+      "3": "bootstrap-only-cwd-then-closed-before-exec"
+    },
+    "postExecObservedFileDescriptors": [0, 1, 2],
+    "processGroup": "fresh-per-invocation",
+    "wallDeadlineMilliseconds": 2000,
+    "limits": {
+      "cpuSeconds": 1,
+      "addressSpaceBytes": 268435456,
+      "fileBytes": 0,
+      "openFiles": 16,
+      "childProcesses": 0,
+      "coreBytes": 0,
+      "stdoutBytes": 138,
+      "stderrBytes": 0
+    }
+  },
+  "observedHost": {
+    "os": "macOS 26.5.2",
+    "build": "25F84",
+    "kernel": "Darwin 25.5.0",
+    "architecture": "arm64",
+    "appleClang": "21.0.0"
+  },
+  "observations": {
+    "ordinaryAndMaximumV1Frames": "exact-138-byte-results",
+    "environmentCount": 0,
+    "postExecDescriptorCount": 3,
+    "fork": "refused-EAGAIN",
+    "cpu": "terminated-SIGXCPU",
+    "fileSize": "terminated-SIGXFSZ-on-one-byte-write",
+    "wallAndCancellation": "SIGKILL-process-group-and-reap",
+    "partialDuplicateTrailingOversizeCrashSignal": "fixed-refusal-no-usable-result",
+    "laterInvocation": "clean",
+    "addressSpace": "setrlimit-RLIMIT_AS-256MiB-returned-EINVAL",
+    "diagnosticMutation512MiBMapping": "allowed",
+    "ownedExternalFileRead": "allowed",
+    "ipv4SocketCreationWithoutConnect": "allowed",
+    "unixSocketCreationWithoutConnect": "allowed",
+    "cwdMetadataAndEmptyFileWrite": "allowed",
+    "appSandboxEntitlementMutation": "changed-temporary-copy-bytes"
+  },
+  "stopConditions": [
+    "supported-unprivileged-exact-memory-or-address-space-cap-unavailable",
+    "supported-app-sandbox-child-entitlements-change-fixed-v1-bytes",
+    "no-reviewed-zero-durable-write-app-sandbox-composition",
+    "no-enrolled-immutable-launch-identity-or-descriptor-relative-exec",
+    "ambient-filesystem-socket-keychain-and-supervisor-state-denial-unproven"
+  ],
+  "explicitNonClaims": [
+    "app-sandboxed",
+    "enrolled",
+    "admitted",
+    "product-consumer",
+    "approval-or-key-operation",
+    "runtime-no-loader",
+    "runtime",
+    "backend",
+    "guest",
+    "production-ready"
+  ]
+}

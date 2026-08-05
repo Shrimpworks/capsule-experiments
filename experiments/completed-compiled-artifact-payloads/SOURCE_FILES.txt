@@ -186,6 +186,13 @@
 755 1817 payloads/capsule-corp/artifacts/mjs-source-validator-v1/scripts/verify-process.mjs
 644 16033 payloads/capsule-corp/artifacts/mjs-source-validator-v1/src/lib.rs
 644 1232 payloads/capsule-corp/artifacts/mjs-source-validator-v1/src/main.rs
+644 7263 payloads/capsule-corp/artifacts/mjs-source-validator-v2/OBSERVATIONS.md
+644 20682 payloads/capsule-corp/artifacts/mjs-source-validator-v2/profile_darwin_test.go
+644 3015 payloads/capsule-corp/artifacts/mjs-source-validator-v2/PROFILE.json
+644 12146 payloads/capsule-corp/artifacts/mjs-source-validator-v2/README.md
+644 292 payloads/capsule-corp/artifacts/mjs-source-validator-v2/testdata/child.entitlements
+644 2726 payloads/capsule-corp/artifacts/mjs-source-validator-v2/testdata/profile_bootstrap.c
+644 6463 payloads/capsule-corp/artifacts/mjs-source-validator-v2/testdata/profile_probe.c
 644 20392 source-bindings/capsule-corp/docs/adr/0034-freeze-mjs-first-release-contract.md
 644 18670 source-bindings/capsule-corp/docs/adr/0035-select-disposable-mjs-source-validator.md
 644 17633 source-bindings/capsule-corp/docs/adr/0036-select-role-separated-source-validator-launchers.md
