@@ -1,0 +1,59 @@
+{
+  "objectType": "capsule.c5b0.runner-contract",
+  "objectVersion": 1,
+  "packet": "capsule.c5b0.typed-transport-successor/v1",
+  "status": "no-run-contract-only",
+  "executableBytesPresent": false,
+  "admission": false,
+  "descriptorManifest": [
+    {
+      "fd": 0,
+      "role": "null-stdin",
+      "access": "read"
+    },
+    {
+      "fd": 1,
+      "role": "bounded-stdout",
+      "access": "write"
+    },
+    {
+      "fd": 2,
+      "role": "bounded-stderr",
+      "access": "write"
+    },
+    {
+      "fd": 3,
+      "role": "record-before-start",
+      "access": "read"
+    },
+    {
+      "fd": 4,
+      "role": "unlinked-mode-0400-root",
+      "access": "read"
+    },
+    {
+      "fd": 5,
+      "role": "typed-source",
+      "access": "read"
+    },
+    {
+      "fd": 6,
+      "role": "typed-input",
+      "access": "read"
+    },
+    {
+      "fd": 7,
+      "role": "typed-completion",
+      "access": "write"
+    }
+  ],
+  "closeFrom": 8,
+  "owner": "Execution Supervisor harness",
+  "forbidden": [
+    "implicit console",
+    "network",
+    "caller paths",
+    "replacement plan bytes",
+    "guest start in C5b0"
+  ]
+}

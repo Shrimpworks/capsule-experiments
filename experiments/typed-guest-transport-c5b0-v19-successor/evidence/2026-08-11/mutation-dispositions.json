@@ -1,0 +1,29 @@
+{
+  "status": "PASSED",
+  "cases": [
+    {
+      "id": "source-byte",
+      "expected": "source digest mismatch"
+    },
+    {
+      "id": "frame-plan-binding",
+      "expected": "frame plan binding mismatch"
+    },
+    {
+      "id": "profile-contract-removal",
+      "expected": "profile contract set mismatch"
+    },
+    {
+      "id": "unavailable-artifact-claim",
+      "expected": "executable boundary must remain null"
+    },
+    {
+      "id": "c5a-baseline-byte",
+      "expected": "C5a retained input mismatch"
+    },
+    {
+      "id": "closed-inventory-extra",
+      "expected": "archive inventory mismatch"
+    }
+  ]
+}
