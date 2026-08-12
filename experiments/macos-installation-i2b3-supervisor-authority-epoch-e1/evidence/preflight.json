@@ -1,0 +1,78 @@
+{
+  "schema": "capsule.experiment.supervisor-authority-epoch-e1-preflight/v0",
+  "date": "2026-08-11",
+  "status": "BLOCKED",
+  "reason": "exact-legacy-negative-profile-unavailable",
+  "inputs": {
+    "capsuleExperimentsBaseCommit": "3d7bd46352506bf6018286749c2c85a3e2f683df",
+    "e0ArchiveMergeCommit": "dee784d40684100f8315720fab9a5cd3399f492b",
+    "e0ManifestSha256": "b5d21ed3c2b14053325d5f1af66ceb59389e5fd31d8d2dd33274e8ca37525936",
+    "capsuleGoverningCommit": "16fb810b97e7ff2a157a251ae4dc8023dcfc01b4",
+    "teamIdentifier": "3DDR84M4JS",
+    "legacyProfile": {
+      "name": "Capsule I2B3 Supervisor Bootstrap Development 3DDR",
+      "uuid": "c45a058b-ffdd-4a6b-bd8c-d746772a2702",
+      "cmsSha256": "964f79980edf22a7280fe19e52893a1e40b0a8639d5bbe3d5dc8fdfada9c6c76",
+      "rawBytesRetained": false,
+      "available": false
+    }
+  },
+  "host": {
+    "ownerLabel": "dsteele-shrimp-mbp18-4-01",
+    "model": "MacBookPro18,4",
+    "architecture": "arm64",
+    "macOSVersion": "26.5.2",
+    "macOSBuild": "25F84",
+    "xcodeVersion": "26.6",
+    "xcodeBuild": "17F113",
+    "sdkVersion": "26.5",
+    "clangVersion": "Apple clang version 21.0.0 (clang-2100.1.1.101)",
+    "euid": 501,
+    "sessionDomain": "gui/501",
+    "sessionType": "Aqua"
+  },
+  "preflight": {
+    "immutableInputsMatched": true,
+    "hostFactsMatched": true,
+    "evidenceRootAbsent": true,
+    "evidenceLeafAbsent": true,
+    "githubKeychainAuthenticationAvailable": true,
+    "legacyProfileAvailable": false,
+    "finalSharedEvidenceRootPresentFromParallelTask": true,
+    "finalEvidenceLeafAbsent": true
+  },
+  "mutationBoundary": {
+    "evidenceRootCreated": false,
+    "portalAccessed": false,
+    "appIdCreated": false,
+    "profileCreated": false,
+    "profileDownloaded": false,
+    "signingIdentityEnumerated": false,
+    "signingPerformed": false,
+    "bundleInstalled": false,
+    "processLaunched": false,
+    "coordinatorLaunched": false,
+    "containerAccessed": false,
+    "sentinelCreated": false,
+    "sentinelMutated": false,
+    "serviceRegistered": false,
+    "keychainItemAccessed": false,
+    "protectedRootCreated": false,
+    "ownerOrStoreCreated": false,
+    "runtimeStarted": false,
+    "backendStarted": false,
+    "vmStarted": false,
+    "guestStarted": false,
+    "approvalCreated": false,
+    "attemptCreated": false,
+    "cleanupMutationPerformed": false,
+    "productAdmission": false
+  },
+  "result": {
+    "preflight": "BLOCKED",
+    "e1IdentitySeparation": "BLOCKED",
+    "installedOwnerLock": "BLOCKED",
+    "adr0045": "Proposed",
+    "productAdmission": "BLOCKED"
+  }
+}

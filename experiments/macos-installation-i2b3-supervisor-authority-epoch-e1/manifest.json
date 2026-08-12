@@ -1,0 +1,37 @@
+{
+  "schema": "capsule.experiment.supervisor-authority-epoch-e1-manifest/v0",
+  "selfExcluded": true,
+  "fileCount": 5,
+  "files": [
+    {
+      "path": "HANDOFF.md",
+      "bytes": 1807,
+      "mode": "0644",
+      "sha256": "dbaa6e705cd12cf836f2d470b1fecbb4bb63d4ddf59a743c5c3f8bdda0b3db15"
+    },
+    {
+      "path": "README.md",
+      "bytes": 5459,
+      "mode": "0644",
+      "sha256": "163b64bcd091cef01065aa268c938019e2399052f8199e827133419e571e630e"
+    },
+    {
+      "path": "RESULTS.md",
+      "bytes": 2246,
+      "mode": "0644",
+      "sha256": "a17c89db355352d3f38fdae22dc840f6fce395887494caba79ce32c4ef276372"
+    },
+    {
+      "path": "evidence/preflight.json",
+      "bytes": 2592,
+      "mode": "0644",
+      "sha256": "64afc5b29fe973e5e016647426ed35ed1b668839f25d5f3dc0895f64f469584a"
+    },
+    {
+      "path": "scripts/verify.mjs",
+      "bytes": 4734,
+      "mode": "0755",
+      "sha256": "12d0c696d3aeea267b7787e4f31443b07c76aa05f73430287ab3acb0b559c4bb"
+    }
+  ]
+}
