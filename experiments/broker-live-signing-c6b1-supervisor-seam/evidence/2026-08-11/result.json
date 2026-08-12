@@ -1,0 +1,166 @@
+{
+  "schemaVersion": "capsule.c6b1b.supervisor-seam-result/v0",
+  "status": "PASSED",
+  "scope": "test-only Supervisor durable approval/attempt replay and fault seam",
+  "environment": {
+    "goos": "darwin",
+    "goarch": "arm64",
+    "goVersion": "go1.23.4"
+  },
+  "capsuleInput": {
+    "repository": "Shrimpworks/capsule-corp",
+    "commit": "88f3a2c1f968b1aa604ce14a2db4389822e5b193",
+    "files": [
+      {
+        "path": "schemas/conformance/authenticated-local-ipc-v0/manifest.json",
+        "sha256": "bc487c7fb1f78a6b8088f120b917187ed74c7b1929dc462f9bfdee5492607598"
+      },
+      {
+        "path": "schemas/conformance/authenticated-local-ipc-v0/native-xpc-v0.contract.json",
+        "sha256": "bfa35a6e98cc9b46ff7ef815f3c8f0ca9027ec8f98faff3970970d0f4718330d"
+      },
+      {
+        "path": "schemas/conformance/authenticated-local-ipc-v0/oracles.json",
+        "sha256": "254ec5da9db2f3e0b590a3119d21abc958feb8d607eddb8deca2831b6d168b38"
+      },
+      {
+        "path": "schemas/conformance/v0/approval-grant/ordinary.cose",
+        "sha256": "fb0a9e7c983f6f3986260dce857edf6b18cba99ee386f9532300dbdc31a5a3bd"
+      },
+      {
+        "path": "schemas/conformance/v0/approval-grant/ordinary.payload.cbor",
+        "sha256": "8ed203acb49409cf2c787bcb04e5e40aaed7139e8bc5b599bd53a49fb3c0e6ea"
+      },
+      {
+        "path": "schemas/conformance/v0/approval-grant/ordinary.protected.cbor",
+        "sha256": "b79d430399eb9d3f3690735f03a021a80a24f1ea76821303cf90fd010033ecbf"
+      }
+    ]
+  },
+  "fixtureSha256": "14bd3e217d42c386e4d67075bfe99ed62880f77d90cbe756b289dd42571de724",
+  "rows": [
+    {
+      "id": "submit-response-loss-before-commit",
+      "status": "PASSED",
+      "question": "Does a lost response before SubmitApproval commit leave no authority and permit a fresh commit?",
+      "observation": {
+        "approvalCount": 1,
+        "attemptCount": 0,
+        "approvalState": "usable",
+        "approvalId": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "stateDigest": "4d29a27ecf0ee5107a8381a6fd5a8701ebef80f478543217f90f054acbe022df",
+        "reopened": true,
+        "authorityImmediatelyAfterFaultOrFirstCommit": {
+          "approvalCount": 0,
+          "attemptCount": 0
+        },
+        "replayReturnedSameIdentity": false
+      }
+    },
+    {
+      "id": "submit-response-loss-after-commit",
+      "status": "PASSED",
+      "question": "Does crash/reopen after a lost committed SubmitApproval reply return the same ApprovalID?",
+      "observation": {
+        "approvalCount": 1,
+        "attemptCount": 0,
+        "approvalState": "usable",
+        "approvalId": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "stateDigest": "4d29a27ecf0ee5107a8381a6fd5a8701ebef80f478543217f90f054acbe022df",
+        "reopened": true,
+        "authorityImmediatelyAfterFaultOrFirstCommit": {
+          "approvalCount": 1,
+          "attemptCount": 0,
+          "approvalState": "usable"
+        },
+        "replayReturnedSameIdentity": true
+      }
+    },
+    {
+      "id": "submit-equivalent-envelope-replay",
+      "status": "PASSED",
+      "question": "Do distinct complementary signatures over one payload converge by payload and authorization identity?",
+      "observation": {
+        "approvalCount": 1,
+        "attemptCount": 0,
+        "approvalState": "usable",
+        "approvalId": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "stateDigest": "4d29a27ecf0ee5107a8381a6fd5a8701ebef80f478543217f90f054acbe022df",
+        "reopened": true,
+        "authorityImmediatelyAfterFaultOrFirstCommit": {
+          "approvalCount": 1,
+          "attemptCount": 0,
+          "approvalState": "usable"
+        },
+        "replayReturnedSameIdentity": true
+      }
+    },
+    {
+      "id": "request-attempt-response-loss-before-commit",
+      "status": "PASSED",
+      "question": "Does loss before atomic consume/create preserve usable approval and create no attempt?",
+      "observation": {
+        "approvalCount": 1,
+        "attemptCount": 1,
+        "approvalState": "consumed",
+        "approvalId": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "attemptId": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+        "stateDigest": "40abe3ff7b04643bb8695b6a9bf9fc368231527c43afa28c53b7f1cad4f139d7",
+        "reopened": true,
+        "authorityImmediatelyAfterFaultOrFirstCommit": {
+          "approvalCount": 1,
+          "attemptCount": 0,
+          "approvalState": "usable"
+        },
+        "replayReturnedSameIdentity": false
+      }
+    },
+    {
+      "id": "request-attempt-response-loss-after-commit",
+      "status": "PASSED",
+      "question": "Does loss after atomic consume/create reopen as one consumed approval and the same AttemptID?",
+      "observation": {
+        "approvalCount": 1,
+        "attemptCount": 1,
+        "approvalState": "consumed",
+        "approvalId": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "attemptId": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+        "stateDigest": "40abe3ff7b04643bb8695b6a9bf9fc368231527c43afa28c53b7f1cad4f139d7",
+        "reopened": true,
+        "authorityImmediatelyAfterFaultOrFirstCommit": {
+          "approvalCount": 1,
+          "attemptCount": 1,
+          "approvalState": "consumed"
+        },
+        "replayReturnedSameIdentity": true
+      }
+    },
+    {
+      "id": "request-attempt-concurrent-replay",
+      "status": "PASSED",
+      "question": "Do concurrent exact requests serialize to one consumption and one AttemptID?",
+      "observation": {
+        "approvalCount": 1,
+        "attemptCount": 1,
+        "approvalState": "consumed",
+        "approvalId": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "attemptId": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+        "stateDigest": "40abe3ff7b04643bb8695b6a9bf9fc368231527c43afa28c53b7f1cad4f139d7",
+        "reopened": true,
+        "replayReturnedSameIdentity": true,
+        "concurrentCallers": 16
+      }
+    }
+  ],
+  "cleanupVerified": true,
+  "productStateAccessed": false,
+  "brokerDurableStateCreated": false,
+  "listenerActivated": false,
+  "signerOrCredentialAccessed": false,
+  "runtimeBackendOrGuestStarted": false,
+  "limitations": [
+    "This is an experiment-local store model, not Capsule product code or installed durability evidence.",
+    "The input is a test-verifier projection; this seam does not verify COSE, sign, render UI, or authorize a key.",
+    "No authenticated IPC, protected store, lifecycle driver, runtime, backend, VM, guest, or product consumer was exercised."
+  ]
+}
