@@ -1,0 +1,75 @@
+{
+  "objectType": "capsule.experiment.authenticated-local-ipc-s3-native-xpc-c2b0-profile",
+  "objectVersion": 0,
+  "status": "construction-only-execution-blocked",
+  "capsuleCorp": {
+    "repository": "Shrimpworks/capsule-corp",
+    "commit": "e7220e523bc43ba8867122a1233e1625f2c1c164",
+    "manifestSha256": "c76e1f6cc6d79db867618ee3a5cdb96794896705ada657c40e1c091cce818b59",
+    "nativeContractSha256": "7ae502b0742bab1e129cdb8fc026b680416587353af55631f55e80f2fabf962c",
+    "orderedCaseDigest": "9ac6845baf35651aab057989264ab7fb17305751d3101df38d26b2334b8ef68e",
+    "oraclesSha256": "254ec5da9db2f3e0b590a3119d21abc958feb8d607eddb8deca2831b6d168b38"
+  },
+  "capsuleExperimentsBase": "067fe2beb40361bb714507cab1331004e0a656fa",
+  "identifierBase": "c2s3.ce7220e523bc43ba.c7ae502b0742bab1e",
+  "temporaryRoot": "/private/tmp/capsule-c2s3-ce7220e523bc43ba-c7ae502b0742bab1e",
+  "bundleIdentifiers": {
+    "server": "com.capsulecorp.experiments.c2s3.ce7220e523bc43ba.c7ae502b0742bab1e.server",
+    "clientCli": "com.capsulecorp.experiments.c2s3.ce7220e523bc43ba.c7ae502b0742bab1e.client.cli",
+    "clientDaemon": "com.capsulecorp.experiments.c2s3.ce7220e523bc43ba.c7ae502b0742bab1e.client.daemon",
+    "clientBroker": "com.capsulecorp.experiments.c2s3.ce7220e523bc43ba.c7ae502b0742bab1e.client.broker",
+    "clientNegative": "com.capsulecorp.experiments.c2s3.ce7220e523bc43ba.c7ae502b0742bab1e.client.negative"
+  },
+  "processNames": {
+    "server": "capsule-c2s3-e7220e523bc4-7ae502b0742b-server",
+    "clientCli": "capsule-c2s3-e7220e523bc4-7ae502b0742b-client-cli",
+    "clientDaemon": "capsule-c2s3-e7220e523bc4-7ae502b0742b-client-daemon",
+    "clientBroker": "capsule-c2s3-e7220e523bc4-7ae502b0742b-client-broker",
+    "clientNegative": "capsule-c2s3-e7220e523bc4-7ae502b0742b-client-negative"
+  },
+  "methodScope": {
+    "executable": [
+      "SubmitMainMJSV0",
+      "RegisterPlanV0",
+      "GetRegisteredPlanV0"
+    ],
+    "passiveCollisionReferenceOnly": [
+      "SubmitApprovalV0",
+      "RequestAttemptV0"
+    ]
+  },
+  "serviceAliases": [
+    {
+      "method": "SubmitMainMJSV0",
+      "canonical": "com.capsulecorp.capsule.daemon.cli.v0",
+      "experimental": "com.capsulecorp.experiments.c2s3.ce7220e523bc43ba.c7ae502b0742bab1e.daemon-cli.v0"
+    },
+    {
+      "method": "RegisterPlanV0",
+      "canonical": "com.capsulecorp.capsule.supervisor.daemon.v0",
+      "experimental": "com.capsulecorp.experiments.c2s3.ce7220e523bc43ba.c7ae502b0742bab1e.supervisor-daemon.v0"
+    },
+    {
+      "method": "GetRegisteredPlanV0",
+      "canonical": "com.capsulecorp.capsule.supervisor.broker.v0",
+      "experimental": "com.capsulecorp.experiments.c2s3.ce7220e523bc43ba.c7ae502b0742bab1e.supervisor-broker.v0"
+    }
+  ],
+  "limits": {
+    "connectionsPerService": 4,
+    "requestsPerConnection": 1,
+    "supervisorRequestsGlobal": 8,
+    "applicationQueue": 0,
+    "supervisorInFlightBytes": 2626696,
+    "daemonInFlightBytes": 8388608,
+    "mixedRegisterGetAccountingBytes": 328353
+  },
+  "activation": {
+    "authorized": false,
+    "serviceRegistration": false,
+    "processLaunch": false,
+    "signing": false,
+    "xpcDelivery": false,
+    "requiredFutureGate": "CAPSULE_C2B_AUTHORIZATION_V1"
+  }
+}

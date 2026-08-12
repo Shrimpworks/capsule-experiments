@@ -1,0 +1,23 @@
+{
+  "objectType": "capsule.authenticated-local-ipc-get-registered-plan-v0-method-record",
+  "objectVersion": 0,
+  "method": "GetRegisteredPlanV0",
+  "methodVersion": 0,
+  "roleBindingRecordVersion": 0,
+  "service": "com.capsulecorp.capsule.supervisor.broker.v0",
+  "expectedRole": "broker",
+  "audience": "capsule.execution-supervisor.local.v0",
+  "purpose": "capsule.ipc.get-registered-plan.v0",
+  "requestDataMaxBytes": 16,
+  "replyDataMaxBytes": 332433,
+  "deadlineMilliseconds": 2000,
+  "responseLossDisposition": "repeatable-read-by-registration-id",
+  "peerRequirementBeforeDeliveryRequired": true,
+  "methodAuthorityDisposition": "service-role-purpose-audience-derived",
+  "requestIdAuthorityDisposition": "correlation-only",
+  "serviceMaxConnections": 4,
+  "connectionMaxInFlight": 1,
+  "processMaxAdmittedRequests": 8,
+  "applicationQueueCapacity": 0,
+  "inFlightRequestDataMaxBytes": 2626696
+}

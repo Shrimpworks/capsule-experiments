@@ -1,0 +1,61 @@
+{
+  "objectType": "capsule.experiment.authenticated-local-ipc-s3-native-xpc-c2b0-construction-result",
+  "objectVersion": 0,
+  "status": "PASSED",
+  "scope": "inert-source-fixture-and-reproducible-unsigned-build-only",
+  "capsuleExperimentsBase": "067fe2beb40361bb714507cab1331004e0a656fa",
+  "capsuleCorpCommit": "e7220e523bc43ba8867122a1233e1625f2c1c164",
+  "environment": {
+    "os": "macOS 26.5.2 (25F84)",
+    "architecture": "arm64",
+    "xcode": "26.6 (17F113)",
+    "clang": "Apple clang 21.0.0 (clang-2100.1.1.101)"
+  },
+  "build": {
+    "cleanDirectories": 2,
+    "byteEquality": true,
+    "lcUuidAbsent": true,
+    "lcCodeSignatureAbsent": true,
+    "artifacts": [
+      {
+        "name": "capsule-c2s3-e7220e523bc4-7ae502b0742b-client-broker",
+        "byteLength": 37176,
+        "sha256": "8e05ae5832e813fe50063497ff6472e24437a1cf9077c993cb2eb04ecb16baa5"
+      },
+      {
+        "name": "capsule-c2s3-e7220e523bc4-7ae502b0742b-client-cli",
+        "byteLength": 37176,
+        "sha256": "c8bbab0bd61fc12e60dd4cf2bddf1006b4f033a534fff90544e219f7c57bc0b1"
+      },
+      {
+        "name": "capsule-c2s3-e7220e523bc4-7ae502b0742b-client-daemon",
+        "byteLength": 37176,
+        "sha256": "d070ab7c591bfe57cd08b7f635ec9156f6b46bca111a0e95d2cfdf7c3378f1d0"
+      },
+      {
+        "name": "capsule-c2s3-e7220e523bc4-7ae502b0742b-client-negative",
+        "byteLength": 37176,
+        "sha256": "0a33caee833c259a1acd188137d82c083f5d144fb307eb8cdec3b977c1c12b44"
+      },
+      {
+        "name": "capsule-c2s3-e7220e523bc4-7ae502b0742b-server",
+        "byteLength": 37232,
+        "sha256": "dc162fb0e0796c7fc8c20a72da8d8da51c4d1c6840e292567b3741ed1709cd6c"
+      }
+    ]
+  },
+  "observedEffects": {
+    "listenerActivated": false,
+    "serviceRegistered": false,
+    "clientLaunched": false,
+    "serverLaunched": false,
+    "xpcMessageSent": false,
+    "signingInvoked": false,
+    "identityEnumerated": false,
+    "keychainAccessed": false,
+    "credentialAccessed": false,
+    "productStateAccessed": false,
+    "runtimeBackendVmOrGuestUsed": false
+  },
+  "claimBoundary": "Construction evidence only. C2b execution, OS enforcement, installed identity, and product admission remain BLOCKED."
+}

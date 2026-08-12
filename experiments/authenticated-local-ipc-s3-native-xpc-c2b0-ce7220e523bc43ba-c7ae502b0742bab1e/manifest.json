@@ -1,0 +1,231 @@
+{
+  "objectType": "capsule.experiment.authenticated-local-ipc-s3-native-xpc-c2b0-manifest",
+  "objectVersion": 0,
+  "status": "construction-only-execution-blocked",
+  "selfExcluded": true,
+  "fileCount": 37,
+  "files": [
+    {
+      "path": ".gitignore",
+      "byteLength": 8,
+      "sha256": "99921edb369e12a35a87d768ae481f8c944573626abd4b8f3a1fe78846f30ba7",
+      "mode": "644"
+    },
+    {
+      "path": "evidence/2026-08-11/construction-result.json",
+      "byteLength": 2214,
+      "sha256": "a4b66e897330e83ddc25593ac49b19fff8c8ebeb31bb75aa7ff5fa1fa7babb98",
+      "mode": "644"
+    },
+    {
+      "path": "experiment-profile.json",
+      "byteLength": 3211,
+      "sha256": "231a44a416aac3c61fc9296a4bf822118a67cbe937239e488e553f5f4a14e94d",
+      "mode": "644"
+    },
+    {
+      "path": "fixtures/authenticated-local-ipc-v0/get-registered-plan-v0.method.json",
+      "byteLength": 904,
+      "sha256": "99e535546c68d2ea73adaa52541aea468884dbc7d24c483f792e59b2fddccaf5",
+      "mode": "644"
+    },
+    {
+      "path": "fixtures/authenticated-local-ipc-v0/get-registered-plan-v0.reply.json",
+      "byteLength": 1328,
+      "sha256": "1e4abf3fb12aa1aa2b71e585fee151143548798031050e40051e59212a8a96d0",
+      "mode": "644"
+    },
+    {
+      "path": "fixtures/authenticated-local-ipc-v0/get-registered-plan-v0.request.json",
+      "byteLength": 684,
+      "sha256": "f810344038b46f1396432a349b73aa0e965032a7e55cf5fc831956f7d5336e5f",
+      "mode": "644"
+    },
+    {
+      "path": "fixtures/authenticated-local-ipc-v0/native-xpc-v0.contract.json",
+      "byteLength": 162876,
+      "sha256": "7ae502b0742bab1e129cdb8fc026b680416587353af55631f55e80f2fabf962c",
+      "mode": "644"
+    },
+    {
+      "path": "fixtures/authenticated-local-ipc-v0/oracles.json",
+      "byteLength": 39625,
+      "sha256": "254ec5da9db2f3e0b590a3119d21abc958feb8d607eddb8deca2831b6d168b38",
+      "mode": "644"
+    },
+    {
+      "path": "fixtures/authenticated-local-ipc-v0/register-plan-v0.method.json",
+      "byteLength": 897,
+      "sha256": "2ea0606dd0489259758a6183161ee76b17d7ac416d3491ab55917ed0213f0d1d",
+      "mode": "644"
+    },
+    {
+      "path": "fixtures/authenticated-local-ipc-v0/register-plan-v0.reply.json",
+      "byteLength": 471,
+      "sha256": "18b3feca9951ac5ba76d80fb896d667efa17602e7a9200076ec4c0aa39575df1",
+      "mode": "644"
+    },
+    {
+      "path": "fixtures/authenticated-local-ipc-v0/register-plan-v0.request.json",
+      "byteLength": 1466,
+      "sha256": "a8a28b4af85fd0a666c5abf8c7302f74d6f2169673d1628c887a13490f81d973",
+      "mode": "644"
+    },
+    {
+      "path": "fixtures/authenticated-local-ipc-v0/submit-main-mjs-v0.method.json",
+      "byteLength": 992,
+      "sha256": "e070a3e3fce99ab0a96ec4021e2ab7286e69dd4ae152edada813197d8764679c",
+      "mode": "644"
+    },
+    {
+      "path": "fixtures/authenticated-local-ipc-v0/submit-main-mjs-v0.reply.json",
+      "byteLength": 312,
+      "sha256": "e9add26faa1ed1a0d3fe2326859d56687c3348f950d36ff4a374fd1781358b36",
+      "mode": "644"
+    },
+    {
+      "path": "fixtures/authenticated-local-ipc-v0/submit-main-mjs-v0.request.json",
+      "byteLength": 832,
+      "sha256": "7349502f04e35732c5910c54bbdb677464612c85a4df397b3d3f9562be0233b3",
+      "mode": "644"
+    },
+    {
+      "path": "fixtures/body/approval-envelope.cose",
+      "byteLength": 375,
+      "sha256": "fb0a9e7c983f6f3986260dce857edf6b18cba99ee386f9532300dbdc31a5a3bd",
+      "mode": "644"
+    },
+    {
+      "path": "fixtures/body/execution-plan.cbor",
+      "byteLength": 527,
+      "sha256": "ef268a0b829adc1ce1307203f4b805f63379954ccf41e8e20a7487b6e5acf241",
+      "mode": "644"
+    },
+    {
+      "path": "fixtures/body/job-proposal.json",
+      "byteLength": 776,
+      "sha256": "8edd032c329b80f79a0b2cffe2dbff4dccfd5a08ff1c1313801c7f8a2f851d3e",
+      "mode": "644"
+    },
+    {
+      "path": "fixtures/body/main.mjs",
+      "byteLength": 50,
+      "sha256": "681f39365de1369ee486fa34e88b993c60df5a835006b65e0d8916df717c31cc",
+      "mode": "644"
+    },
+    {
+      "path": "fixtures/body/plan-registration.cbor",
+      "byteLength": 165,
+      "sha256": "82f9e72dcb8b0f6e16990c2e09aad4ac8661e72ff72820edf1b57ef5f9537199",
+      "mode": "644"
+    },
+    {
+      "path": "fixtures/body/role-bindings.bin",
+      "byteLength": 562,
+      "sha256": "38995b7af11a5c971b9c7ebd46f24513f06750dffcdd5d49a9fdf41173b5244c",
+      "mode": "644"
+    },
+    {
+      "path": "fixtures/body/source-manifest.cbor",
+      "byteLength": 89,
+      "sha256": "c387c80094027ffbcacb573f44f5f6b4dec4d243bb436b24dd644434feaa1d14",
+      "mode": "644"
+    },
+    {
+      "path": "FUTURE_EXECUTION_AUTHORIZATION.md",
+      "byteLength": 5272,
+      "sha256": "c6b9122ca7af017573011f0fd0d45c337c414de63102c3e92643fb5db5b7f447",
+      "mode": "644"
+    },
+    {
+      "path": "generated/capsule_c2b0_contract.generated.h",
+      "byteLength": 2955,
+      "sha256": "80ae376f222cca1786e0d37a7975a25e494577e69aab3df1f00f9c2caf5f2a46",
+      "mode": "644"
+    },
+    {
+      "path": "generated/capsule_c2b0_fixtures.generated.h",
+      "byteLength": 17442,
+      "sha256": "68c86c748cfc28cfc827bc6a5a4c0ce46f8618a3031c4f21673404071adb3146",
+      "mode": "644"
+    },
+    {
+      "path": "generated/execution-plan.json",
+      "byteLength": 112139,
+      "sha256": "8fd1dfcd2d204304599aec5e39b046b7eed3f3b51c7a64697318b040943b8e55",
+      "mode": "644"
+    },
+    {
+      "path": "HANDOFF.md",
+      "byteLength": 1517,
+      "sha256": "37acb2732ee2553f684185e707e8c9b5cb90a3055ee117829ca9505804ab38e6",
+      "mode": "644"
+    },
+    {
+      "path": "include/capsule_c2b0.h",
+      "byteLength": 1714,
+      "sha256": "84d0a2b4bc5e0628b173347b1107305781a65abce3239e9cf6b1e1994f4f2251",
+      "mode": "644"
+    },
+    {
+      "path": "README.md",
+      "byteLength": 3136,
+      "sha256": "e9ef9e73aeafae05f4bc99dc97f458da70062629c9b9cca0e04e634ffa6c2ac3",
+      "mode": "644"
+    },
+    {
+      "path": "RESULTS.md",
+      "byteLength": 2736,
+      "sha256": "2ee4703bf383efc6b7c45a2696416f210e934e1fbb2222fab85c9bd1cb6a071c",
+      "mode": "644"
+    },
+    {
+      "path": "scripts/build-unsigned.sh",
+      "byteLength": 2055,
+      "sha256": "668d41b0b4ba4b36cfe950471898a54eab9b70aa89534919aacc1df24e2bfcdc",
+      "mode": "755"
+    },
+    {
+      "path": "scripts/generate-contract.mjs",
+      "byteLength": 8343,
+      "sha256": "063a63a2d30d9d6527429bb4f491d7c09c1a8efcfe28caee278315fdc97bfda7",
+      "mode": "755"
+    },
+    {
+      "path": "scripts/mutation-tests.mjs",
+      "byteLength": 4799,
+      "sha256": "167ffcc682e6901ddb1ba18a2d631d7c23376675258d718d73a36c5fd8d40fb2",
+      "mode": "755"
+    },
+    {
+      "path": "scripts/update-manifest.mjs",
+      "byteLength": 1800,
+      "sha256": "158238c7edc6e9a449053c660b2d9b1586d8eac84de5fb1367731015dc23fd1f",
+      "mode": "755"
+    },
+    {
+      "path": "scripts/verify.mjs",
+      "byteLength": 12791,
+      "sha256": "b566b3642f1d93b2e3d9b89a768a59107868c560a7615edb95208dee2ee0abca",
+      "mode": "755"
+    },
+    {
+      "path": "src/client.m",
+      "byteLength": 7335,
+      "sha256": "9c79083823fd6ad307c77f18aec3cb47e0fbc3b2be480dd1d29a4f8a25d13f83",
+      "mode": "644"
+    },
+    {
+      "path": "src/contract.c",
+      "byteLength": 8593,
+      "sha256": "33cb4eb86e1f9f534458a7bf9336f0f99aeb6a82880bc2ad1631622ab1253591",
+      "mode": "644"
+    },
+    {
+      "path": "src/server.m",
+      "byteLength": 8126,
+      "sha256": "0fff9ce3df7b5d29f4f03e012cb6a0bb8264d2e0e600242d3ef7514850bd706f",
+      "mode": "644"
+    }
+  ]
+}

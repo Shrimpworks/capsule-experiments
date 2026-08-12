@@ -1,0 +1,1377 @@
+{
+  "objectType": "capsule.authenticated-local-ipc-passive-oracles",
+  "objectVersion": 0,
+  "maxima": [
+    {
+      "id": "submit-main-mjs-v0.request.exact-maximum",
+      "method": "SubmitMainMJSV0",
+      "direction": "request",
+      "byteSource": "deterministic-repeated-byte-per-field",
+      "fieldLengths": {
+        "exactJobProposalBytes": 2097152
+      },
+      "applicationDataBytes": 2097152,
+      "expected": {
+        "decision": "accept-outer-shape",
+        "classification": null,
+        "reason": null
+      },
+      "noState": null,
+      "postCoreState": null,
+      "processTerminationRequired": false
+    },
+    {
+      "id": "submit-main-mjs-v0.request.cap-plus-one",
+      "method": "SubmitMainMJSV0",
+      "direction": "request",
+      "byteSource": "deterministic-repeated-byte-per-field",
+      "fieldLengths": {
+        "exactJobProposalBytes": 2097153
+      },
+      "applicationDataBytes": 2097153,
+      "expected": {
+        "decision": "reject",
+        "classification": "MALFORMED",
+        "reason": "submit-main-mjs-proposal-bytes"
+      },
+      "noState": {
+        "authorityStateChanged": false,
+        "coreCalls": 0,
+        "registrationsCreated": 0,
+        "approvalsConsumed": 0,
+        "attemptsCreated": 0,
+        "lifecycleCalls": 0,
+        "backendCalls": 0
+      },
+      "postCoreState": null,
+      "processTerminationRequired": false
+    },
+    {
+      "id": "submit-main-mjs-v0.reply.exact",
+      "method": "SubmitMainMJSV0",
+      "direction": "reply",
+      "byteSource": "deterministic-repeated-byte-per-field",
+      "fieldLengths": {
+        "registrationId": 16
+      },
+      "applicationDataBytes": 16,
+      "expected": {
+        "decision": "accept-outer-shape",
+        "classification": null,
+        "reason": null
+      },
+      "noState": null,
+      "postCoreState": null,
+      "processTerminationRequired": false
+    },
+    {
+      "id": "submit-main-mjs-v0.reply.cap-plus-one",
+      "method": "SubmitMainMJSV0",
+      "direction": "reply",
+      "byteSource": "deterministic-repeated-byte-per-field",
+      "fieldLengths": {
+        "registrationId": 17
+      },
+      "applicationDataBytes": 17,
+      "expected": {
+        "decision": "local-integrity-fault",
+        "classification": "LOCAL_FAILURE",
+        "reason": "submit-main-mjs-reply-shape"
+      },
+      "noState": null,
+      "postCoreState": "not-claimed-by-passive-output-oracle",
+      "processTerminationRequired": true
+    },
+    {
+      "id": "register-plan-v0.request.exact-maximum",
+      "method": "RegisterPlanV0",
+      "direction": "request",
+      "byteSource": "deterministic-repeated-byte-per-field",
+      "fieldLengths": {
+        "exactPlanBytes": 65536,
+        "roleBindingBytes": 562,
+        "sourceManifestBytes": 95,
+        "sourceBytes": 262144
+      },
+      "applicationDataBytes": 328337,
+      "expected": {
+        "decision": "accept-outer-shape",
+        "classification": null,
+        "reason": null
+      },
+      "noState": null,
+      "postCoreState": null,
+      "processTerminationRequired": false
+    },
+    {
+      "id": "register-plan-v0.request.source-cap-plus-one",
+      "method": "RegisterPlanV0",
+      "direction": "request",
+      "byteSource": "deterministic-repeated-byte-per-field",
+      "fieldLengths": {
+        "exactPlanBytes": 65536,
+        "roleBindingBytes": 562,
+        "sourceManifestBytes": 95,
+        "sourceBytes": 262145
+      },
+      "applicationDataBytes": 328338,
+      "expected": {
+        "decision": "reject",
+        "classification": "MALFORMED",
+        "reason": "register-source-bytes"
+      },
+      "noState": {
+        "authorityStateChanged": false,
+        "coreCalls": 0,
+        "registrationsCreated": 0,
+        "approvalsConsumed": 0,
+        "attemptsCreated": 0,
+        "lifecycleCalls": 0,
+        "backendCalls": 0
+      },
+      "postCoreState": null,
+      "processTerminationRequired": false
+    },
+    {
+      "id": "register-plan-v0.reply.exact-maximum",
+      "method": "RegisterPlanV0",
+      "direction": "reply",
+      "byteSource": "deterministic-repeated-byte-per-field",
+      "fieldLengths": {
+        "planRegistrationBytes": 4096
+      },
+      "applicationDataBytes": 4096,
+      "expected": {
+        "decision": "accept-outer-shape",
+        "classification": null,
+        "reason": null
+      },
+      "noState": null,
+      "postCoreState": null,
+      "processTerminationRequired": false
+    },
+    {
+      "id": "register-plan-v0.reply.cap-plus-one",
+      "method": "RegisterPlanV0",
+      "direction": "reply",
+      "byteSource": "deterministic-repeated-byte-per-field",
+      "fieldLengths": {
+        "planRegistrationBytes": 4097
+      },
+      "applicationDataBytes": 4097,
+      "expected": {
+        "decision": "local-integrity-fault",
+        "classification": "LOCAL_FAILURE",
+        "reason": "register-plan-reply-cap"
+      },
+      "noState": null,
+      "postCoreState": "not-claimed-by-passive-output-oracle",
+      "processTerminationRequired": true
+    },
+    {
+      "id": "get-registered-plan-v0.request.exact-maximum",
+      "method": "GetRegisteredPlanV0",
+      "direction": "request",
+      "byteSource": "deterministic-repeated-byte-per-field",
+      "fieldLengths": {
+        "registrationId": 16
+      },
+      "applicationDataBytes": 16,
+      "expected": {
+        "decision": "accept-outer-shape",
+        "classification": null,
+        "reason": null
+      },
+      "noState": null,
+      "postCoreState": null,
+      "processTerminationRequired": false
+    },
+    {
+      "id": "get-registered-plan-v0.request.cap-plus-one",
+      "method": "GetRegisteredPlanV0",
+      "direction": "request",
+      "byteSource": "deterministic-repeated-byte-per-field",
+      "fieldLengths": {
+        "registrationId": 17
+      },
+      "applicationDataBytes": 17,
+      "expected": {
+        "decision": "reject",
+        "classification": "SCHEMA",
+        "reason": "registration-id"
+      },
+      "noState": {
+        "authorityStateChanged": false,
+        "coreCalls": 0,
+        "registrationsCreated": 0,
+        "approvalsConsumed": 0,
+        "attemptsCreated": 0,
+        "lifecycleCalls": 0,
+        "backendCalls": 0
+      },
+      "postCoreState": null,
+      "processTerminationRequired": false
+    },
+    {
+      "id": "get-registered-plan-v0.reply.exact-maximum",
+      "method": "GetRegisteredPlanV0",
+      "direction": "reply",
+      "byteSource": "deterministic-repeated-byte-per-field",
+      "fieldLengths": {
+        "exactPlanBytes": 65536,
+        "roleBindingBytes": 562,
+        "planRegistrationBytes": 4096,
+        "sourceManifestBytes": 95,
+        "sourceBytes": 262144
+      },
+      "applicationDataBytes": 332433,
+      "expected": {
+        "decision": "accept-outer-shape",
+        "classification": null,
+        "reason": null
+      },
+      "noState": null,
+      "postCoreState": null,
+      "processTerminationRequired": false
+    },
+    {
+      "id": "get-registered-plan-v0.reply.source-cap-plus-one",
+      "method": "GetRegisteredPlanV0",
+      "direction": "reply",
+      "byteSource": "deterministic-repeated-byte-per-field",
+      "fieldLengths": {
+        "exactPlanBytes": 65536,
+        "roleBindingBytes": 562,
+        "planRegistrationBytes": 4096,
+        "sourceManifestBytes": 95,
+        "sourceBytes": 262145
+      },
+      "applicationDataBytes": 332434,
+      "expected": {
+        "decision": "local-integrity-fault",
+        "classification": "LOCAL_FAILURE",
+        "reason": "get-registered-plan-reply-shape"
+      },
+      "noState": null,
+      "postCoreState": "not-claimed-by-passive-output-oracle",
+      "processTerminationRequired": true
+    },
+    {
+      "id": "submit-approval-v0.request.exact-maximum",
+      "method": "SubmitApprovalV0",
+      "direction": "request",
+      "byteSource": "deterministic-repeated-byte-per-field",
+      "fieldLengths": {
+        "registrationId": 16,
+        "approvalEnvelope": 512
+      },
+      "applicationDataBytes": 528,
+      "expected": {
+        "decision": "accept-outer-shape",
+        "classification": null,
+        "reason": null
+      },
+      "noState": null,
+      "postCoreState": null,
+      "processTerminationRequired": false
+    },
+    {
+      "id": "submit-approval-v0.request.cap-plus-one",
+      "method": "SubmitApprovalV0",
+      "direction": "request",
+      "byteSource": "deterministic-repeated-byte-per-field",
+      "fieldLengths": {
+        "registrationId": 16,
+        "approvalEnvelope": 513
+      },
+      "applicationDataBytes": 529,
+      "expected": {
+        "decision": "reject",
+        "classification": "MALFORMED",
+        "reason": "approval-envelope"
+      },
+      "noState": {
+        "authorityStateChanged": false,
+        "coreCalls": 0,
+        "registrationsCreated": 0,
+        "approvalsConsumed": 0,
+        "attemptsCreated": 0,
+        "lifecycleCalls": 0,
+        "backendCalls": 0
+      },
+      "postCoreState": null,
+      "processTerminationRequired": false
+    },
+    {
+      "id": "submit-approval-v0.reply.exact",
+      "method": "SubmitApprovalV0",
+      "direction": "reply",
+      "byteSource": "deterministic-repeated-byte-per-field",
+      "fieldLengths": {
+        "approvalId": 16
+      },
+      "applicationDataBytes": 16,
+      "expected": {
+        "decision": "accept-outer-shape",
+        "classification": null,
+        "reason": null
+      },
+      "noState": null,
+      "postCoreState": null,
+      "processTerminationRequired": false
+    },
+    {
+      "id": "request-attempt-v0.request.exact",
+      "method": "RequestAttemptV0",
+      "direction": "request",
+      "byteSource": "deterministic-repeated-byte-per-field",
+      "fieldLengths": {
+        "registrationId": 16,
+        "approvalId": 16
+      },
+      "applicationDataBytes": 32,
+      "expected": {
+        "decision": "accept-outer-shape",
+        "classification": null,
+        "reason": null
+      },
+      "noState": null,
+      "postCoreState": null,
+      "processTerminationRequired": false
+    },
+    {
+      "id": "request-attempt-v0.request.cap-plus-one",
+      "method": "RequestAttemptV0",
+      "direction": "request",
+      "byteSource": "deterministic-repeated-byte-per-field",
+      "fieldLengths": {
+        "registrationId": 16,
+        "approvalId": 17
+      },
+      "applicationDataBytes": 33,
+      "expected": {
+        "decision": "reject",
+        "classification": "SCHEMA",
+        "reason": "approval-id"
+      },
+      "noState": {
+        "authorityStateChanged": false,
+        "coreCalls": 0,
+        "registrationsCreated": 0,
+        "approvalsConsumed": 0,
+        "attemptsCreated": 0,
+        "lifecycleCalls": 0,
+        "backendCalls": 0
+      },
+      "postCoreState": null,
+      "processTerminationRequired": false
+    },
+    {
+      "id": "request-attempt-v0.reply.exact",
+      "method": "RequestAttemptV0",
+      "direction": "reply",
+      "byteSource": "deterministic-repeated-byte-per-field",
+      "fieldLengths": {
+        "attemptId": 16
+      },
+      "applicationDataBytes": 16,
+      "expected": {
+        "decision": "accept-outer-shape",
+        "classification": null,
+        "reason": null
+      },
+      "noState": null,
+      "postCoreState": null,
+      "processTerminationRequired": false
+    }
+  ],
+  "refusals": [
+    {
+      "id": "submit.method-version",
+      "method": "SubmitMainMJSV0",
+      "mutation": "methodVersion",
+      "expected": {
+        "decision": "reject",
+        "classification": "UNSUPPORTED",
+        "reason": "submit-main-mjs-method-version"
+      },
+      "noState": {
+        "authorityStateChanged": false,
+        "coreCalls": 0,
+        "registrationsCreated": 0,
+        "approvalsConsumed": 0,
+        "attemptsCreated": 0,
+        "lifecycleCalls": 0,
+        "backendCalls": 0
+      }
+    },
+    {
+      "id": "submit.method",
+      "method": "SubmitMainMJSV0",
+      "mutation": "method",
+      "expected": {
+        "decision": "reject",
+        "classification": "UNSUPPORTED",
+        "reason": "submit-main-mjs-method"
+      },
+      "noState": {
+        "authorityStateChanged": false,
+        "coreCalls": 0,
+        "registrationsCreated": 0,
+        "approvalsConsumed": 0,
+        "attemptsCreated": 0,
+        "lifecycleCalls": 0,
+        "backendCalls": 0
+      }
+    },
+    {
+      "id": "submit.service",
+      "method": "SubmitMainMJSV0",
+      "mutation": "service",
+      "expected": {
+        "decision": "reject",
+        "classification": "AUTHENTICATION",
+        "reason": "submit-main-mjs-method-binding"
+      },
+      "noState": {
+        "authorityStateChanged": false,
+        "coreCalls": 0,
+        "registrationsCreated": 0,
+        "approvalsConsumed": 0,
+        "attemptsCreated": 0,
+        "lifecycleCalls": 0,
+        "backendCalls": 0
+      }
+    },
+    {
+      "id": "submit.role",
+      "method": "SubmitMainMJSV0",
+      "mutation": "expectedRole",
+      "expected": {
+        "decision": "reject",
+        "classification": "AUTHENTICATION",
+        "reason": "submit-main-mjs-method-binding"
+      },
+      "noState": {
+        "authorityStateChanged": false,
+        "coreCalls": 0,
+        "registrationsCreated": 0,
+        "approvalsConsumed": 0,
+        "attemptsCreated": 0,
+        "lifecycleCalls": 0,
+        "backendCalls": 0
+      }
+    },
+    {
+      "id": "submit.signing-identifier",
+      "method": "SubmitMainMJSV0",
+      "mutation": "expectedSigningIdentifier",
+      "expected": {
+        "decision": "reject",
+        "classification": "AUTHENTICATION",
+        "reason": "submit-main-mjs-method-binding"
+      },
+      "noState": {
+        "authorityStateChanged": false,
+        "coreCalls": 0,
+        "registrationsCreated": 0,
+        "approvalsConsumed": 0,
+        "attemptsCreated": 0,
+        "lifecycleCalls": 0,
+        "backendCalls": 0
+      }
+    },
+    {
+      "id": "submit.audience",
+      "method": "SubmitMainMJSV0",
+      "mutation": "audience",
+      "expected": {
+        "decision": "reject",
+        "classification": "AUTHENTICATION",
+        "reason": "submit-main-mjs-method-binding"
+      },
+      "noState": {
+        "authorityStateChanged": false,
+        "coreCalls": 0,
+        "registrationsCreated": 0,
+        "approvalsConsumed": 0,
+        "attemptsCreated": 0,
+        "lifecycleCalls": 0,
+        "backendCalls": 0
+      }
+    },
+    {
+      "id": "submit.purpose",
+      "method": "SubmitMainMJSV0",
+      "mutation": "purpose",
+      "expected": {
+        "decision": "reject",
+        "classification": "AUTHENTICATION",
+        "reason": "submit-main-mjs-method-binding"
+      },
+      "noState": {
+        "authorityStateChanged": false,
+        "coreCalls": 0,
+        "registrationsCreated": 0,
+        "approvalsConsumed": 0,
+        "attemptsCreated": 0,
+        "lifecycleCalls": 0,
+        "backendCalls": 0
+      }
+    },
+    {
+      "id": "submit.protocol-version",
+      "method": "SubmitMainMJSV0",
+      "mutation": "protocolVersion",
+      "expected": {
+        "decision": "reject",
+        "classification": "UNSUPPORTED",
+        "reason": "ipc-protocol-version"
+      },
+      "noState": {
+        "authorityStateChanged": false,
+        "coreCalls": 0,
+        "registrationsCreated": 0,
+        "approvalsConsumed": 0,
+        "attemptsCreated": 0,
+        "lifecycleCalls": 0,
+        "backendCalls": 0
+      }
+    },
+    {
+      "id": "submit.zero-request-id",
+      "method": "SubmitMainMJSV0",
+      "mutation": "requestId",
+      "expected": {
+        "decision": "reject",
+        "classification": "SCHEMA",
+        "reason": "ipc-request-id"
+      },
+      "noState": {
+        "authorityStateChanged": false,
+        "coreCalls": 0,
+        "registrationsCreated": 0,
+        "approvalsConsumed": 0,
+        "attemptsCreated": 0,
+        "lifecycleCalls": 0,
+        "backendCalls": 0
+      }
+    },
+    {
+      "id": "submit.installation",
+      "method": "SubmitMainMJSV0",
+      "mutation": "installationId",
+      "expected": {
+        "decision": "reject",
+        "classification": "BINDING",
+        "reason": "ipc-current-supervisor-state"
+      },
+      "noState": {
+        "authorityStateChanged": false,
+        "coreCalls": 0,
+        "registrationsCreated": 0,
+        "approvalsConsumed": 0,
+        "attemptsCreated": 0,
+        "lifecycleCalls": 0,
+        "backendCalls": 0
+      }
+    },
+    {
+      "id": "submit.epoch-sequence",
+      "method": "SubmitMainMJSV0",
+      "mutation": "epochSequence",
+      "expected": {
+        "decision": "reject",
+        "classification": "BINDING",
+        "reason": "ipc-current-supervisor-state"
+      },
+      "noState": {
+        "authorityStateChanged": false,
+        "coreCalls": 0,
+        "registrationsCreated": 0,
+        "approvalsConsumed": 0,
+        "attemptsCreated": 0,
+        "lifecycleCalls": 0,
+        "backendCalls": 0
+      }
+    },
+    {
+      "id": "submit.epoch-digest",
+      "method": "SubmitMainMJSV0",
+      "mutation": "epochDigest",
+      "expected": {
+        "decision": "reject",
+        "classification": "BINDING",
+        "reason": "ipc-current-supervisor-state"
+      },
+      "noState": {
+        "authorityStateChanged": false,
+        "coreCalls": 0,
+        "registrationsCreated": 0,
+        "approvalsConsumed": 0,
+        "attemptsCreated": 0,
+        "lifecycleCalls": 0,
+        "backendCalls": 0
+      }
+    },
+    {
+      "id": "register.method-version",
+      "method": "RegisterPlanV0",
+      "mutation": "methodVersion",
+      "expected": {
+        "decision": "reject",
+        "classification": "UNSUPPORTED",
+        "reason": "register-plan-method-record-version"
+      },
+      "noState": {
+        "authorityStateChanged": false,
+        "coreCalls": 0,
+        "registrationsCreated": 0,
+        "approvalsConsumed": 0,
+        "attemptsCreated": 0,
+        "lifecycleCalls": 0,
+        "backendCalls": 0
+      }
+    },
+    {
+      "id": "register.role-binding-record-version",
+      "method": "RegisterPlanV0",
+      "mutation": "roleBindingRecordVersion",
+      "expected": {
+        "decision": "reject",
+        "classification": "UNSUPPORTED",
+        "reason": "register-plan-method-record-version"
+      },
+      "noState": {
+        "authorityStateChanged": false,
+        "coreCalls": 0,
+        "registrationsCreated": 0,
+        "approvalsConsumed": 0,
+        "attemptsCreated": 0,
+        "lifecycleCalls": 0,
+        "backendCalls": 0
+      }
+    },
+    {
+      "id": "register.method",
+      "method": "RegisterPlanV0",
+      "mutation": "method",
+      "expected": {
+        "decision": "reject",
+        "classification": "UNSUPPORTED",
+        "reason": "register-plan-method"
+      },
+      "noState": {
+        "authorityStateChanged": false,
+        "coreCalls": 0,
+        "registrationsCreated": 0,
+        "approvalsConsumed": 0,
+        "attemptsCreated": 0,
+        "lifecycleCalls": 0,
+        "backendCalls": 0
+      }
+    },
+    {
+      "id": "register.service",
+      "method": "RegisterPlanV0",
+      "mutation": "service",
+      "expected": {
+        "decision": "reject",
+        "classification": "AUTHENTICATION",
+        "reason": "register-plan-method-binding"
+      },
+      "noState": {
+        "authorityStateChanged": false,
+        "coreCalls": 0,
+        "registrationsCreated": 0,
+        "approvalsConsumed": 0,
+        "attemptsCreated": 0,
+        "lifecycleCalls": 0,
+        "backendCalls": 0
+      }
+    },
+    {
+      "id": "register.role",
+      "method": "RegisterPlanV0",
+      "mutation": "expectedRole",
+      "expected": {
+        "decision": "reject",
+        "classification": "AUTHENTICATION",
+        "reason": "register-plan-method-binding"
+      },
+      "noState": {
+        "authorityStateChanged": false,
+        "coreCalls": 0,
+        "registrationsCreated": 0,
+        "approvalsConsumed": 0,
+        "attemptsCreated": 0,
+        "lifecycleCalls": 0,
+        "backendCalls": 0
+      }
+    },
+    {
+      "id": "register.audience",
+      "method": "RegisterPlanV0",
+      "mutation": "audience",
+      "expected": {
+        "decision": "reject",
+        "classification": "AUTHENTICATION",
+        "reason": "register-plan-method-binding"
+      },
+      "noState": {
+        "authorityStateChanged": false,
+        "coreCalls": 0,
+        "registrationsCreated": 0,
+        "approvalsConsumed": 0,
+        "attemptsCreated": 0,
+        "lifecycleCalls": 0,
+        "backendCalls": 0
+      }
+    },
+    {
+      "id": "register.purpose",
+      "method": "RegisterPlanV0",
+      "mutation": "purpose",
+      "expected": {
+        "decision": "reject",
+        "classification": "AUTHENTICATION",
+        "reason": "register-plan-method-binding"
+      },
+      "noState": {
+        "authorityStateChanged": false,
+        "coreCalls": 0,
+        "registrationsCreated": 0,
+        "approvalsConsumed": 0,
+        "attemptsCreated": 0,
+        "lifecycleCalls": 0,
+        "backendCalls": 0
+      }
+    },
+    {
+      "id": "register.protocol-version",
+      "method": "RegisterPlanV0",
+      "mutation": "protocolVersion",
+      "expected": {
+        "decision": "reject",
+        "classification": "UNSUPPORTED",
+        "reason": "ipc-protocol-version"
+      },
+      "noState": {
+        "authorityStateChanged": false,
+        "coreCalls": 0,
+        "registrationsCreated": 0,
+        "approvalsConsumed": 0,
+        "attemptsCreated": 0,
+        "lifecycleCalls": 0,
+        "backendCalls": 0
+      }
+    },
+    {
+      "id": "register.zero-request-id",
+      "method": "RegisterPlanV0",
+      "mutation": "requestId",
+      "expected": {
+        "decision": "reject",
+        "classification": "SCHEMA",
+        "reason": "ipc-request-id"
+      },
+      "noState": {
+        "authorityStateChanged": false,
+        "coreCalls": 0,
+        "registrationsCreated": 0,
+        "approvalsConsumed": 0,
+        "attemptsCreated": 0,
+        "lifecycleCalls": 0,
+        "backendCalls": 0
+      }
+    },
+    {
+      "id": "register.installation",
+      "method": "RegisterPlanV0",
+      "mutation": "installationId",
+      "expected": {
+        "decision": "reject",
+        "classification": "BINDING",
+        "reason": "ipc-current-supervisor-state"
+      },
+      "noState": {
+        "authorityStateChanged": false,
+        "coreCalls": 0,
+        "registrationsCreated": 0,
+        "approvalsConsumed": 0,
+        "attemptsCreated": 0,
+        "lifecycleCalls": 0,
+        "backendCalls": 0
+      }
+    },
+    {
+      "id": "register.epoch-sequence",
+      "method": "RegisterPlanV0",
+      "mutation": "epochSequence",
+      "expected": {
+        "decision": "reject",
+        "classification": "BINDING",
+        "reason": "ipc-current-supervisor-state"
+      },
+      "noState": {
+        "authorityStateChanged": false,
+        "coreCalls": 0,
+        "registrationsCreated": 0,
+        "approvalsConsumed": 0,
+        "attemptsCreated": 0,
+        "lifecycleCalls": 0,
+        "backendCalls": 0
+      }
+    },
+    {
+      "id": "register.epoch-digest",
+      "method": "RegisterPlanV0",
+      "mutation": "epochDigest",
+      "expected": {
+        "decision": "reject",
+        "classification": "BINDING",
+        "reason": "ipc-current-supervisor-state"
+      },
+      "noState": {
+        "authorityStateChanged": false,
+        "coreCalls": 0,
+        "registrationsCreated": 0,
+        "approvalsConsumed": 0,
+        "attemptsCreated": 0,
+        "lifecycleCalls": 0,
+        "backendCalls": 0
+      }
+    },
+    {
+      "id": "fetch.method-version",
+      "method": "GetRegisteredPlanV0",
+      "mutation": "methodVersion",
+      "expected": {
+        "decision": "reject",
+        "classification": "UNSUPPORTED",
+        "reason": "get-registered-plan-method-record-version"
+      },
+      "noState": {
+        "authorityStateChanged": false,
+        "coreCalls": 0,
+        "registrationsCreated": 0,
+        "approvalsConsumed": 0,
+        "attemptsCreated": 0,
+        "lifecycleCalls": 0,
+        "backendCalls": 0
+      }
+    },
+    {
+      "id": "fetch.role-binding-record-version",
+      "method": "GetRegisteredPlanV0",
+      "mutation": "roleBindingRecordVersion",
+      "expected": {
+        "decision": "reject",
+        "classification": "UNSUPPORTED",
+        "reason": "get-registered-plan-method-record-version"
+      },
+      "noState": {
+        "authorityStateChanged": false,
+        "coreCalls": 0,
+        "registrationsCreated": 0,
+        "approvalsConsumed": 0,
+        "attemptsCreated": 0,
+        "lifecycleCalls": 0,
+        "backendCalls": 0
+      }
+    },
+    {
+      "id": "fetch.method",
+      "method": "GetRegisteredPlanV0",
+      "mutation": "method",
+      "expected": {
+        "decision": "reject",
+        "classification": "UNSUPPORTED",
+        "reason": "get-registered-plan-method"
+      },
+      "noState": {
+        "authorityStateChanged": false,
+        "coreCalls": 0,
+        "registrationsCreated": 0,
+        "approvalsConsumed": 0,
+        "attemptsCreated": 0,
+        "lifecycleCalls": 0,
+        "backendCalls": 0
+      }
+    },
+    {
+      "id": "fetch.service",
+      "method": "GetRegisteredPlanV0",
+      "mutation": "service",
+      "expected": {
+        "decision": "reject",
+        "classification": "AUTHENTICATION",
+        "reason": "get-registered-plan-method-binding"
+      },
+      "noState": {
+        "authorityStateChanged": false,
+        "coreCalls": 0,
+        "registrationsCreated": 0,
+        "approvalsConsumed": 0,
+        "attemptsCreated": 0,
+        "lifecycleCalls": 0,
+        "backendCalls": 0
+      }
+    },
+    {
+      "id": "fetch.role",
+      "method": "GetRegisteredPlanV0",
+      "mutation": "expectedRole",
+      "expected": {
+        "decision": "reject",
+        "classification": "AUTHENTICATION",
+        "reason": "get-registered-plan-method-binding"
+      },
+      "noState": {
+        "authorityStateChanged": false,
+        "coreCalls": 0,
+        "registrationsCreated": 0,
+        "approvalsConsumed": 0,
+        "attemptsCreated": 0,
+        "lifecycleCalls": 0,
+        "backendCalls": 0
+      }
+    },
+    {
+      "id": "fetch.audience",
+      "method": "GetRegisteredPlanV0",
+      "mutation": "audience",
+      "expected": {
+        "decision": "reject",
+        "classification": "AUTHENTICATION",
+        "reason": "get-registered-plan-method-binding"
+      },
+      "noState": {
+        "authorityStateChanged": false,
+        "coreCalls": 0,
+        "registrationsCreated": 0,
+        "approvalsConsumed": 0,
+        "attemptsCreated": 0,
+        "lifecycleCalls": 0,
+        "backendCalls": 0
+      }
+    },
+    {
+      "id": "fetch.purpose",
+      "method": "GetRegisteredPlanV0",
+      "mutation": "purpose",
+      "expected": {
+        "decision": "reject",
+        "classification": "AUTHENTICATION",
+        "reason": "get-registered-plan-method-binding"
+      },
+      "noState": {
+        "authorityStateChanged": false,
+        "coreCalls": 0,
+        "registrationsCreated": 0,
+        "approvalsConsumed": 0,
+        "attemptsCreated": 0,
+        "lifecycleCalls": 0,
+        "backendCalls": 0
+      }
+    },
+    {
+      "id": "fetch.protocol-version",
+      "method": "GetRegisteredPlanV0",
+      "mutation": "protocolVersion",
+      "expected": {
+        "decision": "reject",
+        "classification": "UNSUPPORTED",
+        "reason": "ipc-protocol-version"
+      },
+      "noState": {
+        "authorityStateChanged": false,
+        "coreCalls": 0,
+        "registrationsCreated": 0,
+        "approvalsConsumed": 0,
+        "attemptsCreated": 0,
+        "lifecycleCalls": 0,
+        "backendCalls": 0
+      }
+    },
+    {
+      "id": "fetch.zero-request-id",
+      "method": "GetRegisteredPlanV0",
+      "mutation": "requestId",
+      "expected": {
+        "decision": "reject",
+        "classification": "SCHEMA",
+        "reason": "ipc-request-id"
+      },
+      "noState": {
+        "authorityStateChanged": false,
+        "coreCalls": 0,
+        "registrationsCreated": 0,
+        "approvalsConsumed": 0,
+        "attemptsCreated": 0,
+        "lifecycleCalls": 0,
+        "backendCalls": 0
+      }
+    },
+    {
+      "id": "fetch.installation",
+      "method": "GetRegisteredPlanV0",
+      "mutation": "installationId",
+      "expected": {
+        "decision": "reject",
+        "classification": "BINDING",
+        "reason": "ipc-current-supervisor-state"
+      },
+      "noState": {
+        "authorityStateChanged": false,
+        "coreCalls": 0,
+        "registrationsCreated": 0,
+        "approvalsConsumed": 0,
+        "attemptsCreated": 0,
+        "lifecycleCalls": 0,
+        "backendCalls": 0
+      }
+    },
+    {
+      "id": "fetch.epoch-sequence",
+      "method": "GetRegisteredPlanV0",
+      "mutation": "epochSequence",
+      "expected": {
+        "decision": "reject",
+        "classification": "BINDING",
+        "reason": "ipc-current-supervisor-state"
+      },
+      "noState": {
+        "authorityStateChanged": false,
+        "coreCalls": 0,
+        "registrationsCreated": 0,
+        "approvalsConsumed": 0,
+        "attemptsCreated": 0,
+        "lifecycleCalls": 0,
+        "backendCalls": 0
+      }
+    },
+    {
+      "id": "fetch.epoch-digest",
+      "method": "GetRegisteredPlanV0",
+      "mutation": "epochDigest",
+      "expected": {
+        "decision": "reject",
+        "classification": "BINDING",
+        "reason": "ipc-current-supervisor-state"
+      },
+      "noState": {
+        "authorityStateChanged": false,
+        "coreCalls": 0,
+        "registrationsCreated": 0,
+        "approvalsConsumed": 0,
+        "attemptsCreated": 0,
+        "lifecycleCalls": 0,
+        "backendCalls": 0
+      }
+    },
+    {
+      "id": "fetch.zero-registration-id",
+      "method": "GetRegisteredPlanV0",
+      "mutation": "registrationId",
+      "expected": {
+        "decision": "reject",
+        "classification": "SCHEMA",
+        "reason": "registration-id"
+      },
+      "noState": {
+        "authorityStateChanged": false,
+        "coreCalls": 0,
+        "registrationsCreated": 0,
+        "approvalsConsumed": 0,
+        "attemptsCreated": 0,
+        "lifecycleCalls": 0,
+        "backendCalls": 0
+      }
+    }
+  ],
+  "copyOwnership": [
+    "submission-proposal-caller-and-accessor-mutation-do-not-change-copied-bytes",
+    "caller-mutation-after-request-construction-does-not-change-copied-body",
+    "request-accessor-mutation-does-not-change-copied-body",
+    "facade-input-copy-does-not-alias-passive-request",
+    "success-reply-accessor-mutation-does-not-change-retained-state-or-repeated-read",
+    "submit-approval-registration-and-envelope-copied-before-go-and-never-alias-native-memory",
+    "request-attempt-registration-and-approval-identifiers-copied-before-go-and-never-alias-native-memory",
+    "approval-and-attempt-success-identifiers-copied-into-fixed-native-output-buffers"
+  ],
+  "responseLoss": [
+    {
+      "method": "SubmitMainMJSV0",
+      "disposition": "committed-retry-may-create-fresh-registration",
+      "downstreamDisposition": "committed-retry-creates-fresh-registration",
+      "retryMayCreateFreshRegistration": true,
+      "requestIdIsIdempotencyKey": false
+    },
+    {
+      "method": "RegisterPlanV0",
+      "disposition": "committed-retry-creates-fresh-registration",
+      "firstCommittedRegistrations": 1,
+      "retryCommittedRegistrations": 2,
+      "bothRegistrationsSeparatelyReadable": true,
+      "requestIdIsIdempotencyKey": false
+    },
+    {
+      "method": "GetRegisteredPlanV0",
+      "disposition": "repeatable-read-by-registration-id",
+      "storeMutation": false,
+      "repeatedReplyBodyByteEqual": true,
+      "requestIdIsIdempotencyKey": false
+    },
+    {
+      "method": "SubmitApprovalV0",
+      "disposition": "canonical-payload-and-signer-authorization-replay-returns-same-approval-and-current-state",
+      "semanticIdentity": "canonical-approval-payload+resolved-signer-authorization-identity",
+      "sameApprovalID": true,
+      "currentStateReturned": true,
+      "duplicateAuthorityEffects": 0,
+      "requestIdIsIdempotencyKey": false
+    },
+    {
+      "method": "RequestAttemptV0",
+      "disposition": "registration-and-approval-reference-replay-returns-same-attempt-and-current-state",
+      "semanticIdentity": "registration-id+approval-reference",
+      "sameAttemptID": true,
+      "currentStateReturned": true,
+      "duplicateAttempts": 0,
+      "duplicateLifecycleEffects": 0,
+      "requestIdIsIdempotencyKey": false
+    }
+  ],
+  "flowControl": [
+    {
+      "id": "submit.connection.concurrent-cap-plus-one",
+      "method": "SubmitMainMJSV0",
+      "admitted": 1,
+      "attempted": 2,
+      "sameConnection": true,
+      "classification": "CAPACITY",
+      "reason": "ipc-connection-in-flight",
+      "queueDepth": 0,
+      "noState": {
+        "authorityStateChanged": false,
+        "coreCalls": 0,
+        "registrationsCreated": 0,
+        "approvalsConsumed": 0,
+        "attemptsCreated": 0,
+        "lifecycleCalls": 0,
+        "backendCalls": 0
+      }
+    },
+    {
+      "id": "submit.service-connections-cap-plus-one",
+      "method": "SubmitMainMJSV0",
+      "admitted": 4,
+      "attempted": 5,
+      "classification": "CAPACITY",
+      "reason": "ipc-service-connections",
+      "queueDepth": 0,
+      "noState": {
+        "authorityStateChanged": false,
+        "coreCalls": 0,
+        "registrationsCreated": 0,
+        "approvalsConsumed": 0,
+        "attemptsCreated": 0,
+        "lifecycleCalls": 0,
+        "backendCalls": 0
+      }
+    },
+    {
+      "id": "supervisor.combined-process-cap-plus-one",
+      "methods": [
+        {
+          "method": "RegisterPlanV0"
+        },
+        {
+          "method": "GetRegisteredPlanV0"
+        }
+      ],
+      "admitted": 8,
+      "attempted": 9,
+      "classification": "CAPACITY",
+      "reason": "ipc-service-connections",
+      "alsoAtProcessCap": true,
+      "queueDepth": 0,
+      "noState": {
+        "authorityStateChanged": false,
+        "coreCalls": 0,
+        "registrationsCreated": 0,
+        "approvalsConsumed": 0,
+        "attemptsCreated": 0,
+        "lifecycleCalls": 0,
+        "backendCalls": 0
+      }
+    },
+    {
+      "id": "supervisor.mixed-register-get-aggregate-byte-cap-plus-one",
+      "methods": [
+        {
+          "method": "RegisterPlanV0",
+          "admittedBytes": 328337
+        },
+        {
+          "method": "GetRegisteredPlanV0",
+          "admittedBytes": 16
+        }
+      ],
+      "isolatedAccountingCapBytes": 328353,
+      "attemptedAdditionalBytes": 1,
+      "classification": "CAPACITY",
+      "reason": "ipc-process-in-flight-bytes",
+      "releasedMethod": "GetRegisteredPlanV0",
+      "postReleaseReadmissionBytes": 1,
+      "postReleaseReadmission": "admitted",
+      "productionAggregateCapBytes": 2626696,
+      "queueDepth": 0,
+      "noState": {
+        "authorityStateChanged": false,
+        "coreCalls": 0,
+        "registrationsCreated": 0,
+        "approvalsConsumed": 0,
+        "attemptsCreated": 0,
+        "lifecycleCalls": 0,
+        "backendCalls": 0
+      }
+    },
+    {
+      "id": "supervisor.mixed-submit-approval-request-attempt-cap-plus-one",
+      "methods": [
+        {
+          "method": "SubmitApprovalV0",
+          "admittedBytes": 528
+        },
+        {
+          "method": "RequestAttemptV0",
+          "admittedBytes": 32
+        }
+      ],
+      "isolatedAccountingCapBytes": 560,
+      "attemptedAdditionalBytes": 1,
+      "classification": "CAPACITY",
+      "reason": "ipc-process-in-flight-bytes",
+      "releasedMethod": "RequestAttemptV0",
+      "releasedBytes": 32,
+      "postReleaseReadmissionBytes": 32,
+      "postReleaseReadmission": "admitted",
+      "productionAggregateCapBytes": 2626696,
+      "queueDepth": 0,
+      "noState": {
+        "authorityStateChanged": false,
+        "coreCalls": 0,
+        "registrationsCreated": 0,
+        "approvalsConsumed": 0,
+        "attemptsCreated": 0,
+        "lifecycleCalls": 0,
+        "backendCalls": 0
+      }
+    }
+  ],
+  "cancellationAndDeadline": [
+    {
+      "id": "cancel.before-dispatch",
+      "disposition": "caller-cancelled-before-dispatch",
+      "coreCalls": 0,
+      "noState": {
+        "authorityStateChanged": false,
+        "coreCalls": 0,
+        "registrationsCreated": 0,
+        "approvalsConsumed": 0,
+        "attemptsCreated": 0,
+        "lifecycleCalls": 0,
+        "backendCalls": 0
+      }
+    },
+    {
+      "id": "cancel.after-dispatch",
+      "disposition": "caller-cancelled-after-dispatch-response-unknown",
+      "coreCalls": 1,
+      "state": "method-semantic-result-controls;transport-does-not-infer-abort",
+      "admittedSlotHeldUntilCoreReturns": true
+    },
+    {
+      "id": "deadline.after-dispatch",
+      "disposition": "method-deadline-after-dispatch-response-unknown",
+      "coreCalls": 1,
+      "state": "method-semantic-result-or-recovery-fence-controls;transport-does-not-infer-abort",
+      "admittedSlotHeldUntilCoreReturns": true
+    },
+    {
+      "id": "submit-approval.deadline-after-dispatch-commit",
+      "method": "SubmitApprovalV0",
+      "disposition": "deadline-cancels-response-delivery-only",
+      "coreCalls": 1,
+      "replyDisposition": "no-application-reply-on-expired-call",
+      "statusTag": null,
+      "reasonTag": null,
+      "postCoreState": {
+        "durableAuthority": "approval-commit-remains-authoritative",
+        "replayIdentity": "canonical-approval-payload+resolved-signer-authorization-identity",
+        "replayResult": "same-approval-id-and-current-state",
+        "newRefusalAllowed": false
+      },
+      "noState": null
+    },
+    {
+      "id": "request-attempt.deadline-after-dispatch-commit",
+      "method": "RequestAttemptV0",
+      "disposition": "deadline-cancels-response-delivery-only",
+      "coreCalls": 1,
+      "replyDisposition": "no-application-reply-on-expired-call",
+      "statusTag": null,
+      "reasonTag": null,
+      "postCoreState": {
+        "durableAuthority": "attempt-commit-remains-authoritative",
+        "replayIdentity": "registration-id+approval-reference",
+        "replayResult": "same-attempt-id-and-current-state",
+        "newRefusalAllowed": false
+      },
+      "noState": null
+    },
+    {
+      "id": "downstream.stall",
+      "disposition": "method-deadline-after-dispatch-response-unknown",
+      "newWorkOnSameConnection": "CAPACITY",
+      "queueDepth": 0,
+      "processTerminationEvidence": false
+    }
+  ],
+  "sourceCustody": {
+    "proposalBytes": {
+      "path": "schemas/conformance/v0/job-proposal/ordinary.json",
+      "byteLength": 776,
+      "sha256": "8edd032c329b80f79a0b2cffe2dbff4dccfd5a08ff1c1313801c7f8a2f851d3e"
+    },
+    "extractedMainMJS": {
+      "logicalPath": "main.mjs",
+      "byteLength": 50,
+      "sha256": "681f39365de1369ee486fa34e88b993c60df5a835006b65e0d8916df717c31cc"
+    },
+    "registeredSourceBytes": {
+      "path": "schemas/conformance/authority-plane-v0/main.mjs",
+      "byteLength": 50,
+      "sha256": "681f39365de1369ee486fa34e88b993c60df5a835006b65e0d8916df717c31cc"
+    },
+    "sourceManifestBytes": {
+      "path": "schemas/conformance/authority-plane-v0/source-manifest.cbor",
+      "byteLength": 89,
+      "sha256": "c387c80094027ffbcacb573f44f5f6b4dec4d243bb436b24dd644434feaa1d14"
+    },
+    "exactProposalSourceEqualsRegisteredSource": true,
+    "registrationCommitsPlanBindingsManifestSourceAtomically": true,
+    "executeTimeReplacementBytesAccepted": false
+  },
+  "zeroEffects": {
+    "ipcEndpoint": false,
+    "peerAuthenticated": false,
+    "keyUsed": false,
+    "processCreated": false,
+    "runtimeCreated": false,
+    "backendCreated": false,
+    "guestCreated": false
+  }
+}
