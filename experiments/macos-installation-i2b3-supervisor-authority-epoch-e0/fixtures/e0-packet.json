@@ -1,0 +1,107 @@
+{
+  "schema": "capsule.experiment.supervisor-authority-epoch-e0-packet/v0",
+  "capsuleInput": {
+    "repository": "Shrimpworks/capsule-corp",
+    "commit": "88f3a2c1f968b1aa604ce14a2db4389822e5b193",
+    "packetPath": "docs/MACOS_INSTALLATION_I2B3_SUPERVISOR_AUTHORITY_EPOCH_EXPERIMENT.md",
+    "packetSha256": "5fa48de7f83c7dcc68cdf393bbff2d08ebef8badfc0e0975788e51c4de6ddc0d",
+    "adrPath": "docs/adr/0045-select-versioned-supervisor-authority-epochs.md",
+    "adrSha256": "43cd022cf8d44c1ebf8f606d58f9da89ffbf561bfcfddc43ad56aa542402ef1a",
+    "adrLifecycle": "Proposed"
+  },
+  "authority": {
+    "sequence": 1,
+    "teamIdentifier": "3DDR84M4JS",
+    "channel": "apple-development-experiment-candidate",
+    "supervisorSigningIdentifier": "com.capsulecorp.capsule.supervisor.authority-e1",
+    "coordinatorSigningIdentifier": "com.capsulecorp.capsule.trust-bootstrap.authority-e1",
+    "launchAgentLabel": "com.capsulecorp.capsule.supervisor.authority-e1",
+    "bootstrapApplicationGroup": "3DDR84M4JS.com.capsulecorp.capsule.bootstrap.authority-e1",
+    "bootstrapMachService": "3DDR84M4JS.com.capsulecorp.capsule.bootstrap.authority-e1.supervisor",
+    "coordinatorInstallationRootGroup": "3DDR84M4JS.com.capsulecorp.capsule.trust-bootstrap.installation-root.authority-e1",
+    "supervisorBootstrapAnchorGroup": "3DDR84M4JS.com.capsulecorp.capsule.supervisor.bootstrap-anchor.authority-e1",
+    "supervisorEvidenceGroup": "3DDR84M4JS.com.capsulecorp.capsule.supervisor.evidence.authority-e1"
+  },
+  "legacy": {
+    "supervisorSigningIdentifier": "com.capsulecorp.capsule.supervisor",
+    "coordinatorSigningIdentifier": "com.capsulecorp.capsule.trust-bootstrap.v1",
+    "selectedNegativeProfile": {
+      "name": "Capsule I2B3 Supervisor Bootstrap Development 3DDR",
+      "uuid": "c45a058b-ffdd-4a6b-bd8c-d746772a2702",
+      "cmsSha256": "964f79980edf22a7280fe19e52893a1e40b0a8639d5bbe3d5dc8fdfada9c6c76",
+      "rawProfileRetained": false
+    },
+    "classification": "legacy-residue-not-authority-epoch-zero"
+  },
+  "sentinels": {
+    "parentRelativePath": "Library/Application Support/CapsuleAuthorityEpochProbe",
+    "modeOctal": "0600",
+    "current": {
+      "name": "current-e1-sentinel",
+      "contentUtf8": "current-authority-e1",
+      "byteLength": 20,
+      "sha256": "256295b6038c620d14e4ba9a347427dd46ba7216c3935041b02000516a0bba7a"
+    },
+    "legacy": {
+      "name": "legacy-stable-sentinel",
+      "contentUtf8": "legacy-stable",
+      "byteLength": 13,
+      "sha256": "b1b60f6fcfae4308c3f44ecb7b746e514cf1e391043431a3c74aa9030055916f"
+    }
+  },
+  "bundleInventory": [
+    {
+      "role": "current-supervisor-probe",
+      "bundlePath": "dist/CapsuleSupervisorAuthorityE1Probe.app",
+      "bundleIdentifier": "com.capsulecorp.capsule.supervisor.authority-e1",
+      "executable": "CapsuleSupervisorAuthorityE1Probe",
+      "launchAllowedInE0": false
+    },
+    {
+      "role": "legacy-supervisor-probe",
+      "bundlePath": "dist/CapsuleSupervisorLegacyProbe.app",
+      "bundleIdentifier": "com.capsulecorp.capsule.supervisor",
+      "executable": "CapsuleSupervisorLegacyProbe",
+      "launchAllowedInE0": false
+    },
+    {
+      "role": "current-coordinator-no-launch",
+      "bundlePath": "dist/CapsuleTrustBootstrapAuthorityE1.xpc",
+      "bundleIdentifier": "com.capsulecorp.capsule.trust-bootstrap.authority-e1",
+      "executable": "CapsuleTrustBootstrapAuthorityE1",
+      "launchAllowedInE0": false
+    }
+  ],
+  "e1Cases": [
+    "E1-01",
+    "E1-02",
+    "E1-03",
+    "E1-04",
+    "E1-05",
+    "E1-06",
+    "E1-07",
+    "E1-08",
+    "E1-09",
+    "E1-10",
+    "E1-11",
+    "E1-12",
+    "E1-14",
+    "E1-15"
+  ],
+  "excludedE1Cases": [
+    "E1-13"
+  ],
+  "constructionBoundary": {
+    "portalAccessed": false,
+    "signingIdentityEnumerated": false,
+    "signingPerformed": false,
+    "profileProvisioned": false,
+    "processLaunched": false,
+    "containerAccessed": false,
+    "keychainAccessed": false,
+    "serviceRegistered": false,
+    "runtimeStarted": false,
+    "guestStarted": false,
+    "productAdmission": false
+  }
+}

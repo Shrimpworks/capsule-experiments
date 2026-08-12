@@ -1,0 +1,46 @@
+{
+  "schema": "capsule.experiment.supervisor-authority-epoch-e0-construction/v0",
+  "date": "2026-08-11",
+  "capsuleInputCommit": "88f3a2c1f968b1aa604ce14a2db4389822e5b193",
+  "archiveBaseCommit": "8ae2cd1cbebdff403fe354da15eac4e27b461765",
+  "environment": {
+    "architecture": "arm64",
+    "macOSVersion": "26.5.2",
+    "macOSBuild": "25F84",
+    "xcodeVersion": "26.6",
+    "xcodeBuild": "17F113",
+    "sdkVersion": "26.5",
+    "clang": "Apple clang version 21.0.0 (clang-2100.1.1.101)"
+  },
+  "construction": {
+    "reproducedInTwoCleanDirectories": true,
+    "bundleTreesByteAndModeEqual": true,
+    "minimumMacOS": "14.0",
+    "linkerUuidDisabled": true,
+    "linkerAdHocCodeSignatureDisabled": true,
+    "builtArtifactsExecuted": false
+  },
+  "authorityBoundary": {
+    "portalAccessed": false,
+    "signingIdentityEnumerated": false,
+    "signingPerformed": false,
+    "profileProvisioned": false,
+    "processLaunched": false,
+    "containerAccessed": false,
+    "keychainAccessed": false,
+    "serviceRegistered": false,
+    "installed": false,
+    "runtimeStarted": false,
+    "backendStarted": false,
+    "vmStarted": false,
+    "guestStarted": false,
+    "productAdmission": false
+  },
+  "result": {
+    "e0Construction": "PASSED",
+    "e1IdentitySeparation": "BLOCKED",
+    "adr0045": "Proposed",
+    "installedOwnerLock": "BLOCKED",
+    "productAdmission": "BLOCKED"
+  }
+}

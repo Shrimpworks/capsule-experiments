@@ -1,0 +1,217 @@
+{
+  "schema": "capsule.experiment.supervisor-authority-epoch-e0-manifest/v0",
+  "capsuleInputCommit": "88f3a2c1f968b1aa604ce14a2db4389822e5b193",
+  "archiveBaseCommit": "8ae2cd1cbebdff403fe354da15eac4e27b461765",
+  "scope": "deterministic-unsigned-no-launch-e0-construction",
+  "excludedFromFileInventory": [
+    "manifest.json"
+  ],
+  "maximumFiles": 64,
+  "fileCount": 34,
+  "files": [
+    {
+      "path": "HANDOFF.md",
+      "bytes": 2924,
+      "mode": "0644",
+      "sha256": "abc6f7cc4b3dbccddb64d7d0280bc67a109fd28893698d0338a49fecb3105ea6"
+    },
+    {
+      "path": "README.md",
+      "bytes": 5103,
+      "mode": "0644",
+      "sha256": "8db5e02e21d14d8849b0043bd276f0fb6c71a4086b9afb54496759ddd2606a5e"
+    },
+    {
+      "path": "RESULTS.md",
+      "bytes": 4096,
+      "mode": "0644",
+      "sha256": "c6bfdd784be45c29919c61dae101140a83e1d4f77df5cf4e4b0c90ef720139f7"
+    },
+    {
+      "path": "descriptors/supervisor-authority-descriptor-v0.input.json",
+      "bytes": 3228,
+      "mode": "0644",
+      "sha256": "89cae5ba5c569ab33cef053fed16b075c655cb18f509e83a3dcec3b4a372bd12"
+    },
+    {
+      "path": "dist/CapsuleSupervisorAuthorityE1Probe.app/Contents/Info.plist",
+      "bytes": 848,
+      "mode": "0644",
+      "sha256": "027362c5ae24c4f8200f1bf06a94feafdbd47a3ab8aad23e3f168303c5afdcbd"
+    },
+    {
+      "path": "dist/CapsuleSupervisorAuthorityE1Probe.app/Contents/MacOS/CapsuleSupervisorAuthorityE1Probe",
+      "bytes": 51672,
+      "mode": "0755",
+      "sha256": "49ed86ae9dc7ea892984ad35388d4ffb52dc2856b0a37968ebbce40fab000408"
+    },
+    {
+      "path": "dist/CapsuleSupervisorAuthorityE1Probe.app/Contents/Resources/RequestedEntitlements.plist",
+      "bytes": 636,
+      "mode": "0644",
+      "sha256": "8b0bf18ce9fd58753623e3c38625f0a179cf051571d80363bda6a87f4032d141"
+    },
+    {
+      "path": "dist/CapsuleSupervisorLegacyProbe.app/Contents/Info.plist",
+      "bytes": 825,
+      "mode": "0644",
+      "sha256": "79b15529cdf37651373a10bdf0232b9acf97760387197fabd8bd8fd239e5714a"
+    },
+    {
+      "path": "dist/CapsuleSupervisorLegacyProbe.app/Contents/MacOS/CapsuleSupervisorLegacyProbe",
+      "bytes": 51672,
+      "mode": "0755",
+      "sha256": "277b61d0e16df7eee0c0978442ef8250a5141f26b30a9a6d58fd83895af289f8"
+    },
+    {
+      "path": "dist/CapsuleSupervisorLegacyProbe.app/Contents/Resources/RequestedEntitlements.plist",
+      "bytes": 532,
+      "mode": "0644",
+      "sha256": "a8690d8fc85cf06f84cf632ed945fdaaa5e99587fdc0d36b82a35308676076bb"
+    },
+    {
+      "path": "dist/CapsuleTrustBootstrapAuthorityE1.xpc/Contents/Info.plist",
+      "bytes": 1019,
+      "mode": "0644",
+      "sha256": "b894b67d0efe67bfe0aa20cdd64ea892e8b595e02fbc8edf0c4495686bae3138"
+    },
+    {
+      "path": "dist/CapsuleTrustBootstrapAuthorityE1.xpc/Contents/MacOS/CapsuleTrustBootstrapAuthorityE1",
+      "bytes": 33208,
+      "mode": "0755",
+      "sha256": "094a80109e5c4c9b266cf76f7136a2bcc155bf1547999026b36f275d904c82c4"
+    },
+    {
+      "path": "dist/CapsuleTrustBootstrapAuthorityE1.xpc/Contents/Resources/RequestedEntitlements.plist",
+      "bytes": 553,
+      "mode": "0644",
+      "sha256": "17f34f0739c7ee46c56971694bf7fe496d15b4535c2e86feed8726b9271c4564"
+    },
+    {
+      "path": "entitlements/coordinator.plist",
+      "bytes": 553,
+      "mode": "0644",
+      "sha256": "17f34f0739c7ee46c56971694bf7fe496d15b4535c2e86feed8726b9271c4564"
+    },
+    {
+      "path": "entitlements/current-supervisor.plist",
+      "bytes": 636,
+      "mode": "0644",
+      "sha256": "8b0bf18ce9fd58753623e3c38625f0a179cf051571d80363bda6a87f4032d141"
+    },
+    {
+      "path": "entitlements/legacy-supervisor.plist",
+      "bytes": 532,
+      "mode": "0644",
+      "sha256": "a8690d8fc85cf06f84cf632ed945fdaaa5e99587fdc0d36b82a35308676076bb"
+    },
+    {
+      "path": "evidence/construction.json",
+      "bytes": 1389,
+      "mode": "0644",
+      "sha256": "05520cd82a4b09cdca17c8ced78ac7a0f8fc5a25b202af3e6c80585855f15534"
+    },
+    {
+      "path": "fixtures/e0-packet.json",
+      "bytes": 4070,
+      "mode": "0644",
+      "sha256": "76cb1f5fff4bb91509022da08edb039a1b2e81799a61859ab78587f46cfb4de3"
+    },
+    {
+      "path": "profile-requests/current-coordinator.json",
+      "bytes": 580,
+      "mode": "0644",
+      "sha256": "0cc4430f15d17da87cb1b8a4492d709ff9170786e0cb662b7494c41d154d435a"
+    },
+    {
+      "path": "profile-requests/current-supervisor.json",
+      "bytes": 576,
+      "mode": "0644",
+      "sha256": "32439f9ffba83b50f3ce70e1e8ded64074ceb1a54e764186d0f69a9570072d0b"
+    },
+    {
+      "path": "profile-requests/legacy-supervisor.json",
+      "bytes": 688,
+      "mode": "0644",
+      "sha256": "f3dcbb825d0f43fd9a52dd7d877db16963c9ec312300e1f73033ec676e43c98c"
+    },
+    {
+      "path": "scripts/build-bundles.sh",
+      "bytes": 3382,
+      "mode": "0755",
+      "sha256": "2ae05fedff9a28c90115c5e684f7b338c8d48df915fbeb0ba5f68d63ffb7e47d"
+    },
+    {
+      "path": "scripts/generate-manifest.mjs",
+      "bytes": 1794,
+      "mode": "0644",
+      "sha256": "3a71de6dc931a537fbceb6178ead29e940be4f1efc37dc2dbf3cdd5b87dc125a"
+    },
+    {
+      "path": "scripts/reproduce.sh",
+      "bytes": 306,
+      "mode": "0755",
+      "sha256": "d2311d16755d1ea421eeabc06a92efc488d2eb0aee993d178437fc069d999047"
+    },
+    {
+      "path": "scripts/verify-mutations.mjs",
+      "bytes": 6780,
+      "mode": "0644",
+      "sha256": "4d8dad5c7bec2e8aeb559862bb3cb50d07bc0d6c51c382c0b7df97e118edb9ee"
+    },
+    {
+      "path": "scripts/verify.mjs",
+      "bytes": 17999,
+      "mode": "0644",
+      "sha256": "8410bb89d8cbf0808b3c0e7d3d9cb6f4e92cc33740b49d6984dfe9862eccb1b0"
+    },
+    {
+      "path": "service-management/current-supervisor-LaunchAgent.plist",
+      "bytes": 734,
+      "mode": "0644",
+      "sha256": "4aac17c1bd5e604b7b54383a79fdd0b5de9a49d81300084ec428cd6be9f002ad"
+    },
+    {
+      "path": "sources/coordinator/main.m",
+      "bytes": 202,
+      "mode": "0644",
+      "sha256": "e5657ae6824edd5a6aef018ac9dc2133e8b2f8b36f236ad24ed4494a1955e5fa"
+    },
+    {
+      "path": "sources/probe/authority_epoch_probe.m",
+      "bytes": 8839,
+      "mode": "0644",
+      "sha256": "b0d7d21445c9bcc9ff7fa14714a43f9bf39cf98c234304c960d0264cd971675c"
+    },
+    {
+      "path": "sources/probe/current_role_config.h",
+      "bytes": 357,
+      "mode": "0644",
+      "sha256": "1993a73f9b77185a1ab5a7036da8af6c487454f5c50d046afa8efb4ed91e6245"
+    },
+    {
+      "path": "sources/probe/legacy_role_config.h",
+      "bytes": 337,
+      "mode": "0644",
+      "sha256": "04aa0fc8ef1e49cdd9fcd23b0033c9b9d4434db8ca75697e0cbf5b3f29ac7d1e"
+    },
+    {
+      "path": "templates/coordinator-Info.plist",
+      "bytes": 1019,
+      "mode": "0644",
+      "sha256": "b894b67d0efe67bfe0aa20cdd64ea892e8b595e02fbc8edf0c4495686bae3138"
+    },
+    {
+      "path": "templates/current-supervisor-Info.plist",
+      "bytes": 848,
+      "mode": "0644",
+      "sha256": "027362c5ae24c4f8200f1bf06a94feafdbd47a3ab8aad23e3f168303c5afdcbd"
+    },
+    {
+      "path": "templates/legacy-supervisor-Info.plist",
+      "bytes": 825,
+      "mode": "0644",
+      "sha256": "79b15529cdf37651373a10bdf0232b9acf97760387197fabd8bd8fd239e5714a"
+    }
+  ]
+}

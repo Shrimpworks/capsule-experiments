@@ -1,0 +1,15 @@
+{
+  "schema": "capsule.experiment.apple-development-profile-request/v0",
+  "component": "current-coordinator-authority-e1",
+  "teamIdentifier": "3DDR84M4JS",
+  "appId": "com.capsulecorp.capsule.trust-bootstrap.authority-e1",
+  "bundleIdentifier": "com.capsulecorp.capsule.trust-bootstrap.authority-e1",
+  "profileType": "macOS App Development",
+  "entitlementsPath": "entitlements/coordinator.plist",
+  "deviceBinding": null,
+  "certificateFingerprint": null,
+  "profileName": null,
+  "profileUuid": null,
+  "profileCmsSha256": null,
+  "state": "unprovisioned-no-portal-access"
+}

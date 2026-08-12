@@ -1,0 +1,6 @@
+#define CAPSULE_ROLE "current-supervisor-authority-e1"
+#define CAPSULE_BUNDLE_IDENTIFIER "com.capsulecorp.capsule.supervisor.authority-e1"
+#define CAPSULE_SENTINEL_NAME "current-e1-sentinel"
+#define CAPSULE_SENTINEL_BYTES "current-authority-e1"
+#define CAPSULE_PEER_SENTINEL_NAME "legacy-stable-sentinel"
+#define CAPSULE_PEER_SENTINEL_BYTES "legacy-stable"
