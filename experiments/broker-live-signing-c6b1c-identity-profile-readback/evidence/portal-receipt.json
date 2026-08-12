@@ -1,0 +1,101 @@
+{
+  "objectType": "capsule.c6b1c.identity-profile-portal-receipt",
+  "objectVersion": 0,
+  "status": {
+    "portalResourceCreation": "PASSED",
+    "completeIdentityProfileReadback": "BLOCKED",
+    "installedSigning": "BLOCKED",
+    "productAdmission": "BLOCKED"
+  },
+  "immutableInputs": {
+    "capsuleExperimentsBaseCommit": "3d7bd46352506bf6018286749c2c85a3e2f683df",
+    "capsuleCorpCommit": "16fb810b97e7ff2a157a251ae4dc8023dcfc01b4",
+    "brokerHarnessMergeCommit": "4a2447d4bd0e03132dc616e608031ca313630cdd",
+    "brokerHarnessCompositeSha256": "0f07954b18fee3db90c440522e4df6f131ed1b2e889bb6f14a746cf43b5d68f8",
+    "supervisorSeamReferenceCommit": "067fe2beb40361bb714507cab1331004e0a656fa"
+  },
+  "environment": {
+    "ownerLabel": "dsteele-shrimp-mbp18-4-01",
+    "macOSVersion": "26.5.2",
+    "macOSBuild": "25F84",
+    "architecture": "arm64",
+    "xcodeVersion": "26.6",
+    "xcodeBuild": "17F113",
+    "sdkVersion": "26.5",
+    "appleClangVersion": "21.0.0",
+    "euid": 501,
+    "bootstrapDomain": "gui/501",
+    "evidenceLeaf": "/Users/dsteele/CapsuleEvidence/c6b1c-profile-dsteele-shrimp-mbp18-4-01",
+    "evidenceLeafOwner": 501,
+    "evidenceLeafMode": "0700",
+    "evidenceLeafEntriesAtStop": 0
+  },
+  "appleDevelopmentIdentity": {
+    "teamIdentifier": "3DDR84M4JS",
+    "portalCertificateRecord": "3SAN55Q9AW",
+    "sha1": "80A4969BCD1B3926020888094B9D812A283D3793",
+    "sha256": "D3E9FBDDBC342F747C3649B5A6FFB307A575827404E02D638C11B6B795A09629",
+    "serialHex": "2680E3A814E45A8A4AC3C2B2EF09023E",
+    "notBefore": "2026-08-04",
+    "notAfter": "2027-08-04",
+    "developerIdSelected": false,
+    "otherIdentityEnumerationRetained": false
+  },
+  "portalResources": {
+    "appId": {
+      "bundleIdentifier": "com.capsulecorp.capsule.broker.c6b1",
+      "applicationIdentifier": "3DDR84M4JS.com.capsulecorp.capsule.broker.c6b1",
+      "description": "Capsule C6b1 Broker Evidence epoch 7",
+      "createdByThisRun": true,
+      "optionalCapabilitiesSelected": []
+    },
+    "profile": {
+      "name": "Capsule C6b1 Broker Evidence macOS Development epoch 7",
+      "portalRecord": "XT8MS38HWV",
+      "type": "macOS App Development",
+      "certificateRecords": [
+        "3SAN55Q9AW"
+      ],
+      "registeredDeviceCount": 1,
+      "registeredDeviceMatchedOwnerConfirmedMac": true,
+      "expirationDate": "2027-08-11",
+      "createdByThisRun": true,
+      "leftIntact": true
+    }
+  },
+  "requestedSignedProjection": {
+    "appSandbox": true,
+    "hardenedRuntime": true,
+    "keychainAccessGroups": [
+      "3DDR84M4JS.com.capsulecorp.capsule.broker.approval.epoch-7"
+    ],
+    "observedInLocalProfile": false,
+    "observedInSignedArtifact": false
+  },
+  "stop": {
+    "reason": "exact authenticated profile download did not produce locally verifiable bytes and a later exact download wait stalled",
+    "promptObserved": false,
+    "profileBytesRetained": false,
+    "localCMSReadbackPerformed": false,
+    "buildPerformed": false,
+    "codeSigningPerformed": false,
+    "installPerformed": false,
+    "launchPerformed": false
+  },
+  "zeroActivation": {
+    "capsuleApprovalKeyOperation": false,
+    "keychainApprovalOperation": false,
+    "localAuthenticationContextOrPrompt": false,
+    "supervisorSeamActivated": false,
+    "ipcListenerOrServiceActivated": false,
+    "productStoreOrConsumerActivated": false,
+    "runtimeBackendVMOrGuestActivated": false
+  },
+  "privacy": {
+    "rawProfileRetained": false,
+    "rawUDIDRetained": false,
+    "credentialRetained": false,
+    "privateKeyRetained": false,
+    "browserSessionStateRetained": false
+  }
+}
