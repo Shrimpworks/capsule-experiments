@@ -1,0 +1,10 @@
+{
+  "objectType": "capsule.authenticated-local-ipc-submit-main-mjs-v0-reply",
+  "objectVersion": 0,
+  "fixtureSerialization": "exact-json-not-xpc-framing",
+  "requestId": "31313131313131313131313131313131",
+  "body": {
+    "registrationId": "77777777777777777777777777777777"
+  },
+  "applicationDataBytes": 16
+}

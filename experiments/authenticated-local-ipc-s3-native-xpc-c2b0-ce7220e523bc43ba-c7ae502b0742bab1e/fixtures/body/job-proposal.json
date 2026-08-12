@@ -1,0 +1,42 @@
+{
+  "apiVersion": "capsule.dev/v0",
+  "kind": "JobProposal",
+  "source": {
+    "entrypoint": "main.mjs",
+    "files": {
+      "main.mjs": "export default function (value) { return value; }\n"
+    }
+  },
+  "runtimeProfile": "fixture-active@1",
+  "input": {
+    "slot": "primary-data",
+    "kind": "inline-json",
+    "value": {
+      "z": [
+        3,
+        0,
+        -2,
+        true,
+        null
+      ],
+      "a": "quote:\" slash:/ backslash:\\ control:\u0000\u001f rocket:🚀",
+      "A": {
+        "b": false,
+        "a": "é"
+      }
+    }
+  },
+  "requestedLimits": {
+    "wallTimeMs": 5000
+  },
+  "outputs": [
+    {
+      "slot": "transformed-json",
+      "kind": "inline-json",
+      "maxBytes": 65536
+    }
+  ],
+  "labels": {
+    "example": "known-answer"
+  }
+}

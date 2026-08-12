@@ -1,0 +1,14 @@
+{
+  "objectType": "capsule.authenticated-local-ipc-register-plan-v0-reply",
+  "objectVersion": 0,
+  "fixtureSerialization": "exact-json-not-xpc-framing",
+  "requestId": "41414141414141414141414141414141",
+  "body": {
+    "planRegistrationBytes": {
+      "path": "schemas/conformance/v0/plan-registration/ordinary.cbor",
+      "byteLength": 165,
+      "sha256": "82f9e72dcb8b0f6e16990c2e09aad4ac8661e72ff72820edf1b57ef5f9537199"
+    }
+  },
+  "applicationDataBytes": 165
+}

@@ -1,0 +1,23 @@
+{
+  "objectType": "capsule.authenticated-local-ipc-submit-main-mjs-v0-request",
+  "objectVersion": 0,
+  "fixtureSerialization": "exact-json-not-xpc-framing",
+  "protocolVersion": 0,
+  "requestId": "31313131313131313131313131313131",
+  "installationId": "11111111111111111111111111111111",
+  "epochSequence": 7,
+  "epochDigest": "2222222222222222222222222222222222222222222222222222222222222222",
+  "methodRecord": {
+    "path": "submit-main-mjs-v0.method.json",
+    "byteLength": 992,
+    "sha256": "e070a3e3fce99ab0a96ec4021e2ab7286e69dd4ae152edada813197d8764679c"
+  },
+  "body": {
+    "exactJobProposalBytes": {
+      "path": "schemas/conformance/v0/job-proposal/ordinary.json",
+      "byteLength": 776,
+      "sha256": "8edd032c329b80f79a0b2cffe2dbff4dccfd5a08ff1c1313801c7f8a2f851d3e"
+    }
+  },
+  "applicationDataBytes": 776
+}

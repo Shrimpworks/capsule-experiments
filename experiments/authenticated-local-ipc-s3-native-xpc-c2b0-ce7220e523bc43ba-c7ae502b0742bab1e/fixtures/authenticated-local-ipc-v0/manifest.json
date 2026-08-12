@@ -1,0 +1,183 @@
+{
+  "objectType": "capsule.authenticated-local-ipc-passive-conformance",
+  "objectVersion": 0,
+  "status": "passive-unwired-native-contract-no-listener",
+  "protocolVersion": 0,
+  "audience": "capsule.execution-supervisor.local.v0",
+  "submissionAudience": "capsule.daemon.local.v0",
+  "roleBindingRecordVersion": 0,
+  "transportEncoding": "xpc-dictionary-v0",
+  "transportEncodingVersion": 0,
+  "numericMessageTags": {
+    "invalid": 0,
+    "SubmitMainMJSV0": 1,
+    "RegisterPlanV0": 2,
+    "GetRegisteredPlanV0": 3,
+    "SubmitApprovalV0": 4,
+    "RequestAttemptV0": 5
+  },
+  "numericApprovalStateTags": {
+    "invalid": 0,
+    "usable": 1,
+    "consumed": 2,
+    "invalidated": 3
+  },
+  "numericAttemptStateTags": {
+    "invalid": 0,
+    "created": 1
+  },
+  "numericStatusTags": {
+    "OK": 0,
+    "MALFORMED": 1,
+    "UNSUPPORTED": 2,
+    "SCHEMA": 3,
+    "BINDING": 4,
+    "AUTHENTICATION": 5,
+    "STALE": 6,
+    "REPLAY": 7,
+    "CAPACITY": 8,
+    "TRUST_STATE": 9,
+    "LOCAL_FAILURE": 10,
+    "RECOVERY_REQUIRED": 11,
+    "SEMANTIC": 12,
+    "DOMAIN": 13
+  },
+  "numericReasonTags": {
+    "none": 0,
+    "keySet": 1,
+    "valueType": 2,
+    "dataWidth": 3,
+    "dataCap": 4,
+    "zeroIdentifier": 5,
+    "epochSequence": 6,
+    "protocolVersion": 7,
+    "methodVersion": 8,
+    "messageTag": 9,
+    "methodBinding": 10,
+    "currentState": 11,
+    "capacity": 12,
+    "coreRefusal": 13,
+    "localIntegrityFault": 14
+  },
+  "peerAuthenticationEvidence": null,
+  "caps": {
+    "jobProposal": 2097152,
+    "executionPlan": 65536,
+    "roleBindings": 562,
+    "sourceManifest": 95,
+    "source": 262144,
+    "planRegistration": 4096,
+    "approvalEnvelope": 512,
+    "registerPlanV0Request": 328337,
+    "registerPlanV0Reply": 4096,
+    "getRegisteredPlanV0Request": 16,
+    "getRegisteredPlanV0Reply": 332433,
+    "submitMainMJSV0Request": 2097152,
+    "submitMainMJSV0Reply": 16,
+    "submitApprovalV0Request": 528,
+    "submitApprovalV0Reply": 16,
+    "requestAttemptV0Request": 32,
+    "requestAttemptV0Reply": 16
+  },
+  "methodCount": 5,
+  "refusalCaseCount": 37,
+  "maximumCaseCount": 18,
+  "nativeXPCEnvelopeCount": 15,
+  "nativeXPCCaseCount": 70,
+  "nativeXPCDeadlineCaseCount": 15,
+  "nativeXPCRefusalReplyCount": 13,
+  "knownAnswers": {
+    "native-xpc-v0.contract.json": {
+      "path": "native-xpc-v0.contract.json",
+      "byteLength": 162876,
+      "sha256": "7ae502b0742bab1e129cdb8fc026b680416587353af55631f55e80f2fabf962c"
+    },
+    "submit-main-mjs-v0.method.json": {
+      "path": "submit-main-mjs-v0.method.json",
+      "byteLength": 992,
+      "sha256": "e070a3e3fce99ab0a96ec4021e2ab7286e69dd4ae152edada813197d8764679c"
+    },
+    "submit-main-mjs-v0.request.json": {
+      "path": "submit-main-mjs-v0.request.json",
+      "byteLength": 832,
+      "sha256": "7349502f04e35732c5910c54bbdb677464612c85a4df397b3d3f9562be0233b3"
+    },
+    "submit-main-mjs-v0.reply.json": {
+      "path": "submit-main-mjs-v0.reply.json",
+      "byteLength": 312,
+      "sha256": "e9add26faa1ed1a0d3fe2326859d56687c3348f950d36ff4a374fd1781358b36"
+    },
+    "register-plan-v0.method.json": {
+      "path": "register-plan-v0.method.json",
+      "byteLength": 897,
+      "sha256": "2ea0606dd0489259758a6183161ee76b17d7ac416d3491ab55917ed0213f0d1d"
+    },
+    "register-plan-v0.request.json": {
+      "path": "register-plan-v0.request.json",
+      "byteLength": 1466,
+      "sha256": "a8a28b4af85fd0a666c5abf8c7302f74d6f2169673d1628c887a13490f81d973"
+    },
+    "register-plan-v0.reply.json": {
+      "path": "register-plan-v0.reply.json",
+      "byteLength": 471,
+      "sha256": "18b3feca9951ac5ba76d80fb896d667efa17602e7a9200076ec4c0aa39575df1"
+    },
+    "get-registered-plan-v0.method.json": {
+      "path": "get-registered-plan-v0.method.json",
+      "byteLength": 904,
+      "sha256": "99e535546c68d2ea73adaa52541aea468884dbc7d24c483f792e59b2fddccaf5"
+    },
+    "get-registered-plan-v0.request.json": {
+      "path": "get-registered-plan-v0.request.json",
+      "byteLength": 684,
+      "sha256": "f810344038b46f1396432a349b73aa0e965032a7e55cf5fc831956f7d5336e5f"
+    },
+    "get-registered-plan-v0.reply.json": {
+      "path": "get-registered-plan-v0.reply.json",
+      "byteLength": 1328,
+      "sha256": "1e4abf3fb12aa1aa2b71e585fee151143548798031050e40051e59212a8a96d0"
+    },
+    "oracles.json": {
+      "path": "oracles.json",
+      "byteLength": 39625,
+      "sha256": "254ec5da9db2f3e0b590a3119d21abc958feb8d607eddb8deca2831b6d168b38"
+    }
+  },
+  "bodyFixtures": {
+    "exactJobProposalBytes": {
+      "path": "schemas/conformance/v0/job-proposal/ordinary.json",
+      "byteLength": 776,
+      "sha256": "8edd032c329b80f79a0b2cffe2dbff4dccfd5a08ff1c1313801c7f8a2f851d3e"
+    },
+    "exactPlanBytes": {
+      "path": "schemas/conformance/authority-plane-v0/execution-plan.cbor",
+      "byteLength": 527,
+      "sha256": "ef268a0b829adc1ce1307203f4b805f63379954ccf41e8e20a7487b6e5acf241"
+    },
+    "roleBindingBytes": {
+      "path": "schemas/conformance/authority-plane-v0/role-bindings.bin",
+      "byteLength": 562,
+      "sha256": "38995b7af11a5c971b9c7ebd46f24513f06750dffcdd5d49a9fdf41173b5244c"
+    },
+    "planRegistrationBytes": {
+      "path": "schemas/conformance/v0/plan-registration/ordinary.cbor",
+      "byteLength": 165,
+      "sha256": "82f9e72dcb8b0f6e16990c2e09aad4ac8661e72ff72820edf1b57ef5f9537199"
+    },
+    "sourceManifestBytes": {
+      "path": "schemas/conformance/authority-plane-v0/source-manifest.cbor",
+      "byteLength": 89,
+      "sha256": "c387c80094027ffbcacb573f44f5f6b4dec4d243bb436b24dd644434feaa1d14"
+    },
+    "sourceBytes": {
+      "path": "schemas/conformance/authority-plane-v0/main.mjs",
+      "byteLength": 50,
+      "sha256": "681f39365de1369ee486fa34e88b993c60df5a835006b65e0d8916df717c31cc"
+    },
+    "approvalEnvelopeBytes": {
+      "path": "schemas/conformance/v0/approval-grant/ordinary.cose",
+      "byteLength": 375,
+      "sha256": "fb0a9e7c983f6f3986260dce857edf6b18cba99ee386f9532300dbdc31a5a3bd"
+    }
+  }
+}

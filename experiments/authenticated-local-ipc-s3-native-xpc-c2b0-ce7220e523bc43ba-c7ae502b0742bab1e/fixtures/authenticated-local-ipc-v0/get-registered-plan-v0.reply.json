@@ -1,0 +1,34 @@
+{
+  "objectType": "capsule.authenticated-local-ipc-get-registered-plan-v0-reply",
+  "objectVersion": 0,
+  "fixtureSerialization": "exact-json-not-xpc-framing",
+  "requestId": "51515151515151515151515151515151",
+  "body": {
+    "exactPlanBytes": {
+      "path": "schemas/conformance/authority-plane-v0/execution-plan.cbor",
+      "byteLength": 527,
+      "sha256": "ef268a0b829adc1ce1307203f4b805f63379954ccf41e8e20a7487b6e5acf241"
+    },
+    "roleBindingBytes": {
+      "path": "schemas/conformance/authority-plane-v0/role-bindings.bin",
+      "byteLength": 562,
+      "sha256": "38995b7af11a5c971b9c7ebd46f24513f06750dffcdd5d49a9fdf41173b5244c"
+    },
+    "planRegistrationBytes": {
+      "path": "schemas/conformance/v0/plan-registration/ordinary.cbor",
+      "byteLength": 165,
+      "sha256": "82f9e72dcb8b0f6e16990c2e09aad4ac8661e72ff72820edf1b57ef5f9537199"
+    },
+    "sourceManifestBytes": {
+      "path": "schemas/conformance/authority-plane-v0/source-manifest.cbor",
+      "byteLength": 89,
+      "sha256": "c387c80094027ffbcacb573f44f5f6b4dec4d243bb436b24dd644434feaa1d14"
+    },
+    "sourceBytes": {
+      "path": "schemas/conformance/authority-plane-v0/main.mjs",
+      "byteLength": 50,
+      "sha256": "681f39365de1369ee486fa34e88b993c60df5a835006b65e0d8916df717c31cc"
+    }
+  },
+  "applicationDataBytes": 1393
+}
