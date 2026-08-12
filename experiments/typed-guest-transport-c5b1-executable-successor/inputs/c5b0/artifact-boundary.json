@@ -1,0 +1,119 @@
+{
+  "objectType": "capsule.c5b0.artifact-boundary",
+  "objectVersion": 1,
+  "status": "BLOCKED",
+  "reason": "The lost v10-v27 archive prevents byte readback of v19, and C5b0 did not construct executable successor artifacts.",
+  "materialized": {
+    "profile": {
+      "path": "manifests/successor-profile.json",
+      "bytes": 3062,
+      "sha256": "c0a2d0ec6337d4cb4ed52e8a930a54a59ec3e677d4ad9da1a602c4cd7124f04b"
+    },
+    "plan": {
+      "path": "manifests/no-run-plan.json",
+      "bytes": 1281,
+      "sha256": "5a806ac1628537c999e73b07b0d73d1a96a31507d1e91fd0f9a0535787e6fb64"
+    },
+    "runnerContract": {
+      "path": "contracts/runner.json",
+      "bytes": 1125,
+      "sha256": "51287e0b9071d56d8c57d661c27cc1ff1a6e4216c846abe7660d753d835c9aca"
+    },
+    "rootContract": {
+      "path": "contracts/root-layout.json",
+      "bytes": 1828,
+      "sha256": "1b8470469304884ea151dbd0a58180a6ac4c666cf686fea709b282a60048f8ad"
+    },
+    "initContract": {
+      "path": "contracts/trusted-init.json",
+      "bytes": 593,
+      "sha256": "65a73534c87040a5c80ebc723594bae13bb63e0adeeb5af481afa2096c07da18"
+    },
+    "launcherContract": {
+      "path": "contracts/trusted-launcher.json",
+      "bytes": 786,
+      "sha256": "64c80606f2f319962cc941187bf27b12e2a00a9a326486b6b5a62ce9a9b1a9b5"
+    },
+    "controllerContract": {
+      "path": "contracts/controller.json",
+      "bytes": 811,
+      "sha256": "fdcb46f95206a56d812661b2b54f25730cda5f53e4891f32ab3531b5ed476e11"
+    },
+    "frames": {
+      "source": {
+        "path": "fixtures/source.frame",
+        "bytes": 255,
+        "sha256": "c8d035b02af814c2df23916bb060018c50412dd208131ec37a65f87c94ce8173"
+      },
+      "input": {
+        "path": "fixtures/input.frame",
+        "bytes": 188,
+        "sha256": "c4b66bba6dd33af06760118f34955b637308538d300ace79aa68381ae3f7f2c2"
+      },
+      "completion": {
+        "path": "fixtures/completion.frame",
+        "bytes": 259,
+        "sha256": "d60681ed713f8e11df7cd85301552ef84e3f2831c014fb65741350c9e0db7a7c"
+      }
+    }
+  },
+  "unavailableExecutableSuccessorIdentities": [
+    {
+      "role": "host-runner",
+      "bytes": null,
+      "sha256": null
+    },
+    {
+      "role": "raw-runtime-root",
+      "bytes": null,
+      "sha256": null
+    },
+    {
+      "role": "trusted-init",
+      "bytes": null,
+      "sha256": null
+    },
+    {
+      "role": "trusted-launcher",
+      "bytes": null,
+      "sha256": null
+    },
+    {
+      "role": "controller",
+      "bytes": null,
+      "sha256": null
+    }
+  ],
+  "historicalOpaqueBytes": [
+    {
+      "role": "v19-materialized-profile",
+      "sha256": "44dcb00d87db91a753beabcc3071ca7b8b6d308fa293b1b9c799c60c4faa3a0b",
+      "available": false
+    },
+    {
+      "role": "v19-signed-runner",
+      "sha256": "df0d7a96b21fae03a5fe50f0afe7551e8b5706adab219fcdfc7c26caf940173c",
+      "available": false
+    },
+    {
+      "role": "v19-raw-root",
+      "sha256": "89b321877bfb2323b11a0eb2e264d3aaffcd2c63702a524b53f55d41ec828c43",
+      "available": false
+    },
+    {
+      "role": "v19-controller",
+      "sha256": "c4c6fc31dc82df7bb4a4cfc809321a8a78c2eb8f66d50b35b9e80e57135cc70c",
+      "available": false
+    }
+  ],
+  "effects": {
+    "libkrunLoaded": false,
+    "hvfCalled": false,
+    "runnerProcessStarted": false,
+    "vmStarted": false,
+    "guestStarted": false,
+    "credentialsAccessed": false,
+    "networkAccessed": false,
+    "admissionChanged": false
+  }
+}

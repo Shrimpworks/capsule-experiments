@@ -1,0 +1,62 @@
+{
+  "predicateType": "https://slsa.dev/provenance/v1",
+  "subject": [
+    {
+      "name": "hostRunner",
+      "digest": {
+        "sha256": "8b7ba0315d26326828210cc50588b723bc0be0529372263d592118e8debaadb4"
+      },
+      "bytes": 33944
+    },
+    {
+      "name": "rawRuntimeRoot",
+      "digest": {
+        "sha256": "578a8e6ba56da05252126567b15f7dcc07eab9dc2ad18820a9d1de53c8db3af5"
+      },
+      "bytes": 8388608
+    },
+    {
+      "name": "trustedInit",
+      "digest": {
+        "sha256": "c6c5f15dd386082e6b108c354afdca27327d6760efdefb54fe9d02e25b80e408"
+      },
+      "bytes": 365352
+    },
+    {
+      "name": "trustedLauncher",
+      "digest": {
+        "sha256": "278467cd82499590154a9b1a34b0189096d3927c49fefd228dedc2f4db36ea98"
+      },
+      "bytes": 389312
+    },
+    {
+      "name": "controller",
+      "digest": {
+        "sha256": "0d56c595ac880d6c88a30bbb2246837407b9f684679315713c26f07aa2d212d8"
+      },
+      "bytes": 33064
+    }
+  ],
+  "buildDefinition": {
+    "buildType": "capsule.no-run.c5b1/v1",
+    "externalParameters": {
+      "repositoryBaseline": "067fe2beb40361bb714507cab1331004e0a656fa",
+      "predecessorMerge": "b357d0c0fb29100c180494e67cebd7809aabe3c5"
+    },
+    "internalParameters": {
+      "sourceDateEpoch": 0,
+      "builds": 2,
+      "network": false,
+      "signing": false
+    }
+  },
+  "runDetails": {
+    "builder": {
+      "id": "local-owned-mac-construction-only"
+    },
+    "byproducts": [],
+    "metadata": {
+      "invocationId": "capsule-c5b1-2026-08-11"
+    }
+  }
+}

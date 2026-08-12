@@ -1,0 +1,33 @@
+{
+  "status": "PASSED",
+  "cases": [
+    {
+      "id": "host-runner-byte",
+      "expected": "artifact identity mismatch"
+    },
+    {
+      "id": "root-input-byte",
+      "expected": "root embedded input mismatch"
+    },
+    {
+      "id": "root-journal-feature",
+      "expected": "root journal feature must be disabled"
+    },
+    {
+      "id": "c5b0-input-byte",
+      "expected": "root embedded input mismatch"
+    },
+    {
+      "id": "execution-status-claim",
+      "expected": "execution status must remain BLOCKED"
+    },
+    {
+      "id": "root-runtime-insertion",
+      "expected": "governed runtime path must remain absent"
+    },
+    {
+      "id": "closed-inventory-extra",
+      "expected": "archive inventory mismatch"
+    }
+  ]
+}
