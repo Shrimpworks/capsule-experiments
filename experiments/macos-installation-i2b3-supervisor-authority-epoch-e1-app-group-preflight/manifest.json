@@ -1,0 +1,43 @@
+{
+  "schema": "capsule.experiment.closed-file-manifest/v0",
+  "selfExcluded": true,
+  "retainedFileCount": 6,
+  "files": [
+    {
+      "path": "evidence/result.json",
+      "bytes": 1809,
+      "mode": "0644",
+      "sha256": "85526bf2c5c4c73f1cf0d926df187704609c0fa518a56218eb65c6933cc1c859"
+    },
+    {
+      "path": "HANDOFF.md",
+      "bytes": 599,
+      "mode": "0644",
+      "sha256": "c5d2a4be67c89779fe6183afdb9a11951cb4419aa543f020324e60328950ac59"
+    },
+    {
+      "path": "README.md",
+      "bytes": 3525,
+      "mode": "0644",
+      "sha256": "51d726bb95c7b856d1ae9d67c9e7cd771317032e5f76d876a9c44091dcd3371c"
+    },
+    {
+      "path": "RESULTS.md",
+      "bytes": 657,
+      "mode": "0644",
+      "sha256": "a7d3b34837c2d54f7935cc1c795cd443146d85442375e6d149c3ba7335813c33"
+    },
+    {
+      "path": "scripts/generate-manifest.mjs",
+      "bytes": 1521,
+      "mode": "0644",
+      "sha256": "adbee223ba895d369e219544d943c186d4612712070a751a93b9924dcbf79d00"
+    },
+    {
+      "path": "scripts/verify.mjs",
+      "bytes": 1352,
+      "mode": "0644",
+      "sha256": "e6072db6b7e0aa040572e0be12ca4d68284020e116a37b9baaa8595e8d83784e"
+    }
+  ]
+}

@@ -1,0 +1,51 @@
+{
+  "schema": "capsule.experiment.supervisor-authority-epoch-e1-app-group-preflight/v0",
+  "status": "PASSED",
+  "candidateDisposition": "NO_GO",
+  "e1MatrixStatus": "BLOCKED",
+  "adr0045Lifecycle": "Proposed",
+  "date": "2026-08-11",
+  "inputs": {
+    "experimentsBase": "cd06bd84690a16bb4d0924a8a4cd64845ebb0159",
+    "e0Merge": "dee784d40684100f8315720fab9a5cd3399f492b",
+    "e0ManifestSha256": "b5d21ed3c2b14053325d5f1af66ceb59389e5fd31d8d2dd33274e8ca37525936",
+    "capsuleCommit": "16fb810b97e7ff2a157a251ae4dc8023dcfc01b4",
+    "legacyProfile": {
+      "name": "Capsule I2B3 Supervisor Bootstrap Development 3DDR",
+      "uuid": "c45a058b-ffdd-4a6b-bd8c-d746772a2702",
+      "cmsSha256": "964f79980edf22a7280fe19e52893a1e40b0a8639d5bbe3d5dc8fdfada9c6c76",
+      "byteLength": 12565,
+      "ownerUid": 501,
+      "modeOctal": "0600",
+      "rawProfileRetained": false
+    }
+  },
+  "portalObservation": {
+    "teamIdentifier": "3DDR84M4JS",
+    "resourceType": "App Group",
+    "formSubmitted": false,
+    "frozenIdentifier": "3DDR84M4JS.com.capsulecorp.capsule.bootstrap.authority-e1",
+    "renderedIdentifier": "group.3DDR84M4JS.com.capsulecorp.capsule.bootstrap.authority-e1",
+    "mismatch": "portal-owned-group-prefix"
+  },
+  "effects": {
+    "appGroupCreated": false,
+    "appIdCreated": false,
+    "profileCreated": false,
+    "profileDeleted": false,
+    "signingPerformed": false,
+    "bundleInstalled": false,
+    "processLaunched": false,
+    "coordinatorLaunched": false,
+    "containerAccessed": false,
+    "sentinelCreated": false,
+    "serviceRegistered": false,
+    "keychainAccessed": false,
+    "localAuthenticationInvoked": false,
+    "protectedRootCreated": false,
+    "storeOpened": false,
+    "runtimeStarted": false,
+    "guestStarted": false,
+    "productAdmission": false
+  }
+}
