@@ -7,7 +7,8 @@ Work item: C3b/E1 exact portal-identity preflight
 Status: PASSED
 Scope: immutable E0, restored legacy profile, owner-host, and exact unsubmitted App Group-form
   projection only
-Exact ADR-0045/E0 App Group identity candidate: NO_GO
+Developer-portal registration path for the macOS-style App Group ID: NO_GO
+Exact ADR-0045/E0 macOS-style App Group identity candidate: BLOCKED on signed execution evidence
 C3b E1 platform mutation matrix: BLOCKED
 Parent installed owner-lock G3/I2B: BLOCKED
 ADR-0045 lifecycle: Proposed
@@ -20,16 +21,21 @@ Can the exact frozen E0 App Group identity
 `3DDR84M4JS.com.capsulecorp.capsule.bootstrap.authority-e1` be registered unchanged through the
 Apple Developer portal before any E1 bundle, container, or sentinel mutation?
 
-The preflight answer is `NO_GO` for that exact candidate. On the authenticated Team `3DDR84M4JS`
+The preflight answer is `NO_GO` only for registering that macOS-style identifier through the
+Developer website's App Group form. On the authenticated Team `3DDR84M4JS`
 App Group registration form, entering the frozen value produced the portal identifier preview
 `group.3DDR84M4JS.com.capsulecorp.capsule.bootstrap.authority-e1`. The form owns the `group.`
 namespace and would not register the frozen byte string unchanged. The task stopped without
 pressing Continue or Register and without creating an App Group, App ID, profile, or other portal
 resource.
 
-This is a candidate-level disposition, not an E1 control result. The E1 matrix remains `BLOCKED`
-until ADR-0045 and E0 are revised to one actually provisionable, independently reviewed tuple and
-a new owner authorization names its exact portal and platform mutations.
+The original interpretation was too broad. Apple's App Groups entitlement documentation states
+that macOS also supports `<team identifier>.<group name>` identifiers and that those identifiers
+do not need registration on the Developer website. Apple Developer Technical Support separately
+describes the same macOS-style form and distinguishes it from registered `group.<group name>`
+identifiers. The frozen ADR-0045/E0 value already has the documented macOS-style form; it is not
+rejected by this form observation. Its platform behavior remains `BLOCKED` on exact signed-profile
+and E1 execution evidence.
 
 ## Defensive boundary
 
@@ -58,13 +64,23 @@ backend, VM, guest, approval, attempt, or product path.
 No raw provisioning profile, device identifier, credential, private key, account email, or
 browser session value is retained.
 
-## Decision and next action
+## Corrected decision and next action
 
-Do not silently remove, add, or relocate the `group.` or Team prefix and do not proceed with the
-remaining C3b authorization. Revise Proposed ADR-0045 and E0 together after primary-source and
-portal review selects the exact portal App Group identifier and exact effective-entitlement form.
-Materialize and independently verify a successor E0 packet, then obtain a fresh owner
-authorization for profiles, signing, and E1-01..E1-12/E1-14..E1-15. E1-13 remains excluded.
+Do not register or substitute an iOS-style `group.` identifier. Preserve the exact frozen
+macOS-style value. The next no-container gate is to create/read back only the two explicit App IDs
+and development profiles, sign the existing E0 Supervisor and no-launch Coordinator artifacts,
+embed the exact profiles, and verify that the signed code claims the frozen macOS-style group and
+role-specific Keychain groups while the profile/code-signature association is determinate. Stop
+again before bundle launch if that projection does not validate. If it passes, obtain a fresh
+owner authorization for E1-01..E1-12/E1-14..E1-15. E1-13 remains excluded.
+
+## Primary sources and evidence classes
+
+- [Apple App Groups entitlement](https://developer.apple.com/documentation/bundleresources/entitlements/com.apple.security.application-groups): documented mechanism; macOS supports
+  `<team identifier>.<group name>` and does not require Developer-website registration for it.
+- [Apple DTS: Code Signing Identifiers Explained](https://developer.apple.com/forums/thread/811970): Apple-staff explanation; distinguishes registered iOS-style IDs from macOS-style IDs.
+- Portal form observation retained here: exact-host observation; proves only that the registration
+  form creates an iOS-style `group.` identifier and cannot register the frozen bytes unchanged.
 
 ## Verification
 

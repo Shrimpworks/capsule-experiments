@@ -5,27 +5,27 @@
   "files": [
     {
       "path": "evidence/result.json",
-      "bytes": 1809,
+      "bytes": 1967,
       "mode": "0644",
-      "sha256": "85526bf2c5c4c73f1cf0d926df187704609c0fa518a56218eb65c6933cc1c859"
+      "sha256": "8c50e4d2de377d2bc16cb8bf6ac03591a40faff975abb8f2e9797c46c4ffbb3b"
     },
     {
       "path": "HANDOFF.md",
-      "bytes": 599,
+      "bytes": 720,
       "mode": "0644",
-      "sha256": "c5d2a4be67c89779fe6183afdb9a11951cb4419aa543f020324e60328950ac59"
+      "sha256": "fe13e82aead7e8afacae0b43953a02977fcf0c30fa7c2621126185f4b6611382"
     },
     {
       "path": "README.md",
-      "bytes": 3525,
+      "bytes": 4940,
       "mode": "0644",
-      "sha256": "51d726bb95c7b856d1ae9d67c9e7cd771317032e5f76d876a9c44091dcd3371c"
+      "sha256": "60e2978512079c59d0dc1c6fcd0b951e2fa1f06ec3b10e9f3cf792f7308512f2"
     },
     {
       "path": "RESULTS.md",
-      "bytes": 657,
+      "bytes": 1059,
       "mode": "0644",
-      "sha256": "a7d3b34837c2d54f7935cc1c795cd443146d85442375e6d149c3ba7335813c33"
+      "sha256": "945bf6c8afb20471696440902ade9d08fce2d0b45847fa08d378cc534e6713ab"
     },
     {
       "path": "scripts/generate-manifest.mjs",
@@ -35,9 +35,9 @@
     },
     {
       "path": "scripts/verify.mjs",
-      "bytes": 1352,
+      "bytes": 1618,
       "mode": "0644",
-      "sha256": "e6072db6b7e0aa040572e0be12ca4d68284020e116a37b9baaa8595e8d83784e"
+      "sha256": "95637fa4da14cc3923cd04849c5dea2083734726db2a35b9a098d435de805257"
     }
   ]
 }

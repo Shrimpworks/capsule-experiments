@@ -7,12 +7,15 @@ const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const result = JSON.parse(fs.readFileSync(path.join(root, "evidence/result.json"), "utf8"));
 
 assert.equal(result.status, "PASSED");
-assert.equal(result.candidateDisposition, "NO_GO");
+assert.equal(result.portalRegistrationPathDisposition, "NO_GO");
+assert.equal(result.identityCandidateStatus, "BLOCKED");
 assert.equal(result.e1MatrixStatus, "BLOCKED");
 assert.equal(result.adr0045Lifecycle, "Proposed");
 assert.equal(result.portalObservation.formSubmitted, false);
 assert.equal(result.portalObservation.renderedIdentifier,
   `group.${result.portalObservation.frozenIdentifier}`);
+assert.equal(result.portalObservation.correctedInterpretation,
+  "macos-style-identifier-does-not-require-developer-website-registration");
 assert.equal(result.inputs.legacyProfile.rawProfileRetained, false);
 assert.deepEqual(result.effects, {
   appGroupCreated: false,
@@ -35,4 +38,8 @@ assert.deepEqual(result.effects, {
   productAdmission: false,
 });
 
-console.log(JSON.stringify({ status: "PASSED", candidateDisposition: "NO_GO" }));
+console.log(JSON.stringify({
+  status: "PASSED",
+  portalRegistrationPathDisposition: "NO_GO",
+  identityCandidateStatus: "BLOCKED",
+}));
