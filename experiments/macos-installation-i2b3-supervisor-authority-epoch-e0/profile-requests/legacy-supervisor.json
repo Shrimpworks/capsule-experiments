@@ -1,0 +1,14 @@
+{
+  "schema": "capsule.experiment.apple-development-profile-reference/v0",
+  "component": "legacy-stable-supervisor-negative-probe",
+  "teamIdentifier": "3DDR84M4JS",
+  "appId": "com.capsulecorp.capsule.supervisor",
+  "bundleIdentifier": "com.capsulecorp.capsule.supervisor",
+  "profileType": "macOS App Development",
+  "entitlementsPath": "entitlements/legacy-supervisor.plist",
+  "profileName": "Capsule I2B3 Supervisor Bootstrap Development 3DDR",
+  "profileUuid": "c45a058b-ffdd-4a6b-bd8c-d746772a2702",
+  "profileCmsSha256": "964f79980edf22a7280fe19e52893a1e40b0a8639d5bbe3d5dc8fdfada9c6c76",
+  "rawProfilePresent": false,
+  "state": "retained-public-metadata-only-not-used-in-e0"
+}

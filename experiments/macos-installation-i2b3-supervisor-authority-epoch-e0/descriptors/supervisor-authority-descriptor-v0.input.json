@@ -1,0 +1,83 @@
+{
+  "schema": "capsule.experiment.supervisor-authority-descriptor-v0-input/v0",
+  "state": "inactive-construction-input",
+  "activationDecision": "refuse-unresolved-e1-inputs",
+  "objectType": "capsule.supervisor-authority-descriptor",
+  "objectVersion": 0,
+  "authoritySequence": 1,
+  "transitionReason": "initial-versioned-authority-after-legacy-residue",
+  "predecessor": {
+    "state": "initial-install-absence-value-not-selected",
+    "digest": null
+  },
+  "installation": {
+    "installationId": null,
+    "installationTrustEpochDigest": null,
+    "releaseManifestDigest": null
+  },
+  "supervisor": {
+    "appId": "com.capsulecorp.capsule.supervisor.authority-e1",
+    "bundleIdentifier": "com.capsulecorp.capsule.supervisor.authority-e1",
+    "signingIdentifier": "com.capsulecorp.capsule.supervisor.authority-e1",
+    "teamIdentifier": "3DDR84M4JS",
+    "channel": "apple-development-experiment-candidate",
+    "allowedCdHashes": [],
+    "effectiveEntitlementDigest": null,
+    "provisioningProfile": {
+      "uuid": null,
+      "cmsSha256": null
+    },
+    "privateContainer": {
+      "selection": "platform-api-only",
+      "urlDigest": null,
+      "pathStored": false
+    }
+  },
+  "coordinator": {
+    "appId": "com.capsulecorp.capsule.trust-bootstrap.authority-e1",
+    "bundleIdentifier": "com.capsulecorp.capsule.trust-bootstrap.authority-e1",
+    "signingIdentifier": "com.capsulecorp.capsule.trust-bootstrap.authority-e1",
+    "peerRequirementDigest": null,
+    "provisioningProfile": {
+      "uuid": null,
+      "cmsSha256": null
+    }
+  },
+  "launchAgent": {
+    "label": "com.capsulecorp.capsule.supervisor.authority-e1",
+    "plistRelativePath": "Contents/Library/LaunchAgents/com.capsulecorp.capsule.supervisor.authority-e1.plist",
+    "bundleProgram": "Contents/Library/Helpers/CapsuleSupervisorAuthorityE1Probe.app/Contents/MacOS/CapsuleSupervisorAuthorityE1Probe",
+    "machService": "3DDR84M4JS.com.capsulecorp.capsule.bootstrap.authority-e1.supervisor",
+    "registered": false
+  },
+  "groups": {
+    "bootstrapApplicationGroup": "3DDR84M4JS.com.capsulecorp.capsule.bootstrap.authority-e1",
+    "coordinatorInstallationRoot": "3DDR84M4JS.com.capsulecorp.capsule.trust-bootstrap.installation-root.authority-e1",
+    "supervisorBootstrapAnchor": "3DDR84M4JS.com.capsulecorp.capsule.supervisor.bootstrap-anchor.authority-e1",
+    "supervisorEvidence": "3DDR84M4JS.com.capsulecorp.capsule.supervisor.evidence.authority-e1"
+  },
+  "protocolBindings": {
+    "descriptorDigest": null,
+    "bootstrapRequestSchema": null,
+    "bootstrapRecordSchema": null,
+    "stateSchema": null,
+    "authorityLifecycleEngine": null,
+    "ownerLockMechanism": null,
+    "createOpenMigrationDisposition": "unselected-blocked"
+  },
+  "unresolvedUntilAuthorizedE1": [
+    "initial-install-absence-value",
+    "installation-id",
+    "installation-trust-epoch-digest",
+    "release-manifest-digest",
+    "current-profile-uuids-and-cms-digests",
+    "certificate-fingerprint",
+    "signed-cdhashes",
+    "effective-entitlement-digests",
+    "peer-requirement-digest",
+    "platform-container-url-digests",
+    "bootstrap-request-and-record-schema-digests",
+    "state-schema-and-engine-identity",
+    "owner-lock-mechanism"
+  ]
+}
