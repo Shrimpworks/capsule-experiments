@@ -1,0 +1,63 @@
+{
+  "schema": "capsule.experiment.c6b1c-signed-artifact-readback/v0",
+  "status": "PASSED",
+  "date": "2026-08-11",
+  "inputs": {
+    "experimentsBase": "cd06bd84690a16bb4d0924a8a4cd64845ebb0159",
+    "c6b1aMerge": "4a2447d4b6b6572a0a9007f693bc9ba6a327115a",
+    "capsuleCommit": "16fb810b97e7ff2a157a251ae4dc8023dcfc01b4"
+  },
+  "profile": {
+    "portalId": "XT8MS38HWV",
+    "name": "Capsule C6b1 Broker Evidence macOS Development epoch 7",
+    "uuid": "2e8d338c-5668-4d41-9eb3-eb29634ebecf",
+    "cmsSha256": "a00dca2e4cfb8d4d432ffbeeaa0cc616e74aa8294364286f28dfe998ae0e32ee",
+    "applicationIdentifier": "3DDR84M4JS.com.capsulecorp.capsule.broker.c6b1",
+    "keychainAllowlist": ["3DDR84M4JS.*"],
+    "expiration": "2027-08-11",
+    "rawProfileRetained": false,
+    "embeddedInArtifact": false
+  },
+  "signingIdentity": {
+    "commonName": "Apple Development: Dylan Steele (W4QUR9FUL4)",
+    "teamIdentifier": "3DDR84M4JS",
+    "sha1": "80A4969BCD1B3926020888094B9D812A283D3793",
+    "sha256": "D3E9FBDDBC342F747C3649B5A6FFB307A575827404E02D638C11B6B795A09629",
+    "privateKeyUsabilityObservedOnlyByExactSign": true
+  },
+  "artifact": {
+    "path": "artifacts/CapsuleC6b1BrokerEvidence.app",
+    "bundleIdentifier": "com.capsulecorp.capsule.broker.c6b1",
+    "unsignedExecutableSha256": "a3abec2c686845b71b094c1810f9a673dc4806f317c95278e8e64a888d4fd46c",
+    "signedExecutableSha256": "0a31663736678b0fccefb3f524209167aaed085b3c214cf8af2024a82ea38833",
+    "infoPlistSha256": "3b60be7d19c10be6fbfefeea0503db7c94645992ef893dce20aa9a714d041e3a",
+    "codeResourcesSha256": "6686de10a28a2fe11b36cbb86dcbacc827cfc4ea116b4dabf1845e5aee629e9b",
+    "cdhash": "029b8d5cabd38e1fde9e23564e4e5b1590cf569d",
+    "codeDirectorySha256": "029b8d5cabd38e1fde9e23564e4e5b1590cf569dabc8bf1d307d7f80340c0431",
+    "hardenedRuntime": true,
+    "strictVerificationPassed": true,
+    "designatedRequirement": "identifier com.capsulecorp.capsule.broker.c6b1; anchor apple generic; exact Apple Development leaf subject",
+    "signedEntitlements": {
+      "com.apple.security.app-sandbox": true,
+      "keychain-access-groups": [
+        "3DDR84M4JS.com.capsulecorp.capsule.broker.approval.epoch-7"
+      ]
+    }
+  },
+  "effects": {
+    "portalResourceCreated": false,
+    "portalResourceDeleted": false,
+    "profileBroadened": false,
+    "artifactSigned": true,
+    "profileEmbedded": false,
+    "appInstalled": false,
+    "appLaunched": false,
+    "keychainItemAccessed": false,
+    "localAuthenticationInvoked": false,
+    "serviceRegistered": false,
+    "supervisorConsumerActivated": false,
+    "runtimeStarted": false,
+    "guestStarted": false,
+    "productAdmission": false
+  }
+}

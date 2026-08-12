@@ -1,0 +1,61 @@
+{
+  "schema": "capsule.experiment.closed-file-manifest/v0",
+  "selfExcluded": true,
+  "retainedFileCount": 9,
+  "files": [
+    {
+      "path": "artifacts/CapsuleC6b1BrokerEvidence.app/Contents/_CodeSignature/CodeResources",
+      "bytes": 2200,
+      "mode": "0644",
+      "sha256": "6686de10a28a2fe11b36cbb86dcbacc827cfc4ea116b4dabf1845e5aee629e9b"
+    },
+    {
+      "path": "artifacts/CapsuleC6b1BrokerEvidence.app/Contents/Info.plist",
+      "bytes": 958,
+      "mode": "0644",
+      "sha256": "3b60be7d19c10be6fbfefeea0503db7c94645992ef893dce20aa9a714d041e3a"
+    },
+    {
+      "path": "artifacts/CapsuleC6b1BrokerEvidence.app/Contents/MacOS/CapsuleC6b1BrokerEvidence",
+      "bytes": 228288,
+      "mode": "0755",
+      "sha256": "0a31663736678b0fccefb3f524209167aaed085b3c214cf8af2024a82ea38833"
+    },
+    {
+      "path": "evidence/result.json",
+      "bytes": 2671,
+      "mode": "0644",
+      "sha256": "0a16ec2f5769c3994c95be253703ca2deea918727cca8446fa7457ef2b62c6c8"
+    },
+    {
+      "path": "HANDOFF.md",
+      "bytes": 677,
+      "mode": "0644",
+      "sha256": "dc574663ce00b19f34fd678e179e7a8d89661054a2215f580611cf138c091a76"
+    },
+    {
+      "path": "README.md",
+      "bytes": 4426,
+      "mode": "0644",
+      "sha256": "eb984e80dc52742455b4bc4409ec5a14a8e84a56bbf8cccc52a9f8d1cef53309"
+    },
+    {
+      "path": "RESULTS.md",
+      "bytes": 1029,
+      "mode": "0644",
+      "sha256": "46cfd193bf1e7ea164f7794931bb4f9bc401964d33f6e763cc7731456368895c"
+    },
+    {
+      "path": "scripts/generate-manifest.mjs",
+      "bytes": 1521,
+      "mode": "0644",
+      "sha256": "adbee223ba895d369e219544d943c186d4612712070a751a93b9924dcbf79d00"
+    },
+    {
+      "path": "scripts/verify.mjs",
+      "bytes": 1996,
+      "mode": "0644",
+      "sha256": "8bc0916b17ccf36c536fc6d4a073401eb2461980bcae0ea98c7b35c7a9213754"
+    }
+  ]
+}
