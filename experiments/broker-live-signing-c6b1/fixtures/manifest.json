@@ -1,0 +1,87 @@
+{
+  "objectType": "capsule.c6b1.fixture-manifest",
+  "objectVersion": 0,
+  "scope": "unsigned-no-credential-no-install-no-product-consumer",
+  "capsuleCorpCommit": "88f3a2c1f968b1aa604ce14a2db4389822e5b193",
+  "fixtureClock": {
+    "issuedAt": 1785456000,
+    "expiresAt": 1785456300,
+    "liveUsePermitted": false
+  },
+  "replayIdentity": "canonical-payload+resolved-signer-authorization-identity",
+  "approvalLinearizationPoint": "supervisor-durable-submit-approval-commit",
+  "brokerDurableAuthority": false,
+  "candidateValuesOnly": [
+    "kSecAttrAccessibleWhenPasscodeSetThisDeviceOnly",
+    "kSecKeyAlgorithmECDSASignatureMessageRFC4754SHA256"
+  ],
+  "fallbackPermitted": false,
+  "artifacts": [
+    {
+      "path": "fixtures/approval-envelope.cose",
+      "bytes": 391,
+      "sha256": "064e2b67dde5bad75f83801d2535f031da167c4912670d305cfc4b168abe2c1e"
+    },
+    {
+      "path": "fixtures/approval-payload.cbor",
+      "bytes": 234,
+      "sha256": "49c308519411d102d7a99b5bd06b155f0ba0302d428192dacfe2fc512606b787"
+    },
+    {
+      "path": "fixtures/cose-key.cbor",
+      "bytes": 77,
+      "sha256": "72080e17877c7fe10b105ea40eea474975a16cf7773c03745aa64c025b6a4e63"
+    },
+    {
+      "path": "fixtures/execution-plan.cbor",
+      "bytes": 527,
+      "sha256": "ef268a0b829adc1ce1307203f4b805f63379954ccf41e8e20a7487b6e5acf241"
+    },
+    {
+      "path": "fixtures/key-authorization.json",
+      "bytes": 1290,
+      "sha256": "56ebd4974f479f697f5fea8ccbfd3c3d8e9ccc6d7fd196e45d3b832b5ffbebec"
+    },
+    {
+      "path": "fixtures/main.mjs",
+      "bytes": 50,
+      "sha256": "681f39365de1369ee486fa34e88b993c60df5a835006b65e0d8916df717c31cc"
+    },
+    {
+      "path": "fixtures/projection.json",
+      "bytes": 3650,
+      "sha256": "b7ed5747461e2d4a2f23e4feb2bc1a4938b133dde055181aa99c2b0c65a36de6"
+    },
+    {
+      "path": "fixtures/protected-header.cbor",
+      "bytes": 84,
+      "sha256": "495dc786973770d435d52ef6a4bb763581157813432016ad74ca1db8ea2ee7cb"
+    },
+    {
+      "path": "fixtures/sig-structure.cbor",
+      "bytes": 335,
+      "sha256": "04a5fc1acc0461b891dc7402d072b87d3feff7664a2b9d4de830325d6e71d767"
+    },
+    {
+      "path": "fixtures/signature.raw",
+      "bytes": 64,
+      "sha256": "eb98337806587396a10fe5d1c6dfb2b2a14fdfd7adfe293daf80b5ea709d9dee"
+    },
+    {
+      "path": "fixtures/source-display.txt",
+      "bytes": 52,
+      "sha256": "f4e510805c0c1c846c3eff15c97a93172e84d1964b58267cbf9c0a9a0d3691fb"
+    },
+    {
+      "path": "fixtures/source-manifest.cbor",
+      "bytes": 89,
+      "sha256": "c387c80094027ffbcacb573f44f5f6b4dec4d243bb436b24dd644434feaa1d14"
+    },
+    {
+      "path": "interfaces/supervisor-seam-v0.json",
+      "bytes": 1162,
+      "sha256": "0f2f753db1632be83340aed821fbd8fe921f25b2b8eff5ee7de73a1215cc1631"
+    }
+  ],
+  "compositeSha256": "20c56bdca6c0a970e3fe7eef9bca4a2475b9ac1efe89d9f9abaa8bf69bd4965e"
+}

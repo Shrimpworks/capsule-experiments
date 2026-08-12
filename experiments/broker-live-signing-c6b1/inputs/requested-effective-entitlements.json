@@ -1,0 +1,30 @@
+{
+  "objectType": "capsule.c6b1.requested-effective-entitlements",
+  "objectVersion": 0,
+  "candidateOnly": true,
+  "observedOrProvisioned": false,
+  "bundleId": "com.capsulecorp.capsule.broker.c6b1",
+  "teamId": "3DDR84M4JS",
+  "required": {
+    "com.apple.security.app-sandbox": true,
+    "keychain-access-groups": [
+      "3DDR84M4JS.com.capsulecorp.capsule.broker.approval.epoch-7"
+    ],
+    "hardenedRuntime": true
+  },
+  "forbidden": [
+    "com.apple.security.application-groups",
+    "com.apple.security.network.client",
+    "com.apple.security.network.server",
+    "com.apple.security.files.user-selected.read-only",
+    "com.apple.security.files.user-selected.read-write",
+    "com.apple.security.cs.allow-jit",
+    "com.apple.security.cs.allow-unsigned-executable-memory",
+    "com.apple.security.cs.disable-library-validation",
+    "com.apple.security.get-task-allow",
+    "com.apple.security.hypervisor",
+    "com.apple.security.automation.apple-events",
+    "temporary-exception"
+  ],
+  "claim": "request-input-only-not-profile-or-signed-entitlement-evidence"
+}

@@ -1,0 +1,37 @@
+{
+  "objectType": "capsule.c6b1.supervisor-evidence-seam",
+  "objectVersion": 0,
+  "protocol": "capsule.c6b1.supervisor-evidence-seam/v0",
+  "productConsumer": false,
+  "installedListener": false,
+  "authorityOwner": "execution-supervisor",
+  "brokerAuthority": "bounded-process-memory-only",
+  "operations": [
+    {
+      "name": "FetchRegisteredPlanV0",
+      "requestIdentity": "registration-id",
+      "responseIdentity": "exact-supervisor-retained-plan-projection",
+      "durableMutation": false
+    },
+    {
+      "name": "SubmitApprovalV0",
+      "requestIdentity": "canonical-payload+resolved-signer-authorization-identity",
+      "linearizationPoint": "supervisor-durable-approval-commit",
+      "responseLoss": [
+        "no-record",
+        "same-approval-id-and-current-state"
+      ],
+      "brokerJournalPermitted": false
+    },
+    {
+      "name": "RequestAttemptV0",
+      "requestIdentity": "approval-id+attempt-nonce",
+      "linearizationPoint": "supervisor-atomic-consume-and-attempt-create",
+      "responseLoss": [
+        "no-effect",
+        "same-attempt-id-and-current-state"
+      ],
+      "secondAttemptPermitted": false
+    }
+  ]
+}

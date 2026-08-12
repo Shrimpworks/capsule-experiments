@@ -1,0 +1,74 @@
+{
+  "objectType": "capsule.c6b1.broker-projection-fixture",
+  "objectVersion": 0,
+  "registrationId": "77777777777777777777777777777777",
+  "registrationSequence": 1,
+  "planDigest": "ef268a0b829adc1ce1307203f4b805f63379954ccf41e8e20a7487b6e5acf241",
+  "installationId": "11111111111111111111111111111111",
+  "epochSequence": 7,
+  "epochDigest": "2222222222222222222222222222222222222222222222222222222222222222",
+  "supervisorId": "55555555555555555555555555555555",
+  "source": {
+    "profile": "capsule.mjs-single-file/v0",
+    "memberMediaType": "application/javascript;profile=module;charset=utf-8",
+    "manifestMediaType": "application/capsule.source-manifest+cbor;v=0",
+    "entrypoint": "main.mjs",
+    "fileCount": 1,
+    "byteLength": 50,
+    "contentDigest": "681f39365de1369ee486fa34e88b993c60df5a835006b65e0d8916df717c31cc",
+    "manifestDigest": "c387c80094027ffbcacb573f44f5f6b4dec4d243bb436b24dd644434feaa1d14",
+    "contentPolicy": "exact strict-utf8 main.mjs; no BOM, normalization, rewrite, transform, or second member",
+    "displayEncoding": "capsule.bytewise-ascii-escape/v0",
+    "escapedExactContent": "export default function (value) { return value; }\\n"
+  },
+  "inlineJson": {
+    "slot": "primary-data",
+    "digest": "bd9968c72c34a6779dfe3259937a1d9a9e558036c7cd4895ef634fbf76181e72",
+    "byteLength": 118,
+    "contentPolicy": "current Supervisor projection contains canonical JSON digest and length only; content bytes are not shown",
+    "contentBytesShown": false
+  },
+  "runtimeProfile": {
+    "alias": "fixture-active@1",
+    "runtimeBundleDigest": "5555555555555555555555555555555555555555555555555555555555555555",
+    "profileReviewDigests": [
+      "6666666666666666666666666666666666666666666666666666666666666666",
+      "6767676767676767676767676767676767676767676767676767676767676767"
+    ],
+    "profileRegistryDigest": "7777777777777777777777777777777777777777777777777777777777777777",
+    "backendValidationDigest": "8888888888888888888888888888888888888888888888888888888888888888",
+    "backendConfigurationDigest": "9999999999999999999999999999999999999999999999999999999999999999",
+    "trustSnapshotDigest": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    "policyDecisionDigest": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+  },
+  "limits": {
+    "sourceBytes": 50,
+    "inlineInputBytes": 118,
+    "wallTimeMs": 5000,
+    "wallTimeOrigin": "requested",
+    "outputSlot": "transformed-json",
+    "outputMaxJsonBytes": 65536
+  },
+  "expiry": {
+    "planExpiresAt": 1785456300,
+    "registrationExpiresAt": 1785456300,
+    "effectiveNow": 1785456000
+  },
+  "warnings": [
+    "Generated code may encode approved input through allowed output, metadata, state, or timing.",
+    "User presence attributes one key operation; it does not prove source comprehension or correct UI logic.",
+    "Focus, UI activation, and synthetic input are not approval evidence.",
+    "Current Supervisor readback does not contain inline JSON content bytes; this projection shows only their exact digest and length.",
+    "Host source validation is not an internal-alpha admission claim; runtime syntax and loader refusal remain separate blocked evidence.",
+    "Runtime/profile identifiers and review digests do not admit a runtime, backend, or product path."
+  ],
+  "interaction": {
+    "evidenceState": "unsigned-no-credential-test-double",
+    "approvalEligible": false,
+    "keyOperationRequired": true,
+    "freshContextPerOperation": true,
+    "contextReusePermitted": false,
+    "focusIsApprovalEvidence": false,
+    "syntheticInputIsApprovalEvidence": false
+  }
+}
