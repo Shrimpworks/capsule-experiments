@@ -1,0 +1,90 @@
+{
+  "objectType": "capsule.c5b0.typed-transport-successor-profile",
+  "objectVersion": 1,
+  "identity": "capsule.c5b0.v19-lineage-typed-transport-successor/2026-08-11",
+  "status": "BLOCKED-missing-executable-bytes",
+  "capsuleCorpInput": {
+    "commit": "88f3a2c1f968b1aa604ce14a2db4389822e5b193",
+    "typedTransportManifest": {
+      "bytes": 23804,
+      "sha256": "79767a34a27bcc32a5f9a479b6a8737f9f5791447fa425ad83455546eadae235"
+    }
+  },
+  "historicalV19Lineage": {
+    "composedProfileSha256": "ac2721719a1e4f15c664e0b7c21d99602b6fc7d5a9c55c8b17d08970098f48fa",
+    "materializedProfileSha256": "44dcb00d87db91a753beabcc3071ca7b8b6d308fa293b1b9c799c60c4faa3a0b",
+    "signedRunnerSha256": "df0d7a96b21fae03a5fe50f0afe7551e8b5706adab219fcdfc7c26caf940173c",
+    "rawRootSha256": "89b321877bfb2323b11a0eb2e264d3aaffcd2c63702a524b53f55d41ec828c43",
+    "controllerSha256": "c4c6fc31dc82df7bb4a4cfc809321a8a78c2eb8f66d50b35b9e80e57135cc70c",
+    "rawPacketAvailable": false,
+    "reuseAsSuccessorBytes": false
+  },
+  "fixedWorkload": {
+    "source": {
+      "path": "fixtures/main.mjs",
+      "bytes": 103,
+      "sha256": "c8e940feb89b342de2d5e6bd13c413226676de9a539fce34c4107516e635b475"
+    },
+    "sourceManifest": {
+      "path": "fixtures/source-manifest.cbor",
+      "bytes": 89,
+      "sha256": "712b1bd9739e4f6b0b027600207cbb08fb21b159a57bd34a15cf0ff8f32661b0"
+    },
+    "input": {
+      "path": "fixtures/input.json",
+      "bytes": 36,
+      "sha256": "9de0c909cfb111bd99c3b0b5f7a10972894270c2867022a71b6b6f3c0cd1af6e"
+    },
+    "expectedCompletion": {
+      "path": "fixtures/expected-completion.json",
+      "bytes": 35,
+      "sha256": "bb7234ee486b0fbccc2091859ec93499e6a14ea7d6e091cdef60a0e2a6e8371c"
+    }
+  },
+  "contractIdentities": {
+    "runner": {
+      "path": "contracts/runner.json",
+      "bytes": 1125,
+      "sha256": "51287e0b9071d56d8c57d661c27cc1ff1a6e4216c846abe7660d753d835c9aca"
+    },
+    "root": {
+      "path": "contracts/root-layout.json",
+      "bytes": 1828,
+      "sha256": "1b8470469304884ea151dbd0a58180a6ac4c666cf686fea709b282a60048f8ad"
+    },
+    "init": {
+      "path": "contracts/trusted-init.json",
+      "bytes": 593,
+      "sha256": "65a73534c87040a5c80ebc723594bae13bb63e0adeeb5af481afa2096c07da18"
+    },
+    "launcher": {
+      "path": "contracts/trusted-launcher.json",
+      "bytes": 786,
+      "sha256": "64c80606f2f319962cc941187bf27b12e2a00a9a326486b6b5a62ce9a9b1a9b5"
+    },
+    "controller": {
+      "path": "contracts/controller.json",
+      "bytes": 811,
+      "sha256": "fdcb46f95206a56d812661b2b54f25730cda5f53e4891f32ab3531b5ed476e11"
+    }
+  },
+  "machine": {
+    "architecture": "arm64",
+    "vcpu": 1,
+    "guestMemoryBytes": 268435456,
+    "maximumGuests": 1
+  },
+  "transport": {
+    "contract": "capsule.typed-guest-transport",
+    "version": 1,
+    "sourceInputCompletionPayloadMaximumBytes": 262144
+  },
+  "prohibitedEffects": {
+    "libkrunLoad": true,
+    "hvfCall": true,
+    "runnerProcessStart": true,
+    "vmStart": true,
+    "guestStart": true,
+    "admission": true
+  }
+}

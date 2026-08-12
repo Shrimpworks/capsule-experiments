@@ -1,0 +1,66 @@
+{
+  "objectType": "capsule.c5b0.root-layout-contract",
+  "objectVersion": 1,
+  "packet": "capsule.c5b0.typed-transport-successor/v1",
+  "status": "no-run-contract-only",
+  "executableBytesPresent": false,
+  "admission": false,
+  "rawRootIdentity": null,
+  "requiredPaths": [
+    {
+      "path": "/usr/local/libexec/capsule-init.krun",
+      "contract": {
+        "path": "contracts/trusted-init.json",
+        "bytes": 593,
+        "sha256": "65a73534c87040a5c80ebc723594bae13bb63e0adeeb5af481afa2096c07da18"
+      }
+    },
+    {
+      "path": "/usr/local/libexec/capsule-launcher",
+      "contract": {
+        "path": "contracts/trusted-launcher.json",
+        "bytes": 786,
+        "sha256": "64c80606f2f319962cc941187bf27b12e2a00a9a326486b6b5a62ce9a9b1a9b5"
+      }
+    },
+    {
+      "path": "/opt/capsule/inputs/main.mjs",
+      "fixture": {
+        "path": "fixtures/main.mjs",
+        "bytes": 103,
+        "sha256": "c8e940feb89b342de2d5e6bd13c413226676de9a539fce34c4107516e635b475"
+      },
+      "mode": "0444"
+    },
+    {
+      "path": "/opt/capsule/inputs/source-manifest.cbor",
+      "fixture": {
+        "path": "fixtures/source-manifest.cbor",
+        "bytes": 89,
+        "sha256": "712b1bd9739e4f6b0b027600207cbb08fb21b159a57bd34a15cf0ff8f32661b0"
+      },
+      "mode": "0444"
+    },
+    {
+      "path": "/opt/capsule/inputs/input.json",
+      "fixture": {
+        "path": "fixtures/input.json",
+        "bytes": 36,
+        "sha256": "9de0c909cfb111bd99c3b0b5f7a10972894270c2867022a71b6b6f3c0cd1af6e"
+      },
+      "mode": "0444"
+    }
+  ],
+  "filesystem": {
+    "format": "ext4-no-journal",
+    "imageMode": "0400-before-open",
+    "unlinkedBeforeAuthorization": true
+  },
+  "absent": [
+    "shell",
+    "package manager",
+    "network configuration",
+    "writable host mount",
+    "live host path"
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "objectType": "capsule.c5b0.no-run-attempt-plan",
+  "objectVersion": 1,
+  "identity": "capsule.c5b0.v19-successor-plan/2026-08-11",
+  "status": "construction-only-not-authorized",
+  "attemptId": "c3333cccd94143981f13864a00eaf388",
+  "registrationId": "38a409f5c0cc12344513cc08961d678a",
+  "runtimeProfile": {
+    "path": "manifests/successor-profile.json",
+    "bytes": 3062,
+    "sha256": "c0a2d0ec6337d4cb4ed52e8a930a54a59ec3e677d4ad9da1a602c4cd7124f04b"
+  },
+  "source": {
+    "path": "fixtures/main.mjs",
+    "bytes": 103,
+    "sha256": "c8e940feb89b342de2d5e6bd13c413226676de9a539fce34c4107516e635b475"
+  },
+  "sourceManifest": {
+    "path": "fixtures/source-manifest.cbor",
+    "bytes": 89,
+    "sha256": "712b1bd9739e4f6b0b027600207cbb08fb21b159a57bd34a15cf0ff8f32661b0"
+  },
+  "input": {
+    "path": "fixtures/input.json",
+    "bytes": 36,
+    "sha256": "9de0c909cfb111bd99c3b0b5f7a10972894270c2867022a71b6b6f3c0cd1af6e"
+  },
+  "expectedCompletion": {
+    "path": "fixtures/expected-completion.json",
+    "bytes": 35,
+    "sha256": "bb7234ee486b0fbccc2091859ec93499e6a14ea7d6e091cdef60a0e2a6e8371c"
+  },
+  "authority": {
+    "arbitrarySource": false,
+    "credentials": false,
+    "network": false,
+    "runtimeAdmission": false,
+    "executionAuthorized": false
+  }
+}
