@@ -1,0 +1,36 @@
+{
+  "spdxVersion": "SPDX-2.3",
+  "dataLicense": "CC0-1.0",
+  "name": "capsule-c5b1-executable-successor-construction",
+  "packages": [
+    {
+      "name": "capsule-c5b1-trusted-init",
+      "version": "0.1.0",
+      "licenseConcluded": "Apache-2.0",
+      "supplier": "Organization: Shrimpworks"
+    },
+    {
+      "name": "capsule-c5b1-trusted-launcher",
+      "version": "0.1.0",
+      "licenseConcluded": "Apache-2.0",
+      "supplier": "Organization: Shrimpworks"
+    },
+    {
+      "name": "capsule-c5b1-host-runner",
+      "version": "0.1.0",
+      "licenseConcluded": "Apache-2.0",
+      "supplier": "Organization: Shrimpworks"
+    },
+    {
+      "name": "capsule-c5b1-controller-hard-stop",
+      "version": "0.1.0",
+      "licenseConcluded": "Apache-2.0",
+      "supplier": "Organization: Shrimpworks"
+    }
+  ],
+  "externalRuntimeDependencies": [
+    "governed libkrun (unbound)",
+    "governed libkrunfw/kernel (unbound)",
+    "governed deno_core runtime (unbound)"
+  ]
+}

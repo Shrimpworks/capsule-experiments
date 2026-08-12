@@ -1,0 +1,3 @@
+dist/* binary
+inputs/c5b0/*.frame binary
+inputs/c5b0/*.cbor binary

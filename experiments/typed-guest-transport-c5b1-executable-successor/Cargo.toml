@@ -1,0 +1,12 @@
+[workspace]
+resolver = "2"
+members = ["crates/trusted-init", "crates/trusted-launcher"]
+
+[profile.release]
+codegen-units = 1
+debug = 0
+incremental = false
+lto = true
+opt-level = "z"
+panic = "abort"
+strip = "symbols"
