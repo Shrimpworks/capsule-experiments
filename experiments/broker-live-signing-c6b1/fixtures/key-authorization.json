@@ -1,0 +1,30 @@
+{
+  "objectType": "capsule.c6b1.test-key-authorization",
+  "objectVersion": 0,
+  "authorityClass": "public-test-vector-only-not-installed-authority",
+  "teamId": "3DDR84M4JS",
+  "brokerRole": "capsule.role.approval-broker/v0",
+  "requestedAccessGroup": "3DDR84M4JS.com.capsulecorp.capsule.broker.approval.epoch-7",
+  "installationId": "11111111111111111111111111111111",
+  "epochSequence": 7,
+  "epochDigest": "2222222222222222222222222222222222222222222222222222222222222222",
+  "purpose": "capsule.plan.approve",
+  "audience": "capsule.execution-supervisor",
+  "validFrom": 1785455700,
+  "validUntil": 1785456600,
+  "protectionCandidate": "secure-enclave-p256",
+  "accessControlRequired": [
+    "userPresence",
+    "privateKeyUsage"
+  ],
+  "contextPolicy": "fresh-nonreused-one-sign-budget",
+  "active": true,
+  "noFallback": true,
+  "publicKeyEncoding": "cose-key-ec2-p256-canonical-77-bytes",
+  "publicKeyX": "6b17d1f2e12c4247f8bce6e563a440f277037d812deb33a0f4a13945d898c296",
+  "publicKeyY": "4fe342e2fe1a7f9b8ee7eb4a7c0f9e162bce33576b315ececbb6406837bf51f5",
+  "coseKeySha256": "72080e17877c7fe10b105ea40eea474975a16cf7773c03745aa64c025b6a4e63",
+  "kid": "72080e17877c7fe10b105ea40eea474975a16cf7773c03745aa64c025b6a4e63",
+  "privateKeyPresent": false,
+  "credentialPresent": false
+}

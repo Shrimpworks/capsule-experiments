@@ -1,0 +1,158 @@
+{
+  "objectType": "capsule.c6b1.experiment-manifest",
+  "objectVersion": 0,
+  "capsuleCorpCommit": "88f3a2c1f968b1aa604ce14a2db4389822e5b193",
+  "files": [
+    {
+      "path": "HANDOFF.md",
+      "bytes": 2028,
+      "sha256": "7510513494346de2dcdc16ea965285cb4361cb64bbdfa3671398dca03aa06c29"
+    },
+    {
+      "path": "Package.swift",
+      "bytes": 618,
+      "sha256": "bfac1085a43bf89d8d7b400628e41fc6a59315569fa3869639de8d39500b6834"
+    },
+    {
+      "path": "README.md",
+      "bytes": 6498,
+      "sha256": "62e143e8ae8e2860476b666da186c2771704f8fe85a49bca76192bb1d97f8a10"
+    },
+    {
+      "path": "RESULTS.md",
+      "bytes": 1811,
+      "sha256": "a1227c63f4a65ecb73855d992cf971b576ad42d6e5203d0192adeb427e0585b6"
+    },
+    {
+      "path": "Sources/CapsuleC6b1BrokerEvidence/FixtureVerifier.swift",
+      "bytes": 11351,
+      "sha256": "a3f33e44aca428c80be32b0801da5616b7be76d28a5f44fde763702c32bcfd3c"
+    },
+    {
+      "path": "Sources/CapsuleC6b1BrokerEvidence/InteractionHarness.swift",
+      "bytes": 3335,
+      "sha256": "d4f3668b23731bfdc29ee903dbc499c6f3cf8420b3abc8979d025d4ede31f7b0"
+    },
+    {
+      "path": "Sources/CapsuleC6b1BrokerEvidence/main.swift",
+      "bytes": 1040,
+      "sha256": "796e650eee95aa1a4214a6baabe582049038f1b51638f732eab48c16dee2b8c7"
+    },
+    {
+      "path": "Sources/CapsuleC6b1BrokerNativeShim/include/CapsuleC6b1BrokerNativeShim.h",
+      "bytes": 138,
+      "sha256": "9ff49fc7861e9bc2e70242499ff9629817ae63b3d561447a4d8a2614da02208a"
+    },
+    {
+      "path": "Sources/CapsuleC6b1BrokerNativeShim/shim.m",
+      "bytes": 171,
+      "sha256": "2b9d579df3965c03b771976ab6212f542cfe7918e34fc02cfe869d7d6fb4da3a"
+    },
+    {
+      "path": "Tests/CapsuleC6b1BrokerEvidenceTests/CapsuleC6b1BrokerEvidenceTests.swift",
+      "bytes": 5706,
+      "sha256": "01249bcfecbdcf438802dcfd2b58a8fa6662ec66b165ef095b561545dff2d0c2"
+    },
+    {
+      "path": "fixtures/approval-envelope.cose",
+      "bytes": 391,
+      "sha256": "064e2b67dde5bad75f83801d2535f031da167c4912670d305cfc4b168abe2c1e"
+    },
+    {
+      "path": "fixtures/approval-payload.cbor",
+      "bytes": 234,
+      "sha256": "49c308519411d102d7a99b5bd06b155f0ba0302d428192dacfe2fc512606b787"
+    },
+    {
+      "path": "fixtures/cose-key.cbor",
+      "bytes": 77,
+      "sha256": "72080e17877c7fe10b105ea40eea474975a16cf7773c03745aa64c025b6a4e63"
+    },
+    {
+      "path": "fixtures/execution-plan.cbor",
+      "bytes": 527,
+      "sha256": "ef268a0b829adc1ce1307203f4b805f63379954ccf41e8e20a7487b6e5acf241"
+    },
+    {
+      "path": "fixtures/key-authorization.json",
+      "bytes": 1290,
+      "sha256": "56ebd4974f479f697f5fea8ccbfd3c3d8e9ccc6d7fd196e45d3b832b5ffbebec"
+    },
+    {
+      "path": "fixtures/main.mjs",
+      "bytes": 50,
+      "sha256": "681f39365de1369ee486fa34e88b993c60df5a835006b65e0d8916df717c31cc"
+    },
+    {
+      "path": "fixtures/manifest.json",
+      "bytes": 2888,
+      "sha256": "d047b89c37ef9811dbfdcd0bb4cec07e9e3b0a9d40ea4ee0fcc68d14415470aa"
+    },
+    {
+      "path": "fixtures/projection.json",
+      "bytes": 3650,
+      "sha256": "b7ed5747461e2d4a2f23e4feb2bc1a4938b133dde055181aa99c2b0c65a36de6"
+    },
+    {
+      "path": "fixtures/protected-header.cbor",
+      "bytes": 84,
+      "sha256": "495dc786973770d435d52ef6a4bb763581157813432016ad74ca1db8ea2ee7cb"
+    },
+    {
+      "path": "fixtures/sig-structure.cbor",
+      "bytes": 335,
+      "sha256": "04a5fc1acc0461b891dc7402d072b87d3feff7664a2b9d4de830325d6e71d767"
+    },
+    {
+      "path": "fixtures/signature.raw",
+      "bytes": 64,
+      "sha256": "eb98337806587396a10fe5d1c6dfb2b2a14fdfd7adfe293daf80b5ea709d9dee"
+    },
+    {
+      "path": "fixtures/source-display.txt",
+      "bytes": 52,
+      "sha256": "f4e510805c0c1c846c3eff15c97a93172e84d1964b58267cbf9c0a9a0d3691fb"
+    },
+    {
+      "path": "fixtures/source-manifest.cbor",
+      "bytes": 89,
+      "sha256": "c387c80094027ffbcacb573f44f5f6b4dec4d243bb436b24dd644434feaa1d14"
+    },
+    {
+      "path": "inputs/CapsuleC6b1BrokerEvidence.entitlements",
+      "bytes": 393,
+      "sha256": "76c02160b4779bfdf2c819c234d3c89a84085aca0de8ee78ce5b09bf104374ca"
+    },
+    {
+      "path": "inputs/Info.plist.template",
+      "bytes": 958,
+      "sha256": "3b60be7d19c10be6fbfefeea0503db7c94645992ef893dce20aa9a714d041e3a"
+    },
+    {
+      "path": "inputs/requested-effective-entitlements.json",
+      "bytes": 1076,
+      "sha256": "c935f95aaa2b93b7edc8ef44c9a2ded8dc0311523189da2d373d604c1c253ef7"
+    },
+    {
+      "path": "interfaces/supervisor-seam-v0.json",
+      "bytes": 1162,
+      "sha256": "0f2f753db1632be83340aed821fbd8fe921f25b2b8eff5ee7de73a1215cc1631"
+    },
+    {
+      "path": "scripts/generate-fixtures.mjs",
+      "bytes": 13808,
+      "sha256": "b3f6cfea3a5d36dfa393baa661ef21cb2e3e93937a819efefcffa6ee8de54aac"
+    },
+    {
+      "path": "scripts/run.sh",
+      "bytes": 470,
+      "sha256": "5048a460d80856127d7ba5adfff36b8e35f61250a4061af5284a52ec038a2a2a"
+    },
+    {
+      "path": "scripts/verify.mjs",
+      "bytes": 19093,
+      "sha256": "58b972b2c4babc20bd08bf0d01f643fabd4337b6d82acd3a27c67d0bd56950ff"
+    }
+  ],
+  "compositeSha256": "0f07954b18fee3db90c440522e4df6f131ed1b2e889bb6f14a746cf43b5d68f8"
+}
