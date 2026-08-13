@@ -1,0 +1,28 @@
+{
+  "identity": "capsule.typed-guest-transport.c5b6-deno-static-reproduction/v1",
+  "date": "2026-08-12",
+  "decision": "PASSED-EXACT-NETWORK-DISABLED-STATIC-REPRODUCTION",
+  "cargoPackages": {
+    "total": 193,
+    "registry": 189,
+    "path": 4,
+    "otherSources": 0,
+    "checksumClosure": 189
+  },
+  "builds": {
+    "a": { "exitCode": 0, "elapsed": "2m59s" },
+    "b": { "exitCode": 0, "elapsed": "3m03s" },
+    "networkMode": "none",
+    "byteEqual": true
+  },
+  "execution": {
+    "candidate": "NOT_RUN",
+    "mutation": "NOT_RUN",
+    "libkrun": "NOT_RUN",
+    "hvf": "NOT_RUN",
+    "vm": "NOT_RUN",
+    "guest": "NOT_RUN"
+  },
+  "runtimeAdmission": false,
+  "completeC5bComposition": "BLOCKED"
+}

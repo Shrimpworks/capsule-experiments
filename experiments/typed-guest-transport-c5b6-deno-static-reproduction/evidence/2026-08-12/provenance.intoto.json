@@ -1,0 +1,30 @@
+{
+  "_type": "https://in-toto.io/Statement/v1",
+  "subject": [
+    { "name": "capsule-deno-core-c2b-runtime-bundle.tar.gz", "digest": { "sha256": "ad908b8289c86f25c3413713fa3e60c4c8bb91fec0d52763e870d7a186865ee6" } }
+  ],
+  "predicateType": "https://slsa.dev/provenance/v1",
+  "predicate": {
+    "buildDefinition": {
+      "buildType": "https://capsulecorp.dev/experiments/c5b6-static-no-run/v1",
+      "externalParameters": {
+        "denoCommit": "29b71f06c2df5ab06721ccbb7bc744fb8104356e",
+        "denoTree": "172e57551fe5a6683f11c886a81f9634023a5514",
+        "builderDigest": "sha256:6258907abe69656e41cd992e0b705cdcfabcbbe3db374f92ed2d47121282d4a1"
+      },
+      "resolvedDependencies": [
+        { "uri": "git+https://github.com/Shrimpworks/deno.git", "digest": { "gitCommit": "29b71f06c2df5ab06721ccbb7bc744fb8104356e" } },
+        { "uri": "pkg:cargo/vendor-bundle", "digest": { "sha256": "1e96e49a516e4cf6a9ec79acae9a9eb3d0ee52b332695fa11476a97e1e50d1d4" } },
+        { "uri": "pkg:generic/rusty_v8@150.2.0", "digest": { "sha256": "1ae209c9e4ba5803d010d2c79ee4cc0af0126c5a7ebcca211c7e41deaede4cd2" } }
+      ]
+    },
+    "runDetails": {
+      "builder": { "id": "rust:1.95.0-bookworm@sha256:6258907abe69656e41cd992e0b705cdcfabcbbe3db374f92ed2d47121282d4a1" },
+      "metadata": { "invocationId": "capsule-c5b6-2026-08-12", "startedOn": null, "finishedOn": null },
+      "byproducts": [
+        { "name": "candidateExecution", "content": "NOT_RUN" },
+        { "name": "guestExecution", "content": "NOT_RUN" }
+      ]
+    }
+  }
+}

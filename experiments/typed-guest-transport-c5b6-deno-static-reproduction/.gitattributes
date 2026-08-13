@@ -1,0 +1,3 @@
+*.tar.gz binary
+evidence/**/*.log -diff
+evidence/**/elf-proof.txt -diff
