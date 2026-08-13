@@ -1,0 +1,134 @@
+{
+  "objectType": "capsule.experiment-archive-manifest",
+  "objectVersion": 1,
+  "identity": "capsule.c5b2.typed-transport-governed-input-closure/2026-08-12",
+  "manifestSelfExcluded": true,
+  "retainedFiles": [
+    {
+      "path": ".gitattributes",
+      "mode": "0644",
+      "bytes": 129,
+      "sha256": "c8a7cf9014621232d8a3319a805b3087898045426c64cc3b9f744205396e7573"
+    },
+    {
+      "path": "HANDOFF.md",
+      "mode": "0644",
+      "bytes": 2082,
+      "sha256": "145eca85e0fa6a4897fa874548becbe15a8d7c7f28a99ef7cf5c524c29366d34"
+    },
+    {
+      "path": "README.md",
+      "mode": "0644",
+      "bytes": 2482,
+      "sha256": "b1a50225f9c57fd08801d14dffb4e1a6a2d391c76fb34468ea802a5ba4974c6c"
+    },
+    {
+      "path": "RESULTS.md",
+      "mode": "0644",
+      "bytes": 3479,
+      "sha256": "eea8aecf9f81d3562519c74d00c74b8409ba971979b53382aa9d9add3710ca86"
+    },
+    {
+      "path": "evidence/2026-08-12/macho-inspection.json",
+      "mode": "0644",
+      "bytes": 3192,
+      "sha256": "e86810b067d7eb04d91e4a1a99eeda908891dba2970cb3aa1e68f202fe512b28"
+    },
+    {
+      "path": "evidence/2026-08-12/mutation-dispositions.json",
+      "mode": "0644",
+      "bytes": 716,
+      "sha256": "64b7525e7ff5defbbe9bef4741d4e04ed10cae17dcb4b2e943aacbda013e7e5f"
+    },
+    {
+      "path": "evidence/2026-08-12/result.json",
+      "mode": "0644",
+      "bytes": 734,
+      "sha256": "2d7d08c45c2cdb99a3e7fd6c3a3f81feaa3d6f396c1ccc25322cb10efea57e1c"
+    },
+    {
+      "path": "inputs/c2b-artifact-closure/artifact-closure-report.json",
+      "mode": "0644",
+      "bytes": 3671,
+      "sha256": "6a082be63bb15f96e19f5c11673717e546d4fd8ef602d19d1f2b5036daac573d"
+    },
+    {
+      "path": "inputs/c2b-artifact-closure/kernel-extraction.txt",
+      "mode": "0644",
+      "bytes": 65,
+      "sha256": "71ba5da8883f302a062d1bd1147e9e3bae75c2f2aea639ef180a25aa679f80be"
+    },
+    {
+      "path": "inputs/c2b-artifact-closure/libkrunfw-macho.txt",
+      "mode": "0644",
+      "bytes": 3014,
+      "sha256": "16bc3f79c7a4312498d2584a87360af3078d1c2aeac31a5c85d088c1b27621b9"
+    },
+    {
+      "path": "inputs/c2b-v4/capsule-host-runner",
+      "mode": "0644",
+      "bytes": 100488,
+      "sha256": "a30e3f7cba5f480b6e164536854749b5e1ba3349f20af6c9c8e5d2590bffe1ad"
+    },
+    {
+      "path": "inputs/c2b-v4/capsule-host-runner.c",
+      "mode": "0644",
+      "bytes": 7917,
+      "sha256": "5a5560fa667390253bf504d7c045fcbcc304fa5829b22a8acf1fff00a8e37eb9"
+    },
+    {
+      "path": "inputs/c2b-v4/libkrun-abi-audit.c",
+      "mode": "0644",
+      "bytes": 2512,
+      "sha256": "419256ea91de9b5e5323e1f1d6d42afb0a5fa85a8835d0d0404734af0ee92356"
+    },
+    {
+      "path": "inputs/c2b-v4/libkrun.1.dylib",
+      "mode": "0644",
+      "bytes": 4393448,
+      "sha256": "055d9d18dc964fec4aba21948c4a344cb7a51cb48a2c70017484b718eae12f9f"
+    },
+    {
+      "path": "inputs/c2b-v4/libkrun.h",
+      "mode": "0644",
+      "bytes": 54658,
+      "sha256": "dce44d1d70ab770b1089e57646e025281a4137fe5052b9dd8eaefb80c01a1bd8"
+    },
+    {
+      "path": "inputs/c2b-v4/materialized-profile.json",
+      "mode": "0644",
+      "bytes": 10301,
+      "sha256": "198688bacd50aaee4f57b4cd7c56cea6b939c10aa220fbbeba7d315de820d1fd"
+    },
+    {
+      "path": "inputs/c5b1/artifact-profile.json",
+      "mode": "0644",
+      "bytes": 7854,
+      "sha256": "9db2445d9673b1f77db915eb048fa2798a74f40aa73ca4c318da5a77a5400477"
+    },
+    {
+      "path": "manifests/input-closure.json",
+      "mode": "0644",
+      "bytes": 6571,
+      "sha256": "c8690e167127ec0fd6f5ec07998b27e959b0cc1cfeb16454b594dde0f3a38e36"
+    },
+    {
+      "path": "scripts/generate.mjs",
+      "mode": "0755",
+      "bytes": 9303,
+      "sha256": "2e0ed75a1a0395a5efa3e09f14d280453d65c95f4658012b220e78e7e26f844b"
+    },
+    {
+      "path": "scripts/test-mutations.mjs",
+      "mode": "0755",
+      "bytes": 2937,
+      "sha256": "76e0354e947db29a0d18622bc4bcf06f15e2927a742d59da8124d27b828878cd"
+    },
+    {
+      "path": "scripts/verify.mjs",
+      "mode": "0755",
+      "bytes": 15434,
+      "sha256": "d3c78090f20c5c57764c548fa34e06298e21465cdc6db1bbe12cac46a04609f2"
+    }
+  ]
+}

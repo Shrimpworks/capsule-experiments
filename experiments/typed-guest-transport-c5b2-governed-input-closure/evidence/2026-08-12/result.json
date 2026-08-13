@@ -1,0 +1,21 @@
+{
+  "workItem": "C5b2 governed input closure",
+  "scopedInputClosureStatus": "PASSED",
+  "completeExecutableSuccessorStatus": "BLOCKED",
+  "result": "Exact current-source libkrun, accepted header, ABI audit, and final runner bytes are bound and statically verified; absent runtime/libkrunfw bytes and the missing reviewed controller prevent a composite.",
+  "boundedInputs": 6,
+  "effects": {
+    "artifactExecuted": false,
+    "libkrunLoaded": false,
+    "hvfCalled": false,
+    "processStarted": false,
+    "vmStarted": false,
+    "guestStarted": false,
+    "networkAccessed": false,
+    "credentialAccessed": false,
+    "signed": false,
+    "installed": false,
+    "productStateMutated": false,
+    "admissionChanged": false
+  }
+}
