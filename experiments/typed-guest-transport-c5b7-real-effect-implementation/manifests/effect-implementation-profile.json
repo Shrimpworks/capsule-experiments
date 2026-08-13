@@ -1,0 +1,165 @@
+{
+  "objectType": "capsule.c5b7.real-effect-implementation-profile",
+  "objectVersion": 1,
+  "identity": "capsule.c5b7.real-effect-implementation/2026-08-13",
+  "scopedImplementationStatus": "PASSED",
+  "completeCompositeStatus": "BLOCKED",
+  "controlledExecutionStatus": "BLOCKED",
+  "productAdmission": "BLOCKED",
+  "repositoryBaseline": "d9967e80a6155a65c6876dc686d8f8498b4a908f",
+  "capsuleContract": {
+    "repository": "Shrimpworks/capsule-corp",
+    "commit": "bd7cc9c98c07c91b4d96d3efa2f6261aba350971",
+    "acceptedADRs": [
+      "ADR-0040",
+      "ADR-0041",
+      "ADR-0046"
+    ]
+  },
+  "prerequisites": {
+    "c5b2": [
+      {
+        "path": "inputs/c5b2/libkrun.h",
+        "bytes": 54658,
+        "sha256": "dce44d1d70ab770b1089e57646e025281a4137fe5052b9dd8eaefb80c01a1bd8"
+      },
+      {
+        "path": "inputs/c5b2/macho-inspection.json",
+        "bytes": 3192,
+        "sha256": "e86810b067d7eb04d91e4a1a99eeda908891dba2970cb3aa1e68f202fe512b28"
+      }
+    ],
+    "c5b3": [
+      {
+        "path": "inputs/c5b3/controller-contract.json",
+        "bytes": 4185,
+        "sha256": "36285d7fa3f27a992fda413afb38c1ed05a3af30f496c5784b2165d5b2f90e59"
+      },
+      {
+        "path": "inputs/c5b3/controller_core.h",
+        "bytes": 4413,
+        "sha256": "0ae153a47d5a2d0cdfbae7e149139b72abbd35f7f1223dd5745f03df86cadd12"
+      },
+      {
+        "path": "inputs/c5b3/controller_core.c",
+        "bytes": 9837,
+        "sha256": "e382b0c3ca15dfcd0fb1b4dd5dcfec8336606fa907191518acfc6d849450a1d7"
+      }
+    ],
+    "c5b4": [
+      {
+        "path": "inputs/c5b4/recovery.json",
+        "bytes": 5786,
+        "sha256": "814eef24d1583b49ecf773043d142b6c7d77fb00a304dc964be7360b427b9cb4"
+      },
+      {
+        "path": "inputs/c5b4/macho-inspection.json",
+        "bytes": 521,
+        "sha256": "5389836bb8a99a4159c54a6634bf33152f52969d4200ed51b965d7da616a0c7f"
+      }
+    ],
+    "c5b5": [
+      {
+        "path": "inputs/c5b5/effect-adapter-contract.json",
+        "bytes": 3331,
+        "sha256": "396d7e4d0d4ded1d072aac0040609c2cff39624dc56012896dc8663e0766f6f7"
+      },
+      {
+        "path": "inputs/c5b5/adapter-profile.json",
+        "bytes": 4355,
+        "sha256": "5e8341952eeb78d44ceaa9002ab6906b33a125f3fa54cfb48bdf7f13020474e2"
+      },
+      {
+        "path": "inputs/c5b5/archive-manifest.json",
+        "bytes": 4931,
+        "sha256": "a3c550e9e51217eb1b16223f9294b8b5d8020dc436dbc53f05b89bdac652b06c"
+      },
+      {
+        "path": "inputs/c5b5/effect-adapter.o",
+        "bytes": 6968,
+        "sha256": "852234b318772651d1e4feda6c016dbaa860c061be4db4b160c6c91f573abd0b"
+      },
+      {
+        "path": "inputs/c5b5/source/effect_adapter.h",
+        "bytes": 3298,
+        "sha256": "7b069517faa62ae052fc9c3ec0ec098b4f3ce58f35e5a5f377fc9433e7c0bb93"
+      },
+      {
+        "path": "inputs/c5b5/source/effect_adapter.c",
+        "bytes": 10730,
+        "sha256": "d3c7a234d9ea03d317dfd8766307be48bb581b2559cdb145884dedc89c12fac2"
+      }
+    ]
+  },
+  "implementation": {
+    "source": {
+      "path": "source/effect_implementation.c",
+      "bytes": 17392,
+      "sha256": "3dd59e36aa69300915e14a5e9bb586ec2d89eba98491663f531be87d36138dbc"
+    },
+    "header": {
+      "path": "source/effect_implementation.h",
+      "bytes": 3013,
+      "sha256": "1fca39c3ef9691c66cacae0f4c9a6e6df5763e7bf12140e65f2e3614ffbaefa5"
+    }
+  },
+  "productionObject": {
+    "format": "Mach-O arm64 MH_OBJECT",
+    "buildA": {
+      "path": "dist/effect-implementation-a.o",
+      "bytes": 6280,
+      "sha256": "7d175639a338aceb33ad91541dedf22ecf3b809e6db27e6e94920a7cf117034f"
+    },
+    "buildB": {
+      "path": "dist/effect-implementation-b.o",
+      "bytes": 6280,
+      "sha256": "7d175639a338aceb33ad91541dedf22ecf3b809e6db27e6e94920a7cf117034f"
+    },
+    "deterministicBuilds": 2,
+    "byteEqual": true,
+    "entryPoint": false,
+    "linked": false,
+    "loaded": false,
+    "executed": false,
+    "directImports": 19,
+    "exports": 2
+  },
+  "testDouble": {
+    "source": {
+      "path": "source/test_double.c",
+      "bytes": 19166,
+      "sha256": "2ad3e346bd777341b5504d00f8ab428f938ee7272975ec3dd465aa800af7eb08"
+    },
+    "linked": true,
+    "executed": true,
+    "realLibkrunResolved": false,
+    "realLibkrunLoaded": false,
+    "usesDeterministicDoublesOnly": true
+  },
+  "nonComposability": {
+    "c5b7RootMetadataOnly": true,
+    "c5b7RootBytes": 100663296,
+    "predecessorRootBytes": 134217728,
+    "rootSizeMismatchRefuses": true,
+    "compositeStatus": "BLOCKED",
+    "requiredSuccessor": "versioned-96-MiB-adapter-profile-and-implementation-rebinding"
+  },
+  "effects": {
+    "artifactLoaded": false,
+    "artifactExecuted": false,
+    "libkrunLinked": false,
+    "libkrunLoaded": false,
+    "hvfCalled": false,
+    "processStarted": false,
+    "vmStarted": false,
+    "guestStarted": false,
+    "networkAccessed": false,
+    "credentialAccessed": false,
+    "keychainAccessed": false,
+    "signed": false,
+    "installed": false,
+    "serviceRegistered": false,
+    "productStateMutated": false,
+    "admissionChanged": false
+  }
+}

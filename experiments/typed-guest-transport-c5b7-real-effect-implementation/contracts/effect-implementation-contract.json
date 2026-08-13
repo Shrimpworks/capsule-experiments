@@ -1,0 +1,114 @@
+{
+  "objectType": "capsule.c5b7.real-effect-implementation-contract",
+  "objectVersion": 1,
+  "identity": "capsule.c5b7.real-effect-implementation/2026-08-13",
+  "scope": "compile-only-closed-effect-executor",
+  "authorityOwner": "Execution Supervisor",
+  "immutableProfile": {
+    "predecessor": "capsule.c5b5.no-run-effect-adapter/2026-08-13",
+    "rootBytes": 134217728,
+    "sourcePhysicalMaximum": 262296,
+    "inputPhysicalMaximum": 262296,
+    "completionPhysicalMaximum": 262368,
+    "completionRetentionBytes": 262369
+  },
+  "fixedDescriptors": {
+    "ready": 1,
+    "startAuthorization": 3,
+    "root": 4,
+    "source": 5,
+    "input": 6,
+    "completion": 7
+  },
+  "fixedStrings": {
+    "rootDevice": "/dev/vda",
+    "rootFilesystem": "ext4",
+    "rootOptions": "ro,nosuid,nodev",
+    "sourcePort": "capsule.source",
+    "inputPort": "capsule.input",
+    "completionPort": "capsule.completion",
+    "kernelConsole": "hvc0",
+    "workdir": "/",
+    "executable": "/usr/local/libexec/capsule-init.krun",
+    "argv": [
+      "/usr/local/libexec/capsule-init.krun"
+    ],
+    "env": [],
+    "readyByte": "R",
+    "authorizationByte": "G"
+  },
+  "contextPolicy": {
+    "createResultIsContext": true,
+    "freeAttemptedOnPreEnterFailure": true,
+    "freeResultRetained": true,
+    "freeAttemptedAtMostOnce": true,
+    "enterConsumesContext": true,
+    "enterReturnIsFailure": true
+  },
+  "writePolicy": {
+    "partialProgress": "continue",
+    "zeroProgress": "refuse",
+    "error": "refuse",
+    "overReportedProgress": "refuse",
+    "capPlusOne": "refuse-before-copy"
+  },
+  "requestOrdering": {
+    "authority": "exact-C5b3-controller-step-sequence",
+    "executorLocalCrossCallMemory": false,
+    "acceptedSeparateCallSequences": [
+      [
+        "REQUEST_TEARDOWN",
+        "PROVE_ABSENCE",
+        "REMOVE_FIXED_ROOT"
+      ],
+      [
+        "REQUEST_DURABLE_COMMIT",
+        "DELIVER_STORED"
+      ]
+    ]
+  },
+  "effectBoundary": {
+    "invokesClosedEffects": true,
+    "directUndefinedLibkrunImports": true,
+    "directDarwinIoImports": [
+      "read",
+      "write",
+      "close"
+    ],
+    "ownerRequestsOnly": [
+      "create-endpoints",
+      "start-drains",
+      "allow-child",
+      "teardown",
+      "prove-absence",
+      "remove-fixed-root",
+      "durable-commit",
+      "deliver-stored",
+      "replay-stored",
+      "fence-store",
+      "stop-mismatch"
+    ],
+    "executionAuthorized": false,
+    "entryPointPresent": false,
+    "linked": false,
+    "loaded": false,
+    "dynamicLoading": false,
+    "pathDiscovery": false,
+    "callerConfiguration": false,
+    "filesystemDeletionImplemented": false,
+    "durableStoreImplemented": false,
+    "processLaunchImplemented": false,
+    "authorizationProfilePresent": false,
+    "hvfCalled": false,
+    "vmStarted": false,
+    "guestStarted": false
+  },
+  "nonComposability": {
+    "c5b7RootMetadataOnly": true,
+    "c5b7RootBytes": 100663296,
+    "predecessorRootBytes": 134217728,
+    "rootSizeMismatchRefuses": true,
+    "compositeStatus": "BLOCKED",
+    "requiredSuccessor": "versioned-96-MiB-adapter-profile-and-implementation-rebinding"
+  }
+}

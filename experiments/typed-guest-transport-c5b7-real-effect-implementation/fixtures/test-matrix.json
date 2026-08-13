@@ -1,0 +1,31 @@
+{
+  "objectType": "capsule.c5b7.real-effect-test-matrix",
+  "objectVersion": 1,
+  "status": "PASSED",
+  "cases": [
+    "profile-absent",
+    "profile-mismatch",
+    "inputs-absent",
+    "inputs-size-mismatch",
+    "root-identity-zero",
+    "root-size-96MiB-mismatch",
+    "source-cap-plus-one",
+    "unknown-action",
+    "closed-runner-order",
+    "each-libkrun-configuration-first-error",
+    "context-free-on-pre-enter-fault",
+    "context-free-result-retained",
+    "no-free-after-enter-consumption",
+    "short-write-progress",
+    "zero-write",
+    "write-error",
+    "wrong-start-byte",
+    "start-trailing-byte",
+    "read-error",
+    "close-first-error-no-child",
+    "teardown-absence-cleanup-separate-controller-steps",
+    "commit-delivery-separate-controller-steps",
+    "request-first-error",
+    "unknown-effect"
+  ]
+}
