@@ -1,0 +1,154 @@
+{
+  "status": "PASSED",
+  "cases": [
+    {
+      "id": "profile-absent",
+      "refusal": "PROFILE_ABSENT",
+      "effects": []
+    },
+    {
+      "id": "profile-mismatch",
+      "refusal": "PROFILE_MISMATCH",
+      "effects": []
+    },
+    {
+      "id": "no-actions",
+      "refusal": null,
+      "effects": []
+    },
+    {
+      "id": "create-endpoints",
+      "refusal": null,
+      "effects": [
+        "CREATE_ENDPOINTS"
+      ]
+    },
+    {
+      "id": "start-drains",
+      "refusal": null,
+      "effects": [
+        "START_DRAINS"
+      ]
+    },
+    {
+      "id": "closed-runner-call-plan",
+      "refusal": null,
+      "effects": [
+        "KRUN_CREATE_CTX",
+        "KRUN_SET_VM_CONFIG",
+        "KRUN_DISABLE_IMPLICIT_CONSOLE",
+        "KRUN_DISABLE_IMPLICIT_INIT",
+        "KRUN_DISABLE_IMPLICIT_VSOCK",
+        "KRUN_ADD_READ_ONLY_RAW_ROOT_FD",
+        "KRUN_SET_ROOT_DISK_REMOUNT",
+        "KRUN_ADD_VIRTIO_CONSOLE_MULTIPORT",
+        "KRUN_ADD_SOURCE_PORT",
+        "KRUN_ADD_INPUT_PORT",
+        "KRUN_ADD_COMPLETION_PORT",
+        "KRUN_SET_KERNEL_CONSOLE",
+        "KRUN_SET_WORKDIR",
+        "KRUN_SET_EXEC",
+        "WRITE_READY",
+        "REQUIRE_START_BYTE",
+        "KRUN_START_ENTER"
+      ]
+    },
+    {
+      "id": "copy-both-inputs",
+      "refusal": null,
+      "effects": [
+        "WRITE_SOURCE",
+        "WRITE_INPUT"
+      ]
+    },
+    {
+      "id": "close-then-allow",
+      "refusal": null,
+      "effects": [
+        "CLOSE_INPUT_WRITERS",
+        "ALLOW_CHILD"
+      ]
+    },
+    {
+      "id": "fault-convergence",
+      "refusal": null,
+      "effects": [
+        "REQUEST_TEARDOWN",
+        "PROVE_ABSENCE",
+        "REMOVE_FIXED_ROOT"
+      ]
+    },
+    {
+      "id": "completion-last-publication",
+      "refusal": null,
+      "effects": [
+        "REQUEST_DURABLE_COMMIT",
+        "DELIVER_STORED"
+      ]
+    },
+    {
+      "id": "response-loss-replay",
+      "refusal": null,
+      "effects": [
+        "REPLAY_STORED"
+      ]
+    },
+    {
+      "id": "indeterminate-fence-and-teardown",
+      "refusal": null,
+      "effects": [
+        "REQUEST_TEARDOWN",
+        "FENCE_STORE"
+      ]
+    },
+    {
+      "id": "stop-mismatch",
+      "refusal": null,
+      "effects": [
+        "STOP_MISMATCH"
+      ]
+    },
+    {
+      "id": "complete-closed-action-order",
+      "refusal": null,
+      "effects": [
+        "CREATE_ENDPOINTS",
+        "START_DRAINS",
+        "KRUN_CREATE_CTX",
+        "KRUN_SET_VM_CONFIG",
+        "KRUN_DISABLE_IMPLICIT_CONSOLE",
+        "KRUN_DISABLE_IMPLICIT_INIT",
+        "KRUN_DISABLE_IMPLICIT_VSOCK",
+        "KRUN_ADD_READ_ONLY_RAW_ROOT_FD",
+        "KRUN_SET_ROOT_DISK_REMOUNT",
+        "KRUN_ADD_VIRTIO_CONSOLE_MULTIPORT",
+        "KRUN_ADD_SOURCE_PORT",
+        "KRUN_ADD_INPUT_PORT",
+        "KRUN_ADD_COMPLETION_PORT",
+        "KRUN_SET_KERNEL_CONSOLE",
+        "KRUN_SET_WORKDIR",
+        "KRUN_SET_EXEC",
+        "WRITE_READY",
+        "REQUIRE_START_BYTE",
+        "KRUN_START_ENTER",
+        "WRITE_SOURCE",
+        "WRITE_INPUT",
+        "CLOSE_INPUT_WRITERS",
+        "ALLOW_CHILD",
+        "REQUEST_TEARDOWN",
+        "PROVE_ABSENCE",
+        "REMOVE_FIXED_ROOT",
+        "REQUEST_DURABLE_COMMIT",
+        "DELIVER_STORED",
+        "REPLAY_STORED",
+        "FENCE_STORE",
+        "STOP_MISMATCH"
+      ]
+    },
+    {
+      "id": "unknown-action",
+      "refusal": "ACTION_UNKNOWN",
+      "effects": []
+    }
+  ]
+}

@@ -1,0 +1,53 @@
+{
+  "status": "PASSED",
+  "cases": [
+    {
+      "id": "profile-absent",
+      "expected": "PROFILE_ABSENT"
+    },
+    {
+      "id": "profile-magic",
+      "expected": "PROFILE_MISMATCH"
+    },
+    {
+      "id": "profile-version",
+      "expected": "PROFILE_MISMATCH"
+    },
+    {
+      "id": "profile-structure-size",
+      "expected": "PROFILE_MISMATCH"
+    },
+    {
+      "id": "profile-each-fd",
+      "expected": "PROFILE_MISMATCH"
+    },
+    {
+      "id": "profile-resource-or-cap",
+      "expected": "PROFILE_MISMATCH"
+    },
+    {
+      "id": "profile-each-input-digest",
+      "expected": "PROFILE_MISMATCH"
+    },
+    {
+      "id": "unknown-action-bit",
+      "expected": "ACTION_UNKNOWN"
+    },
+    {
+      "id": "object-import",
+      "expected": "exact undefined-symbol closure mismatch"
+    },
+    {
+      "id": "object-export",
+      "expected": "exact exported-symbol closure mismatch"
+    },
+    {
+      "id": "object-load-command",
+      "expected": "MH_OBJECT no-load-command refusal"
+    },
+    {
+      "id": "archive-extra-or-changed-file",
+      "expected": "archive inventory/identity mismatch"
+    }
+  ]
+}
