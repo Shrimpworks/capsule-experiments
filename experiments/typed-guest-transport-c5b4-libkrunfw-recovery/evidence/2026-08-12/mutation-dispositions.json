@@ -1,0 +1,25 @@
+{
+  "status": "PASSED",
+  "cases": [
+    {
+      "id": "archive-byte",
+      "expected": "official archive identity mismatch"
+    },
+    {
+      "id": "artifact-byte",
+      "expected": "retained artifact identity mismatch"
+    },
+    {
+      "id": "false-independent-build",
+      "expected": "build comparison mismatch"
+    },
+    {
+      "id": "separate-firmware-authority",
+      "expected": "boot-role decision mismatch"
+    },
+    {
+      "id": "false-preferred-source-closure",
+      "expected": "source-availability boundary mismatch"
+    }
+  ]
+}

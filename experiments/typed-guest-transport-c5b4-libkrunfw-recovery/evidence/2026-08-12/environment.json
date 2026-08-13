@@ -1,0 +1,9 @@
+{
+  "architecture": "arm64",
+  "macos": "26.5.2",
+  "macosBuild": "25F84",
+  "xcode": "26.6 (17F113)",
+  "sdk": "26.5",
+  "appleClang": "21.0.0 (clang-2100.1.1.101)",
+  "gnuMake": "3.81"
+}

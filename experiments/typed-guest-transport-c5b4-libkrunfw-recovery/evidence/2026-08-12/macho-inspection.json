@@ -1,0 +1,21 @@
+{
+  "method": "independent-raw-Mach-O-and-system-tool-static-readback",
+  "status": "PASSED",
+  "architecture": "arm64",
+  "fileType": "MH_DYLIB",
+  "installName": "libkrunfw.5.dylib",
+  "minimumMacos": "14.0",
+  "sdk": "26.5",
+  "dependencies": [
+    "/usr/lib/libSystem.B.dylib"
+  ],
+  "exports": [
+    "_KERNEL_BUNDLE",
+    "_krunfw_get_kernel",
+    "_krunfw_get_version"
+  ],
+  "uuid": "6D70E4BD-1977-32C8-9091-4B99162A9C5F",
+  "embeddedCodeSignature": "adhoc-linker-signed",
+  "loaded": false,
+  "executed": false
+}

@@ -1,0 +1,32 @@
+{
+  "spdxVersion": "SPDX-2.3",
+  "dataLicense": "CC0-1.0",
+  "SPDXID": "SPDXRef-DOCUMENT",
+  "name": "Capsule-C5b4-libkrunfw-5.5.0-recovery",
+  "documentNamespace": "https://capsulecorp.invalid/spdx/c5b4/0b14f4b8005dafd33c38df5935b9efdb6381c724224b3967ba1cecbecf10b6e9",
+  "packages": [
+    {
+      "name": "libkrunfw",
+      "SPDXID": "SPDXRef-Package-libkrunfw",
+      "versionInfo": "5.5.0",
+      "downloadLocation": "https://github.com/libkrun/libkrunfw/releases/download/v5.5.0/libkrunfw-prebuilt-aarch64.tgz",
+      "filesAnalyzed": false,
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "GPL-2.0-only AND LGPL-2.1-only",
+      "checksums": [
+        {
+          "algorithm": "SHA256",
+          "checksumValue": "5bfae6efee63dbdf04a8fac2a69d772d9f900af2f54c4429b4acdfd6d86b9979"
+        }
+      ]
+    }
+  ],
+  "annotations": [
+    {
+      "annotationType": "OTHER",
+      "annotator": "Tool: Capsule C5b4 evidence generator",
+      "annotationDate": "2026-08-12T00:00:00Z",
+      "comment": "Evidence-only partial SBOM; preferred-form kernel source and full dependency closure remain blocked."
+    }
+  ]
+}

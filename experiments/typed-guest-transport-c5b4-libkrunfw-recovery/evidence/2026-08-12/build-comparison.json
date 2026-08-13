@@ -1,0 +1,17 @@
+{
+  "status": "PASSED",
+  "buildA": {
+    "path": "artifacts/libkrunfw.5.dylib",
+    "bytes": 24339104,
+    "sha256": "0b14f4b8005dafd33c38df5935b9efdb6381c724224b3967ba1cecbecf10b6e9"
+  },
+  "buildB": {
+    "path": "ephemeral-stage-b/libkrunfw.5.dylib",
+    "bytes": 24339104,
+    "sha256": "0b14f4b8005dafd33c38df5935b9efdb6381c724224b3967ba1cecbecf10b6e9"
+  },
+  "comparison": "IDENTICAL",
+  "expectedHistoricalIdentityMatched": true,
+  "sandboxAppliedToBothBuilds": true,
+  "networkAllowed": false
+}

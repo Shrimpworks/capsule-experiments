@@ -1,0 +1,146 @@
+{
+  "objectType": "capsule.experiment-archive-manifest",
+  "objectVersion": 1,
+  "identity": "capsule.c5b4.libkrunfw-v5.5.0-deterministic-recovery/2026-08-12",
+  "manifestSelfExcluded": true,
+  "retainedFiles": [
+    {
+      "path": "HANDOFF.md",
+      "mode": "0644",
+      "bytes": 1451,
+      "sha256": "5083512beb653abadfe1a23392ff4053537694095c22e88ba06be61a0ac4bfee"
+    },
+    {
+      "path": "README.md",
+      "mode": "0644",
+      "bytes": 3671,
+      "sha256": "c5ab80d12401a6459ea6762617becfe27276a2509d7295544e2e545466154bd8"
+    },
+    {
+      "path": "RESULTS.md",
+      "mode": "0644",
+      "bytes": 2522,
+      "sha256": "ad98ada8615513928d03f534128fa31d349481d4374117542b888b51c198a94d"
+    },
+    {
+      "path": "artifacts/libkrunfw.5.dylib",
+      "mode": "0644",
+      "bytes": 24339104,
+      "sha256": "0b14f4b8005dafd33c38df5935b9efdb6381c724224b3967ba1cecbecf10b6e9"
+    },
+    {
+      "path": "evidence/2026-08-12/archive-safety.json",
+      "mode": "0644",
+      "bytes": 375,
+      "sha256": "c4f022854843815299dd4c7245e1004928abd83ca66666f78d64d92595bc919f"
+    },
+    {
+      "path": "evidence/2026-08-12/build-comparison.json",
+      "mode": "0644",
+      "bytes": 504,
+      "sha256": "a4a24a9990390ac5592e5abddae614211195378df883144bd363714fc6b4aa5a"
+    },
+    {
+      "path": "evidence/2026-08-12/environment.json",
+      "mode": "0644",
+      "bytes": 189,
+      "sha256": "8aba217613429ed90dc39145a44bff52cc0f73f06dea42c8f7701694c6c5945d"
+    },
+    {
+      "path": "evidence/2026-08-12/license-source-inventory.json",
+      "mode": "0644",
+      "bytes": 1358,
+      "sha256": "6276b9e234aea5545450de7f1329a295b0e501687aae7c17a1df0a9cf443e9f3"
+    },
+    {
+      "path": "evidence/2026-08-12/macho-inspection.json",
+      "mode": "0644",
+      "bytes": 521,
+      "sha256": "5389836bb8a99a4159c54a6634bf33152f52969d4200ed51b965d7da616a0c7f"
+    },
+    {
+      "path": "evidence/2026-08-12/mutation-dispositions.json",
+      "mode": "0644",
+      "bytes": 555,
+      "sha256": "192e35e3e3281f71d26b75fc2568297c0b209900131e347dd868f18f9b12d745"
+    },
+    {
+      "path": "evidence/2026-08-12/provenance.intoto.json",
+      "mode": "0644",
+      "bytes": 1858,
+      "sha256": "d054e54471631fbc024dbcbefab2f27c87e522d6da9217fbe45605febeda6564"
+    },
+    {
+      "path": "evidence/2026-08-12/result.json",
+      "mode": "0644",
+      "bytes": 921,
+      "sha256": "2e049210d814236f764d89dcd8b1c672f3fab93891fd004ead299789464fc0f4"
+    },
+    {
+      "path": "evidence/2026-08-12/sbom.spdx-lite.json",
+      "mode": "0644",
+      "bytes": 1132,
+      "sha256": "5fe132f5b2ddfbcdd518f562ef8612065f4d9a639ab837684755c2bf565c2d1c"
+    },
+    {
+      "path": "inputs/libkrunfw-prebuilt-aarch64.tgz",
+      "mode": "0644",
+      "bytes": 19709993,
+      "sha256": "5bfae6efee63dbdf04a8fac2a69d772d9f900af2f54c4429b4acdfd6d86b9979"
+    },
+    {
+      "path": "manifests/recovery.json",
+      "mode": "0644",
+      "bytes": 5786,
+      "sha256": "814eef24d1583b49ecf773043d142b6c7d77fb00a304dc964be7360b427b9cb4"
+    },
+    {
+      "path": "scripts/generate.mjs",
+      "mode": "0755",
+      "bytes": 10330,
+      "sha256": "697f80f90a3203f05056c0976674572ea4754d8dfd3924623da0ae5c1574a92c"
+    },
+    {
+      "path": "scripts/test-mutations.mjs",
+      "mode": "0755",
+      "bytes": 2381,
+      "sha256": "fcd1fdb777210360fd89600acd92dc907c011d963c5ab7695104638d93194b2b"
+    },
+    {
+      "path": "scripts/verify.mjs",
+      "mode": "0755",
+      "bytes": 10327,
+      "sha256": "c45ca4df5545158eb013ac4e1b9628383d512321860726016306b30768aaff19"
+    },
+    {
+      "path": "sources/LICENSE-GPL-2.0-only",
+      "mode": "0644",
+      "bytes": 18729,
+      "sha256": "f6b78c087c3ebdf0f3c13415070dd480a3f35d8fc76f3d02180a407c1c812f79"
+    },
+    {
+      "path": "sources/LICENSE-LGPL-2.1-only",
+      "mode": "0644",
+      "bytes": 26530,
+      "sha256": "dc626520dcd53a22f727af3ee42c770e56c97a64fe3adb063799d8ab032fe551"
+    },
+    {
+      "path": "sources/Makefile",
+      "mode": "0644",
+      "bytes": 5169,
+      "sha256": "81bc05513f0da06b917870ab8d51e00d0b93eff390f4bfbfa1d1c3ae041d0bcc"
+    },
+    {
+      "path": "sources/bin2cbundle.py",
+      "mode": "0644",
+      "bytes": 4878,
+      "sha256": "fa11e5b49e10d469eebd7b6e4ec4d2f5529337f12b9b50c988683b665778f6d6"
+    },
+    {
+      "path": "sources/kernel.c",
+      "mode": "0644",
+      "bytes": 93814877,
+      "sha256": "96561a4e5dccec0364a28ac32c5668e13e31180d083f412c9f8be7599380c70d"
+    }
+  ]
+}

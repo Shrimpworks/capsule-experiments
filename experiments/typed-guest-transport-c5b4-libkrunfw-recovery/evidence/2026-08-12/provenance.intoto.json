@@ -1,0 +1,60 @@
+{
+  "_type": "https://in-toto.io/Statement/v1",
+  "subject": [
+    {
+      "name": "artifacts/libkrunfw.5.dylib",
+      "digest": {
+        "sha256": "0b14f4b8005dafd33c38df5935b9efdb6381c724224b3967ba1cecbecf10b6e9"
+      }
+    }
+  ],
+  "predicateType": "https://slsa.dev/provenance/v1",
+  "predicate": {
+    "buildDefinition": {
+      "buildType": "https://capsulecorp.invalid/build-types/libkrunfw-prebuilt-source-recovery/v1",
+      "externalParameters": {
+        "version": "5.5.0",
+        "environment": {
+          "PATH": "/usr/bin:/bin:/usr/sbin:/sbin",
+          "DEVELOPER_DIR": "/Applications/Xcode.app/Contents/Developer",
+          "SDKROOT": "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.5.sdk",
+          "MACOSX_DEPLOYMENT_TARGET": "14.0",
+          "SOURCE_DATE_EPOCH": "0",
+          "TZ": "UTC",
+          "LC_ALL": "C",
+          "LANG": "C"
+        },
+        "command": "/usr/bin/make -j1 CC=/usr/bin/clang"
+      },
+      "internalParameters": {
+        "stages": 2,
+        "normalizedMtime": "2000-01-01T00:00:00Z",
+        "sandbox": "macOS sandbox-exec (deny network*)"
+      },
+      "resolvedDependencies": [
+        {
+          "uri": "https://github.com/libkrun/libkrunfw/releases/assets/441852825",
+          "digest": {
+            "sha256": "5bfae6efee63dbdf04a8fac2a69d772d9f900af2f54c4429b4acdfd6d86b9979"
+          }
+        }
+      ]
+    },
+    "runDetails": {
+      "builder": {
+        "id": "https://capsulecorp.invalid/builders/owned-mac-local-no-run/v1"
+      },
+      "metadata": {
+        "invocationId": "capsule-c5b4-libkrunfw-20260812"
+      },
+      "byproducts": [
+        {
+          "name": "build-b",
+          "digest": {
+            "sha256": "0b14f4b8005dafd33c38df5935b9efdb6381c724224b3967ba1cecbecf10b6e9"
+          }
+        }
+      ]
+    }
+  }
+}
