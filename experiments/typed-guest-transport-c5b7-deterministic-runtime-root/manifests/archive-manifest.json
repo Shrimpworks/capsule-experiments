@@ -1,0 +1,99 @@
+{
+  "objectType": "capsule.experiment-archive-manifest",
+  "objectVersion": 1,
+  "identity": "capsule.c5b7.typed-transport-runtime-root/2026-08-13",
+  "closed": true,
+  "manifestSelfExcluded": true,
+  "retainedFiles": [
+    {
+      "path": ".gitattributes",
+      "mode": "0644",
+      "bytes": 30,
+      "sha256": "2c6e99e5d480d2e39c7b01e6e751f9cfb2dd77a4f3611aaf7f0bd9243d5b0776"
+    },
+    {
+      "path": "HANDOFF.md",
+      "mode": "0644",
+      "bytes": 1616,
+      "sha256": "113508bbf21e94b19fe6222c39c7588513b3b9f2424a85b7b41cbd8c54f6ff0b"
+    },
+    {
+      "path": "README.md",
+      "mode": "0644",
+      "bytes": 2420,
+      "sha256": "f580e110deef4e9d4a7138c083034b0547620e3b4ceae0519c494c865fb038f4"
+    },
+    {
+      "path": "RESULTS.md",
+      "mode": "0644",
+      "bytes": 2244,
+      "sha256": "7b8d42549430eca14fb28ab4a4dabdfb7ec9ed3ccd7549a013016c3c058cc64f"
+    },
+    {
+      "path": "dist/runtime-root.ext4",
+      "mode": "0644",
+      "bytes": 100663296,
+      "sha256": "5ad18f20cbc97c7a70ead3e795fd3649672513323041e913b0eb55b7acc88775"
+    },
+    {
+      "path": "evidence/2026-08-13/build-comparison.json",
+      "mode": "0644",
+      "bytes": 524,
+      "sha256": "6a77acefc5531027ef36bbe91e134948cc88c6bbcfe384e6d649afbfa7cd7a34"
+    },
+    {
+      "path": "evidence/2026-08-13/construction.json",
+      "mode": "0644",
+      "bytes": 1008,
+      "sha256": "ec96cefa49a7f8b13417edd81332dd0efd9966f284b14a448e123d83a58ac01d"
+    },
+    {
+      "path": "evidence/2026-08-13/mutation-dispositions.json",
+      "mode": "0644",
+      "bytes": 1902,
+      "sha256": "f8f9b5c69ef716e459685fab7afb263883a4583184cfd5dcf37a986a19b4a581"
+    },
+    {
+      "path": "inputs/c5b5/effect-adapter-contract.json",
+      "mode": "0644",
+      "bytes": 3331,
+      "sha256": "396d7e4d0d4ded1d072aac0040609c2cff39624dc56012896dc8663e0766f6f7"
+    },
+    {
+      "path": "manifests/runtime-root-profile.json",
+      "mode": "0644",
+      "bytes": 8254,
+      "sha256": "6c39f9803cdd4129c10f86f3eecd10ed9e40d89548a8745221818539b65b644d"
+    },
+    {
+      "path": "scripts/build-root.mjs",
+      "mode": "0755",
+      "bytes": 10433,
+      "sha256": "244b65e29cc5fe9746e70825491e61259eb944787e63636ea5b1f4626c248e47"
+    },
+    {
+      "path": "scripts/generate.mjs",
+      "mode": "0755",
+      "bytes": 11987,
+      "sha256": "714368f11744015fcf42299007319e0b871ad0450e2b1c3485a0d6f9470aa057"
+    },
+    {
+      "path": "scripts/root-parser.mjs",
+      "mode": "0644",
+      "bytes": 7126,
+      "sha256": "5258e37c90cfd7152dcaa8fd02c8a832fc4a72f051371a8689756cc4f6d7ffd9"
+    },
+    {
+      "path": "scripts/test-mutations.mjs",
+      "mode": "0755",
+      "bytes": 5505,
+      "sha256": "48d69b9bd1caeef82b8bb9592879ea9379dd281479d09530ffaf709ab4554899"
+    },
+    {
+      "path": "scripts/verify.mjs",
+      "mode": "0755",
+      "bytes": 12507,
+      "sha256": "e1f2402d3ec5548bcd711756973614e9b4ee458a0c5b69acbd85b6fbbad6f27d"
+    }
+  ]
+}

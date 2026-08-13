@@ -1,0 +1,211 @@
+{
+  "objectType": "capsule.c5b7.deterministic-runtime-root",
+  "objectVersion": 1,
+  "identity": "capsule.c5b7.typed-transport-runtime-root/2026-08-13",
+  "scopedConstructionStatus": "PASSED",
+  "completeCompositeStatus": "BLOCKED",
+  "controlledExecutionStatus": "BLOCKED",
+  "runtimeProfileAdmission": "BLOCKED",
+  "repositoryBaseline": "d9967e80a6155a65c6876dc686d8f8498b4a908f",
+  "predecessors": {
+    "c5b0": {
+      "mergeCommit": "b357d0c0fb29100c180494e67cebd7809aabe3c5",
+      "experimentRoot": "experiments/typed-guest-transport-c5b0-v19-successor"
+    },
+    "c5b1": {
+      "mergeCommit": "db08ebf277432e06d6cba3b7f7338e3bd4a61252",
+      "experimentRoot": "experiments/typed-guest-transport-c5b1-executable-successor"
+    },
+    "c5b3Controller": {
+      "mergeCommit": "60234e22674e46a42e8e5c382d85217a930c2c13",
+      "experimentRoot": "experiments/typed-guest-transport-c5b3-controlled-test-controller"
+    },
+    "c5b5Adapter": {
+      "mergeCommit": "3cfe7db16c55894be444d4c783659043dbd25c95",
+      "experimentRoot": "experiments/typed-guest-transport-c5b5-no-run-effect-adapter"
+    },
+    "c5b6Runtime": {
+      "mergeCommit": "d9967e80a6155a65c6876dc686d8f8498b4a908f",
+      "experimentRoot": "experiments/typed-guest-transport-c5b6-deno-static-reproduction"
+    }
+  },
+  "root": {
+    "path": "dist/runtime-root.ext4",
+    "bytes": 100663296,
+    "sha256": "5ad18f20cbc97c7a70ead3e795fd3649672513323041e913b0eb55b7acc88775",
+    "versionedSuccessor": true,
+    "c5b1ByteEquivalent": false,
+    "reason": "The governed runtime and snapshot require a larger explicitly versioned root than C5b1's 8 MiB runtime-absent image.",
+    "format": "raw ext4 extent filesystem",
+    "blockBytes": 4096,
+    "blocks": 24576,
+    "usedBlocks": 17115,
+    "freeBlocks": 7461,
+    "inodes": 256,
+    "nodes": 19,
+    "journal": false,
+    "compatibleFeatures": [],
+    "incompatibleFeatures": [
+      "filetype",
+      "extents"
+    ],
+    "readOnlyCompatibleFeatures": [],
+    "uid": 0,
+    "gid": 0,
+    "ambientFiles": 0
+  },
+  "content": {
+    "runtime": {
+      "path": "/usr/local/bin/capsule-deno-core-c5b1",
+      "bytes": 68496520,
+      "sha256": "e781a90236cdf1272a9a16189c6be033164fa25a5aa9e52376ef998982ec0a77",
+      "mode": "0755"
+    },
+    "snapshot": {
+      "path": "/usr/local/share/capsule-deno-core/capsule_core_snapshot.bin",
+      "bytes": 699988,
+      "sha256": "4e8965217d5a6675a880326eee6f690bbeec7e7cb243decf2f3e9f453a871a2c",
+      "mode": "0444"
+    },
+    "trustedInit": {
+      "path": "/usr/local/libexec/capsule-init.krun",
+      "bytes": 365352,
+      "sha256": "c6c5f15dd386082e6b108c354afdca27327d6760efdefb54fe9d02e25b80e408",
+      "mode": "0755"
+    },
+    "trustedLauncher": {
+      "path": "/usr/local/libexec/capsule-launcher",
+      "bytes": 389312,
+      "sha256": "278467cd82499590154a9b1a34b0189096d3927c49fefd228dedc2f4db36ea98",
+      "mode": "0755"
+    },
+    "source": {
+      "path": "/opt/capsule/inputs/main.mjs",
+      "bytes": 103,
+      "sha256": "c8e940feb89b342de2d5e6bd13c413226676de9a539fce34c4107516e635b475",
+      "mode": "0444"
+    },
+    "sourceManifest": {
+      "path": "/opt/capsule/inputs/source-manifest.cbor",
+      "bytes": 89,
+      "sha256": "712b1bd9739e4f6b0b027600207cbb08fb21b159a57bd34a15cf0ff8f32661b0",
+      "mode": "0444"
+    },
+    "input": {
+      "path": "/opt/capsule/inputs/input.json",
+      "bytes": 36,
+      "sha256": "9de0c909cfb111bd99c3b0b5f7a10972894270c2867022a71b6b6f3c0cd1af6e",
+      "mode": "0444"
+    }
+  },
+  "sourceInputs": {
+    "runtimeBundle": {
+      "path": "experiments/typed-guest-transport-c5b6-deno-static-reproduction/artifacts/capsule-deno-core-c2b-runtime-bundle.tar.gz",
+      "bytes": 20981992,
+      "sha256": "ad908b8289c86f25c3413713fa3e60c4c8bb91fec0d52763e870d7a186865ee6"
+    },
+    "runtimeProvenance": {
+      "path": "experiments/typed-guest-transport-c5b6-deno-static-reproduction/evidence/2026-08-12/provenance.intoto.json",
+      "bytes": 1541,
+      "sha256": "4fe04b1bc9329bbc7234ea06df99c6a5b21f35d5181a8c31a6464704ba7fbe65"
+    },
+    "runtimeSbom": {
+      "path": "experiments/typed-guest-transport-c5b6-deno-static-reproduction/evidence/2026-08-12/sbom.cdx.json",
+      "bytes": 93305,
+      "sha256": "670bd33b99cd121f8fd7dc0d58af0b6df44877c3fdde4680c3cdf0edead1930d"
+    },
+    "runtimeNoticeClosure": {
+      "path": "experiments/typed-guest-transport-c5b6-deno-static-reproduction/evidence/2026-08-12/source-notice-closure.json",
+      "bytes": 1693,
+      "sha256": "8280d5cbcd37fa90b4e2a8b7d5837f29b6341e639483eb7caef10f44ead9816e"
+    },
+    "trustedInit": {
+      "path": "experiments/typed-guest-transport-c5b1-executable-successor/dist/trusted-init",
+      "bytes": 365352,
+      "sha256": "c6c5f15dd386082e6b108c354afdca27327d6760efdefb54fe9d02e25b80e408"
+    },
+    "trustedLauncher": {
+      "path": "experiments/typed-guest-transport-c5b1-executable-successor/dist/trusted-launcher",
+      "bytes": 389312,
+      "sha256": "278467cd82499590154a9b1a34b0189096d3927c49fefd228dedc2f4db36ea98"
+    },
+    "source": {
+      "path": "experiments/typed-guest-transport-c5b0-v19-successor/fixtures/main.mjs",
+      "bytes": 103,
+      "sha256": "c8e940feb89b342de2d5e6bd13c413226676de9a539fce34c4107516e635b475"
+    },
+    "sourceManifest": {
+      "path": "experiments/typed-guest-transport-c5b0-v19-successor/fixtures/source-manifest.cbor",
+      "bytes": 89,
+      "sha256": "712b1bd9739e4f6b0b027600207cbb08fb21b159a57bd34a15cf0ff8f32661b0"
+    },
+    "input": {
+      "path": "experiments/typed-guest-transport-c5b0-v19-successor/fixtures/input.json",
+      "bytes": 36,
+      "sha256": "9de0c909cfb111bd99c3b0b5f7a10972894270c2867022a71b6b6f3c0cd1af6e"
+    }
+  },
+  "metadataOnly": {
+    "controller": {
+      "mergeCommit": "60234e22674e46a42e8e5c382d85217a930c2c13",
+      "profile": {
+        "path": "experiments/typed-guest-transport-c5b3-controlled-test-controller/manifests/controller-profile.json",
+        "bytes": 4835,
+        "sha256": "a539febe512fbb45e4369812e42b56437afba5ea48788370dd85c24b3c6f195e"
+      },
+      "includedInRoot": false
+    },
+    "effectAdapter": {
+      "mergeCommit": "3cfe7db16c55894be444d4c783659043dbd25c95",
+      "profile": {
+        "path": "experiments/typed-guest-transport-c5b5-no-run-effect-adapter/manifests/adapter-profile.json",
+        "bytes": 4355,
+        "sha256": "5e8341952eeb78d44ceaa9002ab6906b33a125f3fa54cfb48bdf7f13020474e2"
+      },
+      "contract": {
+        "path": "experiments/typed-guest-transport-c5b5-no-run-effect-adapter/contracts/effect-adapter-contract.json",
+        "bytes": 3331,
+        "sha256": "396d7e4d0d4ded1d072aac0040609c2cff39624dc56012896dc8663e0766f6f7"
+      },
+      "frozenRootBytes": 134217728,
+      "compatibleAsIs": false,
+      "resolution": "A reviewed versioned adapter/effect implementation must bind this root's 100663296 bytes, or a separately versioned 134217728-byte root must replace this candidate before composite construction.",
+      "includedInRoot": false
+    }
+  },
+  "deliberatelyAbsent": [
+    "shell",
+    "package-manager",
+    "network-configuration",
+    "writable-scratch",
+    "host-path",
+    "controller",
+    "effect-adapter",
+    "libkrun",
+    "libkrunfw"
+  ],
+  "blockers": [
+    "the C5b5 adapter is provenance-only and incompatible as-is because it freezes a 134217728-byte root while this successor is 100663296 bytes",
+    "a reviewed versioned adapter/effect implementation or separately versioned root must resolve the exact-size binding before composite construction",
+    "no complete immutable host-plus-root composite exists",
+    "the real effect implementation remains separately owned",
+    "no exact owner/host/guest authorization profile exists",
+    "nothing in this packet supplies runtime or product admission"
+  ],
+  "effects": {
+    "artifactExecuted": false,
+    "runtimeExecuted": false,
+    "launcherExecuted": false,
+    "processStarted": false,
+    "artifactLoaded": false,
+    "libkrunLoaded": false,
+    "hvfCalled": false,
+    "vmStarted": false,
+    "guestStarted": false,
+    "networkAccessed": false,
+    "credentialAccessed": false,
+    "keychainAccessed": false,
+    "productStateMutated": false,
+    "admissionChanged": false
+  }
+}

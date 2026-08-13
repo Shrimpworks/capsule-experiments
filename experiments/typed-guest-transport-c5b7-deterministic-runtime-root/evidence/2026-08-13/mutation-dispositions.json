@@ -1,0 +1,80 @@
+{
+  "status": "PASSED",
+  "cases": [
+    {
+      "id": "root-byte",
+      "disposition": "REFUSED",
+      "oracle": "root digest mismatch"
+    },
+    {
+      "id": "journal-feature",
+      "disposition": "REFUSED",
+      "oracle": "compatible features must be empty"
+    },
+    {
+      "id": "foreign-path",
+      "disposition": "REFUSED",
+      "oracle": "root path inventory mismatch"
+    },
+    {
+      "id": "foreign-owner",
+      "disposition": "REFUSED",
+      "oracle": "inode 22 owner mismatch"
+    },
+    {
+      "id": "runtime-mode",
+      "disposition": "REFUSED",
+      "oracle": "mode mismatch: /usr/local/bin/capsule-deno-core-c5b1"
+    },
+    {
+      "id": "source-byte",
+      "disposition": "REFUSED",
+      "oracle": "content mismatch: /opt/capsule/inputs/main.mjs"
+    },
+    {
+      "id": "truncated-root",
+      "disposition": "REFUSED",
+      "oracle": "root byte length mismatch"
+    },
+    {
+      "id": "claim-effect",
+      "disposition": "REFUSED",
+      "oracle": "effect boundary mismatch"
+    },
+    {
+      "id": "controller-pin",
+      "disposition": "REFUSED",
+      "oracle": "metadata-only pin mismatch"
+    },
+    {
+      "id": "wrong-dotdot",
+      "disposition": "REFUSED",
+      "oracle": "dotdot entry invalid: /usr"
+    },
+    {
+      "id": "inode-alias",
+      "disposition": "REFUSED",
+      "oracle": "inode reachable at multiple paths"
+    },
+    {
+      "id": "link-count",
+      "disposition": "REFUSED",
+      "oracle": "inode 22 link count mismatch"
+    },
+    {
+      "id": "profile-file-size",
+      "disposition": "REFUSED",
+      "oracle": "content profile mismatch"
+    },
+    {
+      "id": "adapter-compatibility-disclosure",
+      "disposition": "REFUSED",
+      "oracle": "adapter compatibility boundary mismatch"
+    },
+    {
+      "id": "archive-extra",
+      "disposition": "REFUSED",
+      "oracle": "archive inventory mismatch"
+    }
+  ]
+}
