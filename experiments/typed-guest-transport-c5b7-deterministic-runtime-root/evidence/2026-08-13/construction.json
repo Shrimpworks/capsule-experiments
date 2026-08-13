@@ -1,0 +1,31 @@
+{
+  "workItem": "C5b7 deterministic no-run governed runtime-root construction",
+  "scopedStatus": "PASSED",
+  "completeCompositeStatus": "BLOCKED",
+  "controlledExecutionStatus": "BLOCKED",
+  "result": "Two byte-identical 96 MiB raw ext4 successors bind the exact governed runtime, snapshot, trusted init/launcher, and C5b0 inputs; one root is retained.",
+  "root": {
+    "path": "dist/runtime-root.ext4",
+    "bytes": 100663296,
+    "sha256": "5ad18f20cbc97c7a70ead3e795fd3649672513323041e913b0eb55b7acc88775"
+  },
+  "nodes": 19,
+  "usedBlocks": 17115,
+  "freeBlocks": 7461,
+  "effects": {
+    "artifactExecuted": false,
+    "runtimeExecuted": false,
+    "launcherExecuted": false,
+    "processStarted": false,
+    "artifactLoaded": false,
+    "libkrunLoaded": false,
+    "hvfCalled": false,
+    "vmStarted": false,
+    "guestStarted": false,
+    "networkAccessed": false,
+    "credentialAccessed": false,
+    "keychainAccessed": false,
+    "productStateMutated": false,
+    "admissionChanged": false
+  }
+}

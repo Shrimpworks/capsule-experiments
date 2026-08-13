@@ -1,0 +1,93 @@
+{
+  "objectType": "capsule.experiment-archive-manifest",
+  "objectVersion": 1,
+  "identity": "capsule.c5b7.typed-transport-runtime-root/2026-08-13",
+  "closed": true,
+  "manifestSelfExcluded": true,
+  "retainedFiles": [
+    {
+      "path": ".gitattributes",
+      "mode": "0644",
+      "bytes": 30,
+      "sha256": "2c6e99e5d480d2e39c7b01e6e751f9cfb2dd77a4f3611aaf7f0bd9243d5b0776"
+    },
+    {
+      "path": "HANDOFF.md",
+      "mode": "0644",
+      "bytes": 1373,
+      "sha256": "ae0b2a50cb05c9c12a86863daa34775b889e088f4bfaa8259acca3b0ab9fb7a1"
+    },
+    {
+      "path": "README.md",
+      "mode": "0644",
+      "bytes": 2113,
+      "sha256": "44307c8d318c159138f3fa90013c8efe489412b928715a883c1086027e37a772"
+    },
+    {
+      "path": "RESULTS.md",
+      "mode": "0644",
+      "bytes": 1702,
+      "sha256": "2707dd6c91f20cdef8dd16d7e0017e0cd92ab169a733dff479a57d30ac71de58"
+    },
+    {
+      "path": "dist/runtime-root.ext4",
+      "mode": "0644",
+      "bytes": 100663296,
+      "sha256": "5ad18f20cbc97c7a70ead3e795fd3649672513323041e913b0eb55b7acc88775"
+    },
+    {
+      "path": "evidence/2026-08-13/build-comparison.json",
+      "mode": "0644",
+      "bytes": 524,
+      "sha256": "6a77acefc5531027ef36bbe91e134948cc88c6bbcfe384e6d649afbfa7cd7a34"
+    },
+    {
+      "path": "evidence/2026-08-13/construction.json",
+      "mode": "0644",
+      "bytes": 1008,
+      "sha256": "ec96cefa49a7f8b13417edd81332dd0efd9966f284b14a448e123d83a58ac01d"
+    },
+    {
+      "path": "evidence/2026-08-13/mutation-dispositions.json",
+      "mode": "0644",
+      "bytes": 1270,
+      "sha256": "466ae9e48c5865b6893ea04d2ac0ed5845c9f98ce0ade13e28c0e8ad5f318405"
+    },
+    {
+      "path": "manifests/runtime-root-profile.json",
+      "mode": "0644",
+      "bytes": 6634,
+      "sha256": "6291a42cfb765f7890410f6b188fbce1641f97864dfd7918af0c9da1add10215"
+    },
+    {
+      "path": "scripts/build-root.mjs",
+      "mode": "0755",
+      "bytes": 10433,
+      "sha256": "244b65e29cc5fe9746e70825491e61259eb944787e63636ea5b1f4626c248e47"
+    },
+    {
+      "path": "scripts/generate.mjs",
+      "mode": "0755",
+      "bytes": 10371,
+      "sha256": "138602c85b3ee75e36db1ae447590afc1b32e4c0c2f466cf7da0aac02ba9af76"
+    },
+    {
+      "path": "scripts/root-parser.mjs",
+      "mode": "0644",
+      "bytes": 6195,
+      "sha256": "0ec141fe10488cfb6bf8cb7454fb7e4b1f0a9d6f2e09137e37e479011caf2044"
+    },
+    {
+      "path": "scripts/test-mutations.mjs",
+      "mode": "0755",
+      "bytes": 4101,
+      "sha256": "109b269f93dd299bc760f17cdb2b2ddbe92697d2d24c9ff6876f5910f31131ab"
+    },
+    {
+      "path": "scripts/verify.mjs",
+      "mode": "0755",
+      "bytes": 4981,
+      "sha256": "d97c98d9d0ab40fd7c341a66777694252c76023a597462239d004ec991fa39bc"
+    }
+  ]
+}

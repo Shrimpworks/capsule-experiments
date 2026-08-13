@@ -1,0 +1,19 @@
+{
+  "status": "PASSED",
+  "builds": 2,
+  "independentOutputRoots": true,
+  "normalizationApplied": false,
+  "buildA": {
+    "bytes": 100663296,
+    "sha256": "5ad18f20cbc97c7a70ead3e795fd3649672513323041e913b0eb55b7acc88775"
+  },
+  "buildB": {
+    "bytes": 100663296,
+    "sha256": "5ad18f20cbc97c7a70ead3e795fd3649672513323041e913b0eb55b7acc88775"
+  },
+  "byteEqual": true,
+  "sourceInputsRevalidatedBeforeEachBuild": true,
+  "artifactExecution": "NOT_RUN",
+  "runtimeExecution": "NOT_RUN",
+  "guestExecution": "NOT_RUN"
+}
