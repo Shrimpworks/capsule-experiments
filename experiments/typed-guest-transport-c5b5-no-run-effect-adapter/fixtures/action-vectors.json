@@ -1,0 +1,185 @@
+{
+  "objectType": "capsule.c5b5.effect-adapter-vectors",
+  "objectVersion": 1,
+  "cases": [
+    {
+      "id": "profile-absent",
+      "profile": "absent",
+      "mask": 0,
+      "refusal": "PROFILE_ABSENT",
+      "effects": []
+    },
+    {
+      "id": "profile-mismatch",
+      "profile": "mismatch",
+      "mask": 0,
+      "refusal": "PROFILE_MISMATCH",
+      "effects": []
+    },
+    {
+      "id": "no-actions",
+      "profile": "exact",
+      "mask": 0,
+      "refusal": null,
+      "effects": []
+    },
+    {
+      "id": "create-endpoints",
+      "profile": "exact",
+      "mask": 1,
+      "refusal": null,
+      "effects": [
+        "CREATE_ENDPOINTS"
+      ]
+    },
+    {
+      "id": "start-drains",
+      "profile": "exact",
+      "mask": 2,
+      "refusal": null,
+      "effects": [
+        "START_DRAINS"
+      ]
+    },
+    {
+      "id": "closed-runner-call-plan",
+      "profile": "exact",
+      "mask": 4,
+      "refusal": null,
+      "effects": [
+        "KRUN_CREATE_CTX",
+        "KRUN_SET_VM_CONFIG",
+        "KRUN_DISABLE_IMPLICIT_CONSOLE",
+        "KRUN_DISABLE_IMPLICIT_INIT",
+        "KRUN_DISABLE_IMPLICIT_VSOCK",
+        "KRUN_ADD_READ_ONLY_RAW_ROOT_FD",
+        "KRUN_SET_ROOT_DISK_REMOUNT",
+        "KRUN_ADD_VIRTIO_CONSOLE_MULTIPORT",
+        "KRUN_ADD_SOURCE_PORT",
+        "KRUN_ADD_INPUT_PORT",
+        "KRUN_ADD_COMPLETION_PORT",
+        "KRUN_SET_KERNEL_CONSOLE",
+        "KRUN_SET_WORKDIR",
+        "KRUN_SET_EXEC",
+        "WRITE_READY",
+        "REQUIRE_START_BYTE",
+        "KRUN_START_ENTER"
+      ]
+    },
+    {
+      "id": "copy-both-inputs",
+      "profile": "exact",
+      "mask": 24,
+      "refusal": null,
+      "effects": [
+        "WRITE_SOURCE",
+        "WRITE_INPUT"
+      ]
+    },
+    {
+      "id": "close-then-allow",
+      "profile": "exact",
+      "mask": 96,
+      "refusal": null,
+      "effects": [
+        "CLOSE_INPUT_WRITERS",
+        "ALLOW_CHILD"
+      ]
+    },
+    {
+      "id": "fault-convergence",
+      "profile": "exact",
+      "mask": 896,
+      "refusal": null,
+      "effects": [
+        "REQUEST_TEARDOWN",
+        "PROVE_ABSENCE",
+        "REMOVE_FIXED_ROOT"
+      ]
+    },
+    {
+      "id": "completion-last-publication",
+      "profile": "exact",
+      "mask": 3072,
+      "refusal": null,
+      "effects": [
+        "REQUEST_DURABLE_COMMIT",
+        "DELIVER_STORED"
+      ]
+    },
+    {
+      "id": "response-loss-replay",
+      "profile": "exact",
+      "mask": 4096,
+      "refusal": null,
+      "effects": [
+        "REPLAY_STORED"
+      ]
+    },
+    {
+      "id": "indeterminate-fence-and-teardown",
+      "profile": "exact",
+      "mask": 8320,
+      "refusal": null,
+      "effects": [
+        "REQUEST_TEARDOWN",
+        "FENCE_STORE"
+      ]
+    },
+    {
+      "id": "stop-mismatch",
+      "profile": "exact",
+      "mask": 16384,
+      "refusal": null,
+      "effects": [
+        "STOP_MISMATCH"
+      ]
+    },
+    {
+      "id": "complete-closed-action-order",
+      "profile": "exact",
+      "mask": 32767,
+      "refusal": null,
+      "effects": [
+        "CREATE_ENDPOINTS",
+        "START_DRAINS",
+        "KRUN_CREATE_CTX",
+        "KRUN_SET_VM_CONFIG",
+        "KRUN_DISABLE_IMPLICIT_CONSOLE",
+        "KRUN_DISABLE_IMPLICIT_INIT",
+        "KRUN_DISABLE_IMPLICIT_VSOCK",
+        "KRUN_ADD_READ_ONLY_RAW_ROOT_FD",
+        "KRUN_SET_ROOT_DISK_REMOUNT",
+        "KRUN_ADD_VIRTIO_CONSOLE_MULTIPORT",
+        "KRUN_ADD_SOURCE_PORT",
+        "KRUN_ADD_INPUT_PORT",
+        "KRUN_ADD_COMPLETION_PORT",
+        "KRUN_SET_KERNEL_CONSOLE",
+        "KRUN_SET_WORKDIR",
+        "KRUN_SET_EXEC",
+        "WRITE_READY",
+        "REQUIRE_START_BYTE",
+        "KRUN_START_ENTER",
+        "WRITE_SOURCE",
+        "WRITE_INPUT",
+        "CLOSE_INPUT_WRITERS",
+        "ALLOW_CHILD",
+        "REQUEST_TEARDOWN",
+        "PROVE_ABSENCE",
+        "REMOVE_FIXED_ROOT",
+        "REQUEST_DURABLE_COMMIT",
+        "DELIVER_STORED",
+        "REPLAY_STORED",
+        "FENCE_STORE",
+        "STOP_MISMATCH"
+      ]
+    },
+    {
+      "id": "unknown-action",
+      "profile": "exact",
+      "mask": 32768,
+      "refusal": "ACTION_UNKNOWN",
+      "effects": []
+    }
+  ]
+}
