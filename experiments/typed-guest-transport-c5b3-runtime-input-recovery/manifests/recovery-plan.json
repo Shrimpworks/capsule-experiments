@@ -71,19 +71,23 @@
       "archive": {
         "bytes": 37674703,
         "sha256": "1ae209c9e4ba5803d010d2c79ee4cc0af0126c5a7ebcca211c7e41deaede4cd2",
-        "available": false
+        "available": true,
+        "retainedPath": "inputs/rusty-v8/librusty_v8_simdutf_release_aarch64-unknown-linux-gnu.a.gz"
       },
       "binding": {
         "sha256": "8603f09ab95e79620ea29f73933c09ae3618c6f924472c0ce36d5c614d1ceba4",
-        "available": false
+        "available": true,
+        "retainedPath": "inputs/rusty-v8/src_binding_simdutf_release_aarch64-unknown-linux-gnu.rs"
       },
       "historicalOracle": {
         "repository": "Shrimpworks/rusty_v8",
         "actionsRun": 30925045754,
         "artifactId": 8902402057,
         "artifactName": "rusty-v8-v150.2.0-linux-arm64-unsigned",
-        "currentRetention": "UNKNOWN",
-        "usedAsInput": false
+        "expiresAt": "2026-09-03",
+        "currentRetention": "RECOVERED_AND_VERIFIED",
+        "usedAsInput": true,
+        "verificationReceipt": "evidence/2026-08-12/rusty-v8-recovery-verification.json"
       }
     },
     "builder": {
@@ -142,11 +146,19 @@
     }
   },
   "searchReceipt": "evidence/2026-08-12/search-receipt.json",
+  "postSearchRecovery": {
+    "source": "Shrimpworks/rusty_v8 Actions run 30925045754 artifact 8902402057",
+    "status": "RECOVERED_AND_VERIFIED",
+    "retainedRequiredInputCount": 2,
+    "closesRustyV8RuntimeBuildInputs": true,
+    "closesDenoSourceOrCargoClosure": false,
+    "closesLibkrunfwInputs": false,
+    "receipt": "evidence/2026-08-12/rusty-v8-recovery-verification.json"
+  },
   "requiredNextOrder": [
-    "restore-keychain-backed-github-cli-authentication",
-    "recover-or-rebuild-and-verify-exact-rusty-v8-input",
     "make-exact-pinned-builder-available",
-    "acquire-and-verify-every-recorded-source-input",
+    "acquire-and-verify-the-recorded-deno-source-and-cargo-closure-inputs",
+    "acquire-and-verify-every-recorded-libkrunfw-source-input",
     "run-two-fresh-runtime-builds-and-require-exact-byte-equality",
     "run-two-fresh-libkrunfw-builds-and-require-exact-byte-equality",
     "retain-policy-permitted-artifacts-source-notices-sbom-provenance-and-mutations",
@@ -154,6 +166,7 @@
     "stop-before-any-artifact-load-or-guest-execution"
   ],
   "effects": {
+    "authorizedGithubArtifactRecoveredByOrchestrator": true,
     "artifactLoaded": false,
     "artifactExecuted": false,
     "libkrunLoaded": false,
@@ -161,7 +174,7 @@
     "processStarted": false,
     "vmStarted": false,
     "guestStarted": false,
-    "networkTargetAccessed": false,
+    "workerNetworkTargetAccessed": false,
     "credentialValueAccessed": false,
     "signed": false,
     "installed": false,

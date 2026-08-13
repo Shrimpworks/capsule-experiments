@@ -22,6 +22,24 @@ The repository histories were also checked by Git blob size, so the result is no
 working-tree search. This does not claim absence from unrelated paths, backups, expired remote
 artifacts, or systems outside the authorized boundary.
 
+## Recovered exact `rusty_v8` input
+
+The parent orchestrator restored valid Keychain-backed GitHub authentication and recovered
+`Shrimpworks/rusty_v8` Actions run `30925045754`, artifact `8902402057`, before its 2026-09-03
+expiry. Every downloaded file matches the artifact checksum manifest, release manifest, and
+unsigned provenance subjects.
+
+The retained 37,674,703-byte archive is SHA-256 `1ae209c9...4cd2`; the retained 40,369-byte binding
+is `8603f09a...ba4`. Both are byte-equal to the earlier independently reconstructed local outputs.
+Read-only inspection identifies the compressed input as a 1,877-member ar archive; its `/` and
+`//` entries are GNU ar metadata, and no actual member uses an absolute or parent-traversal name.
+
+The 202,703,184-byte corresponding-source archive is internally hash-consistent and contains only
+`cargo-registry/` and `rusty_v8/` top-level roots. It contains no Deno/probe root or top-level
+`Cargo.lock`, so it does not close the Deno fixed-fixture source or 189-package Cargo closure. The
+large duplicate source/evidence archives were not added to Git; their exact identities and archive
+inspection are retained in the recovery receipt.
+
 ## Reproducibility closure
 
 The governed runtime recipe remains precise:
@@ -52,24 +70,22 @@ These are reproducibility instructions and historical evidence, not substitute b
 
 1. The local Docker daemon is stopped. No pinned image inventory could be read, and this task did
    not start Docker or pull an image.
-2. The exact governed `rusty_v8` archive/binding input is absent locally. Historical Actions run
-   `30925045754`, artifact `8902402057`, is a comparison oracle only; its current retention could
-   not be checked because Keychain-backed GitHub CLI authentication reported the stored `dills122`
-   credential invalid.
-3. The Deno Cargo source bundle and the libkrunfw/kernel acquisition inputs are absent locally.
+2. The Deno source archive/Cargo source bundle and the libkrunfw/kernel acquisition inputs are
+   absent locally. The recovered `rusty_v8` corresponding source is a different closure and cannot
+   substitute for them.
    Re-acquisition is a separately auditable connected phase and was not attempted without valid
-   GitHub access and a running pinned builder environment.
-4. The original macOS toolchain was Rust 1.93.1, while the current machine/toolchain and exact
+   source inputs and a running pinned builder environment.
+3. The original macOS toolchain was Rust 1.93.1, while the current machine/toolchain and exact
    cached inputs have not been requalified for byte equality.
 
-The shortest honest construction input is therefore: restore GitHub authentication; recover or
-rebuild and digest-verify the exact governed `rusty_v8` release input; make the pinned Docker image
-available; independently acquire and hash every named Deno and libkrunfw source input; then run two
+The shortest honest construction input is therefore: make the pinned Docker image available;
+independently acquire and hash every named Deno and libkrunfw source input; then run two
 fresh empty-state builds and require byte equality to every frozen identity. Any mismatch creates
 a versioned successor candidate and must not be labeled recovery of the old bytes.
 
 ## Effects and limitations
 
-No artifact was loaded or executed. No libkrun/HVF call, process, VM, guest, network target,
-signing operation, identity, credential content, product state, or admission state participated.
-The search does not prove that an owner backup or expired remote artifact does not exist.
+No recovered artifact was loaded or executed. The orchestrator used authorized GitHub access only
+to download the named expiring artifact; no credential content was read or retained. No
+libkrun/HVF call, process, VM, guest, signing operation, product state, or admission state
+participated. The initial local search does not prove that an owner backup exists or does not exist.

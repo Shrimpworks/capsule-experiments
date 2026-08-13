@@ -61,6 +61,17 @@
     "status": "INVALID",
     "credentialBytesRead": false
   },
+  "laterAuthorizedRecovery": {
+    "performedBy": "parent orchestrator after valid Keychain-backed authentication was restored",
+    "repository": "Shrimpworks/rusty_v8",
+    "actionsRun": 30925045754,
+    "artifactId": 8902402057,
+    "expiresAt": "2026-09-03",
+    "requiredArchiveRecovered": true,
+    "requiredBindingRecovered": true,
+    "receipt": "rusty-v8-recovery-verification.json",
+    "note": "This later remote recovery does not invalidate the earlier bounded local-negative observation."
+  },
   "docker": {
     "daemonRunning": false,
     "imageInventoryRead": false,
@@ -75,5 +86,5 @@
     "unrelated repositories",
     "third-party systems"
   ],
-  "limitation": "This receipt proves only bounded negative discovery; it does not prove global absence."
+  "limitation": "The initial local search proves only bounded negative discovery. A later authorized remote-artifact recovery closed rusty_v8 input custody but not the target deno_core, libkrunfw, or derived-kernel bytes."
 }

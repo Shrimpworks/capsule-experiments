@@ -21,7 +21,8 @@ const refuses = (plan) => {
     f.retainedBytesAvailable === false &&
     k.disposition === "EVIDENCE_ONLY" &&
     plan.artifacts.separateFirmware.disposition === "INAPPLICABLE" &&
-    plan.runtimeReconstruction.rustyV8.archive.available === false &&
+    plan.runtimeReconstruction.rustyV8.archive.available === true &&
+    plan.runtimeReconstruction.rustyV8.binding.available === true &&
     plan.runtimeReconstruction.builder.imageAvailable === false &&
     plan.libkrunfwReconstruction.allAcquisitionInputsAvailable === false;
 };
@@ -33,7 +34,7 @@ const mutations = [
   ["invent-libkrunfw-bytes", (x) => { x.artifacts.libkrunfw.retainedBytesAvailable = true; }],
   ["promote-derived-kernel", (x) => { x.artifacts.kernel.disposition = "RUNTIME_INPUT"; }],
   ["invent-separate-firmware", (x) => { x.artifacts.separateFirmware.disposition = "AVAILABLE"; }],
-  ["invent-rusty-v8-input", (x) => { x.runtimeReconstruction.rustyV8.archive.available = true; }],
+  ["remove-recovered-rusty-v8-input", (x) => { x.runtimeReconstruction.rustyV8.archive.available = false; }],
   ["false-executable-claim", (x) => { x.completeExecutableSuccessorStatus = "PASSED"; }],
 ];
 

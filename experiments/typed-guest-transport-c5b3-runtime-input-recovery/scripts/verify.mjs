@@ -24,7 +24,14 @@ const expectedFiles = [
   "README.md",
   "RESULTS.md",
   "evidence/2026-08-12/result.json",
+  "evidence/2026-08-12/rusty-v8-recovery-verification.json",
   "evidence/2026-08-12/search-receipt.json",
+  "inputs/rusty-v8/artifact-sha256sums.txt",
+  "inputs/rusty-v8/fixed-verification.txt",
+  "inputs/rusty-v8/librusty_v8_simdutf_release_aarch64-unknown-linux-gnu.a.gz",
+  "inputs/rusty-v8/provenance.intoto.json",
+  "inputs/rusty-v8/release-manifest.json",
+  "inputs/rusty-v8/src_binding_simdutf_release_aarch64-unknown-linux-gnu.rs",
   "manifests/archive-manifest.json",
   "manifests/recovery-plan.json",
   "scripts/generate.mjs",
@@ -35,8 +42,11 @@ refuse(JSON.stringify(walk()) === JSON.stringify(expectedFiles), "closed invento
 
 const plan = readJson("manifests/recovery-plan.json");
 const archive = readJson("manifests/archive-manifest.json");
+const recovered = readJson("evidence/2026-08-12/rusty-v8-recovery-verification.json");
 const receipt = readJson("evidence/2026-08-12/search-receipt.json");
 const result = readJson("evidence/2026-08-12/result.json");
+const rustyManifest = readJson("inputs/rusty-v8/release-manifest.json");
+const rustyProvenance = readJson("inputs/rusty-v8/provenance.intoto.json");
 
 refuse(plan.objectType === "capsule.c5b3.governed-runtime-input-recovery", "object type mismatch");
 refuse(plan.objectVersion === 1, "object version mismatch");
@@ -80,9 +90,42 @@ refuse(deno.cargoLock.available === true, "retained Cargo lock mismatch");
 
 const rusty = plan.runtimeReconstruction.rustyV8;
 refuse(rusty.commit === "80e863ddb942a4aa2b384e794fc23e35b9d2bb15", "rusty_v8 commit mismatch");
-refuse(rusty.archive.bytes === 37674703 && rusty.archive.available === false, "rusty_v8 archive mismatch");
+refuse(rusty.archive.bytes === 37674703 && rusty.archive.available === true, "rusty_v8 archive mismatch");
 refuse(rusty.archive.sha256 === "1ae209c9e4ba5803d010d2c79ee4cc0af0126c5a7ebcca211c7e41deaede4cd2", "rusty_v8 digest mismatch");
-refuse(rusty.historicalOracle.usedAsInput === false && rusty.historicalOracle.currentRetention === "UNKNOWN", "oracle authority mismatch");
+refuse(rusty.binding.available === true && rusty.binding.sha256 === "8603f09ab95e79620ea29f73933c09ae3618c6f924472c0ce36d5c614d1ceba4", "rusty_v8 binding mismatch");
+refuse(rusty.historicalOracle.usedAsInput === true && rusty.historicalOracle.currentRetention === "RECOVERED_AND_VERIFIED", "oracle authority mismatch");
+refuse(rusty.historicalOracle.expiresAt === "2026-09-03", "oracle expiry mismatch");
+
+refuse(recovered.actions.run === 30925045754 && recovered.actions.artifactId === 8902402057, "recovery source mismatch");
+refuse(recovered.downloadedInventory.fileCount === 11, "downloaded inventory mismatch");
+refuse(recovered.downloadedInventory.allReleaseManifestEntriesMatchActualBytes === true, "downloaded manifest mismatch");
+refuse(recovered.readOnlyArchiveInspection.correspondingSource.closesDenoFixedFixtureInputs === false, "Deno closure must remain open");
+refuse(recovered.readOnlyArchiveInspection.correspondingSource.denoOrProbeEntries === 0, "unexpected Deno source claim");
+refuse(recovered.retainedRequiredInputs.archive.readOnlyInspection.absoluteOrParentTraversalMembers === 0, "unsafe ar member claim");
+
+const retainedRustyFiles = [
+  "artifact-sha256sums.txt",
+  "fixed-verification.txt",
+  "librusty_v8_simdutf_release_aarch64-unknown-linux-gnu.a.gz",
+  "provenance.intoto.json",
+  "src_binding_simdutf_release_aarch64-unknown-linux-gnu.rs",
+];
+for (const name of retainedRustyFiles) {
+  const entry = rustyManifest.files[name];
+  refuse(entry !== undefined, `missing rusty_v8 manifest entry: ${name}`);
+  refuse(statSync(join(root, "inputs/rusty-v8", name)).size === entry.size, `rusty_v8 size mismatch: ${name}`);
+  refuse(sha256(`inputs/rusty-v8/${name}`) === entry.sha256, `rusty_v8 digest mismatch: ${name}`);
+}
+refuse(sha256("inputs/rusty-v8/release-manifest.json") === recovered.downloadedInventory.releaseManifestSha256, "release manifest identity mismatch");
+const checksumLines = readFileSync(join(root, "inputs/rusty-v8/artifact-sha256sums.txt"), "utf8").trim().split("\n");
+const checksumMap = Object.fromEntries(checksumLines.map((line) => [line.slice(66), line.slice(0, 64)]));
+for (const name of ["fixed-verification.txt", "librusty_v8_simdutf_release_aarch64-unknown-linux-gnu.a.gz", "src_binding_simdutf_release_aarch64-unknown-linux-gnu.rs"]) {
+  refuse(checksumMap[name] === sha256(`inputs/rusty-v8/${name}`), `checksum manifest mismatch: ${name}`);
+}
+const subjects = Object.fromEntries(rustyProvenance.subject.map((subject) => [subject.name, subject.digest.sha256]));
+for (const name of ["fixed-verification.txt", "librusty_v8_simdutf_release_aarch64-unknown-linux-gnu.a.gz", "src_binding_simdutf_release_aarch64-unknown-linux-gnu.rs"]) {
+  refuse(subjects[name] === sha256(`inputs/rusty-v8/${name}`), `provenance subject mismatch: ${name}`);
+}
 
 const builder = plan.runtimeReconstruction.builder;
 refuse(builder.image === "rust:1.95.0-bookworm@sha256:6258907abe69656e41cd992e0b705cdcfabcbbe3db374f92ed2d47121282d4a1", "runtime builder mismatch");
@@ -104,10 +147,12 @@ refuse(receipt.authorizedLocations.length === 5, "bounded location count mismatc
 refuse(receipt.authorizedLocations.every((item) => item.result === "NO_EXACT_BYTES"), "search result mismatch");
 refuse(receipt.expected.length === 3 && receipt.expected.every((item) => item.found === false), "artifact search mismatch");
 refuse(receipt.githubAuth.status === "INVALID" && receipt.githubAuth.credentialBytesRead === false, "GitHub auth safety mismatch");
+refuse(receipt.laterAuthorizedRecovery.requiredArchiveRecovered === true && receipt.laterAuthorizedRecovery.requiredBindingRecovered === true, "later recovery mismatch");
 refuse(receipt.docker.daemonStarted === false && receipt.docker.imagePulled === false, "Docker effects mismatch");
 
 refuse(JSON.stringify(result.effects) === JSON.stringify(plan.effects), "effect readback mismatch");
-refuse(Object.values(plan.effects).every((value) => value === false), "effects must all be false");
+refuse(plan.effects.authorizedGithubArtifactRecoveredByOrchestrator === true, "authorized recovery effect mismatch");
+refuse(Object.entries(plan.effects).filter(([key]) => key !== "authorizedGithubArtifactRecoveredByOrchestrator").every(([, value]) => value === false), "unexpected effects must all be false");
 for (const path of expectedFiles) refuse(statSync(join(root, path)).isFile(), `not a regular file: ${path}`);
 
 console.log(`recoveryPlanSha256=${sha256("manifests/recovery-plan.json")}`);

@@ -15,10 +15,12 @@ repositories, object databases, workspaces, caches, or the explicitly authorized
 repository, or immediately reconstructed from the retained recipe without loading or executing a
 runtime or VMM artifact?
 
-No. The bounded search found no exact bytes. The earlier experiment retains detailed source,
-builder, input, output, and same-host equality evidence, but the required acquisition inputs and
-running builder environment are not currently available. This packet turns those facts into an
-independently checked recovery boundary rather than treating a historical digest as an artifact.
+The initial bounded local search found no exact target bytes. Before its 2026-09-03 expiry, the
+orchestrator then recovered the exact historical `rusty_v8` Actions artifact. Independent hashing,
+manifest/provenance comparison, and read-only archive inspection close custody of the exact
+37,674,703-byte static archive and generated binding needed by the Deno build. The target
+`deno_core`, libkrunfw, and derived-kernel bytes remain absent, as do the exact Deno source/Cargo
+closure, libkrunfw acquisition inputs, and running pinned builder environment.
 
 ## Defensive boundary
 
@@ -42,7 +44,11 @@ Docker daemon was not running, and no daemon or image was started or pulled.
 - `manifests/recovery-plan.json`: exact immutable source, builder, acquisition, artifact, and
   disposition map.
 - `manifests/archive-manifest.json`: closed byte/mode inventory of the retained packet.
+- `inputs/rusty-v8/`: exact recovered static archive and binding plus their checksum, fixed-result,
+  release-manifest, and unsigned-provenance closure.
 - `evidence/2026-08-12/search-receipt.json`: bounded locations and exact negative observations.
+- `evidence/2026-08-12/rusty-v8-recovery-verification.json`: exact remote-artifact identity,
+  all-file verification, archive-safety readback, and Deno-input non-equivalence result.
 - `evidence/2026-08-12/result.json`: scoped result and side-effect readback.
 - `scripts/verify.mjs`: independent semantic and closed-inventory verifier.
 - `scripts/test-mutations.mjs`: eight fail-closed recovery-claim mutations.
