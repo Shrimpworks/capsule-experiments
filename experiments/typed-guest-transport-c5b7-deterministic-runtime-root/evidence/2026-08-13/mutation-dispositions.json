@@ -47,6 +47,31 @@
       "oracle": "metadata-only pin mismatch"
     },
     {
+      "id": "wrong-dotdot",
+      "disposition": "REFUSED",
+      "oracle": "dotdot entry invalid: /usr"
+    },
+    {
+      "id": "inode-alias",
+      "disposition": "REFUSED",
+      "oracle": "inode reachable at multiple paths"
+    },
+    {
+      "id": "link-count",
+      "disposition": "REFUSED",
+      "oracle": "inode 22 link count mismatch"
+    },
+    {
+      "id": "profile-file-size",
+      "disposition": "REFUSED",
+      "oracle": "content profile mismatch"
+    },
+    {
+      "id": "adapter-compatibility-disclosure",
+      "disposition": "REFUSED",
+      "oracle": "adapter compatibility boundary mismatch"
+    },
+    {
       "id": "archive-extra",
       "disposition": "REFUSED",
       "oracle": "archive inventory mismatch"

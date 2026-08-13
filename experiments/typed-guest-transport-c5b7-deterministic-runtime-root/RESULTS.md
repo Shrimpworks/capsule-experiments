@@ -19,8 +19,17 @@ and product admission: `BLOCKED`
   reproduce their merged predecessor sizes and SHA-256 values.
 - The independent parser validates superblock, group descriptor, allocation bitmaps, inode/extents,
   directory records, modes, ownership, timestamps, path closure, and file hashes.
-- Ten mutations covering root identity, journal restoration, foreign paths/ownership, mode/content,
-  truncation, false effect claims, metadata pins, and archive closure refuse.
+- Fifteen mutations covering root identity, journal restoration, foreign paths/ownership,
+  directory parentage/inode aliasing/link counts, mode/content/profile size, truncation, false
+  effect claims, metadata pins, adapter-compatibility disclosure, and archive closure refuse.
+
+## Known composite incompatibility
+
+The pinned C5b5 adapter contract freezes `rootBytes=134217728`. This root is 100,663,296 bytes.
+C5b5 is therefore provenance/metadata only and incompatible as-is. The later composite must use a
+reviewed versioned adapter/effect implementation bound to this exact root size, or replace this
+candidate with a separately versioned 134,217,728-byte root. This experiment does not select
+between those paths.
 
 ## Claim boundary
 

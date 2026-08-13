@@ -104,6 +104,21 @@
       "bytes": 20981992,
       "sha256": "ad908b8289c86f25c3413713fa3e60c4c8bb91fec0d52763e870d7a186865ee6"
     },
+    "runtimeProvenance": {
+      "path": "experiments/typed-guest-transport-c5b6-deno-static-reproduction/evidence/2026-08-12/provenance.intoto.json",
+      "bytes": 1541,
+      "sha256": "4fe04b1bc9329bbc7234ea06df99c6a5b21f35d5181a8c31a6464704ba7fbe65"
+    },
+    "runtimeSbom": {
+      "path": "experiments/typed-guest-transport-c5b6-deno-static-reproduction/evidence/2026-08-12/sbom.cdx.json",
+      "bytes": 93305,
+      "sha256": "670bd33b99cd121f8fd7dc0d58af0b6df44877c3fdde4680c3cdf0edead1930d"
+    },
+    "runtimeNoticeClosure": {
+      "path": "experiments/typed-guest-transport-c5b6-deno-static-reproduction/evidence/2026-08-12/source-notice-closure.json",
+      "bytes": 1693,
+      "sha256": "8280d5cbcd37fa90b4e2a8b7d5837f29b6341e639483eb7caef10f44ead9816e"
+    },
     "trustedInit": {
       "path": "experiments/typed-guest-transport-c5b1-executable-successor/dist/trusted-init",
       "bytes": 365352,
@@ -147,6 +162,14 @@
         "bytes": 4355,
         "sha256": "5e8341952eeb78d44ceaa9002ab6906b33a125f3fa54cfb48bdf7f13020474e2"
       },
+      "contract": {
+        "path": "experiments/typed-guest-transport-c5b5-no-run-effect-adapter/contracts/effect-adapter-contract.json",
+        "bytes": 3331,
+        "sha256": "396d7e4d0d4ded1d072aac0040609c2cff39624dc56012896dc8663e0766f6f7"
+      },
+      "frozenRootBytes": 134217728,
+      "compatibleAsIs": false,
+      "resolution": "A reviewed versioned adapter/effect implementation must bind this root's 100663296 bytes, or a separately versioned 134217728-byte root must replace this candidate before composite construction.",
       "includedInRoot": false
     }
   },
@@ -162,6 +185,8 @@
     "libkrunfw"
   ],
   "blockers": [
+    "the C5b5 adapter is provenance-only and incompatible as-is because it freezes a 134217728-byte root while this successor is 100663296 bytes",
+    "a reviewed versioned adapter/effect implementation or separately versioned root must resolve the exact-size binding before composite construction",
     "no complete immutable host-plus-root composite exists",
     "the real effect implementation remains separately owned",
     "no exact owner/host/guest authorization profile exists",

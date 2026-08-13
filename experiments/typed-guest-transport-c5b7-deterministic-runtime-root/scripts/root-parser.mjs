@@ -50,9 +50,12 @@ export async function parseRoot(path) {
   };
 
   const paths = new Map();
+  const reachedInodes = new Map();
   const extents = [];
-  const visit = (number, path) => {
+  const visit = (number, path, expectedParent) => {
     check(!paths.has(path), `duplicate path: ${path}`);
+    check(!reachedInodes.has(number), `inode reachable at multiple paths: ${number}`);
+    reachedInodes.set(number, path);
     const value = inode(number);
     paths.set(path, value);
     extents.push([value.start, value.start + value.blocks, path]);
@@ -71,13 +74,24 @@ export async function parseRoot(path) {
       check(name && !name.includes("/") && !names.has(name), `directory name invalid: ${path}`);
       names.add(name);
       if (name === ".") check(child === number && type === 2, `dot entry invalid: ${path}`);
-      else if (name === "..") check(type === 2, `dotdot entry invalid: ${path}`);
-      else visit(child, path === "/" ? `/${name}` : `${path}/${name}`);
+      else if (name === "..") check(child === expectedParent && type === 2, `dotdot entry invalid: ${path}`);
+      else visit(child, path === "/" ? `/${name}` : `${path}/${name}`, number);
       offset += length;
     }
     check(offset === value.bytes.length && names.has(".") && names.has(".."), `directory closure invalid: ${path}`);
   };
-  visit(2, "/");
+  visit(2, "/", 2);
+  for (const [path, value] of paths) {
+    const offset = 4 * block + (value.number - 1) * 256;
+    const children = [...paths.values()].filter((candidate) => {
+      const childOffset = 4 * block + (candidate.number - 1) * 256;
+      if ((candidate.mode & 0o170000) !== 0o040000 || candidate.number === value.number) return false;
+      const bytes = image.subarray(candidate.start * block, candidate.start * block + candidate.size);
+      return bytes.readUInt32LE(bytes.readUInt16LE(4)) === value.number;
+    }).length;
+    const expectedLinks = (value.mode & 0o170000) === 0o040000 ? 2 + children : 1;
+    check(image.readUInt16LE(offset + 26) === expectedLinks, `inode ${value.number} link count mismatch`);
+  }
 
   extents.sort((a, b) => a[0] - b[0]);
   check(extents[0][0] === 20, "first data extent mismatch");

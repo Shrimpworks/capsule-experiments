@@ -35,6 +35,8 @@ try {
 }
 const rootRef = { path: "dist/runtime-root.ext4", bytes: rootBytes.length, sha256: sha256(rootBytes) };
 if (rootRef.bytes !== 100663296 || rootRef.sha256 !== "5ad18f20cbc97c7a70ead3e795fd3649672513323041e913b0eb55b7acc88775") throw new Error("root identity drift");
+const c5b5ContractPath = "experiments/typed-guest-transport-c5b5-no-run-effect-adapter/contracts/effect-adapter-contract.json";
+retain("inputs/c5b5/effect-adapter-contract.json", await readFile(join(repository, c5b5ContractPath)));
 
 const profile = {
   objectType: "capsule.c5b7.deterministic-runtime-root",
@@ -84,6 +86,9 @@ const profile = {
   },
   sourceInputs: {
     runtimeBundle: await exactRef("experiments/typed-guest-transport-c5b6-deno-static-reproduction/artifacts/capsule-deno-core-c2b-runtime-bundle.tar.gz"),
+    runtimeProvenance: await exactRef("experiments/typed-guest-transport-c5b6-deno-static-reproduction/evidence/2026-08-12/provenance.intoto.json"),
+    runtimeSbom: await exactRef("experiments/typed-guest-transport-c5b6-deno-static-reproduction/evidence/2026-08-12/sbom.cdx.json"),
+    runtimeNoticeClosure: await exactRef("experiments/typed-guest-transport-c5b6-deno-static-reproduction/evidence/2026-08-12/source-notice-closure.json"),
     trustedInit: await exactRef("experiments/typed-guest-transport-c5b1-executable-successor/dist/trusted-init"),
     trustedLauncher: await exactRef("experiments/typed-guest-transport-c5b1-executable-successor/dist/trusted-launcher"),
     source: await exactRef("experiments/typed-guest-transport-c5b0-v19-successor/fixtures/main.mjs"),
@@ -92,10 +97,18 @@ const profile = {
   },
   metadataOnly: {
     controller: { mergeCommit: "60234e22674e46a42e8e5c382d85217a930c2c13", profile: await exactRef("experiments/typed-guest-transport-c5b3-controlled-test-controller/manifests/controller-profile.json"), includedInRoot: false },
-    effectAdapter: { mergeCommit: "3cfe7db16c55894be444d4c783659043dbd25c95", profile: await exactRef("experiments/typed-guest-transport-c5b5-no-run-effect-adapter/manifests/adapter-profile.json"), includedInRoot: false }
+    effectAdapter: {
+      mergeCommit: "3cfe7db16c55894be444d4c783659043dbd25c95",
+      profile: await exactRef("experiments/typed-guest-transport-c5b5-no-run-effect-adapter/manifests/adapter-profile.json"),
+      contract: await exactRef(c5b5ContractPath),
+      frozenRootBytes: 134217728,
+      compatibleAsIs: false,
+      resolution: "A reviewed versioned adapter/effect implementation must bind this root's 100663296 bytes, or a separately versioned 134217728-byte root must replace this candidate before composite construction.",
+      includedInRoot: false
+    }
   },
   deliberatelyAbsent: ["shell", "package-manager", "network-configuration", "writable-scratch", "host-path", "controller", "effect-adapter", "libkrun", "libkrunfw"],
-  blockers: ["no complete immutable host-plus-root composite exists", "the real effect implementation remains separately owned", "no exact owner/host/guest authorization profile exists", "nothing in this packet supplies runtime or product admission"],
+  blockers: ["the C5b5 adapter is provenance-only and incompatible as-is because it freezes a 134217728-byte root while this successor is 100663296 bytes", "a reviewed versioned adapter/effect implementation or separately versioned root must resolve the exact-size binding before composite construction", "no complete immutable host-plus-root composite exists", "the real effect implementation remains separately owned", "no exact owner/host/guest authorization profile exists", "nothing in this packet supplies runtime or product admission"],
   effects: {
     artifactExecuted: false, runtimeExecuted: false, launcherExecuted: false, processStarted: false,
     artifactLoaded: false, libkrunLoaded: false, hvfCalled: false, vmStarted: false,
@@ -123,6 +136,11 @@ retain("evidence/2026-08-13/mutation-dispositions.json", {
     ["runtime-mode", "mode mismatch: /usr/local/bin/capsule-deno-core-c5b1"],
     ["source-byte", "content mismatch: /opt/capsule/inputs/main.mjs"], ["truncated-root", "root byte length mismatch"],
     ["claim-effect", "effect boundary mismatch"], ["controller-pin", "metadata-only pin mismatch"],
+    ["wrong-dotdot", "dotdot entry invalid: /usr"],
+    ["inode-alias", "inode reachable at multiple paths"],
+    ["link-count", "inode 22 link count mismatch"],
+    ["profile-file-size", "content profile mismatch"],
+    ["adapter-compatibility-disclosure", "adapter compatibility boundary mismatch"],
     ["archive-extra", "archive inventory mismatch"]
   ].map(([id, oracle]) => ({ id, disposition: "REFUSED", oracle }))
 });

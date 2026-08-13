@@ -13,7 +13,7 @@ launcher and C5b0 fixed source inputs in a fresh, closed, byte-reproducible raw 
 executing or loading any retained artifact?
 
 Yes. Two independent output roots were constructed and compared byte-for-byte. One exact root is
-retained with an independent filesystem parser and ten fail-closed mutations.
+retained with an independent filesystem parser and fifteen fail-closed mutations.
 
 ## Defensive boundary
 
@@ -36,7 +36,10 @@ no journal, fixed zero timestamps, UID/GID 0, and a closed 19-node inventory. It
 - the required empty `/dev` and `/proc` mount points.
 
 The C5b3 controller and C5b5 adapter identities are pinned as metadata only. They are not placed
-inside the guest root and this packet does not create a complete composite.
+inside the guest root and this packet does not create a complete composite. The C5b5 adapter
+freezes a 134,217,728-byte root, while this successor is 100,663,296 bytes, so it is incompatible
+as-is. Before composite construction, a reviewed versioned adapter/effect implementation must bind
+this root's exact size, or a separately versioned 134,217,728-byte root must replace it.
 
 ## Verification
 

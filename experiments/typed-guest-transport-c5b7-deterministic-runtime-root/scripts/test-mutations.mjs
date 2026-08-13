@@ -39,6 +39,21 @@ const cases = [
   } },
   { id: "claim-effect", oracle: "effect boundary mismatch", mutate: (copy) => rewriteJson(copy, "manifests/runtime-root-profile.json", (profile) => { profile.effects.runtimeExecuted = true; }) },
   { id: "controller-pin", oracle: "metadata-only pin mismatch", mutate: (copy) => rewriteJson(copy, "manifests/runtime-root-profile.json", (profile) => { profile.metadataOnly.controller.mergeCommit = "0".repeat(40); }) },
+  { id: "wrong-dotdot", oracle: "dotdot entry invalid: /usr", mutate: (copy) => mutateRoot(copy, (bytes) => {
+    const start = bytes.readUInt32LE(inodeOffset(11) + 60) * 4096;
+    const second = bytes.readUInt16LE(start + 4);
+    bytes.writeUInt32LE(11, start + second);
+  }) },
+  { id: "inode-alias", oracle: "inode reachable at multiple paths", mutate: (copy) => mutateRoot(copy, (bytes) => {
+    const start = bytes.readUInt32LE(inodeOffset(19) + 60) * 4096;
+    const end = start + bytes.readUInt32LE(inodeOffset(19) + 4);
+    const name = bytes.indexOf(Buffer.from("input.json"), start);
+    if (name < 0 || name >= end) throw new Error("input.json entry not found");
+    bytes.writeUInt32LE(26, name - 8);
+  }) },
+  { id: "link-count", oracle: "inode 22 link count mismatch", mutate: (copy) => mutateRoot(copy, (bytes) => { bytes.writeUInt16LE(2, inodeOffset(22) + 26); }) },
+  { id: "profile-file-size", oracle: "content profile mismatch", mutate: (copy) => rewriteJson(copy, "manifests/runtime-root-profile.json", (profile) => { profile.content.runtime.bytes += 1; }) },
+  { id: "adapter-compatibility-disclosure", oracle: "adapter compatibility boundary mismatch", mutate: (copy) => rewriteJson(copy, "manifests/runtime-root-profile.json", (profile) => { profile.metadataOnly.effectAdapter.compatibleAsIs = true; }) },
   { id: "archive-extra", oracle: "archive inventory mismatch", mutate: (copy) => writeFile(join(copy, "unexpected.bin"), Buffer.of(0)) }
 ];
 const retained = JSON.parse(await readFile(join(root, "evidence/2026-08-13/mutation-dispositions.json"), "utf8"));
@@ -53,7 +68,7 @@ for (const test of cases) {
     await test.mutate(copy);
     let output = "";
     try {
-      execFileSync(process.execPath, [verifier, copy], { encoding: "utf8", stdio: ["ignore", "pipe", "pipe"] });
+      execFileSync(process.execPath, [verifier, copy], { encoding: "utf8", stdio: ["ignore", "pipe", "pipe"], env: { ...process.env, CAPSULE_EXPERIMENTS_ROOT: resolve(root, "../..") } });
       throw new Error(`${test.id}: mutation was accepted`);
     } catch (error) {
       output = `${error.stdout ?? ""}${error.stderr ?? ""}${error.message ?? ""}`;
