@@ -1,0 +1,28 @@
+{
+  "builder": {
+    "reference": "rust:1.95.0-bookworm@sha256:6258907abe69656e41cd992e0b705cdcfabcbbe3db374f92ed2d47121282d4a1",
+    "imageId": "sha256:7cf1e580ef5539f03b58560753e8ab84c8c360960d99dff714004aa98f203977",
+    "os": "linux",
+    "architecture": "arm64"
+  },
+  "acquisition": {
+    "connectedOnlyForLockedCargoSources": true,
+    "sharedCargoCache": false,
+    "sharedTargetCache": false
+  },
+  "decisiveBuild": {
+    "networkMode": "none",
+    "readOnlyRootFilesystem": true,
+    "capDrop": ["ALL"],
+    "noNewPrivileges": true,
+    "seccomp": "unconfined",
+    "memoryBytes": 10737418240,
+    "logicalCpus": 1,
+    "cpuSet": "0",
+    "sourceDateEpoch": "0",
+    "timezone": "UTC",
+    "locale": "C",
+    "compilerCache": "absent",
+    "candidateExecution": "NOT_RUN"
+  }
+}
