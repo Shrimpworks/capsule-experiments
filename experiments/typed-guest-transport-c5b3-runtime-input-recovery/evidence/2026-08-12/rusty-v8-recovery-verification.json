@@ -1,0 +1,105 @@
+{
+  "objectType": "capsule.c5b3.rusty-v8-recovery-verification",
+  "objectVersion": 1,
+  "observedAt": "2026-08-12",
+  "repository": "Shrimpworks/rusty_v8",
+  "commit": "80e863ddb942a4aa2b384e794fc23e35b9d2bb15",
+  "actions": {
+    "run": 30925045754,
+    "artifactId": 8902402057,
+    "artifactName": "rusty-v8-v150.2.0-linux-arm64-unsigned",
+    "expiresAt": "2026-09-03",
+    "historicalZipBytes": 239176470,
+    "historicalZipSha256": "fa3840a7803554f34f20e6c400dba8db425f38d8f815ab3f6d12ac9aa2089d9c"
+  },
+  "downloadedInventory": {
+    "fileCount": 11,
+    "allReleaseManifestEntriesMatchActualBytes": true,
+    "allChecksumManifestEntriesMatchActualBytes": true,
+    "allProvenanceSubjectsMatchActualBytes": true,
+    "releaseManifestSha256": "9dd57fe8ab08725549b53d6f416dc2191484bc78044adc74e442cde5e71f8735",
+    "artifactChecksumManifestSha256": "f64b0254f2edf2dded32d7a79a2dabb6b661e1a8cf572ce874f0ae5b579dfe52",
+    "provenanceSha256": "377e5f0588a5f5dd74597287ff4bb70836cb106a729c16dd1cc52d46a9702e8b"
+  },
+  "retainedRequiredInputs": {
+    "archive": {
+      "path": "inputs/rusty-v8/librusty_v8_simdutf_release_aarch64-unknown-linux-gnu.a.gz",
+      "bytes": 37674703,
+      "sha256": "1ae209c9e4ba5803d010d2c79ee4cc0af0126c5a7ebcca211c7e41deaede4cd2",
+      "readOnlyInspection": {
+        "format": "current-ar-archive-after-gzip",
+        "members": 1877,
+        "absoluteOrParentTraversalMembers": 0,
+        "gnuMetadataMembers": [
+          "/",
+          "//"
+        ]
+      },
+      "historicalLocalReconstructionComparison": "BYTE_EQUAL"
+    },
+    "binding": {
+      "path": "inputs/rusty-v8/src_binding_simdutf_release_aarch64-unknown-linux-gnu.rs",
+      "bytes": 40369,
+      "sha256": "8603f09ab95e79620ea29f73933c09ae3618c6f924472c0ce36d5c614d1ceba4",
+      "historicalLocalReconstructionComparison": "BYTE_EQUAL"
+    }
+  },
+  "readOnlyArchiveInspection": {
+    "buildMetadata": {
+      "entries": 23,
+      "unsafePaths": 0,
+      "duplicatePaths": 0,
+      "unexpectedEntryTypes": 0
+    },
+    "correspondingSource": {
+      "bytes": 202703184,
+      "sha256": "8cf75b005e0dfe7e4b8c0a424e3350ed6701a53c9531d8e3ee3a67d5c14a2eff",
+      "entries": 88396,
+      "topLevelRoots": [
+        "cargo-registry",
+        "rusty_v8"
+      ],
+      "unsafePaths": 0,
+      "duplicatePaths": 0,
+      "unexpectedEntryTypes": 0,
+      "denoOrProbeEntries": 0,
+      "rootCargoLockEntries": 0,
+      "closesDenoFixedFixtureInputs": false
+    },
+    "licensesAndNotices": {
+      "entries": 3075,
+      "unsafePaths": 0,
+      "duplicatePaths": 0,
+      "unexpectedEntryTypes": 0
+    }
+  },
+  "retentionBoundary": {
+    "retainedInGit": [
+      "exact rusty_v8 static archive",
+      "exact generated Rust binding",
+      "artifact checksum manifest",
+      "fixed verification receipt",
+      "release manifest",
+      "unsigned provenance"
+    ],
+    "notRetainedInGit": [
+      "202,703,184-byte corresponding-source archive",
+      "build-metadata archive",
+      "licenses-and-notices archive",
+      "duplicate SBOM copies"
+    ],
+    "reason": "Retain the exact C5b build inputs and their small authenticity/provenance closure; record the larger source/evidence identities without representing them as Deno inputs or duplicating the prior retained evidence corpus."
+  },
+  "effects": {
+    "artifactExecuted": false,
+    "archiveExtracted": false,
+    "runtimeLoaded": false,
+    "processStarted": false,
+    "vmStarted": false,
+    "guestStarted": false,
+    "signed": false,
+    "installed": false,
+    "productStateMutated": false,
+    "admissionChanged": false
+  }
+}

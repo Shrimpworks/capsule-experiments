@@ -1,0 +1,715 @@
+{
+  "_type": "https://in-toto.io/Statement/v1",
+  "predicate": {
+    "buildDefinition": {
+      "buildType": "https://github.com/dills122/rusty_v8/governed-build/linux-arm64/v1",
+      "externalParameters": {
+        "buildPlatform": "linux/amd64",
+        "builderImage": {
+          "indexDigest": "sha256:e187887ec511b3d93e45c0231d2f0fd59f1347526c58aa86343aa83c74f3e1a9",
+          "linuxAmd64Digest": "sha256:307d198027388f780db83929487de35084a73ecbaa31319989438db38103439f",
+          "repository": "docker.io/library/rust",
+          "tagForReferenceOnly": "1.91.0-bookworm"
+        },
+        "cargo": {
+          "cargoCommit": "ea2d97820c16195b0ca3fadb4319fe512c199a43",
+          "features": [
+            "simdutf"
+          ],
+          "host": "x86_64-unknown-linux-gnu",
+          "hostToolchainPath": "/usr/local/rustup/toolchains/1.91.0-x86_64-unknown-linux-gnu",
+          "jobs": 8,
+          "locked": true,
+          "offlineBuild": true,
+          "rustcCommit": "f8297e351a40c1439a467bbbb6879088047f50b3",
+          "rustcLlvmVersion": "21.1.2",
+          "target": "aarch64-unknown-linux-gnu",
+          "targetStandardLibrary": {
+            "channelManifestSha256": "d9e59cdf15532aa839c0a4871b0b755e833f914042eb2dcc59f2a0ef8667f9f6",
+            "channelManifestUrl": "https://static.rust-lang.org/dist/channel-rust-1.91.0.toml",
+            "sha256": "ff23dc81f796d64e34e866a44fd0bcae726e34014835369b8f9393a544167eca",
+            "size": 28269772,
+            "url": "https://static.rust-lang.org/dist/2025-10-30/rust-std-1.91.0-aarch64-unknown-linux-gnu.tar.xz"
+          },
+          "toolchain": "1.91.0"
+        },
+        "claims": {
+          "admitted": false,
+          "independentBuilder": false,
+          "published": false,
+          "unsigned": true
+        },
+        "clang": {
+          "revision": "llvmorg-23-init-10931-g20b6ec66-11",
+          "sha256": "de584381536aa5ba2403033c4f8b70f3c39c2e5d7fa87c953b7fd8bfbba0ee2a",
+          "size": 69635068,
+          "url": "https://commondatastorage.googleapis.com/chromium-browser-clang/Linux_x64/clang-llvmorg-23-init-10931-g20b6ec66-11.tar.xz"
+        },
+        "crossToolchain": {
+          "compiler": "gcc-12",
+          "emulator": "qemu-aarch64-static",
+          "linkProbeSource": "scripts/governed/arm64_link_probe.c",
+          "linkProbeSourceSha256": "57b9a643ad8840d8b26e9deccd86faba017ebd91037aa4e4124d6005e2e90cf8",
+          "linker": "aarch64-linux-gnu-gcc-12",
+          "linkerSysroot": "/workspace/.governed-cache-arm64/cross",
+          "linkerWrapper": "scripts/governed/link_arm64.sh",
+          "linkerWrapperSha256": "d5eb763a32b315f06ee04e207644f81d78d5d6ffad3f3d252d28ac222d240dc5",
+          "packages": [
+            {
+              "name": "binutils-aarch64-linux-gnu",
+              "path": "pool/main/b/binutils/binutils-aarch64-linux-gnu_2.40-2_amd64.deb",
+              "sha256": "3d6f64a7a4ed6d73719f8fa2e85fd896f58ff7f211a6683942ba93de690aaa66",
+              "size": 3352924,
+              "version": "2.40-2"
+            },
+            {
+              "name": "cpp-12-aarch64-linux-gnu",
+              "path": "pool/main/g/gcc-12-cross/cpp-12-aarch64-linux-gnu_12.2.0-14cross1_amd64.deb",
+              "sha256": "5921df4ad56e34e6257a1caf862474845aab6548ba7ae7852e8cdd7cb622394e",
+              "size": 9149684,
+              "version": "12.2.0-14cross1"
+            },
+            {
+              "name": "g++-12-aarch64-linux-gnu",
+              "path": "pool/main/g/gcc-12-cross/g++-12-aarch64-linux-gnu_12.2.0-14cross1_amd64.deb",
+              "sha256": "3693e31fe2b42fcbdd92fef3e5578e91dd86af30e3d2c5fff3f9821e34a1cb91",
+              "size": 10080720,
+              "version": "12.2.0-14cross1"
+            },
+            {
+              "name": "gcc-12-aarch64-linux-gnu",
+              "path": "pool/main/g/gcc-12-cross/gcc-12-aarch64-linux-gnu_12.2.0-14cross1_amd64.deb",
+              "sha256": "43747bbcd46a4062e66e855090b8ed9c2e06a93ae5a69fb304beebbc8c36d11f",
+              "size": 18035900,
+              "version": "12.2.0-14cross1"
+            },
+            {
+              "name": "gcc-12-aarch64-linux-gnu-base",
+              "path": "pool/main/g/gcc-12-cross/gcc-12-aarch64-linux-gnu-base_12.2.0-14cross1_amd64.deb",
+              "sha256": "6ede94430fde75ca023be50b3f5a94aa4a063b2d5c3a359bee169a934930f130",
+              "size": 37732,
+              "version": "12.2.0-14cross1"
+            },
+            {
+              "name": "gcc-12-cross-base",
+              "path": "pool/main/g/gcc-12-cross/gcc-12-cross-base_12.2.0-14cross1_all.deb",
+              "sha256": "8dcb9dc293df9069f09dbe68d73f4a8ec2d4e3da4dcfbfe14a821d94e257e9d5",
+              "size": 33232,
+              "version": "12.2.0-14cross1"
+            },
+            {
+              "name": "libasan8-arm64-cross",
+              "path": "pool/main/g/gcc-12-cross/libasan8-arm64-cross_12.2.0-14cross1_all.deb",
+              "sha256": "bf00a5bb8de76c68bb5e710b3734808286e1e9ca86c0bd136ed3a5077c46d949",
+              "size": 2096868,
+              "version": "12.2.0-14cross1"
+            },
+            {
+              "name": "libatomic1-arm64-cross",
+              "path": "pool/main/g/gcc-12-cross/libatomic1-arm64-cross_12.2.0-14cross1_all.deb",
+              "sha256": "15c1baededd89ad388f6ea527aa25140364b2867332e3e815d67cba09d179bf6",
+              "size": 9292,
+              "version": "12.2.0-14cross1"
+            },
+            {
+              "name": "libc6-arm64-cross",
+              "path": "pool/main/c/cross-toolchain-base/libc6-arm64-cross_2.36-8cross1_all.deb",
+              "sha256": "91936cbbee75771c360ed16513f6e734a25ca5517fe7c3e13dfd7835d7553186",
+              "size": 1004648,
+              "version": "2.36-8cross1"
+            },
+            {
+              "name": "libc6-dev-arm64-cross",
+              "path": "pool/main/c/cross-toolchain-base/libc6-dev-arm64-cross_2.36-8cross1_all.deb",
+              "sha256": "5e4cf6abf0e89e89c4b3006bb8b7dc47aa831df25d94df9134929b8b968cacb4",
+              "size": 1423640,
+              "version": "2.36-8cross1"
+            },
+            {
+              "name": "libgcc-12-dev-arm64-cross",
+              "path": "pool/main/g/gcc-12-cross/libgcc-12-dev-arm64-cross_12.2.0-14cross1_all.deb",
+              "sha256": "ff1324e262bae2c3aad685c2ed52bd531ab0a2a337a0fe35c3b720947d55b2ba",
+              "size": 961328,
+              "version": "12.2.0-14cross1"
+            },
+            {
+              "name": "libgcc-s1-arm64-cross",
+              "path": "pool/main/g/gcc-12-cross/libgcc-s1-arm64-cross_12.2.0-14cross1_all.deb",
+              "sha256": "af1e686fc6a416228222e7bfb68317dd2fa2685236301ae29141fc6108a66cac",
+              "size": 34832,
+              "version": "12.2.0-14cross1"
+            },
+            {
+              "name": "libgomp1-arm64-cross",
+              "path": "pool/main/g/gcc-12-cross/libgomp1-arm64-cross_12.2.0-14cross1_all.deb",
+              "sha256": "9abdd1a77691a1fa5de1d142236194d690a040c953ef032ce78a8c6bde7ffca5",
+              "size": 101832,
+              "version": "12.2.0-14cross1"
+            },
+            {
+              "name": "libhwasan0-arm64-cross",
+              "path": "pool/main/g/gcc-12-cross/libhwasan0-arm64-cross_12.2.0-14cross1_all.deb",
+              "sha256": "eda088253ed14ded10d8311131d97f500e257d4cb7bf36334367d781ba3eb939",
+              "size": 997540,
+              "version": "12.2.0-14cross1"
+            },
+            {
+              "name": "libitm1-arm64-cross",
+              "path": "pool/main/g/gcc-12-cross/libitm1-arm64-cross_12.2.0-14cross1_all.deb",
+              "sha256": "d1b41cfcbf835ad970717b022de79526fce3837d076c0f15c52a14930155edc6",
+              "size": 23492,
+              "version": "12.2.0-14cross1"
+            },
+            {
+              "name": "liblsan0-arm64-cross",
+              "path": "pool/main/g/gcc-12-cross/liblsan0-arm64-cross_12.2.0-14cross1_all.deb",
+              "sha256": "6711ed147338b929e45c9e3c1b3b0655c98c0d0e7877d8cd1ff57183dfc7dea7",
+              "size": 925676,
+              "version": "12.2.0-14cross1"
+            },
+            {
+              "name": "libstdc++-12-dev-arm64-cross",
+              "path": "pool/main/g/gcc-12-cross/libstdc++-12-dev-arm64-cross_12.2.0-14cross1_all.deb",
+              "sha256": "942b5710c6b9792578dfa64f7a4633bc0d3cb205b56ded11297e240ff824f5da",
+              "size": 1975364,
+              "version": "12.2.0-14cross1"
+            },
+            {
+              "name": "libstdc++6-arm64-cross",
+              "path": "pool/main/g/gcc-12-cross/libstdc++6-arm64-cross_12.2.0-14cross1_all.deb",
+              "sha256": "9cba984b64d0cf11698978fc5e0fe93c7441d29b9f42f70f1c6c734cc9e2ea41",
+              "size": 513672,
+              "version": "12.2.0-14cross1"
+            },
+            {
+              "name": "libtsan2-arm64-cross",
+              "path": "pool/main/g/gcc-12-cross/libtsan2-arm64-cross_12.2.0-14cross1_all.deb",
+              "sha256": "5c21f8753b5c73ffeb8a505b083f9695bd72a0bce416f8910daf4a03e23ccc0b",
+              "size": 2178896,
+              "version": "12.2.0-14cross1"
+            },
+            {
+              "name": "libubsan1-arm64-cross",
+              "path": "pool/main/g/gcc-12-cross/libubsan1-arm64-cross_12.2.0-14cross1_all.deb",
+              "sha256": "f293ec2cb6d40acb1ab1715d8a248bd0aa64ca3104168bc095c973cde5e2e395",
+              "size": 860512,
+              "version": "12.2.0-14cross1"
+            },
+            {
+              "name": "linux-libc-dev-arm64-cross",
+              "path": "pool/main/c/cross-toolchain-base/linux-libc-dev-arm64-cross_6.1.4-1cross1_all.deb",
+              "sha256": "66457f015d16b7d372db6591cff38db0da928362ff2ea1fa75491e28f6904d81",
+              "size": 1815380,
+              "version": "6.1.4-1cross1"
+            },
+            {
+              "name": "qemu-user-static",
+              "path": "pool/main/q/qemu/qemu-user-static_7.2+dfsg-7+deb12u16_amd64.deb",
+              "sha256": "1b69ec441b3700a4aa31eb62e3f27d053ef1bcaabbe6963141953490df697378",
+              "size": 62603388,
+              "version": "1:7.2+dfsg-7+deb12u16"
+            }
+          ],
+          "snapshot": "https://snapshot.debian.org/archive/debian/20251104T000000Z",
+          "targetPrefix": "aarch64-linux-gnu"
+        },
+        "environment": {
+          "CARGO_NET_OFFLINE": "true",
+          "CARGO_TARGET_AARCH64_UNKNOWN_LINUX_GNU_LINKER": "/workspace/scripts/governed/link_arm64.sh",
+          "CARGO_TARGET_AARCH64_UNKNOWN_LINUX_GNU_RUNNER": "/workspace/.governed-cache-arm64/cross/usr/bin/qemu-aarch64-static -L /workspace/.governed-cache-arm64/cross/usr/aarch64-linux-gnu",
+          "LANG": "C.UTF-8",
+          "LC_ALL": "C.UTF-8",
+          "LD_LIBRARY_PATH": "/workspace/.governed-cache-arm64/llvm19/usr/lib/x86_64-linux-gnu:/workspace/.governed-cache-arm64/cross/usr/lib/x86_64-linux-gnu",
+          "PRINT_GN_ARGS": "1",
+          "RUSTY_V8_BINDGEN_RESOURCE_DIR": "/workspace/.governed-cache-arm64/llvm19/usr/lib/llvm-19/lib/clang/19",
+          "RUSTY_V8_GLIBC_SYSROOT": "/workspace/.governed-cache-arm64/cross/usr/aarch64-linux-gnu",
+          "RUST_TOOLCHAIN": "/workspace/.governed-cache-arm64/rust-toolchain",
+          "TZ": "UTC",
+          "V8_FROM_SOURCE": "1"
+        },
+        "githubActions": {
+          "checkout": "actions/checkout@08eba0b27e820071cde6df949e0beb9ba4906955",
+          "uploadArtifact": "actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02"
+        },
+        "gn": {
+          "archiveSha256": "db0ef95a0cceda773650c5ede8f0ea9cadcb0aa6c767ed75304e5622be212504",
+          "instanceId": "2w75WgzO2nc2UMXt6PDqnK3LCqbHZ-11ME5WIr4hJQQC",
+          "package": "gn/gn/linux-amd64",
+          "version": "git_revision:3357c4f51b1a9e676378c695dd9c7e9911c35ee6"
+        },
+        "llvm19Bindgen": {
+          "packages": [
+            {
+              "name": "libclang-common-19-dev",
+              "sha256": "638b26d769263d50999fbe8e0b7ded1f9bdf73288f607f2e96407e83071cabae",
+              "size": 772478,
+              "url": "https://apt.llvm.org/jammy/pool/main/l/llvm-toolchain-19/libclang-common-19-dev_19.1.7~++20250114103320+cd708029e0b2-1~exp1~20250114103432.75_amd64.deb",
+              "version": "1:19.1.7~++20250114103320+cd708029e0b2-1~exp1~20250114103432.75"
+            },
+            {
+              "name": "libclang1-19",
+              "sha256": "65b7074356369e132d9e82c1fb6b2a6e2980ca90c0b90cef4cfc558292a20b7b",
+              "size": 8399998,
+              "url": "https://apt.llvm.org/jammy/pool/main/l/llvm-toolchain-19/libclang1-19_19.1.7~++20250114103320+cd708029e0b2-1~exp1~20250114103432.75_amd64.deb",
+              "version": "1:19.1.7~++20250114103320+cd708029e0b2-1~exp1~20250114103432.75"
+            },
+            {
+              "name": "libllvm19",
+              "sha256": "558fbf3cf29c1d3d742e47901bda6079128ae2202a6aa3957126d6e674d23541",
+              "size": 28823424,
+              "url": "https://apt.llvm.org/jammy/pool/main/l/llvm-toolchain-19/libllvm19_19.1.7~++20250114103320+cd708029e0b2-1~exp1~20250114103432.75_amd64.deb",
+              "version": "1:19.1.7~++20250114103320+cd708029e0b2-1~exp1~20250114103432.75"
+            }
+          ],
+          "sourceCommit": "cd708029e0b2869e80abe31ddb175f7c35361f90",
+          "sourceRepository": "https://github.com/llvm/llvm-project.git",
+          "sourceTag": "llvmorg-19.1.7"
+        },
+        "method": "cross",
+        "ninja": {
+          "archiveSha256": "3f1f1cc0f69a1bcfdf67fb6c2bc7419b1dd812bb8d0e79afa9bfa8a3553b5082",
+          "instanceId": "Px8cwPaaG8_fZ_tsK8dBmx3YEruNDnmvqb-oo1U7UIIC",
+          "package": "infra/3pp/tools/ninja/linux-amd64",
+          "version": "version:3@1.12.1.chromium.4"
+        },
+        "preservedLinuxAmd64Contract": {
+          "governance/v150.2.0/builder.lock.json": "5f0e9d571cd711ff2efda0ca5f4a6e85d5f2644ff11793cedadd6dc71638c913",
+          "governance/v150.2.0/expected-outputs.json": "337126870c88d0111476aa9d665f844097fc8a32dae2963d52c02acfefbe765b",
+          "scripts/governed/build-offline.sh": "bf015f7c9597dec637407f688f8e9248d801caaf4c6e58432b4503986d0532fb",
+          "scripts/governed/collect_evidence.py": "e36ffc668c6d2d60bbb81b4ab1614087c6bab7e7754895c9193c86e87d556787",
+          "scripts/governed/prefetch.py": "d7f95eaecec77159799fa6bda02b0675966678a98af8be02964ac227692a56f7",
+          "scripts/governed/run-builder.sh": "6315bb71a9fcb754691e1b0b500857a299114f6ea588d0a7a47d9b95b748999d",
+          "scripts/governed/verify_inputs.py": "6230d792a450c8f69e657d16e9a454706a22577b7ca5ad52e9002a19439d8e22",
+          "scripts/governed/verify_release.py": "4d38265e34118cccae45c77ab9f06e64e06d56cfe61e6b6d5899ca0780cbee13"
+        },
+        "profile": "linux-arm64-release-simdutf-v1",
+        "schemaVersion": 1,
+        "sourceDateEpoch": 1784209467,
+        "sysroots": [
+          {
+            "arch": "amd64",
+            "directory": "build/linux/debian_bullseye_amd64-sysroot",
+            "role": "build-host",
+            "sha256": "52d61d4446ffebfaa3dda2cd02da4ab4876ff237853f46d273e7f9b666652e1d",
+            "size": 19727236,
+            "url": "https://commondatastorage.googleapis.com/chrome-linux-sysroot/52d61d4446ffebfaa3dda2cd02da4ab4876ff237853f46d273e7f9b666652e1d"
+          },
+          {
+            "arch": "arm64",
+            "directory": "build/linux/debian_bullseye_arm64-sysroot",
+            "role": "target",
+            "sha256": "c7176a4c7aacbf46bda58a029f39f79a68008d3dee6518f154dcf5161a5486d8",
+            "size": 18420984,
+            "url": "https://commondatastorage.googleapis.com/chrome-linux-sysroot/c7176a4c7aacbf46bda58a029f39f79a68008d3dee6518f154dcf5161a5486d8"
+          }
+        ],
+        "target": "aarch64-unknown-linux-gnu",
+        "targetPlatform": "linux/arm64",
+        "v8RustToolchain": {
+          "host": "linux/amd64",
+          "sha256": "832de79f8d90940f4aaef023f83a00c1e7210c023f4d57f606b7bf9831c889aa",
+          "size": 274393124,
+          "url": "https://storage.googleapis.com/chromium-browser-clang/Linux_x64/rust-toolchain-4c4205163abcbd08948b3efab796c543ba1ea687-4-llvmorg-23-init-10931-g20b6ec66.tar.xz"
+        },
+        "workspace": "/workspace"
+      },
+      "resolvedDependencies": [
+        {
+          "digest": {
+            "gitCommit": "80e863ddb942a4aa2b384e794fc23e35b9d2bb15"
+          },
+          "uri": "https://github.com/dills122/rusty_v8.git"
+        },
+        {
+          "digest": {
+            "gitCommit": "d305e6afa7736f6e298c30ae6646f7709ee9382b"
+          },
+          "uri": "https://github.com/denoland/rusty_v8.git"
+        },
+        {
+          "digest": {
+            "sha256": "e5797d67642a1b6d74e21e358f017016953d08696bab04f32916890e4c92340f"
+          },
+          "uri": "file:Cargo.lock"
+        },
+        {
+          "digest": {
+            "gitCommit": "8acb33ac8dceef0503443109c0a92988189563ef"
+          },
+          "uri": "https://github.com/denoland/chromium_build.git"
+        },
+        {
+          "digest": {
+            "gitCommit": "17495e454aae81b581e8b3caccbb53054509b280"
+          },
+          "uri": "https://chromium.googlesource.com/chromium/src/buildtools.git"
+        },
+        {
+          "digest": {
+            "gitCommit": "d16e32215c3ab90ba57c2e904a5344d85c7353e4"
+          },
+          "uri": "https://chromium.googlesource.com/chromium/src/third_party/abseil-cpp.git"
+        },
+        {
+          "digest": {
+            "gitCommit": "beeeef91cf6fef89a4d4ba5e95d47ca64ccb3a44"
+          },
+          "uri": "https://chromium.googlesource.com/external/github.com/jk-jeon/dragonbox.git"
+        },
+        {
+          "digest": {
+            "gitCommit": "05087a303dad9c98768b33c829d398223a649bc6"
+          },
+          "uri": "https://chromium.googlesource.com/external/github.com/fastfloat/fast_float.git"
+        },
+        {
+          "digest": {
+            "gitCommit": "3d2de1816307bac63c16a297e8c4dc501b4076df"
+          },
+          "uri": "https://github.com/Maratyszcza/FP16.git"
+        },
+        {
+          "digest": {
+            "gitCommit": "2607d3b5b0113992fe84d3848859eae13b3b52c1"
+          },
+          "uri": "https://chromium.googlesource.com/external/github.com/google/highway.git"
+        },
+        {
+          "digest": {
+            "gitCommit": "ee5f27adc28bd3f15b2c293f726d14d2e336cbd5"
+          },
+          "uri": "https://chromium.googlesource.com/chromium/deps/icu.git"
+        },
+        {
+          "digest": {
+            "gitCommit": "c3027d884967773057bf74b957e3fea87e5df4d7"
+          },
+          "uri": "https://chromium.googlesource.com/chromium/src/third_party/jinja2.git"
+        },
+        {
+          "digest": {
+            "gitCommit": "5abc7f839700f0f17338434e1c1c6a8c87c00c11"
+          },
+          "uri": "https://chromium.googlesource.com/external/github.com/llvm/llvm-project/libcxx.git"
+        },
+        {
+          "digest": {
+            "gitCommit": "8f11bb1d4438d0239d0dfc1bd9456a9f31629dda"
+          },
+          "uri": "https://chromium.googlesource.com/external/github.com/llvm/llvm-project/libcxxabi.git"
+        },
+        {
+          "digest": {
+            "gitCommit": "d6c7a21e978f0adaa43accaad53bc64f0b64f6ec"
+          },
+          "uri": "https://chromium.googlesource.com/external/github.com/llvm/llvm-project/libunwind.git"
+        },
+        {
+          "digest": {
+            "gitCommit": "9309c117ebae84dd2f9df1ef99de4782162527d5"
+          },
+          "uri": "https://chromium.googlesource.com/external/github.com/llvm/llvm-project/libc.git"
+        },
+        {
+          "digest": {
+            "gitCommit": "4256084ae14175d38a3ff7d739dca83ae49ccec6"
+          },
+          "uri": "https://chromium.googlesource.com/chromium/src/third_party/markupsafe.git"
+        },
+        {
+          "digest": {
+            "gitCommit": "ff3b8b885b8374cbd3902642d94dc737bda93d5d"
+          },
+          "uri": "https://chromium.googlesource.com/chromium/src/base/allocator/partition_allocator.git"
+        },
+        {
+          "digest": {
+            "gitCommit": "26e8ff47f18a8d28d6187a04b6a16cb7332356f8"
+          },
+          "uri": "https://chromium.googlesource.com/chromium/src/third_party/rust"
+        },
+        {
+          "digest": {
+            "gitCommit": "f7356eed293f8208c40b3c1b344a50bd70971983"
+          },
+          "uri": "https://chromium.googlesource.com/chromium/src/third_party/simdutf"
+        },
+        {
+          "digest": {
+            "gitCommit": "45f4b9e25124809497a27a8ae0e63d603b0f9f1b"
+          },
+          "uri": "https://chromium.googlesource.com/chromium/src/tools/clang.git"
+        },
+        {
+          "digest": {
+            "gitCommit": "faefd1b6fa9eeb033ad6fe60368ccb9bf908cbd0"
+          },
+          "uri": "https://chromium.googlesource.com/chromium/src/tools/win"
+        },
+        {
+          "digest": {
+            "gitCommit": "ac1e23989121713ca642f6650b34deff7b686896"
+          },
+          "uri": "https://github.com/denoland/v8.git"
+        },
+        {
+          "digest": {
+            "sha256": "de584381536aa5ba2403033c4f8b70f3c39c2e5d7fa87c953b7fd8bfbba0ee2a"
+          },
+          "uri": "https://commondatastorage.googleapis.com/chromium-browser-clang/Linux_x64/clang-llvmorg-23-init-10931-g20b6ec66-11.tar.xz"
+        },
+        {
+          "digest": {
+            "sha256": "d9e59cdf15532aa839c0a4871b0b755e833f914042eb2dcc59f2a0ef8667f9f6"
+          },
+          "uri": "https://static.rust-lang.org/dist/channel-rust-1.91.0.toml"
+        },
+        {
+          "digest": {
+            "sha256": "ff23dc81f796d64e34e866a44fd0bcae726e34014835369b8f9393a544167eca"
+          },
+          "uri": "https://static.rust-lang.org/dist/2025-10-30/rust-std-1.91.0-aarch64-unknown-linux-gnu.tar.xz"
+        },
+        {
+          "digest": {
+            "sha256": "832de79f8d90940f4aaef023f83a00c1e7210c023f4d57f606b7bf9831c889aa"
+          },
+          "uri": "https://storage.googleapis.com/chromium-browser-clang/Linux_x64/rust-toolchain-4c4205163abcbd08948b3efab796c543ba1ea687-4-llvmorg-23-init-10931-g20b6ec66.tar.xz"
+        },
+        {
+          "digest": {
+            "sha256": "638b26d769263d50999fbe8e0b7ded1f9bdf73288f607f2e96407e83071cabae"
+          },
+          "uri": "https://apt.llvm.org/jammy/pool/main/l/llvm-toolchain-19/libclang-common-19-dev_19.1.7~++20250114103320+cd708029e0b2-1~exp1~20250114103432.75_amd64.deb"
+        },
+        {
+          "digest": {
+            "sha256": "65b7074356369e132d9e82c1fb6b2a6e2980ca90c0b90cef4cfc558292a20b7b"
+          },
+          "uri": "https://apt.llvm.org/jammy/pool/main/l/llvm-toolchain-19/libclang1-19_19.1.7~++20250114103320+cd708029e0b2-1~exp1~20250114103432.75_amd64.deb"
+        },
+        {
+          "digest": {
+            "sha256": "558fbf3cf29c1d3d742e47901bda6079128ae2202a6aa3957126d6e674d23541"
+          },
+          "uri": "https://apt.llvm.org/jammy/pool/main/l/llvm-toolchain-19/libllvm19_19.1.7~++20250114103320+cd708029e0b2-1~exp1~20250114103432.75_amd64.deb"
+        },
+        {
+          "digest": {
+            "sha256": "52d61d4446ffebfaa3dda2cd02da4ab4876ff237853f46d273e7f9b666652e1d"
+          },
+          "uri": "https://commondatastorage.googleapis.com/chrome-linux-sysroot/52d61d4446ffebfaa3dda2cd02da4ab4876ff237853f46d273e7f9b666652e1d"
+        },
+        {
+          "digest": {
+            "sha256": "c7176a4c7aacbf46bda58a029f39f79a68008d3dee6518f154dcf5161a5486d8"
+          },
+          "uri": "https://commondatastorage.googleapis.com/chrome-linux-sysroot/c7176a4c7aacbf46bda58a029f39f79a68008d3dee6518f154dcf5161a5486d8"
+        },
+        {
+          "digest": {
+            "sha256": "3d6f64a7a4ed6d73719f8fa2e85fd896f58ff7f211a6683942ba93de690aaa66"
+          },
+          "uri": "https://snapshot.debian.org/archive/debian/20251104T000000Z/pool/main/b/binutils/binutils-aarch64-linux-gnu_2.40-2_amd64.deb"
+        },
+        {
+          "digest": {
+            "sha256": "5921df4ad56e34e6257a1caf862474845aab6548ba7ae7852e8cdd7cb622394e"
+          },
+          "uri": "https://snapshot.debian.org/archive/debian/20251104T000000Z/pool/main/g/gcc-12-cross/cpp-12-aarch64-linux-gnu_12.2.0-14cross1_amd64.deb"
+        },
+        {
+          "digest": {
+            "sha256": "3693e31fe2b42fcbdd92fef3e5578e91dd86af30e3d2c5fff3f9821e34a1cb91"
+          },
+          "uri": "https://snapshot.debian.org/archive/debian/20251104T000000Z/pool/main/g/gcc-12-cross/g++-12-aarch64-linux-gnu_12.2.0-14cross1_amd64.deb"
+        },
+        {
+          "digest": {
+            "sha256": "43747bbcd46a4062e66e855090b8ed9c2e06a93ae5a69fb304beebbc8c36d11f"
+          },
+          "uri": "https://snapshot.debian.org/archive/debian/20251104T000000Z/pool/main/g/gcc-12-cross/gcc-12-aarch64-linux-gnu_12.2.0-14cross1_amd64.deb"
+        },
+        {
+          "digest": {
+            "sha256": "6ede94430fde75ca023be50b3f5a94aa4a063b2d5c3a359bee169a934930f130"
+          },
+          "uri": "https://snapshot.debian.org/archive/debian/20251104T000000Z/pool/main/g/gcc-12-cross/gcc-12-aarch64-linux-gnu-base_12.2.0-14cross1_amd64.deb"
+        },
+        {
+          "digest": {
+            "sha256": "8dcb9dc293df9069f09dbe68d73f4a8ec2d4e3da4dcfbfe14a821d94e257e9d5"
+          },
+          "uri": "https://snapshot.debian.org/archive/debian/20251104T000000Z/pool/main/g/gcc-12-cross/gcc-12-cross-base_12.2.0-14cross1_all.deb"
+        },
+        {
+          "digest": {
+            "sha256": "bf00a5bb8de76c68bb5e710b3734808286e1e9ca86c0bd136ed3a5077c46d949"
+          },
+          "uri": "https://snapshot.debian.org/archive/debian/20251104T000000Z/pool/main/g/gcc-12-cross/libasan8-arm64-cross_12.2.0-14cross1_all.deb"
+        },
+        {
+          "digest": {
+            "sha256": "15c1baededd89ad388f6ea527aa25140364b2867332e3e815d67cba09d179bf6"
+          },
+          "uri": "https://snapshot.debian.org/archive/debian/20251104T000000Z/pool/main/g/gcc-12-cross/libatomic1-arm64-cross_12.2.0-14cross1_all.deb"
+        },
+        {
+          "digest": {
+            "sha256": "91936cbbee75771c360ed16513f6e734a25ca5517fe7c3e13dfd7835d7553186"
+          },
+          "uri": "https://snapshot.debian.org/archive/debian/20251104T000000Z/pool/main/c/cross-toolchain-base/libc6-arm64-cross_2.36-8cross1_all.deb"
+        },
+        {
+          "digest": {
+            "sha256": "5e4cf6abf0e89e89c4b3006bb8b7dc47aa831df25d94df9134929b8b968cacb4"
+          },
+          "uri": "https://snapshot.debian.org/archive/debian/20251104T000000Z/pool/main/c/cross-toolchain-base/libc6-dev-arm64-cross_2.36-8cross1_all.deb"
+        },
+        {
+          "digest": {
+            "sha256": "ff1324e262bae2c3aad685c2ed52bd531ab0a2a337a0fe35c3b720947d55b2ba"
+          },
+          "uri": "https://snapshot.debian.org/archive/debian/20251104T000000Z/pool/main/g/gcc-12-cross/libgcc-12-dev-arm64-cross_12.2.0-14cross1_all.deb"
+        },
+        {
+          "digest": {
+            "sha256": "af1e686fc6a416228222e7bfb68317dd2fa2685236301ae29141fc6108a66cac"
+          },
+          "uri": "https://snapshot.debian.org/archive/debian/20251104T000000Z/pool/main/g/gcc-12-cross/libgcc-s1-arm64-cross_12.2.0-14cross1_all.deb"
+        },
+        {
+          "digest": {
+            "sha256": "9abdd1a77691a1fa5de1d142236194d690a040c953ef032ce78a8c6bde7ffca5"
+          },
+          "uri": "https://snapshot.debian.org/archive/debian/20251104T000000Z/pool/main/g/gcc-12-cross/libgomp1-arm64-cross_12.2.0-14cross1_all.deb"
+        },
+        {
+          "digest": {
+            "sha256": "eda088253ed14ded10d8311131d97f500e257d4cb7bf36334367d781ba3eb939"
+          },
+          "uri": "https://snapshot.debian.org/archive/debian/20251104T000000Z/pool/main/g/gcc-12-cross/libhwasan0-arm64-cross_12.2.0-14cross1_all.deb"
+        },
+        {
+          "digest": {
+            "sha256": "d1b41cfcbf835ad970717b022de79526fce3837d076c0f15c52a14930155edc6"
+          },
+          "uri": "https://snapshot.debian.org/archive/debian/20251104T000000Z/pool/main/g/gcc-12-cross/libitm1-arm64-cross_12.2.0-14cross1_all.deb"
+        },
+        {
+          "digest": {
+            "sha256": "6711ed147338b929e45c9e3c1b3b0655c98c0d0e7877d8cd1ff57183dfc7dea7"
+          },
+          "uri": "https://snapshot.debian.org/archive/debian/20251104T000000Z/pool/main/g/gcc-12-cross/liblsan0-arm64-cross_12.2.0-14cross1_all.deb"
+        },
+        {
+          "digest": {
+            "sha256": "942b5710c6b9792578dfa64f7a4633bc0d3cb205b56ded11297e240ff824f5da"
+          },
+          "uri": "https://snapshot.debian.org/archive/debian/20251104T000000Z/pool/main/g/gcc-12-cross/libstdc++-12-dev-arm64-cross_12.2.0-14cross1_all.deb"
+        },
+        {
+          "digest": {
+            "sha256": "9cba984b64d0cf11698978fc5e0fe93c7441d29b9f42f70f1c6c734cc9e2ea41"
+          },
+          "uri": "https://snapshot.debian.org/archive/debian/20251104T000000Z/pool/main/g/gcc-12-cross/libstdc++6-arm64-cross_12.2.0-14cross1_all.deb"
+        },
+        {
+          "digest": {
+            "sha256": "5c21f8753b5c73ffeb8a505b083f9695bd72a0bce416f8910daf4a03e23ccc0b"
+          },
+          "uri": "https://snapshot.debian.org/archive/debian/20251104T000000Z/pool/main/g/gcc-12-cross/libtsan2-arm64-cross_12.2.0-14cross1_all.deb"
+        },
+        {
+          "digest": {
+            "sha256": "f293ec2cb6d40acb1ab1715d8a248bd0aa64ca3104168bc095c973cde5e2e395"
+          },
+          "uri": "https://snapshot.debian.org/archive/debian/20251104T000000Z/pool/main/g/gcc-12-cross/libubsan1-arm64-cross_12.2.0-14cross1_all.deb"
+        },
+        {
+          "digest": {
+            "sha256": "66457f015d16b7d372db6591cff38db0da928362ff2ea1fa75491e28f6904d81"
+          },
+          "uri": "https://snapshot.debian.org/archive/debian/20251104T000000Z/pool/main/c/cross-toolchain-base/linux-libc-dev-arm64-cross_6.1.4-1cross1_all.deb"
+        },
+        {
+          "digest": {
+            "sha256": "1b69ec441b3700a4aa31eb62e3f27d053ef1bcaabbe6963141953490df697378"
+          },
+          "uri": "https://snapshot.debian.org/archive/debian/20251104T000000Z/pool/main/q/qemu/qemu-user-static_7.2+dfsg-7+deb12u16_amd64.deb"
+        },
+        {
+          "digest": {
+            "sha256": "db0ef95a0cceda773650c5ede8f0ea9cadcb0aa6c767ed75304e5622be212504"
+          },
+          "uri": "cipd://gn/gn/linux-amd64@2w75WgzO2nc2UMXt6PDqnK3LCqbHZ-11ME5WIr4hJQQC"
+        },
+        {
+          "digest": {
+            "sha256": "3f1f1cc0f69a1bcfdf67fb6c2bc7419b1dd812bb8d0e79afa9bfa8a3553b5082"
+          },
+          "uri": "cipd://infra/3pp/tools/ninja/linux-amd64@Px8cwPaaG8_fZ_tsK8dBmx3YEruNDnmvqb-oo1U7UIIC"
+        }
+      ]
+    },
+    "runDetails": {
+      "builder": {
+        "id": "docker://rust@sha256:307d198027388f780db83929487de35084a73ecbaa31319989438db38103439f"
+      },
+      "metadata": {
+        "invocationId": "30925045754"
+      }
+    }
+  },
+  "predicateType": "https://slsa.dev/provenance/v1",
+  "subject": [
+    {
+      "digest": {
+        "sha256": "dde18da7489adeac797d42b51291f5bcb7d3ef5563bd30393a7b18c2067d79d1"
+      },
+      "name": "build-metadata.tar.gz"
+    },
+    {
+      "digest": {
+        "sha256": "8cf75b005e0dfe7e4b8c0a424e3350ed6701a53c9531d8e3ee3a67d5c14a2eff"
+      },
+      "name": "corresponding-source.tar.gz"
+    },
+    {
+      "digest": {
+        "sha256": "cc972ee08cc2e723f9672535ccb1fe5341ebf4f136ca8119eaf3a970b146e51d"
+      },
+      "name": "fixed-verification.txt"
+    },
+    {
+      "digest": {
+        "sha256": "1ae209c9e4ba5803d010d2c79ee4cc0af0126c5a7ebcca211c7e41deaede4cd2"
+      },
+      "name": "librusty_v8_simdutf_release_aarch64-unknown-linux-gnu.a.gz"
+    },
+    {
+      "digest": {
+        "sha256": "336aade62182917a7251116c2deca73ef3a51758f025b02b3b90f4423adc7314"
+      },
+      "name": "licenses-notices.tar.gz"
+    },
+    {
+      "digest": {
+        "sha256": "fb776c27efcefc56a03371bdef093ec79e36657c795dc12dd68edc50421b4675"
+      },
+      "name": "sbom.cdx.json"
+    },
+    {
+      "digest": {
+        "sha256": "6d2da4c12ba771265753b14e489aa42ef8bc76ce0cdbca00bcea9d4f126b4b5d"
+      },
+      "name": "sbom.spdx.json"
+    },
+    {
+      "digest": {
+        "sha256": "8603f09ab95e79620ea29f73933c09ae3618c6f924472c0ce36d5c614d1ceba4"
+      },
+      "name": "src_binding_simdutf_release_aarch64-unknown-linux-gnu.rs"
+    }
+  ]
+}

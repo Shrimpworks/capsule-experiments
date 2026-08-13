@@ -1,0 +1,113 @@
+{
+  "objectType": "capsule.experiment.archive-manifest",
+  "objectVersion": 1,
+  "experiment": "typed-guest-transport-c5b3-runtime-input-recovery",
+  "excludes": [
+    "manifests/archive-manifest.json"
+  ],
+  "entryCount": 17,
+  "entries": [
+    {
+      "path": ".gitattributes",
+      "mode": "0644",
+      "bytes": 131,
+      "sha256": "7e34ebb55fcf4ac30bc462fdcc1ea18c8a2f645e236bb49d50a43ea914a06777"
+    },
+    {
+      "path": "HANDOFF.md",
+      "mode": "0644",
+      "bytes": 2429,
+      "sha256": "eba0d2d4043a1784e8b5edb7a9384da9307a8ca66f7508694783016c81640a5c"
+    },
+    {
+      "path": "README.md",
+      "mode": "0644",
+      "bytes": 3295,
+      "sha256": "b16d60308bca249e132be409147327334be671ff5c248f38585a12a41b9a4390"
+    },
+    {
+      "path": "RESULTS.md",
+      "mode": "0644",
+      "bytes": 5167,
+      "sha256": "bb053a873eb8c6a94f2c791114b12cbb45191214c16d295b1ba3cf17d1bbb2b4"
+    },
+    {
+      "path": "evidence/2026-08-12/result.json",
+      "mode": "0644",
+      "bytes": 990,
+      "sha256": "73a2893bfd15dda9f16272add23895ea6679d5dc3ac2b0ae3c2d42aa59869e80"
+    },
+    {
+      "path": "evidence/2026-08-12/rusty-v8-recovery-verification.json",
+      "mode": "0644",
+      "bytes": 3597,
+      "sha256": "dd3ba4e0a9e4eee32038e764c5046837df92028c58fc15a04bb3fd145e257094"
+    },
+    {
+      "path": "evidence/2026-08-12/search-receipt.json",
+      "mode": "0644",
+      "bytes": 2842,
+      "sha256": "c30a1db99e32e72b7fd4e286513bc7e8efed0f96e80c9046f811f46cd0e334d5"
+    },
+    {
+      "path": "inputs/rusty-v8/artifact-sha256sums.txt",
+      "mode": "0644",
+      "bytes": 770,
+      "sha256": "f64b0254f2edf2dded32d7a79a2dabb6b661e1a8cf572ce874f0ae5b579dfe52"
+    },
+    {
+      "path": "inputs/rusty-v8/fixed-verification.txt",
+      "mode": "0644",
+      "bytes": 138,
+      "sha256": "cc972ee08cc2e723f9672535ccb1fe5341ebf4f136ca8119eaf3a970b146e51d"
+    },
+    {
+      "path": "inputs/rusty-v8/librusty_v8_simdutf_release_aarch64-unknown-linux-gnu.a.gz",
+      "mode": "0644",
+      "bytes": 37674703,
+      "sha256": "1ae209c9e4ba5803d010d2c79ee4cc0af0126c5a7ebcca211c7e41deaede4cd2"
+    },
+    {
+      "path": "inputs/rusty-v8/provenance.intoto.json",
+      "mode": "0644",
+      "bytes": 32367,
+      "sha256": "377e5f0588a5f5dd74597287ff4bb70836cb106a729c16dd1cc52d46a9702e8b"
+    },
+    {
+      "path": "inputs/rusty-v8/release-manifest.json",
+      "mode": "0644",
+      "bytes": 1743,
+      "sha256": "9dd57fe8ab08725549b53d6f416dc2191484bc78044adc74e442cde5e71f8735"
+    },
+    {
+      "path": "inputs/rusty-v8/src_binding_simdutf_release_aarch64-unknown-linux-gnu.rs",
+      "mode": "0644",
+      "bytes": 40369,
+      "sha256": "8603f09ab95e79620ea29f73933c09ae3618c6f924472c0ce36d5c614d1ceba4"
+    },
+    {
+      "path": "manifests/recovery-plan.json",
+      "mode": "0644",
+      "bytes": 7455,
+      "sha256": "0166a68db295c32c02645b60eddf1bc7d71a39ace0c6efca18fd15f6fd15fe45"
+    },
+    {
+      "path": "scripts/generate.mjs",
+      "mode": "0755",
+      "bytes": 1974,
+      "sha256": "6ed04dc359476c52d633d5bb874728871391809dd7599b9ebe88d9d4515b89e7"
+    },
+    {
+      "path": "scripts/test-mutations.mjs",
+      "mode": "0755",
+      "bytes": 2641,
+      "sha256": "f650bd15d7290bf6d01a7724b331082df6d42eaaeec3d171bccc14147ad7c607"
+    },
+    {
+      "path": "scripts/verify.mjs",
+      "mode": "0755",
+      "bytes": 11487,
+      "sha256": "a62b3ff540c34de11f50a665cfe25a04611b3cde6d001793917f4d187b70785f"
+    }
+  ]
+}

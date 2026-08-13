@@ -1,0 +1,184 @@
+{
+  "objectType": "capsule.c5b3.governed-runtime-input-recovery",
+  "objectVersion": 1,
+  "identity": "capsule.c5b3.governed-runtime-input-recovery/2026-08-12",
+  "scopedRecoveryPacketStatus": "PASSED",
+  "exactByteRecoveryStatus": "BLOCKED",
+  "completeExecutableSuccessorStatus": "BLOCKED",
+  "controlledExecutionStatus": "BLOCKED",
+  "runtimeProfileAdmission": "BLOCKED",
+  "repositoryBaseline": "5a2f835e8c9df8279237f940f5af757e119593bd",
+  "capsuleSource": "22acf665797e248028c2625586322f698bc2ba74",
+  "predecessor": {
+    "experimentRoot": "experiments/typed-guest-transport-c5b2-governed-input-closure",
+    "mergeCommit": "5a2f835e8c9df8279237f940f5af757e119593bd",
+    "completeExecutableSuccessorStatus": "BLOCKED"
+  },
+  "artifacts": {
+    "denoCoreExecutable": {
+      "role": "governed-fixed-fixture-runtime",
+      "requiredBytes": 68496520,
+      "requiredSha256": "e781a90236cdf1272a9a16189c6be033164fa25a5aa9e52376ef998982ec0a77",
+      "retainedBytesAvailable": false,
+      "disposition": "BLOCKED"
+    },
+    "libkrunfw": {
+      "role": "sole-runtime-boot-kernel-carrier",
+      "requiredBytes": 24339104,
+      "requiredSha256": "0b14f4b8005dafd33c38df5935b9efdb6381c724224b3967ba1cecbecf10b6e9",
+      "retainedBytesAvailable": false,
+      "disposition": "BLOCKED"
+    },
+    "kernel": {
+      "role": "derived-evidence-only-not-separate-runtime-input",
+      "requiredBytes": 24117248,
+      "requiredSha256": "b50a4165215d5d897ab3614606a2105756cf8f2b2510cbceda9dc06057a5622d",
+      "retainedBytesAvailable": false,
+      "disposition": "EVIDENCE_ONLY"
+    },
+    "separateFirmware": {
+      "retainedBytesAvailable": false,
+      "disposition": "INAPPLICABLE",
+      "reason": "Accepted ADR-0041 assigns the sole boot-kernel-carrier role to libkrunfw and forbids a separate path authority."
+    }
+  },
+  "runtimeReconstruction": {
+    "deno": {
+      "repository": "Shrimpworks/deno",
+      "commit": "29b71f06c2df5ab06721ccbb7bc744fb8104356e",
+      "tree": "172e57551fe5a6683f11c886a81f9634023a5514",
+      "sourceArchive": {
+        "bytes": 32352414,
+        "sha256": "7073152cccd4df42d5081ecec5c8ab36f8d6914039faa806060656d55a9e4cf3",
+        "available": false
+      },
+      "cargoLock": {
+        "bytes": 45815,
+        "sha256": "4dd8f08c8b223adbf3468fce5fe9e0468dfe9f4a255129cc304cb604fa0d389d",
+        "available": true,
+        "path": "experiments/gate-c-fork-native-deno-runtime-bundle/builder/Cargo.lock"
+      },
+      "cargoSourceBundle": {
+        "packages": 189,
+        "bytes": 70134953,
+        "sha256": "1e96e49a516e4cf6a9ec79acae9a9eb3d0ee52b332695fa11476a97e1e50d1d4",
+        "available": false
+      }
+    },
+    "rustyV8": {
+      "repository": "Shrimpworks/rusty_v8",
+      "commit": "80e863ddb942a4aa2b384e794fc23e35b9d2bb15",
+      "archive": {
+        "bytes": 37674703,
+        "sha256": "1ae209c9e4ba5803d010d2c79ee4cc0af0126c5a7ebcca211c7e41deaede4cd2",
+        "available": true,
+        "retainedPath": "inputs/rusty-v8/librusty_v8_simdutf_release_aarch64-unknown-linux-gnu.a.gz"
+      },
+      "binding": {
+        "sha256": "8603f09ab95e79620ea29f73933c09ae3618c6f924472c0ce36d5c614d1ceba4",
+        "available": true,
+        "retainedPath": "inputs/rusty-v8/src_binding_simdutf_release_aarch64-unknown-linux-gnu.rs"
+      },
+      "historicalOracle": {
+        "repository": "Shrimpworks/rusty_v8",
+        "actionsRun": 30925045754,
+        "artifactId": 8902402057,
+        "artifactName": "rusty-v8-v150.2.0-linux-arm64-unsigned",
+        "expiresAt": "2026-09-03",
+        "currentRetention": "RECOVERED_AND_VERIFIED",
+        "usedAsInput": true,
+        "verificationReceipt": "evidence/2026-08-12/rusty-v8-recovery-verification.json"
+      }
+    },
+    "builder": {
+      "image": "rust:1.95.0-bookworm@sha256:6258907abe69656e41cd992e0b705cdcfabcbbe3db374f92ed2d47121282d4a1",
+      "target": "aarch64-unknown-linux-gnu",
+      "sourceDateEpoch": 0,
+      "logicalCpus": 1,
+      "cpuSet": "0",
+      "aslrDisabled": true,
+      "acquisitionNetwork": "connected-digest-only",
+      "decisiveBuildNetwork": "none",
+      "emptyTargetAndOutput": true,
+      "compilerCache": "absent",
+      "imageAvailable": false,
+      "dockerDaemonRunning": false
+    },
+    "requiredResult": {
+      "buildCount": 2,
+      "sameHostByteEquality": true,
+      "binaryBytes": 68496520,
+      "binarySha256": "e781a90236cdf1272a9a16189c6be033164fa25a5aa9e52376ef998982ec0a77",
+      "snapshotBytes": 699988,
+      "snapshotSha256": "4e8965217d5a6675a880326eee6f690bbeec7e7cb243decf2f3e9f453a871a2c",
+      "bundleBytes": 20981992,
+      "bundleSha256": "ad908b8289c86f25c3413713fa3e60c4c8bb91fec0d52763e870d7a186865ee6"
+    }
+  },
+  "libkrunfwReconstruction": {
+    "repository": "libkrun/libkrunfw",
+    "commit": "ec4b297964877d83432f9ccda6dad8ff6e9de3e4",
+    "release": "v5.5.0",
+    "releaseArchiveSha256": "5bfae6efee63dbdf04a8fac2a69d772d9f900af2f54c4429b4acdfd6d86b9979",
+    "sourceArchiveSha256": "ef7207ebbada2657f8a0f128535a91099d10c082e3deb5c14bf2fe35ccd04fd0",
+    "linux61291SourceArchiveSha256": "0ff2ab9e169f9f1948557471fbb450d3018f8c5b77caf288e1a3982582597969",
+    "kernelCInputSha256": "96561a4e5dccec0364a28ac32c5668e13e31180d083f412c9f8be7599380c70d",
+    "allAcquisitionInputsAvailable": false,
+    "builder": {
+      "os": "macOS 26.5.2 build 25F84",
+      "architecture": "arm64",
+      "rust": "1.93.1",
+      "appleClang": "21.0.0",
+      "deploymentTarget": "14.0",
+      "network": "deny-network",
+      "offlineCargo": true,
+      "sourceDateEpoch": 0,
+      "pathRemapped": true,
+      "currentExactEnvironmentQualified": false
+    },
+    "requiredResult": {
+      "buildCount": 2,
+      "sameHostByteEquality": true,
+      "libkrunfwBytes": 24339104,
+      "libkrunfwSha256": "0b14f4b8005dafd33c38df5935b9efdb6381c724224b3967ba1cecbecf10b6e9",
+      "derivedKernelBytes": 24117248,
+      "derivedKernelSha256": "b50a4165215d5d897ab3614606a2105756cf8f2b2510cbceda9dc06057a5622d"
+    }
+  },
+  "searchReceipt": "evidence/2026-08-12/search-receipt.json",
+  "postSearchRecovery": {
+    "source": "Shrimpworks/rusty_v8 Actions run 30925045754 artifact 8902402057",
+    "status": "RECOVERED_AND_VERIFIED",
+    "retainedRequiredInputCount": 2,
+    "closesRustyV8RuntimeBuildInputs": true,
+    "closesDenoSourceOrCargoClosure": false,
+    "closesLibkrunfwInputs": false,
+    "receipt": "evidence/2026-08-12/rusty-v8-recovery-verification.json"
+  },
+  "requiredNextOrder": [
+    "make-exact-pinned-builder-available",
+    "acquire-and-verify-the-recorded-deno-source-and-cargo-closure-inputs",
+    "acquire-and-verify-every-recorded-libkrunfw-source-input",
+    "run-two-fresh-runtime-builds-and-require-exact-byte-equality",
+    "run-two-fresh-libkrunfw-builds-and-require-exact-byte-equality",
+    "retain-policy-permitted-artifacts-source-notices-sbom-provenance-and-mutations",
+    "bind-with-real-controller-in-a-separate-no-run-composite",
+    "stop-before-any-artifact-load-or-guest-execution"
+  ],
+  "effects": {
+    "authorizedGithubArtifactRecoveredByOrchestrator": true,
+    "artifactLoaded": false,
+    "artifactExecuted": false,
+    "libkrunLoaded": false,
+    "hvfCalled": false,
+    "processStarted": false,
+    "vmStarted": false,
+    "guestStarted": false,
+    "workerNetworkTargetAccessed": false,
+    "credentialValueAccessed": false,
+    "signed": false,
+    "installed": false,
+    "productStateMutated": false,
+    "admissionChanged": false
+  }
+}
