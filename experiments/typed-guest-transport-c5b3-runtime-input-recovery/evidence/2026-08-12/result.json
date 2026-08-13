@@ -1,0 +1,22 @@
+{
+  "workItem": "C5b3 governed runtime-input recovery",
+  "scopedRecoveryPacketStatus": "PASSED",
+  "exactByteRecoveryStatus": "BLOCKED",
+  "completeExecutableSuccessorStatus": "BLOCKED",
+  "result": "The frozen runtime, libkrunfw, and derived-kernel bytes are absent from every bounded authorized location; exact recipes are retained but required acquisition inputs and builder availability are not closed.",
+  "effects": {
+    "artifactLoaded": false,
+    "artifactExecuted": false,
+    "libkrunLoaded": false,
+    "hvfCalled": false,
+    "processStarted": false,
+    "vmStarted": false,
+    "guestStarted": false,
+    "networkTargetAccessed": false,
+    "credentialValueAccessed": false,
+    "signed": false,
+    "installed": false,
+    "productStateMutated": false,
+    "admissionChanged": false
+  }
+}

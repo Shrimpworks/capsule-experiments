@@ -1,0 +1,71 @@
+{
+  "objectType": "capsule.experiment.archive-manifest",
+  "objectVersion": 1,
+  "experiment": "typed-guest-transport-c5b3-runtime-input-recovery",
+  "excludes": [
+    "manifests/archive-manifest.json"
+  ],
+  "entryCount": 10,
+  "entries": [
+    {
+      "path": ".gitattributes",
+      "mode": "0644",
+      "bytes": 54,
+      "sha256": "5c2ff5a653dfa115c94439e87a785dd0bdd6f0bc35df8fdbd978f917728d2bec"
+    },
+    {
+      "path": "HANDOFF.md",
+      "mode": "0644",
+      "bytes": 2512,
+      "sha256": "7b8f0cff40ed434f89b022a8e9810d84a8cb36923ff3f91b215199a319a9e958"
+    },
+    {
+      "path": "README.md",
+      "mode": "0644",
+      "bytes": 2788,
+      "sha256": "8dbadf7668cc65feb0160de4bb9dd96d82004a4249eebcaf272a23babfa17d42"
+    },
+    {
+      "path": "RESULTS.md",
+      "mode": "0644",
+      "bytes": 4197,
+      "sha256": "7c51bff9c3780fd1cc07bbdbcb9ae5b3bcc428850593ccd52553363f3aea247c"
+    },
+    {
+      "path": "evidence/2026-08-12/result.json",
+      "mode": "0644",
+      "bytes": 806,
+      "sha256": "9da5eb481d53d63e109632ec0a66830cb4b4c760873225f791ce23e89da75a47"
+    },
+    {
+      "path": "evidence/2026-08-12/search-receipt.json",
+      "mode": "0644",
+      "bytes": 2217,
+      "sha256": "1d1b4c6b76968680067fbf95f1dec35e60d6f9ff848d517de597caa9732a46dd"
+    },
+    {
+      "path": "manifests/recovery-plan.json",
+      "mode": "0644",
+      "bytes": 6689,
+      "sha256": "84ddba02622293714313669c4f9b7d1926dc42264dbb7e3ea9df1d33dea480a8"
+    },
+    {
+      "path": "scripts/generate.mjs",
+      "mode": "0755",
+      "bytes": 1974,
+      "sha256": "6ed04dc359476c52d633d5bb874728871391809dd7599b9ebe88d9d4515b89e7"
+    },
+    {
+      "path": "scripts/test-mutations.mjs",
+      "mode": "0755",
+      "bytes": 2562,
+      "sha256": "46610d3b9c08b4d29b0ab4d9fe379a99a890c620a20d53dc8901352444f66215"
+    },
+    {
+      "path": "scripts/verify.mjs",
+      "mode": "0755",
+      "bytes": 7818,
+      "sha256": "b5e23d36251fb9d06028500029fb7140df84d949777aa53cc1247882400514d4"
+    }
+  ]
+}

@@ -1,0 +1,79 @@
+{
+  "objectType": "capsule.c5b3.runtime-input-search-receipt",
+  "objectVersion": 1,
+  "observedAt": "2026-08-12",
+  "repositoryPins": {
+    "capsuleExperiments": "5a2f835e8c9df8279237f940f5af757e119593bd",
+    "capsuleCorp": "22acf665797e248028c2625586322f698bc2ba74"
+  },
+  "authorizedLocations": [
+    {
+      "class": "fresh-task-repository-and-complete-git-object-history",
+      "path": "TASK_ROOT/capsule-experiments",
+      "result": "NO_EXACT_BYTES"
+    },
+    {
+      "class": "fresh-task-repository-and-complete-git-object-history",
+      "path": "TASK_ROOT/capsule-corp",
+      "result": "NO_EXACT_BYTES"
+    },
+    {
+      "class": "capsule-named-direct-children",
+      "path": "/private/tmp/capsule*",
+      "result": "NO_EXACT_BYTES"
+    },
+    {
+      "class": "capsule-named-direct-children",
+      "path": "CURRENT_USER_TMPDIR/capsule*",
+      "result": "NO_EXACT_BYTES"
+    },
+    {
+      "class": "explicitly-authorized-repository",
+      "path": "/Users/dsteele/repos/llrt",
+      "result": "NO_EXACT_BYTES"
+    }
+  ],
+  "searchedBy": [
+    "exact-file-byte-length",
+    "expected-artifact-name",
+    "complete-git-blob-byte-length"
+  ],
+  "expected": [
+    {
+      "bytes": 68496520,
+      "sha256": "e781a90236cdf1272a9a16189c6be033164fa25a5aa9e52376ef998982ec0a77",
+      "found": false
+    },
+    {
+      "bytes": 24339104,
+      "sha256": "0b14f4b8005dafd33c38df5935b9efdb6381c724224b3967ba1cecbecf10b6e9",
+      "found": false
+    },
+    {
+      "bytes": 24117248,
+      "sha256": "b50a4165215d5d897ab3614606a2105756cf8f2b2510cbceda9dc06057a5622d",
+      "found": false
+    }
+  ],
+  "githubAuth": {
+    "method": "macos-keychain-backed-gh-with-GH_TOKEN-and-GITHUB_TOKEN-unset",
+    "account": "dills122",
+    "status": "INVALID",
+    "credentialBytesRead": false
+  },
+  "docker": {
+    "daemonRunning": false,
+    "imageInventoryRead": false,
+    "daemonStarted": false,
+    "imagePulled": false
+  },
+  "excluded": [
+    "unrelated user directories",
+    "Trash",
+    "backups and Time Machine",
+    "Keychain contents",
+    "unrelated repositories",
+    "third-party systems"
+  ],
+  "limitation": "This receipt proves only bounded negative discovery; it does not prove global absence."
+}
