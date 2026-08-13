@@ -1,0 +1,43 @@
+{
+  "status": "PARTIAL",
+  "upstreamVersion": "5.5.0",
+  "archive": {
+    "path": "inputs/libkrunfw-prebuilt-aarch64.tgz",
+    "bytes": 19709993,
+    "sha256": "5bfae6efee63dbdf04a8fac2a69d772d9f900af2f54c4429b4acdfd6d86b9979"
+  },
+  "retainedSources": {
+    "LICENSE-GPL-2.0-only": {
+      "path": "sources/LICENSE-GPL-2.0-only",
+      "bytes": 18729,
+      "sha256": "f6b78c087c3ebdf0f3c13415070dd480a3f35d8fc76f3d02180a407c1c812f79"
+    },
+    "LICENSE-LGPL-2.1-only": {
+      "path": "sources/LICENSE-LGPL-2.1-only",
+      "bytes": 26530,
+      "sha256": "dc626520dcd53a22f727af3ee42c770e56c97a64fe3adb063799d8ab032fe551"
+    },
+    "Makefile": {
+      "path": "sources/Makefile",
+      "bytes": 5169,
+      "sha256": "81bc05513f0da06b917870ab8d51e00d0b93eff390f4bfbfa1d1c3ae041d0bcc"
+    },
+    "bin2cbundle.py": {
+      "path": "sources/bin2cbundle.py",
+      "bytes": 4878,
+      "sha256": "fa11e5b49e10d469eebd7b6e4ec4d2f5529337f12b9b50c988683b665778f6d6"
+    },
+    "kernel.c": {
+      "path": "sources/kernel.c",
+      "bytes": 93814877,
+      "sha256": "96561a4e5dccec0364a28ac32c5668e13e31180d083f412c9f8be7599380c70d"
+    }
+  },
+  "licenseExpressions": [
+    "GPL-2.0-only",
+    "LGPL-2.1-only"
+  ],
+  "generatedKernelBundleSourceRetained": true,
+  "preferredFormKernelSourceComplete": false,
+  "distributionSourceComplianceStatus": "BLOCKED"
+}

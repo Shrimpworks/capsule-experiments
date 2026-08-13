@@ -1,0 +1,31 @@
+{
+  "workItem": "C5b4 deterministic libkrunfw recovery",
+  "scopedRecoveryStatus": "PASSED",
+  "completeExecutableSuccessorStatus": "BLOCKED",
+  "output": {
+    "path": "artifacts/libkrunfw.5.dylib",
+    "bytes": 24339104,
+    "sha256": "0b14f4b8005dafd33c38df5935b9efdb6381c724224b3967ba1cecbecf10b6e9"
+  },
+  "buildComparison": "IDENTICAL",
+  "expectedHistoricalIdentityMatched": true,
+  "effects": {
+    "artifactLoaded": false,
+    "artifactLinked": false,
+    "artifactExecuted": false,
+    "kernelExtracted": false,
+    "kernelExecuted": false,
+    "libkrunLoaded": false,
+    "hvfCalled": false,
+    "processStarted": false,
+    "vmStarted": false,
+    "guestStarted": false,
+    "networkAccessedByBuild": false,
+    "credentialAccessed": false,
+    "signingIdentityAccessed": false,
+    "signingCommandInvoked": false,
+    "installed": false,
+    "productStateMutated": false,
+    "admissionChanged": false
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "checkedBeforeExtraction": true,
+  "exactMembers": [
+    "libkrunfw/",
+    "libkrunfw/LICENSE-GPL-2.0-only",
+    "libkrunfw/LICENSE-LGPL-2.1-only",
+    "libkrunfw/Makefile",
+    "libkrunfw/bin2cbundle.py",
+    "libkrunfw/kernel.c"
+  ],
+  "absolutePathMembers": 0,
+  "dotOrParentTraversalMembers": 0,
+  "symlinkMembers": 0,
+  "hardlinkMembers": 0,
+  "specialMembers": 0
+}
