@@ -1,0 +1,237 @@
+{
+  "objectType": "capsule.c5b1.executable-successor-construction",
+  "objectVersion": 1,
+  "identity": "capsule.c5b1.typed-transport-executable-successor/2026-08-11",
+  "scopedConstructionStatus": "PASSED",
+  "completeExecutableSuccessorStatus": "BLOCKED",
+  "controlledExecutionStatus": "BLOCKED",
+  "runtimeProfileAdmission": "BLOCKED",
+  "repositoryBaseline": "067fe2beb40361bb714507cab1331004e0a656fa",
+  "predecessor": {
+    "mergeCommit": "b357d0c0fb29100c180494e67cebd7809aabe3c5",
+    "experimentRoot": "experiments/typed-guest-transport-c5b0-v19-successor",
+    "v19RawBytesRecovered": false,
+    "v19IdentityReused": false
+  },
+  "artifacts": {
+    "hostRunner": {
+      "path": "dist/host-runner",
+      "bytes": 33944,
+      "sha256": "8b7ba0315d26326828210cc50588b723bc0be0529372263d592118e8debaadb4",
+      "mode": "0755",
+      "format": "Mach-O arm64 executable"
+    },
+    "rawRuntimeRoot": {
+      "path": "dist/runtime-root.ext4",
+      "bytes": 8388608,
+      "sha256": "578a8e6ba56da05252126567b15f7dcc07eab9dc2ad18820a9d1de53c8db3af5",
+      "mode": "0644",
+      "format": "ext4 extent/no-journal raw image"
+    },
+    "trustedInit": {
+      "path": "dist/trusted-init",
+      "bytes": 365352,
+      "sha256": "c6c5f15dd386082e6b108c354afdca27327d6760efdefb54fe9d02e25b80e408",
+      "mode": "0755",
+      "format": "static ELF arm64 executable"
+    },
+    "trustedLauncher": {
+      "path": "dist/trusted-launcher",
+      "bytes": 389312,
+      "sha256": "278467cd82499590154a9b1a34b0189096d3927c49fefd228dedc2f4db36ea98",
+      "mode": "0755",
+      "format": "static ELF arm64 executable"
+    },
+    "controller": {
+      "path": "dist/controller",
+      "bytes": 33064,
+      "sha256": "0d56c595ac880d6c88a30bbb2246837407b9f684679315713c26f07aa2d212d8",
+      "mode": "0755",
+      "format": "Mach-O arm64 executable hard-stop"
+    }
+  },
+  "rootContract": {
+    "bytes": 8388608,
+    "blockBytes": 1024,
+    "featureIncompat": [
+      "filetype",
+      "extents"
+    ],
+    "journal": false,
+    "fixedPaths": [
+      "/usr/local/libexec/capsule-init.krun",
+      "/usr/local/libexec/capsule-launcher",
+      "/opt/capsule/inputs/main.mjs",
+      "/opt/capsule/inputs/source-manifest.cbor",
+      "/opt/capsule/inputs/input.json"
+    ],
+    "deliberatelyAbsent": [
+      "/usr/local/bin/capsule-deno-core-c5b1",
+      "shell",
+      "package-manager",
+      "network-configuration"
+    ]
+  },
+  "hostRunnerContract": {
+    "descriptors": [
+      "0:null-read",
+      "1:stdout-write",
+      "2:stderr-write",
+      "3:record-before-start-read",
+      "4:unlinked-mode-0400-root-read",
+      "5:source-read",
+      "6:input-read",
+      "7:completion-write"
+    ],
+    "fixedLibraryPath": "./lib/libkrun.1.dylib",
+    "libraryLoadPoint": "after exact G plus EOF",
+    "ports": [
+      "capsule.source",
+      "capsule.input",
+      "capsule.completion"
+    ],
+    "noCallerConfiguration": true
+  },
+  "predecessorInputs": {
+    "inputs/c5b0/main.mjs": {
+      "path": "inputs/c5b0/main.mjs",
+      "bytes": 103,
+      "sha256": "c8e940feb89b342de2d5e6bd13c413226676de9a539fce34c4107516e635b475"
+    },
+    "inputs/c5b0/source-manifest.cbor": {
+      "path": "inputs/c5b0/source-manifest.cbor",
+      "bytes": 89,
+      "sha256": "712b1bd9739e4f6b0b027600207cbb08fb21b159a57bd34a15cf0ff8f32661b0"
+    },
+    "inputs/c5b0/input.json": {
+      "path": "inputs/c5b0/input.json",
+      "bytes": 36,
+      "sha256": "9de0c909cfb111bd99c3b0b5f7a10972894270c2867022a71b6b6f3c0cd1af6e"
+    },
+    "inputs/c5b0/expected-completion.json": {
+      "path": "inputs/c5b0/expected-completion.json",
+      "bytes": 35,
+      "sha256": "bb7234ee486b0fbccc2091859ec93499e6a14ea7d6e091cdef60a0e2a6e8371c"
+    },
+    "inputs/c5b0/source.frame": {
+      "path": "inputs/c5b0/source.frame",
+      "bytes": 255,
+      "sha256": "c8d035b02af814c2df23916bb060018c50412dd208131ec37a65f87c94ce8173"
+    },
+    "inputs/c5b0/input.frame": {
+      "path": "inputs/c5b0/input.frame",
+      "bytes": 188,
+      "sha256": "c4b66bba6dd33af06760118f34955b637308538d300ace79aa68381ae3f7f2c2"
+    },
+    "inputs/c5b0/completion.frame": {
+      "path": "inputs/c5b0/completion.frame",
+      "bytes": 259,
+      "sha256": "d60681ed713f8e11df7cd85301552ef84e3f2831c014fb65741350c9e0db7a7c"
+    },
+    "inputs/c5b0/successor-profile.json": {
+      "path": "inputs/c5b0/successor-profile.json",
+      "bytes": 3062,
+      "sha256": "c0a2d0ec6337d4cb4ed52e8a930a54a59ec3e677d4ad9da1a602c4cd7124f04b"
+    },
+    "inputs/c5b0/no-run-plan.json": {
+      "path": "inputs/c5b0/no-run-plan.json",
+      "bytes": 1281,
+      "sha256": "5a806ac1628537c999e73b07b0d73d1a96a31507d1e91fd0f9a0535787e6fb64"
+    },
+    "inputs/c5b0/artifact-boundary.json": {
+      "path": "inputs/c5b0/artifact-boundary.json",
+      "bytes": 3440,
+      "sha256": "5660afbaff4c61e0f6a725319f00bef28b125faeabc21577d7e9c302271515d3"
+    },
+    "inputs/c5b0/archive-manifest.json": {
+      "path": "inputs/c5b0/archive-manifest.json",
+      "bytes": 5062,
+      "sha256": "d59f3bca544599ed4ba0a83970ccde46617889b13ab3d8a2b64b3cd92b000845"
+    }
+  },
+  "constructionSources": [
+    {
+      "path": "Cargo.lock",
+      "bytes": 239,
+      "sha256": "4f193cdf5b2fccbc4678f6f538c0043422dc02698cc7e470ef2eb7e1e5af72bd"
+    },
+    {
+      "path": "Cargo.toml",
+      "bytes": 216,
+      "sha256": "b8109761b1eae8d5c84d8e3de6cdcc3d54cd57e2960e23887d703652b6014051"
+    },
+    {
+      "path": "rust-toolchain.toml",
+      "bytes": 92,
+      "sha256": "2df8393f72e57c9f96756eb956b31b4f2d1d71e3b61e77ae68ab62411998ce51"
+    },
+    {
+      "path": "crates/trusted-init/Cargo.toml",
+      "bytes": 176,
+      "sha256": "cd45fb577f613af57bc9a2c130c3b640058afa4e8ec0667f2c50cdb44463cf37"
+    },
+    {
+      "path": "crates/trusted-init/src/main.rs",
+      "bytes": 3915,
+      "sha256": "7371c68d33d0ff7e610e96ad25178d319da157f8c93ab3be9bf8a6cb19a52215"
+    },
+    {
+      "path": "crates/trusted-launcher/Cargo.toml",
+      "bytes": 179,
+      "sha256": "9cd6b841e2ef97517b0feee541bc7336a42e5924c526fbfa885eda60d96a07d5"
+    },
+    {
+      "path": "crates/trusted-launcher/src/main.rs",
+      "bytes": 5277,
+      "sha256": "7d8c9c948f3a4627080ed4f6062f618ac8e07ba9be2c71d4d646d7f896c413b6"
+    },
+    {
+      "path": "source/host-runner.c",
+      "bytes": 6632,
+      "sha256": "88fde3262d27080edc252aa440d8e8993003514d8c1ca1461c514e4e17c9b04b"
+    },
+    {
+      "path": "source/controller.c",
+      "bytes": 412,
+      "sha256": "f33fc9506b14326fa9f19f1d64ec92191e837d7f7850d5de552bb2d205c89688"
+    },
+    {
+      "path": "scripts/aarch64-linux-linker.sh",
+      "bytes": 110,
+      "sha256": "9c45ab35ffb0990e02a1bc3512bd171cfb3b125801c4fe45d624d0acc51c83bd"
+    },
+    {
+      "path": "scripts/build-root.mjs",
+      "bytes": 7056,
+      "sha256": "b4bff63d89c9eac2dd21805938d17a12a5c5ebb9c6ab412dd1208322c974858e"
+    },
+    {
+      "path": "scripts/build.sh",
+      "bytes": 2592,
+      "sha256": "727919dbf9b36acbb3c97a5d522a16ad3be52d2ba11aa637c9e6d513301497ce"
+    },
+    {
+      "path": "scripts/sync-inputs.mjs",
+      "bytes": 1625,
+      "sha256": "8cd45fe53ead3f937e858545d9f2f4cad2ed2c5d9ebfaa6779d47fd73ae598d5"
+    }
+  ],
+  "blockers": [
+    "the governed deno_core runtime executable is deliberately absent from the raw root",
+    "governed libkrun/libkrunfw/kernel/firmware bytes are not part of this packet",
+    "the retained controller is an executable hard-stop, not an execution harness",
+    "no owner host/guest/process/root/fault/cleanup authorization has been issued"
+  ],
+  "effects": {
+    "artifactExecuted": false,
+    "libkrunLoaded": false,
+    "hvfCalled": false,
+    "processStarted": false,
+    "vmStarted": false,
+    "guestStarted": false,
+    "credentialAccessed": false,
+    "networkAccessed": false,
+    "productStateMutated": false,
+    "admissionChanged": false
+  }
+}

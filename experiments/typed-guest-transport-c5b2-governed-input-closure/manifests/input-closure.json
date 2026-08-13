@@ -1,0 +1,174 @@
+{
+  "objectType": "capsule.c5b2.governed-input-closure",
+  "objectVersion": 1,
+  "identity": "capsule.c5b2.typed-transport-governed-input-closure/2026-08-12",
+  "scopedInputClosureStatus": "PASSED",
+  "completeExecutableSuccessorStatus": "BLOCKED",
+  "controlledExecutionStatus": "BLOCKED",
+  "runtimeProfileAdmission": "BLOCKED",
+  "repositoryBaseline": "ee00ae2abbce64ae6458b82d0b53d904ee39aeb6",
+  "capsuleSource": {
+    "repository": "Shrimpworks/capsule-corp",
+    "commit": "e5401a81b727915ec01afe9012a77e7586a57c13",
+    "directory": "schemas/conformance/c2b-host-runner-materialized-v4"
+  },
+  "predecessor": {
+    "mergeCommit": "db08ebf277432e06d6cba3b7f7338e3bd4a61252",
+    "experimentRoot": "experiments/typed-guest-transport-c5b1-executable-successor",
+    "artifactProfile": {
+      "path": "inputs/c5b1/artifact-profile.json",
+      "bytes": 7854,
+      "sha256": "9db2445d9673b1f77db915eb048fa2798a74f40aa73ca4c318da5a77a5400477"
+    },
+    "hardStopControllerReused": false
+  },
+  "governedSources": {
+    "deno": {
+      "repository": "Shrimpworks/deno",
+      "commit": "3fa21d1ae7705ab4bcb4bc98955f25301b20122a",
+      "tree": "6060cb0eb4cd3395a4c141f054634968744617d2"
+    },
+    "rustyV8": {
+      "repository": "Shrimpworks/rusty_v8",
+      "commit": "d09221062280ae1675fe26c53c3f43871aae2055",
+      "tree": "2632901e6e7e9ac88662756ceb658d4e3e49fceb"
+    },
+    "libkrun": {
+      "repository": "Shrimpworks/libkrun",
+      "upstreamCommit": "728df8125077d0db44265f6e997c72b81b65c015",
+      "acceptedCommit": "7432eda5a49220976b0167005aa43ee622f9d632",
+      "acceptedTree": "7671440cfbafa58fe20aebf8d4deb2a843ebe346"
+    }
+  },
+  "boundAvailableInputs": {
+    "materialized-profile.json": {
+      "path": "inputs/c2b-v4/materialized-profile.json",
+      "bytes": 10301,
+      "sha256": "198688bacd50aaee4f57b4cd7c56cea6b939c10aa220fbbeba7d315de820d1fd"
+    },
+    "libkrun.h": {
+      "path": "inputs/c2b-v4/libkrun.h",
+      "bytes": 54658,
+      "sha256": "dce44d1d70ab770b1089e57646e025281a4137fe5052b9dd8eaefb80c01a1bd8"
+    },
+    "libkrun-abi-audit.c": {
+      "path": "inputs/c2b-v4/libkrun-abi-audit.c",
+      "bytes": 2512,
+      "sha256": "419256ea91de9b5e5323e1f1d6d42afb0a5fa85a8835d0d0404734af0ee92356"
+    },
+    "libkrun.1.dylib": {
+      "path": "inputs/c2b-v4/libkrun.1.dylib",
+      "bytes": 4393448,
+      "sha256": "055d9d18dc964fec4aba21948c4a344cb7a51cb48a2c70017484b718eae12f9f"
+    },
+    "capsule-host-runner.c": {
+      "path": "inputs/c2b-v4/capsule-host-runner.c",
+      "bytes": 7917,
+      "sha256": "5a5560fa667390253bf504d7c045fcbcc304fa5829b22a8acf1fff00a8e37eb9"
+    },
+    "capsule-host-runner": {
+      "path": "inputs/c2b-v4/capsule-host-runner",
+      "bytes": 100488,
+      "sha256": "a30e3f7cba5f480b6e164536854749b5e1ba3349f20af6c9c8e5d2590bffe1ad"
+    }
+  },
+  "retainedIdentityOnlyEvidence": {
+    "artifactClosureReport": {
+      "path": "inputs/c2b-artifact-closure/artifact-closure-report.json",
+      "bytes": 3671,
+      "sha256": "6a082be63bb15f96e19f5c11673717e546d4fd8ef602d19d1f2b5036daac573d"
+    },
+    "libkrunfwMachO": {
+      "path": "inputs/c2b-artifact-closure/libkrunfw-macho.txt",
+      "bytes": 3014,
+      "sha256": "16bc3f79c7a4312498d2584a87360af3078d1c2aeac31a5c85d088c1b27621b9"
+    },
+    "kernelExtraction": {
+      "path": "inputs/c2b-artifact-closure/kernel-extraction.txt",
+      "bytes": 65,
+      "sha256": "71ba5da8883f302a062d1bd1147e9e3bae75c2f2aea639ef180a25aa679f80be"
+    }
+  },
+  "governedArtifactClosure": {
+    "libkrun": {
+      "retainedBytesAvailable": true,
+      "bindingStatus": "BOUND",
+      "artifact": {
+        "path": "inputs/c2b-v4/libkrun.1.dylib",
+        "bytes": 4393448,
+        "sha256": "055d9d18dc964fec4aba21948c4a344cb7a51cb48a2c70017484b718eae12f9f"
+      },
+      "architecture": "arm64",
+      "minimumMacos": "11.0",
+      "sdk": "26.5",
+      "installName": "libkrun.1.dylib",
+      "loaded": false
+    },
+    "denoCoreExecutable": {
+      "retainedBytesAvailable": false,
+      "bindingStatus": "BLOCKED",
+      "expectedBytes": 68496520,
+      "expectedSha256": "e781a90236cdf1272a9a16189c6be033164fa25a5aa9e52376ef998982ec0a77",
+      "reason": "the canonical profile retains only the identity; no immutable executable bytes are present in either bounded repository input"
+    },
+    "libkrunfw": {
+      "retainedBytesAvailable": false,
+      "bindingStatus": "BLOCKED",
+      "role": "sole-runtime-boot-kernel-carrier",
+      "expectedBytes": 24339104,
+      "expectedSha256": "0b14f4b8005dafd33c38df5935b9efdb6381c724224b3967ba1cecbecf10b6e9",
+      "reason": "the retained archive preserves identity and construction evidence but not the large dylib bytes",
+      "staticEvidence": {
+        "path": "inputs/c2b-artifact-closure/libkrunfw-macho.txt",
+        "bytes": 3014,
+        "sha256": "16bc3f79c7a4312498d2584a87360af3078d1c2aeac31a5c85d088c1b27621b9"
+      }
+    },
+    "kernel": {
+      "retainedBytesAvailable": false,
+      "bindingStatus": "EVIDENCE_ONLY",
+      "role": "derived-evidence-only-not-separate-runtime-input",
+      "expectedBytes": 24117248,
+      "expectedSha256": "b50a4165215d5d897ab3614606a2105756cf8f2b2510cbceda9dc06057a5622d",
+      "extractionEvidence": {
+        "path": "inputs/c2b-artifact-closure/kernel-extraction.txt",
+        "bytes": 65,
+        "sha256": "71ba5da8883f302a062d1bd1147e9e3bae75c2f2aea639ef180a25aa679f80be"
+      }
+    },
+    "separateFirmware": {
+      "retainedBytesAvailable": false,
+      "bindingStatus": "INAPPLICABLE",
+      "reason": "accepted ADR-0041 makes libkrunfw the sole non-EFI boot-kernel carrier and forbids separate firmware path authority"
+    },
+    "controlledTestController": {
+      "retainedBytesAvailable": false,
+      "bindingStatus": "BLOCKED",
+      "path": null,
+      "bytes": null,
+      "sha256": null,
+      "reason": "no complete reviewed controller implements the frozen C5b copy, cap-plus-one, fault, teardown, absence, and cleanup matrix"
+    }
+  },
+  "composition": {
+    "compositeManifest": null,
+    "runtimeRoot": null,
+    "controller": null,
+    "executable": false,
+    "reason": "three required retained byte inputs and the complete controller remain absent"
+  },
+  "effects": {
+    "artifactExecuted": false,
+    "libkrunLoaded": false,
+    "hvfCalled": false,
+    "processStarted": false,
+    "vmStarted": false,
+    "guestStarted": false,
+    "networkAccessed": false,
+    "credentialAccessed": false,
+    "signed": false,
+    "installed": false,
+    "productStateMutated": false,
+    "admissionChanged": false
+  }
+}

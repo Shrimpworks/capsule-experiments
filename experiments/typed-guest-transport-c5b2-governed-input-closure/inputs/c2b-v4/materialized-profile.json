@@ -1,0 +1,295 @@
+{
+  "identity": "capsule.governed-deno-core.fixed-owned-guest-materialized/v4",
+  "status": "PASSED",
+  "predecessors": {
+    "c2bV3": {
+      "bytes": 18357,
+      "sha256": "d72327bba369484a56db7d543a32e8bbd4eac403230ac65d63709ac3ba3bbdfb",
+      "contractSha256": "8b1ec936a7b56370716d28557125e46866dea8f21a149704a01f251a0dddbcc1"
+    },
+    "hostRunnerSourceV1": {
+      "sourceBytes": 3996,
+      "sourceSha256": "7dbc8e5c21acd776fec653665517b6da1ecfe07278da0444d710c251744978b2",
+      "manifestBytes": 3996,
+      "manifestSha256": "5ea92d171c29fd55a83da7f53b12fe14353104b0d2cc435d38430dcb5773e205"
+    }
+  },
+  "governedSources": {
+    "deno": {
+      "repository": "Shrimpworks/deno",
+      "acceptedCommit": "3fa21d1ae7705ab4bcb4bc98955f25301b20122a",
+      "acceptedTree": "6060cb0eb4cd3395a4c141f054634968744617d2"
+    },
+    "rustyV8": {
+      "repository": "Shrimpworks/rusty_v8",
+      "acceptedCommit": "d09221062280ae1675fe26c53c3f43871aae2055",
+      "acceptedTree": "2632901e6e7e9ac88662756ceb658d4e3e49fceb"
+    },
+    "libkrun": {
+      "repository": "Shrimpworks/libkrun",
+      "upstreamCommit": "728df8125077d0db44265f6e997c72b81b65c015",
+      "acceptedCommit": "7432eda5a49220976b0167005aa43ee622f9d632",
+      "acceptedTree": "7671440cfbafa58fe20aebf8d4deb2a843ebe346",
+      "mutableDefaultUsedAsAuthority": false
+    }
+  },
+  "acceptedHeader": {
+    "path": "libkrun.h",
+    "bytes": 54658,
+    "sha256": "dce44d1d70ab770b1089e57646e025281a4137fe5052b9dd8eaefb80c01a1bd8",
+    "source": "accepted-libkrun-commit-include/libkrun.h"
+  },
+  "libkrunBuild": {
+    "cargoLockBytes": 45876,
+    "cargoLockSha256": "9d5dc785636a264794a396ab478821c4ed33acae91650db8d72e8a35733f288c",
+    "package": "libkrun",
+    "locked": true,
+    "offline": true,
+    "defaultFeatures": false,
+    "features": ["blk"],
+    "sourcePathRemap": "canonicalized-exact-source-root-to-/usr/src/libkrun",
+    "cleanBuildCount": 2,
+    "rawBuild": {
+      "bytes": 4427920,
+      "sha256": "86d94dbd4f01e80c6c9058966a2d7fe6e823738291447d4e72e648a4f7f4c9e3",
+      "byteEqualAcrossBuilds": true,
+      "signature": "identity-free-linker-ad-hoc-only"
+    },
+    "retainedArtifact": {
+      "path": "libkrun.1.dylib",
+      "bytes": 4393448,
+      "sha256": "055d9d18dc964fec4aba21948c4a344cb7a51cb48a2c70017484b718eae12f9f",
+      "byteEqualAcrossBuilds": true,
+      "signature": "unsigned-after-removing-linker-ad-hoc-signature",
+      "installName": "libkrun.1.dylib",
+      "architecture": "arm64",
+      "minimumMacos": "11.0",
+      "sdk": "26.5",
+      "dynamicDependencies": [
+        "/System/Library/Frameworks/Hypervisor.framework/Versions/A/Hypervisor",
+        "/usr/lib/libiconv.2.dylib",
+        "/usr/lib/libSystem.B.dylib"
+      ]
+    }
+  },
+  "abiReview": {
+    "auditSource": {
+      "path": "libkrun-abi-audit.c",
+      "bytes": 2512,
+      "sha256": "419256ea91de9b5e5323e1f1d6d42afb0a5fa85a8835d0d0404734af0ee92356",
+      "c17SyntaxOnlyResult": "PASSED"
+    },
+    "reviewedExports": [
+      "krun_create_ctx",
+      "krun_set_vm_config",
+      "krun_disable_implicit_console",
+      "krun_disable_implicit_init",
+      "krun_disable_implicit_vsock",
+      "krun_add_read_only_raw_root_fd",
+      "krun_set_root_disk_remount",
+      "krun_add_virtio_console_multiport",
+      "krun_add_console_port_inout",
+      "krun_set_kernel_console",
+      "krun_set_workdir",
+      "krun_set_exec",
+      "krun_start_enter"
+    ],
+    "createContextHeaderForm": "int32_t-krun_create_ctx-unspecified-parameter-list",
+    "createContextImplementation": "extern-C-zero-parameter-i32",
+    "createContextCaller": "zero-arguments-only",
+    "setExecPointerRead": "implementation-forms-4096-slot-slices-before-null-scan",
+    "runnerArrayMitigation": "two-static-4096-pointer-slot-arrays-with-early-null-terminators",
+    "consolePortReturnSemantics": "port-add-returns-zero-not-port-id",
+    "consolePortIdBinding": "fixed-append-order-0-1-2-on-console-id-zero"
+  },
+  "bootRole": {
+    "mode": "non-efi",
+    "libkrunFeatures": ["blk"],
+    "libkrunfw": {
+      "role": "sole-runtime-boot-kernel-carrier",
+      "loadName": "@rpath/libkrunfw.5.dylib",
+      "symbol": "krunfw_get_kernel",
+      "bytes": 24339104,
+      "sha256": "0b14f4b8005dafd33c38df5935b9efdb6381c724224b3967ba1cecbecf10b6e9"
+    },
+    "kernel": {
+      "role": "derived-evidence-only-not-separate-runtime-input",
+      "version": "6.12.91",
+      "bytes": 24117248,
+      "sha256": "b50a4165215d5d897ab3614606a2105756cf8f2b2510cbceda9dc06057a5622d"
+    },
+    "separateFirmware": "inapplicable-no-path-authority",
+    "runnerCallsKernelOrFirmwareSetter": false
+  },
+  "runner": {
+    "source": {
+      "path": "capsule-host-runner.c",
+      "language": "C17",
+      "bytes": 7917,
+      "sha256": "5a5560fa667390253bf504d7c045fcbcc304fa5829b22a8acf1fff00a8e37eb9"
+    },
+    "artifact": {
+      "path": "capsule-host-runner",
+      "bytes": 100488,
+      "sha256": "a30e3f7cba5f480b6e164536854749b5e1ba3349f20af6c9c8e5d2590bffe1ad",
+      "byteEqualAcrossBuilds": true,
+      "architecture": "arm64",
+      "minimumMacos": "14.0",
+      "sdk": "26.5",
+      "signature": "unsigned-after-removing-linker-ad-hoc-signature",
+      "loadPath": "@rpath/libkrun.1.dylib",
+      "rpath": "@executable_path",
+      "dynamicDependencies": ["@rpath/libkrun.1.dylib", "/usr/lib/libSystem.B.dylib"]
+    },
+    "authority": {
+      "owner": "execution-supervisor",
+      "cardinality": "exactly-one-runner-per-committed-AttemptID",
+      "acceptsAttemptIdBytes": false,
+      "acceptsReplacementConfiguration": false,
+      "daemonRoute": false,
+      "service": false,
+      "privilegedHelper": false,
+      "teardownOwner": "execution-supervisor"
+    },
+    "preflight": {
+      "argv": ["capsule-host-runner"],
+      "environment": "empty-after-removing-only-__CF_USER_TEXT_ENCODING",
+      "allowedFds": [0, 1, 2, 3, 4, 5, 6, 7],
+      "closeFromInclusive": 8,
+      "closeMechanism": "close-each-fd-through-rlim-nofile-minus-one",
+      "rootFd": 4,
+      "rootType": "unlinked-regular-mode-0400-ordonly",
+      "rootBytes": 134217728,
+      "rootSha256": "390a4786a20d45f1c691ec8c203f84f5e9d372a30e98f867cc8309a144ca6798",
+      "readyByte": "R",
+      "startAuthorization": "exact-one-byte-G-followed-by-eof"
+    },
+    "ports": [
+      {
+        "portId": 0,
+        "name": "capsule.source",
+        "inputFd": 5,
+        "outputFd": -1,
+        "guestNode": "/dev/hvc0"
+      },
+      {
+        "portId": 1,
+        "name": "capsule.input",
+        "inputFd": 6,
+        "outputFd": -1,
+        "guestNode": "/dev/vport0p1"
+      },
+      {
+        "portId": 2,
+        "name": "capsule.completion",
+        "inputFd": -1,
+        "outputFd": 7,
+        "guestNode": "/dev/vport0p2"
+      }
+    ],
+    "orderedCalls": [
+      "krun_create_ctx",
+      "krun_set_vm_config-1-256",
+      "krun_disable_implicit_console",
+      "krun_disable_implicit_init",
+      "krun_disable_implicit_vsock",
+      "krun_add_read_only_raw_root_fd-fd4-observed-dev-inode-fixed-length",
+      "krun_set_root_disk_remount-/dev/vda-ext4-ro,nosuid,nodev",
+      "krun_add_virtio_console_multiport-require-id-zero",
+      "krun_add_console_port_inout-capsule.source-5-minus1",
+      "krun_add_console_port_inout-capsule.input-6-minus1",
+      "krun_add_console_port_inout-capsule.completion-minus1-7",
+      "krun_set_kernel_console-hvc0",
+      "krun_set_workdir-/",
+      "krun_set_exec-fixed-init-argv-env",
+      "emit-R-require-G-and-eof",
+      "krun_start_enter"
+    ],
+    "forbiddenImports": [
+      "krun_set_kernel",
+      "krun_set_firmware",
+      "krun_add_disk",
+      "krun_set_root",
+      "krun_add_virtiofs",
+      "krun_add_vsock",
+      "krun_add_net_unixstream",
+      "krun_set_gpu_options",
+      "krun_set_snd_device",
+      "open",
+      "socket",
+      "execve",
+      "posix_spawn",
+      "dlopen"
+    ]
+  },
+  "composedProfile": {
+    "runtime": {
+      "bytes": 68496520,
+      "sha256": "e781a90236cdf1272a9a16189c6be033164fa25a5aa9e52376ef998982ec0a77",
+      "moduleLoader": "none",
+      "extensions": [],
+      "inspector": false,
+      "stringCodeGeneration": "disabled-and-verified",
+      "v8Flags": ["--jitless", "--random-seed=42"]
+    },
+    "trustedInit": {
+      "path": "/usr/local/libexec/capsule-init.krun",
+      "bytes": 930144,
+      "sha256": "4f4f2c8bc037c3226b183ad0d6daf35395c49467dfe5786d10a33290adf585cd"
+    },
+    "trustedLauncher": {
+      "path": "/usr/local/libexec/capsule-launcher",
+      "bytes": 995920,
+      "sha256": "fd255394a26affadb1226d3f724494e76fc89785a5cced027a7bb9859d7da32d"
+    },
+    "devices": ["balloon", "rng", "one-three-port-virtio-console", "one-read-only-raw-root-vda"],
+    "resources": {
+      "vcpus": 1,
+      "guestRamMiB": 256,
+      "wallTimeMs": 1000,
+      "concurrency": 1,
+      "scratchDevice": false
+    },
+    "teardown": {
+      "owner": "execution-supervisor",
+      "identityRevalidation": "pid-start-uid-gid-executable-path-code-identity",
+      "forcedSignal": "SIGKILL",
+      "forcedAbsenceDeadlineMs": 1000,
+      "maximumActionToAbsenceMs": 1200,
+      "identityMismatch": "unresolved-no-signal-no-success",
+      "runnerExit": "lifecycle-only-never-workload-success"
+    },
+    "digestAlgorithm": "sha256-over-exact-fixture-with-this-field-replaced-by-64-ascii-zeroes",
+    "digestSha256": "e390085caaaba73ebc19f95bc9871305e4f9268c2283d7394133fa4491f4ba82",
+    "admitted": false
+  },
+  "workStatus": {
+    "materializationSlice": "PASSED",
+    "fixedOwnedGuest": "BLOCKED",
+    "runtimeProfileAdmission": "BLOCKED",
+    "parentGovernedRuntime": "IN_PROGRESS — TRENDING_GOOD",
+    "runtime001": "unsupported",
+    "vmm001": "unsupported"
+  },
+  "nextGuestGate": {
+    "state": "BLOCKED",
+    "blocker": "separate-owned-disposable-guest-authorization-naming-this-exact-profile-digest",
+    "guestAuthorization": false,
+    "consumerImplemented": false
+  },
+  "effects": {
+    "controlledCompilation": true,
+    "runnerExecuted": false,
+    "libkrunLoaded": false,
+    "hvfCalled": false,
+    "vmCreated": false,
+    "guestCreated": false,
+    "arbitraryWorkload": false,
+    "credentialUsed": false,
+    "signed": false,
+    "installed": false,
+    "releasePublished": false,
+    "productWired": false,
+    "admissionChanged": false
+  }
+}

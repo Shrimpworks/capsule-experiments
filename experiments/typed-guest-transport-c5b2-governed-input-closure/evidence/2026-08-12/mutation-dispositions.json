@@ -1,0 +1,33 @@
+{
+  "status": "PASSED",
+  "cases": [
+    {
+      "id": "libkrun-byte",
+      "expected": "source identity mismatch"
+    },
+    {
+      "id": "runner-byte",
+      "expected": "source identity mismatch"
+    },
+    {
+      "id": "runtime-false-binding",
+      "expected": "runtime blocker mismatch"
+    },
+    {
+      "id": "libkrunfw-false-binding",
+      "expected": "libkrunfw blocker mismatch"
+    },
+    {
+      "id": "firmware-path-authority",
+      "expected": "firmware role mismatch"
+    },
+    {
+      "id": "controller-invention",
+      "expected": "controller must remain explicitly unbound"
+    },
+    {
+      "id": "false-executable-claim",
+      "expected": "composition must remain unbound"
+    }
+  ]
+}

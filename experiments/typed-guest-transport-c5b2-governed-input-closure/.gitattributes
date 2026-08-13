@@ -1,0 +1,3 @@
+inputs/c2b-v4/libkrun.1.dylib binary
+inputs/c2b-v4/capsule-host-runner binary
+inputs/c2b-v4/libkrun.h whitespace=-trailing-space
