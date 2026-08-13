@@ -1,0 +1,142 @@
+{
+  "schema": "capsule.experiment.i2b3-e1-signed-profile-preflight/v0",
+  "date": "2026-08-12",
+  "status": "PASSED",
+  "parentStatus": "BLOCKED",
+  "inputs": {
+    "capsuleCommit": "16fb810b97e7ff2a157a251ae4dc8023dcfc01b4",
+    "experimentsBase": "3671a6eb23357ff28de4562dd60e8f68173034ae",
+    "e0Merge": "dee784d40684100f8315720fab9a5cd3399f492b",
+    "e0ManifestSha256": "b5d21ed3c2b14053325d5f1af66ceb59389e5fd31d8d2dd33274e8ca37525936"
+  },
+  "environment": {
+    "hostLabel": "dsteele-shrimp-mbp18-4-01",
+    "model": "MacBookPro18,4",
+    "architecture": "arm64",
+    "macosVersion": "26.5.2",
+    "macosBuild": "25F84",
+    "xcodeVersion": "26.6",
+    "xcodeBuild": "17F113",
+    "sdkVersion": "26.5",
+    "clang": "Apple clang version 21.0.0 (clang-2100.1.1.101)",
+    "euid": 501,
+    "aquaSession": "gui/501"
+  },
+  "signingIdentity": {
+    "teamIdentifier": "3DDR84M4JS",
+    "certificatePortalId": "3SAN55Q9AW",
+    "sha1": "80A4969BCD1B3926020888094B9D812A283D3793",
+    "sha256": "D3E9FBDDBC342F747C3649B5A6FFB307A575827404E02D638C11B6B795A09629",
+    "serial": "2680E3A814E45A8A4AC3C2B2EF09023E",
+    "notBefore": "2026-08-04T21:09:06Z",
+    "notAfter": "2027-08-04T21:09:05Z"
+  },
+  "profiles": {
+    "currentSupervisor": {
+      "portalId": "9A67B6PX26",
+      "name": "Capsule E1 Supervisor Authority Development 3DDR",
+      "uuid": "10f0def1-d23e-47b2-bbb2-6414beaff493",
+      "cmsSha256": "e4ef2dc6055e114f28b5c6f9cf9e2a2e259d555c6149bdf9f76e68194c32dd6a",
+      "applicationIdentifier": "3DDR84M4JS.com.capsulecorp.capsule.supervisor.authority-e1",
+      "keychainAllowlist": ["3DDR84M4JS.*"],
+      "deviceCount": 1,
+      "deviceListDigest": "bb3c9ece9068d7f01c6fcb6b3fb8de49b325aa9cadaa7adaed4d69c5420217b6",
+      "expires": "2027-08-12"
+    },
+    "currentCoordinator": {
+      "portalId": "4J8R6W9LL5",
+      "name": "Capsule E1 Trust Bootstrap Authority Development 3DDR",
+      "uuid": "476db809-a32c-4a77-8592-0f66465b14b8",
+      "cmsSha256": "fb00ef32a7d15a6b61ecec15a0da8e78234a64ce9fc72f6fa0531dace385b31e",
+      "applicationIdentifier": "3DDR84M4JS.com.capsulecorp.capsule.trust-bootstrap.authority-e1",
+      "keychainAllowlist": ["3DDR84M4JS.*"],
+      "deviceCount": 1,
+      "deviceListDigest": "bb3c9ece9068d7f01c6fcb6b3fb8de49b325aa9cadaa7adaed4d69c5420217b6",
+      "expires": "2027-08-12"
+    },
+    "legacySupervisor": {
+      "name": "Capsule I2B3 Supervisor Bootstrap Development 3DDR",
+      "uuid": "c45a058b-ffdd-4a6b-bd8c-d746772a2702",
+      "cmsSha256": "964f79980edf22a7280fe19e52893a1e40b0a8639d5bbe3d5dc8fdfada9c6c76",
+      "applicationIdentifier": "3DDR84M4JS.com.capsulecorp.capsule.supervisor",
+      "keychainAllowlist": ["3DDR84M4JS.*"]
+    },
+    "rawProfilesRetainedInGit": false,
+    "rawProfilesRetainedInOwnerEvidenceLeaf": true
+  },
+  "signedReadback": {
+    "currentSupervisor": {
+      "bundleIdentifier": "com.capsulecorp.capsule.supervisor.authority-e1",
+      "cdhash": "50af29ab892b269dfcc5a63dbafb121342aad93a",
+      "codeDirectorySha256": "50af29ab892b269dfcc5a63dbafb121342aad93a6166a39cdb245c2cefb96c36",
+      "signedExecutableSha256": "95b905ef85ec238e3c56d80fb645aa90c388e77bcb74d60686cab695eff6b871",
+      "codeResourcesSha256": "52f645501fb656dc36fb54ba7ecf0d162d8a2f1c3643d8cbc7b41b4c81857caa",
+      "entitlementsSha256": "b2405e95200c154d02e8aeb6b44c35288d6a08c025acc9e4c87f2744113bd6",
+      "applicationIdentifier": "3DDR84M4JS.com.capsulecorp.capsule.supervisor.authority-e1",
+      "appGroup": "3DDR84M4JS.com.capsulecorp.capsule.bootstrap.authority-e1",
+      "keychainAccessGroups": [
+        "3DDR84M4JS.com.capsulecorp.capsule.supervisor.bootstrap-anchor.authority-e1",
+        "3DDR84M4JS.com.capsulecorp.capsule.supervisor.evidence.authority-e1"
+      ]
+    },
+    "currentCoordinator": {
+      "bundleIdentifier": "com.capsulecorp.capsule.trust-bootstrap.authority-e1",
+      "cdhash": "69ec8ef88a7b9a6209fd4b6c4dc5c111c5c02f96",
+      "codeDirectorySha256": "69ec8ef88a7b9a6209fd4b6c4dc5c111c5c02f9675139c5586e5369a77d92335",
+      "signedExecutableSha256": "713e6963d742f2e949e7d1e6972440716f40db7331e31082e93315e8ef855bdf",
+      "codeResourcesSha256": "54d7987ab870be145bead8051dc934ef4ffc2b63ddfbc5480450d8df4cf7d5b8",
+      "entitlementsSha256": "03ed850d33c25897f2fdd3a5f2063f1e1d3da3565b2635b749e405bd05ffeb5d",
+      "applicationIdentifier": "3DDR84M4JS.com.capsulecorp.capsule.trust-bootstrap.authority-e1",
+      "appGroup": "3DDR84M4JS.com.capsulecorp.capsule.bootstrap.authority-e1",
+      "keychainAccessGroups": [
+        "3DDR84M4JS.com.capsulecorp.capsule.trust-bootstrap.installation-root.authority-e1"
+      ]
+    },
+    "legacySupervisor": {
+      "bundleIdentifier": "com.capsulecorp.capsule.supervisor",
+      "cdhash": "272a6f181c16a86d5b8a03419450a9756368b53c",
+      "codeDirectorySha256": "272a6f181c16a86d5b8a03419450a9756368b53c1ac7bceba80b8ce60c72de47",
+      "signedExecutableSha256": "e15a2aa2f7719c22786b55cd2659d412ed93a331be2352e2985db8d5168e47d1",
+      "codeResourcesSha256": "fbfae66d56de118a29a8474648f906ba0f079ef07adb55ef3022f774f25a17d7",
+      "entitlementsSha256": "c9d77455f1913f6311930dc89572b3ec9511dab6b078a0155f9c11ad778fc30b",
+      "applicationIdentifier": "3DDR84M4JS.com.capsulecorp.capsule.supervisor",
+      "appGroup": "3DDR84M4JS.com.capsulecorp.capsule.bootstrap.v0",
+      "keychainAccessGroups": [
+        "3DDR84M4JS.com.capsulecorp.capsule.supervisor.bootstrap-anchor.epoch-1"
+      ]
+    },
+    "teamIdentifier": "3DDR84M4JS",
+    "hardenedRuntime": true,
+    "appSandbox": true,
+    "getTaskAllowPresent": false,
+    "strictVerificationPassed": true,
+    "designatedRequirementsBindExactIdentifiersAndLeaf": true,
+    "profilesEmbeddedDuringReadback": true,
+    "signedBundlesRetainedInGit": false
+  },
+  "effects": {
+    "explicitAppIdsCreated": 2,
+    "developmentProfilesCreated": 2,
+    "portalAppGroupCreated": false,
+    "artifactsSigned": 3,
+    "bundleLaunched": false,
+    "coordinatorLaunched": false,
+    "containerAccessed": false,
+    "sentinelCreated": false,
+    "serviceRegistered": false,
+    "keychainItemAccessed": false,
+    "localAuthenticationInvoked": false,
+    "protectedRootCreated": false,
+    "storeOpened": false,
+    "runtimeStarted": false,
+    "guestStarted": false,
+    "productAdmission": false
+  },
+  "claimBoundary": {
+    "profileSignatureGate": "PASSED",
+    "e1ContainerMatrix": "BLOCKED",
+    "adr0045": "Proposed",
+    "installedOwnerLock": "BLOCKED",
+    "productAdmission": "BLOCKED"
+  }
+}

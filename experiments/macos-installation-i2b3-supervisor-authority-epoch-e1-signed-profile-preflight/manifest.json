@@ -1,0 +1,57 @@
+{
+  "schema": "capsule.experiment.closed-archive-manifest/v0",
+  "root": "experiments/macos-installation-i2b3-supervisor-authority-epoch-e1-signed-profile-preflight",
+  "selfExcluded": "manifest.json",
+  "retained": [
+    {
+      "path": "HANDOFF.md",
+      "bytes": 723,
+      "sha256": "4b71136dd85cf119ddf37726c71deb62f8165ff63d02653018530a4e02d11b9e"
+    },
+    {
+      "path": "README.md",
+      "bytes": 2997,
+      "sha256": "f4eba285e7c639c70822826171458393391fc4705e47718e4469f4b88e2919d1"
+    },
+    {
+      "path": "RESULTS.md",
+      "bytes": 953,
+      "sha256": "57017c4ea69d14264e7e48b5331fdc947b9e6ec99337e88fec8b9abc640c50c1"
+    },
+    {
+      "path": "entitlements/current-coordinator.plist",
+      "bytes": 761,
+      "sha256": "03ed850d33c25897f2fdd3a5f2063f1e1d3da3565b2635b749e405bd05ffeb5d"
+    },
+    {
+      "path": "entitlements/current-supervisor.plist",
+      "bytes": 839,
+      "sha256": "b2405e95200c154d02e8aeb6b44c35288d6d5a08c025acc9e4c87f2744113bd6"
+    },
+    {
+      "path": "entitlements/legacy-supervisor.plist",
+      "bytes": 722,
+      "sha256": "c9d77455f1913f6311930dc89572b3ec9511dab6b078a0155f9c11ad778fc30b"
+    },
+    {
+      "path": "evidence/result.json",
+      "bytes": 6500,
+      "sha256": "09203acf3ab8a6181e0688bb218bc1baa535465c8cc45b0ae561b3d8f6b09360"
+    },
+    {
+      "path": "scripts/generate-manifest.mjs",
+      "bytes": 1724,
+      "sha256": "fb2d70968a2c4f586b2c09ba4d81e9444e4a751a9d35fcb1096e156b3b27b159"
+    },
+    {
+      "path": "scripts/mutation-tests.mjs",
+      "bytes": 1907,
+      "sha256": "cdacded0cfb4b7aaf2f3e2941a536193c9841570fba8711077c600bf4fccccd3"
+    },
+    {
+      "path": "scripts/verify.mjs",
+      "bytes": 2951,
+      "sha256": "dda5858e40236549014c98b596df4de7a515e85ada65b43dc191e44eba5341a8"
+    }
+  ]
+}
