@@ -1,0 +1,128 @@
+{
+  "objectType": "capsule.experiment-archive-manifest",
+  "objectVersion": 1,
+  "identity": "capsule.c5b3.controlled-test-controller/2026-08-13",
+  "manifestSelfExcluded": true,
+  "retainedFiles": [
+    {
+      "path": ".gitattributes",
+      "mode": "0644",
+      "bytes": 52,
+      "sha256": "8d73770a4a5c65db6c1755298ed0dc8237af3c1567a6a8d54c47d0e9bf271b29"
+    },
+    {
+      "path": "HANDOFF.md",
+      "mode": "0644",
+      "bytes": 2043,
+      "sha256": "c8f6405bdcc6d365b192b88214454e625028c321df32c9783eda517d240faf41"
+    },
+    {
+      "path": "README.md",
+      "mode": "0644",
+      "bytes": 2634,
+      "sha256": "31ee3498424e90b946982b9d82470c35ff0bf034ca71e88bb4b03818e26d67f7"
+    },
+    {
+      "path": "RESULTS.md",
+      "mode": "0644",
+      "bytes": 2692,
+      "sha256": "8aa5928c33abba6ec3ccc2f5f894dfbad8a514464e6c0228cf086385aabf49e0"
+    },
+    {
+      "path": "contracts/controller-contract.json",
+      "mode": "0644",
+      "bytes": 4185,
+      "sha256": "36285d7fa3f27a992fda413afb38c1ed05a3af30f496c5784b2165d5b2f90e59"
+    },
+    {
+      "path": "dist/controller-core-a.o",
+      "mode": "0644",
+      "bytes": 1752,
+      "sha256": "d9d4a33a35b4d186a9076bc6c5fa63515ffbebdcd64a5a751193c550abbe6b9d"
+    },
+    {
+      "path": "dist/controller-core-b.o",
+      "mode": "0644",
+      "bytes": 1752,
+      "sha256": "d9d4a33a35b4d186a9076bc6c5fa63515ffbebdcd64a5a751193c550abbe6b9d"
+    },
+    {
+      "path": "evidence/2026-08-13/construction.json",
+      "mode": "0644",
+      "bytes": 1064,
+      "sha256": "3b8f63f5eeed21bb9ed9445080f8e12d409dc9cef3ffe116e6c81af078942172"
+    },
+    {
+      "path": "evidence/2026-08-13/mutation-dispositions.json",
+      "mode": "0644",
+      "bytes": 988,
+      "sha256": "ee200d70157e97ad3cede41ee83d74e49ef49673dbfaa0d1ef5c517b6c1d87ca"
+    },
+    {
+      "path": "evidence/2026-08-13/state-matrix.json",
+      "mode": "0644",
+      "bytes": 2778,
+      "sha256": "370d853e717f967e795623b659d977d700c09696d0e07d2ba479673347cbfe80"
+    },
+    {
+      "path": "fixtures/state-vectors.json",
+      "mode": "0644",
+      "bytes": 51423,
+      "sha256": "238ab17ce8278d8c0c8718b707cfcee8ed7f3f361937ff0ef608a46bb7ceada2"
+    },
+    {
+      "path": "manifests/controller-profile.json",
+      "mode": "0644",
+      "bytes": 4835,
+      "sha256": "a539febe512fbb45e4369812e42b56437afba5ea48788370dd85c24b3c6f195e"
+    },
+    {
+      "path": "scripts/build.sh",
+      "mode": "0755",
+      "bytes": 712,
+      "sha256": "c181c1dc3d053dc9761e4dec94b4f9ddaf6d25d22fc358bfb11dd225061ba87c"
+    },
+    {
+      "path": "scripts/generate.mjs",
+      "mode": "0755",
+      "bytes": 14352,
+      "sha256": "b333815ffc976c083ca466497a01ad580fbf9ab3766dde675d5f8516eda96482"
+    },
+    {
+      "path": "scripts/model.mjs",
+      "mode": "0644",
+      "bytes": 3661,
+      "sha256": "e0875b6a9b37b1c39fdcf28370e8d6bb643962d672de838119939edde25dae51"
+    },
+    {
+      "path": "scripts/test-mutations.mjs",
+      "mode": "0755",
+      "bytes": 5611,
+      "sha256": "ec6d73cd6000f52ee31d632b9c3257f0cb7006b4337f81b71d7bb97dd7469aa7"
+    },
+    {
+      "path": "scripts/test-state-machine.mjs",
+      "mode": "0755",
+      "bytes": 1075,
+      "sha256": "5ec91a96d6dcb435c73f4fd1695447946e5e5642e3808b241ceffb6603f5a2dc"
+    },
+    {
+      "path": "scripts/verify.mjs",
+      "mode": "0755",
+      "bytes": 17399,
+      "sha256": "31bf06df8b3bdf9496635828a7d449d704b2a94e14db294838c8bee5cdddd000"
+    },
+    {
+      "path": "source/controller_core.c",
+      "mode": "0644",
+      "bytes": 9837,
+      "sha256": "e382b0c3ca15dfcd0fb1b4dd5dcfec8336606fa907191518acfc6d849450a1d7"
+    },
+    {
+      "path": "source/controller_core.h",
+      "mode": "0644",
+      "bytes": 4413,
+      "sha256": "0ae153a47d5a2d0cdfbae7e149139b72abbd35f7f1223dd5745f03df86cadd12"
+    }
+  ]
+}

@@ -1,0 +1,34 @@
+{
+  "workItem": "C5b3 deterministic no-run controlled-test controller",
+  "scopedStatus": "PASSED",
+  "completeExecutableSuccessorStatus": "BLOCKED",
+  "controlledExecutionStatus": "BLOCKED",
+  "result": "Pure controller state-machine source and two byte-equal non-executable arm64 object builds are retained; no effect adapter or authorization profile exists.",
+  "deterministicBuild": {
+    "builds": 2,
+    "byteEqual": true,
+    "bytes": 1752,
+    "sha256": "d9d4a33a35b4d186a9076bc6c5fa63515ffbebdcd64a5a751193c550abbe6b9d"
+  },
+  "toolchain": {
+    "target": "arm64-apple-macos14",
+    "language": "C17",
+    "linked": false,
+    "executed": false
+  },
+  "effects": {
+    "controllerExecuted": false,
+    "artifactLoaded": false,
+    "libkrunLoaded": false,
+    "hvfCalled": false,
+    "processStarted": false,
+    "vmStarted": false,
+    "guestStarted": false,
+    "networkAccessed": false,
+    "credentialAccessed": false,
+    "keychainAccessed": false,
+    "serviceRegistered": false,
+    "productStateMutated": false,
+    "admissionChanged": false
+  }
+}
