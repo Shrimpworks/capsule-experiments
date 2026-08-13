@@ -1,0 +1,146 @@
+{
+  "status": "PASSED",
+  "implementation": "independent Node test double plus independent verifier",
+  "cases": [
+    {
+      "id": "happy-completion-last",
+      "final": {
+        "state": "COMPLETE",
+        "durable": true
+      }
+    },
+    {
+      "id": "bind-missing-authorization",
+      "final": {
+        "state": "REFUSED",
+        "durable": false
+      }
+    },
+    {
+      "id": "endpoint-alias",
+      "final": {
+        "state": "REFUSED",
+        "durable": false
+      }
+    },
+    {
+      "id": "source-input-cap-plus-one",
+      "final": {
+        "state": "TEARDOWN",
+        "durable": false
+      }
+    },
+    {
+      "id": "zero-progress-stall",
+      "final": {
+        "state": "TEARDOWN",
+        "durable": false
+      }
+    },
+    {
+      "id": "stream-reset-during-input",
+      "final": {
+        "state": "TEARDOWN",
+        "durable": false
+      }
+    },
+    {
+      "id": "cancel-before-runner",
+      "final": {
+        "state": "TEARDOWN",
+        "durable": false
+      }
+    },
+    {
+      "id": "cancel-during-child",
+      "final": {
+        "state": "TEARDOWN",
+        "durable": false
+      }
+    },
+    {
+      "id": "reader-death-after-trailer",
+      "final": {
+        "state": "TEARDOWN",
+        "durable": false
+      }
+    },
+    {
+      "id": "runner-fault-before-trailer",
+      "final": {
+        "state": "TEARDOWN",
+        "durable": false
+      }
+    },
+    {
+      "id": "runner-fault-after-frame",
+      "final": {
+        "state": "TEARDOWN",
+        "durable": false
+      }
+    },
+    {
+      "id": "response-loss-before-durable-commit",
+      "final": {
+        "state": "TEARDOWN",
+        "durable": false
+      }
+    },
+    {
+      "id": "response-loss-after-durable-commit",
+      "final": {
+        "state": "COMPLETE",
+        "durable": true
+      }
+    },
+    {
+      "id": "repeat-loss-replays-stored",
+      "final": {
+        "state": "COMPLETE",
+        "durable": true
+      }
+    },
+    {
+      "id": "indeterminate-store-fences",
+      "final": {
+        "state": "FENCED",
+        "durable": false
+      }
+    },
+    {
+      "id": "fault-converges-clean",
+      "final": {
+        "state": "REFUSED_CLEAN",
+        "durable": false
+      }
+    },
+    {
+      "id": "cleanup-without-absence-refuses",
+      "final": {
+        "state": "REFUSED",
+        "durable": false
+      }
+    },
+    {
+      "id": "terminal-join-missing-runner-absence",
+      "final": {
+        "state": "REFUSED",
+        "durable": false
+      }
+    },
+    {
+      "id": "trailer-not-last",
+      "final": {
+        "state": "REFUSED",
+        "durable": false
+      }
+    },
+    {
+      "id": "duplicate-delivery-after-complete",
+      "final": {
+        "state": "COMPLETE",
+        "durable": true
+      }
+    }
+  ]
+}

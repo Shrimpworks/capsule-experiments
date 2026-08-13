@@ -1,0 +1,41 @@
+{
+  "status": "PASSED",
+  "cases": [
+    {
+      "id": "controller-object-byte",
+      "expected": "controller build identity mismatch"
+    },
+    {
+      "id": "controller-source-byte",
+      "expected": "controller source identity mismatch"
+    },
+    {
+      "id": "invent-entry-point",
+      "expected": "controller must remain non-executable"
+    },
+    {
+      "id": "invent-authorization-profile",
+      "expected": "authorization profile must remain absent"
+    },
+    {
+      "id": "invent-runtime-binding",
+      "expected": "governed runtime prerequisite mismatch"
+    },
+    {
+      "id": "response-loss-redrive",
+      "expected": "response-loss oracle mismatch"
+    },
+    {
+      "id": "remove-terminal-absence",
+      "expected": "terminal required facts mismatch"
+    },
+    {
+      "id": "fixed-path-widening",
+      "expected": "fixed path contract mismatch"
+    },
+    {
+      "id": "closed-inventory-extra",
+      "expected": "archive inventory mismatch"
+    }
+  ]
+}

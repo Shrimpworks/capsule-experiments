@@ -1,0 +1,150 @@
+{
+  "objectType": "capsule.c5b3.controlled-test-controller-profile",
+  "objectVersion": 1,
+  "identity": "capsule.c5b3.controlled-test-controller/2026-08-13",
+  "scopedControllerConstructionStatus": "PASSED",
+  "completeExecutableSuccessorStatus": "BLOCKED",
+  "controlledExecutionStatus": "BLOCKED",
+  "runtimeProfileAdmission": "BLOCKED",
+  "repositoryBaseline": "5a2f835e8c9df8279237f940f5af757e119593bd",
+  "capsuleContractInput": {
+    "repository": "Shrimpworks/capsule-corp",
+    "commit": "22acf665797e248028c2625586322f698bc2ba74",
+    "adr0046Status": "Accepted",
+    "typedTransportManifestSha256": "79767a34a27bcc32a5f9a479b6a8737f9f5791447fa425ad83455546eadae235"
+  },
+  "predecessor": {
+    "mergeCommit": "5a2f835e8c9df8279237f940f5af757e119593bd",
+    "experimentRoot": "experiments/typed-guest-transport-c5b2-governed-input-closure",
+    "inputClosure": {
+      "path": "experiments/typed-guest-transport-c5b2-governed-input-closure/manifests/input-closure.json",
+      "bytes": 6571,
+      "sha256": "c8690e167127ec0fd6f5ec07998b27e959b0cc1cfeb16454b594dde0f3a38e36"
+    }
+  },
+  "controller": {
+    "contract": {
+      "path": "contracts/controller-contract.json",
+      "bytes": 4185,
+      "sha256": "36285d7fa3f27a992fda413afb38c1ed05a3af30f496c5784b2165d5b2f90e59"
+    },
+    "source": {
+      "path": "source/controller_core.c",
+      "bytes": 9837,
+      "sha256": "e382b0c3ca15dfcd0fb1b4dd5dcfec8336606fa907191518acfc6d849450a1d7"
+    },
+    "header": {
+      "path": "source/controller_core.h",
+      "bytes": 4413,
+      "sha256": "0ae153a47d5a2d0cdfbae7e149139b72abbd35f7f1223dd5745f03df86cadd12"
+    },
+    "buildA": {
+      "path": "dist/controller-core-a.o",
+      "bytes": 1752,
+      "sha256": "d9d4a33a35b4d186a9076bc6c5fa63515ffbebdcd64a5a751193c550abbe6b9d"
+    },
+    "buildB": {
+      "path": "dist/controller-core-b.o",
+      "bytes": 1752,
+      "sha256": "d9d4a33a35b4d186a9076bc6c5fa63515ffbebdcd64a5a751193c550abbe6b9d"
+    },
+    "deterministicBuilds": 2,
+    "byteEqual": true,
+    "format": "Mach-O arm64 relocatable object",
+    "entryPointPresent": false,
+    "effectAdapterPresent": false,
+    "executable": false,
+    "executed": false
+  },
+  "externalImmutablePrerequisites": {
+    "governedDenoCore": {
+      "status": "BLOCKED",
+      "bytesPresent": false,
+      "expectedBytes": 68496520,
+      "expectedSha256": "e781a90236cdf1272a9a16189c6be033164fa25a5aa9e52376ef998982ec0a77"
+    },
+    "libkrunfwBootKernelCarrier": {
+      "status": "BLOCKED",
+      "bytesPresent": false,
+      "expectedBytes": 24339104,
+      "expectedSha256": "0b14f4b8005dafd33c38df5935b9efdb6381c724224b3967ba1cecbecf10b6e9"
+    },
+    "derivedKernelEvidenceOnly": {
+      "status": "EVIDENCE_ONLY",
+      "runtimePathAuthority": false,
+      "expectedBytes": 24117248,
+      "expectedSha256": "b50a4165215d5d897ab3614606a2105756cf8f2b2510cbceda9dc06057a5622d"
+    },
+    "separateFirmware": {
+      "status": "INAPPLICABLE",
+      "pathAuthority": false
+    },
+    "rebuiltRuntimeRoot": {
+      "status": "BLOCKED",
+      "bytesPresent": false
+    },
+    "compositeManifest": {
+      "status": "BLOCKED",
+      "present": false
+    },
+    "exactRunAuthorizationProfile": {
+      "status": "BLOCKED",
+      "present": false,
+      "digest": null
+    },
+    "effectAdapter": {
+      "status": "BLOCKED",
+      "present": false
+    }
+  },
+  "boundAvailableInputs": {
+    "libkrun": {
+      "bytes": 4393448,
+      "sha256": "055d9d18dc964fec4aba21948c4a344cb7a51cb48a2c70017484b718eae12f9f",
+      "source": "C5b2 input closure"
+    },
+    "hostRunner": {
+      "bytes": 100488,
+      "sha256": "a30e3f7cba5f480b6e164536854749b5e1ba3349f20af6c9c8e5d2590bffe1ad",
+      "source": "C5b2 input closure"
+    },
+    "fixedSource": {
+      "bytes": 103,
+      "sha256": "c8e940feb89b342de2d5e6bd13c413226676de9a539fce34c4107516e635b475",
+      "source": "C5b0 packet"
+    },
+    "fixedInput": {
+      "bytes": 36,
+      "sha256": "9de0c909cfb111bd99c3b0b5f7a10972894270c2867022a71b6b6f3c0cd1af6e",
+      "source": "C5b0 packet"
+    },
+    "expectedCompletion": {
+      "bytes": 35,
+      "sha256": "bb7234ee486b0fbccc2091859ec93499e6a14ea7d6e091cdef60a0e2a6e8371c",
+      "source": "C5b0 packet"
+    }
+  },
+  "composition": {
+    "runnable": false,
+    "executionAuthorized": false,
+    "runtimeRoot": null,
+    "compositeManifest": null,
+    "effectAdapter": null,
+    "authorizationProfile": null
+  },
+  "effects": {
+    "controllerExecuted": false,
+    "artifactLoaded": false,
+    "libkrunLoaded": false,
+    "hvfCalled": false,
+    "processStarted": false,
+    "vmStarted": false,
+    "guestStarted": false,
+    "networkAccessed": false,
+    "credentialAccessed": false,
+    "keychainAccessed": false,
+    "serviceRegistered": false,
+    "productStateMutated": false,
+    "admissionChanged": false
+  }
+}

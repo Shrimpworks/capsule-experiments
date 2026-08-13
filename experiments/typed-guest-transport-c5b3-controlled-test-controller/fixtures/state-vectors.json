@@ -1,0 +1,2170 @@
+{
+  "objectType": "capsule.c5b3.controller-state-vectors",
+  "objectVersion": 1,
+  "cases": [
+    {
+      "id": "happy-completion-last",
+      "steps": [
+        {
+          "event": "BIND_EXACT",
+          "facts": [
+            "EXACT_PROFILE",
+            "EXACT_AUTHORIZATION",
+            "EXACT_ARTIFACTS",
+            "FIXED_ROOT_ABSENT"
+          ],
+          "expected": {
+            "state": "BOUND",
+            "disposition": "ADVANCED",
+            "actions": [
+              "CREATE_ENDPOINTS"
+            ]
+          }
+        },
+        {
+          "event": "ENDPOINTS_VERIFIED",
+          "facts": [
+            "ENDPOINTS_DISTINCT"
+          ],
+          "expected": {
+            "state": "ENDPOINTS_READY",
+            "disposition": "ADVANCED",
+            "actions": [
+              "START_DRAINS"
+            ]
+          }
+        },
+        {
+          "event": "DRAINS_STARTED",
+          "facts": [
+            "DRAINS_ACTIVE"
+          ],
+          "expected": {
+            "state": "RUNNER_READY",
+            "disposition": "ADVANCED",
+            "actions": [
+              "START_RUNNER"
+            ]
+          }
+        },
+        {
+          "event": "RUNNER_STARTED",
+          "facts": [],
+          "expected": {
+            "state": "INPUT_TRANSFER",
+            "disposition": "ADVANCED",
+            "actions": [
+              "WRITE_SOURCE",
+              "WRITE_INPUT"
+            ]
+          }
+        },
+        {
+          "event": "INPUTS_WRITTEN",
+          "facts": [
+            "SOURCE_COMPLETE",
+            "INPUT_COMPLETE",
+            "LAUNCHER_INPUTS_VALID"
+          ],
+          "expected": {
+            "state": "LAUNCHER_VALIDATED",
+            "disposition": "ADVANCED",
+            "actions": [
+              "CLOSE_INPUT_WRITERS",
+              "ALLOW_CHILD"
+            ]
+          }
+        },
+        {
+          "event": "CHILD_STARTED",
+          "facts": [],
+          "expected": {
+            "state": "CHILD_RUNNING",
+            "disposition": "ADVANCED",
+            "actions": []
+          }
+        },
+        {
+          "event": "RESULT_ACCEPTED",
+          "facts": [
+            "RESULT_VALID"
+          ],
+          "expected": {
+            "state": "RESULT_VALIDATED",
+            "disposition": "ADVANCED",
+            "actions": []
+          }
+        },
+        {
+          "event": "TRAILER_COMMITTED",
+          "facts": [
+            "TRAILER_LAST"
+          ],
+          "expected": {
+            "state": "TRAILER_WRITTEN",
+            "disposition": "ADVANCED",
+            "actions": []
+          }
+        },
+        {
+          "event": "FRAME_ACCEPTED",
+          "facts": [
+            "FRAME_EXACT"
+          ],
+          "expected": {
+            "state": "FRAME_OBSERVED",
+            "disposition": "ADVANCED",
+            "actions": []
+          }
+        },
+        {
+          "event": "TERMINAL_FACTS_JOINED",
+          "facts": [
+            "CHILD_TREE_ABSENT",
+            "RUNNER_TERMINAL",
+            "RUNNER_ABSENT",
+            "TEARDOWN_RESOLVED",
+            "CLEANUP_FALSE"
+          ],
+          "expected": {
+            "state": "TERMINAL_PROOF",
+            "disposition": "ADVANCED",
+            "actions": [
+              "REQUEST_DURABLE_COMMIT"
+            ]
+          }
+        },
+        {
+          "event": "DURABLE_COMMIT_CONFIRMED",
+          "facts": [
+            "DURABLE_RECORD"
+          ],
+          "expected": {
+            "state": "DURABLE_COMMIT",
+            "disposition": "ADVANCED",
+            "actions": [
+              "DELIVER_STORED"
+            ]
+          }
+        },
+        {
+          "event": "RESPONSE_DELIVERED",
+          "facts": [],
+          "expected": {
+            "state": "COMPLETE",
+            "disposition": "ADVANCED",
+            "actions": []
+          }
+        }
+      ],
+      "final": {
+        "state": "COMPLETE",
+        "durable": true
+      }
+    },
+    {
+      "id": "bind-missing-authorization",
+      "steps": [
+        {
+          "event": "BIND_EXACT",
+          "facts": [
+            "EXACT_PROFILE",
+            "EXACT_ARTIFACTS",
+            "FIXED_ROOT_ABSENT"
+          ],
+          "expected": {
+            "state": "REFUSED",
+            "disposition": "REFUSED",
+            "actions": [
+              "STOP_MISMATCH"
+            ]
+          }
+        }
+      ],
+      "final": {
+        "state": "REFUSED",
+        "durable": false
+      }
+    },
+    {
+      "id": "endpoint-alias",
+      "steps": [
+        {
+          "event": "BIND_EXACT",
+          "facts": [
+            "EXACT_PROFILE",
+            "EXACT_AUTHORIZATION",
+            "EXACT_ARTIFACTS",
+            "FIXED_ROOT_ABSENT"
+          ],
+          "expected": {
+            "state": "BOUND",
+            "disposition": "ADVANCED",
+            "actions": [
+              "CREATE_ENDPOINTS"
+            ]
+          }
+        },
+        {
+          "event": "ENDPOINTS_VERIFIED",
+          "facts": [],
+          "expected": {
+            "state": "REFUSED",
+            "disposition": "REFUSED",
+            "actions": [
+              "STOP_MISMATCH"
+            ]
+          }
+        }
+      ],
+      "final": {
+        "state": "REFUSED",
+        "durable": false
+      }
+    },
+    {
+      "id": "source-input-cap-plus-one",
+      "steps": [
+        {
+          "event": "BIND_EXACT",
+          "facts": [
+            "EXACT_PROFILE",
+            "EXACT_AUTHORIZATION",
+            "EXACT_ARTIFACTS",
+            "FIXED_ROOT_ABSENT"
+          ],
+          "expected": {
+            "state": "BOUND",
+            "disposition": "ADVANCED",
+            "actions": [
+              "CREATE_ENDPOINTS"
+            ]
+          }
+        },
+        {
+          "event": "ENDPOINTS_VERIFIED",
+          "facts": [
+            "ENDPOINTS_DISTINCT"
+          ],
+          "expected": {
+            "state": "ENDPOINTS_READY",
+            "disposition": "ADVANCED",
+            "actions": [
+              "START_DRAINS"
+            ]
+          }
+        },
+        {
+          "event": "DRAINS_STARTED",
+          "facts": [
+            "DRAINS_ACTIVE"
+          ],
+          "expected": {
+            "state": "RUNNER_READY",
+            "disposition": "ADVANCED",
+            "actions": [
+              "START_RUNNER"
+            ]
+          }
+        },
+        {
+          "event": "RUNNER_STARTED",
+          "facts": [],
+          "expected": {
+            "state": "INPUT_TRANSFER",
+            "disposition": "ADVANCED",
+            "actions": [
+              "WRITE_SOURCE",
+              "WRITE_INPUT"
+            ]
+          }
+        },
+        {
+          "event": "CAP_PLUS_ONE",
+          "facts": [],
+          "expected": {
+            "state": "TEARDOWN",
+            "disposition": "TEARDOWN_REQUIRED",
+            "actions": [
+              "REQUEST_TEARDOWN"
+            ]
+          }
+        }
+      ],
+      "final": {
+        "state": "TEARDOWN",
+        "durable": false
+      }
+    },
+    {
+      "id": "zero-progress-stall",
+      "steps": [
+        {
+          "event": "BIND_EXACT",
+          "facts": [
+            "EXACT_PROFILE",
+            "EXACT_AUTHORIZATION",
+            "EXACT_ARTIFACTS",
+            "FIXED_ROOT_ABSENT"
+          ],
+          "expected": {
+            "state": "BOUND",
+            "disposition": "ADVANCED",
+            "actions": [
+              "CREATE_ENDPOINTS"
+            ]
+          }
+        },
+        {
+          "event": "ENDPOINTS_VERIFIED",
+          "facts": [
+            "ENDPOINTS_DISTINCT"
+          ],
+          "expected": {
+            "state": "ENDPOINTS_READY",
+            "disposition": "ADVANCED",
+            "actions": [
+              "START_DRAINS"
+            ]
+          }
+        },
+        {
+          "event": "DRAINS_STARTED",
+          "facts": [
+            "DRAINS_ACTIVE"
+          ],
+          "expected": {
+            "state": "RUNNER_READY",
+            "disposition": "ADVANCED",
+            "actions": [
+              "START_RUNNER"
+            ]
+          }
+        },
+        {
+          "event": "RUNNER_STARTED",
+          "facts": [],
+          "expected": {
+            "state": "INPUT_TRANSFER",
+            "disposition": "ADVANCED",
+            "actions": [
+              "WRITE_SOURCE",
+              "WRITE_INPUT"
+            ]
+          }
+        },
+        {
+          "event": "STALL",
+          "facts": [],
+          "expected": {
+            "state": "TEARDOWN",
+            "disposition": "TEARDOWN_REQUIRED",
+            "actions": [
+              "REQUEST_TEARDOWN"
+            ]
+          }
+        }
+      ],
+      "final": {
+        "state": "TEARDOWN",
+        "durable": false
+      }
+    },
+    {
+      "id": "stream-reset-during-input",
+      "steps": [
+        {
+          "event": "BIND_EXACT",
+          "facts": [
+            "EXACT_PROFILE",
+            "EXACT_AUTHORIZATION",
+            "EXACT_ARTIFACTS",
+            "FIXED_ROOT_ABSENT"
+          ],
+          "expected": {
+            "state": "BOUND",
+            "disposition": "ADVANCED",
+            "actions": [
+              "CREATE_ENDPOINTS"
+            ]
+          }
+        },
+        {
+          "event": "ENDPOINTS_VERIFIED",
+          "facts": [
+            "ENDPOINTS_DISTINCT"
+          ],
+          "expected": {
+            "state": "ENDPOINTS_READY",
+            "disposition": "ADVANCED",
+            "actions": [
+              "START_DRAINS"
+            ]
+          }
+        },
+        {
+          "event": "DRAINS_STARTED",
+          "facts": [
+            "DRAINS_ACTIVE"
+          ],
+          "expected": {
+            "state": "RUNNER_READY",
+            "disposition": "ADVANCED",
+            "actions": [
+              "START_RUNNER"
+            ]
+          }
+        },
+        {
+          "event": "RUNNER_STARTED",
+          "facts": [],
+          "expected": {
+            "state": "INPUT_TRANSFER",
+            "disposition": "ADVANCED",
+            "actions": [
+              "WRITE_SOURCE",
+              "WRITE_INPUT"
+            ]
+          }
+        },
+        {
+          "event": "STREAM_RESET",
+          "facts": [],
+          "expected": {
+            "state": "TEARDOWN",
+            "disposition": "TEARDOWN_REQUIRED",
+            "actions": [
+              "REQUEST_TEARDOWN"
+            ]
+          }
+        }
+      ],
+      "final": {
+        "state": "TEARDOWN",
+        "durable": false
+      }
+    },
+    {
+      "id": "cancel-before-runner",
+      "steps": [
+        {
+          "event": "BIND_EXACT",
+          "facts": [
+            "EXACT_PROFILE",
+            "EXACT_AUTHORIZATION",
+            "EXACT_ARTIFACTS",
+            "FIXED_ROOT_ABSENT"
+          ],
+          "expected": {
+            "state": "BOUND",
+            "disposition": "ADVANCED",
+            "actions": [
+              "CREATE_ENDPOINTS"
+            ]
+          }
+        },
+        {
+          "event": "ENDPOINTS_VERIFIED",
+          "facts": [
+            "ENDPOINTS_DISTINCT"
+          ],
+          "expected": {
+            "state": "ENDPOINTS_READY",
+            "disposition": "ADVANCED",
+            "actions": [
+              "START_DRAINS"
+            ]
+          }
+        },
+        {
+          "event": "CANCEL",
+          "facts": [],
+          "expected": {
+            "state": "TEARDOWN",
+            "disposition": "TEARDOWN_REQUIRED",
+            "actions": [
+              "REQUEST_TEARDOWN"
+            ]
+          }
+        }
+      ],
+      "final": {
+        "state": "TEARDOWN",
+        "durable": false
+      }
+    },
+    {
+      "id": "cancel-during-child",
+      "steps": [
+        {
+          "event": "BIND_EXACT",
+          "facts": [
+            "EXACT_PROFILE",
+            "EXACT_AUTHORIZATION",
+            "EXACT_ARTIFACTS",
+            "FIXED_ROOT_ABSENT"
+          ],
+          "expected": {
+            "state": "BOUND",
+            "disposition": "ADVANCED",
+            "actions": [
+              "CREATE_ENDPOINTS"
+            ]
+          }
+        },
+        {
+          "event": "ENDPOINTS_VERIFIED",
+          "facts": [
+            "ENDPOINTS_DISTINCT"
+          ],
+          "expected": {
+            "state": "ENDPOINTS_READY",
+            "disposition": "ADVANCED",
+            "actions": [
+              "START_DRAINS"
+            ]
+          }
+        },
+        {
+          "event": "DRAINS_STARTED",
+          "facts": [
+            "DRAINS_ACTIVE"
+          ],
+          "expected": {
+            "state": "RUNNER_READY",
+            "disposition": "ADVANCED",
+            "actions": [
+              "START_RUNNER"
+            ]
+          }
+        },
+        {
+          "event": "RUNNER_STARTED",
+          "facts": [],
+          "expected": {
+            "state": "INPUT_TRANSFER",
+            "disposition": "ADVANCED",
+            "actions": [
+              "WRITE_SOURCE",
+              "WRITE_INPUT"
+            ]
+          }
+        },
+        {
+          "event": "INPUTS_WRITTEN",
+          "facts": [
+            "SOURCE_COMPLETE",
+            "INPUT_COMPLETE",
+            "LAUNCHER_INPUTS_VALID"
+          ],
+          "expected": {
+            "state": "LAUNCHER_VALIDATED",
+            "disposition": "ADVANCED",
+            "actions": [
+              "CLOSE_INPUT_WRITERS",
+              "ALLOW_CHILD"
+            ]
+          }
+        },
+        {
+          "event": "CHILD_STARTED",
+          "facts": [],
+          "expected": {
+            "state": "CHILD_RUNNING",
+            "disposition": "ADVANCED",
+            "actions": []
+          }
+        },
+        {
+          "event": "CANCEL",
+          "facts": [],
+          "expected": {
+            "state": "TEARDOWN",
+            "disposition": "TEARDOWN_REQUIRED",
+            "actions": [
+              "REQUEST_TEARDOWN"
+            ]
+          }
+        }
+      ],
+      "final": {
+        "state": "TEARDOWN",
+        "durable": false
+      }
+    },
+    {
+      "id": "reader-death-after-trailer",
+      "steps": [
+        {
+          "event": "BIND_EXACT",
+          "facts": [
+            "EXACT_PROFILE",
+            "EXACT_AUTHORIZATION",
+            "EXACT_ARTIFACTS",
+            "FIXED_ROOT_ABSENT"
+          ],
+          "expected": {
+            "state": "BOUND",
+            "disposition": "ADVANCED",
+            "actions": [
+              "CREATE_ENDPOINTS"
+            ]
+          }
+        },
+        {
+          "event": "ENDPOINTS_VERIFIED",
+          "facts": [
+            "ENDPOINTS_DISTINCT"
+          ],
+          "expected": {
+            "state": "ENDPOINTS_READY",
+            "disposition": "ADVANCED",
+            "actions": [
+              "START_DRAINS"
+            ]
+          }
+        },
+        {
+          "event": "DRAINS_STARTED",
+          "facts": [
+            "DRAINS_ACTIVE"
+          ],
+          "expected": {
+            "state": "RUNNER_READY",
+            "disposition": "ADVANCED",
+            "actions": [
+              "START_RUNNER"
+            ]
+          }
+        },
+        {
+          "event": "RUNNER_STARTED",
+          "facts": [],
+          "expected": {
+            "state": "INPUT_TRANSFER",
+            "disposition": "ADVANCED",
+            "actions": [
+              "WRITE_SOURCE",
+              "WRITE_INPUT"
+            ]
+          }
+        },
+        {
+          "event": "INPUTS_WRITTEN",
+          "facts": [
+            "SOURCE_COMPLETE",
+            "INPUT_COMPLETE",
+            "LAUNCHER_INPUTS_VALID"
+          ],
+          "expected": {
+            "state": "LAUNCHER_VALIDATED",
+            "disposition": "ADVANCED",
+            "actions": [
+              "CLOSE_INPUT_WRITERS",
+              "ALLOW_CHILD"
+            ]
+          }
+        },
+        {
+          "event": "CHILD_STARTED",
+          "facts": [],
+          "expected": {
+            "state": "CHILD_RUNNING",
+            "disposition": "ADVANCED",
+            "actions": []
+          }
+        },
+        {
+          "event": "RESULT_ACCEPTED",
+          "facts": [
+            "RESULT_VALID"
+          ],
+          "expected": {
+            "state": "RESULT_VALIDATED",
+            "disposition": "ADVANCED",
+            "actions": []
+          }
+        },
+        {
+          "event": "TRAILER_COMMITTED",
+          "facts": [
+            "TRAILER_LAST"
+          ],
+          "expected": {
+            "state": "TRAILER_WRITTEN",
+            "disposition": "ADVANCED",
+            "actions": []
+          }
+        },
+        {
+          "event": "READER_DEATH",
+          "facts": [],
+          "expected": {
+            "state": "TEARDOWN",
+            "disposition": "TEARDOWN_REQUIRED",
+            "actions": [
+              "REQUEST_TEARDOWN"
+            ]
+          }
+        }
+      ],
+      "final": {
+        "state": "TEARDOWN",
+        "durable": false
+      }
+    },
+    {
+      "id": "runner-fault-before-trailer",
+      "steps": [
+        {
+          "event": "BIND_EXACT",
+          "facts": [
+            "EXACT_PROFILE",
+            "EXACT_AUTHORIZATION",
+            "EXACT_ARTIFACTS",
+            "FIXED_ROOT_ABSENT"
+          ],
+          "expected": {
+            "state": "BOUND",
+            "disposition": "ADVANCED",
+            "actions": [
+              "CREATE_ENDPOINTS"
+            ]
+          }
+        },
+        {
+          "event": "ENDPOINTS_VERIFIED",
+          "facts": [
+            "ENDPOINTS_DISTINCT"
+          ],
+          "expected": {
+            "state": "ENDPOINTS_READY",
+            "disposition": "ADVANCED",
+            "actions": [
+              "START_DRAINS"
+            ]
+          }
+        },
+        {
+          "event": "DRAINS_STARTED",
+          "facts": [
+            "DRAINS_ACTIVE"
+          ],
+          "expected": {
+            "state": "RUNNER_READY",
+            "disposition": "ADVANCED",
+            "actions": [
+              "START_RUNNER"
+            ]
+          }
+        },
+        {
+          "event": "RUNNER_STARTED",
+          "facts": [],
+          "expected": {
+            "state": "INPUT_TRANSFER",
+            "disposition": "ADVANCED",
+            "actions": [
+              "WRITE_SOURCE",
+              "WRITE_INPUT"
+            ]
+          }
+        },
+        {
+          "event": "INPUTS_WRITTEN",
+          "facts": [
+            "SOURCE_COMPLETE",
+            "INPUT_COMPLETE",
+            "LAUNCHER_INPUTS_VALID"
+          ],
+          "expected": {
+            "state": "LAUNCHER_VALIDATED",
+            "disposition": "ADVANCED",
+            "actions": [
+              "CLOSE_INPUT_WRITERS",
+              "ALLOW_CHILD"
+            ]
+          }
+        },
+        {
+          "event": "CHILD_STARTED",
+          "facts": [],
+          "expected": {
+            "state": "CHILD_RUNNING",
+            "disposition": "ADVANCED",
+            "actions": []
+          }
+        },
+        {
+          "event": "RESULT_ACCEPTED",
+          "facts": [
+            "RESULT_VALID"
+          ],
+          "expected": {
+            "state": "RESULT_VALIDATED",
+            "disposition": "ADVANCED",
+            "actions": []
+          }
+        },
+        {
+          "event": "PROCESS_FAULT",
+          "facts": [],
+          "expected": {
+            "state": "TEARDOWN",
+            "disposition": "TEARDOWN_REQUIRED",
+            "actions": [
+              "REQUEST_TEARDOWN"
+            ]
+          }
+        }
+      ],
+      "final": {
+        "state": "TEARDOWN",
+        "durable": false
+      }
+    },
+    {
+      "id": "runner-fault-after-frame",
+      "steps": [
+        {
+          "event": "BIND_EXACT",
+          "facts": [
+            "EXACT_PROFILE",
+            "EXACT_AUTHORIZATION",
+            "EXACT_ARTIFACTS",
+            "FIXED_ROOT_ABSENT"
+          ],
+          "expected": {
+            "state": "BOUND",
+            "disposition": "ADVANCED",
+            "actions": [
+              "CREATE_ENDPOINTS"
+            ]
+          }
+        },
+        {
+          "event": "ENDPOINTS_VERIFIED",
+          "facts": [
+            "ENDPOINTS_DISTINCT"
+          ],
+          "expected": {
+            "state": "ENDPOINTS_READY",
+            "disposition": "ADVANCED",
+            "actions": [
+              "START_DRAINS"
+            ]
+          }
+        },
+        {
+          "event": "DRAINS_STARTED",
+          "facts": [
+            "DRAINS_ACTIVE"
+          ],
+          "expected": {
+            "state": "RUNNER_READY",
+            "disposition": "ADVANCED",
+            "actions": [
+              "START_RUNNER"
+            ]
+          }
+        },
+        {
+          "event": "RUNNER_STARTED",
+          "facts": [],
+          "expected": {
+            "state": "INPUT_TRANSFER",
+            "disposition": "ADVANCED",
+            "actions": [
+              "WRITE_SOURCE",
+              "WRITE_INPUT"
+            ]
+          }
+        },
+        {
+          "event": "INPUTS_WRITTEN",
+          "facts": [
+            "SOURCE_COMPLETE",
+            "INPUT_COMPLETE",
+            "LAUNCHER_INPUTS_VALID"
+          ],
+          "expected": {
+            "state": "LAUNCHER_VALIDATED",
+            "disposition": "ADVANCED",
+            "actions": [
+              "CLOSE_INPUT_WRITERS",
+              "ALLOW_CHILD"
+            ]
+          }
+        },
+        {
+          "event": "CHILD_STARTED",
+          "facts": [],
+          "expected": {
+            "state": "CHILD_RUNNING",
+            "disposition": "ADVANCED",
+            "actions": []
+          }
+        },
+        {
+          "event": "RESULT_ACCEPTED",
+          "facts": [
+            "RESULT_VALID"
+          ],
+          "expected": {
+            "state": "RESULT_VALIDATED",
+            "disposition": "ADVANCED",
+            "actions": []
+          }
+        },
+        {
+          "event": "TRAILER_COMMITTED",
+          "facts": [
+            "TRAILER_LAST"
+          ],
+          "expected": {
+            "state": "TRAILER_WRITTEN",
+            "disposition": "ADVANCED",
+            "actions": []
+          }
+        },
+        {
+          "event": "FRAME_ACCEPTED",
+          "facts": [
+            "FRAME_EXACT"
+          ],
+          "expected": {
+            "state": "FRAME_OBSERVED",
+            "disposition": "ADVANCED",
+            "actions": []
+          }
+        },
+        {
+          "event": "PROCESS_FAULT",
+          "facts": [],
+          "expected": {
+            "state": "TEARDOWN",
+            "disposition": "TEARDOWN_REQUIRED",
+            "actions": [
+              "REQUEST_TEARDOWN"
+            ]
+          }
+        }
+      ],
+      "final": {
+        "state": "TEARDOWN",
+        "durable": false
+      }
+    },
+    {
+      "id": "response-loss-before-durable-commit",
+      "steps": [
+        {
+          "event": "BIND_EXACT",
+          "facts": [
+            "EXACT_PROFILE",
+            "EXACT_AUTHORIZATION",
+            "EXACT_ARTIFACTS",
+            "FIXED_ROOT_ABSENT"
+          ],
+          "expected": {
+            "state": "BOUND",
+            "disposition": "ADVANCED",
+            "actions": [
+              "CREATE_ENDPOINTS"
+            ]
+          }
+        },
+        {
+          "event": "ENDPOINTS_VERIFIED",
+          "facts": [
+            "ENDPOINTS_DISTINCT"
+          ],
+          "expected": {
+            "state": "ENDPOINTS_READY",
+            "disposition": "ADVANCED",
+            "actions": [
+              "START_DRAINS"
+            ]
+          }
+        },
+        {
+          "event": "DRAINS_STARTED",
+          "facts": [
+            "DRAINS_ACTIVE"
+          ],
+          "expected": {
+            "state": "RUNNER_READY",
+            "disposition": "ADVANCED",
+            "actions": [
+              "START_RUNNER"
+            ]
+          }
+        },
+        {
+          "event": "RUNNER_STARTED",
+          "facts": [],
+          "expected": {
+            "state": "INPUT_TRANSFER",
+            "disposition": "ADVANCED",
+            "actions": [
+              "WRITE_SOURCE",
+              "WRITE_INPUT"
+            ]
+          }
+        },
+        {
+          "event": "INPUTS_WRITTEN",
+          "facts": [
+            "SOURCE_COMPLETE",
+            "INPUT_COMPLETE",
+            "LAUNCHER_INPUTS_VALID"
+          ],
+          "expected": {
+            "state": "LAUNCHER_VALIDATED",
+            "disposition": "ADVANCED",
+            "actions": [
+              "CLOSE_INPUT_WRITERS",
+              "ALLOW_CHILD"
+            ]
+          }
+        },
+        {
+          "event": "CHILD_STARTED",
+          "facts": [],
+          "expected": {
+            "state": "CHILD_RUNNING",
+            "disposition": "ADVANCED",
+            "actions": []
+          }
+        },
+        {
+          "event": "RESULT_ACCEPTED",
+          "facts": [
+            "RESULT_VALID"
+          ],
+          "expected": {
+            "state": "RESULT_VALIDATED",
+            "disposition": "ADVANCED",
+            "actions": []
+          }
+        },
+        {
+          "event": "TRAILER_COMMITTED",
+          "facts": [
+            "TRAILER_LAST"
+          ],
+          "expected": {
+            "state": "TRAILER_WRITTEN",
+            "disposition": "ADVANCED",
+            "actions": []
+          }
+        },
+        {
+          "event": "FRAME_ACCEPTED",
+          "facts": [
+            "FRAME_EXACT"
+          ],
+          "expected": {
+            "state": "FRAME_OBSERVED",
+            "disposition": "ADVANCED",
+            "actions": []
+          }
+        },
+        {
+          "event": "TERMINAL_FACTS_JOINED",
+          "facts": [
+            "CHILD_TREE_ABSENT",
+            "RUNNER_TERMINAL",
+            "RUNNER_ABSENT",
+            "TEARDOWN_RESOLVED",
+            "CLEANUP_FALSE"
+          ],
+          "expected": {
+            "state": "TERMINAL_PROOF",
+            "disposition": "ADVANCED",
+            "actions": [
+              "REQUEST_DURABLE_COMMIT"
+            ]
+          }
+        },
+        {
+          "event": "RESPONSE_LOST",
+          "facts": [],
+          "expected": {
+            "state": "TEARDOWN",
+            "disposition": "TEARDOWN_REQUIRED",
+            "actions": [
+              "REQUEST_TEARDOWN"
+            ]
+          }
+        }
+      ],
+      "final": {
+        "state": "TEARDOWN",
+        "durable": false
+      }
+    },
+    {
+      "id": "response-loss-after-durable-commit",
+      "steps": [
+        {
+          "event": "BIND_EXACT",
+          "facts": [
+            "EXACT_PROFILE",
+            "EXACT_AUTHORIZATION",
+            "EXACT_ARTIFACTS",
+            "FIXED_ROOT_ABSENT"
+          ],
+          "expected": {
+            "state": "BOUND",
+            "disposition": "ADVANCED",
+            "actions": [
+              "CREATE_ENDPOINTS"
+            ]
+          }
+        },
+        {
+          "event": "ENDPOINTS_VERIFIED",
+          "facts": [
+            "ENDPOINTS_DISTINCT"
+          ],
+          "expected": {
+            "state": "ENDPOINTS_READY",
+            "disposition": "ADVANCED",
+            "actions": [
+              "START_DRAINS"
+            ]
+          }
+        },
+        {
+          "event": "DRAINS_STARTED",
+          "facts": [
+            "DRAINS_ACTIVE"
+          ],
+          "expected": {
+            "state": "RUNNER_READY",
+            "disposition": "ADVANCED",
+            "actions": [
+              "START_RUNNER"
+            ]
+          }
+        },
+        {
+          "event": "RUNNER_STARTED",
+          "facts": [],
+          "expected": {
+            "state": "INPUT_TRANSFER",
+            "disposition": "ADVANCED",
+            "actions": [
+              "WRITE_SOURCE",
+              "WRITE_INPUT"
+            ]
+          }
+        },
+        {
+          "event": "INPUTS_WRITTEN",
+          "facts": [
+            "SOURCE_COMPLETE",
+            "INPUT_COMPLETE",
+            "LAUNCHER_INPUTS_VALID"
+          ],
+          "expected": {
+            "state": "LAUNCHER_VALIDATED",
+            "disposition": "ADVANCED",
+            "actions": [
+              "CLOSE_INPUT_WRITERS",
+              "ALLOW_CHILD"
+            ]
+          }
+        },
+        {
+          "event": "CHILD_STARTED",
+          "facts": [],
+          "expected": {
+            "state": "CHILD_RUNNING",
+            "disposition": "ADVANCED",
+            "actions": []
+          }
+        },
+        {
+          "event": "RESULT_ACCEPTED",
+          "facts": [
+            "RESULT_VALID"
+          ],
+          "expected": {
+            "state": "RESULT_VALIDATED",
+            "disposition": "ADVANCED",
+            "actions": []
+          }
+        },
+        {
+          "event": "TRAILER_COMMITTED",
+          "facts": [
+            "TRAILER_LAST"
+          ],
+          "expected": {
+            "state": "TRAILER_WRITTEN",
+            "disposition": "ADVANCED",
+            "actions": []
+          }
+        },
+        {
+          "event": "FRAME_ACCEPTED",
+          "facts": [
+            "FRAME_EXACT"
+          ],
+          "expected": {
+            "state": "FRAME_OBSERVED",
+            "disposition": "ADVANCED",
+            "actions": []
+          }
+        },
+        {
+          "event": "TERMINAL_FACTS_JOINED",
+          "facts": [
+            "CHILD_TREE_ABSENT",
+            "RUNNER_TERMINAL",
+            "RUNNER_ABSENT",
+            "TEARDOWN_RESOLVED",
+            "CLEANUP_FALSE"
+          ],
+          "expected": {
+            "state": "TERMINAL_PROOF",
+            "disposition": "ADVANCED",
+            "actions": [
+              "REQUEST_DURABLE_COMMIT"
+            ]
+          }
+        },
+        {
+          "event": "DURABLE_COMMIT_CONFIRMED",
+          "facts": [
+            "DURABLE_RECORD"
+          ],
+          "expected": {
+            "state": "DURABLE_COMMIT",
+            "disposition": "ADVANCED",
+            "actions": [
+              "DELIVER_STORED"
+            ]
+          }
+        },
+        {
+          "event": "RESPONSE_LOST",
+          "facts": [],
+          "expected": {
+            "state": "COMPLETE",
+            "disposition": "REPLAY",
+            "actions": [
+              "REPLAY_STORED"
+            ]
+          }
+        }
+      ],
+      "final": {
+        "state": "COMPLETE",
+        "durable": true
+      }
+    },
+    {
+      "id": "repeat-loss-replays-stored",
+      "steps": [
+        {
+          "event": "BIND_EXACT",
+          "facts": [
+            "EXACT_PROFILE",
+            "EXACT_AUTHORIZATION",
+            "EXACT_ARTIFACTS",
+            "FIXED_ROOT_ABSENT"
+          ],
+          "expected": {
+            "state": "BOUND",
+            "disposition": "ADVANCED",
+            "actions": [
+              "CREATE_ENDPOINTS"
+            ]
+          }
+        },
+        {
+          "event": "ENDPOINTS_VERIFIED",
+          "facts": [
+            "ENDPOINTS_DISTINCT"
+          ],
+          "expected": {
+            "state": "ENDPOINTS_READY",
+            "disposition": "ADVANCED",
+            "actions": [
+              "START_DRAINS"
+            ]
+          }
+        },
+        {
+          "event": "DRAINS_STARTED",
+          "facts": [
+            "DRAINS_ACTIVE"
+          ],
+          "expected": {
+            "state": "RUNNER_READY",
+            "disposition": "ADVANCED",
+            "actions": [
+              "START_RUNNER"
+            ]
+          }
+        },
+        {
+          "event": "RUNNER_STARTED",
+          "facts": [],
+          "expected": {
+            "state": "INPUT_TRANSFER",
+            "disposition": "ADVANCED",
+            "actions": [
+              "WRITE_SOURCE",
+              "WRITE_INPUT"
+            ]
+          }
+        },
+        {
+          "event": "INPUTS_WRITTEN",
+          "facts": [
+            "SOURCE_COMPLETE",
+            "INPUT_COMPLETE",
+            "LAUNCHER_INPUTS_VALID"
+          ],
+          "expected": {
+            "state": "LAUNCHER_VALIDATED",
+            "disposition": "ADVANCED",
+            "actions": [
+              "CLOSE_INPUT_WRITERS",
+              "ALLOW_CHILD"
+            ]
+          }
+        },
+        {
+          "event": "CHILD_STARTED",
+          "facts": [],
+          "expected": {
+            "state": "CHILD_RUNNING",
+            "disposition": "ADVANCED",
+            "actions": []
+          }
+        },
+        {
+          "event": "RESULT_ACCEPTED",
+          "facts": [
+            "RESULT_VALID"
+          ],
+          "expected": {
+            "state": "RESULT_VALIDATED",
+            "disposition": "ADVANCED",
+            "actions": []
+          }
+        },
+        {
+          "event": "TRAILER_COMMITTED",
+          "facts": [
+            "TRAILER_LAST"
+          ],
+          "expected": {
+            "state": "TRAILER_WRITTEN",
+            "disposition": "ADVANCED",
+            "actions": []
+          }
+        },
+        {
+          "event": "FRAME_ACCEPTED",
+          "facts": [
+            "FRAME_EXACT"
+          ],
+          "expected": {
+            "state": "FRAME_OBSERVED",
+            "disposition": "ADVANCED",
+            "actions": []
+          }
+        },
+        {
+          "event": "TERMINAL_FACTS_JOINED",
+          "facts": [
+            "CHILD_TREE_ABSENT",
+            "RUNNER_TERMINAL",
+            "RUNNER_ABSENT",
+            "TEARDOWN_RESOLVED",
+            "CLEANUP_FALSE"
+          ],
+          "expected": {
+            "state": "TERMINAL_PROOF",
+            "disposition": "ADVANCED",
+            "actions": [
+              "REQUEST_DURABLE_COMMIT"
+            ]
+          }
+        },
+        {
+          "event": "DURABLE_COMMIT_CONFIRMED",
+          "facts": [
+            "DURABLE_RECORD"
+          ],
+          "expected": {
+            "state": "DURABLE_COMMIT",
+            "disposition": "ADVANCED",
+            "actions": [
+              "DELIVER_STORED"
+            ]
+          }
+        },
+        {
+          "event": "RESPONSE_DELIVERED",
+          "facts": [],
+          "expected": {
+            "state": "COMPLETE",
+            "disposition": "ADVANCED",
+            "actions": []
+          }
+        },
+        {
+          "event": "RESPONSE_LOST",
+          "facts": [],
+          "expected": {
+            "state": "COMPLETE",
+            "disposition": "REPLAY",
+            "actions": [
+              "REPLAY_STORED"
+            ]
+          }
+        }
+      ],
+      "final": {
+        "state": "COMPLETE",
+        "durable": true
+      }
+    },
+    {
+      "id": "indeterminate-store-fences",
+      "steps": [
+        {
+          "event": "BIND_EXACT",
+          "facts": [
+            "EXACT_PROFILE",
+            "EXACT_AUTHORIZATION",
+            "EXACT_ARTIFACTS",
+            "FIXED_ROOT_ABSENT"
+          ],
+          "expected": {
+            "state": "BOUND",
+            "disposition": "ADVANCED",
+            "actions": [
+              "CREATE_ENDPOINTS"
+            ]
+          }
+        },
+        {
+          "event": "ENDPOINTS_VERIFIED",
+          "facts": [
+            "ENDPOINTS_DISTINCT"
+          ],
+          "expected": {
+            "state": "ENDPOINTS_READY",
+            "disposition": "ADVANCED",
+            "actions": [
+              "START_DRAINS"
+            ]
+          }
+        },
+        {
+          "event": "DRAINS_STARTED",
+          "facts": [
+            "DRAINS_ACTIVE"
+          ],
+          "expected": {
+            "state": "RUNNER_READY",
+            "disposition": "ADVANCED",
+            "actions": [
+              "START_RUNNER"
+            ]
+          }
+        },
+        {
+          "event": "RUNNER_STARTED",
+          "facts": [],
+          "expected": {
+            "state": "INPUT_TRANSFER",
+            "disposition": "ADVANCED",
+            "actions": [
+              "WRITE_SOURCE",
+              "WRITE_INPUT"
+            ]
+          }
+        },
+        {
+          "event": "INPUTS_WRITTEN",
+          "facts": [
+            "SOURCE_COMPLETE",
+            "INPUT_COMPLETE",
+            "LAUNCHER_INPUTS_VALID"
+          ],
+          "expected": {
+            "state": "LAUNCHER_VALIDATED",
+            "disposition": "ADVANCED",
+            "actions": [
+              "CLOSE_INPUT_WRITERS",
+              "ALLOW_CHILD"
+            ]
+          }
+        },
+        {
+          "event": "CHILD_STARTED",
+          "facts": [],
+          "expected": {
+            "state": "CHILD_RUNNING",
+            "disposition": "ADVANCED",
+            "actions": []
+          }
+        },
+        {
+          "event": "RESULT_ACCEPTED",
+          "facts": [
+            "RESULT_VALID"
+          ],
+          "expected": {
+            "state": "RESULT_VALIDATED",
+            "disposition": "ADVANCED",
+            "actions": []
+          }
+        },
+        {
+          "event": "TRAILER_COMMITTED",
+          "facts": [
+            "TRAILER_LAST"
+          ],
+          "expected": {
+            "state": "TRAILER_WRITTEN",
+            "disposition": "ADVANCED",
+            "actions": []
+          }
+        },
+        {
+          "event": "FRAME_ACCEPTED",
+          "facts": [
+            "FRAME_EXACT"
+          ],
+          "expected": {
+            "state": "FRAME_OBSERVED",
+            "disposition": "ADVANCED",
+            "actions": []
+          }
+        },
+        {
+          "event": "TERMINAL_FACTS_JOINED",
+          "facts": [
+            "CHILD_TREE_ABSENT",
+            "RUNNER_TERMINAL",
+            "RUNNER_ABSENT",
+            "TEARDOWN_RESOLVED",
+            "CLEANUP_FALSE"
+          ],
+          "expected": {
+            "state": "TERMINAL_PROOF",
+            "disposition": "ADVANCED",
+            "actions": [
+              "REQUEST_DURABLE_COMMIT"
+            ]
+          }
+        },
+        {
+          "event": "STORE_INDETERMINATE",
+          "facts": [],
+          "expected": {
+            "state": "FENCED",
+            "disposition": "FENCED",
+            "actions": [
+              "FENCE_STORE",
+              "REQUEST_TEARDOWN"
+            ]
+          }
+        }
+      ],
+      "final": {
+        "state": "FENCED",
+        "durable": false
+      }
+    },
+    {
+      "id": "fault-converges-clean",
+      "steps": [
+        {
+          "event": "BIND_EXACT",
+          "facts": [
+            "EXACT_PROFILE",
+            "EXACT_AUTHORIZATION",
+            "EXACT_ARTIFACTS",
+            "FIXED_ROOT_ABSENT"
+          ],
+          "expected": {
+            "state": "BOUND",
+            "disposition": "ADVANCED",
+            "actions": [
+              "CREATE_ENDPOINTS"
+            ]
+          }
+        },
+        {
+          "event": "ENDPOINTS_VERIFIED",
+          "facts": [
+            "ENDPOINTS_DISTINCT"
+          ],
+          "expected": {
+            "state": "ENDPOINTS_READY",
+            "disposition": "ADVANCED",
+            "actions": [
+              "START_DRAINS"
+            ]
+          }
+        },
+        {
+          "event": "DRAINS_STARTED",
+          "facts": [
+            "DRAINS_ACTIVE"
+          ],
+          "expected": {
+            "state": "RUNNER_READY",
+            "disposition": "ADVANCED",
+            "actions": [
+              "START_RUNNER"
+            ]
+          }
+        },
+        {
+          "event": "RUNNER_STARTED",
+          "facts": [],
+          "expected": {
+            "state": "INPUT_TRANSFER",
+            "disposition": "ADVANCED",
+            "actions": [
+              "WRITE_SOURCE",
+              "WRITE_INPUT"
+            ]
+          }
+        },
+        {
+          "event": "DEADLINE",
+          "facts": [],
+          "expected": {
+            "state": "TEARDOWN",
+            "disposition": "TEARDOWN_REQUIRED",
+            "actions": [
+              "REQUEST_TEARDOWN"
+            ]
+          }
+        },
+        {
+          "event": "TEARDOWN_CONFIRMED",
+          "facts": [
+            "TEARDOWN_RESOLVED"
+          ],
+          "expected": {
+            "state": "ABSENCE_PROVEN",
+            "disposition": "ADVANCED",
+            "actions": [
+              "PROVE_ABSENCE"
+            ]
+          }
+        },
+        {
+          "event": "ABSENCE_CONFIRMED",
+          "facts": [
+            "CHILD_TREE_ABSENT",
+            "RUNNER_ABSENT"
+          ],
+          "expected": {
+            "state": "CLEANUP_REQUIRED",
+            "disposition": "ADVANCED",
+            "actions": [
+              "REMOVE_FIXED_ROOT"
+            ]
+          }
+        },
+        {
+          "event": "CLEANUP_CONFIRMED",
+          "facts": [
+            "FIXED_ROOT_REMOVED"
+          ],
+          "expected": {
+            "state": "REFUSED_CLEAN",
+            "disposition": "REFUSED",
+            "actions": []
+          }
+        }
+      ],
+      "final": {
+        "state": "REFUSED_CLEAN",
+        "durable": false
+      }
+    },
+    {
+      "id": "cleanup-without-absence-refuses",
+      "steps": [
+        {
+          "event": "BIND_EXACT",
+          "facts": [
+            "EXACT_PROFILE",
+            "EXACT_AUTHORIZATION",
+            "EXACT_ARTIFACTS",
+            "FIXED_ROOT_ABSENT"
+          ],
+          "expected": {
+            "state": "BOUND",
+            "disposition": "ADVANCED",
+            "actions": [
+              "CREATE_ENDPOINTS"
+            ]
+          }
+        },
+        {
+          "event": "CANCEL",
+          "facts": [],
+          "expected": {
+            "state": "TEARDOWN",
+            "disposition": "TEARDOWN_REQUIRED",
+            "actions": [
+              "REQUEST_TEARDOWN"
+            ]
+          }
+        },
+        {
+          "event": "CLEANUP_CONFIRMED",
+          "facts": [
+            "FIXED_ROOT_REMOVED"
+          ],
+          "expected": {
+            "state": "REFUSED",
+            "disposition": "REFUSED",
+            "actions": [
+              "STOP_MISMATCH"
+            ]
+          }
+        }
+      ],
+      "final": {
+        "state": "REFUSED",
+        "durable": false
+      }
+    },
+    {
+      "id": "terminal-join-missing-runner-absence",
+      "steps": [
+        {
+          "event": "BIND_EXACT",
+          "facts": [
+            "EXACT_PROFILE",
+            "EXACT_AUTHORIZATION",
+            "EXACT_ARTIFACTS",
+            "FIXED_ROOT_ABSENT"
+          ],
+          "expected": {
+            "state": "BOUND",
+            "disposition": "ADVANCED",
+            "actions": [
+              "CREATE_ENDPOINTS"
+            ]
+          }
+        },
+        {
+          "event": "ENDPOINTS_VERIFIED",
+          "facts": [
+            "ENDPOINTS_DISTINCT"
+          ],
+          "expected": {
+            "state": "ENDPOINTS_READY",
+            "disposition": "ADVANCED",
+            "actions": [
+              "START_DRAINS"
+            ]
+          }
+        },
+        {
+          "event": "DRAINS_STARTED",
+          "facts": [
+            "DRAINS_ACTIVE"
+          ],
+          "expected": {
+            "state": "RUNNER_READY",
+            "disposition": "ADVANCED",
+            "actions": [
+              "START_RUNNER"
+            ]
+          }
+        },
+        {
+          "event": "RUNNER_STARTED",
+          "facts": [],
+          "expected": {
+            "state": "INPUT_TRANSFER",
+            "disposition": "ADVANCED",
+            "actions": [
+              "WRITE_SOURCE",
+              "WRITE_INPUT"
+            ]
+          }
+        },
+        {
+          "event": "INPUTS_WRITTEN",
+          "facts": [
+            "SOURCE_COMPLETE",
+            "INPUT_COMPLETE",
+            "LAUNCHER_INPUTS_VALID"
+          ],
+          "expected": {
+            "state": "LAUNCHER_VALIDATED",
+            "disposition": "ADVANCED",
+            "actions": [
+              "CLOSE_INPUT_WRITERS",
+              "ALLOW_CHILD"
+            ]
+          }
+        },
+        {
+          "event": "CHILD_STARTED",
+          "facts": [],
+          "expected": {
+            "state": "CHILD_RUNNING",
+            "disposition": "ADVANCED",
+            "actions": []
+          }
+        },
+        {
+          "event": "RESULT_ACCEPTED",
+          "facts": [
+            "RESULT_VALID"
+          ],
+          "expected": {
+            "state": "RESULT_VALIDATED",
+            "disposition": "ADVANCED",
+            "actions": []
+          }
+        },
+        {
+          "event": "TRAILER_COMMITTED",
+          "facts": [
+            "TRAILER_LAST"
+          ],
+          "expected": {
+            "state": "TRAILER_WRITTEN",
+            "disposition": "ADVANCED",
+            "actions": []
+          }
+        },
+        {
+          "event": "FRAME_ACCEPTED",
+          "facts": [
+            "FRAME_EXACT"
+          ],
+          "expected": {
+            "state": "FRAME_OBSERVED",
+            "disposition": "ADVANCED",
+            "actions": []
+          }
+        },
+        {
+          "event": "TERMINAL_FACTS_JOINED",
+          "facts": [
+            "CHILD_TREE_ABSENT",
+            "RUNNER_TERMINAL",
+            "TEARDOWN_RESOLVED",
+            "CLEANUP_FALSE"
+          ],
+          "expected": {
+            "state": "REFUSED",
+            "disposition": "REFUSED",
+            "actions": [
+              "STOP_MISMATCH"
+            ]
+          }
+        }
+      ],
+      "final": {
+        "state": "REFUSED",
+        "durable": false
+      }
+    },
+    {
+      "id": "trailer-not-last",
+      "steps": [
+        {
+          "event": "BIND_EXACT",
+          "facts": [
+            "EXACT_PROFILE",
+            "EXACT_AUTHORIZATION",
+            "EXACT_ARTIFACTS",
+            "FIXED_ROOT_ABSENT"
+          ],
+          "expected": {
+            "state": "BOUND",
+            "disposition": "ADVANCED",
+            "actions": [
+              "CREATE_ENDPOINTS"
+            ]
+          }
+        },
+        {
+          "event": "ENDPOINTS_VERIFIED",
+          "facts": [
+            "ENDPOINTS_DISTINCT"
+          ],
+          "expected": {
+            "state": "ENDPOINTS_READY",
+            "disposition": "ADVANCED",
+            "actions": [
+              "START_DRAINS"
+            ]
+          }
+        },
+        {
+          "event": "DRAINS_STARTED",
+          "facts": [
+            "DRAINS_ACTIVE"
+          ],
+          "expected": {
+            "state": "RUNNER_READY",
+            "disposition": "ADVANCED",
+            "actions": [
+              "START_RUNNER"
+            ]
+          }
+        },
+        {
+          "event": "RUNNER_STARTED",
+          "facts": [],
+          "expected": {
+            "state": "INPUT_TRANSFER",
+            "disposition": "ADVANCED",
+            "actions": [
+              "WRITE_SOURCE",
+              "WRITE_INPUT"
+            ]
+          }
+        },
+        {
+          "event": "INPUTS_WRITTEN",
+          "facts": [
+            "SOURCE_COMPLETE",
+            "INPUT_COMPLETE",
+            "LAUNCHER_INPUTS_VALID"
+          ],
+          "expected": {
+            "state": "LAUNCHER_VALIDATED",
+            "disposition": "ADVANCED",
+            "actions": [
+              "CLOSE_INPUT_WRITERS",
+              "ALLOW_CHILD"
+            ]
+          }
+        },
+        {
+          "event": "CHILD_STARTED",
+          "facts": [],
+          "expected": {
+            "state": "CHILD_RUNNING",
+            "disposition": "ADVANCED",
+            "actions": []
+          }
+        },
+        {
+          "event": "RESULT_ACCEPTED",
+          "facts": [
+            "RESULT_VALID"
+          ],
+          "expected": {
+            "state": "RESULT_VALIDATED",
+            "disposition": "ADVANCED",
+            "actions": []
+          }
+        },
+        {
+          "event": "TRAILER_COMMITTED",
+          "facts": [],
+          "expected": {
+            "state": "REFUSED",
+            "disposition": "REFUSED",
+            "actions": [
+              "STOP_MISMATCH"
+            ]
+          }
+        }
+      ],
+      "final": {
+        "state": "REFUSED",
+        "durable": false
+      }
+    },
+    {
+      "id": "duplicate-delivery-after-complete",
+      "steps": [
+        {
+          "event": "BIND_EXACT",
+          "facts": [
+            "EXACT_PROFILE",
+            "EXACT_AUTHORIZATION",
+            "EXACT_ARTIFACTS",
+            "FIXED_ROOT_ABSENT"
+          ],
+          "expected": {
+            "state": "BOUND",
+            "disposition": "ADVANCED",
+            "actions": [
+              "CREATE_ENDPOINTS"
+            ]
+          }
+        },
+        {
+          "event": "ENDPOINTS_VERIFIED",
+          "facts": [
+            "ENDPOINTS_DISTINCT"
+          ],
+          "expected": {
+            "state": "ENDPOINTS_READY",
+            "disposition": "ADVANCED",
+            "actions": [
+              "START_DRAINS"
+            ]
+          }
+        },
+        {
+          "event": "DRAINS_STARTED",
+          "facts": [
+            "DRAINS_ACTIVE"
+          ],
+          "expected": {
+            "state": "RUNNER_READY",
+            "disposition": "ADVANCED",
+            "actions": [
+              "START_RUNNER"
+            ]
+          }
+        },
+        {
+          "event": "RUNNER_STARTED",
+          "facts": [],
+          "expected": {
+            "state": "INPUT_TRANSFER",
+            "disposition": "ADVANCED",
+            "actions": [
+              "WRITE_SOURCE",
+              "WRITE_INPUT"
+            ]
+          }
+        },
+        {
+          "event": "INPUTS_WRITTEN",
+          "facts": [
+            "SOURCE_COMPLETE",
+            "INPUT_COMPLETE",
+            "LAUNCHER_INPUTS_VALID"
+          ],
+          "expected": {
+            "state": "LAUNCHER_VALIDATED",
+            "disposition": "ADVANCED",
+            "actions": [
+              "CLOSE_INPUT_WRITERS",
+              "ALLOW_CHILD"
+            ]
+          }
+        },
+        {
+          "event": "CHILD_STARTED",
+          "facts": [],
+          "expected": {
+            "state": "CHILD_RUNNING",
+            "disposition": "ADVANCED",
+            "actions": []
+          }
+        },
+        {
+          "event": "RESULT_ACCEPTED",
+          "facts": [
+            "RESULT_VALID"
+          ],
+          "expected": {
+            "state": "RESULT_VALIDATED",
+            "disposition": "ADVANCED",
+            "actions": []
+          }
+        },
+        {
+          "event": "TRAILER_COMMITTED",
+          "facts": [
+            "TRAILER_LAST"
+          ],
+          "expected": {
+            "state": "TRAILER_WRITTEN",
+            "disposition": "ADVANCED",
+            "actions": []
+          }
+        },
+        {
+          "event": "FRAME_ACCEPTED",
+          "facts": [
+            "FRAME_EXACT"
+          ],
+          "expected": {
+            "state": "FRAME_OBSERVED",
+            "disposition": "ADVANCED",
+            "actions": []
+          }
+        },
+        {
+          "event": "TERMINAL_FACTS_JOINED",
+          "facts": [
+            "CHILD_TREE_ABSENT",
+            "RUNNER_TERMINAL",
+            "RUNNER_ABSENT",
+            "TEARDOWN_RESOLVED",
+            "CLEANUP_FALSE"
+          ],
+          "expected": {
+            "state": "TERMINAL_PROOF",
+            "disposition": "ADVANCED",
+            "actions": [
+              "REQUEST_DURABLE_COMMIT"
+            ]
+          }
+        },
+        {
+          "event": "DURABLE_COMMIT_CONFIRMED",
+          "facts": [
+            "DURABLE_RECORD"
+          ],
+          "expected": {
+            "state": "DURABLE_COMMIT",
+            "disposition": "ADVANCED",
+            "actions": [
+              "DELIVER_STORED"
+            ]
+          }
+        },
+        {
+          "event": "RESPONSE_DELIVERED",
+          "facts": [],
+          "expected": {
+            "state": "COMPLETE",
+            "disposition": "ADVANCED",
+            "actions": []
+          }
+        },
+        {
+          "event": "RESPONSE_DELIVERED",
+          "facts": [],
+          "expected": {
+            "state": "COMPLETE",
+            "disposition": "REFUSED",
+            "actions": [
+              "STOP_MISMATCH"
+            ]
+          }
+        }
+      ],
+      "final": {
+        "state": "COMPLETE",
+        "durable": true
+      }
+    }
+  ]
+}
