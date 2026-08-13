@@ -1,0 +1,10 @@
+{
+  "status": "PASSED",
+  "realLibkrunResolved": false,
+  "realLibkrunLoaded": false,
+  "cases": 24,
+  "firstErrorStop": true,
+  "contextCleanup": true,
+  "realControllerSeparateStepIntegration": true,
+  "productionObjectExecuted": false
+}

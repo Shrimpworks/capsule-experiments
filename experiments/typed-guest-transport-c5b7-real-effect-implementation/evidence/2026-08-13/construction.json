@@ -1,0 +1,29 @@
+{
+  "workItem": "C5b7 compile-only real effect implementation",
+  "scopedStatus": "PASSED",
+  "completeCompositeStatus": "BLOCKED",
+  "productionObject": {
+    "path": "dist/effect-implementation-a.o",
+    "bytes": 6280,
+    "sha256": "7d175639a338aceb33ad91541dedf22ecf3b809e6db27e6e94920a7cf117034f"
+  },
+  "deterministicBuilds": 2,
+  "effects": {
+    "artifactLoaded": false,
+    "artifactExecuted": false,
+    "libkrunLinked": false,
+    "libkrunLoaded": false,
+    "hvfCalled": false,
+    "processStarted": false,
+    "vmStarted": false,
+    "guestStarted": false,
+    "networkAccessed": false,
+    "credentialAccessed": false,
+    "keychainAccessed": false,
+    "signed": false,
+    "installed": false,
+    "serviceRegistered": false,
+    "productStateMutated": false,
+    "admissionChanged": false
+  }
+}

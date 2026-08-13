@@ -1,0 +1,171 @@
+{
+  "objectType": "capsule.c5b4.libkrunfw-deterministic-recovery",
+  "objectVersion": 1,
+  "identity": "capsule.c5b4.libkrunfw-v5.5.0-deterministic-recovery/2026-08-12",
+  "scopedRecoveryStatus": "PASSED",
+  "completeExecutableSuccessorStatus": "BLOCKED",
+  "controlledExecutionStatus": "BLOCKED",
+  "runtimeProfileAdmission": "BLOCKED",
+  "repositoryBaseline": "5a2f835e8c9df8279237f940f5af757e119593bd",
+  "canonicalDecision": {
+    "capsuleRepository": "Shrimpworks/capsule-corp",
+    "adr": "ADR-0041",
+    "role": "sole-runtime-boot-kernel-carrier",
+    "extractedKernelRole": "derived-evidence-only-not-separate-runtime-input",
+    "separateFirmware": "INAPPLICABLE"
+  },
+  "upstream": {
+    "repository": "libkrun/libkrunfw",
+    "version": "5.5.0",
+    "releaseTag": "v5.5.0",
+    "releaseAssetId": 441852825,
+    "releaseAssetName": "libkrunfw-prebuilt-aarch64.tgz",
+    "archive": {
+      "path": "inputs/libkrunfw-prebuilt-aarch64.tgz",
+      "bytes": 19709993,
+      "sha256": "5bfae6efee63dbdf04a8fac2a69d772d9f900af2f54c4429b4acdfd6d86b9979"
+    }
+  },
+  "archiveSafety": {
+    "checkedBeforeExtraction": true,
+    "exactMembers": [
+      "libkrunfw/",
+      "libkrunfw/LICENSE-GPL-2.0-only",
+      "libkrunfw/LICENSE-LGPL-2.1-only",
+      "libkrunfw/Makefile",
+      "libkrunfw/bin2cbundle.py",
+      "libkrunfw/kernel.c"
+    ],
+    "absolutePathMembers": 0,
+    "dotOrParentTraversalMembers": 0,
+    "symlinkMembers": 0,
+    "hardlinkMembers": 0,
+    "specialMembers": 0
+  },
+  "retainedSources": {
+    "LICENSE-GPL-2.0-only": {
+      "path": "sources/LICENSE-GPL-2.0-only",
+      "bytes": 18729,
+      "sha256": "f6b78c087c3ebdf0f3c13415070dd480a3f35d8fc76f3d02180a407c1c812f79"
+    },
+    "LICENSE-LGPL-2.1-only": {
+      "path": "sources/LICENSE-LGPL-2.1-only",
+      "bytes": 26530,
+      "sha256": "dc626520dcd53a22f727af3ee42c770e56c97a64fe3adb063799d8ab032fe551"
+    },
+    "Makefile": {
+      "path": "sources/Makefile",
+      "bytes": 5169,
+      "sha256": "81bc05513f0da06b917870ab8d51e00d0b93eff390f4bfbfa1d1c3ae041d0bcc"
+    },
+    "bin2cbundle.py": {
+      "path": "sources/bin2cbundle.py",
+      "bytes": 4878,
+      "sha256": "fa11e5b49e10d469eebd7b6e4ec4d2f5529337f12b9b50c988683b665778f6d6"
+    },
+    "kernel.c": {
+      "path": "sources/kernel.c",
+      "bytes": 93814877,
+      "sha256": "96561a4e5dccec0364a28ac32c5668e13e31180d083f412c9f8be7599380c70d"
+    }
+  },
+  "build": {
+    "stages": 2,
+    "freshStages": true,
+    "stageMode": "0700",
+    "archiveOwnerPreserved": false,
+    "normalizedMtime": "2000-01-01T00:00:00Z",
+    "sandbox": "macOS sandbox-exec (deny network*)",
+    "sandboxApplied": true,
+    "cleanEnvironment": true,
+    "variables": {
+      "PATH": "/usr/bin:/bin:/usr/sbin:/sbin",
+      "DEVELOPER_DIR": "/Applications/Xcode.app/Contents/Developer",
+      "SDKROOT": "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.5.sdk",
+      "MACOSX_DEPLOYMENT_TARGET": "14.0",
+      "SOURCE_DATE_EPOCH": "0",
+      "TZ": "UTC",
+      "LC_ALL": "C",
+      "LANG": "C"
+    },
+    "command": "/usr/bin/make -j1 CC=/usr/bin/clang",
+    "toolchain": {
+      "architecture": "arm64",
+      "macos": "26.5.2",
+      "macosBuild": "25F84",
+      "xcode": "26.6 (17F113)",
+      "sdk": "26.5",
+      "appleClang": "21.0.0 (clang-2100.1.1.101)",
+      "gnuMake": "3.81"
+    },
+    "buildA": {
+      "path": "artifacts/libkrunfw.5.dylib",
+      "bytes": 24339104,
+      "sha256": "0b14f4b8005dafd33c38df5935b9efdb6381c724224b3967ba1cecbecf10b6e9"
+    },
+    "buildB": {
+      "path": "ephemeral-stage-b/libkrunfw.5.dylib",
+      "bytes": 24339104,
+      "sha256": "0b14f4b8005dafd33c38df5935b9efdb6381c724224b3967ba1cecbecf10b6e9"
+    },
+    "byteComparison": "IDENTICAL",
+    "expectedHistoricalIdentityMatched": true,
+    "linkerObservation": "reduced __DATA,__data alignment from 0x10000 to 0x4000 because it exceeds the segment maximum alignment"
+  },
+  "retainedArtifact": {
+    "path": "artifacts/libkrunfw.5.dylib",
+    "bytes": 24339104,
+    "sha256": "0b14f4b8005dafd33c38df5935b9efdb6381c724224b3967ba1cecbecf10b6e9"
+  },
+  "staticMachO": {
+    "architecture": "arm64",
+    "fileType": "MH_DYLIB",
+    "installName": "libkrunfw.5.dylib",
+    "minimumMacos": "14.0",
+    "sdk": "26.5",
+    "dependencies": [
+      "/usr/lib/libSystem.B.dylib"
+    ],
+    "exports": [
+      "_KERNEL_BUNDLE",
+      "_krunfw_get_kernel",
+      "_krunfw_get_version"
+    ],
+    "uuid": "6D70E4BD-1977-32C8-9091-4B99162A9C5F",
+    "embeddedCodeSignature": "adhoc-linker-signed",
+    "loaded": false
+  },
+  "sourceAvailability": {
+    "generatedKernelBundleSourceRetained": true,
+    "licenseTextsRetained": true,
+    "preferredFormKernelSourceComplete": false,
+    "distributionSourceComplianceStatus": "BLOCKED",
+    "reason": "the release asset contains generated kernel.c but not the complete preferred-form Linux source, configuration, patches, and build-tool closure"
+  },
+  "remainingBlockers": [
+    "governed deno_core executable bytes",
+    "complete reviewed controlled-test controller",
+    "new immutable composite root/profile/manifest",
+    "preferred-form kernel/source compliance before distribution",
+    "separate exact owner authorization before execution"
+  ],
+  "effects": {
+    "artifactLoaded": false,
+    "artifactLinked": false,
+    "artifactExecuted": false,
+    "kernelExtracted": false,
+    "kernelExecuted": false,
+    "libkrunLoaded": false,
+    "hvfCalled": false,
+    "processStarted": false,
+    "vmStarted": false,
+    "guestStarted": false,
+    "networkAccessedByBuild": false,
+    "credentialAccessed": false,
+    "signingIdentityAccessed": false,
+    "signingCommandInvoked": false,
+    "installed": false,
+    "productStateMutated": false,
+    "admissionChanged": false
+  }
+}

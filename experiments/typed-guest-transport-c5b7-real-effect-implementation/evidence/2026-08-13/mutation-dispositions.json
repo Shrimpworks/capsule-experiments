@@ -1,0 +1,33 @@
+{
+  "status": "PASSED",
+  "cases": [
+    {
+      "id": "profile-root-size",
+      "expected": "C5b5 root size"
+    },
+    {
+      "id": "contract-effect",
+      "expected": "closed effect boundary"
+    },
+    {
+      "id": "source-fixed-path",
+      "expected": "source identity"
+    },
+    {
+      "id": "header-cap",
+      "expected": "header identity"
+    },
+    {
+      "id": "production-object",
+      "expected": "production A/B object identity"
+    },
+    {
+      "id": "predecessor",
+      "expected": "C5b5 predecessor identity"
+    },
+    {
+      "id": "archive-extra",
+      "expected": "closed archive inventory"
+    }
+  ]
+}
