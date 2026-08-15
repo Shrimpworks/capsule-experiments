@@ -1,6 +1,6 @@
 # C5b8 results
 
-Status: `IN_PROGRESS — TRENDING_GOOD` pending retained independent review.
+Status: `PASSED` for the exact no-run, test-double-only C5b8 scope.
 
 ## Construction result
 

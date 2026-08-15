@@ -25,7 +25,7 @@ const construction = {
   objectType: 'capsule.c5b8.controlled-test-effect-construction',
   objectVersion: 1,
   capturedOn: '2026-08-14',
-  status: 'IN_PROGRESS — TRENDING_GOOD',
+  status: 'PASSED',
   sourceBaseline: {
     repository: 'Shrimpworks/capsule-experiments',
     commit: 'c3264cb6c1f524622cf09519ed43b7a2e07a971c',
@@ -34,6 +34,12 @@ const construction = {
     c5b0Merge: 'b357d0c0fb29100c180494e67cebd7809aabe3c5',
     c5b3Merge: '60234e22674e46a42e8e5c382d85217a930c2c13',
     c5b5Merge: '3cfe7db16c55894be444d4c783659043dbd25c95',
+  },
+  independentReview: {
+    commit: '19d3478651839c7939a5bd22a43497c5eaa57d9b',
+    disposition: 'PASSED',
+    findings: 0,
+    path: 'reviews/INDEPENDENT_REVIEW.md',
   },
   object: {
     path: 'dist/controlled-effects-a.o',

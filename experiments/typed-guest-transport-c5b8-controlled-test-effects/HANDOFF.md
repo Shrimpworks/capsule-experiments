@@ -1,6 +1,6 @@
 # C5b8 handoff
 
-Child status: `IN_PROGRESS — TRENDING_GOOD` pending retained independent review and publication.
+Child status: `PASSED` for the exact no-run, test-double-only C5b8 scope.
 
 Parent C5b controlled harness status: `BLOCKED`.
 
@@ -28,7 +28,7 @@ VM, guest, backend, signing, Keychain, or live harness operation was authorized 
 - `source/test_double.c`: complete and adversarial operation traces.
 - `dist/controlled-effects-a.o` and `dist/controlled-effects-b.o`: deterministic unlinked objects.
 - `evidence/2026-08-14/`: generated construction and mutation receipts.
-- `reviews/INDEPENDENT_REVIEW.md`: retained independent review, once complete.
+- `reviews/INDEPENDENT_REVIEW.md`: retained passing review of immutable candidate `19d3478`.
 
 ## Limitations and next integration
 

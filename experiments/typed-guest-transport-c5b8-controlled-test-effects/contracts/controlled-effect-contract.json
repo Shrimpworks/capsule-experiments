@@ -2,6 +2,7 @@
   "objectType": "capsule.c5b8.controlled-test-effect-contract",
   "objectVersion": 1,
   "identity": "capsule.c5b8.controlled-test-effects/2026-08-14",
+  "scopedConstructionStatus": "PASSED",
   "authorityOwner": "Execution Supervisor",
   "controller": "capsule.c5b3.controlled-test-controller/2026-08-13",
   "adapter": "capsule.c5b5.no-run-effect-adapter/2026-08-13",

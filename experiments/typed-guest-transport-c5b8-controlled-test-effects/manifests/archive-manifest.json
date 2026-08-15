@@ -10,23 +10,23 @@
     },
     {
       "path": "HANDOFF.md",
-      "bytes": 2289,
-      "sha256": "43c59ccba5cfa397ac8f0c8a47297e97b8e643e8b135e4567a16581895664efb"
+      "bytes": 2278,
+      "sha256": "5f27e0d1c93cde5128ec16e99b32e153480b0c5e36e74c9b304e9b3a5896539d"
     },
     {
       "path": "README.md",
-      "bytes": 4652,
-      "sha256": "73913444dae937a4213a701d9215b893a890a1cf261d8f8a9066a28ae15686bd"
+      "bytes": 4643,
+      "sha256": "1804d864d5aba0df8cac75e4310b981da1cbe1d432c007f2397f646ae6b2bd1a"
     },
     {
       "path": "RESULTS.md",
-      "bytes": 2842,
-      "sha256": "40bd5645e30cc204c2ca3b1faed16cd89084f8babcd0f0c73eb6d8d24e7bd3d7"
+      "bytes": 2833,
+      "sha256": "90799bfdda84996d8ff11770776487539de154b0ab234d7826d8154797de7f61"
     },
     {
       "path": "contracts/controlled-effect-contract.json",
-      "bytes": 1811,
-      "sha256": "a1df6b73ac1b44d46bf89dfa4da7fd562dbe6d356deba34bfd69cb43150fffdf"
+      "bytes": 1851,
+      "sha256": "c31b0a633aab1944c980fa5ee82db040c6a228e4cb2d93fb074f2660004b7d1e"
     },
     {
       "path": "dist/controlled-effects-a.o",
@@ -40,8 +40,8 @@
     },
     {
       "path": "evidence/2026-08-14/construction.json",
-      "bytes": 1899,
-      "sha256": "c89360c0d19479447be993fd06a383d2c7ddd59299984c74b1147830f5f294e5"
+      "bytes": 2056,
+      "sha256": "1d256733497d1fe34aead54fea3642f51a1a6ba2802ec22d3305bf8fdb989dfe"
     },
     {
       "path": "evidence/2026-08-14/mutation-dispositions.json",
@@ -129,14 +129,19 @@
       "sha256": "7b069517faa62ae052fc9c3ec0ec098b4f3ce58f35e5a5f377fc9433e7c0bb93"
     },
     {
+      "path": "reviews/INDEPENDENT_REVIEW.md",
+      "bytes": 2379,
+      "sha256": "84aec65d329e334bb38ddad41567e1b30629a5be04b2fa2a09d5a1e27ba1beb7"
+    },
+    {
       "path": "scripts/build.sh",
       "bytes": 1386,
       "sha256": "8e4af552063246355a0cc3bb69c88174a50576c45ed048f3436569888835e087"
     },
     {
       "path": "scripts/generate.mjs",
-      "bytes": 5838,
-      "sha256": "6f6f010ddca371722cf5c90a5514718fe13ef76541864738a59d1ca3db34cf0f"
+      "bytes": 5986,
+      "sha256": "8849996f174f8b398370475e222ed59348b0d4bc46e7e194d1bd5c2d913641a0"
     },
     {
       "path": "scripts/test-mutations.mjs",
