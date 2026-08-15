@@ -19,9 +19,12 @@ VM, guest, process, or backend, perform signing or Keychain operations, or execu
 
 - Copy the exact retained C5b3 controller and C5b5 adapter inputs from the historical archive.
 - Accept one Supervisor-owned descriptor, copy its attempt, registration, plan/profile digest,
-  root identity, and exact nonempty C5b0 typed source/input frames into opaque session storage, and
-  require an exact owner enrollment result before initialization succeeds.
-- Own the C5b3 controller state inside that opaque session. The public API requests a closed event
+  root identity, and exact nonempty C5b0 typed source/input frames into layer-owned session storage,
+  and require an exact owner enrollment result before initialization succeeds.
+- Keep the session type incomplete to callers and own its storage, C5b3 controller, durable bit,
+  operation sequence, resources, and lifecycle flags inside the layer. A diagnostic integrity tag
+  covers both immutable bindings and all evolving state.
+- The public API requests a closed event
   observation but accepts neither facts nor controller actions. Exact per-event facts come only
   from the fixed typed operation port.
 - Translate only controller-issued actions with the accepted C5b5 adapter.
@@ -31,7 +34,8 @@ VM, guest, process, or backend, perform signing or Keychain operations, or execu
 - Require exact attempt/registration/plan/profile/sequence/effect echoes, exact per-effect resource
   deltas, and closed operation outcomes. A malformed post-call reply is indeterminate and fences.
 - On a failed effect, feed a fault back through C5b3 before requesting teardown. On an
-  indeterminate effect, use C5b3's store-indeterminate transition and fence behavior.
+  indeterminate effect or recovery teardown, use C5b3's store-indeterminate transition, invoke the
+  fixed fence effect, and report the fencing status.
 - Require completion-last, teardown-before-absence, absence-before-root-removal, and explicit
   writer/context reconciliation.
 

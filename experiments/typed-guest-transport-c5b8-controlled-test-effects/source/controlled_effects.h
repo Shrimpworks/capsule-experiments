@@ -8,7 +8,6 @@
 
 #define C5B8_DESCRIPTOR_MAGIC UINT32_C(0x43354238)
 #define C5B8_DESCRIPTOR_VERSION UINT32_C(1)
-#define C5B8_SESSION_BYTES UINT32_C(525312)
 
 enum c5b8_status {
     C5B8_OK = 0,
@@ -51,10 +50,8 @@ struct c5b8_supervisor_descriptor {
     uint64_t input_frame_bytes;
 };
 
-/* Opaque storage prevents a caller from selecting controller actions. */
-struct c5b8_session {
-    _Alignas(8) uint8_t opaque[C5B8_SESSION_BYTES];
-};
+/* Incomplete type: session storage and controller authority remain layer-owned. */
+struct c5b8_session;
 
 struct c5b8_step_result {
     uint32_t status;
@@ -76,7 +73,7 @@ struct c5b8_step_result {
 int32_t c5b8_initialize(
     const struct c5b5_immutable_profile *profile,
     const struct c5b8_supervisor_descriptor *descriptor,
-    struct c5b8_session *session
+    struct c5b8_session **session_out
 );
 
 int32_t c5b8_apply_observation(

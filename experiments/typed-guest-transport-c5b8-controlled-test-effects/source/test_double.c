@@ -19,6 +19,7 @@ static uint32_t partial_teardown;
 static uint32_t omit_context_release;
 static uint32_t corrupt_observation_event;
 static uint32_t extra_resource_effect;
+static uint32_t indeterminate_teardown;
 static uint8_t source_fixture[255];
 static uint8_t input_fixture[188];
 static uint32_t fixtures_loaded;
@@ -28,6 +29,8 @@ static const uint8_t expected_attempt[16] = {
 static const uint8_t expected_registration[16] = {
     16, 15, 14, 13, 12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1,
 };
+
+extern void c5b8_test_corrupt_authority_state(struct c5b8_session *session);
 static const uint8_t expected_plan_digest[32] = {
     0x5a, 0x80, 0x6a, 0xc1, 0x62, 0x85, 0x37, 0xc9,
     0x99, 0xe7, 0x3b, 0x07, 0xb0, 0xd7, 0x3d, 0x1a,
@@ -69,6 +72,7 @@ static void reset_double(void) {
     omit_context_release = 0;
     corrupt_observation_event = 0;
     extra_resource_effect = 0;
+    indeterminate_teardown = 0;
 }
 
 static uint64_t facts_for_event(uint32_t event) {
@@ -143,6 +147,8 @@ int32_t c5b8_controlled_test_operation(
     result->structure_bytes = sizeof(*result);
     result->outcome = request->operation.effect == injected_effect ?
         injected_outcome : C5B8_OPERATION_APPLIED;
+    if (request->operation.effect == C5B5_EFFECT_REQUEST_TEARDOWN &&
+        indeterminate_teardown != 0) result->outcome = C5B8_OPERATION_INDETERMINATE;
     memcpy(result->attempt_id, request->attempt_id, sizeof(result->attempt_id));
     memcpy(result->registration_id, request->registration_id,
         sizeof(result->registration_id));
@@ -253,7 +259,7 @@ static struct c5b8_supervisor_descriptor exact_descriptor(
     return descriptor;
 }
 
-static void initialize_session(struct c5b8_session *session) {
+static void initialize_session(struct c5b8_session **session) {
     uint8_t source[255];
     uint8_t input[188];
     struct c5b5_immutable_profile profile = exact_profile();
@@ -300,7 +306,7 @@ static void test_descriptor_validation(void) {
     memcpy(source, source_fixture, sizeof(source));
     memcpy(input, input_fixture, sizeof(input));
     struct c5b8_supervisor_descriptor descriptor = exact_descriptor(source, input);
-    struct c5b8_session session;
+    struct c5b8_session *session;
     assert(c5b8_initialize(NULL, &descriptor, &session) == C5B8_REFUSE_ARGUMENT);
     profile.magic++;
     assert(c5b8_initialize(&profile, &descriptor, &session) == C5B8_REFUSE_PROFILE);
@@ -328,31 +334,31 @@ static void test_descriptor_validation(void) {
 }
 
 static void test_full_completion_last_trace(void) {
-    struct c5b8_session session;
+    struct c5b8_session *session;
     struct c5b8_step_result result;
     size_t index;
     reset_double();
     initialize_session(&session);
-    assert(advance_to_terminal(&session, &result) == C5B8_OK);
+    assert(advance_to_terminal(session, &result) == C5B8_OK);
     assert(result.controller_state == C5B3_STATE_TERMINAL_PROOF);
     assert(result.durable_commit_requested == 1 && result.delivery_performed == 0);
     assert(trace[trace_count - 1] == C5B5_EFFECT_REQUEST_DURABLE_COMMIT);
-    assert(apply(&session, C5B3_EVENT_DURABLE_COMMIT_CONFIRMED, &result) == C5B8_OK);
+    assert(apply(session, C5B3_EVENT_DURABLE_COMMIT_CONFIRMED, &result) == C5B8_OK);
     assert(trace[trace_count - 1] == C5B5_EFFECT_DELIVER_STORED);
     assert(result.delivery_performed == 1);
-    assert(apply(&session, C5B3_EVENT_RESPONSE_DELIVERED, &result) == C5B8_OK);
+    assert(apply(session, C5B3_EVENT_RESPONSE_DELIVERED, &result) == C5B8_OK);
     assert(result.controller_state == C5B3_STATE_COMPLETE);
-    assert(apply(&session, C5B3_EVENT_RESPONSE_LOST, &result) == C5B8_OK);
+    assert(apply(session, C5B3_EVENT_RESPONSE_LOST, &result) == C5B8_OK);
     assert(trace[trace_count - 1] == C5B5_EFFECT_REPLAY_STORED);
     for (index = 0; index < trace_count; index++) assert(trace_sequence[index] == index + 1);
 }
 
 static void test_out_of_order_cannot_select_effect(void) {
-    struct c5b8_session session;
+    struct c5b8_session *session;
     struct c5b8_step_result result;
     reset_double();
     initialize_session(&session);
-    assert(apply(&session, C5B3_EVENT_DURABLE_COMMIT_CONFIRMED,
+    assert(apply(session, C5B3_EVENT_DURABLE_COMMIT_CONFIRMED,
         &result) == C5B8_REFUSE_CONTROLLER_ORDER);
     assert(trace_count == 3 && trace[0] == C5B8_EFFECT_ENROLL_DESCRIPTOR &&
         trace[1] == C5B8_EFFECT_OBSERVE_EVENT && trace[2] == C5B5_EFFECT_STOP_MISMATCH);
@@ -360,18 +366,18 @@ static void test_out_of_order_cannot_select_effect(void) {
 }
 
 static void test_teardown_absence_cleanup_order(void) {
-    struct c5b8_session session;
+    struct c5b8_session *session;
     struct c5b8_step_result result;
     reset_double();
     initialize_session(&session);
-    assert(apply(&session, C5B3_EVENT_BIND_EXACT, &result) == C5B8_OK);
-    assert(apply(&session, C5B3_EVENT_CANCEL, &result) == C5B8_OK);
+    assert(apply(session, C5B3_EVENT_BIND_EXACT, &result) == C5B8_OK);
+    assert(apply(session, C5B3_EVENT_CANCEL, &result) == C5B8_OK);
     assert(trace[trace_count - 1] == C5B5_EFFECT_REQUEST_TEARDOWN);
-    assert(apply(&session, C5B3_EVENT_TEARDOWN_CONFIRMED, &result) == C5B8_OK);
+    assert(apply(session, C5B3_EVENT_TEARDOWN_CONFIRMED, &result) == C5B8_OK);
     assert(trace[trace_count - 1] == C5B5_EFFECT_PROVE_ABSENCE);
-    assert(apply(&session, C5B3_EVENT_ABSENCE_CONFIRMED, &result) == C5B8_OK);
+    assert(apply(session, C5B3_EVENT_ABSENCE_CONFIRMED, &result) == C5B8_OK);
     assert(trace[trace_count - 1] == C5B5_EFFECT_REMOVE_FIXED_ROOT);
-    assert(apply(&session, C5B3_EVENT_CLEANUP_CONFIRMED,
+    assert(apply(session, C5B3_EVENT_CLEANUP_CONFIRMED,
         &result) == C5B8_REFUSE_CONTROLLER_ORDER);
     assert(result.controller_state == C5B3_STATE_REFUSED_CLEAN);
     assert(result.teardown_requested == 1 && result.absence_proven == 1 &&
@@ -379,13 +385,13 @@ static void test_teardown_absence_cleanup_order(void) {
 }
 
 static void test_operation_binding_failure_recovers(void) {
-    struct c5b8_session session;
+    struct c5b8_session *session;
     struct c5b8_step_result result;
     reset_double();
     initialize_session(&session);
-    assert(apply(&session, C5B3_EVENT_BIND_EXACT, &result) == C5B8_OK);
+    assert(apply(session, C5B3_EVENT_BIND_EXACT, &result) == C5B8_OK);
     corrupt_binding_effect = C5B5_EFFECT_START_DRAINS;
-    assert(apply(&session, C5B3_EVENT_ENDPOINTS_VERIFIED,
+    assert(apply(session, C5B3_EVENT_ENDPOINTS_VERIFIED,
         &result) == C5B8_FENCE_OPERATION_INDETERMINATE);
     assert(result.teardown_requested == 1 && result.cleanup_unresolved == 0 &&
         result.fenced == 1);
@@ -394,13 +400,13 @@ static void test_operation_binding_failure_recovers(void) {
 }
 
 static void test_indeterminate_commit_fences_before_delivery(void) {
-    struct c5b8_session session;
+    struct c5b8_session *session;
     struct c5b8_step_result result;
     reset_double();
     initialize_session(&session);
     injected_effect = C5B5_EFFECT_REQUEST_DURABLE_COMMIT;
     injected_outcome = C5B8_OPERATION_INDETERMINATE;
-    assert(advance_to_terminal(&session, &result) == C5B8_FENCE_OPERATION_INDETERMINATE);
+    assert(advance_to_terminal(session, &result) == C5B8_FENCE_OPERATION_INDETERMINATE);
     assert(result.fenced == 1 && result.teardown_requested == 1);
     assert(result.delivery_performed == 0);
     assert(trace[trace_count - 2] == C5B5_EFFECT_REQUEST_TEARDOWN);
@@ -408,70 +414,86 @@ static void test_indeterminate_commit_fences_before_delivery(void) {
 }
 
 static void test_partial_cleanup_is_unresolved(void) {
-    struct c5b8_session session;
+    struct c5b8_session *session;
     struct c5b8_step_result result;
     size_t before;
     reset_double();
     initialize_session(&session);
-    assert(apply(&session, C5B3_EVENT_BIND_EXACT, &result) == C5B8_OK);
+    assert(apply(session, C5B3_EVENT_BIND_EXACT, &result) == C5B8_OK);
     partial_teardown = 1;
-    assert(apply(&session, C5B3_EVENT_CANCEL,
+    assert(apply(session, C5B3_EVENT_CANCEL,
         &result) == C5B8_REFUSE_CLEANUP_UNRESOLVED);
     assert(result.cleanup_unresolved == 1);
     before = trace_count;
-    assert(apply(&session, C5B3_EVENT_TEARDOWN_CONFIRMED,
+    assert(apply(session, C5B3_EVENT_TEARDOWN_CONFIRMED,
         &result) == C5B8_REFUSE_CLEANUP_UNRESOLVED);
     assert(trace_count == before);
 }
 
 static void test_context_release_failure_is_unresolved(void) {
-    struct c5b8_session session;
+    struct c5b8_session *session;
     struct c5b8_step_result result;
     reset_double();
     initialize_session(&session);
-    assert(apply(&session, C5B3_EVENT_BIND_EXACT, &result) == C5B8_OK);
-    assert(apply(&session, C5B3_EVENT_ENDPOINTS_VERIFIED, &result) == C5B8_OK);
+    assert(apply(session, C5B3_EVENT_BIND_EXACT, &result) == C5B8_OK);
+    assert(apply(session, C5B3_EVENT_ENDPOINTS_VERIFIED, &result) == C5B8_OK);
     injected_effect = C5B5_EFFECT_KRUN_SET_VM_CONFIG;
     injected_outcome = C5B8_OPERATION_NOT_APPLIED;
     omit_context_release = 1;
-    assert(apply(&session, C5B3_EVENT_DRAINS_STARTED,
+    assert(apply(session, C5B3_EVENT_DRAINS_STARTED,
         &result) == C5B8_REFUSE_OPERATION_NOT_APPLIED);
     assert(result.cleanup_unresolved == 1 && result.teardown_requested == 0);
     assert(trace[trace_count - 1] == C5B5_EFFECT_REQUEST_TEARDOWN);
 }
 
 static void test_session_corruption_refused(void) {
-    struct c5b8_session session;
+    struct c5b8_session *session;
     struct c5b8_step_result result;
     reset_double();
     initialize_session(&session);
-    session.opaque[0] ^= 1;
-    assert(apply(&session, C5B3_EVENT_BIND_EXACT, &result) == C5B8_REFUSE_SESSION);
+    c5b8_test_corrupt_authority_state(session);
+    assert(apply(session, C5B3_EVENT_RESPONSE_LOST, &result) == C5B8_REFUSE_SESSION);
     assert(trace_count == 1 && trace[0] == C5B8_EFFECT_ENROLL_DESCRIPTOR);
 }
 
 static void test_observation_fact_substitution_fences(void) {
-    struct c5b8_session session;
+    struct c5b8_session *session;
     struct c5b8_step_result result;
     reset_double();
     initialize_session(&session);
     corrupt_observation_event = C5B3_EVENT_BIND_EXACT;
-    assert(apply(&session, C5B3_EVENT_BIND_EXACT,
+    assert(apply(session, C5B3_EVENT_BIND_EXACT,
         &result) == C5B8_FENCE_OPERATION_INDETERMINATE);
     assert(result.fenced == 1 && result.teardown_requested == 1);
     assert(result.controller_actions == 0 && result.delivery_performed == 0);
 }
 
 static void test_unknown_resource_delta_fences(void) {
-    struct c5b8_session session;
+    struct c5b8_session *session;
     struct c5b8_step_result result;
     reset_double();
     initialize_session(&session);
-    assert(apply(&session, C5B3_EVENT_BIND_EXACT, &result) == C5B8_OK);
+    assert(apply(session, C5B3_EVENT_BIND_EXACT, &result) == C5B8_OK);
     extra_resource_effect = C5B5_EFFECT_START_DRAINS;
-    assert(apply(&session, C5B3_EVENT_ENDPOINTS_VERIFIED,
+    assert(apply(session, C5B3_EVENT_ENDPOINTS_VERIFIED,
         &result) == C5B8_FENCE_OPERATION_INDETERMINATE);
     assert(result.fenced == 1 && result.teardown_requested == 1);
+}
+
+static void test_indeterminate_recovery_teardown_fences(void) {
+    struct c5b8_session *session;
+    struct c5b8_step_result result;
+    reset_double();
+    initialize_session(&session);
+    assert(apply(session, C5B3_EVENT_BIND_EXACT, &result) == C5B8_OK);
+    injected_effect = C5B5_EFFECT_START_DRAINS;
+    injected_outcome = C5B8_OPERATION_NOT_APPLIED;
+    indeterminate_teardown = 1;
+    assert(apply(session, C5B3_EVENT_ENDPOINTS_VERIFIED,
+        &result) == C5B8_FENCE_OPERATION_INDETERMINATE);
+    assert(result.fenced == 1 && result.cleanup_unresolved == 1 &&
+        result.delivery_performed == 0);
+    assert(trace[trace_count - 1] == C5B5_EFFECT_FENCE_STORE);
 }
 
 int main(void) {
@@ -486,6 +508,7 @@ int main(void) {
     test_session_corruption_refused();
     test_observation_fact_substitution_fences();
     test_unknown_resource_delta_fences();
+    test_indeterminate_recovery_teardown_fences();
     puts("C5b8 controlled-test effect layer: PASSED");
     puts("No real libkrun symbol, VM, guest, process, signing, Keychain, or network operation ran.");
     return 0;

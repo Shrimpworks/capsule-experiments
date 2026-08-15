@@ -6,7 +6,7 @@
 #define C5B8_SOURCE_CAP UINT64_C(262296)
 #define C5B8_INPUT_CAP UINT64_C(262296)
 
-struct c5b8_session_internal {
+struct c5b8_session {
     uint32_t magic;
     uint32_t version;
     uint32_t structure_bytes;
@@ -22,7 +22,7 @@ struct c5b8_session_internal {
     uint64_t root_bytes;
     uint64_t source_frame_bytes;
     uint64_t input_frame_bytes;
-    uint64_t descriptor_tag;
+    uint64_t integrity_tag;
     uint64_t sequence;
     uint64_t resources;
     uint32_t source_written;
@@ -38,10 +38,7 @@ struct c5b8_session_internal {
     uint8_t input_frame[C5B8_INPUT_CAP];
 };
 
-_Static_assert(sizeof(struct c5b8_session_internal) <= C5B8_SESSION_BYTES,
-    "opaque session capacity changed");
-_Static_assert(_Alignof(struct c5b8_session_internal) <= _Alignof(struct c5b8_session),
-    "opaque session alignment changed");
+static struct c5b8_session c5b8_owned_session;
 
 static void bytes_zero(void *destination, size_t length) {
     uint8_t *output = destination;
@@ -83,7 +80,7 @@ static uint64_t tag_bytes(uint64_t tag, const void *input, size_t length) {
     return tag;
 }
 
-static uint64_t descriptor_tag(const struct c5b8_session_internal *session) {
+static uint64_t session_tag(const struct c5b8_session *session) {
     uint64_t tag = UINT64_C(1469598103934665603);
     tag = tag_bytes(tag, &session->profile, sizeof(session->profile));
     tag = tag_bytes(tag, session->attempt_id, sizeof(session->attempt_id));
@@ -95,26 +92,35 @@ static uint64_t descriptor_tag(const struct c5b8_session_internal *session) {
     tag = tag_bytes(tag, &session->root_bytes, sizeof(session->root_bytes));
     tag = tag_bytes(tag, &session->source_frame_bytes, sizeof(session->source_frame_bytes));
     tag = tag_bytes(tag, &session->input_frame_bytes, sizeof(session->input_frame_bytes));
+    tag = tag_bytes(tag, &session->controller, sizeof(session->controller));
+    tag = tag_bytes(tag, &session->sequence, sizeof(session->sequence));
+    tag = tag_bytes(tag, &session->resources, sizeof(session->resources));
+    tag = tag_bytes(tag, &session->source_written, sizeof(session->source_written));
+    tag = tag_bytes(tag, &session->input_written, sizeof(session->input_written));
+    tag = tag_bytes(tag, &session->teardown_requested, sizeof(session->teardown_requested));
+    tag = tag_bytes(tag, &session->absence_proven, sizeof(session->absence_proven));
+    tag = tag_bytes(tag, &session->root_removed, sizeof(session->root_removed));
+    tag = tag_bytes(tag, &session->durable_commit_requested,
+        sizeof(session->durable_commit_requested));
+    tag = tag_bytes(tag, &session->delivery_performed, sizeof(session->delivery_performed));
+    tag = tag_bytes(tag, &session->cleanup_unresolved, sizeof(session->cleanup_unresolved));
+    tag = tag_bytes(tag, &session->fenced, sizeof(session->fenced));
     tag = tag_bytes(tag, session->source_frame, (size_t)session->source_frame_bytes);
     tag = tag_bytes(tag, session->input_frame, (size_t)session->input_frame_bytes);
     return tag;
 }
 
-static struct c5b8_session_internal *internal(struct c5b8_session *session) {
-    return (struct c5b8_session_internal *)(void *)session->opaque;
-}
-
-static int session_valid(const struct c5b8_session_internal *session) {
-    return session != NULL && session->magic == C5B8_SESSION_MAGIC &&
+static int session_valid(const struct c5b8_session *session) {
+    return session == &c5b8_owned_session && session->magic == C5B8_SESSION_MAGIC &&
         session->version == C5B8_DESCRIPTOR_VERSION &&
         session->structure_bytes == sizeof(*session) && session->initialized == 1 &&
         session->source_frame_bytes <= C5B8_SOURCE_CAP &&
         session->input_frame_bytes <= C5B8_INPUT_CAP &&
-        session->descriptor_tag == descriptor_tag(session);
+        session->integrity_tag == session_tag(session);
 }
 
 static void initialize_result(
-    const struct c5b8_session_internal *session,
+    const struct c5b8_session *session,
     struct c5b8_step_result *result
 ) {
     bytes_zero(result, sizeof(*result));
@@ -131,7 +137,7 @@ static void initialize_result(
 }
 
 static uint64_t required_resource(
-    const struct c5b8_session_internal *session,
+    const struct c5b8_session *session,
     uint32_t effect
 ) {
     switch (effect) {
@@ -190,7 +196,7 @@ static uint64_t exact_facts_for_event(uint32_t event) {
 }
 
 static int operation_precondition(
-    const struct c5b8_session_internal *session,
+    const struct c5b8_session *session,
     uint32_t effect
 ) {
     if (effect == C5B5_EFFECT_START_DRAINS &&
@@ -216,7 +222,7 @@ static int operation_precondition(
 }
 
 static void request_from_operation(
-    const struct c5b8_session_internal *session,
+    const struct c5b8_session *session,
     const struct c5b5_operation *operation,
     uint64_t sequence,
     struct c5b8_operation_request *request
@@ -247,7 +253,7 @@ static void request_from_operation(
     }
 }
 
-static int32_t enroll_descriptor(struct c5b8_session_internal *session) {
+static int32_t enroll_descriptor(struct c5b8_session *session) {
     struct c5b8_operation_request request;
     struct c5b8_operation_result result;
     int32_t call_status;
@@ -294,7 +300,7 @@ static int32_t enroll_descriptor(struct c5b8_session_internal *session) {
 }
 
 static int32_t execute_operation(
-    struct c5b8_session_internal *session,
+    struct c5b8_session *session,
     const struct c5b5_operation *operation,
     struct c5b8_step_result *step_result
 ) {
@@ -328,6 +334,7 @@ static int32_t execute_operation(
     }
     if (result.outcome == C5B8_OPERATION_NOT_APPLIED) {
         step_result->failed_effect = operation->effect;
+        if (result.resource_state != 0) return C5B8_FENCE_OPERATION_INDETERMINATE;
         return C5B8_REFUSE_OPERATION_NOT_APPLIED;
     }
     if (result.outcome == C5B8_OPERATION_INDETERMINATE) {
@@ -368,7 +375,7 @@ static int32_t execute_operation(
 }
 
 static int32_t obtain_observation(
-    struct c5b8_session_internal *session,
+    struct c5b8_session *session,
     uint32_t requested_event,
     uint32_t *event,
     uint64_t *facts,
@@ -426,7 +433,7 @@ static int32_t obtain_observation(
 }
 
 static int32_t execute_actions(
-    struct c5b8_session_internal *session,
+    struct c5b8_session *session,
     uint64_t actions,
     struct c5b8_step_result *result
 ) {
@@ -441,8 +448,20 @@ static int32_t execute_actions(
     return C5B8_OK;
 }
 
-static void recover_after_failure(
-    struct c5b8_session_internal *session,
+static void fence_after_indeterminate(
+    struct c5b8_session *session,
+    struct c5b8_step_result *result
+) {
+    struct c5b3_step fence = c5b3_controller_step(&session->controller,
+        C5B3_EVENT_STORE_INDETERMINATE, C5B3_FACT_NONE);
+    int32_t fence_status = execute_actions(session,
+        fence.actions & C5B3_ACTION_FENCE_STORE, result);
+    session->fenced = 1;
+    if (fence_status != C5B8_OK) session->cleanup_unresolved = 1;
+}
+
+static int32_t recover_after_failure(
+    struct c5b8_session *session,
     int32_t original_status,
     struct c5b8_step_result *result
 ) {
@@ -451,8 +470,10 @@ static void recover_after_failure(
     if (result->failed_effect == C5B5_EFFECT_REQUEST_TEARDOWN ||
         result->failed_effect == C5B5_EFFECT_FENCE_STORE) {
         session->cleanup_unresolved = 1;
-        if (original_status == C5B8_FENCE_OPERATION_INDETERMINATE) session->fenced = 1;
-        return;
+        if (original_status == C5B8_FENCE_OPERATION_INDETERMINATE) {
+            fence_after_indeterminate(session, result);
+        }
+        return original_status;
     }
     recovery = c5b3_controller_step(&session->controller,
         original_status == C5B8_FENCE_OPERATION_INDETERMINATE ?
@@ -462,17 +483,24 @@ static void recover_after_failure(
     if (recovery_status != C5B8_OK || session->teardown_requested == 0) {
         session->cleanup_unresolved = 1;
     }
+    if (recovery_status == C5B8_FENCE_OPERATION_INDETERMINATE) {
+        fence_after_indeterminate(session, result);
+        return recovery_status;
+    }
     if (original_status == C5B8_FENCE_OPERATION_INDETERMINATE ||
         recovery.state == C5B3_STATE_FENCED) session->fenced = 1;
+    return original_status;
 }
 
 int32_t c5b8_initialize(
     const struct c5b5_immutable_profile *profile,
     const struct c5b8_supervisor_descriptor *descriptor,
-    struct c5b8_session *session
+    struct c5b8_session **session_out
 ) {
-    struct c5b8_session_internal *state;
-    if (profile == NULL || descriptor == NULL || session == NULL) return C5B8_REFUSE_ARGUMENT;
+    struct c5b8_session *state = &c5b8_owned_session;
+    if (session_out == NULL) return C5B8_REFUSE_ARGUMENT;
+    *session_out = NULL;
+    if (profile == NULL || descriptor == NULL) return C5B8_REFUSE_ARGUMENT;
     if (c5b5_validate_immutable_profile(profile) != C5B5_OK) return C5B8_REFUSE_PROFILE;
     if (descriptor->magic != C5B8_DESCRIPTOR_MAGIC ||
         descriptor->version != C5B8_DESCRIPTOR_VERSION ||
@@ -493,8 +521,7 @@ int32_t c5b8_initialize(
         descriptor->source_frame_bytes > C5B8_SOURCE_CAP ||
         descriptor->input_frame_bytes > C5B8_INPUT_CAP) return C5B8_REFUSE_FRAME;
 
-    bytes_zero(session, sizeof(*session));
-    state = internal(session);
+    bytes_zero(state, sizeof(*state));
     state->magic = C5B8_SESSION_MAGIC;
     state->version = C5B8_DESCRIPTOR_VERSION;
     state->structure_bytes = sizeof(*state);
@@ -519,11 +546,12 @@ int32_t c5b8_initialize(
         bytes_copy(state->input_frame, descriptor->input_frame,
             (size_t)descriptor->input_frame_bytes);
     c5b3_controller_reset(&state->controller);
-    state->descriptor_tag = descriptor_tag(state);
     if (enroll_descriptor(state) != C5B8_OK) {
-        bytes_zero(session, sizeof(*session));
+        bytes_zero(state, sizeof(*state));
         return C5B8_REFUSE_BINDING;
     }
+    state->integrity_tag = session_tag(state);
+    *session_out = state;
     return C5B8_OK;
 }
 
@@ -532,13 +560,12 @@ int32_t c5b8_apply_observation(
     uint32_t requested_event,
     struct c5b8_step_result *result
 ) {
-    struct c5b8_session_internal *state;
+    struct c5b8_session *state = session;
     struct c5b3_step step;
     uint32_t event;
     uint64_t observed_facts;
     int32_t status;
     if (session == NULL || result == NULL) return C5B8_REFUSE_ARGUMENT;
-    state = internal(session);
     if (!session_valid(state)) {
         bytes_zero(result, sizeof(*result));
         result->status = C5B8_REFUSE_SESSION;
@@ -552,13 +579,14 @@ int32_t c5b8_apply_observation(
     status = obtain_observation(state, requested_event, &event, &observed_facts, result);
     if (status != C5B8_OK) {
         if (status == C5B8_FENCE_OPERATION_INDETERMINATE)
-            recover_after_failure(state, status, result);
+            status = recover_after_failure(state, status, result);
         result->status = (uint32_t)status;
         result->controller_state = state->controller.state;
         result->last_sequence = state->sequence;
         result->teardown_requested = state->teardown_requested;
         result->cleanup_unresolved = state->cleanup_unresolved;
         result->fenced = state->fenced;
+        state->integrity_tag = session_tag(state);
         return status;
     }
     step = c5b3_controller_step(&state->controller, event, observed_facts);
@@ -567,7 +595,7 @@ int32_t c5b8_apply_observation(
     result->controller_actions = step.actions;
     status = execute_actions(state, step.actions, result);
     if (status != C5B8_OK) {
-        recover_after_failure(state, status, result);
+        status = recover_after_failure(state, status, result);
         result->status = (uint32_t)status;
     } else if (step.disposition == C5B3_DISPOSITION_REFUSED) {
         result->status = C5B8_REFUSE_CONTROLLER_ORDER;
@@ -582,5 +610,17 @@ int32_t c5b8_apply_observation(
     result->delivery_performed = state->delivery_performed;
     result->cleanup_unresolved = state->cleanup_unresolved;
     result->fenced = state->fenced;
+    state->integrity_tag = session_tag(state);
     return status;
 }
+
+#ifdef C5B8_TEST_DOUBLE
+void c5b8_test_corrupt_authority_state(struct c5b8_session *session) {
+    if (session == &c5b8_owned_session) {
+        session->controller.state = C5B3_STATE_DURABLE_COMMIT;
+        session->controller.durable = 1;
+        session->resources |= C5B8_RESOURCE_DURABLE_REQUESTED;
+        session->durable_commit_requested = 1;
+    }
+}
+#endif

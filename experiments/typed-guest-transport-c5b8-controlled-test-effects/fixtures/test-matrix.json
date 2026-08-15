@@ -13,6 +13,8 @@
     "copied-frame-resists-caller-buffer-substitution",
     "operation-result-binding-substitution",
     "unknown-resource-delta-fences",
+    "authority-state-corruption-refused-before-replay",
+    "indeterminate-recovery-teardown-overrides-and-fences",
     "indeterminate-commit-fences-and-tears-down",
     "teardown-before-absence-before-root-removal",
     "partial-writer-cleanup-blocks-progress",

@@ -41,6 +41,7 @@ assert.deepEqual(exports, ['_c5b8_apply_observation', '_c5b8_initialize']);
 for (const forbidden of [
   /execute_controller_actions/,
   /observed_facts/,
+  /struct\s+c5b8_session\s*\{/,
   /request_handler/,
   /request_opaque/,
   /\(\s*\*[^)]*\)\s*\(/,
