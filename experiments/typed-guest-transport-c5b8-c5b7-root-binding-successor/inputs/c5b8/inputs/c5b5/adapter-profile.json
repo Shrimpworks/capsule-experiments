@@ -1,0 +1,138 @@
+{
+  "objectType": "capsule.c5b5.no-run-effect-adapter-profile",
+  "objectVersion": 1,
+  "identity": "capsule.c5b5.no-run-effect-adapter/2026-08-13",
+  "scopedConstructionStatus": "PASSED",
+  "completeCompositionStatus": "BLOCKED",
+  "controlledExecutionStatus": "BLOCKED",
+  "productAdmission": "BLOCKED",
+  "repositoryBaseline": "5a2f835e8c9df8279237f940f5af757e119593bd",
+  "capsuleContract": {
+    "repository": "Shrimpworks/capsule-corp",
+    "commit": "22acf665797e248028c2625586322f698bc2ba74",
+    "acceptedADRs": [
+      "ADR-0040",
+      "ADR-0041",
+      "ADR-0046"
+    ],
+    "typedTransportManifestSha256": "79767a34a27bcc32a5f9a479b6a8737f9f5791447fa425ad83455546eadae235"
+  },
+  "prerequisites": {
+    "c5b3": {
+      "repository": "Shrimpworks/capsule-experiments",
+      "commit": "d3020c660c98efebe45f213ed1591220c70c180f",
+      "copiedInputs": [
+        {
+          "path": "inputs/c5b3/controller-contract.json",
+          "bytes": 4185,
+          "sha256": "36285d7fa3f27a992fda413afb38c1ed05a3af30f496c5784b2165d5b2f90e59"
+        },
+        {
+          "path": "inputs/c5b3/controller_core.h",
+          "bytes": 4413,
+          "sha256": "0ae153a47d5a2d0cdfbae7e149139b72abbd35f7f1223dd5745f03df86cadd12"
+        }
+      ]
+    },
+    "c5b2": {
+      "repository": "Shrimpworks/capsule-experiments",
+      "commit": "5a2f835e8c9df8279237f940f5af757e119593bd",
+      "libkrunDylib": {
+        "bytes": 4393448,
+        "sha256": "055d9d18dc964fec4aba21948c4a344cb7a51cb48a2c70017484b718eae12f9f",
+        "loaded": false
+      },
+      "copiedInputs": [
+        {
+          "path": "inputs/c5b2/libkrun.h",
+          "bytes": 54658,
+          "sha256": "dce44d1d70ab770b1089e57646e025281a4137fe5052b9dd8eaefb80c01a1bd8"
+        },
+        {
+          "path": "inputs/c5b2/macho-inspection.json",
+          "bytes": 3192,
+          "sha256": "e86810b067d7eb04d91e4a1a99eeda908891dba2970cb3aa1e68f202fe512b28"
+        }
+      ]
+    },
+    "c5b4": {
+      "repository": "Shrimpworks/capsule-experiments",
+      "commit": "ea2aa55130fb105c6b283cf24454c1efbf5b9680",
+      "libkrunfwDylib": {
+        "bytes": 24339104,
+        "sha256": "0b14f4b8005dafd33c38df5935b9efdb6381c724224b3967ba1cecbecf10b6e9",
+        "role": "sole-runtime-boot-kernel-carrier",
+        "copiedIntoThisSlice": false,
+        "loaded": false
+      },
+      "copiedInputs": [
+        {
+          "path": "inputs/c5b4/recovery.json",
+          "bytes": 5786,
+          "sha256": "814eef24d1583b49ecf773043d142b6c7d77fb00a304dc964be7360b427b9cb4"
+        },
+        {
+          "path": "inputs/c5b4/macho-inspection.json",
+          "bytes": 521,
+          "sha256": "5389836bb8a99a4159c54a6634bf33152f52969d4200ed51b965d7da616a0c7f"
+        }
+      ]
+    }
+  },
+  "adapter": {
+    "source": {
+      "path": "source/effect_adapter.c",
+      "bytes": 10730,
+      "sha256": "d3c7a234d9ea03d317dfd8766307be48bb581b2559cdb145884dedc89c12fac2"
+    },
+    "header": {
+      "path": "source/effect_adapter.h",
+      "bytes": 3298,
+      "sha256": "7b069517faa62ae052fc9c3ec0ec098b4f3ce58f35e5a5f377fc9433e7c0bb93"
+    },
+    "buildA": {
+      "path": "dist/effect-adapter-a.o",
+      "bytes": 6968,
+      "sha256": "852234b318772651d1e4feda6c016dbaa860c061be4db4b160c6c91f573abd0b"
+    },
+    "buildB": {
+      "path": "dist/effect-adapter-b.o",
+      "bytes": 6968,
+      "sha256": "852234b318772651d1e4feda6c016dbaa860c061be4db4b160c6c91f573abd0b"
+    },
+    "deterministicBuilds": 2,
+    "byteEqual": true,
+    "format": "Mach-O arm64 MH_OBJECT",
+    "entryPoint": false,
+    "linked": false,
+    "loaded": false,
+    "executed": false,
+    "imports": 13,
+    "exports": 2
+  },
+  "absentPrerequisites": {
+    "governedDenoCoreBytes": true,
+    "rebuiltRuntimeRoot": true,
+    "executableCompositeManifest": true,
+    "executionAuthorizationProfile": true,
+    "effectImplementation": true
+  },
+  "effects": {
+    "artifactLoaded": false,
+    "artifactExecuted": false,
+    "dylibLinked": false,
+    "dylibLoaded": false,
+    "hvfCalled": false,
+    "processStarted": false,
+    "vmStarted": false,
+    "guestStarted": false,
+    "networkAccessed": false,
+    "credentialAccessed": false,
+    "keychainAccessed": false,
+    "signed": false,
+    "installed": false,
+    "serviceRegistered": false,
+    "productStateMutated": false,
+    "admissionChanged": false
+  }
+}

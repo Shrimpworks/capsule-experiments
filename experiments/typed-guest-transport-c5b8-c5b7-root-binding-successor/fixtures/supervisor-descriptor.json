@@ -1,0 +1,25 @@
+{
+  "objectType": "capsule.c5b8.c5b7-root-binding-supervisor-descriptor-fixture",
+  "objectVersion": 2,
+  "magic": 1127563832,
+  "descriptorVersion": 1,
+  "attemptId": "c5ab61f60d5ddc4c00a1bf50a8669344",
+  "registrationId": "5273186561778ee1bb8d78c7911321ce",
+  "registeredPlanSha256": "a40c0d0ea77e600b338a50bd71994547b83c4c8aa4a0d8ffedd47ae0864ed35e",
+  "profileBindingSha256": "06079eea39ce9a2e0547837555a6953787d8c32d614f0ec7b9b07ef408de04cd",
+  "rootDevice": 101,
+  "rootInode": 202,
+  "rootBytes": 100663296,
+  "rootSha256": "5ad18f20cbc97c7a70ead3e795fd3649672513323041e913b0eb55b7acc88775",
+  "sourceFrame": {
+    "path": "fixtures/source.frame",
+    "bytes": 255,
+    "sha256": "cc38c374626b67a12501235ab89d0d24a5dc0cdaf8ee8fa0d289cec92471a6bc"
+  },
+  "inputFrame": {
+    "path": "fixtures/input.frame",
+    "bytes": 188,
+    "sha256": "27860a50e6909976d30a06340268ccb753996dc931d6f022033dcbd58584e736"
+  },
+  "callerSelectedAuthority": false
+}

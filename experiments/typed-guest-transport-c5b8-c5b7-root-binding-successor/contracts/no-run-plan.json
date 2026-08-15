@@ -1,0 +1,43 @@
+{
+  "objectType": "capsule.c5b8.c5b7-root-binding-no-run-plan",
+  "objectVersion": 2,
+  "identity": "capsule.c5b8.c5b7-root-binding-successor-plan/2026-08-15",
+  "status": "construction-only-not-authorized",
+  "attemptId": "c5ab61f60d5ddc4c00a1bf50a8669344",
+  "registrationId": "5273186561778ee1bb8d78c7911321ce",
+  "profile": {
+    "path": "contracts/root-binding-profile.json",
+    "bytes": 4331,
+    "sha256": "06079eea39ce9a2e0547837555a6953787d8c32d614f0ec7b9b07ef408de04cd"
+  },
+  "runtimeRoot": {
+    "path": "experiments/typed-guest-transport-c5b7-deterministic-runtime-root/dist/runtime-root.ext4",
+    "bytes": 100663296,
+    "sha256": "5ad18f20cbc97c7a70ead3e795fd3649672513323041e913b0eb55b7acc88775"
+  },
+  "sealedControlledEffects": {
+    "path": "inputs/c5b8/controlled-effects.o",
+    "bytes": 8728,
+    "sha256": "b15c4eb6abfbf0bf6ff6d1bf860081be0378273af7c14a9f9a24fd65ffe941ce"
+  },
+  "source": {
+    "bytes": 103,
+    "sha256": "c8e940feb89b342de2d5e6bd13c413226676de9a539fce34c4107516e635b475"
+  },
+  "input": {
+    "bytes": 36,
+    "sha256": "9de0c909cfb111bd99c3b0b5f7a10972894270c2867022a71b6b6f3c0cd1af6e"
+  },
+  "authority": {
+    "callerPaths": false,
+    "callerFlags": false,
+    "callerImages": false,
+    "callerMounts": false,
+    "callerEndpoints": false,
+    "callerBackendConfiguration": false,
+    "replacementPlanBytes": false,
+    "rawActionMask": false,
+    "rawFactMask": false,
+    "executionAuthorized": false
+  }
+}
