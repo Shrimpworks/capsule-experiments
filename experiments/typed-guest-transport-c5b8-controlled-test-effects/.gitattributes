@@ -1,0 +1,3 @@
+dist/*.o binary
+inputs/c5b5/*.o binary
+inputs/c5b5/inputs/c5b2/libkrun.h whitespace=-trailing-space

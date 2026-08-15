@@ -1,0 +1,177 @@
+{
+  "objectType": "capsule.c5b8.controlled-test-effect-archive-manifest",
+  "objectVersion": 1,
+  "generatedOn": "2026-08-14",
+  "files": [
+    {
+      "path": ".gitattributes",
+      "bytes": 100,
+      "sha256": "793ee6b363a26d6f28432c7a114a8e1b3912e66324a8c69dfdf0392d9c33e4fd"
+    },
+    {
+      "path": "HANDOFF.md",
+      "bytes": 2278,
+      "sha256": "5f27e0d1c93cde5128ec16e99b32e153480b0c5e36e74c9b304e9b3a5896539d"
+    },
+    {
+      "path": "README.md",
+      "bytes": 4643,
+      "sha256": "1804d864d5aba0df8cac75e4310b981da1cbe1d432c007f2397f646ae6b2bd1a"
+    },
+    {
+      "path": "RESULTS.md",
+      "bytes": 2833,
+      "sha256": "90799bfdda84996d8ff11770776487539de154b0ab234d7826d8154797de7f61"
+    },
+    {
+      "path": "contracts/controlled-effect-contract.json",
+      "bytes": 1851,
+      "sha256": "c31b0a633aab1944c980fa5ee82db040c6a228e4cb2d93fb074f2660004b7d1e"
+    },
+    {
+      "path": "dist/controlled-effects-a.o",
+      "bytes": 8728,
+      "sha256": "b15c4eb6abfbf0bf6ff6d1bf860081be0378273af7c14a9f9a24fd65ffe941ce"
+    },
+    {
+      "path": "dist/controlled-effects-b.o",
+      "bytes": 8728,
+      "sha256": "b15c4eb6abfbf0bf6ff6d1bf860081be0378273af7c14a9f9a24fd65ffe941ce"
+    },
+    {
+      "path": "evidence/2026-08-14/construction.json",
+      "bytes": 2056,
+      "sha256": "1d256733497d1fe34aead54fea3642f51a1a6ba2802ec22d3305bf8fdb989dfe"
+    },
+    {
+      "path": "evidence/2026-08-14/mutation-dispositions.json",
+      "bytes": 2383,
+      "sha256": "06a718e164ce352a74856a7346ade485e388e41feedc90fddc6c29b5b92cbdbf"
+    },
+    {
+      "path": "fixtures/test-matrix.json",
+      "bytes": 1130,
+      "sha256": "bc480da3581871d84c1aa2f2972482d282287fac68c4ed4de0ecb53461aae1b4"
+    },
+    {
+      "path": "inputs/c5b0/fixtures/input.frame",
+      "bytes": 188,
+      "sha256": "c4b66bba6dd33af06760118f34955b637308538d300ace79aa68381ae3f7f2c2"
+    },
+    {
+      "path": "inputs/c5b0/fixtures/source.frame",
+      "bytes": 255,
+      "sha256": "c8d035b02af814c2df23916bb060018c50412dd208131ec37a65f87c94ce8173"
+    },
+    {
+      "path": "inputs/c5b0/manifests/no-run-plan.json",
+      "bytes": 1281,
+      "sha256": "5a806ac1628537c999e73b07b0d73d1a96a31507d1e91fd0f9a0535787e6fb64"
+    },
+    {
+      "path": "inputs/c5b0/manifests/successor-profile.json",
+      "bytes": 3062,
+      "sha256": "c0a2d0ec6337d4cb4ed52e8a930a54a59ec3e677d4ad9da1a602c4cd7124f04b"
+    },
+    {
+      "path": "inputs/c5b3/controller-contract.json",
+      "bytes": 4185,
+      "sha256": "36285d7fa3f27a992fda413afb38c1ed05a3af30f496c5784b2165d5b2f90e59"
+    },
+    {
+      "path": "inputs/c5b3/controller_core.c",
+      "bytes": 9837,
+      "sha256": "e382b0c3ca15dfcd0fb1b4dd5dcfec8336606fa907191518acfc6d849450a1d7"
+    },
+    {
+      "path": "inputs/c5b3/controller_core.h",
+      "bytes": 4413,
+      "sha256": "0ae153a47d5a2d0cdfbae7e149139b72abbd35f7f1223dd5745f03df86cadd12"
+    },
+    {
+      "path": "inputs/c5b5/adapter-profile.json",
+      "bytes": 4355,
+      "sha256": "5e8341952eeb78d44ceaa9002ab6906b33a125f3fa54cfb48bdf7f13020474e2"
+    },
+    {
+      "path": "inputs/c5b5/archive-manifest.json",
+      "bytes": 4931,
+      "sha256": "a3c550e9e51217eb1b16223f9294b8b5d8020dc436dbc53f05b89bdac652b06c"
+    },
+    {
+      "path": "inputs/c5b5/effect-adapter-contract.json",
+      "bytes": 3331,
+      "sha256": "396d7e4d0d4ded1d072aac0040609c2cff39624dc56012896dc8663e0766f6f7"
+    },
+    {
+      "path": "inputs/c5b5/effect-adapter.o",
+      "bytes": 6968,
+      "sha256": "852234b318772651d1e4feda6c016dbaa860c061be4db4b160c6c91f573abd0b"
+    },
+    {
+      "path": "inputs/c5b5/inputs/c5b2/libkrun.h",
+      "bytes": 54658,
+      "sha256": "dce44d1d70ab770b1089e57646e025281a4137fe5052b9dd8eaefb80c01a1bd8"
+    },
+    {
+      "path": "inputs/c5b5/inputs/c5b3/controller_core.h",
+      "bytes": 4413,
+      "sha256": "0ae153a47d5a2d0cdfbae7e149139b72abbd35f7f1223dd5745f03df86cadd12"
+    },
+    {
+      "path": "inputs/c5b5/source/effect_adapter.c",
+      "bytes": 10730,
+      "sha256": "d3c7a234d9ea03d317dfd8766307be48bb581b2559cdb145884dedc89c12fac2"
+    },
+    {
+      "path": "inputs/c5b5/source/effect_adapter.h",
+      "bytes": 3298,
+      "sha256": "7b069517faa62ae052fc9c3ec0ec098b4f3ce58f35e5a5f377fc9433e7c0bb93"
+    },
+    {
+      "path": "reviews/INDEPENDENT_REVIEW.md",
+      "bytes": 2379,
+      "sha256": "84aec65d329e334bb38ddad41567e1b30629a5be04b2fa2a09d5a1e27ba1beb7"
+    },
+    {
+      "path": "scripts/build.sh",
+      "bytes": 1386,
+      "sha256": "8e4af552063246355a0cc3bb69c88174a50576c45ed048f3436569888835e087"
+    },
+    {
+      "path": "scripts/generate.mjs",
+      "bytes": 5986,
+      "sha256": "8849996f174f8b398370475e222ed59348b0d4bc46e7e194d1bd5c2d913641a0"
+    },
+    {
+      "path": "scripts/test-mutations.mjs",
+      "bytes": 2677,
+      "sha256": "38dd6e2edbfd90a38afc84d85b4273ec77cac030cbabdd326331e88f2b33aa97"
+    },
+    {
+      "path": "scripts/verify.mjs",
+      "bytes": 3454,
+      "sha256": "0420ad7e61ea839edd5628ee0306b1df014126a2415ad3dc453532372f94bbde"
+    },
+    {
+      "path": "source/controlled_effects.c",
+      "bytes": 29554,
+      "sha256": "75035c9f5654fae466ef6fe195e19bea24373972b36715ec6347f62a872ea5f9"
+    },
+    {
+      "path": "source/controlled_effects.h",
+      "bytes": 2447,
+      "sha256": "9af498b0c657f97b52fe0805b750850918d03e47d7e1a18982c675410f1e5006"
+    },
+    {
+      "path": "source/controlled_effects_internal.h",
+      "bytes": 2659,
+      "sha256": "f028a5cec6a6470e1b2aec170fbb7bd379f48d6f79e32d1e017a73b51e01bc74"
+    },
+    {
+      "path": "source/test_double.c",
+      "bytes": 25246,
+      "sha256": "566cf84da27f1a0a6ad44c74e5fe6ab63f42ef2b57d5db6c9167d4cd9b7172db"
+    }
+  ]
+}
