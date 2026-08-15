@@ -86,8 +86,8 @@
     "./scripts/check-range-whitespace.sh"
   ],
   "independentReview": {
-    "retained": false,
-    "path": null
+    "retained": true,
+    "path": "reviews/INDEPENDENT_REVIEW.md"
   },
   "effects": {
     "runtimeArtifactLoaded": false,

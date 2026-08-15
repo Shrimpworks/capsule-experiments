@@ -2,7 +2,8 @@
 
 Narrow successor child: `PASSED`.
 
-Full no-run C5b8 gate after this successor is independently reviewed and merged: `PASSED`.
+Full no-run C5b8 gate: `BLOCKED` pending merge and canonical adoption of this independently
+reviewed successor.
 
 C5b9 complete composition: `BLOCKED`.
 
@@ -34,7 +35,8 @@ Predecessors are C5b7 merge `78485fb91a31733c568fe43e5fa295474e5956e1`, C5b8 mer
 - `dist/`: two deterministic successor objects and two deterministic static compositions.
 - `evidence/2026-08-15/`: construction and mutation dispositions.
 - `manifests/archive-manifest.json`: closed byte inventory.
-- `reviews/INDEPENDENT_REVIEW.md`: retained review of the immutable candidate.
+- `reviews/INDEPENDENT_REVIEW.md`: retained `PASSED` review of immutable candidate `d004ed3` and
+  the `NO_GO` predecessor identities.
 
 ## Integration and limitations
 

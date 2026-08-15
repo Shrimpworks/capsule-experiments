@@ -12,8 +12,8 @@
     },
     {
       "path": "HANDOFF.md",
-      "bytes": 2099,
-      "sha256": "cbce27d62d478cd8b12edcd90d6caa27bea7d85174aaafb52b47ac93d9842bd6"
+      "bytes": 2176,
+      "sha256": "da0395a155701642fd17afe29d75696f52bfa34d5b2bf0309310d46c07bb4be6"
     },
     {
       "path": "README.md",
@@ -57,8 +57,8 @@
     },
     {
       "path": "evidence/2026-08-15/construction.json",
-      "bytes": 4276,
-      "sha256": "b71142ebdafa8408c97ea0c69747cc95c9d9294b7fc99241c13548574548cb3e"
+      "bytes": 4302,
+      "sha256": "1229b61a1e7f3b5f34a0a25d4b23031ac3c559fe550d77db09535be9d9fa4010"
     },
     {
       "path": "evidence/2026-08-15/mutation-dispositions.json",
@@ -219,6 +219,11 @@
       "path": "inputs/c5b8/source/test_double.c",
       "bytes": 25246,
       "sha256": "566cf84da27f1a0a6ad44c74e5fe6ab63f42ef2b57d5db6c9167d4cd9b7172db"
+    },
+    {
+      "path": "reviews/INDEPENDENT_REVIEW.md",
+      "bytes": 3247,
+      "sha256": "7c14d19202a8017519af2468eeb6cb1220d2931cbc48a90a60b157cd02b72869"
     },
     {
       "path": "scripts/build.sh",
