@@ -1,0 +1,56 @@
+{
+  "objectType": "capsule.c5b8.controlled-test-effect-mutations",
+  "objectVersion": 1,
+  "capturedOn": "2026-08-14",
+  "status": "PASSED",
+  "cases": [
+    {
+      "mutation": "raw caller-selected action/delivery attempt",
+      "disposition": "observation plus STOP_MISMATCH only"
+    },
+    {
+      "mutation": "fixed observation port returns a substituted fact",
+      "disposition": "indeterminate; fence and controller-issued teardown"
+    },
+    {
+      "mutation": "owner descriptor enrollment returns a mismatched binding",
+      "disposition": "initialization refused and session zeroed"
+    },
+    {
+      "mutation": "caller source/input buffer changed after initialize",
+      "disposition": "sealed copy used"
+    },
+    {
+      "mutation": "wrong attempt echo from operation",
+      "disposition": "protocol refusal and controller-issued teardown"
+    },
+    {
+      "mutation": "durable commit indeterminate",
+      "disposition": "fence and controller-issued teardown; no delivery"
+    },
+    {
+      "mutation": "one input writer remains open during teardown",
+      "disposition": "cleanup unresolved; progress blocked"
+    },
+    {
+      "mutation": "live context not released during teardown",
+      "disposition": "cleanup unresolved; progress blocked"
+    },
+    {
+      "mutation": "effect result includes an unknown resource bit",
+      "disposition": "indeterminate; fence and controller-issued teardown"
+    },
+    {
+      "mutation": "source cap plus one",
+      "disposition": "descriptor refused before any operation"
+    },
+    {
+      "mutation": "96 MiB root supplied to 128 MiB C5b5 profile",
+      "disposition": "descriptor refused before any operation"
+    },
+    {
+      "mutation": "opaque session storage corrupted",
+      "disposition": "session refused before any operation"
+    }
+  ]
+}

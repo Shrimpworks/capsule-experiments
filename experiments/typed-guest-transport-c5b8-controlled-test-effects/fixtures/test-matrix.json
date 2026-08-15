@@ -1,0 +1,27 @@
+{
+  "objectType": "capsule.c5b8.controlled-test-effect-matrix",
+  "objectVersion": 1,
+  "cases": [
+    "exact-descriptor-validation",
+    "fixed-owner-descriptor-enrollment",
+    "caller-fact-mask-absent",
+    "observation-fact-substitution-fences",
+    "complete-controller-to-effect-trace",
+    "durable-completion-before-delivery",
+    "byte-identical-replay-after-durable-completion",
+    "out-of-order-event-cannot-select-delivery",
+    "copied-frame-resists-caller-buffer-substitution",
+    "operation-result-binding-substitution",
+    "unknown-resource-delta-fences",
+    "indeterminate-commit-fences-and-tears-down",
+    "teardown-before-absence-before-root-removal",
+    "partial-writer-cleanup-blocks-progress",
+    "unreleased-live-context-blocks-progress",
+    "corrupt-session-refusal",
+    "cap-plus-one-frame-refusal",
+    "root-profile-mismatch-refusal"
+  ],
+  "realRuntime": false,
+  "realGuest": false,
+  "realBackend": false
+}

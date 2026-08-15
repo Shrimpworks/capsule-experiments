@@ -1,0 +1,64 @@
+{
+  "objectType": "capsule.c5b8.controlled-test-effect-construction",
+  "objectVersion": 1,
+  "capturedOn": "2026-08-14",
+  "status": "IN_PROGRESS — TRENDING_GOOD",
+  "sourceBaseline": {
+    "repository": "Shrimpworks/capsule-experiments",
+    "commit": "c3264cb6c1f524622cf09519ed43b7a2e07a971c"
+  },
+  "acceptedInputs": {
+    "c5b0Merge": "b357d0c0fb29100c180494e67cebd7809aabe3c5",
+    "c5b3Merge": "60234e22674e46a42e8e5c382d85217a930c2c13",
+    "c5b5Merge": "3cfe7db16c55894be444d4c783659043dbd25c95"
+  },
+  "object": {
+    "path": "dist/controlled-effects-a.o",
+    "bytes": 6880,
+    "sha256": "4a4102e87fa2d078a3294e7285bef68be78273cee55bc458676e839bd30c830a",
+    "deterministicBuilds": 2,
+    "byteEqual": true,
+    "format": "Mach-O arm64 MH_OBJECT",
+    "exports": [
+      "_c5b8_apply_observation",
+      "_c5b8_initialize"
+    ],
+    "undefinedSymbols": [
+      "_c5b3_controller_reset",
+      "_c5b3_controller_step",
+      "_c5b5_translate_controller_actions",
+      "_c5b5_validate_immutable_profile",
+      "_c5b8_controlled_test_operation"
+    ]
+  },
+  "verification": [
+    "./scripts/build.sh",
+    "node scripts/generate.mjs --check",
+    "node scripts/verify.mjs",
+    "node scripts/test-mutations.mjs",
+    "git diff --check"
+  ],
+  "effects": {
+    "productionObjectLinked": false,
+    "productionObjectLoaded": false,
+    "productionObjectExecuted": false,
+    "testDoubleExecuted": true,
+    "libkrunLoaded": false,
+    "hvfCalled": false,
+    "processStarted": false,
+    "vmStarted": false,
+    "guestStarted": false,
+    "networkAccessedByExperiment": false,
+    "credentialAccessed": false,
+    "keychainAccessed": false,
+    "signed": false,
+    "productStateMutated": false,
+    "admissionChanged": false
+  },
+  "nonComposition": {
+    "c5b5RootBytes": 134217728,
+    "retainedC5b7RootBytes": 100663296,
+    "mismatchResolved": false,
+    "c5b9Ready": false
+  }
+}
