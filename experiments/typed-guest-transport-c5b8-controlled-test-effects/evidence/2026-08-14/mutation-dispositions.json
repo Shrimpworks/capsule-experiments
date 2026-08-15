@@ -59,6 +59,10 @@
     {
       "mutation": "effect not applied and recovery teardown indeterminate",
       "disposition": "indeterminate overrides original; fixed fence runs; cleanup unresolved"
+    },
+    {
+      "mutation": "second initialization while first session is active",
+      "disposition": "refused before enrollment/state mutation; original session remains valid"
     }
   ]
 }

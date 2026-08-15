@@ -31,6 +31,7 @@ static const uint8_t expected_registration[16] = {
 };
 
 extern void c5b8_test_corrupt_authority_state(struct c5b8_session *session);
+extern void c5b8_test_reset_owned_session(void);
 static const uint8_t expected_plan_digest[32] = {
     0x5a, 0x80, 0x6a, 0xc1, 0x62, 0x85, 0x37, 0xc9,
     0x99, 0xe7, 0x3b, 0x07, 0xb0, 0xd7, 0x3d, 0x1a,
@@ -159,6 +160,7 @@ int32_t c5b8_controlled_test_operation(
     result->sequence = request->sequence;
     result->effect = request->operation.effect;
     result->resource_state = request->expected_resource_state;
+    if (result->outcome == C5B8_OPERATION_NOT_APPLIED) result->resource_state = 0;
     if (request->operation.effect == C5B8_EFFECT_OBSERVE_EVENT) {
         assert(request->expected_resource_state == 0);
         result->observed_event = request->requested_event;
@@ -263,6 +265,7 @@ static void initialize_session(struct c5b8_session **session) {
     uint8_t source[255];
     uint8_t input[188];
     struct c5b5_immutable_profile profile = exact_profile();
+    c5b8_test_reset_owned_session();
     load_fixtures();
     memcpy(source, source_fixture, sizeof(source));
     memcpy(input, input_fixture, sizeof(input));
@@ -307,6 +310,7 @@ static void test_descriptor_validation(void) {
     memcpy(input, input_fixture, sizeof(input));
     struct c5b8_supervisor_descriptor descriptor = exact_descriptor(source, input);
     struct c5b8_session *session;
+    c5b8_test_reset_owned_session();
     assert(c5b8_initialize(NULL, &descriptor, &session) == C5B8_REFUSE_ARGUMENT);
     profile.magic++;
     assert(c5b8_initialize(&profile, &descriptor, &session) == C5B8_REFUSE_PROFILE);
@@ -493,7 +497,29 @@ static void test_indeterminate_recovery_teardown_fences(void) {
         &result) == C5B8_FENCE_OPERATION_INDETERMINATE);
     assert(result.fenced == 1 && result.cleanup_unresolved == 1 &&
         result.delivery_performed == 0);
+    assert(trace[trace_count - 3] == C5B5_EFFECT_START_DRAINS);
+    assert(trace[trace_count - 2] == C5B5_EFFECT_REQUEST_TEARDOWN);
     assert(trace[trace_count - 1] == C5B5_EFFECT_FENCE_STORE);
+}
+
+static void test_active_reinitialization_refused(void) {
+    uint8_t source[255];
+    uint8_t input[188];
+    struct c5b8_session *active;
+    struct c5b8_session *replacement = (struct c5b8_session *)(uintptr_t)1;
+    struct c5b8_step_result result;
+    struct c5b5_immutable_profile profile = exact_profile();
+    struct c5b8_supervisor_descriptor descriptor;
+    size_t before;
+    reset_double();
+    initialize_session(&active);
+    memcpy(source, source_fixture, sizeof(source));
+    memcpy(input, input_fixture, sizeof(input));
+    descriptor = exact_descriptor(source, input);
+    before = trace_count;
+    assert(c5b8_initialize(&profile, &descriptor, &replacement) == C5B8_REFUSE_SESSION);
+    assert(replacement == NULL && trace_count == before);
+    assert(apply(active, C5B3_EVENT_BIND_EXACT, &result) == C5B8_OK);
 }
 
 int main(void) {
@@ -509,6 +535,7 @@ int main(void) {
     test_observation_fact_substitution_fences();
     test_unknown_resource_delta_fences();
     test_indeterminate_recovery_teardown_fences();
+    test_active_reinitialization_refused();
     puts("C5b8 controlled-test effect layer: PASSED");
     puts("No real libkrun symbol, VM, guest, process, signing, Keychain, or network operation ran.");
     return 0;

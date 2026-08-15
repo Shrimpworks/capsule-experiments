@@ -15,6 +15,7 @@
     "unknown-resource-delta-fences",
     "authority-state-corruption-refused-before-replay",
     "indeterminate-recovery-teardown-overrides-and-fences",
+    "active-reinitialization-refused-with-original-session-intact",
     "indeterminate-commit-fences-and-tears-down",
     "teardown-before-absence-before-root-removal",
     "partial-writer-cleanup-blocks-progress",

@@ -5,8 +5,8 @@ Status: `IN_PROGRESS — TRENDING_GOOD` pending retained independent review.
 ## Construction result
 
 - Two arm64 Mach-O `MH_OBJECT` builds are byte-equal.
-- Object size: 8,624 bytes.
-- Object SHA-256: `43d443f6eed7de5d4d4451bd9fce618c4567b920f56149952dcddcf2dd807fdc`.
+- Object size: 8,728 bytes.
+- Object SHA-256: `b15c4eb6abfbf0bf6ff6d1bf860081be0378273af7c14a9f9a24fd65ffe941ce`.
 - Exports: `_c5b8_initialize`, `_c5b8_apply_observation`.
 - Undefined symbols: the two C5b3 controller functions, the two C5b5 adapter functions, and the
   single fixed `_c5b8_controlled_test_operation` test-double port.
@@ -39,9 +39,11 @@ This is controlled-test operation sequencing, not a real runtime composition. Te
 filesystem deletion, durable storage, process-tree teardown, descriptor custody, libkrun, HVF,
 the rebuilt root, or a guest works. They grant no product admission or execution authority.
 
-The test slice intentionally owns one static session and does not establish concurrent-attempt,
-process-isolation, crash-recovery, or durable session custody semantics. A later composition must
-not treat this singleton as an admitted product session manager.
+The test slice intentionally owns one static, one-shot session: production code permits exactly one
+successful initialization per process and refuses replacement even after terminal state. It does
+not establish concurrent-attempt, process-isolation, crash-recovery, reuse, or durable session
+custody semantics. A later composition must not treat this singleton as an admitted product session
+manager.
 
 The accepted C5b5 128 MiB profile remains noncomposable with the retained C5b7 96 MiB root. No
 attempt was made to resolve that mismatch here.

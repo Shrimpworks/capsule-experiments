@@ -35,7 +35,8 @@ VM, guest, backend, signing, Keychain, or live harness operation was authorized 
 The object is deliberately not runnable. It does not implement the operation port, own real
 descriptors, perform cleanup, compose a runtime, or authorize execution. The C5b5 128 MiB profile
 and C5b7 96 MiB root mismatch remains unresolved. Its one static layer-owned session is a
-controlled-test constraint, not a concurrent or durable product session manager. After this experiment PR is merged, capsule-corp
+mechanically one-shot controlled-test constraint, not a reusable, concurrent, or durable product
+session manager. After this experiment PR is merged, capsule-corp
 must link the exact immutable archive merge in `docs/CURRENT_WORK_PLAN.md` and
 `docs/WORKSTREAM_EVIDENCE_LEDGER.md`; that canonical update is a separate integration destination,
 not something this unmerged branch can truthfully pre-record.

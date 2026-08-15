@@ -24,6 +24,9 @@ VM, guest, process, or backend, perform signing or Keychain operations, or execu
 - Keep the session type incomplete to callers and own its storage, C5b3 controller, durable bit,
   operation sequence, resources, and lifecycle flags inside the layer. A diagnostic integrity tag
   covers both immutable bindings and all evolving state.
+- Mechanically permit only one successful initialization in a production process. A second call is
+  refused before owner enrollment or state mutation, so it cannot discard live resources or make
+  an old pointer alias a replacement attempt. Test-only reset exists only in the mutation binary.
 - The public API requests a closed event
   observation but accepts neither facts nor controller actions. Exact per-event facts come only
   from the fixed typed operation port.

@@ -32,6 +32,7 @@ const cases = [
   ['session corruption mutation tested', tests.includes('test_session_corruption_refused')],
   ['unknown resource delta mutation tested', tests.includes('test_unknown_resource_delta_fences')],
   ['indeterminate recovery teardown mutation tested', tests.includes('test_indeterminate_recovery_teardown_fences')],
+  ['active reinitialization mutation tested', tests.includes('test_active_reinitialization_refused')],
 ];
 
 for (const [name, passed] of cases) assert.equal(passed, true, name);

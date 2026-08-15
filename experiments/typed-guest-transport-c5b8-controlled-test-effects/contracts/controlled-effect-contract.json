@@ -11,6 +11,8 @@
   "callerSelectedFacts": false,
   "callerOwnedSessionStorage": false,
   "mutableAuthorityStateCoveredByIntegrityTag": true,
+  "productionSessionInitialization": "ONE_SHOT_PER_PROCESS",
+  "activeReinitialization": "REFUSED_BEFORE_STATE_MUTATION",
   "callerOperationCallback": false,
   "callerOpaqueValue": false,
   "callerPaths": false,

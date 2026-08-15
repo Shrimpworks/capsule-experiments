@@ -103,6 +103,7 @@ const mutations = {
     { mutation: 'opaque session storage corrupted', disposition: 'session refused before any operation' },
     { mutation: 'controller/durable/resource authority state corrupted through test-only hook', disposition: 'all-state tag mismatch; session refused before replay' },
     { mutation: 'effect not applied and recovery teardown indeterminate', disposition: 'indeterminate overrides original; fixed fence runs; cleanup unresolved' },
+    { mutation: 'second initialization while first session is active', disposition: 'refused before enrollment/state mutation; original session remains valid' },
   ],
 };
 

@@ -39,6 +39,7 @@ struct c5b8_session {
 };
 
 static struct c5b8_session c5b8_owned_session;
+static uint32_t c5b8_session_ever_initialized;
 
 static void bytes_zero(void *destination, size_t length) {
     uint8_t *output = destination;
@@ -520,6 +521,7 @@ int32_t c5b8_initialize(
         descriptor->input_frame_bytes > profile->input_physical_maximum ||
         descriptor->source_frame_bytes > C5B8_SOURCE_CAP ||
         descriptor->input_frame_bytes > C5B8_INPUT_CAP) return C5B8_REFUSE_FRAME;
+    if (c5b8_session_ever_initialized != 0) return C5B8_REFUSE_SESSION;
 
     bytes_zero(state, sizeof(*state));
     state->magic = C5B8_SESSION_MAGIC;
@@ -551,6 +553,7 @@ int32_t c5b8_initialize(
         return C5B8_REFUSE_BINDING;
     }
     state->integrity_tag = session_tag(state);
+    c5b8_session_ever_initialized = 1;
     *session_out = state;
     return C5B8_OK;
 }
@@ -622,5 +625,10 @@ void c5b8_test_corrupt_authority_state(struct c5b8_session *session) {
         session->resources |= C5B8_RESOURCE_DURABLE_REQUESTED;
         session->durable_commit_requested = 1;
     }
+}
+
+void c5b8_test_reset_owned_session(void) {
+    bytes_zero(&c5b8_owned_session, sizeof(c5b8_owned_session));
+    c5b8_session_ever_initialized = 0;
 }
 #endif

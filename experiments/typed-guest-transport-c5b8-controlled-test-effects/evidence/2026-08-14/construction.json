@@ -14,8 +14,8 @@
   },
   "object": {
     "path": "dist/controlled-effects-a.o",
-    "bytes": 8624,
-    "sha256": "43d443f6eed7de5d4d4451bd9fce618c4567b920f56149952dcddcf2dd807fdc",
+    "bytes": 8728,
+    "sha256": "b15c4eb6abfbf0bf6ff6d1bf860081be0378273af7c14a9f9a24fd65ffe941ce",
     "deterministicBuilds": 2,
     "byteEqual": true,
     "format": "Mach-O arm64 MH_OBJECT",
