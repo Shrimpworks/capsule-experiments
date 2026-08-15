@@ -5,17 +5,18 @@ Status: `PASSED` for the exact deterministic, no-run root-binding successor slic
 ## Question
 
 Can the exact sealed C5b8 controlled-effect object be bound to the exact retained C5b7
-100,663,296-byte root without changing historical C5b5, C5b7, or C5b8 evidence and without
-adding caller-selected authority?
+100,663,296-byte root without changing historical C5b5, C5b7, or C5b8 evidence and without adding
+caller-selected authority?
 
 ## Defensive authorized scope
 
 This experiment validates Capsule's immutable profile/root-size boundary in an owned local
 `Shrimpworks/capsule-experiments` clone using copied repository fixtures, static inspection,
-deterministic construction, and repository test doubles only. It does not load libkrun, HVF, a
-retained dylib, or any runtime artifact; launch a process, VM, guest, or backend; sign; access
-Keychain or LocalAuthentication; register or install a service; or clean host paths outside
-task-owned temporary roots.
+deterministic construction, and repository test doubles only. It launches the permitted local
+repository test-double process, which exercises statically linked successor and sealed C5b8 code.
+It does not load libkrun, HVF, a retained dylib, backend, or runtime artifact; launch a backend,
+VM, or guest; sign; access Keychain or LocalAuthentication; register or install a service; or clean
+host paths outside task-owned temporary roots.
 
 ## Method
 
