@@ -1,0 +1,64 @@
+{
+  "objectType": "capsule.c5b8.c5b7-root-binding-successor-mutations",
+  "objectVersion": 2,
+  "capturedOn": "2026-08-15",
+  "status": "PASSED",
+  "cases": [
+    {
+      "mutation": "historical C5b5 profile magic/version and 134217728-byte root",
+      "disposition": "refused before operation enrollment"
+    },
+    {
+      "mutation": "134217728 bytes under successor magic/version",
+      "disposition": "refused before operation enrollment"
+    },
+    {
+      "mutation": "134217728-byte Supervisor descriptor under the exact successor profile",
+      "disposition": "root identity refused before operation enrollment"
+    },
+    {
+      "mutation": "historical C5b0 profile digest",
+      "disposition": "descriptor enrollment binding refused"
+    },
+    {
+      "mutation": "replacement plan digest",
+      "disposition": "descriptor enrollment binding refused"
+    },
+    {
+      "mutation": "non-root immutable profile field",
+      "disposition": "profile refused before operation enrollment"
+    },
+    {
+      "mutation": "C5b7 root profile size changed to historical value",
+      "disposition": "independent verifier refused"
+    },
+    {
+      "mutation": "C5b7 root digest substitution",
+      "disposition": "independent verifier refused"
+    },
+    {
+      "mutation": "sealed C5b8 object byte substitution",
+      "disposition": "independent verifier refused"
+    },
+    {
+      "mutation": "successor profile root size changed to historical value",
+      "disposition": "independent verifier refused"
+    },
+    {
+      "mutation": "successor source gains caller-selected backend API",
+      "disposition": "independent verifier refused"
+    },
+    {
+      "mutation": "source frame profile binding byte substitution",
+      "disposition": "independent verifier refused"
+    },
+    {
+      "mutation": "undeclared archive member",
+      "disposition": "closed inventory refused"
+    }
+  ],
+  "postMutationRestoration": {
+    "originalCandidateReverifiedAfterEveryMutation": true,
+    "retainedArtifactsChanged": false
+  }
+}

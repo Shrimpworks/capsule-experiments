@@ -1,0 +1,269 @@
+{
+  "objectType": "capsule.c5b8.c5b7-root-binding-successor-archive-manifest",
+  "objectVersion": 2,
+  "generatedOn": "2026-08-15",
+  "owner": "Capsule C5b orchestrator",
+  "replacementCondition": "Replace only with a separately reviewed versioned successor or the later immutable C5b9 composite.",
+  "files": [
+    {
+      "path": ".gitattributes",
+      "bytes": 60,
+      "sha256": "b1c516f05798a213a5dbac7f3265bd4827192e3a27d192f0fd3aa6585d56c94d"
+    },
+    {
+      "path": "HANDOFF.md",
+      "bytes": 2099,
+      "sha256": "cbce27d62d478cd8b12edcd90d6caa27bea7d85174aaafb52b47ac93d9842bd6"
+    },
+    {
+      "path": "README.md",
+      "bytes": 2511,
+      "sha256": "1bede7ca7bf6b2d076f35e63a03dc507ec0d1994850a637419c4a2ae03dd4b2b"
+    },
+    {
+      "path": "RESULTS.md",
+      "bytes": 2593,
+      "sha256": "d0c11d4335a5eee2deaf5868d17e0196060f2686775f1461515e3839a08923c7"
+    },
+    {
+      "path": "contracts/no-run-plan.json",
+      "bytes": 1459,
+      "sha256": "7a17cf7a79f3e05866d13e343b559299e9dce236a8cd743155f62f7efb558436"
+    },
+    {
+      "path": "contracts/root-binding-profile.json",
+      "bytes": 4267,
+      "sha256": "c3ffb923949faed052e7b8bc79909fdaa874e619037d8b8ff96947c568568bfa"
+    },
+    {
+      "path": "dist/controlled-effects-root-bound-a.o",
+      "bytes": 15255,
+      "sha256": "2eaaef8a5480e0e6f9d416afef7bc9d467f25c0c4f6122d8e365e90ab3e40d94"
+    },
+    {
+      "path": "dist/controlled-effects-root-bound-b.o",
+      "bytes": 15255,
+      "sha256": "2eaaef8a5480e0e6f9d416afef7bc9d467f25c0c4f6122d8e365e90ab3e40d94"
+    },
+    {
+      "path": "dist/root-binding-successor-a.o",
+      "bytes": 7776,
+      "sha256": "3d5650a11c8cbf920357af7d7fabbb8880fc96197ad3baec52db34526191821e"
+    },
+    {
+      "path": "dist/root-binding-successor-b.o",
+      "bytes": 7776,
+      "sha256": "3d5650a11c8cbf920357af7d7fabbb8880fc96197ad3baec52db34526191821e"
+    },
+    {
+      "path": "evidence/2026-08-15/construction.json",
+      "bytes": 4083,
+      "sha256": "f21b3ac54b0a2be15b29e02f398409076e6fd9d5e6e08c362acba5c3103e97ac"
+    },
+    {
+      "path": "evidence/2026-08-15/mutation-dispositions.json",
+      "bytes": 2044,
+      "sha256": "0d616f94b564b62093a7f67a64e6178fd4b14f1f1ab633f4c412b9abe5a30fa8"
+    },
+    {
+      "path": "fixtures/input.frame",
+      "bytes": 188,
+      "sha256": "4ffd2b04aacbf8d9210a0ee8b8525e8257c560a36b67b9dab4b21270d132c7da"
+    },
+    {
+      "path": "fixtures/source.frame",
+      "bytes": 255,
+      "sha256": "02e3b77aea5c8d4f26487427db3b9dda2f983195f061fd63cd2fb217b5b22d99"
+    },
+    {
+      "path": "fixtures/supervisor-descriptor.json",
+      "bytes": 954,
+      "sha256": "b623bee73e734f08d6633bb0a3a99ef016b5febfd8116c44305718aa921c490a"
+    },
+    {
+      "path": "generated/binding-summary.json",
+      "bytes": 1184,
+      "sha256": "e9d39d46bd0a0a8ff43579982ba7e0a75a71d4734854af8064ad27137d44f38e"
+    },
+    {
+      "path": "generated/historical_adapter_local.c",
+      "bytes": 10835,
+      "sha256": "1619ba985e46f476189439155606484c4a1a462d31f0cf2eec7085ea88b10404"
+    },
+    {
+      "path": "generated/root_binding_values.h",
+      "bytes": 1055,
+      "sha256": "ffd04ec6b1ac5c563f22800b46e6fd33f275db75abbbecea76003f0d547b5a2a"
+    },
+    {
+      "path": "inputs/c5b7/construction.json",
+      "bytes": 1008,
+      "sha256": "ec96cefa49a7f8b13417edd81332dd0efd9966f284b14a448e123d83a58ac01d"
+    },
+    {
+      "path": "inputs/c5b7/runtime-root-profile.json",
+      "bytes": 8254,
+      "sha256": "6c39f9803cdd4129c10f86f3eecd10ed9e40d89548a8745221818539b65b644d"
+    },
+    {
+      "path": "inputs/c5b8/archive-manifest.json",
+      "bytes": 5719,
+      "sha256": "c064c92c3802e1a2fe1541900ab39ad59d143a2c4af1fef42f6c2841d4ac759b"
+    },
+    {
+      "path": "inputs/c5b8/construction.json",
+      "bytes": 2056,
+      "sha256": "1d256733497d1fe34aead54fea3642f51a1a6ba2802ec22d3305bf8fdb989dfe"
+    },
+    {
+      "path": "inputs/c5b8/controlled-effect-contract.json",
+      "bytes": 1851,
+      "sha256": "c31b0a633aab1944c980fa5ee82db040c6a228e4cb2d93fb074f2660004b7d1e"
+    },
+    {
+      "path": "inputs/c5b8/controlled-effects.o",
+      "bytes": 8728,
+      "sha256": "b15c4eb6abfbf0bf6ff6d1bf860081be0378273af7c14a9f9a24fd65ffe941ce"
+    },
+    {
+      "path": "inputs/c5b8/inputs/c5b0/fixtures/input.frame",
+      "bytes": 188,
+      "sha256": "c4b66bba6dd33af06760118f34955b637308538d300ace79aa68381ae3f7f2c2"
+    },
+    {
+      "path": "inputs/c5b8/inputs/c5b0/fixtures/source.frame",
+      "bytes": 255,
+      "sha256": "c8d035b02af814c2df23916bb060018c50412dd208131ec37a65f87c94ce8173"
+    },
+    {
+      "path": "inputs/c5b8/inputs/c5b0/manifests/no-run-plan.json",
+      "bytes": 1281,
+      "sha256": "5a806ac1628537c999e73b07b0d73d1a96a31507d1e91fd0f9a0535787e6fb64"
+    },
+    {
+      "path": "inputs/c5b8/inputs/c5b0/manifests/successor-profile.json",
+      "bytes": 3062,
+      "sha256": "c0a2d0ec6337d4cb4ed52e8a930a54a59ec3e677d4ad9da1a602c4cd7124f04b"
+    },
+    {
+      "path": "inputs/c5b8/inputs/c5b3/controller-contract.json",
+      "bytes": 4185,
+      "sha256": "36285d7fa3f27a992fda413afb38c1ed05a3af30f496c5784b2165d5b2f90e59"
+    },
+    {
+      "path": "inputs/c5b8/inputs/c5b3/controller_core.c",
+      "bytes": 9837,
+      "sha256": "e382b0c3ca15dfcd0fb1b4dd5dcfec8336606fa907191518acfc6d849450a1d7"
+    },
+    {
+      "path": "inputs/c5b8/inputs/c5b3/controller_core.h",
+      "bytes": 4413,
+      "sha256": "0ae153a47d5a2d0cdfbae7e149139b72abbd35f7f1223dd5745f03df86cadd12"
+    },
+    {
+      "path": "inputs/c5b8/inputs/c5b5/adapter-profile.json",
+      "bytes": 4355,
+      "sha256": "5e8341952eeb78d44ceaa9002ab6906b33a125f3fa54cfb48bdf7f13020474e2"
+    },
+    {
+      "path": "inputs/c5b8/inputs/c5b5/archive-manifest.json",
+      "bytes": 4931,
+      "sha256": "a3c550e9e51217eb1b16223f9294b8b5d8020dc436dbc53f05b89bdac652b06c"
+    },
+    {
+      "path": "inputs/c5b8/inputs/c5b5/effect-adapter-contract.json",
+      "bytes": 3331,
+      "sha256": "396d7e4d0d4ded1d072aac0040609c2cff39624dc56012896dc8663e0766f6f7"
+    },
+    {
+      "path": "inputs/c5b8/inputs/c5b5/effect-adapter.o",
+      "bytes": 6968,
+      "sha256": "852234b318772651d1e4feda6c016dbaa860c061be4db4b160c6c91f573abd0b"
+    },
+    {
+      "path": "inputs/c5b8/inputs/c5b5/inputs/c5b2/libkrun.h",
+      "bytes": 54658,
+      "sha256": "dce44d1d70ab770b1089e57646e025281a4137fe5052b9dd8eaefb80c01a1bd8"
+    },
+    {
+      "path": "inputs/c5b8/inputs/c5b5/inputs/c5b3/controller_core.h",
+      "bytes": 4413,
+      "sha256": "0ae153a47d5a2d0cdfbae7e149139b72abbd35f7f1223dd5745f03df86cadd12"
+    },
+    {
+      "path": "inputs/c5b8/inputs/c5b5/source/effect_adapter.c",
+      "bytes": 10730,
+      "sha256": "d3c7a234d9ea03d317dfd8766307be48bb581b2559cdb145884dedc89c12fac2"
+    },
+    {
+      "path": "inputs/c5b8/inputs/c5b5/source/effect_adapter.h",
+      "bytes": 3298,
+      "sha256": "7b069517faa62ae052fc9c3ec0ec098b4f3ce58f35e5a5f377fc9433e7c0bb93"
+    },
+    {
+      "path": "inputs/c5b8/source/controlled_effects.c",
+      "bytes": 29554,
+      "sha256": "75035c9f5654fae466ef6fe195e19bea24373972b36715ec6347f62a872ea5f9"
+    },
+    {
+      "path": "inputs/c5b8/source/controlled_effects.h",
+      "bytes": 2447,
+      "sha256": "9af498b0c657f97b52fe0805b750850918d03e47d7e1a18982c675410f1e5006"
+    },
+    {
+      "path": "inputs/c5b8/source/controlled_effects_internal.h",
+      "bytes": 2659,
+      "sha256": "f028a5cec6a6470e1b2aec170fbb7bd379f48d6f79e32d1e017a73b51e01bc74"
+    },
+    {
+      "path": "inputs/c5b8/source/test_double.c",
+      "bytes": 25246,
+      "sha256": "566cf84da27f1a0a6ad44c74e5fe6ab63f42ef2b57d5db6c9167d4cd9b7172db"
+    },
+    {
+      "path": "scripts/build.sh",
+      "bytes": 2189,
+      "sha256": "75913c8579759546174244492fc382da1f522d464a801c4a150a8be78333bce7"
+    },
+    {
+      "path": "scripts/generate-evidence.mjs",
+      "bytes": 7519,
+      "sha256": "d3c8025aa66ee0ae1d740b75de681ac64b00a3c5ad88a0b1af3b717698aa266c"
+    },
+    {
+      "path": "scripts/generate-profile.mjs",
+      "bytes": 8579,
+      "sha256": "c280cbc21155c56d9cfda5bbca6df6790bfdad1f94a9c3c811b21eb40027d0f1"
+    },
+    {
+      "path": "scripts/test-mutations.mjs",
+      "bytes": 4189,
+      "sha256": "88357b535bc1a8b49477de1486e0b96ad97d702c59387312f0d7c6c8070cc55d"
+    },
+    {
+      "path": "scripts/verify-lib.mjs",
+      "bytes": 12020,
+      "sha256": "fa0df215056280be172745c27cda0890e823618a94602597bef33e01d3538371"
+    },
+    {
+      "path": "scripts/verify.mjs",
+      "bytes": 292,
+      "sha256": "2b8d022407acad414b20e498495199e6f1031f3b6aa518803215a8505a5ba392"
+    },
+    {
+      "path": "source/root_binding_successor.c",
+      "bytes": 2817,
+      "sha256": "7705a3c4dde3c19ed91e662b80e23542809974b8e78894b51e5ae7c2b022b5b3"
+    },
+    {
+      "path": "source/root_binding_successor.h",
+      "bytes": 869,
+      "sha256": "223b35e8d57ba524ca70637d464d428fd56098af995139fd7a7087d0a49038c7"
+    },
+    {
+      "path": "source/test_double.c",
+      "bytes": 12541,
+      "sha256": "30deaba8ac802a96d86229671693d0ac956910940cabe4f449b38f8a04e20140"
+    }
+  ]
+}

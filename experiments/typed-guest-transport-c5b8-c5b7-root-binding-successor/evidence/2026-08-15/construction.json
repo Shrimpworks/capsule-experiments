@@ -1,0 +1,115 @@
+{
+  "objectType": "capsule.c5b8.c5b7-root-binding-successor-construction",
+  "objectVersion": 2,
+  "capturedOn": "2026-08-15",
+  "status": "PASSED",
+  "authorizedEnvironment": "owned local Shrimpworks/capsule-experiments clone and repository test doubles only",
+  "repositoryBaseline": "e83614af34d5c39c12a4a3d6e6cda8dcf0304030",
+  "predecessors": {
+    "c5b7Merge": "78485fb91a31733c568fe43e5fa295474e5956e1",
+    "c5b8Merge": "e83614af34d5c39c12a4a3d6e6cda8dcf0304030",
+    "c5b8DeliveredHead": "15633058649b39b4afa8d01a2439fca6134d0156",
+    "c5b8ReviewedPredecessor": "19d3478651839c7939a5bd22a43497c5eaa57d9b",
+    "c5b5Merge": "3cfe7db16c55894be444d4c783659043dbd25c95"
+  },
+  "root": {
+    "path": "experiments/typed-guest-transport-c5b7-deterministic-runtime-root/dist/runtime-root.ext4",
+    "bytes": 100663296,
+    "sha256": "5ad18f20cbc97c7a70ead3e795fd3649672513323041e913b0eb55b7acc88775",
+    "copiedIntoSuccessor": false
+  },
+  "historicalIncompatibility": {
+    "c5b5RootBytes": 134217728,
+    "historicalProfileAccepted": false,
+    "historicalSizeAccepted": false,
+    "descriptorSizeSubstitutionAccepted": false,
+    "historicalProfileDigestAccepted": false
+  },
+  "bindings": {
+    "profile": {
+      "path": "contracts/root-binding-profile.json",
+      "bytes": 4267,
+      "sha256": "c3ffb923949faed052e7b8bc79909fdaa874e619037d8b8ff96947c568568bfa"
+    },
+    "plan": {
+      "path": "contracts/no-run-plan.json",
+      "bytes": 1459,
+      "sha256": "7a17cf7a79f3e05866d13e343b559299e9dce236a8cd743155f62f7efb558436"
+    },
+    "sourceFrame": {
+      "path": "fixtures/source.frame",
+      "bytes": 255,
+      "sha256": "02e3b77aea5c8d4f26487427db3b9dda2f983195f061fd63cd2fb217b5b22d99"
+    },
+    "inputFrame": {
+      "path": "fixtures/input.frame",
+      "bytes": 188,
+      "sha256": "4ffd2b04aacbf8d9210a0ee8b8525e8257c560a36b67b9dab4b21270d132c7da"
+    }
+  },
+  "objects": {
+    "sealedC5b8": {
+      "path": "inputs/c5b8/controlled-effects.o",
+      "bytes": 8728,
+      "sha256": "b15c4eb6abfbf0bf6ff6d1bf860081be0378273af7c14a9f9a24fd65ffe941ce"
+    },
+    "successorAdapter": {
+      "path": "dist/root-binding-successor-a.o",
+      "bytes": 7776,
+      "sha256": "3d5650a11c8cbf920357af7d7fabbb8880fc96197ad3baec52db34526191821e"
+    },
+    "staticallyComposedRelocatable": {
+      "path": "dist/controlled-effects-root-bound-a.o",
+      "bytes": 15255,
+      "sha256": "2eaaef8a5480e0e6f9d416afef7bc9d467f25c0c4f6122d8e365e90ab3e40d94"
+    },
+    "deterministicBuilds": 2,
+    "byteEqual": true,
+    "format": "Mach-O arm64 MH_OBJECT",
+    "linkedIntoRuntime": false,
+    "loaded": false,
+    "executed": false
+  },
+  "environment": {
+    "operatingSystem": "26.5.2",
+    "architecture": "arm64",
+    "clang": "Apple clang version 21.0.0 (clang-2100.1.1.101)",
+    "node": "v22.22.1"
+  },
+  "verification": [
+    "./scripts/build.sh",
+    "node scripts/generate-profile.mjs --check",
+    "node scripts/generate-evidence.mjs --check",
+    "node scripts/verify.mjs",
+    "node scripts/test-mutations.mjs",
+    "git diff --check"
+  ],
+  "independentReview": {
+    "retained": false,
+    "path": null
+  },
+  "effects": {
+    "runtimeArtifactLoaded": false,
+    "retainedDylibLoaded": false,
+    "dynamicLinkingPerformed": false,
+    "libkrunInvoked": false,
+    "hvfCalled": false,
+    "processStarted": false,
+    "vmStarted": false,
+    "guestStarted": false,
+    "signingPerformed": false,
+    "keychainAccessed": false,
+    "localAuthenticationAccessed": false,
+    "serviceRegistered": false,
+    "installed": false,
+    "hostPathCleanupPerformed": false,
+    "productStateMutated": false,
+    "admissionChanged": false
+  },
+  "limitations": [
+    "The static operation double proves exact binding and order only; no real effect is established.",
+    "The successor does not create the complete C5b9 composite or authorize controlled execution.",
+    "The one-shot sealed C5b8 session remains a controlled-test constraint, not a product session manager.",
+    "Runtime/profile, installed-composition, and product admission remain blocked."
+  ]
+}

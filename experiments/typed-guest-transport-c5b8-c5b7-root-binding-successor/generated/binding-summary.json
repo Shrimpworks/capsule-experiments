@@ -1,0 +1,35 @@
+{
+  "objectType": "capsule.c5b8.c5b7-root-binding-generated-summary",
+  "objectVersion": 2,
+  "profile": {
+    "path": "contracts/root-binding-profile.json",
+    "bytes": 4267,
+    "sha256": "c3ffb923949faed052e7b8bc79909fdaa874e619037d8b8ff96947c568568bfa"
+  },
+  "plan": {
+    "path": "contracts/no-run-plan.json",
+    "bytes": 1459,
+    "sha256": "7a17cf7a79f3e05866d13e343b559299e9dce236a8cd743155f62f7efb558436"
+  },
+  "descriptor": {
+    "path": "fixtures/supervisor-descriptor.json",
+    "bytes": 954,
+    "sha256": "b623bee73e734f08d6633bb0a3a99ef016b5febfd8116c44305718aa921c490a"
+  },
+  "sourceFrame": {
+    "path": "fixtures/source.frame",
+    "bytes": 255,
+    "sha256": "02e3b77aea5c8d4f26487427db3b9dda2f983195f061fd63cd2fb217b5b22d99"
+  },
+  "inputFrame": {
+    "path": "fixtures/input.frame",
+    "bytes": 188,
+    "sha256": "4ffd2b04aacbf8d9210a0ee8b8525e8257c560a36b67b9dab4b21270d132c7da"
+  },
+  "root": {
+    "path": "experiments/typed-guest-transport-c5b7-deterministic-runtime-root/dist/runtime-root.ext4",
+    "bytes": 100663296,
+    "sha256": "5ad18f20cbc97c7a70ead3e795fd3649672513323041e913b0eb55b7acc88775"
+  },
+  "historicalRootBytesRejected": 134217728
+}

@@ -1,0 +1,122 @@
+{
+  "objectType": "capsule.c5b8.c5b7-root-binding-successor-profile",
+  "objectVersion": 2,
+  "identity": "capsule.c5b8.c5b7-root-binding-successor/2026-08-15",
+  "status": "construction-only-not-authorized",
+  "authorityOwner": "Execution Supervisor",
+  "predecessors": {
+    "c5b7RuntimeRoot": {
+      "mergeCommit": "78485fb91a31733c568fe43e5fa295474e5956e1",
+      "profileSha256": "6c39f9803cdd4129c10f86f3eecd10ed9e40d89548a8745221818539b65b644d",
+      "rootBytes": 100663296,
+      "rootSha256": "5ad18f20cbc97c7a70ead3e795fd3649672513323041e913b0eb55b7acc88775"
+    },
+    "c5b8ControlledEffects": {
+      "mergeCommit": "e83614af34d5c39c12a4a3d6e6cda8dcf0304030",
+      "deliveredHead": "15633058649b39b4afa8d01a2439fca6134d0156",
+      "reviewedPredecessor": "19d3478651839c7939a5bd22a43497c5eaa57d9b",
+      "objectBytes": 8728,
+      "objectSha256": "b15c4eb6abfbf0bf6ff6d1bf860081be0378273af7c14a9f9a24fd65ffe941ce",
+      "contractSha256": "c31b0a633aab1944c980fa5ee82db040c6a228e4cb2d93fb074f2660004b7d1e"
+    },
+    "c5b5HistoricalAdapter": {
+      "mergeCommit": "3cfe7db16c55894be444d4c783659043dbd25c95",
+      "sourceSha256": "d3c7a234d9ea03d317dfd8766307be48bb581b2559cdb145884dedc89c12fac2",
+      "headerSha256": "7b069517faa62ae052fc9c3ec0ec098b4f3ce58f35e5a5f377fc9433e7c0bb93",
+      "rootBytes": 134217728,
+      "immutable": true,
+      "acceptedBySuccessor": false
+    }
+  },
+  "compatibilityAbi": {
+    "structure": "c5b5_immutable_profile",
+    "structureBytes": 240,
+    "successorMagic": 1127563859,
+    "successorVersion": 2,
+    "sealedC5b8Imports": [
+      "c5b5_validate_immutable_profile",
+      "c5b5_translate_controller_actions"
+    ],
+    "translation": "validate successor; normalize a private copy only for historical validation/translation; require exactly one historical root operation; replace only its root byte count"
+  },
+  "immutableProfile": {
+    "magic": 1127563859,
+    "version": 2,
+    "structureBytes": 240,
+    "hostRootFd": 4,
+    "sourceFd": 5,
+    "inputFd": 6,
+    "completionFd": 7,
+    "vcpus": 1,
+    "ramMiB": 256,
+    "rootBytes": 100663296,
+    "rootSha256": "5ad18f20cbc97c7a70ead3e795fd3649672513323041e913b0eb55b7acc88775",
+    "sourcePhysicalMaximum": 262296,
+    "inputPhysicalMaximum": 262296,
+    "completionPhysicalMaximum": 262368,
+    "completionRetentionBytes": 262369,
+    "controllerContractSha256": "36285d7fa3f27a992fda413afb38c1ed05a3af30f496c5784b2165d5b2f90e59",
+    "controllerHeaderSha256": "0ae153a47d5a2d0cdfbae7e149139b72abbd35f7f1223dd5745f03df86cadd12",
+    "libkrunHeaderSha256": "dce44d1d70ab770b1089e57646e025281a4137fe5052b9dd8eaefb80c01a1bd8",
+    "libkrunDylibSha256": "055d9d18dc964fec4aba21948c4a344cb7a51cb48a2c70017484b718eae12f9f",
+    "libkrunfwDylibSha256": "0b14f4b8005dafd33c38df5935b9efdb6381c724224b3967ba1cecbecf10b6e9"
+  },
+  "mechanicalDelta": {
+    "changedProfileFields": [
+      "magic",
+      "version",
+      "rootBytes",
+      "rootSha256"
+    ],
+    "changedOperationFields": [
+      "KRUN_ADD_READ_ONLY_RAW_ROOT_FD.valueA"
+    ],
+    "changedBindingFields": [
+      "attemptId",
+      "registrationId",
+      "registeredPlanSha256",
+      "profileBindingSha256",
+      "sourceFrame.planDigest",
+      "sourceFrame.profileDigest",
+      "inputFrame.planDigest",
+      "inputFrame.profileDigest"
+    ],
+    "unchangedAuthorityFields": [
+      "descriptor topology",
+      "transport caps",
+      "controller actions",
+      "operation outcomes",
+      "fixed strings",
+      "resource ordering",
+      "completion-last",
+      "teardown/absence/cleanup"
+    ]
+  },
+  "callerAuthority": {
+    "paths": false,
+    "flags": false,
+    "images": false,
+    "mounts": false,
+    "endpoints": false,
+    "backendConfiguration": false,
+    "replacementPlanBytes": false,
+    "rawActionMask": false,
+    "rawFactMask": false,
+    "operationCallback": false
+  },
+  "effects": {
+    "productionObjectLinkedIntoRuntime": false,
+    "runtimeArtifactLoaded": false,
+    "retainedDylibLoaded": false,
+    "hvfCalled": false,
+    "processStarted": false,
+    "vmStarted": false,
+    "guestStarted": false,
+    "signed": false,
+    "keychainAccessed": false,
+    "serviceRegistered": false,
+    "productStateMutated": false,
+    "admissionChanged": false
+  }
+}
+

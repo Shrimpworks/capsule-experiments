@@ -1,0 +1,4 @@
+dist/* binary
+inputs/**/*.o binary
+fixtures/*.frame binary
+
