@@ -5,8 +5,8 @@
   "descriptorVersion": 1,
   "attemptId": "c5ab61f60d5ddc4c00a1bf50a8669344",
   "registrationId": "5273186561778ee1bb8d78c7911321ce",
-  "registeredPlanSha256": "7a17cf7a79f3e05866d13e343b559299e9dce236a8cd743155f62f7efb558436",
-  "profileBindingSha256": "c3ffb923949faed052e7b8bc79909fdaa874e619037d8b8ff96947c568568bfa",
+  "registeredPlanSha256": "a40c0d0ea77e600b338a50bd71994547b83c4c8aa4a0d8ffedd47ae0864ed35e",
+  "profileBindingSha256": "06079eea39ce9a2e0547837555a6953787d8c32d614f0ec7b9b07ef408de04cd",
   "rootDevice": 101,
   "rootInode": 202,
   "rootBytes": 100663296,
@@ -14,12 +14,12 @@
   "sourceFrame": {
     "path": "fixtures/source.frame",
     "bytes": 255,
-    "sha256": "02e3b77aea5c8d4f26487427db3b9dda2f983195f061fd63cd2fb217b5b22d99"
+    "sha256": "cc38c374626b67a12501235ab89d0d24a5dc0cdaf8ee8fa0d289cec92471a6bc"
   },
   "inputFrame": {
     "path": "fixtures/input.frame",
     "bytes": 188,
-    "sha256": "4ffd2b04aacbf8d9210a0ee8b8525e8257c560a36b67b9dab4b21270d132c7da"
+    "sha256": "27860a50e6909976d30a06340268ccb753996dc931d6f022033dcbd58584e736"
   },
   "callerSelectedAuthority": false
 }

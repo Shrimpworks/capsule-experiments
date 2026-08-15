@@ -109,7 +109,8 @@
     "runtimeArtifactLoaded": false,
     "retainedDylibLoaded": false,
     "hvfCalled": false,
-    "processStarted": false,
+    "repositoryTestDoubleProcessExecuted": true,
+    "backendOrRuntimeProcessStarted": false,
     "vmStarted": false,
     "guestStarted": false,
     "signed": false,
@@ -119,4 +120,3 @@
     "admissionChanged": false
   }
 }
-

@@ -7,8 +7,8 @@
   "registrationId": "5273186561778ee1bb8d78c7911321ce",
   "profile": {
     "path": "contracts/root-binding-profile.json",
-    "bytes": 4267,
-    "sha256": "c3ffb923949faed052e7b8bc79909fdaa874e619037d8b8ff96947c568568bfa"
+    "bytes": 4331,
+    "sha256": "06079eea39ce9a2e0547837555a6953787d8c32d614f0ec7b9b07ef408de04cd"
   },
   "runtimeRoot": {
     "path": "experiments/typed-guest-transport-c5b7-deterministic-runtime-root/dist/runtime-root.ext4",

@@ -7,8 +7,8 @@
   "files": [
     {
       "path": ".gitattributes",
-      "bytes": 60,
-      "sha256": "b1c516f05798a213a5dbac7f3265bd4827192e3a27d192f0fd3aa6585d56c94d"
+      "bytes": 132,
+      "sha256": "8b8cb609bf89ab8bd0b6a4c056ad05897d0e149998c57f7d877472a6780e900e"
     },
     {
       "path": "HANDOFF.md",
@@ -17,23 +17,23 @@
     },
     {
       "path": "README.md",
-      "bytes": 2511,
-      "sha256": "1bede7ca7bf6b2d076f35e63a03dc507ec0d1994850a637419c4a2ae03dd4b2b"
+      "bytes": 2672,
+      "sha256": "152dcd27e26c9c37f7acbd880846ba40a4d666662f4468a4b42bab3da0f08cac"
     },
     {
       "path": "RESULTS.md",
-      "bytes": 2593,
-      "sha256": "d0c11d4335a5eee2deaf5868d17e0196060f2686775f1461515e3839a08923c7"
+      "bytes": 2852,
+      "sha256": "c3dc186e8d24b15e2f9a55adf2102e63f49653791a06ada7c9f9acf2106c205e"
     },
     {
       "path": "contracts/no-run-plan.json",
       "bytes": 1459,
-      "sha256": "7a17cf7a79f3e05866d13e343b559299e9dce236a8cd743155f62f7efb558436"
+      "sha256": "a40c0d0ea77e600b338a50bd71994547b83c4c8aa4a0d8ffedd47ae0864ed35e"
     },
     {
       "path": "contracts/root-binding-profile.json",
-      "bytes": 4267,
-      "sha256": "c3ffb923949faed052e7b8bc79909fdaa874e619037d8b8ff96947c568568bfa"
+      "bytes": 4331,
+      "sha256": "06079eea39ce9a2e0547837555a6953787d8c32d614f0ec7b9b07ef408de04cd"
     },
     {
       "path": "dist/controlled-effects-root-bound-a.o",
@@ -57,8 +57,8 @@
     },
     {
       "path": "evidence/2026-08-15/construction.json",
-      "bytes": 4083,
-      "sha256": "f21b3ac54b0a2be15b29e02f398409076e6fd9d5e6e08c362acba5c3103e97ac"
+      "bytes": 4276,
+      "sha256": "b71142ebdafa8408c97ea0c69747cc95c9d9294b7fc99241c13548574548cb3e"
     },
     {
       "path": "evidence/2026-08-15/mutation-dispositions.json",
@@ -68,22 +68,22 @@
     {
       "path": "fixtures/input.frame",
       "bytes": 188,
-      "sha256": "4ffd2b04aacbf8d9210a0ee8b8525e8257c560a36b67b9dab4b21270d132c7da"
+      "sha256": "27860a50e6909976d30a06340268ccb753996dc931d6f022033dcbd58584e736"
     },
     {
       "path": "fixtures/source.frame",
       "bytes": 255,
-      "sha256": "02e3b77aea5c8d4f26487427db3b9dda2f983195f061fd63cd2fb217b5b22d99"
+      "sha256": "cc38c374626b67a12501235ab89d0d24a5dc0cdaf8ee8fa0d289cec92471a6bc"
     },
     {
       "path": "fixtures/supervisor-descriptor.json",
       "bytes": 954,
-      "sha256": "b623bee73e734f08d6633bb0a3a99ef016b5febfd8116c44305718aa921c490a"
+      "sha256": "6e3ff66b11955f29ee128a20106cab07923c68fe7ad9ada3e8350c55c11d2d25"
     },
     {
       "path": "generated/binding-summary.json",
       "bytes": 1184,
-      "sha256": "e9d39d46bd0a0a8ff43579982ba7e0a75a71d4734854af8064ad27137d44f38e"
+      "sha256": "69200a57b1a3b0343b185c5adc7fd38849c695998bd0f44d1284048bcb3b0737"
     },
     {
       "path": "generated/historical_adapter_local.c",
@@ -93,7 +93,7 @@
     {
       "path": "generated/root_binding_values.h",
       "bytes": 1055,
-      "sha256": "ffd04ec6b1ac5c563f22800b46e6fd33f275db75abbbecea76003f0d547b5a2a"
+      "sha256": "d38c090942db9d5bd577c5aa3e60ba8b99f31877965090a9cc8aca9863e9c33d"
     },
     {
       "path": "inputs/c5b7/construction.json",
@@ -226,9 +226,14 @@
       "sha256": "75913c8579759546174244492fc382da1f522d464a801c4a150a8be78333bce7"
     },
     {
+      "path": "scripts/check-range-whitespace.sh",
+      "bytes": 460,
+      "sha256": "2fa7d3488325f7f94c336bdf9135d6c65b2bb4a3b299ddf63f71f24149d6ebfc"
+    },
+    {
       "path": "scripts/generate-evidence.mjs",
-      "bytes": 7519,
-      "sha256": "d3c8025aa66ee0ae1d740b75de681ac64b00a3c5ad88a0b1af3b717698aa266c"
+      "bytes": 7708,
+      "sha256": "23c62bac6d65b1c5af12a578eae388314787fd43bf4b5629f84b4ffa57c05127"
     },
     {
       "path": "scripts/generate-profile.mjs",
@@ -242,8 +247,8 @@
     },
     {
       "path": "scripts/verify-lib.mjs",
-      "bytes": 12020,
-      "sha256": "fa0df215056280be172745c27cda0890e823618a94602597bef33e01d3538371"
+      "bytes": 12167,
+      "sha256": "5c98f781904c15bcb5ce0d0f30d9ad23ee2209db6dd59d86485034157540e233"
     },
     {
       "path": "scripts/verify.mjs",
@@ -257,8 +262,8 @@
     },
     {
       "path": "source/root_binding_successor.h",
-      "bytes": 869,
-      "sha256": "223b35e8d57ba524ca70637d464d428fd56098af995139fd7a7087d0a49038c7"
+      "bytes": 868,
+      "sha256": "f1a9d1e0c4669470d558dea790de852bec385c8198385b8e2327a0fb871c6e2f"
     },
     {
       "path": "source/test_double.c",

@@ -24,4 +24,3 @@ int32_t c5b5_translate_controller_actions(
 );
 
 #endif
-

@@ -13,17 +13,19 @@ Status: `PASSED` for the exact deterministic, no-run successor scope.
 - Byte-equal statically composed objects: 15,255 bytes, SHA-256
   `2eaaef8a5480e0e6f9d416afef7bc9d467f25c0c4f6122d8e365e90ab3e40d94`.
 - Successor profile SHA-256:
-  `c3ffb923949faed052e7b8bc79909fdaa874e619037d8b8ff96947c568568bfa`.
+  `06079eea39ce9a2e0547837555a6953787d8c32d614f0ec7b9b07ef408de04cd`.
 - No-run plan SHA-256:
-  `7a17cf7a79f3e05866d13e343b559299e9dce236a8cd743155f62f7efb558436`.
+  `a40c0d0ea77e600b338a50bd71994547b83c4c8aa4a0d8ffedd47ae0864ed35e`.
 - Source/input frame SHA-256 values:
-  `02e3b77aea5c8d4f26487427db3b9dda2f983195f061fd63cd2fb217b5b22d99` and
-  `4ffd2b04aacbf8d9210a0ee8b8525e8257c560a36b67b9dab4b21270d132c7da`.
+  `cc38c374626b67a12501235ab89d0d24a5dc0cdaf8ee8fa0d289cec92471a6bc` and
+  `27860a50e6909976d30a06340268ccb753996dc931d6f022033dcbd58584e736`.
 
 The composite exports only the two sealed C5b8 entry points and the two C5b5-compatible successor
 entry points. The renamed historical helpers remain private. Its undefined operation surface is
 unchanged: two C5b3 functions, the single fixed C5b8 operation port, and the exact 13 historical
-libkrun symbols. The retained objects were not loaded or executed.
+libkrun symbols. The component objects were statically linked into and exercised only by the
+permitted local repository test double. No retained dylib, backend, or runtime artifact was loaded
+or executed.
 
 ## Refusal and mutation result
 
@@ -41,8 +43,8 @@ again after every case.
 
 ## Security-claim boundary
 
-This is static compatibility and controlled-test evidence, not real execution evidence. It does
-not load the retained dylib or runtime, invoke libkrun or HVF, launch a process/VM/guest, sign,
-access Keychain or LocalAuthentication, register/install a service, clean non-temporary host paths,
-or change product admission.
-
+This is static compatibility and controlled-test evidence, not real backend execution evidence.
+The permitted local repository test-double process exercised the statically linked successor and
+sealed C5b8 code. It did not load the retained dylib or runtime, invoke libkrun or HVF, launch a
+backend/VM/guest, sign, access Keychain or LocalAuthentication, register/install a service, clean
+non-temporary host paths, or change product admission.

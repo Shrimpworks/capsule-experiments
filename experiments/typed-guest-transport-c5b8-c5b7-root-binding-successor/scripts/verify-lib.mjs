@@ -11,7 +11,6 @@ const keys = (value) => Object.keys(value).sort();
 function ref(path, bytes) {
   return { path, bytes: bytes.length, sha256: sha256(bytes) };
 }
-
 function filesBelow(root, current = root) {
   const output = [];
   for (const name of readdirSync(current).sort()) {
@@ -143,7 +142,9 @@ export function verifyCandidate(candidateRoot, repositoryRoot = resolve(candidat
   assert.equal(plan.sealedControlledEffects.sha256, sha256(c5b8Object));
   assert.equal(Object.values(plan.authority).every((value) => value === false), true);
   assert.equal(Object.values(profile.callerAuthority).every((value) => value === false), true);
-  assert.equal(Object.values(profile.effects).every((value) => value === false), true);
+  assert.equal(profile.effects.repositoryTestDoubleProcessExecuted, true);
+  assert.equal(Object.entries(profile.effects).filter(([key]) =>
+    key !== 'repositoryTestDoubleProcessExecuted').every(([, value]) => value === false), true);
 
   const bindings = {
     attemptId: plan.attemptId,
@@ -210,4 +211,3 @@ export function verifyCandidate(candidateRoot, repositoryRoot = resolve(candidat
     guestStarted: false,
   };
 }
-

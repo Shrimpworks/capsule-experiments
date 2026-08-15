@@ -29,7 +29,9 @@ task-owned temporary roots.
   exactly one historical root operation and mechanically replaces only its byte count.
 - Rebuild the plan, profile, descriptor, and both frame digest bindings from their actual bytes.
 - Compile the successor and statically compose it with the sealed C5b8 object twice. Compare both
-  builds byte-for-byte; do not load or execute either retained object.
+  builds byte-for-byte. Statically link the component objects into only the permitted repository
+  test-double process and exercise their entry points; do not load a retained dylib, backend, or
+  runtime artifact.
 - Run a local operation double whose libkrun stubs abort if called, plus independent verifier
   mutation/restoration checks.
 
@@ -41,7 +43,7 @@ node scripts/generate-profile.mjs --check
 node scripts/generate-evidence.mjs --check
 node scripts/verify.mjs
 node scripts/test-mutations.mjs
-git diff --check
+./scripts/check-range-whitespace.sh
 ```
 
 ## Security-claim boundary
@@ -50,4 +52,3 @@ The result proves deterministic construction, exact static binding, refusal beha
 test-double sequencing only. It does not prove any real backend effect, runtime composition, VM or
 guest launch, descriptor custody, crash recovery, concurrency, installation, or product admission.
 C5b9 remains the first possible separately reviewed complete composition slice.
-
