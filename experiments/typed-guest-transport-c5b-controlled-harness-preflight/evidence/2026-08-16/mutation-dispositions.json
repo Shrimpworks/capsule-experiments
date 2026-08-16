@@ -1,0 +1,15 @@
+{
+  "status": "PASSED",
+  "cases": [
+    "execution-authorization",
+    "host-root-size",
+    "host-root-digest",
+    "start-enter-order",
+    "candidate-disposition",
+    "contradiction-removal",
+    "caller-authority",
+    "guest-effect",
+    "component-substitution",
+    "closed-inventory-extra"
+  ]
+}
