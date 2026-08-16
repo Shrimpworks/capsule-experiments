@@ -1,0 +1,19 @@
+{
+  "status": "PASSED",
+  "cases": [
+    "component-digest",
+    "root-size",
+    "controller-abi",
+    "libkrun-abi",
+    "operation-provider",
+    "execution-authorization",
+    "caller-authority",
+    "guest-effect",
+    "transport-cap",
+    "completion-last",
+    "teardown-order",
+    "historical-identity-reuse",
+    "predecessor-substitution",
+    "closed-inventory-extra"
+  ]
+}

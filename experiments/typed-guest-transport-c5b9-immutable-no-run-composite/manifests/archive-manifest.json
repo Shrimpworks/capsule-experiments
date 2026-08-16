@@ -1,0 +1,78 @@
+{
+  "objectType": "capsule.experiment-archive-manifest",
+  "objectVersion": 1,
+  "identity": "capsule.c5b9.immutable-no-run-composite/2026-08-16",
+  "manifestSelfExcluded": true,
+  "files": [
+    {
+      "path": "HANDOFF.md",
+      "bytes": 1160,
+      "sha256": "3df59e840af209adf485cb9ab34a1854fd7754b911e6bcf0e8d56cc8f7f811a6"
+    },
+    {
+      "path": "README.md",
+      "bytes": 2067,
+      "sha256": "69b5fe28fbdc6a35763df3e17136689d6257ace7e60a3350fa92609356de3f64"
+    },
+    {
+      "path": "RESULTS.md",
+      "bytes": 1650,
+      "sha256": "5e102156d4989734395b87c968c5edfe3f7e84e2c9e5551d0dfeb2c2a34546b5"
+    },
+    {
+      "path": "contracts/composite-profile.json",
+      "bytes": 4845,
+      "sha256": "b241ff429696aa71e412b6889065b50cb941ba893baebbb78c55e5c8dbc520f0"
+    },
+    {
+      "path": "contracts/no-run-composite.json",
+      "bytes": 1696,
+      "sha256": "be39567707323e91be0a5c5d56c51d9af9db5f2a13c4ed22a3183cd8ab46d502"
+    },
+    {
+      "path": "evidence/2026-08-16/construction.json",
+      "bytes": 589,
+      "sha256": "14775dc3cd14d8cb4eab23e605b862bda0c7f8a2cd053bd05a7e79ffcc8fe3ba"
+    },
+    {
+      "path": "evidence/2026-08-16/mutation-dispositions.json",
+      "bytes": 386,
+      "sha256": "df0d4d808868f58759619c83fe2eda7ea86b52f1948df2685be059d55b1efbe8"
+    },
+    {
+      "path": "fixtures/completion.frame",
+      "bytes": 259,
+      "sha256": "2b55d85aabd55837f95ef5da9058def019adc2ec6e3bc3bf22c1334af28ac839"
+    },
+    {
+      "path": "scripts/generate.mjs",
+      "bytes": 9085,
+      "sha256": "94206c3b084fcdcb26b0e0e3e9ccd1e9d7cfa95db654e445e87744f68c1cfb45"
+    },
+    {
+      "path": "scripts/test-mutations.mjs",
+      "bytes": 2850,
+      "sha256": "65da576ffc5c141a5c0e1bbe1466872b0d4ac386feac9c6e11fb462c59daae70"
+    },
+    {
+      "path": "scripts/verify-lib.mjs",
+      "bytes": 7176,
+      "sha256": "4f4a9ac3d9971c7dc720cc7c841263626874213ea3cadd984a31003d177243f1"
+    },
+    {
+      "path": "scripts/verify-profile.mjs",
+      "bytes": 2842,
+      "sha256": "68d4907e0d65ebbf67b300ebc2e26b3e82483cb882d46229c32536105cbafc6a"
+    },
+    {
+      "path": "scripts/verify-profile.test.mjs",
+      "bytes": 3785,
+      "sha256": "99da329a4a352e7767e6647c6ca2db714f5eb567e8a20ccf0012faaf361e60c8"
+    },
+    {
+      "path": "scripts/verify.mjs",
+      "bytes": 284,
+      "sha256": "7bcbdab87738f5c95acb81c422e25f9f508b7af8c0eeb93748443882e7dd5462"
+    }
+  ]
+}

@@ -1,0 +1,145 @@
+{
+  "objectType": "capsule.c5b9.immutable-no-run-composite",
+  "objectVersion": 1,
+  "identity": "capsule.c5b9.immutable-no-run-composite/2026-08-16",
+  "status": "construction-only-not-authorized",
+  "predecessors": {
+    "c5b2": "5a2f835e8c9df8279237f940f5af757e119593bd",
+    "c5b4": "068e221dafa7cf3e9a945cee7e8bf077eeed1c6b",
+    "c5b7": "78485fb91a31733c568fe43e5fa295474e5956e1",
+    "c5b8RootBinding": "b0819d76883eb86cbbc03b2b7033fe55bedbf713"
+  },
+  "components": {
+    "hostRunner": {
+      "path": "experiments/typed-guest-transport-c5b2-governed-input-closure/inputs/c2b-v4/capsule-host-runner",
+      "bytes": 100488,
+      "sha256": "a30e3f7cba5f480b6e164536854749b5e1ba3349f20af6c9c8e5d2590bffe1ad"
+    },
+    "libkrun": {
+      "path": "experiments/typed-guest-transport-c5b2-governed-input-closure/inputs/c2b-v4/libkrun.1.dylib",
+      "bytes": 4393448,
+      "sha256": "055d9d18dc964fec4aba21948c4a344cb7a51cb48a2c70017484b718eae12f9f"
+    },
+    "libkrunfw": {
+      "path": "experiments/typed-guest-transport-c5b4-libkrunfw-recovery/artifacts/libkrunfw.5.dylib",
+      "bytes": 24339104,
+      "sha256": "0b14f4b8005dafd33c38df5935b9efdb6381c724224b3967ba1cecbecf10b6e9"
+    },
+    "runtimeRoot": {
+      "path": "experiments/typed-guest-transport-c5b7-deterministic-runtime-root/dist/runtime-root.ext4",
+      "bytes": 100663296,
+      "sha256": "5ad18f20cbc97c7a70ead3e795fd3649672513323041e913b0eb55b7acc88775"
+    },
+    "controller": {
+      "path": "experiments/typed-guest-transport-c5b3-controlled-test-controller/dist/controller-core-a.o",
+      "bytes": 1752,
+      "sha256": "d9d4a33a35b4d186a9076bc6c5fa63515ffbebdcd64a5a751193c550abbe6b9d"
+    },
+    "rootBoundEffects": {
+      "path": "experiments/typed-guest-transport-c5b8-c5b7-root-binding-successor/dist/controlled-effects-root-bound-a.o",
+      "bytes": 15255,
+      "sha256": "2eaaef8a5480e0e6f9d416afef7bc9d467f25c0c4f6122d8e365e90ab3e40d94"
+    }
+  },
+  "abi": {
+    "controllerDefined": [
+      "_c5b3_controller_reset",
+      "_c5b3_controller_step"
+    ],
+    "effectUndefinedController": [
+      "_c5b3_controller_reset",
+      "_c5b3_controller_step"
+    ],
+    "libkrunSymbols": [
+      "_krun_add_console_port_inout",
+      "_krun_add_read_only_raw_root_fd",
+      "_krun_add_virtio_console_multiport",
+      "_krun_create_ctx",
+      "_krun_disable_implicit_console",
+      "_krun_disable_implicit_init",
+      "_krun_disable_implicit_vsock",
+      "_krun_set_exec",
+      "_krun_set_kernel_console",
+      "_krun_set_root_disk_remount",
+      "_krun_set_vm_config",
+      "_krun_set_workdir",
+      "_krun_start_enter"
+    ],
+    "runnerLibkrunImports": [
+      "_krun_add_console_port_inout",
+      "_krun_add_read_only_raw_root_fd",
+      "_krun_add_virtio_console_multiport",
+      "_krun_create_ctx",
+      "_krun_disable_implicit_console",
+      "_krun_disable_implicit_init",
+      "_krun_disable_implicit_vsock",
+      "_krun_set_exec",
+      "_krun_set_kernel_console",
+      "_krun_set_root_disk_remount",
+      "_krun_set_vm_config",
+      "_krun_set_workdir",
+      "_krun_start_enter"
+    ],
+    "effectLibkrunImports": [
+      "_krun_add_console_port_inout",
+      "_krun_add_read_only_raw_root_fd",
+      "_krun_add_virtio_console_multiport",
+      "_krun_create_ctx",
+      "_krun_disable_implicit_console",
+      "_krun_disable_implicit_init",
+      "_krun_disable_implicit_vsock",
+      "_krun_set_exec",
+      "_krun_set_kernel_console",
+      "_krun_set_root_disk_remount",
+      "_krun_set_vm_config",
+      "_krun_set_workdir",
+      "_krun_start_enter"
+    ],
+    "libkrunExportsCoverImports": true,
+    "fixedOperationPort": {
+      "symbol": "_c5b8_controlled_test_operation",
+      "provider": null,
+      "bindingStatus": "BLOCKED"
+    },
+    "libkrunfwRole": "sole-runtime-boot-kernel-carrier",
+    "separateFirmware": "INAPPLICABLE"
+  },
+  "transport": {
+    "payloadMaximumBytes": 262144,
+    "sourcePhysicalMaximum": 262296,
+    "inputPhysicalMaximum": 262296,
+    "completionPhysicalMaximum": 262368,
+    "completionRetentionBytes": 262369,
+    "completionLast": true,
+    "teardownOrder": [
+      "child-tree-terminated",
+      "runner-absent",
+      "root-unlinked",
+      "durable-commit",
+      "delivery"
+    ]
+  },
+  "authorization": {
+    "ownerConfirmedHost": null,
+    "ownedDisposableGuest": null,
+    "authorizationId": null,
+    "executionAuthorized": false,
+    "callerSelectedAuthority": false
+  },
+  "historicalV19V27": {
+    "rawBytesRecovered": false,
+    "identityReused": false
+  },
+  "effects": {
+    "libkrunLoaded": false,
+    "artifactLoaded": false,
+    "runnerStarted": false,
+    "hvfCalled": false,
+    "vmStarted": false,
+    "guestStarted": false,
+    "networkAccessed": false,
+    "credentialsAccessed": false,
+    "productStateMutated": false,
+    "admissionChanged": false
+  }
+}

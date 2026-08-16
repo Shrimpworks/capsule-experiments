@@ -1,0 +1,45 @@
+{
+  "objectType": "capsule.c5b9.no-run-composite-plan",
+  "objectVersion": 1,
+  "identity": "capsule.c5b9.no-run-composite-plan/2026-08-16",
+  "status": "construction-only-not-authorized",
+  "compositeProfile": {
+    "path": "contracts/composite-profile.json",
+    "bytes": 4845,
+    "sha256": "b241ff429696aa71e412b6889065b50cb941ba893baebbb78c55e5c8dbc520f0"
+  },
+  "executionProfile": {
+    "path": "experiments/typed-guest-transport-c5b8-c5b7-root-binding-successor/contracts/root-binding-profile.json",
+    "bytes": 4331,
+    "sha256": "06079eea39ce9a2e0547837555a6953787d8c32d614f0ec7b9b07ef408de04cd"
+  },
+  "executionPlan": {
+    "path": "experiments/typed-guest-transport-c5b8-c5b7-root-binding-successor/contracts/no-run-plan.json",
+    "bytes": 1459,
+    "sha256": "a40c0d0ea77e600b338a50bd71994547b83c4c8aa4a0d8ffedd47ae0864ed35e"
+  },
+  "fixtures": {
+    "source": {
+      "path": "experiments/typed-guest-transport-c5b8-c5b7-root-binding-successor/fixtures/source.frame",
+      "bytes": 255,
+      "sha256": "cc38c374626b67a12501235ab89d0d24a5dc0cdaf8ee8fa0d289cec92471a6bc"
+    },
+    "input": {
+      "path": "experiments/typed-guest-transport-c5b8-c5b7-root-binding-successor/fixtures/input.frame",
+      "bytes": 188,
+      "sha256": "27860a50e6909976d30a06340268ccb753996dc931d6f022033dcbd58584e736"
+    },
+    "completion": {
+      "path": "fixtures/completion.frame",
+      "bytes": 259,
+      "sha256": "2b55d85aabd55837f95ef5da9058def019adc2ec6e3bc3bf22c1334af28ac839"
+    }
+  },
+  "authorization": {
+    "ownerConfirmedHost": null,
+    "ownedDisposableGuest": null,
+    "authorizationId": null,
+    "executionAuthorized": false,
+    "callerSelectedAuthority": false
+  }
+}
