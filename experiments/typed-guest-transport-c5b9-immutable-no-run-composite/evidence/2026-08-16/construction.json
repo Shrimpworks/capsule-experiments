@@ -1,0 +1,18 @@
+{
+  "workItem": "C5b9 immutable no-run composite",
+  "scopedStatus": "PASSED",
+  "controlledExecution": "BLOCKED",
+  "result": "Exact retained components, ABI/load surfaces, transport caps, completion-last ordering, and null authorization are bound without loading an artifact.",
+  "effects": {
+    "libkrunLoaded": false,
+    "artifactLoaded": false,
+    "runnerStarted": false,
+    "hvfCalled": false,
+    "vmStarted": false,
+    "guestStarted": false,
+    "networkAccessed": false,
+    "credentialsAccessed": false,
+    "productStateMutated": false,
+    "admissionChanged": false
+  }
+}
