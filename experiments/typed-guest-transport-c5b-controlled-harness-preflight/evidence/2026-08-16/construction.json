@@ -1,0 +1,18 @@
+{
+  "workItem": "C5b controlled-harness build-only preflight",
+  "scopedStatus": "PASSED",
+  "directBindingCandidate": "NO_GO",
+  "parentControlledExecution": "BLOCKED",
+  "observation": "The retained C5b9 inputs cannot be truthfully joined by implementing only the fixed C5b8 operation symbol.",
+  "inference": "A successor adapter must make the fixed host-runner process the sole libkrun owner and expose process/transport effects in controller order.",
+  "effects": {
+    "libkrunLoaded": false,
+    "hvfCalled": false,
+    "runnerStarted": false,
+    "vmStarted": false,
+    "guestStarted": false,
+    "networkAccessed": false,
+    "credentialsAccessed": false,
+    "productStateMutated": false
+  }
+}

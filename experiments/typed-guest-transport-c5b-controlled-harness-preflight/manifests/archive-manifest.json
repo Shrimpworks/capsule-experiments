@@ -1,0 +1,63 @@
+{
+  "objectType": "capsule.experiment-archive-manifest",
+  "objectVersion": 1,
+  "identity": "capsule.c5b.controlled-harness-preflight/2026-08-16",
+  "manifestSelfExcluded": true,
+  "files": [
+    {
+      "path": "HANDOFF.md",
+      "bytes": 2238,
+      "sha256": "f5c8221a223d47fc9464ece996197c33ed742ad25b529181586737e3e8983e94"
+    },
+    {
+      "path": "README.md",
+      "bytes": 2626,
+      "sha256": "eeb3a35cbe8bb028e6847c935037ae0ffae31a2a0def2c77c2ea03377abc28e0"
+    },
+    {
+      "path": "RESULTS.md",
+      "bytes": 1105,
+      "sha256": "dcfb2e8a8ba93c88d6f6e643d757acfcc272d9eed24bb03970345dff84ab09cd"
+    },
+    {
+      "path": "contracts/preflight.json",
+      "bytes": 4007,
+      "sha256": "d0c65c59eec5a8fcf141250fd8578813b348e53b7542355aabf6296f11a45af6"
+    },
+    {
+      "path": "evidence/2026-08-16/construction.json",
+      "bytes": 705,
+      "sha256": "ea37021dee2a4f529253e2db83457def615b172eadc2e910c585b6358e4dec75"
+    },
+    {
+      "path": "evidence/2026-08-16/mutation-dispositions.json",
+      "bytes": 306,
+      "sha256": "815fc16004072b3f045892fc4e65f278f9177c2cf657024da2d211d1b1d42c2e"
+    },
+    {
+      "path": "scripts/generate.mjs",
+      "bytes": 7729,
+      "sha256": "9541b8793520b9bd9be31cdad687c927dcb657b5d47149748837fe52801a1613"
+    },
+    {
+      "path": "scripts/test-mutations.mjs",
+      "bytes": 2252,
+      "sha256": "b34b47775f2b3bffae173c2682c4630743ed0e35ba6ddf3b288c895f8eafa4b4"
+    },
+    {
+      "path": "scripts/verify-profile.mjs",
+      "bytes": 7280,
+      "sha256": "f330032b2b78ee62425b7bf662f934f51edb8cfc3ce356fcf5a4ac5d5b012283"
+    },
+    {
+      "path": "scripts/verify-profile.test.mjs",
+      "bytes": 4967,
+      "sha256": "85c6f9d70c55ba1717b4da8ef537c49338d22196d37973f9996e40de6e678e77"
+    },
+    {
+      "path": "scripts/verify.mjs",
+      "bytes": 3077,
+      "sha256": "d71afb2a8d521eff12e8eba36d140a72f352212d153511d6e0f4a8361e4ceca8"
+    }
+  ]
+}

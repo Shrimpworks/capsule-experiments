@@ -1,0 +1,102 @@
+#!/usr/bin/env node
+
+import assert from "node:assert/strict";
+import { validatePreflight } from "./verify-profile.mjs";
+
+const valid = () => ({
+  objectType: "capsule.c5b.controlled-harness-preflight",
+  objectVersion: 1,
+  identity: "capsule.c5b.controlled-harness-preflight/2026-08-16",
+  status: "build-only-no-run",
+  components: {
+    c5b9Profile: { path: "experiments/typed-guest-transport-c5b9-immutable-no-run-composite/contracts/composite-profile.json", bytes: 4845, sha256: "b241ff429696aa71e412b6889065b50cb941ba893baebbb78c55e5c8dbc520f0" },
+    c5b9Plan: { path: "experiments/typed-guest-transport-c5b9-immutable-no-run-composite/contracts/no-run-composite.json", bytes: 1696, sha256: "be39567707323e91be0a5c5d56c51d9af9db5f2a13c4ed22a3183cd8ab46d502" },
+    hostRunnerSource: { path: "experiments/typed-guest-transport-c5b2-governed-input-closure/inputs/c2b-v4/capsule-host-runner.c", bytes: 7917, sha256: "5a5560fa667390253bf504d7c045fcbcc304fa5829b22a8acf1fff00a8e37eb9" },
+    hostRunner: { path: "experiments/typed-guest-transport-c5b2-governed-input-closure/inputs/c2b-v4/capsule-host-runner", bytes: 100488, sha256: "a30e3f7cba5f480b6e164536854749b5e1ba3349f20af6c9c8e5d2590bffe1ad" },
+    rootBoundEffects: { path: "experiments/typed-guest-transport-c5b8-c5b7-root-binding-successor/dist/controlled-effects-root-bound-a.o", bytes: 15255, sha256: "2eaaef8a5480e0e6f9d416afef7bc9d467f25c0c4f6122d8e365e90ab3e40d94" },
+    effectAdapter: { path: "experiments/typed-guest-transport-c5b8-c5b7-root-binding-successor/generated/historical_adapter_local.c", bytes: 10835, sha256: "1619ba985e46f476189439155606484c4a1a462d31f0cf2eec7085ea88b10404" },
+    operationHeader: { path: "experiments/typed-guest-transport-c5b8-c5b7-root-binding-successor/inputs/c5b8/source/controlled_effects_internal.h", bytes: 2659, sha256: "f028a5cec6a6470e1b2aec170fbb7bd379f48d6f79e32d1e017a73b51e01bc74" },
+  },
+  authorization: {
+    ownerConfirmedHost: {
+      hostname: "Dylans-MacBook-Pro.local",
+      architecture: "Apple silicon",
+      operatingSystem: "macOS 26.5.2 (25F84)",
+    },
+    ownedDisposableGuest: {
+      platform: "Linux/arm64",
+      freshPerAttempt: true,
+      builtSolelyFromMerge: "3965e6b5cc87d476da7f431d7ed8a5758011a1b8",
+    },
+    preparationAuthorized: true,
+    executionAuthorized: false,
+    finalManifestAuthorizationRequired: true,
+  },
+  exactCandidate: {
+    disposition: "NO_GO",
+    operationProviderSymbol: "_c5b8_controlled_test_operation",
+    contradictions: [
+      "root-identity-mismatch",
+      "execution-order-mismatch",
+      "operation-protocol-mismatch",
+      "duplicate-libkrun-ownership",
+    ],
+  },
+  observedBindings: {
+    c5b9Merge: "3965e6b5cc87d476da7f431d7ed8a5758011a1b8",
+    c5b9RootBytes: 100663296,
+    c5b9RootSha256: "5ad18f20cbc97c7a70ead3e795fd3649672513323041e913b0eb55b7acc88775",
+    hostRunnerRootBytes: 134217728,
+    hostRunnerRootSha256: "390a4786a20d45f1c691ec8c203f84f5e9d372a30e98f867cc8309a144ca6798",
+    startEnterWithinStartRunnerOrdinal: 17,
+    startEnterNominalOrdinal: 19,
+    sourceWriteNominalOrdinal: 20,
+    inputWriteNominalOrdinal: 21,
+  },
+  requiredSuccessor: {
+    singleLibkrunOwner: "fixed-host-runner-process",
+    operationSurface: [
+      "create-fixed-endpoints",
+      "spawn-fixed-runner",
+      "verify-ready-byte",
+      "write-source-frame",
+      "write-input-frame",
+      "close-input-writers",
+      "send-start-byte",
+      "drain-and-validate-completion",
+      "join-terminal-state",
+      "prove-absence",
+      "remove-fixed-root",
+      "commit-before-delivery",
+    ],
+    callerSelectedAuthority: false,
+  },
+  effects: {
+    libkrunLoaded: false,
+    hvfCalled: false,
+    runnerStarted: false,
+    vmStarted: false,
+    guestStarted: false,
+    networkAccessed: false,
+    credentialsAccessed: false,
+    productStateMutated: false,
+  },
+});
+
+validatePreflight(valid());
+
+for (const [label, mutate, pattern] of [
+  ["execution authorization", (value) => { value.authorization.executionAuthorized = true; }, /execution authorization/u],
+  ["component substitution", (value) => { value.components.hostRunner.sha256 = "0".repeat(64); }, /hostRunner component/u],
+  ["root mismatch erased", (value) => { value.observedBindings.hostRunnerRootBytes = 100663296; }, /host runner root/u],
+  ["ordering erased", (value) => { value.observedBindings.startEnterNominalOrdinal = 22; }, /start-enter nominal ordinal|effect ordering/u],
+  ["candidate revived", (value) => { value.exactCandidate.disposition = "PASSED"; }, /candidate disposition/u],
+  ["caller authority", (value) => { value.requiredSuccessor.callerSelectedAuthority = true; }, /caller authority/u],
+  ["guest effect", (value) => { value.effects.guestStarted = true; }, /effects boundary/u],
+]) {
+  const value = structuredClone(valid());
+  mutate(value);
+  assert.throws(() => validatePreflight(value), pattern, label);
+}
+
+console.log("C5b controlled-harness preflight profile tests PASSED");
