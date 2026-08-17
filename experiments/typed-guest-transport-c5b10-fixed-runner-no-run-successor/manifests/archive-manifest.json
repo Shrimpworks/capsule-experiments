@@ -1,0 +1,128 @@
+{
+  "objectType": "capsule.experiment-archive-manifest",
+  "objectVersion": 1,
+  "identity": "capsule.c5b10.fixed-runner-no-run-successor/2026-08-17",
+  "manifestSelfExcluded": true,
+  "files": [
+    {
+      "path": "HANDOFF.md",
+      "bytes": 2378,
+      "sha256": "bfa873fdb9ebf1389c1138f1faa5e0319b037e6e4cb4d889c24463cd9e43d7e6"
+    },
+    {
+      "path": "README.md",
+      "bytes": 5565,
+      "sha256": "8454380bc5104a3f559a24f62da0d71eddc4f4dd2376fc5b8da76504e3410f36"
+    },
+    {
+      "path": "RESULTS.md",
+      "bytes": 3372,
+      "sha256": "4c2302a8e13b25d22e856083f0e78f1cea9b7d870cba7dfa7c03c729c59998b6"
+    },
+    {
+      "path": "contracts/fixed-runner-profile.json",
+      "bytes": 10133,
+      "sha256": "5bf9efd8694eeca008a8d4589b627f9c4c0f6b6ff31ea0c4cd2524812aa91ac2"
+    },
+    {
+      "path": "contracts/no-run-successor.json",
+      "bytes": 2402,
+      "sha256": "185e112856ec0ccc4b00e2aa941e5967950e05535ea81dcd27347f9474663e08"
+    },
+    {
+      "path": "dist/fixed-runner.o",
+      "bytes": 74624,
+      "sha256": "6471ca3e151706fcb714973ffcc67605b72a374bfd9a1d6febfb87b7d9b8b32d"
+    },
+    {
+      "path": "dist/supervisor-effect-driver.o",
+      "bytes": 4928,
+      "sha256": "ab8a92bb9c3c9bdc9f9e06edb087442b5f873374718418eecf61ff91473ad12c"
+    },
+    {
+      "path": "evidence/2026-08-17/construction.json",
+      "bytes": 1303,
+      "sha256": "24f77abad4ce22591504255ef993089b77ec946ee82840dcc394e9ad49c0dddb"
+    },
+    {
+      "path": "evidence/2026-08-17/mutation-dispositions.json",
+      "bytes": 596,
+      "sha256": "26eebb6b2a9d059de0d41c5c701aa4ff881d984519e5a20ad4bc7e6f04c3d3c0"
+    },
+    {
+      "path": "fixtures/completion.frame",
+      "bytes": 259,
+      "sha256": "2b55d85aabd55837f95ef5da9058def019adc2ec6e3bc3bf22c1334af28ac839"
+    },
+    {
+      "path": "fixtures/effect-sequence.json",
+      "bytes": 1296,
+      "sha256": "01d5ffaf05c5cf79dd574ef07fce97f6afb192dbbfbb0ed9153aea0f5a115410"
+    },
+    {
+      "path": "fixtures/input.frame",
+      "bytes": 188,
+      "sha256": "27860a50e6909976d30a06340268ccb753996dc931d6f022033dcbd58584e736"
+    },
+    {
+      "path": "fixtures/source.frame",
+      "bytes": 255,
+      "sha256": "cc38c374626b67a12501235ab89d0d24a5dc0cdaf8ee8fa0d289cec92471a6bc"
+    },
+    {
+      "path": "reviews/REVIEW_PACKET.md",
+      "bytes": 2768,
+      "sha256": "ded3ee1a45a4ea44d2d1198615374b087ebbbb48d74573102407458f90cc0117"
+    },
+    {
+      "path": "scripts/build.sh",
+      "bytes": 1352,
+      "sha256": "f3086395df02d6df47ad064aa2c1c47f82e34ac483b9206e284b7ed343412678"
+    },
+    {
+      "path": "scripts/generate.mjs",
+      "bytes": 11608,
+      "sha256": "86f7f8809b9ecdac790d4ef09bd80bddc25f3604dc780448adaaa5e7d3766317"
+    },
+    {
+      "path": "scripts/test-mutations.mjs",
+      "bytes": 4282,
+      "sha256": "9cf85e9a66d51febd8d6f6fdd15b9d5ac3b8bcba9768dbb737ab27b3302e896c"
+    },
+    {
+      "path": "scripts/verify-lib.mjs",
+      "bytes": 12203,
+      "sha256": "6a5ff9b58ce54e0b5f04a3fd8856dd350e610339dcef7b35a64947f726c7f8dc"
+    },
+    {
+      "path": "scripts/verify-profile.mjs",
+      "bytes": 7580,
+      "sha256": "d6f81c45bcc73167087695fc9b47bb2e1f25fd95372e7b679feaed180b26b17c"
+    },
+    {
+      "path": "scripts/verify-profile.test.mjs",
+      "bytes": 5704,
+      "sha256": "314cfa5dd3575dbead05865f0ee54fd069c61ee32496e9357d1ca6b39e2f080e"
+    },
+    {
+      "path": "scripts/verify.mjs",
+      "bytes": 872,
+      "sha256": "83123bd150f0c041bff7335e8bb0eaad4b3eb99963b80afc49eb5b9665271b7d"
+    },
+    {
+      "path": "source/fixed_runner.c",
+      "bytes": 7748,
+      "sha256": "a28bc157b974d2e30d3b4b19bda937150fe25aa940edcb1ab769d4c6362c81dc"
+    },
+    {
+      "path": "source/supervisor_effect_abi.h",
+      "bytes": 3152,
+      "sha256": "8b65d74b5ef27c5bbb4b81b0829258b3c7a0f2f4196a5ac43d87ae127430131e"
+    },
+    {
+      "path": "source/supervisor_effect_driver.c",
+      "bytes": 7985,
+      "sha256": "0bd868a0de78a081b6dff3a2177d961055f5616fa22316e0d409ebba901c3fd7"
+    }
+  ]
+}

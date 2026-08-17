@@ -1,0 +1,262 @@
+{
+  "objectType": "capsule.c5b10.fixed-runner-no-run-successor",
+  "objectVersion": 1,
+  "identity": "capsule.c5b10.fixed-runner-no-run-successor/2026-08-17",
+  "status": "construction-only-not-authorized",
+  "scopedStatus": "PASSED",
+  "parentStatus": "BLOCKED",
+  "productAdmission": "BLOCKED",
+  "repositoryBaseline": "7fc3af9c46895b340c3118a96cb50abb26b1d977",
+  "capsuleContext": "748fd0ef7a8fbf81a5c80f099c7592b88369d684",
+  "predecessors": {
+    "c5b7RuntimeRoot": "78485fb91a31733c568fe43e5fa295474e5956e1",
+    "c5b9NoRunComposite": "3965e6b5cc87d476da7f431d7ed8a5758011a1b8",
+    "c5bCompatibilityPreflight": "7fc3af9c46895b340c3118a96cb50abb26b1d977"
+  },
+  "components": {
+    "fixedRunnerSource": {
+      "path": "source/fixed_runner.c",
+      "bytes": 7748,
+      "sha256": "a28bc157b974d2e30d3b4b19bda937150fe25aa940edcb1ab769d4c6362c81dc"
+    },
+    "fixedRunnerObject": {
+      "path": "dist/fixed-runner.o",
+      "bytes": 74624,
+      "sha256": "6471ca3e151706fcb714973ffcc67605b72a374bfd9a1d6febfb87b7d9b8b32d"
+    },
+    "supervisorDriverSource": {
+      "path": "source/supervisor_effect_driver.c",
+      "bytes": 7985,
+      "sha256": "0bd868a0de78a081b6dff3a2177d961055f5616fa22316e0d409ebba901c3fd7"
+    },
+    "supervisorEffectHeader": {
+      "path": "source/supervisor_effect_abi.h",
+      "bytes": 3152,
+      "sha256": "8b65d74b5ef27c5bbb4b81b0829258b3c7a0f2f4196a5ac43d87ae127430131e"
+    },
+    "supervisorDriverObject": {
+      "path": "dist/supervisor-effect-driver.o",
+      "bytes": 4928,
+      "sha256": "ab8a92bb9c3c9bdc9f9e06edb087442b5f873374718418eecf61ff91473ad12c"
+    },
+    "libkrun": {
+      "path": "experiments/typed-guest-transport-c5b2-governed-input-closure/inputs/c2b-v4/libkrun.1.dylib",
+      "bytes": 4393448,
+      "sha256": "055d9d18dc964fec4aba21948c4a344cb7a51cb48a2c70017484b718eae12f9f"
+    },
+    "libkrunfw": {
+      "path": "experiments/typed-guest-transport-c5b4-libkrunfw-recovery/artifacts/libkrunfw.5.dylib",
+      "bytes": 24339104,
+      "sha256": "0b14f4b8005dafd33c38df5935b9efdb6381c724224b3967ba1cecbecf10b6e9"
+    },
+    "runtimeRoot": {
+      "path": "experiments/typed-guest-transport-c5b7-deterministic-runtime-root/dist/runtime-root.ext4",
+      "bytes": 100663296,
+      "sha256": "5ad18f20cbc97c7a70ead3e795fd3649672513323041e913b0eb55b7acc88775"
+    },
+    "sourceFrame": {
+      "path": "fixtures/source.frame",
+      "bytes": 255,
+      "sha256": "cc38c374626b67a12501235ab89d0d24a5dc0cdaf8ee8fa0d289cec92471a6bc"
+    },
+    "inputFrame": {
+      "path": "fixtures/input.frame",
+      "bytes": 188,
+      "sha256": "27860a50e6909976d30a06340268ccb753996dc931d6f022033dcbd58584e736"
+    },
+    "completionFrame": {
+      "path": "fixtures/completion.frame",
+      "bytes": 259,
+      "sha256": "2b55d85aabd55837f95ef5da9058def019adc2ec6e3bc3bf22c1334af28ac839"
+    }
+  },
+  "runnerRoot": {
+    "bytes": 100663296,
+    "sha256": "5ad18f20cbc97c7a70ead3e795fd3649672513323041e913b0eb55b7acc88775",
+    "historicalRunnerBytes": 134217728,
+    "historicalRunnerSha256": "390a4786a20d45f1c691ec8c203f84f5e9d372a30e98f867cc8309a144ca6798",
+    "historicalIdentityAccepted": false
+  },
+  "ownership": {
+    "libkrunOwner": "fixed-host-runner-process",
+    "runnerLibkrunImports": [
+      "_krun_add_console_port_inout",
+      "_krun_add_read_only_raw_root_fd",
+      "_krun_add_virtio_console_multiport",
+      "_krun_create_ctx",
+      "_krun_disable_implicit_console",
+      "_krun_disable_implicit_init",
+      "_krun_disable_implicit_vsock",
+      "_krun_set_exec",
+      "_krun_set_kernel_console",
+      "_krun_set_root_disk_remount",
+      "_krun_set_vm_config",
+      "_krun_set_workdir",
+      "_krun_start_enter"
+    ],
+    "supervisorLibkrunImports": [],
+    "runnerSupervisorEffectImports": [],
+    "supervisorEffectProviderImports": [
+      "_c5b10_supervisor_create_fixed_endpoints",
+      "_c5b10_supervisor_spawn_fixed_runner",
+      "_c5b10_supervisor_verify_ready_byte",
+      "_c5b10_supervisor_write_source_frame",
+      "_c5b10_supervisor_write_input_frame",
+      "_c5b10_supervisor_close_input_writers",
+      "_c5b10_supervisor_send_start_byte",
+      "_c5b10_supervisor_drain_validate_completion",
+      "_c5b10_supervisor_join_terminal_state",
+      "_c5b10_supervisor_prove_authoritative_absence",
+      "_c5b10_supervisor_remove_fixed_root",
+      "_c5b10_supervisor_commit_durable_completion",
+      "_c5b10_supervisor_deliver_stored_completion",
+      "_c5b10_supervisor_request_teardown"
+    ],
+    "duplicateLibkrunOwnership": false,
+    "historicalRootBoundEffectObjectLinked": false
+  },
+  "effectAbi": {
+    "publicEntryPoint": "_c5b10_drive_registered_attempt",
+    "providerSymbols": [
+      "_c5b10_supervisor_create_fixed_endpoints",
+      "_c5b10_supervisor_spawn_fixed_runner",
+      "_c5b10_supervisor_verify_ready_byte",
+      "_c5b10_supervisor_write_source_frame",
+      "_c5b10_supervisor_write_input_frame",
+      "_c5b10_supervisor_close_input_writers",
+      "_c5b10_supervisor_send_start_byte",
+      "_c5b10_supervisor_drain_validate_completion",
+      "_c5b10_supervisor_join_terminal_state",
+      "_c5b10_supervisor_prove_authoritative_absence",
+      "_c5b10_supervisor_remove_fixed_root",
+      "_c5b10_supervisor_commit_durable_completion",
+      "_c5b10_supervisor_deliver_stored_completion",
+      "_c5b10_supervisor_request_teardown"
+    ],
+    "closedOutcomes": [
+      "APPLIED",
+      "NOT_APPLIED",
+      "INDETERMINATE"
+    ],
+    "providersRetained": false,
+    "providerBindingStatus": "BLOCKED",
+    "requestEchoRequired": true,
+    "exactFactsRequired": true
+  },
+  "ordering": {
+    "nominalEffects": [
+      "create-fixed-endpoints",
+      "spawn-fixed-runner",
+      "verify-ready-byte",
+      "write-source-frame",
+      "write-input-frame",
+      "close-input-writers",
+      "send-start-byte",
+      "drain-and-validate-completion",
+      "join-terminal-state",
+      "prove-authoritative-absence",
+      "remove-fixed-root",
+      "commit-durable-completion",
+      "deliver-stored-completion"
+    ],
+    "faultOnlyEffects": [
+      "request-teardown"
+    ],
+    "readyBeforeFrameWrites": true,
+    "frameWritesBeforeWriterClosure": true,
+    "writerClosureBeforeStart": true,
+    "startBeforeCompletionDrain": true,
+    "completionLast": true,
+    "terminalJoinBeforeAbsence": true,
+    "absenceBeforeRootRemoval": true,
+    "commitBeforeDelivery": true
+  },
+  "transport": {
+    "payloadMaximumBytes": 262144,
+    "sourcePhysicalMaximum": 262296,
+    "inputPhysicalMaximum": 262296,
+    "completionPhysicalMaximum": 262368,
+    "completionRetentionBytes": 262369,
+    "readyByte": "R",
+    "startByte": "G",
+    "startWriterClosedAfterByte": true,
+    "completionTrailerLast": true,
+    "eofCommits": false,
+    "exitZeroCommits": false
+  },
+  "executionRequest": {
+    "acceptedFields": [
+      "registrationId"
+    ],
+    "registrationId": "5273186561778ee1bb8d78c7911321ce",
+    "attemptId": "c5ab61f60d5ddc4c00a1bf50a8669344",
+    "attemptBound": true,
+    "attemptIssuedBeforeEffects": true,
+    "replacementPlanBytes": false,
+    "replacementSourceBytes": false,
+    "replacementInputBytes": false,
+    "callerExecutableBytes": false,
+    "callerHostPaths": false,
+    "callerEndpoints": false,
+    "callerFlags": false,
+    "callerImages": false,
+    "callerMounts": false,
+    "callerBackendConfiguration": false,
+    "callerEnvironment": false
+  },
+  "authorization": {
+    "host": null,
+    "guest": null,
+    "executionAuthorization": null,
+    "executionAuthorized": false,
+    "constructionAuthorized": true,
+    "finalManifestAuthorizationRequired": true,
+    "callerSelectedAuthority": false
+  },
+  "performedEffects": {
+    "artifactLinked": false,
+    "artifactLoaded": false,
+    "artifactExecuted": false,
+    "libkrunLoaded": false,
+    "hvfCalled": false,
+    "runnerStarted": false,
+    "processStarted": false,
+    "vmStarted": false,
+    "guestStarted": false,
+    "hostEffectPerformed": false,
+    "completionCommitted": false,
+    "deliveryPerformed": false,
+    "networkAccessed": false,
+    "credentialsAccessed": false,
+    "keychainAccessed": false,
+    "signingIdentityAccessed": false,
+    "productStateMutated": false,
+    "admissionChanged": false
+  },
+  "contradictionResolutions": {
+    "runnerRootIdentity": {
+      "resolved": true,
+      "mechanism": "The new fixed-runner source and object bind the exact 100,663,296-byte C5b7 root and reject the historical 134,217,728-byte identity."
+    },
+    "effectSequence": {
+      "resolved": true,
+      "mechanism": "The Supervisor driver writes both bounded frames, closes their writers, and only then sends the one-byte start authorization; completion, join, absence, root removal, commit, and delivery follow in order."
+    },
+    "perEffectAbi": {
+      "resolved": true,
+      "mechanism": "Fourteen distinct typed Supervisor provider symbols replace the historical single per-libkrun-call operation port; the fixed runner exports no Supervisor effect ABI."
+    },
+    "singleLibkrunOwner": {
+      "resolved": true,
+      "mechanism": "Only fixed-runner.o imports the closed 13-symbol libkrun surface; supervisor-effect-driver.o imports no libkrun symbol and the historical root-bound effect object is not linked."
+    }
+  },
+  "limitations": [
+    "The Supervisor effect providers are deliberately absent and no object is linked or runnable.",
+    "No native artifact, dylib, HVF interface, runner, VM, guest, host effect, or product consumer was loaded or invoked.",
+    "Static ABI and ordering closure do not prove platform behavior, completion truth, teardown, or authoritative absence.",
+    "Controlled execution, preferred-form libkrunfw/kernel source compliance, installed composition, independent review, and runtime/profile admission remain blocked.",
+    "The original dispatch contained an incorrect expansion of Capsule abbreviation 748fd0e; the orchestrator corrected it to exact 748fd0ef7a8fbf81a5c80f099c7592b88369d684.",
+    "The sibling repository was initially unavailable; the orchestrator supplied this authorized disposable clone before construction resumed."
+  ]
+}

@@ -1,0 +1,79 @@
+{
+  "objectType": "capsule.c5b10.fixed-runner-no-run-packet",
+  "objectVersion": 1,
+  "identity": "capsule.c5b10.fixed-runner-no-run-packet/2026-08-17",
+  "status": "construction-only-not-authorized",
+  "scopedStatus": "PASSED",
+  "parentStatus": "BLOCKED",
+  "profile": {
+    "path": "contracts/fixed-runner-profile.json",
+    "bytes": 10133,
+    "sha256": "5bf9efd8694eeca008a8d4589b627f9c4c0f6b6ff31ea0c4cd2524812aa91ac2"
+  },
+  "executionRequest": {
+    "acceptedFields": [
+      "registrationId"
+    ],
+    "registrationId": "5273186561778ee1bb8d78c7911321ce",
+    "attemptId": "c5ab61f60d5ddc4c00a1bf50a8669344",
+    "attemptBound": true,
+    "attemptIssuedBeforeEffects": true,
+    "replacementPlanBytes": false,
+    "replacementSourceBytes": false,
+    "replacementInputBytes": false,
+    "callerExecutableBytes": false,
+    "callerHostPaths": false,
+    "callerEndpoints": false,
+    "callerFlags": false,
+    "callerImages": false,
+    "callerMounts": false,
+    "callerBackendConfiguration": false,
+    "callerEnvironment": false
+  },
+  "fixedFixtures": {
+    "source": {
+      "path": "fixtures/source.frame",
+      "bytes": 255,
+      "sha256": "cc38c374626b67a12501235ab89d0d24a5dc0cdaf8ee8fa0d289cec92471a6bc"
+    },
+    "input": {
+      "path": "fixtures/input.frame",
+      "bytes": 188,
+      "sha256": "27860a50e6909976d30a06340268ccb753996dc931d6f022033dcbd58584e736"
+    },
+    "completion": {
+      "path": "fixtures/completion.frame",
+      "bytes": 259,
+      "sha256": "2b55d85aabd55837f95ef5da9058def019adc2ec6e3bc3bf22c1334af28ac839"
+    }
+  },
+  "authorization": {
+    "host": null,
+    "guest": null,
+    "executionAuthorization": null,
+    "executionAuthorized": false,
+    "constructionAuthorized": true,
+    "finalManifestAuthorizationRequired": true,
+    "callerSelectedAuthority": false
+  },
+  "performedEffects": {
+    "artifactLinked": false,
+    "artifactLoaded": false,
+    "artifactExecuted": false,
+    "libkrunLoaded": false,
+    "hvfCalled": false,
+    "runnerStarted": false,
+    "processStarted": false,
+    "vmStarted": false,
+    "guestStarted": false,
+    "hostEffectPerformed": false,
+    "completionCommitted": false,
+    "deliveryPerformed": false,
+    "networkAccessed": false,
+    "credentialsAccessed": false,
+    "keychainAccessed": false,
+    "signingIdentityAccessed": false,
+    "productStateMutated": false,
+    "admissionChanged": false
+  }
+}

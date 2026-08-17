@@ -1,0 +1,24 @@
+{
+  "status": "PASSED",
+  "restoredInvalidCases": [
+    "runner-root-size",
+    "runner-root-digest",
+    "effect-order",
+    "per-effect-abi",
+    "supervisor-libkrun-import",
+    "duplicate-libkrun-owner",
+    "execute-request-widening",
+    "caller-authority",
+    "host-presence",
+    "guest-presence",
+    "execution-authorization",
+    "performed-effect",
+    "completion-last",
+    "teardown-order",
+    "contradiction-reopened",
+    "component-substitution",
+    "closed-inventory-extra"
+  ],
+  "originalCandidateRestoredAfterEveryCase": true,
+  "nativeCandidateArtifactMutated": false
+}
