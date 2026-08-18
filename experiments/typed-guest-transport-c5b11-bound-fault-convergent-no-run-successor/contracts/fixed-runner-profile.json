@@ -1,0 +1,390 @@
+{
+  "objectType": "capsule.c5b11.bound-fault-convergent-no-run-successor",
+  "objectVersion": 1,
+  "identity": "capsule.c5b11.bound-fault-convergent-no-run-successor/2026-08-18",
+  "status": "construction-only-not-authorized",
+  "scopedStatus": "PASSED",
+  "parentStatus": "BLOCKED",
+  "productAdmission": "BLOCKED",
+  "repositoryBaseline": "ecc3e5efb835931d2d2113d1bc20831a35aba8b4",
+  "capsuleContext": "748fd0ef7a8fbf81a5c80f099c7592b88369d684",
+  "predecessors": {
+    "c5b7RuntimeRoot": "78485fb91a31733c568fe43e5fa295474e5956e1",
+    "c5b9NoRunComposite": "3965e6b5cc87d476da7f431d7ed8a5758011a1b8",
+    "c5b10MergedCommit": "6eb030130734882de4529e647a5a0ac29af362f6",
+    "c5b10MergeCommit": "ecc3e5efb835931d2d2113d1bc20831a35aba8b4",
+    "c5b10PullRequest": "https://github.com/Shrimpworks/capsule-experiments/pull/30",
+    "c5b10AcceptedEvidence": false,
+    "c5b10ImportantFindings": [
+      "stale-attempt-profile-binding",
+      "incomplete-fault-reconciliation"
+    ]
+  },
+  "components": {
+    "fixedRunnerSource": {
+      "path": "source/fixed_runner.c",
+      "bytes": 7748,
+      "sha256": "a36bdaebfec4d0282d7257415c005ff2962ec49c21e5a00989523d856a3ace58"
+    },
+    "fixedRunnerObject": {
+      "path": "dist/fixed-runner.o",
+      "bytes": 74624,
+      "sha256": "e3d249c29885e9f1b3d961296835830d1b735d246d5b58d5656b9a7dbb46a65b"
+    },
+    "supervisorDriverSource": {
+      "path": "source/supervisor_effect_driver.c",
+      "bytes": 11157,
+      "sha256": "f36dce82f4b0625ad4bfde44fe5517e42b1da5aa2f4f05d8a7be60dbab5fa30d"
+    },
+    "supervisorEffectHeader": {
+      "path": "source/supervisor_effect_abi.h",
+      "bytes": 3450,
+      "sha256": "6a40c29ac8e0a48cffdf0845c129c4a615baf00c63afa8eb505e39c2446e1bbc"
+    },
+    "generatedAttemptBindings": {
+      "path": "source/attempt_bindings.h",
+      "bytes": 1387,
+      "sha256": "855c33c7fb6d422427038b59d3c8226b181b227086c775f64011c4fcb1c949f7"
+    },
+    "supervisorDriverObject": {
+      "path": "dist/supervisor-effect-driver.o",
+      "bytes": 8088,
+      "sha256": "13b5ac173d9bb6533a0410fa60eb1c75f6ee36d0bc58a38819e541bda237cec5"
+    },
+    "attemptRuntimeProfile": {
+      "path": "contracts/attempt-runtime-profile.json",
+      "bytes": 1675,
+      "sha256": "a330c5e3e275b39eed804eea2b9cebe6a5e39a93bd54bbf71d32c3a497acd986"
+    },
+    "attemptPlan": {
+      "path": "contracts/attempt-plan.json",
+      "bytes": 1087,
+      "sha256": "204610f232aef6caf55212744b0112820a9cd1fc140b07fd32101b2a065575dd"
+    },
+    "reconciliationMatrix": {
+      "path": "fixtures/reconciliation-matrix.json",
+      "bytes": 29445,
+      "sha256": "2d576c456328560404a175281fd63f449ee8b701b2e7a62b1ec1fd0fc542d682"
+    },
+    "libkrun": {
+      "path": "experiments/typed-guest-transport-c5b2-governed-input-closure/inputs/c2b-v4/libkrun.1.dylib",
+      "bytes": 4393448,
+      "sha256": "055d9d18dc964fec4aba21948c4a344cb7a51cb48a2c70017484b718eae12f9f"
+    },
+    "libkrunfw": {
+      "path": "experiments/typed-guest-transport-c5b4-libkrunfw-recovery/artifacts/libkrunfw.5.dylib",
+      "bytes": 24339104,
+      "sha256": "0b14f4b8005dafd33c38df5935b9efdb6381c724224b3967ba1cecbecf10b6e9"
+    },
+    "runtimeRoot": {
+      "path": "experiments/typed-guest-transport-c5b7-deterministic-runtime-root/dist/runtime-root.ext4",
+      "bytes": 100663296,
+      "sha256": "5ad18f20cbc97c7a70ead3e795fd3649672513323041e913b0eb55b7acc88775"
+    },
+    "sourceFrame": {
+      "path": "fixtures/source.frame",
+      "bytes": 255,
+      "sha256": "4e4cfcaeb311137dd72cc7b9f74849484bb866d82a237ae64fe2000a675795fa"
+    },
+    "inputFrame": {
+      "path": "fixtures/input.frame",
+      "bytes": 188,
+      "sha256": "027b5a1a619f41a8c2cefa959c0e969cc513465752635302de14bfb41ed091e6"
+    },
+    "completionFrame": {
+      "path": "fixtures/completion.frame",
+      "bytes": 259,
+      "sha256": "68077473515e6942438e93e7730dcaa9950e84784dabd3385b18e28f327dfea6"
+    }
+  },
+  "bindingLayers": {
+    "attemptRuntimeProfile": {
+      "path": "contracts/attempt-runtime-profile.json",
+      "bytes": 1675,
+      "sha256": "a330c5e3e275b39eed804eea2b9cebe6a5e39a93bd54bbf71d32c3a497acd986",
+      "binds": [
+        "fixedRunnerSource",
+        "fixedRunnerObject",
+        "libkrun",
+        "libkrunfw",
+        "runtimeRoot"
+      ],
+      "excludesSupervisorDriver": true,
+      "staleC5b8Sha256Rejected": "06079eea39ce9a2e0547837555a6953787d8c32d614f0ec7b9b07ef408de04cd"
+    },
+    "attemptPlan": {
+      "path": "contracts/attempt-plan.json",
+      "bytes": 1087,
+      "sha256": "204610f232aef6caf55212744b0112820a9cd1fc140b07fd32101b2a065575dd",
+      "carriedByEveryFrameAndEffect": true
+    },
+    "outerComposition": {
+      "bindsSupervisorDriver": true,
+      "driverSource": {
+        "path": "source/supervisor_effect_driver.c",
+        "bytes": 11157,
+        "sha256": "f36dce82f4b0625ad4bfde44fe5517e42b1da5aa2f4f05d8a7be60dbab5fa30d"
+      },
+      "driverObject": {
+        "path": "dist/supervisor-effect-driver.o",
+        "bytes": 8088,
+        "sha256": "13b5ac173d9bb6533a0410fa60eb1c75f6ee36d0bc58a38819e541bda237cec5"
+      },
+      "abiHeader": {
+        "path": "source/supervisor_effect_abi.h",
+        "bytes": 3450,
+        "sha256": "6a40c29ac8e0a48cffdf0845c129c4a615baf00c63afa8eb505e39c2446e1bbc"
+      },
+      "generatedBindings": {
+        "path": "source/attempt_bindings.h",
+        "bytes": 1387,
+        "sha256": "855c33c7fb6d422427038b59d3c8226b181b227086c775f64011c4fcb1c949f7"
+      },
+      "nonSelfReferential": true
+    }
+  },
+  "runnerRoot": {
+    "bytes": 100663296,
+    "sha256": "5ad18f20cbc97c7a70ead3e795fd3649672513323041e913b0eb55b7acc88775",
+    "historicalRunnerBytes": 134217728,
+    "historicalRunnerSha256": "390a4786a20d45f1c691ec8c203f84f5e9d372a30e98f867cc8309a144ca6798",
+    "historicalIdentityAccepted": false
+  },
+  "ownership": {
+    "libkrunOwner": "fixed-host-runner-process",
+    "runnerLibkrunImports": [
+      "_krun_add_console_port_inout",
+      "_krun_add_read_only_raw_root_fd",
+      "_krun_add_virtio_console_multiport",
+      "_krun_create_ctx",
+      "_krun_disable_implicit_console",
+      "_krun_disable_implicit_init",
+      "_krun_disable_implicit_vsock",
+      "_krun_set_exec",
+      "_krun_set_kernel_console",
+      "_krun_set_root_disk_remount",
+      "_krun_set_vm_config",
+      "_krun_set_workdir",
+      "_krun_start_enter"
+    ],
+    "supervisorLibkrunImports": [],
+    "runnerSupervisorEffectImports": [],
+    "supervisorEffectProviderImports": [
+      "_c5b11_supervisor_create_fixed_endpoints",
+      "_c5b11_supervisor_spawn_fixed_runner",
+      "_c5b11_supervisor_verify_ready_byte",
+      "_c5b11_supervisor_write_source_frame",
+      "_c5b11_supervisor_write_input_frame",
+      "_c5b11_supervisor_close_input_writers",
+      "_c5b11_supervisor_send_start_byte",
+      "_c5b11_supervisor_drain_validate_completion",
+      "_c5b11_supervisor_join_terminal_state",
+      "_c5b11_supervisor_prove_authoritative_absence",
+      "_c5b11_supervisor_remove_fixed_root",
+      "_c5b11_supervisor_commit_durable_completion",
+      "_c5b11_supervisor_deliver_stored_completion",
+      "_c5b11_supervisor_fence_attempt",
+      "_c5b11_supervisor_lookup_fenced_attempt",
+      "_c5b11_supervisor_request_teardown",
+      "_c5b11_supervisor_reconcile_teardown_outcome",
+      "_c5b11_supervisor_reconcile_terminal_state",
+      "_c5b11_supervisor_reconcile_authoritative_absence",
+      "_c5b11_supervisor_reconcile_fixed_root_removal",
+      "_c5b11_supervisor_record_unresolved_cleanup",
+      "_c5b11_supervisor_reopen_stored_completion",
+      "_c5b11_supervisor_replay_stored_completion"
+    ],
+    "duplicateLibkrunOwnership": false,
+    "historicalRootBoundEffectObjectLinked": false
+  },
+  "effectAbi": {
+    "publicEntryPoint": "_c5b11_drive_registered_attempt",
+    "providerSymbols": [
+      "_c5b11_supervisor_create_fixed_endpoints",
+      "_c5b11_supervisor_spawn_fixed_runner",
+      "_c5b11_supervisor_verify_ready_byte",
+      "_c5b11_supervisor_write_source_frame",
+      "_c5b11_supervisor_write_input_frame",
+      "_c5b11_supervisor_close_input_writers",
+      "_c5b11_supervisor_send_start_byte",
+      "_c5b11_supervisor_drain_validate_completion",
+      "_c5b11_supervisor_join_terminal_state",
+      "_c5b11_supervisor_prove_authoritative_absence",
+      "_c5b11_supervisor_remove_fixed_root",
+      "_c5b11_supervisor_commit_durable_completion",
+      "_c5b11_supervisor_deliver_stored_completion",
+      "_c5b11_supervisor_fence_attempt",
+      "_c5b11_supervisor_lookup_fenced_attempt",
+      "_c5b11_supervisor_request_teardown",
+      "_c5b11_supervisor_reconcile_teardown_outcome",
+      "_c5b11_supervisor_reconcile_terminal_state",
+      "_c5b11_supervisor_reconcile_authoritative_absence",
+      "_c5b11_supervisor_reconcile_fixed_root_removal",
+      "_c5b11_supervisor_record_unresolved_cleanup",
+      "_c5b11_supervisor_reopen_stored_completion",
+      "_c5b11_supervisor_replay_stored_completion"
+    ],
+    "closedOutcomes": [
+      "APPLIED",
+      "NOT_APPLIED",
+      "INDETERMINATE"
+    ],
+    "providersRetained": false,
+    "providerBindingStatus": "BLOCKED",
+    "requestEchoRequired": true,
+    "exactFactsRequired": true,
+    "profileEchoRequired": true,
+    "frameEchoRequired": true
+  },
+  "ordering": {
+    "nominalEffects": [
+      "create-fixed-endpoints",
+      "spawn-fixed-runner",
+      "verify-ready-byte",
+      "write-source-frame",
+      "write-input-frame",
+      "close-input-writers",
+      "send-start-byte",
+      "drain-and-validate-completion",
+      "join-terminal-state",
+      "prove-authoritative-absence",
+      "remove-fixed-root",
+      "commit-durable-completion",
+      "deliver-stored-completion"
+    ],
+    "recoveryEffects": [
+      "fence-attempt",
+      "lookup-fenced-attempt",
+      "request-teardown-once",
+      "reconcile-teardown-outcome",
+      "reconcile-terminal-state",
+      "reconcile-authoritative-absence",
+      "reconcile-fixed-root-removal",
+      "record-unresolved-cleanup",
+      "reopen-stored-completion",
+      "replay-exact-stored-completion"
+    ],
+    "readyBeforeFrameWrites": true,
+    "frameWritesBeforeWriterClosure": true,
+    "writerClosureBeforeStart": true,
+    "startBeforeCompletionDrain": true,
+    "completionLast": true,
+    "terminalJoinBeforeAbsence": true,
+    "absenceBeforeRootRemoval": true,
+    "commitBeforeDelivery": true
+  },
+  "faultConvergence": {
+    "matrix": {
+      "path": "fixtures/reconciliation-matrix.json",
+      "bytes": 29445,
+      "sha256": "2d576c456328560404a175281fd63f449ee8b701b2e7a62b1ec1fd0fc542d682"
+    },
+    "coveredFailures": [
+      "provider-error",
+      "NOT_APPLIED",
+      "INDETERMINATE",
+      "echo-mismatch",
+      "fact-mismatch"
+    ],
+    "nonIdempotentRedrive": false,
+    "teardownRequestMaximum": 1,
+    "fencedAttemptLookup": true,
+    "teardownOutcomeReconciled": true,
+    "terminalJoinBeforeAbsence": true,
+    "absenceBeforeRootRemoval": true,
+    "unresolvedCleanupDurable": true,
+    "commitResponseLossUsesStoredRecord": true,
+    "replayExactBytes": true
+  },
+  "transport": {
+    "payloadMaximumBytes": 262144,
+    "sourcePhysicalMaximum": 262296,
+    "inputPhysicalMaximum": 262296,
+    "completionPhysicalMaximum": 262368,
+    "completionRetentionBytes": 262369,
+    "readyByte": "R",
+    "startByte": "G",
+    "startWriterClosedAfterByte": true,
+    "completionTrailerLast": true,
+    "eofCommits": false,
+    "exitZeroCommits": false
+  },
+  "executionRequest": {
+    "acceptedFields": [
+      "registrationId"
+    ],
+    "registrationId": "5273186561778ee1bb8d78c7911321ce",
+    "attemptId": "c5ab61f60d5ddc4c00a1bf50a8669344",
+    "attemptBound": true,
+    "attemptIssuedBeforeEffects": true,
+    "replacementPlanBytes": false,
+    "replacementSourceBytes": false,
+    "replacementInputBytes": false,
+    "callerExecutableBytes": false,
+    "callerHostPaths": false,
+    "callerEndpoints": false,
+    "callerFlags": false,
+    "callerImages": false,
+    "callerMounts": false,
+    "callerBackendConfiguration": false,
+    "callerEnvironment": false
+  },
+  "authorization": {
+    "host": null,
+    "guest": null,
+    "executionAuthorization": null,
+    "executionAuthorized": false,
+    "constructionAuthorized": true,
+    "finalManifestAuthorizationRequired": true,
+    "callerSelectedAuthority": false
+  },
+  "performedEffects": {
+    "artifactLinked": false,
+    "artifactLoaded": false,
+    "artifactExecuted": false,
+    "libkrunLoaded": false,
+    "hvfCalled": false,
+    "runnerStarted": false,
+    "processStarted": false,
+    "vmStarted": false,
+    "guestStarted": false,
+    "hostEffectPerformed": false,
+    "completionCommitted": false,
+    "deliveryPerformed": false,
+    "networkAccessed": false,
+    "credentialsAccessed": false,
+    "keychainAccessed": false,
+    "signingIdentityAccessed": false,
+    "serviceStateMutated": false,
+    "productStateMutated": false,
+    "admissionChanged": false
+  },
+  "contradictionResolutions": {
+    "runnerRootIdentity": {
+      "resolved": true,
+      "mechanism": "The attempt runtime profile digests the exact C5b11 runner source/object, libkrun, libkrunfw, and 100,663,296-byte root; all frames and effect echoes carry that new profile digest."
+    },
+    "effectSequence": {
+      "resolved": true,
+      "mechanism": "The nominal sequence is completion-last and every post-creation failure enters fenced, non-redriving teardown/terminal/absence/root reconciliation with durable unresolved state."
+    },
+    "perEffectAbi": {
+      "resolved": true,
+      "mechanism": "Twenty-three closed typed provider symbols separate nominal effects, reconciliation lookups, unresolved cleanup, and exact stored replay."
+    },
+    "singleLibkrunOwner": {
+      "resolved": true,
+      "mechanism": "Only fixed-runner.o imports the closed 13-symbol libkrun surface; the Supervisor driver imports no libkrun symbol."
+    }
+  },
+  "limitations": [
+    "C5b10 commit 6eb0301 and PR #30 are preserved but not accepted evidence because independent review found stale attempt binding and incomplete fault reconciliation.",
+    "The Supervisor effect providers are deliberately absent and no object is linked or runnable.",
+    "The recovery matrix and C source are static construction evidence, not proof of provider or platform behavior.",
+    "No native artifact, dylib, HVF interface, runner, VM, guest, host effect, network target, credential, Keychain item, service, or product consumer was loaded or invoked.",
+    "Controlled execution, provider implementations, installed composition, fresh independent review, runtime/profile admission, and product admission remain BLOCKED.",
+    "The original dispatch's incorrect Capsule hash expansion was corrected to 748fd0ef7a8fbf81a5c80f099c7592b88369d684.",
+    "The initial sibling-path blocker was resolved by the orchestrator-supplied disposable clone.",
+    "PR #30 merged before the requested amendment draft transition; the orchestrator re-dispatched C5b-S1A as this fresh successor."
+  ]
+}

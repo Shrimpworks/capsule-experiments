@@ -1,0 +1,95 @@
+{
+  "objectType": "capsule.c5b11.bound-fault-convergent-no-run-packet",
+  "objectVersion": 1,
+  "identity": "capsule.c5b11.bound-fault-convergent-no-run-packet/2026-08-18",
+  "status": "construction-only-not-authorized",
+  "scopedStatus": "PASSED",
+  "parentStatus": "BLOCKED",
+  "profile": {
+    "path": "contracts/fixed-runner-profile.json",
+    "bytes": 15030,
+    "sha256": "a6ae1d308187c4f78ff94745e3426c07048b91ec99996fc1f66372a9b45ed329"
+  },
+  "attemptRuntimeProfile": {
+    "path": "contracts/attempt-runtime-profile.json",
+    "bytes": 1675,
+    "sha256": "a330c5e3e275b39eed804eea2b9cebe6a5e39a93bd54bbf71d32c3a497acd986"
+  },
+  "attemptPlan": {
+    "path": "contracts/attempt-plan.json",
+    "bytes": 1087,
+    "sha256": "204610f232aef6caf55212744b0112820a9cd1fc140b07fd32101b2a065575dd"
+  },
+  "executionRequest": {
+    "acceptedFields": [
+      "registrationId"
+    ],
+    "registrationId": "5273186561778ee1bb8d78c7911321ce",
+    "attemptId": "c5ab61f60d5ddc4c00a1bf50a8669344",
+    "attemptBound": true,
+    "attemptIssuedBeforeEffects": true,
+    "replacementPlanBytes": false,
+    "replacementSourceBytes": false,
+    "replacementInputBytes": false,
+    "callerExecutableBytes": false,
+    "callerHostPaths": false,
+    "callerEndpoints": false,
+    "callerFlags": false,
+    "callerImages": false,
+    "callerMounts": false,
+    "callerBackendConfiguration": false,
+    "callerEnvironment": false
+  },
+  "fixedFixtures": {
+    "source": {
+      "path": "fixtures/source.frame",
+      "bytes": 255,
+      "sha256": "4e4cfcaeb311137dd72cc7b9f74849484bb866d82a237ae64fe2000a675795fa"
+    },
+    "input": {
+      "path": "fixtures/input.frame",
+      "bytes": 188,
+      "sha256": "027b5a1a619f41a8c2cefa959c0e969cc513465752635302de14bfb41ed091e6"
+    },
+    "completion": {
+      "path": "fixtures/completion.frame",
+      "bytes": 259,
+      "sha256": "68077473515e6942438e93e7730dcaa9950e84784dabd3385b18e28f327dfea6"
+    }
+  },
+  "reconciliationMatrix": {
+    "path": "fixtures/reconciliation-matrix.json",
+    "bytes": 29445,
+    "sha256": "2d576c456328560404a175281fd63f449ee8b701b2e7a62b1ec1fd0fc542d682"
+  },
+  "authorization": {
+    "host": null,
+    "guest": null,
+    "executionAuthorization": null,
+    "executionAuthorized": false,
+    "constructionAuthorized": true,
+    "finalManifestAuthorizationRequired": true,
+    "callerSelectedAuthority": false
+  },
+  "performedEffects": {
+    "artifactLinked": false,
+    "artifactLoaded": false,
+    "artifactExecuted": false,
+    "libkrunLoaded": false,
+    "hvfCalled": false,
+    "runnerStarted": false,
+    "processStarted": false,
+    "vmStarted": false,
+    "guestStarted": false,
+    "hostEffectPerformed": false,
+    "completionCommitted": false,
+    "deliveryPerformed": false,
+    "networkAccessed": false,
+    "credentialsAccessed": false,
+    "keychainAccessed": false,
+    "signingIdentityAccessed": false,
+    "serviceStateMutated": false,
+    "productStateMutated": false,
+    "admissionChanged": false
+  }
+}

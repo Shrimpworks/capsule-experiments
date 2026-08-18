@@ -1,0 +1,46 @@
+{
+  "objectType": "capsule.c5b11.attempt-runtime-profile",
+  "objectVersion": 1,
+  "identity": "capsule.c5b11.attempt-runtime-profile/2026-08-18",
+  "status": "construction-only-not-authorized",
+  "selectedBytes": {
+    "fixedRunnerSource": {
+      "path": "source/fixed_runner.c",
+      "bytes": 7748,
+      "sha256": "a36bdaebfec4d0282d7257415c005ff2962ec49c21e5a00989523d856a3ace58"
+    },
+    "fixedRunnerObject": {
+      "path": "dist/fixed-runner.o",
+      "bytes": 74624,
+      "sha256": "e3d249c29885e9f1b3d961296835830d1b735d246d5b58d5656b9a7dbb46a65b"
+    },
+    "libkrun": {
+      "path": "experiments/typed-guest-transport-c5b2-governed-input-closure/inputs/c2b-v4/libkrun.1.dylib",
+      "bytes": 4393448,
+      "sha256": "055d9d18dc964fec4aba21948c4a344cb7a51cb48a2c70017484b718eae12f9f"
+    },
+    "libkrunfw": {
+      "path": "experiments/typed-guest-transport-c5b4-libkrunfw-recovery/artifacts/libkrunfw.5.dylib",
+      "bytes": 24339104,
+      "sha256": "0b14f4b8005dafd33c38df5935b9efdb6381c724224b3967ba1cecbecf10b6e9"
+    },
+    "runtimeRoot": {
+      "path": "experiments/typed-guest-transport-c5b7-deterministic-runtime-root/dist/runtime-root.ext4",
+      "bytes": 100663296,
+      "sha256": "5ad18f20cbc97c7a70ead3e795fd3649672513323041e913b0eb55b7acc88775"
+    }
+  },
+  "runtimeRoot": {
+    "bytes": 100663296,
+    "sha256": "5ad18f20cbc97c7a70ead3e795fd3649672513323041e913b0eb55b7acc88775"
+  },
+  "authority": {
+    "fixedRunner": true,
+    "fixedRuntime": true,
+    "fixedRoot": true,
+    "callerSelectableBytes": false,
+    "supervisorDriverIncluded": false,
+    "supervisorDriverLayer": "outer-composition"
+  },
+  "executionAuthorized": false
+}

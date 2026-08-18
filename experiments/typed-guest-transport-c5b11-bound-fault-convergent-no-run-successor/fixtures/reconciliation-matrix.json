@@ -1,0 +1,1099 @@
+{
+  "objectType": "capsule.c5b11.reconciliation-matrix",
+  "objectVersion": 1,
+  "performed": false,
+  "primaryFailureCases": [
+    {
+      "sequence": 1,
+      "effect": "create-fixed-endpoints",
+      "failure": "provider-error",
+      "processCreated": false,
+      "trace": [
+        "record-unresolved-cleanup"
+      ]
+    },
+    {
+      "sequence": 1,
+      "effect": "create-fixed-endpoints",
+      "failure": "not-applied",
+      "processCreated": false,
+      "trace": [
+        "record-unresolved-cleanup"
+      ]
+    },
+    {
+      "sequence": 1,
+      "effect": "create-fixed-endpoints",
+      "failure": "indeterminate",
+      "processCreated": false,
+      "trace": [
+        "record-unresolved-cleanup"
+      ]
+    },
+    {
+      "sequence": 1,
+      "effect": "create-fixed-endpoints",
+      "failure": "echo-mismatch",
+      "processCreated": false,
+      "trace": [
+        "record-unresolved-cleanup"
+      ]
+    },
+    {
+      "sequence": 1,
+      "effect": "create-fixed-endpoints",
+      "failure": "fact-mismatch",
+      "processCreated": false,
+      "trace": [
+        "record-unresolved-cleanup"
+      ]
+    },
+    {
+      "sequence": 2,
+      "effect": "spawn-fixed-runner",
+      "failure": "provider-error",
+      "processCreated": false,
+      "trace": [
+        "record-unresolved-cleanup"
+      ]
+    },
+    {
+      "sequence": 2,
+      "effect": "spawn-fixed-runner",
+      "failure": "not-applied",
+      "processCreated": false,
+      "trace": [
+        "record-unresolved-cleanup"
+      ]
+    },
+    {
+      "sequence": 2,
+      "effect": "spawn-fixed-runner",
+      "failure": "indeterminate",
+      "processCreated": false,
+      "trace": [
+        "record-unresolved-cleanup"
+      ]
+    },
+    {
+      "sequence": 2,
+      "effect": "spawn-fixed-runner",
+      "failure": "echo-mismatch",
+      "processCreated": false,
+      "trace": [
+        "record-unresolved-cleanup"
+      ]
+    },
+    {
+      "sequence": 2,
+      "effect": "spawn-fixed-runner",
+      "failure": "fact-mismatch",
+      "processCreated": false,
+      "trace": [
+        "record-unresolved-cleanup"
+      ]
+    },
+    {
+      "sequence": 3,
+      "effect": "verify-ready-byte",
+      "failure": "provider-error",
+      "processCreated": true,
+      "trace": [
+        "fence-attempt",
+        "lookup-fenced-attempt",
+        "request-teardown-once",
+        "reconcile-teardown-outcome",
+        "reconcile-terminal-state",
+        "reconcile-authoritative-absence",
+        "reconcile-fixed-root-removal"
+      ]
+    },
+    {
+      "sequence": 3,
+      "effect": "verify-ready-byte",
+      "failure": "not-applied",
+      "processCreated": true,
+      "trace": [
+        "fence-attempt",
+        "lookup-fenced-attempt",
+        "request-teardown-once",
+        "reconcile-teardown-outcome",
+        "reconcile-terminal-state",
+        "reconcile-authoritative-absence",
+        "reconcile-fixed-root-removal"
+      ]
+    },
+    {
+      "sequence": 3,
+      "effect": "verify-ready-byte",
+      "failure": "indeterminate",
+      "processCreated": true,
+      "trace": [
+        "fence-attempt",
+        "lookup-fenced-attempt",
+        "request-teardown-once",
+        "reconcile-teardown-outcome",
+        "reconcile-terminal-state",
+        "reconcile-authoritative-absence",
+        "reconcile-fixed-root-removal"
+      ]
+    },
+    {
+      "sequence": 3,
+      "effect": "verify-ready-byte",
+      "failure": "echo-mismatch",
+      "processCreated": true,
+      "trace": [
+        "fence-attempt",
+        "lookup-fenced-attempt",
+        "request-teardown-once",
+        "reconcile-teardown-outcome",
+        "reconcile-terminal-state",
+        "reconcile-authoritative-absence",
+        "reconcile-fixed-root-removal"
+      ]
+    },
+    {
+      "sequence": 3,
+      "effect": "verify-ready-byte",
+      "failure": "fact-mismatch",
+      "processCreated": true,
+      "trace": [
+        "fence-attempt",
+        "lookup-fenced-attempt",
+        "request-teardown-once",
+        "reconcile-teardown-outcome",
+        "reconcile-terminal-state",
+        "reconcile-authoritative-absence",
+        "reconcile-fixed-root-removal"
+      ]
+    },
+    {
+      "sequence": 4,
+      "effect": "write-source-frame",
+      "failure": "provider-error",
+      "processCreated": true,
+      "trace": [
+        "fence-attempt",
+        "lookup-fenced-attempt",
+        "request-teardown-once",
+        "reconcile-teardown-outcome",
+        "reconcile-terminal-state",
+        "reconcile-authoritative-absence",
+        "reconcile-fixed-root-removal"
+      ]
+    },
+    {
+      "sequence": 4,
+      "effect": "write-source-frame",
+      "failure": "not-applied",
+      "processCreated": true,
+      "trace": [
+        "fence-attempt",
+        "lookup-fenced-attempt",
+        "request-teardown-once",
+        "reconcile-teardown-outcome",
+        "reconcile-terminal-state",
+        "reconcile-authoritative-absence",
+        "reconcile-fixed-root-removal"
+      ]
+    },
+    {
+      "sequence": 4,
+      "effect": "write-source-frame",
+      "failure": "indeterminate",
+      "processCreated": true,
+      "trace": [
+        "fence-attempt",
+        "lookup-fenced-attempt",
+        "request-teardown-once",
+        "reconcile-teardown-outcome",
+        "reconcile-terminal-state",
+        "reconcile-authoritative-absence",
+        "reconcile-fixed-root-removal"
+      ]
+    },
+    {
+      "sequence": 4,
+      "effect": "write-source-frame",
+      "failure": "echo-mismatch",
+      "processCreated": true,
+      "trace": [
+        "fence-attempt",
+        "lookup-fenced-attempt",
+        "request-teardown-once",
+        "reconcile-teardown-outcome",
+        "reconcile-terminal-state",
+        "reconcile-authoritative-absence",
+        "reconcile-fixed-root-removal"
+      ]
+    },
+    {
+      "sequence": 4,
+      "effect": "write-source-frame",
+      "failure": "fact-mismatch",
+      "processCreated": true,
+      "trace": [
+        "fence-attempt",
+        "lookup-fenced-attempt",
+        "request-teardown-once",
+        "reconcile-teardown-outcome",
+        "reconcile-terminal-state",
+        "reconcile-authoritative-absence",
+        "reconcile-fixed-root-removal"
+      ]
+    },
+    {
+      "sequence": 5,
+      "effect": "write-input-frame",
+      "failure": "provider-error",
+      "processCreated": true,
+      "trace": [
+        "fence-attempt",
+        "lookup-fenced-attempt",
+        "request-teardown-once",
+        "reconcile-teardown-outcome",
+        "reconcile-terminal-state",
+        "reconcile-authoritative-absence",
+        "reconcile-fixed-root-removal"
+      ]
+    },
+    {
+      "sequence": 5,
+      "effect": "write-input-frame",
+      "failure": "not-applied",
+      "processCreated": true,
+      "trace": [
+        "fence-attempt",
+        "lookup-fenced-attempt",
+        "request-teardown-once",
+        "reconcile-teardown-outcome",
+        "reconcile-terminal-state",
+        "reconcile-authoritative-absence",
+        "reconcile-fixed-root-removal"
+      ]
+    },
+    {
+      "sequence": 5,
+      "effect": "write-input-frame",
+      "failure": "indeterminate",
+      "processCreated": true,
+      "trace": [
+        "fence-attempt",
+        "lookup-fenced-attempt",
+        "request-teardown-once",
+        "reconcile-teardown-outcome",
+        "reconcile-terminal-state",
+        "reconcile-authoritative-absence",
+        "reconcile-fixed-root-removal"
+      ]
+    },
+    {
+      "sequence": 5,
+      "effect": "write-input-frame",
+      "failure": "echo-mismatch",
+      "processCreated": true,
+      "trace": [
+        "fence-attempt",
+        "lookup-fenced-attempt",
+        "request-teardown-once",
+        "reconcile-teardown-outcome",
+        "reconcile-terminal-state",
+        "reconcile-authoritative-absence",
+        "reconcile-fixed-root-removal"
+      ]
+    },
+    {
+      "sequence": 5,
+      "effect": "write-input-frame",
+      "failure": "fact-mismatch",
+      "processCreated": true,
+      "trace": [
+        "fence-attempt",
+        "lookup-fenced-attempt",
+        "request-teardown-once",
+        "reconcile-teardown-outcome",
+        "reconcile-terminal-state",
+        "reconcile-authoritative-absence",
+        "reconcile-fixed-root-removal"
+      ]
+    },
+    {
+      "sequence": 6,
+      "effect": "close-input-writers",
+      "failure": "provider-error",
+      "processCreated": true,
+      "trace": [
+        "fence-attempt",
+        "lookup-fenced-attempt",
+        "request-teardown-once",
+        "reconcile-teardown-outcome",
+        "reconcile-terminal-state",
+        "reconcile-authoritative-absence",
+        "reconcile-fixed-root-removal"
+      ]
+    },
+    {
+      "sequence": 6,
+      "effect": "close-input-writers",
+      "failure": "not-applied",
+      "processCreated": true,
+      "trace": [
+        "fence-attempt",
+        "lookup-fenced-attempt",
+        "request-teardown-once",
+        "reconcile-teardown-outcome",
+        "reconcile-terminal-state",
+        "reconcile-authoritative-absence",
+        "reconcile-fixed-root-removal"
+      ]
+    },
+    {
+      "sequence": 6,
+      "effect": "close-input-writers",
+      "failure": "indeterminate",
+      "processCreated": true,
+      "trace": [
+        "fence-attempt",
+        "lookup-fenced-attempt",
+        "request-teardown-once",
+        "reconcile-teardown-outcome",
+        "reconcile-terminal-state",
+        "reconcile-authoritative-absence",
+        "reconcile-fixed-root-removal"
+      ]
+    },
+    {
+      "sequence": 6,
+      "effect": "close-input-writers",
+      "failure": "echo-mismatch",
+      "processCreated": true,
+      "trace": [
+        "fence-attempt",
+        "lookup-fenced-attempt",
+        "request-teardown-once",
+        "reconcile-teardown-outcome",
+        "reconcile-terminal-state",
+        "reconcile-authoritative-absence",
+        "reconcile-fixed-root-removal"
+      ]
+    },
+    {
+      "sequence": 6,
+      "effect": "close-input-writers",
+      "failure": "fact-mismatch",
+      "processCreated": true,
+      "trace": [
+        "fence-attempt",
+        "lookup-fenced-attempt",
+        "request-teardown-once",
+        "reconcile-teardown-outcome",
+        "reconcile-terminal-state",
+        "reconcile-authoritative-absence",
+        "reconcile-fixed-root-removal"
+      ]
+    },
+    {
+      "sequence": 7,
+      "effect": "send-start-byte",
+      "failure": "provider-error",
+      "processCreated": true,
+      "trace": [
+        "fence-attempt",
+        "lookup-fenced-attempt",
+        "request-teardown-once",
+        "reconcile-teardown-outcome",
+        "reconcile-terminal-state",
+        "reconcile-authoritative-absence",
+        "reconcile-fixed-root-removal"
+      ]
+    },
+    {
+      "sequence": 7,
+      "effect": "send-start-byte",
+      "failure": "not-applied",
+      "processCreated": true,
+      "trace": [
+        "fence-attempt",
+        "lookup-fenced-attempt",
+        "request-teardown-once",
+        "reconcile-teardown-outcome",
+        "reconcile-terminal-state",
+        "reconcile-authoritative-absence",
+        "reconcile-fixed-root-removal"
+      ]
+    },
+    {
+      "sequence": 7,
+      "effect": "send-start-byte",
+      "failure": "indeterminate",
+      "processCreated": true,
+      "trace": [
+        "fence-attempt",
+        "lookup-fenced-attempt",
+        "request-teardown-once",
+        "reconcile-teardown-outcome",
+        "reconcile-terminal-state",
+        "reconcile-authoritative-absence",
+        "reconcile-fixed-root-removal"
+      ]
+    },
+    {
+      "sequence": 7,
+      "effect": "send-start-byte",
+      "failure": "echo-mismatch",
+      "processCreated": true,
+      "trace": [
+        "fence-attempt",
+        "lookup-fenced-attempt",
+        "request-teardown-once",
+        "reconcile-teardown-outcome",
+        "reconcile-terminal-state",
+        "reconcile-authoritative-absence",
+        "reconcile-fixed-root-removal"
+      ]
+    },
+    {
+      "sequence": 7,
+      "effect": "send-start-byte",
+      "failure": "fact-mismatch",
+      "processCreated": true,
+      "trace": [
+        "fence-attempt",
+        "lookup-fenced-attempt",
+        "request-teardown-once",
+        "reconcile-teardown-outcome",
+        "reconcile-terminal-state",
+        "reconcile-authoritative-absence",
+        "reconcile-fixed-root-removal"
+      ]
+    },
+    {
+      "sequence": 8,
+      "effect": "drain-and-validate-completion",
+      "failure": "provider-error",
+      "processCreated": true,
+      "trace": [
+        "fence-attempt",
+        "lookup-fenced-attempt",
+        "request-teardown-once",
+        "reconcile-teardown-outcome",
+        "reconcile-terminal-state",
+        "reconcile-authoritative-absence",
+        "reconcile-fixed-root-removal"
+      ]
+    },
+    {
+      "sequence": 8,
+      "effect": "drain-and-validate-completion",
+      "failure": "not-applied",
+      "processCreated": true,
+      "trace": [
+        "fence-attempt",
+        "lookup-fenced-attempt",
+        "request-teardown-once",
+        "reconcile-teardown-outcome",
+        "reconcile-terminal-state",
+        "reconcile-authoritative-absence",
+        "reconcile-fixed-root-removal"
+      ]
+    },
+    {
+      "sequence": 8,
+      "effect": "drain-and-validate-completion",
+      "failure": "indeterminate",
+      "processCreated": true,
+      "trace": [
+        "fence-attempt",
+        "lookup-fenced-attempt",
+        "request-teardown-once",
+        "reconcile-teardown-outcome",
+        "reconcile-terminal-state",
+        "reconcile-authoritative-absence",
+        "reconcile-fixed-root-removal"
+      ]
+    },
+    {
+      "sequence": 8,
+      "effect": "drain-and-validate-completion",
+      "failure": "echo-mismatch",
+      "processCreated": true,
+      "trace": [
+        "fence-attempt",
+        "lookup-fenced-attempt",
+        "request-teardown-once",
+        "reconcile-teardown-outcome",
+        "reconcile-terminal-state",
+        "reconcile-authoritative-absence",
+        "reconcile-fixed-root-removal"
+      ]
+    },
+    {
+      "sequence": 8,
+      "effect": "drain-and-validate-completion",
+      "failure": "fact-mismatch",
+      "processCreated": true,
+      "trace": [
+        "fence-attempt",
+        "lookup-fenced-attempt",
+        "request-teardown-once",
+        "reconcile-teardown-outcome",
+        "reconcile-terminal-state",
+        "reconcile-authoritative-absence",
+        "reconcile-fixed-root-removal"
+      ]
+    },
+    {
+      "sequence": 9,
+      "effect": "join-terminal-state",
+      "failure": "provider-error",
+      "processCreated": true,
+      "trace": [
+        "fence-attempt",
+        "lookup-fenced-attempt",
+        "request-teardown-once",
+        "reconcile-teardown-outcome",
+        "reconcile-terminal-state",
+        "reconcile-authoritative-absence",
+        "reconcile-fixed-root-removal"
+      ]
+    },
+    {
+      "sequence": 9,
+      "effect": "join-terminal-state",
+      "failure": "not-applied",
+      "processCreated": true,
+      "trace": [
+        "fence-attempt",
+        "lookup-fenced-attempt",
+        "request-teardown-once",
+        "reconcile-teardown-outcome",
+        "reconcile-terminal-state",
+        "reconcile-authoritative-absence",
+        "reconcile-fixed-root-removal"
+      ]
+    },
+    {
+      "sequence": 9,
+      "effect": "join-terminal-state",
+      "failure": "indeterminate",
+      "processCreated": true,
+      "trace": [
+        "fence-attempt",
+        "lookup-fenced-attempt",
+        "request-teardown-once",
+        "reconcile-teardown-outcome",
+        "reconcile-terminal-state",
+        "reconcile-authoritative-absence",
+        "reconcile-fixed-root-removal"
+      ]
+    },
+    {
+      "sequence": 9,
+      "effect": "join-terminal-state",
+      "failure": "echo-mismatch",
+      "processCreated": true,
+      "trace": [
+        "fence-attempt",
+        "lookup-fenced-attempt",
+        "request-teardown-once",
+        "reconcile-teardown-outcome",
+        "reconcile-terminal-state",
+        "reconcile-authoritative-absence",
+        "reconcile-fixed-root-removal"
+      ]
+    },
+    {
+      "sequence": 9,
+      "effect": "join-terminal-state",
+      "failure": "fact-mismatch",
+      "processCreated": true,
+      "trace": [
+        "fence-attempt",
+        "lookup-fenced-attempt",
+        "request-teardown-once",
+        "reconcile-teardown-outcome",
+        "reconcile-terminal-state",
+        "reconcile-authoritative-absence",
+        "reconcile-fixed-root-removal"
+      ]
+    },
+    {
+      "sequence": 10,
+      "effect": "prove-authoritative-absence",
+      "failure": "provider-error",
+      "processCreated": true,
+      "trace": [
+        "fence-attempt",
+        "lookup-fenced-attempt",
+        "request-teardown-once",
+        "reconcile-teardown-outcome",
+        "reconcile-terminal-state",
+        "reconcile-authoritative-absence",
+        "reconcile-fixed-root-removal"
+      ]
+    },
+    {
+      "sequence": 10,
+      "effect": "prove-authoritative-absence",
+      "failure": "not-applied",
+      "processCreated": true,
+      "trace": [
+        "fence-attempt",
+        "lookup-fenced-attempt",
+        "request-teardown-once",
+        "reconcile-teardown-outcome",
+        "reconcile-terminal-state",
+        "reconcile-authoritative-absence",
+        "reconcile-fixed-root-removal"
+      ]
+    },
+    {
+      "sequence": 10,
+      "effect": "prove-authoritative-absence",
+      "failure": "indeterminate",
+      "processCreated": true,
+      "trace": [
+        "fence-attempt",
+        "lookup-fenced-attempt",
+        "request-teardown-once",
+        "reconcile-teardown-outcome",
+        "reconcile-terminal-state",
+        "reconcile-authoritative-absence",
+        "reconcile-fixed-root-removal"
+      ]
+    },
+    {
+      "sequence": 10,
+      "effect": "prove-authoritative-absence",
+      "failure": "echo-mismatch",
+      "processCreated": true,
+      "trace": [
+        "fence-attempt",
+        "lookup-fenced-attempt",
+        "request-teardown-once",
+        "reconcile-teardown-outcome",
+        "reconcile-terminal-state",
+        "reconcile-authoritative-absence",
+        "reconcile-fixed-root-removal"
+      ]
+    },
+    {
+      "sequence": 10,
+      "effect": "prove-authoritative-absence",
+      "failure": "fact-mismatch",
+      "processCreated": true,
+      "trace": [
+        "fence-attempt",
+        "lookup-fenced-attempt",
+        "request-teardown-once",
+        "reconcile-teardown-outcome",
+        "reconcile-terminal-state",
+        "reconcile-authoritative-absence",
+        "reconcile-fixed-root-removal"
+      ]
+    },
+    {
+      "sequence": 11,
+      "effect": "remove-fixed-root",
+      "failure": "provider-error",
+      "processCreated": true,
+      "trace": [
+        "fence-attempt",
+        "lookup-fenced-attempt",
+        "request-teardown-once",
+        "reconcile-teardown-outcome",
+        "reconcile-terminal-state",
+        "reconcile-authoritative-absence",
+        "reconcile-fixed-root-removal"
+      ]
+    },
+    {
+      "sequence": 11,
+      "effect": "remove-fixed-root",
+      "failure": "not-applied",
+      "processCreated": true,
+      "trace": [
+        "fence-attempt",
+        "lookup-fenced-attempt",
+        "request-teardown-once",
+        "reconcile-teardown-outcome",
+        "reconcile-terminal-state",
+        "reconcile-authoritative-absence",
+        "reconcile-fixed-root-removal"
+      ]
+    },
+    {
+      "sequence": 11,
+      "effect": "remove-fixed-root",
+      "failure": "indeterminate",
+      "processCreated": true,
+      "trace": [
+        "fence-attempt",
+        "lookup-fenced-attempt",
+        "request-teardown-once",
+        "reconcile-teardown-outcome",
+        "reconcile-terminal-state",
+        "reconcile-authoritative-absence",
+        "reconcile-fixed-root-removal"
+      ]
+    },
+    {
+      "sequence": 11,
+      "effect": "remove-fixed-root",
+      "failure": "echo-mismatch",
+      "processCreated": true,
+      "trace": [
+        "fence-attempt",
+        "lookup-fenced-attempt",
+        "request-teardown-once",
+        "reconcile-teardown-outcome",
+        "reconcile-terminal-state",
+        "reconcile-authoritative-absence",
+        "reconcile-fixed-root-removal"
+      ]
+    },
+    {
+      "sequence": 11,
+      "effect": "remove-fixed-root",
+      "failure": "fact-mismatch",
+      "processCreated": true,
+      "trace": [
+        "fence-attempt",
+        "lookup-fenced-attempt",
+        "request-teardown-once",
+        "reconcile-teardown-outcome",
+        "reconcile-terminal-state",
+        "reconcile-authoritative-absence",
+        "reconcile-fixed-root-removal"
+      ]
+    },
+    {
+      "sequence": 12,
+      "effect": "commit-durable-completion",
+      "failure": "provider-error",
+      "processCreated": true,
+      "trace": [
+        "fence-attempt",
+        "lookup-fenced-attempt",
+        "reopen-stored-completion",
+        "replay-exact-stored-completion"
+      ]
+    },
+    {
+      "sequence": 12,
+      "effect": "commit-durable-completion",
+      "failure": "not-applied",
+      "processCreated": true,
+      "trace": [
+        "fence-attempt",
+        "lookup-fenced-attempt",
+        "reopen-stored-completion",
+        "replay-exact-stored-completion"
+      ]
+    },
+    {
+      "sequence": 12,
+      "effect": "commit-durable-completion",
+      "failure": "indeterminate",
+      "processCreated": true,
+      "trace": [
+        "fence-attempt",
+        "lookup-fenced-attempt",
+        "reopen-stored-completion",
+        "replay-exact-stored-completion"
+      ]
+    },
+    {
+      "sequence": 12,
+      "effect": "commit-durable-completion",
+      "failure": "echo-mismatch",
+      "processCreated": true,
+      "trace": [
+        "fence-attempt",
+        "lookup-fenced-attempt",
+        "reopen-stored-completion",
+        "replay-exact-stored-completion"
+      ]
+    },
+    {
+      "sequence": 12,
+      "effect": "commit-durable-completion",
+      "failure": "fact-mismatch",
+      "processCreated": true,
+      "trace": [
+        "fence-attempt",
+        "lookup-fenced-attempt",
+        "reopen-stored-completion",
+        "replay-exact-stored-completion"
+      ]
+    },
+    {
+      "sequence": 13,
+      "effect": "deliver-stored-completion",
+      "failure": "provider-error",
+      "processCreated": true,
+      "trace": [
+        "fence-attempt",
+        "lookup-fenced-attempt",
+        "reopen-stored-completion",
+        "replay-exact-stored-completion"
+      ]
+    },
+    {
+      "sequence": 13,
+      "effect": "deliver-stored-completion",
+      "failure": "not-applied",
+      "processCreated": true,
+      "trace": [
+        "fence-attempt",
+        "lookup-fenced-attempt",
+        "reopen-stored-completion",
+        "replay-exact-stored-completion"
+      ]
+    },
+    {
+      "sequence": 13,
+      "effect": "deliver-stored-completion",
+      "failure": "indeterminate",
+      "processCreated": true,
+      "trace": [
+        "fence-attempt",
+        "lookup-fenced-attempt",
+        "reopen-stored-completion",
+        "replay-exact-stored-completion"
+      ]
+    },
+    {
+      "sequence": 13,
+      "effect": "deliver-stored-completion",
+      "failure": "echo-mismatch",
+      "processCreated": true,
+      "trace": [
+        "fence-attempt",
+        "lookup-fenced-attempt",
+        "reopen-stored-completion",
+        "replay-exact-stored-completion"
+      ]
+    },
+    {
+      "sequence": 13,
+      "effect": "deliver-stored-completion",
+      "failure": "fact-mismatch",
+      "processCreated": true,
+      "trace": [
+        "fence-attempt",
+        "lookup-fenced-attempt",
+        "reopen-stored-completion",
+        "replay-exact-stored-completion"
+      ]
+    }
+  ],
+  "createdRecoveryFailureCases": [
+    {
+      "failedStep": "fence-attempt",
+      "trace": [
+        "fence-attempt",
+        "record-unresolved-cleanup"
+      ],
+      "rootRemovalAllowed": false,
+      "terminalDisposition": "unresolved-cleanup-durable"
+    },
+    {
+      "failedStep": "lookup-fenced-attempt",
+      "trace": [
+        "fence-attempt",
+        "lookup-fenced-attempt",
+        "record-unresolved-cleanup"
+      ],
+      "rootRemovalAllowed": false,
+      "terminalDisposition": "unresolved-cleanup-durable"
+    },
+    {
+      "failedStep": "request-teardown-once",
+      "trace": [
+        "fence-attempt",
+        "lookup-fenced-attempt",
+        "request-teardown-once",
+        "record-unresolved-cleanup"
+      ],
+      "rootRemovalAllowed": false,
+      "terminalDisposition": "unresolved-cleanup-durable"
+    },
+    {
+      "failedStep": "reconcile-teardown-outcome",
+      "trace": [
+        "fence-attempt",
+        "lookup-fenced-attempt",
+        "request-teardown-once",
+        "reconcile-teardown-outcome",
+        "record-unresolved-cleanup"
+      ],
+      "rootRemovalAllowed": false,
+      "terminalDisposition": "unresolved-cleanup-durable"
+    },
+    {
+      "failedStep": "reconcile-terminal-state",
+      "trace": [
+        "fence-attempt",
+        "lookup-fenced-attempt",
+        "request-teardown-once",
+        "reconcile-teardown-outcome",
+        "reconcile-terminal-state",
+        "record-unresolved-cleanup"
+      ],
+      "rootRemovalAllowed": false,
+      "terminalDisposition": "unresolved-cleanup-durable"
+    },
+    {
+      "failedStep": "reconcile-authoritative-absence",
+      "trace": [
+        "fence-attempt",
+        "lookup-fenced-attempt",
+        "request-teardown-once",
+        "reconcile-teardown-outcome",
+        "reconcile-terminal-state",
+        "reconcile-authoritative-absence",
+        "record-unresolved-cleanup"
+      ],
+      "rootRemovalAllowed": false,
+      "terminalDisposition": "unresolved-cleanup-durable"
+    },
+    {
+      "failedStep": "reconcile-fixed-root-removal",
+      "trace": [
+        "fence-attempt",
+        "lookup-fenced-attempt",
+        "request-teardown-once",
+        "reconcile-teardown-outcome",
+        "reconcile-terminal-state",
+        "reconcile-authoritative-absence",
+        "reconcile-fixed-root-removal",
+        "record-unresolved-cleanup"
+      ],
+      "rootRemovalAllowed": true,
+      "terminalDisposition": "unresolved-cleanup-durable"
+    }
+  ],
+  "completionRecoveryFailureCases": [
+    {
+      "failedStep": "fence-attempt",
+      "trace": [
+        "fence-attempt",
+        "record-unresolved-cleanup"
+      ],
+      "storedCompletionDelivered": false,
+      "terminalDisposition": "unresolved-cleanup-durable"
+    },
+    {
+      "failedStep": "lookup-fenced-attempt",
+      "trace": [
+        "fence-attempt",
+        "lookup-fenced-attempt",
+        "record-unresolved-cleanup"
+      ],
+      "storedCompletionDelivered": false,
+      "terminalDisposition": "unresolved-cleanup-durable"
+    },
+    {
+      "failedStep": "reopen-stored-completion",
+      "trace": [
+        "fence-attempt",
+        "lookup-fenced-attempt",
+        "reopen-stored-completion",
+        "record-unresolved-cleanup"
+      ],
+      "storedCompletionDelivered": false,
+      "terminalDisposition": "unresolved-cleanup-durable"
+    },
+    {
+      "failedStep": "replay-exact-stored-completion",
+      "trace": [
+        "fence-attempt",
+        "lookup-fenced-attempt",
+        "reopen-stored-completion",
+        "replay-exact-stored-completion",
+        "record-unresolved-cleanup"
+      ],
+      "storedCompletionDelivered": false,
+      "terminalDisposition": "unresolved-cleanup-durable"
+    }
+  ],
+  "teardownOutcomeCases": [
+    {
+      "outcome": "provider-error",
+      "requestCount": 1,
+      "trace": [
+        "fence-attempt",
+        "lookup-fenced-attempt",
+        "request-teardown-once",
+        "reconcile-teardown-outcome",
+        "reconcile-terminal-state",
+        "reconcile-authoritative-absence",
+        "reconcile-fixed-root-removal"
+      ],
+      "nonIdempotentEffectRedriven": false
+    },
+    {
+      "outcome": "not-applied",
+      "requestCount": 1,
+      "trace": [
+        "fence-attempt",
+        "lookup-fenced-attempt",
+        "request-teardown-once",
+        "reconcile-teardown-outcome",
+        "reconcile-terminal-state",
+        "reconcile-authoritative-absence",
+        "reconcile-fixed-root-removal"
+      ],
+      "nonIdempotentEffectRedriven": false
+    },
+    {
+      "outcome": "indeterminate",
+      "requestCount": 1,
+      "trace": [
+        "fence-attempt",
+        "lookup-fenced-attempt",
+        "request-teardown-once",
+        "reconcile-teardown-outcome",
+        "reconcile-terminal-state",
+        "reconcile-authoritative-absence",
+        "reconcile-fixed-root-removal"
+      ],
+      "nonIdempotentEffectRedriven": false
+    },
+    {
+      "outcome": "echo-mismatch",
+      "requestCount": 1,
+      "trace": [
+        "fence-attempt",
+        "lookup-fenced-attempt",
+        "request-teardown-once",
+        "reconcile-teardown-outcome",
+        "reconcile-terminal-state",
+        "reconcile-authoritative-absence",
+        "reconcile-fixed-root-removal"
+      ],
+      "nonIdempotentEffectRedriven": false
+    },
+    {
+      "outcome": "fact-mismatch",
+      "requestCount": 1,
+      "trace": [
+        "fence-attempt",
+        "lookup-fenced-attempt",
+        "request-teardown-once",
+        "reconcile-teardown-outcome",
+        "reconcile-terminal-state",
+        "reconcile-authoritative-absence",
+        "reconcile-fixed-root-removal"
+      ],
+      "nonIdempotentEffectRedriven": false
+    }
+  ],
+  "durableRecordFailure": {
+    "attemptRemainsFenced": true,
+    "cleanupResolved": false,
+    "terminalDisposition": "recovery-required-no-success"
+  }
+}
