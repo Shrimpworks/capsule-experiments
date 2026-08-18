@@ -26,6 +26,11 @@
       "sha256": "bb7234ee486b0fbccc2091859ec93499e6a14ea7d6e091cdef60a0e2a6e8371c"
     }
   },
+  "payloadForms": {
+    "source": "exact-bytes",
+    "input": "canonical-json-utf8-v1",
+    "completion": "canonical-json-utf8-v1"
+  },
   "acceptedExecutionFields": [
     "registrationId"
   ],

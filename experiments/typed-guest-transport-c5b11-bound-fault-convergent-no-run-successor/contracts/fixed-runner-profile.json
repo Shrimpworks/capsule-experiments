@@ -33,23 +33,23 @@
     },
     "supervisorDriverSource": {
       "path": "source/supervisor_effect_driver.c",
-      "bytes": 15140,
-      "sha256": "65f4b826afccaf3dd7f85ed5771ed4fd00211e98d7c6e41a2a156ee977c6699d"
+      "bytes": 16029,
+      "sha256": "902f22cc09012f4a5553c3e0dcfcf094bb90874db02ddaa91ac89fe29a441a71"
     },
     "supervisorEffectHeader": {
       "path": "source/supervisor_effect_abi.h",
-      "bytes": 3707,
-      "sha256": "51244847f127dc3aa42741ee54a98f32358dfae3873ddb60133587591a491694"
+      "bytes": 4189,
+      "sha256": "d6869868b8a7f5891f50328800f014891854e7ed8ac2a3d9c504848c472796c4"
     },
     "generatedAttemptBindings": {
       "path": "source/attempt_bindings.h",
       "bytes": 1387,
-      "sha256": "e5d90db25b4e7d6aea1eb2a8eaf6f3625b4758120b4aa5e003933654940e9ea5"
+      "sha256": "915280dff180f975cf7eadc45d817c639183f3d8723b126dd7d4798595089f2c"
     },
     "supervisorDriverObject": {
       "path": "dist/supervisor-effect-driver.o",
-      "bytes": 12952,
-      "sha256": "bc9c3d4142ffb9e5b3c41aeaf45b3b5ac3236ee0f5a8699218df90bd13b3072a"
+      "bytes": 13304,
+      "sha256": "468b76662f87bd9e9599b99e9c417e2575b8805fc1a44073952238f6d1388342"
     },
     "attemptRuntimeProfile": {
       "path": "contracts/attempt-runtime-profile.json",
@@ -58,18 +58,18 @@
     },
     "attemptPlan": {
       "path": "contracts/attempt-plan.json",
-      "bytes": 1087,
-      "sha256": "bab8d7daa7c6444b6b972c18cf6152f1c53c5712f13b4fb4948fdcc9a560947b"
+      "bytes": 1223,
+      "sha256": "891359ad03c420b658f0ce66769fd9996eae0022bdd0ea92a3884a8c7723bf29"
     },
     "reconciliationMatrix": {
       "path": "fixtures/reconciliation-matrix.json",
-      "bytes": 53549,
-      "sha256": "d101826f271c94add4dd3300ef036336e52a09438e72e477e80825ee23d3789c"
+      "bytes": 52251,
+      "sha256": "1dfb19cd115178f845ac20c1ce4ca738ac15ff62ffe73f1f38ea8452d8617dea"
     },
     "independentRecoveryOracle": {
       "path": "oracles/independent-recovery-oracle.json",
-      "bytes": 4383,
-      "sha256": "d035eaa8abb5417ec9da6fa03d1c6f6b816c69d4aedc7ac7aad0bdaac3a11ebb"
+      "bytes": 4913,
+      "sha256": "8eab411938fb495e292ccb2db8c97ca914033b8a5f40748e2a11309307994f54"
     },
     "libkrun": {
       "path": "experiments/typed-guest-transport-c5b2-governed-input-closure/inputs/c2b-v4/libkrun.1.dylib",
@@ -89,17 +89,17 @@
     "sourceFrame": {
       "path": "fixtures/source.frame",
       "bytes": 255,
-      "sha256": "277dfb97424a454f5a0ebf46810998d5cdc3bbe4bc31666fa69333b0b05211c6"
+      "sha256": "61fd5aef606f8deb27636869059cedd003b407abc056e3cfc07ded1d1af52132"
     },
     "inputFrame": {
       "path": "fixtures/input.frame",
       "bytes": 188,
-      "sha256": "9ea71b1ec7c26de3f91788d01585990ce4ebfc5f145866e18e306602a4a8ae81"
+      "sha256": "52cf55a3b4365b7edcb2c39e586e31d85e164832fce2e2199e76679b955b0675"
     },
     "completionFrame": {
       "path": "fixtures/completion.frame",
       "bytes": 259,
-      "sha256": "e211f63cf95dcc949816859353157e09f6f0c3c2206623d727acb45173c876ee"
+      "sha256": "1c21a5d3922a0088dc068f31877b0c3a1b53ccd7962722db5720117d06af5e7f"
     }
   },
   "bindingLayers": {
@@ -127,31 +127,31 @@
     },
     "attemptPlan": {
       "path": "contracts/attempt-plan.json",
-      "bytes": 1087,
-      "sha256": "bab8d7daa7c6444b6b972c18cf6152f1c53c5712f13b4fb4948fdcc9a560947b",
+      "bytes": 1223,
+      "sha256": "891359ad03c420b658f0ce66769fd9996eae0022bdd0ea92a3884a8c7723bf29",
       "carriedByEveryFrameAndEffect": true
     },
     "outerComposition": {
       "bindsSupervisorDriver": true,
       "driverSource": {
         "path": "source/supervisor_effect_driver.c",
-        "bytes": 15140,
-        "sha256": "65f4b826afccaf3dd7f85ed5771ed4fd00211e98d7c6e41a2a156ee977c6699d"
+        "bytes": 16029,
+        "sha256": "902f22cc09012f4a5553c3e0dcfcf094bb90874db02ddaa91ac89fe29a441a71"
       },
       "driverObject": {
         "path": "dist/supervisor-effect-driver.o",
-        "bytes": 12952,
-        "sha256": "bc9c3d4142ffb9e5b3c41aeaf45b3b5ac3236ee0f5a8699218df90bd13b3072a"
+        "bytes": 13304,
+        "sha256": "468b76662f87bd9e9599b99e9c417e2575b8805fc1a44073952238f6d1388342"
       },
       "abiHeader": {
         "path": "source/supervisor_effect_abi.h",
-        "bytes": 3707,
-        "sha256": "51244847f127dc3aa42741ee54a98f32358dfae3873ddb60133587591a491694"
+        "bytes": 4189,
+        "sha256": "d6869868b8a7f5891f50328800f014891854e7ed8ac2a3d9c504848c472796c4"
       },
       "generatedBindings": {
         "path": "source/attempt_bindings.h",
         "bytes": 1387,
-        "sha256": "e5d90db25b4e7d6aea1eb2a8eaf6f3625b4758120b4aa5e003933654940e9ea5"
+        "sha256": "915280dff180f975cf7eadc45d817c639183f3d8723b126dd7d4798595089f2c"
       },
       "nonSelfReferential": true
     }
@@ -252,7 +252,11 @@
     "frameEchoRequired": true,
     "teardownIntentDurableBeforeSideEffectRequired": true,
     "teardownDurableResumeStep": 17,
-    "recoveryCursorDurableAndMonotonicRequired": true
+    "recoveryCursorDurableAndMonotonicRequired": true,
+    "recoveryStepMeaning": "provider-transition-last-attempted-or-observed",
+    "durableResumeStepMeaning": "independently-persisted-safe-restart-cursor",
+    "startupValidatesBothCursorFields": true,
+    "reopenedDispatchUsesDurableResumeStep": true
   },
   "ordering": {
     "nominalEffects": [
@@ -295,13 +299,13 @@
   "faultConvergence": {
     "matrix": {
       "path": "fixtures/reconciliation-matrix.json",
-      "bytes": 53549,
-      "sha256": "d101826f271c94add4dd3300ef036336e52a09438e72e477e80825ee23d3789c"
+      "bytes": 52251,
+      "sha256": "1dfb19cd115178f845ac20c1ce4ca738ac15ff62ffe73f1f38ea8452d8617dea"
     },
     "independentOracle": {
       "path": "oracles/independent-recovery-oracle.json",
-      "bytes": 4383,
-      "sha256": "d035eaa8abb5417ec9da6fa03d1c6f6b816c69d4aedc7ac7aad0bdaac3a11ebb"
+      "bytes": 4913,
+      "sha256": "8eab411938fb495e292ccb2db8c97ca914033b8a5f40748e2a11309307994f54"
     },
     "coveredFailures": [
       "provider-error",
@@ -312,6 +316,8 @@
     ],
     "nonIdempotentRedrive": false,
     "teardownRequestMaximum": 1,
+    "teardownProviderOutcomeAlwaysReconciled": true,
+    "teardownProviderOutcomeImmediateUnresolved": false,
     "ambiguousSpawnProcessMayExist": true,
     "startupRecoveryCursorLookup": true,
     "recoveryStepFailureCrossProduct": true,
@@ -334,6 +340,10 @@
     "startByte": "G",
     "startWriterClosedAfterByte": true,
     "completionTrailerLast": true,
+    "planPayloadLengthAndDigestBindingRequired": true,
+    "sourcePayloadForm": "exact-bytes",
+    "inputPayloadForm": "canonical-json-utf8-v1",
+    "completionPayloadForm": "canonical-json-utf8-v1",
     "eofCommits": false,
     "exitZeroCommits": false
   },
@@ -390,15 +400,15 @@
   "contradictionResolutions": {
     "runnerRootIdentity": {
       "resolved": true,
-      "mechanism": "The attempt runtime profile digests the exact C5b11 runner source/object, libkrun, libkrunfw, and 100,663,296-byte root; all frames and effect echoes carry that new profile digest."
+      "mechanism": "The attempt runtime profile digests the exact C5b11 runner source/object, libkrun, libkrunfw, and 100,663,296-byte root; the attempt plan separately binds exact frame payload bytes and all frames/effect echoes carry the new plan/profile digests."
     },
     "effectSequence": {
       "resolved": true,
-      "mechanism": "The spawn boundary becomes process-may-exist before invocation; every ambiguous spawn or later failure enters fenced, non-redriving teardown/terminal/absence/root reconciliation or durable unresolved state, and startup reopens the durable recovery cursor."
+      "mechanism": "The spawn boundary becomes process-may-exist before invocation; every ambiguous spawn or later failure enters fenced, non-redriving convergence. One-shot teardown step 16 always continues to step 17 reconciliation, and only reconciliation failure records durable unresolved cleanup."
     },
     "perEffectAbi": {
       "resolved": true,
-      "mechanism": "Twenty-four closed typed provider symbols separate nominal effects, recovery-cursor lookup, reconciliation, unresolved cleanup, and exact stored replay."
+      "mechanism": "Twenty-four closed typed provider symbols separate nominal effects and recovery. Startup validates distinct recovery-step/durable-resume-step pairs and dispatches only from the durable cursor."
     },
     "singleLibkrunOwner": {
       "resolved": true,
@@ -415,6 +425,7 @@
     "The initial sibling-path blocker was resolved by the orchestrator-supplied disposable clone.",
     "PR #30 merged before the requested amendment draft transition; the orchestrator re-dispatched C5b-S1A as this fresh successor.",
     "C5b4 preferred-form kernel source is incomplete and distribution source compliance remains BLOCKED; exact binary identity is not dependency, source, licensing, or distribution admission.",
-    "Supervisor provider provenance, cross-host reproducibility, installed composition, runtime/profile admission, and product admission remain BLOCKED."
+    "Supervisor provider provenance, cross-host reproducibility, installed composition, runtime/profile admission, and product admission remain BLOCKED.",
+    "C5b-S4 reviewed exact head 5a671198a61280ce343e2ba03787430da27fc1b7 and required payload-plan closure, distinct cursor validation, a truthful one-shot teardown model, and two missing substitutions; that head remains an immutable ancestor."
   ]
 }

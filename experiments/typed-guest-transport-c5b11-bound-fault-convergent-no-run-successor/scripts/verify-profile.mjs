@@ -99,6 +99,12 @@ export function validateProfile(profile) {
   assert.equal(profile.effectAbi.teardownIntentDurableBeforeSideEffectRequired, true);
   assert.equal(profile.effectAbi.teardownDurableResumeStep, 17);
   assert.equal(profile.effectAbi.recoveryCursorDurableAndMonotonicRequired, true);
+  assert.equal(profile.effectAbi.recoveryStepMeaning,
+    "provider-transition-last-attempted-or-observed");
+  assert.equal(profile.effectAbi.durableResumeStepMeaning,
+    "independently-persisted-safe-restart-cursor");
+  assert.equal(profile.effectAbi.startupValidatesBothCursorFields, true);
+  assert.equal(profile.effectAbi.reopenedDispatchUsesDurableResumeStep, true);
   assert.deepEqual(profile.ordering.nominalEffects, nominalEffects);
   assert.deepEqual(profile.ordering.recoveryEffects, recoveryEffects);
   for (const value of Object.values(profile.ordering).filter((item) => typeof item === "boolean")) {
@@ -106,6 +112,8 @@ export function validateProfile(profile) {
   }
   assert.equal(profile.faultConvergence.nonIdempotentRedrive, false);
   assert.equal(profile.faultConvergence.teardownRequestMaximum, 1);
+  assert.equal(profile.faultConvergence.teardownProviderOutcomeAlwaysReconciled, true);
+  assert.equal(profile.faultConvergence.teardownProviderOutcomeImmediateUnresolved, false);
   assert.equal(profile.faultConvergence.unresolvedCleanupDurable, true);
   assert.equal(profile.faultConvergence.commitResponseLossUsesStoredRecord, true);
   assert.equal(profile.faultConvergence.replayExactBytes, true);
@@ -113,6 +121,10 @@ export function validateProfile(profile) {
   assert.equal(profile.faultConvergence.startupRecoveryCursorLookup, true);
   assert.equal(profile.faultConvergence.recoveryStepFailureCrossProduct, true);
   assert.equal(profile.faultConvergence.interruptionReopenResume, true);
+  assert.equal(profile.transport.planPayloadLengthAndDigestBindingRequired, true);
+  assert.equal(profile.transport.sourcePayloadForm, "exact-bytes");
+  assert.equal(profile.transport.inputPayloadForm, "canonical-json-utf8-v1");
+  assert.equal(profile.transport.completionPayloadForm, "canonical-json-utf8-v1");
 
   assert.deepEqual(profile.executionRequest.acceptedFields, ["registrationId"]);
   for (const [key, value] of Object.entries(profile.executionRequest)) {

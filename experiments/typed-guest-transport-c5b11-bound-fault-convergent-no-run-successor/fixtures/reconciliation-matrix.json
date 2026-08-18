@@ -1124,76 +1124,6 @@
     },
     {
       "path": "created",
-      "step": 16,
-      "effect": "request-teardown-once",
-      "failure": "provider-error",
-      "trace": [
-        "fence-attempt",
-        "lookup-fenced-attempt",
-        "request-teardown-once",
-        "record-unresolved-cleanup"
-      ],
-      "durableResumeStep": 17,
-      "originalEffectRedriven": false
-    },
-    {
-      "path": "created",
-      "step": 16,
-      "effect": "request-teardown-once",
-      "failure": "not-applied",
-      "trace": [
-        "fence-attempt",
-        "lookup-fenced-attempt",
-        "request-teardown-once",
-        "record-unresolved-cleanup"
-      ],
-      "durableResumeStep": 17,
-      "originalEffectRedriven": false
-    },
-    {
-      "path": "created",
-      "step": 16,
-      "effect": "request-teardown-once",
-      "failure": "indeterminate",
-      "trace": [
-        "fence-attempt",
-        "lookup-fenced-attempt",
-        "request-teardown-once",
-        "record-unresolved-cleanup"
-      ],
-      "durableResumeStep": 17,
-      "originalEffectRedriven": false
-    },
-    {
-      "path": "created",
-      "step": 16,
-      "effect": "request-teardown-once",
-      "failure": "echo-mismatch",
-      "trace": [
-        "fence-attempt",
-        "lookup-fenced-attempt",
-        "request-teardown-once",
-        "record-unresolved-cleanup"
-      ],
-      "durableResumeStep": 17,
-      "originalEffectRedriven": false
-    },
-    {
-      "path": "created",
-      "step": 16,
-      "effect": "request-teardown-once",
-      "failure": "fact-mismatch",
-      "trace": [
-        "fence-attempt",
-        "lookup-fenced-attempt",
-        "request-teardown-once",
-        "record-unresolved-cleanup"
-      ],
-      "durableResumeStep": 17,
-      "originalEffectRedriven": false
-    },
-    {
-      "path": "created",
       "step": 17,
       "effect": "reconcile-teardown-outcome",
       "failure": "provider-error",
@@ -1797,6 +1727,7 @@
     {
       "path": "created",
       "interruptedStep": 14,
+      "recoveryStep": 14,
       "durableResumeStep": 14,
       "trace": [
         "lookup-recovery-cursor",
@@ -1813,6 +1744,7 @@
     {
       "path": "created",
       "interruptedStep": 15,
+      "recoveryStep": 15,
       "durableResumeStep": 15,
       "trace": [
         "lookup-recovery-cursor",
@@ -1828,6 +1760,7 @@
     {
       "path": "created",
       "interruptedStep": 16,
+      "recoveryStep": 16,
       "durableResumeStep": 17,
       "trace": [
         "lookup-recovery-cursor",
@@ -1841,6 +1774,7 @@
     {
       "path": "created",
       "interruptedStep": 17,
+      "recoveryStep": 17,
       "durableResumeStep": 17,
       "trace": [
         "lookup-recovery-cursor",
@@ -1854,6 +1788,7 @@
     {
       "path": "created",
       "interruptedStep": 18,
+      "recoveryStep": 18,
       "durableResumeStep": 18,
       "trace": [
         "lookup-recovery-cursor",
@@ -1866,6 +1801,7 @@
     {
       "path": "created",
       "interruptedStep": 19,
+      "recoveryStep": 19,
       "durableResumeStep": 19,
       "trace": [
         "lookup-recovery-cursor",
@@ -1877,6 +1813,7 @@
     {
       "path": "created",
       "interruptedStep": 20,
+      "recoveryStep": 20,
       "durableResumeStep": 20,
       "trace": [
         "lookup-recovery-cursor",
@@ -1887,6 +1824,7 @@
     {
       "path": "completion",
       "interruptedStep": 14,
+      "recoveryStep": 14,
       "durableResumeStep": 14,
       "trace": [
         "lookup-recovery-cursor",
@@ -1900,6 +1838,7 @@
     {
       "path": "completion",
       "interruptedStep": 15,
+      "recoveryStep": 15,
       "durableResumeStep": 15,
       "trace": [
         "lookup-recovery-cursor",
@@ -1912,6 +1851,7 @@
     {
       "path": "completion",
       "interruptedStep": 22,
+      "recoveryStep": 22,
       "durableResumeStep": 22,
       "trace": [
         "lookup-recovery-cursor",
@@ -1923,6 +1863,7 @@
     {
       "path": "completion",
       "interruptedStep": 23,
+      "recoveryStep": 23,
       "durableResumeStep": 23,
       "trace": [
         "lookup-recovery-cursor",
@@ -1945,6 +1886,7 @@
         "reconcile-fixed-root-removal"
       ],
       "resumeStepAfterAmbiguousResponse": 17,
+      "immediateUnresolved": false,
       "nonIdempotentEffectRedriven": false
     },
     {
@@ -1960,6 +1902,7 @@
         "reconcile-fixed-root-removal"
       ],
       "resumeStepAfterAmbiguousResponse": 17,
+      "immediateUnresolved": false,
       "nonIdempotentEffectRedriven": false
     },
     {
@@ -1975,6 +1918,7 @@
         "reconcile-fixed-root-removal"
       ],
       "resumeStepAfterAmbiguousResponse": 17,
+      "immediateUnresolved": false,
       "nonIdempotentEffectRedriven": false
     },
     {
@@ -1990,6 +1934,7 @@
         "reconcile-fixed-root-removal"
       ],
       "resumeStepAfterAmbiguousResponse": 17,
+      "immediateUnresolved": false,
       "nonIdempotentEffectRedriven": false
     },
     {
@@ -2005,6 +1950,7 @@
         "reconcile-fixed-root-removal"
       ],
       "resumeStepAfterAmbiguousResponse": 17,
+      "immediateUnresolved": false,
       "nonIdempotentEffectRedriven": false
     }
   ],

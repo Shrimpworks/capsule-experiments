@@ -119,6 +119,11 @@ const attemptPlan = {
     input: reference("fixtures/input.payload", inputPayload),
     completion: reference("fixtures/completion.payload", completionPayload),
   },
+  payloadForms: {
+    source: "exact-bytes",
+    input: "canonical-json-utf8-v1",
+    completion: "canonical-json-utf8-v1",
+  },
   acceptedExecutionFields: ["registrationId"],
   replacementBytesAccepted: false,
   executionAuthorized: false,
@@ -192,6 +197,9 @@ if (runtimeProfileRef.sha256 === staleC5b8ProfileSha256) {
 const outputs = new Map([
   ["contracts/attempt-runtime-profile.json", runtimeProfileBytes],
   ["contracts/attempt-plan.json", attemptPlanBytes],
+  ["fixtures/source.payload", sourcePayload],
+  ["fixtures/input.payload", inputPayload],
+  ["fixtures/completion.payload", completionPayload],
   ["source/attempt_bindings.h", bindingHeader],
   ["fixtures/source.frame", sourceFrame],
   ["fixtures/input.frame", inputFrame],

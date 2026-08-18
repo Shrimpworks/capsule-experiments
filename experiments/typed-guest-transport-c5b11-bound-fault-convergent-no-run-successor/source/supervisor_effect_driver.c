@@ -119,13 +119,27 @@ static int valid_applied(
         result->durable_resume_step == request->durable_resume_step;
 }
 
-static int valid_created_recovery_step(uint32_t recovery_step) {
-    return recovery_step >= 14 && recovery_step <= 20;
+static int valid_created_recovery_cursor(
+    uint32_t recovery_step,
+    uint32_t durable_resume_step
+) {
+    return (recovery_step == 14 && durable_resume_step == 14) ||
+        (recovery_step == 15 && durable_resume_step == 15) ||
+        (recovery_step == 16 && durable_resume_step == 17) ||
+        (recovery_step == 17 && durable_resume_step == 17) ||
+        (recovery_step == 18 && durable_resume_step == 18) ||
+        (recovery_step == 19 && durable_resume_step == 19) ||
+        (recovery_step == 20 && durable_resume_step == 20);
 }
 
-static int valid_completion_recovery_step(uint32_t recovery_step) {
-    return recovery_step == 14 || recovery_step == 15 ||
-        recovery_step == 22 || recovery_step == 23;
+static int valid_completion_recovery_cursor(
+    uint32_t recovery_step,
+    uint32_t durable_resume_step
+) {
+    return (recovery_step == 14 && durable_resume_step == 14) ||
+        (recovery_step == 15 && durable_resume_step == 15) ||
+        (recovery_step == 22 && durable_resume_step == 22) ||
+        (recovery_step == 23 && durable_resume_step == 23);
 }
 
 static int durable_unresolved(
@@ -268,22 +282,28 @@ int32_t c5b11_drive_registered_attempt(const uint8_t registration_id[16]) {
         if (result.outcome == C5B11_EFFECT_APPLIED &&
             result.facts == C5B11_FACT_ATTEMPT_REOPENED &&
             result.failed_sequence >= 2 && result.failed_sequence <= 13 &&
-            result.recovery_step >= 14 && result.recovery_step <= 23) {
+            result.recovery_step >= 14 && result.recovery_step <= 23 &&
+            result.durable_resume_step >= 14 && result.durable_resume_step <= 23) {
             if (result.failed_sequence >= 12 &&
-                valid_completion_recovery_step(result.recovery_step)) {
+                valid_completion_recovery_cursor(
+                    result.recovery_step, result.durable_resume_step)) {
                 return reconcile_completion_response_loss(
-                    result.failed_sequence, C5B11_EFFECT_INDETERMINATE, result.recovery_step);
+                    result.failed_sequence, C5B11_EFFECT_INDETERMINATE,
+                    result.durable_resume_step);
             }
             if (result.failed_sequence < 12 &&
-                valid_created_recovery_step(result.recovery_step)) {
+                valid_created_recovery_cursor(
+                    result.recovery_step, result.durable_resume_step)) {
                 return reconcile_created_attempt(
-                    result.failed_sequence, C5B11_EFFECT_INDETERMINATE, result.recovery_step);
+                    result.failed_sequence, C5B11_EFFECT_INDETERMINATE,
+                    result.durable_resume_step);
             }
             return reconcile_created_attempt(2, C5B11_EFFECT_INDETERMINATE, 14);
         }
         if (result.outcome != C5B11_EFFECT_NOT_APPLIED ||
             result.facts != C5B11_FACT_ATTEMPT_FRESH ||
-            result.failed_sequence != 0 || result.recovery_step != 0) {
+            result.failed_sequence != 0 || result.recovery_step != 0 ||
+            result.durable_resume_step != 0) {
             return reconcile_created_attempt(2, C5B11_EFFECT_INDETERMINATE, 14);
         }
     }

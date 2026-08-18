@@ -28,7 +28,8 @@ const candidateFailureKinds = [
 const candidateCreatedRecovery = [
   { step: 14, effect: "fence-attempt", resume: 14 },
   { step: 15, effect: "lookup-fenced-attempt", resume: 15 },
-  { step: 16, effect: "request-teardown-once", resume: 17 },
+  { step: 16, effect: "request-teardown-once", resume: 17,
+    genericImmediateUnresolved: false, providerOutcomeDisposition: "continue-to-step-17" },
   { step: 17, effect: "reconcile-teardown-outcome", resume: 17 },
   { step: 18, effect: "reconcile-terminal-state", resume: 18 },
   { step: 19, effect: "reconcile-authoritative-absence", resume: 19 },
@@ -59,16 +60,19 @@ function buildCandidateReconciliationFixture() {
   const reopenRetryCases = [];
   for (const [pathName, path] of [["created", candidateCreatedRecovery], ["completion", candidateCompletionRecovery]]) {
     for (const [index, item] of path.entries()) {
-      for (const failure of candidateFailureKinds) {
-        recoveryStepFailureCases.push({
-          path: pathName, step: item.step, effect: item.effect, failure,
-          trace: [...path.slice(0, index + 1).map((entry) => entry.effect), "record-unresolved-cleanup"],
-          durableResumeStep: item.resume, originalEffectRedriven: false,
-        });
+      if (item.genericImmediateUnresolved !== false) {
+        for (const failure of candidateFailureKinds) {
+          recoveryStepFailureCases.push({
+            path: pathName, step: item.step, effect: item.effect, failure,
+            trace: [...path.slice(0, index + 1).map((entry) => entry.effect), "record-unresolved-cleanup"],
+            durableResumeStep: item.resume, originalEffectRedriven: false,
+          });
+        }
       }
       const resumeIndex = path.findIndex((entry) => entry.step >= item.resume);
       reopenRetryCases.push({
-        path: pathName, interruptedStep: item.step, durableResumeStep: item.resume,
+        path: pathName, interruptedStep: item.step, recoveryStep: item.step,
+        durableResumeStep: item.resume,
         trace: ["lookup-recovery-cursor", ...path.slice(resumeIndex).map((entry) => entry.effect)],
         originalEffectRedriven: false,
       });
@@ -77,7 +81,8 @@ function buildCandidateReconciliationFixture() {
   const teardownOutcomeCases = candidateFailureKinds.map((outcome) => ({
     outcome, requestCount: 1,
     trace: candidateCreatedRecovery.map((item) => item.effect),
-    resumeStepAfterAmbiguousResponse: 17, nonIdempotentEffectRedriven: false,
+    resumeStepAfterAmbiguousResponse: 17, immediateUnresolved: false,
+    nonIdempotentEffectRedriven: false,
   }));
   return {
     objectType: "capsule.c5b11.reconciliation-matrix", objectVersion: 2, performed: false,
@@ -204,6 +209,10 @@ const profile = {
     teardownIntentDurableBeforeSideEffectRequired: true,
     teardownDurableResumeStep: 17,
     recoveryCursorDurableAndMonotonicRequired: true,
+    recoveryStepMeaning: "provider-transition-last-attempted-or-observed",
+    durableResumeStepMeaning: "independently-persisted-safe-restart-cursor",
+    startupValidatesBothCursorFields: true,
+    reopenedDispatchUsesDurableResumeStep: true,
   },
   ordering: {
     nominalEffects, recoveryEffects,
@@ -217,6 +226,8 @@ const profile = {
     independentOracle: independentRecoveryOracle,
     coveredFailures: ["provider-error", "NOT_APPLIED", "INDETERMINATE", "echo-mismatch", "fact-mismatch"],
     nonIdempotentRedrive: false, teardownRequestMaximum: 1,
+    teardownProviderOutcomeAlwaysReconciled: true,
+    teardownProviderOutcomeImmediateUnresolved: false,
     ambiguousSpawnProcessMayExist: true, startupRecoveryCursorLookup: true,
     recoveryStepFailureCrossProduct: true, interruptionReopenResume: true,
     fencedAttemptLookup: true, teardownOutcomeReconciled: true,
@@ -229,13 +240,17 @@ const profile = {
     inputPhysicalMaximum: 262296, completionPhysicalMaximum: 262368,
     completionRetentionBytes: 262369, readyByte: "R", startByte: "G",
     startWriterClosedAfterByte: true, completionTrailerLast: true,
+    planPayloadLengthAndDigestBindingRequired: true,
+    sourcePayloadForm: "exact-bytes",
+    inputPayloadForm: "canonical-json-utf8-v1",
+    completionPayloadForm: "canonical-json-utf8-v1",
     eofCommits: false, exitZeroCommits: false,
   },
   executionRequest, authorization, performedEffects,
   contradictionResolutions: {
-    runnerRootIdentity: { resolved: true, mechanism: "The attempt runtime profile digests the exact C5b11 runner source/object, libkrun, libkrunfw, and 100,663,296-byte root; all frames and effect echoes carry that new profile digest." },
-    effectSequence: { resolved: true, mechanism: "The spawn boundary becomes process-may-exist before invocation; every ambiguous spawn or later failure enters fenced, non-redriving teardown/terminal/absence/root reconciliation or durable unresolved state, and startup reopens the durable recovery cursor." },
-    perEffectAbi: { resolved: true, mechanism: "Twenty-four closed typed provider symbols separate nominal effects, recovery-cursor lookup, reconciliation, unresolved cleanup, and exact stored replay." },
+    runnerRootIdentity: { resolved: true, mechanism: "The attempt runtime profile digests the exact C5b11 runner source/object, libkrun, libkrunfw, and 100,663,296-byte root; the attempt plan separately binds exact frame payload bytes and all frames/effect echoes carry the new plan/profile digests." },
+    effectSequence: { resolved: true, mechanism: "The spawn boundary becomes process-may-exist before invocation; every ambiguous spawn or later failure enters fenced, non-redriving convergence. One-shot teardown step 16 always continues to step 17 reconciliation, and only reconciliation failure records durable unresolved cleanup." },
+    perEffectAbi: { resolved: true, mechanism: "Twenty-four closed typed provider symbols separate nominal effects and recovery. Startup validates distinct recovery-step/durable-resume-step pairs and dispatches only from the durable cursor." },
     singleLibkrunOwner: { resolved: true, mechanism: "Only fixed-runner.o imports the closed 13-symbol libkrun surface; the Supervisor driver imports no libkrun symbol." },
   },
   limitations: [
@@ -249,6 +264,7 @@ const profile = {
     "PR #30 merged before the requested amendment draft transition; the orchestrator re-dispatched C5b-S1A as this fresh successor.",
     "C5b4 preferred-form kernel source is incomplete and distribution source compliance remains BLOCKED; exact binary identity is not dependency, source, licensing, or distribution admission.",
     "Supervisor provider provenance, cross-host reproducibility, installed composition, runtime/profile admission, and product admission remain BLOCKED.",
+    "C5b-S4 reviewed exact head 5a671198a61280ce343e2ba03787430da27fc1b7 and required payload-plan closure, distinct cursor validation, a truthful one-shot teardown model, and two missing substitutions; that head remains an immutable ancestor.",
   ],
 };
 const profileRef = retain("contracts/fixed-runner-profile.json", json(profile));
@@ -259,6 +275,7 @@ retain("contracts/no-run-successor.json", json({
   status: "construction-only-not-authorized", scopedStatus: "PASSED", parentStatus: "BLOCKED",
   profile: profileRef, attemptRuntimeProfile, attemptPlan, executionRequest,
   fixedFixtures: { source: sourceFrame, input: inputFrame, completion: completionFrame },
+  fixedPayloads: JSON.parse(await readFile(join(root, "contracts/attempt-plan.json"))).payloads,
   reconciliationMatrix, independentRecoveryOracle, authorization, performedEffects,
 }));
 retain("fixtures/effect-sequence.json", json({
@@ -269,9 +286,9 @@ retain("fixtures/effect-sequence.json", json({
   performed: false,
 }));
 retain("evidence/2026-08-18/construction.json", json({
-  workItem: "C5b-S1B C5b11 bound fault-convergent no-run successor amendment",
+  workItem: "C5b-S1C C5b11 payload-bound cursor-consistent no-run successor amendment",
   scopedStatus: "PASSED", parentC5bStatus: "BLOCKED",
-  result: "The amended immutable packet closes the three C5b-S3 Important findings without native linking, loading, or execution.",
+  result: "The amended immutable packet closes the four C5b-S4 Important findings without native linking, loading, or execution.",
   deterministicObjects: { builds: 2, byteEqual: true },
   toolchain: { appleClang: "21.0.0 (clang-2100.1.1.101)", node: "22.22.1", target: "arm64-apple-macos" },
   attemptRuntimeProfile, attemptPlan, authorization, performedEffects,
@@ -282,26 +299,40 @@ retain("evidence/2026-08-18/mutation-dispositions.json", json({
     "runner-root-size", "runner-root-digest", "stale-c5b8-profile", "frame-profile-substitution",
     "effect-echo-profile-removal", "ambiguous-spawn-state-bypass",
     "ambiguous-spawn-failure-bypass", "startup-recovery-cursor-removal",
-    "startup-recovery-path-confusion",
+    "startup-recovery-path-confusion", "startup-recovery-durable-swap",
+    "startup-recovery-durable-missing", "startup-recovery-invalid-pair",
+    "startup-recovery-nonmonotone-pair", "startup-recovery-dispatch-field-swap",
     "source-reconciliation-absence", "source-reconciliation-root-removal",
     "source-teardown-reconciliation", "source-teardown-redrive-cursor",
+    "source-teardown-immediate-unresolved",
     "source-unresolved-cleanup", "source-stored-completion-replay",
     "stored-completion-frame-binding", "runtime-executable-substitution",
-    "runtime-snapshot-substitution", "root-profile-identity-substitution",
+    "runtime-snapshot-substitution", "runtime-bundle-substitution",
+    "root-profile-identity-substitution",
     "root-profile-manifest-substitution", "root-archive-manifest-substitution",
     "runtime-provenance-substitution", "runtime-sbom-substitution",
     "runtime-notice-substitution", "kernel-source-obligation-substitution",
+    "libkrunfw-recovery-manifest-substitution",
     "driver-source-substitution", "driver-object-substitution", "independent-oracle-substitution",
     "effect-order", "per-effect-abi", "supervisor-libkrun-import", "duplicate-libkrun-owner",
     "execute-request-widening", "caller-authority", "host-presence", "guest-presence",
-    "execution-authorization", "performed-effect", "completion-magic", "completion-protocol",
+    "execution-authorization", "performed-effect", "source-payload-rehashed-plan-stale",
+    "input-payload-rehashed-plan-stale", "completion-payload-rehashed-plan-stale",
+    "input-payload-invalid-json", "input-payload-noncanonical-json",
+    "completion-payload-invalid-json", "completion-payload-noncanonical-json",
+    "source-plan-payload-length-substitution", "input-plan-payload-digest-substitution",
+    "completion-plan-payload-path-substitution", "input-plan-payload-form-substitution",
+    "source-payload-length", "source-payload-digest", "input-payload-length",
+    "input-payload-digest", "completion-magic", "completion-protocol",
     "completion-method", "completion-role", "completion-header-length", "completion-attempt",
     "completion-registration", "completion-plan", "completion-profile", "completion-status",
     "completion-flags", "completion-reserved", "completion-payload-length",
     "completion-payload-digest", "completion-trailer-magic", "completion-trailer-protocol",
     "completion-trailer-method", "completion-trailer-role", "completion-trailer-length",
     "completion-trailer-attempt", "completion-trailer-digest", "ambiguous-spawn-matrix-bypass",
-    "recovery-cross-product-missing", "reopen-retry-missing", "reconciliation-absence",
+    "recovery-cross-product-missing", "teardown-immediate-unresolved-contradiction",
+    "teardown-outcome-stops-before-reconciliation", "reopen-cursor-nonmonotone",
+    "reopen-retry-missing", "reconciliation-absence",
     "reconciliation-root-removal", "reconciliation-teardown", "unresolved-cleanup",
     "stored-completion-replay", "component-substitution", "closed-inventory-extra",
   ],

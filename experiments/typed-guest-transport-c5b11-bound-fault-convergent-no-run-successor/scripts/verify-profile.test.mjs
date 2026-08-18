@@ -7,7 +7,7 @@ import { dirname, join, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 
 import { validateProfile } from "./verify-profile.mjs";
-import { validateReconciliationFixture } from "./verify-reconciliation.mjs";
+import { validateIndependentOracle, validateReconciliationFixture } from "./verify-reconciliation.mjs";
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 const actualProfile = JSON.parse(readFileSync(join(root, "contracts/fixed-runner-profile.json")));
@@ -18,6 +18,7 @@ const clone = (value) => structuredClone(value);
 test("accepts the exact C5b11 profile", () => validateProfile(actualProfile));
 test("accepts the oracle-derived reconciliation matrix", () =>
   validateReconciliationFixture(actualMatrix, actualOracle));
+test("accepts the independent cursor and teardown oracle", () => validateIndependentOracle(actualOracle));
 
 for (const [name, mutate, expected] of [
   ["stale C5b8 profile", (p) => { p.bindingLayers.attemptRuntimeProfile.sha256 = "06079eea39ce9a2e0547837555a6953787d8c32d614f0ec7b9b07ef408de04cd"; }, /Expected values|not equal/u],
@@ -57,6 +58,36 @@ test("rejects a missing recovery-step failure crossing", () => {
   const candidate = clone(actualMatrix);
   candidate.recoveryStepFailureCases.pop();
   assert.throws(() => validateReconciliationFixture(candidate, actualOracle), /reconciliation matrix/u);
+});
+
+test("rejects contradictory immediate-unresolved teardown crossing", () => {
+  const candidate = clone(actualMatrix);
+  candidate.recoveryStepFailureCases.push({
+    path: "created", step: 16, effect: "request-teardown-once", failure: "provider-error",
+    trace: ["request-teardown-once", "record-unresolved-cleanup"],
+    durableResumeStep: 17, originalEffectRedriven: false,
+  });
+  assert.throws(() => validateReconciliationFixture(candidate, actualOracle), /reconciliation matrix/u);
+});
+
+test("rejects teardown outcome that does not continue to reconciliation", () => {
+  const candidate = clone(actualMatrix);
+  candidate.teardownOutcomeCases[0].immediateUnresolved = true;
+  candidate.teardownOutcomeCases[0].trace = ["request-teardown-once", "record-unresolved-cleanup"];
+  assert.throws(() => validateReconciliationFixture(candidate, actualOracle), /reconciliation matrix/u);
+});
+
+test("rejects non-monotone durable recovery cursor", () => {
+  const candidate = clone(actualMatrix);
+  candidate.reopenRetryCases.find(({ interruptedStep }) => interruptedStep === 16)
+    .durableResumeStep = 15;
+  assert.throws(() => validateReconciliationFixture(candidate, actualOracle), /reconciliation matrix/u);
+});
+
+test("rejects oracle that restores immediate-unresolved teardown", () => {
+  const candidate = clone(actualOracle);
+  candidate.createdRecovery.find(({ step }) => step === 16).genericImmediateUnresolved = true;
+  assert.throws(() => validateIndependentOracle(candidate), /false/u);
 });
 
 test("rejects a missing interruption reopen path", () => {

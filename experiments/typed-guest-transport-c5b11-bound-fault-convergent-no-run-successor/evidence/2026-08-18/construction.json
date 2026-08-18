@@ -1,8 +1,8 @@
 {
-  "workItem": "C5b-S1B C5b11 bound fault-convergent no-run successor amendment",
+  "workItem": "C5b-S1C C5b11 payload-bound cursor-consistent no-run successor amendment",
   "scopedStatus": "PASSED",
   "parentC5bStatus": "BLOCKED",
-  "result": "The amended immutable packet closes the three C5b-S3 Important findings without native linking, loading, or execution.",
+  "result": "The amended immutable packet closes the four C5b-S4 Important findings without native linking, loading, or execution.",
   "deterministicObjects": {
     "builds": 2,
     "byteEqual": true
@@ -19,8 +19,8 @@
   },
   "attemptPlan": {
     "path": "contracts/attempt-plan.json",
-    "bytes": 1087,
-    "sha256": "bab8d7daa7c6444b6b972c18cf6152f1c53c5712f13b4fb4948fdcc9a560947b"
+    "bytes": 1223,
+    "sha256": "891359ad03c420b658f0ce66769fd9996eae0022bdd0ea92a3884a8c7723bf29"
   },
   "authorization": {
     "host": null,

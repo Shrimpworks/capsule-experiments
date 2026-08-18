@@ -8,7 +8,9 @@ import { libkrunSymbols, nominalEffects, providerSymbols, validateProfile } from
 import { validateIndependentOracle, validateReconciliationFixture } from "./verify-reconciliation.mjs";
 
 const staleC5b8Profile = "06079eea39ce9a2e0547837555a6953787d8c32d614f0ec7b9b07ef408de04cd";
-const independentOracleSha256 = "d035eaa8abb5417ec9da6fa03d1c6f6b816c69d4aedc7ac7aad0bdaac3a11ebb";
+const independentOracleSha256 = "8eab411938fb495e292ccb2db8c97ca914033b8a5f40748e2a11309307994f54";
+const c5b4RecoveryPath =
+  "experiments/typed-guest-transport-c5b4-libkrunfw-recovery/manifests/recovery.json";
 const sha256 = (bytes) => createHash("sha256").update(bytes).digest("hex");
 const readJson = (path) => JSON.parse(readFileSync(path, "utf8"));
 
@@ -57,6 +59,7 @@ function verifySourceOrInputFrame(frame, magic, role, expected) {
   const payload = frame.subarray(152);
   assert.equal(frame.readBigUInt64BE(112), BigInt(payload.length), `${magic} payload length`);
   assert.equal(frame.subarray(120, 152).toString("hex"), sha256(payload), `${magic} payload digest`);
+  return payload;
 }
 
 function verifyCompletionFrame(frame, expected) {
@@ -86,12 +89,44 @@ function verifyCompletionFrame(frame, expected) {
   assert.equal(trailer.subarray(16, 32).toString("hex"), expected.attemptId, "trailer attempt");
   assert.equal(trailer.subarray(32).toString("hex"),
     sha256(Buffer.concat([frame.subarray(0, 160), payload])), "trailer digest");
-  return [
-    "magic", "protocol", "method", "role", "header-length", "attempt-id", "registration-id",
-    "plan-digest", "profile-digest", "status", "flags", "reserved", "payload-length",
-    "payload-digest", "trailer-magic", "trailer-protocol", "trailer-method", "trailer-role",
-    "trailer-length", "trailer-attempt-id", "trailer-digest",
-  ];
+  return {
+    payload,
+    fields: [
+      "magic", "protocol", "method", "role", "header-length", "attempt-id", "registration-id",
+      "plan-digest", "profile-digest", "status", "flags", "reserved", "payload-length",
+      "payload-digest", "trailer-magic", "trailer-protocol", "trailer-method", "trailer-role",
+      "trailer-length", "trailer-attempt-id", "trailer-digest",
+    ],
+  };
+}
+
+function canonicalJsonValue(value) {
+  if (Array.isArray(value)) return value.map(canonicalJsonValue);
+  if (value !== null && typeof value === "object") {
+    return Object.fromEntries(Object.keys(value).sort().map((key) =>
+      [key, canonicalJsonValue(value[key])]));
+  }
+  return value;
+}
+
+function verifyCanonicalJsonPayload(payload, label) {
+  const text = new TextDecoder("utf-8", { fatal: true }).decode(payload);
+  const parsed = JSON.parse(text);
+  assert.equal(parsed !== null && typeof parsed === "object" && !Array.isArray(parsed), true,
+    `${label} canonical JSON root object`);
+  assert.equal(text, JSON.stringify(canonicalJsonValue(parsed)), `${label} canonical JSON bytes`);
+}
+
+function verifyPlanPayload(candidateRoot, label, payload, declaration, requiredForm) {
+  assert.equal(declaration.path, `fixtures/${label}.payload`, `${label} payload plan path`);
+  assert.equal(declaration.bytes, payload.length, `${label} payload plan length`);
+  assert.equal(declaration.sha256, sha256(payload), `${label} payload plan digest`);
+  const retained = readFileSync(join(candidateRoot, declaration.path));
+  assert.equal(retained.equals(payload), true, `${label} retained payload exact bytes`);
+  assert.equal(retained.length, declaration.bytes, `${label} retained payload length`);
+  assert.equal(sha256(retained), declaration.sha256, `${label} retained payload digest`);
+  if (requiredForm === "canonical-json-utf8-v1") verifyCanonicalJsonPayload(payload, label);
+  else assert.equal(requiredForm, "exact-bytes", `${label} payload form`);
 }
 
 function assertOrdered(source, names, label) {
@@ -106,6 +141,14 @@ function assertOrdered(source, names, label) {
 function embeddedDigest(source, name) {
   const body = source.match(new RegExp(`${name}\\[32\\] = \\{([^}]+)\\}`, "su"))?.[1] ?? "";
   return [...body.matchAll(/0x([0-9a-f]{2})/gu)].map((match) => match[1]).join("");
+}
+
+function sourceCursorPairs(source, functionName) {
+  const body = source.match(new RegExp(
+    `static int ${functionName}\\([\\s\\S]+?\\n\\}`, "u"))?.[0] ?? "";
+  return [...body.matchAll(
+    /recovery_step == (\d+) && durable_resume_step == (\d+)/gu)]
+    .map((match) => [Number(match[1]), Number(match[2])]);
 }
 
 const clangAstCache = new Map();
@@ -134,6 +177,11 @@ function astNodes(node, predicate, output = []) {
 function astNames(node) {
   return new Set(astNodes(node, (item) => item.kind === "DeclRefExpr")
     .map((item) => item.referencedDecl?.name).filter(Boolean));
+}
+
+function astMemberNames(node) {
+  return new Set(astNodes(node, (item) => item.kind === "MemberExpr")
+    .map((item) => item.name).filter(Boolean));
 }
 
 function astCalls(node) {
@@ -167,9 +215,36 @@ function verifyDriverAst(candidateRoot) {
   assert.ok(calls.some(({ name }) => name === "c5b11_supervisor_lookup_recovery_cursor"),
     "AST: registration retry reopens recovery cursor before nominal effects");
   const driveNames = astNames(drive);
-  assert.equal(driveNames.has("valid_created_recovery_step") &&
-    driveNames.has("valid_completion_recovery_step"), true,
+  assert.equal(driveNames.has("valid_created_recovery_cursor") &&
+    driveNames.has("valid_completion_recovery_cursor"), true,
   "AST: reopened cursors are constrained to their recovery path");
+  for (const helper of ["valid_created_recovery_cursor", "valid_completion_recovery_cursor"]) {
+    const call = astNodes(drive, (item) => item.kind === "CallExpr" && astNames(item).has(helper))[0];
+    assert.ok(call, `AST: ${helper} call`);
+    assert.deepEqual(astNodes(call, (item) => item.kind === "MemberExpr")
+      .map((item) => item.name).filter((name) =>
+        name === "recovery_step" || name === "durable_resume_step"),
+    ["recovery_step", "durable_resume_step"],
+      `AST: ${helper} validates distinct cursor members`);
+  }
+  const resumeCalls = astNodes(drive, (item) => item.kind === "CallExpr" &&
+    (astNames(item).has("reconcile_created_attempt") ||
+      astNames(item).has("reconcile_completion_response_loss")) &&
+    astMemberNames(item).has("failed_sequence"));
+  assert.equal(resumeCalls.length, 2, "AST: exactly two reopened-path dispatch calls");
+  for (const call of resumeCalls) {
+    const members = astMemberNames(call);
+    assert.equal(members.has("durable_resume_step"), true,
+      "AST: reopened dispatch uses durable resume cursor");
+    assert.equal(members.has("recovery_step"), false,
+      "AST: reopened dispatch does not substitute recovery step");
+  }
+  const startupIfs = astNodes(drive, (item) => item.kind === "IfStmt");
+  assert.equal(startupIfs.some((item) => {
+    const members = astMemberNames(item);
+    return members.has("recovery_step") && members.has("durable_resume_step") &&
+      members.has("failed_sequence") && members.has("outcome");
+  }), true, "AST: startup validates both cursor fields");
 
   const created = clangFunctionAst(candidateRoot, "reconcile_created_attempt");
   const createdCalls = astCalls(created).map(({ name }) => name).filter((name) =>
@@ -250,6 +325,8 @@ export function verifyCandidate(candidateRoot, repositoryRoot = resolve(candidat
     "C5b7 runtime executable binding");
   assert.deepEqual(attemptProfile.runtimeContents.snapshot, c5b7Profile.content.snapshot,
     "C5b7 snapshot binding");
+  assert.deepEqual(attemptProfile.runtimeContents.runtimeBundle, c5b7Profile.sourceInputs.runtimeBundle,
+    "C5b7 runtime bundle binding");
   assert.equal(attemptProfile.runtimeContents.executable.sha256,
     c5b6Comparison.artifacts.runtimeBinary.sha256, "C5b6 runtime executable identity");
   assert.equal(attemptProfile.runtimeContents.snapshot.sha256,
@@ -262,6 +339,8 @@ export function verifyCandidate(candidateRoot, repositoryRoot = resolve(candidat
     c5b7Profile.sourceInputs.runtimeNoticeClosure, "C5b7 notice binding");
   assert.equal(attemptProfile.sourceObligations.preferredFormKernelSourceComplete, false,
     "preferred-form kernel source remains incomplete");
+  assert.equal(attemptProfile.sourceObligations.libkrunfwRecoveryManifest.path, c5b4RecoveryPath,
+    "C5b4 recovery manifest exact path");
   assert.equal(attemptProfile.sourceObligations.distributionSourceComplianceStatus, "BLOCKED");
   assert.equal(c5b4Recovery.sourceAvailability.preferredFormKernelSourceComplete, false);
   assert.equal(attemptProfile.authority.providerProvenance, "BLOCKED");
@@ -274,11 +353,23 @@ export function verifyCandidate(candidateRoot, repositoryRoot = resolve(candidat
     planSha256: sha256(loaded.attemptPlan),
     profileSha256: sha256(loaded.attemptRuntimeProfile),
   };
-  verifySourceOrInputFrame(loaded.sourceFrame, "CPSRC001", 1, expectedBindings);
-  verifySourceOrInputFrame(loaded.inputFrame, "CPINP001", 2, expectedBindings);
-  const verifiedCompletionFields = verifyCompletionFrame(loaded.completionFrame, expectedBindings);
-  assert.deepEqual(verifiedCompletionFields, independentOracle.completionFields,
+  const sourcePayload = verifySourceOrInputFrame(
+    loaded.sourceFrame, "CPSRC001", 1, expectedBindings);
+  const inputPayload = verifySourceOrInputFrame(
+    loaded.inputFrame, "CPINP001", 2, expectedBindings);
+  const verifiedCompletion = verifyCompletionFrame(loaded.completionFrame, expectedBindings);
+  assert.deepEqual(verifiedCompletion.fields, independentOracle.completionFields,
     "independent completion-field coverage");
+  assert.deepEqual(attemptPlan.payloadForms, {
+    source: "exact-bytes", input: "canonical-json-utf8-v1",
+    completion: "canonical-json-utf8-v1",
+  }, "attempt plan payload canonical forms");
+  verifyPlanPayload(candidateRoot, "source", sourcePayload,
+    attemptPlan.payloads.source, attemptPlan.payloadForms.source);
+  verifyPlanPayload(candidateRoot, "input", inputPayload,
+    attemptPlan.payloads.input, attemptPlan.payloadForms.input);
+  verifyPlanPayload(candidateRoot, "completion", verifiedCompletion.payload,
+    attemptPlan.payloads.completion, attemptPlan.payloadForms.completion);
 
   const runnerSource = loaded.fixedRunnerSource.toString("utf8");
   const driverSource = loaded.supervisorDriverSource.toString("utf8");
@@ -302,6 +393,15 @@ export function verifyCandidate(candidateRoot, repositoryRoot = resolve(candidat
   assert.doesNotMatch(`${driverSource}\n${bindingHeader}`, new RegExp(staleC5b8Profile, "u"));
   assert.match(driverSource, /result->profile_sha256, request->profile_sha256/u, "profile echo validation");
   assert.match(driverSource, /result->frame_sha256, request->frame_sha256/u, "frame echo validation");
+  assert.deepEqual(sourceCursorPairs(driverSource, "valid_created_recovery_cursor"),
+    independentOracle.cursorSemantics.createdAllowedPairs,
+    "source created recovery/durable cursor pairs");
+  assert.deepEqual(sourceCursorPairs(driverSource, "valid_completion_recovery_cursor"),
+    independentOracle.cursorSemantics.completionAllowedPairs,
+    "source completion recovery/durable cursor pairs");
+  assert.match(driverSource,
+    /result\.failed_sequence != 0 \|\| result\.recovery_step != 0 \|\|\s+result\.durable_resume_step != 0/u,
+    "fresh startup proof validates both cursor fields");
 
   const runnerMain = runnerSource.slice(runnerSource.indexOf("int main("));
   assertOrdered(runnerMain, ["write_ready();", "require_start_authorization();", "krun_start_enter(context)"],
@@ -346,6 +446,9 @@ export function verifyCandidate(candidateRoot, repositoryRoot = resolve(candidat
   assert.match(createdRecoveryBody,
     /request\.recovery_step = 16;[\s\S]+request\.durable_resume_step = 17;/u,
     "teardown request carries non-redrive durable resume cursor");
+  assert.match(createdRecoveryBody,
+    /\(void\)c5b11_supervisor_request_teardown\(&request, &ignored\);[\s\S]+reconcile_teardown_outcome/u,
+    "one-shot teardown result is never final and always reaches reconciliation");
   assert.equal((driverSource.match(/return durable_unresolved/gu) ?? []).length, 2,
     "durable unresolved path");
   const completionRecoveryBody = driverSource.slice(driverSource.indexOf("static int reconcile_completion_response_loss"),
@@ -362,6 +465,7 @@ export function verifyCandidate(candidateRoot, repositoryRoot = resolve(candidat
   assert.equal(packet.profile.sha256, sha256(profileBytes));
   assert.equal(packet.attemptRuntimeProfile.sha256, expectedBindings.profileSha256);
   assert.equal(packet.attemptPlan.sha256, expectedBindings.planSha256);
+  assert.deepEqual(packet.fixedPayloads, attemptPlan.payloads, "packet binds exact plan payload declarations");
   assert.deepEqual(packet.authorization, profile.authorization);
   assert.deepEqual(packet.performedEffects, profile.performedEffects);
 

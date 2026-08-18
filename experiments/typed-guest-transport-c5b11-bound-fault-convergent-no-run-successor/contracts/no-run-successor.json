@@ -7,8 +7,8 @@
   "parentStatus": "BLOCKED",
   "profile": {
     "path": "contracts/fixed-runner-profile.json",
-    "bytes": 16608,
-    "sha256": "b62b11d082a7cec97646e0febad2f64b98b9bd5fa950cc0b61f3ab802f8961f0"
+    "bytes": 17549,
+    "sha256": "81477fbe353183ac70e688f178c10de03b49b81c19d3aa67daaa625d51282fdd"
   },
   "attemptRuntimeProfile": {
     "path": "contracts/attempt-runtime-profile.json",
@@ -17,8 +17,8 @@
   },
   "attemptPlan": {
     "path": "contracts/attempt-plan.json",
-    "bytes": 1087,
-    "sha256": "bab8d7daa7c6444b6b972c18cf6152f1c53c5712f13b4fb4948fdcc9a560947b"
+    "bytes": 1223,
+    "sha256": "891359ad03c420b658f0ce66769fd9996eae0022bdd0ea92a3884a8c7723bf29"
   },
   "executionRequest": {
     "acceptedFields": [
@@ -44,28 +44,45 @@
     "source": {
       "path": "fixtures/source.frame",
       "bytes": 255,
-      "sha256": "277dfb97424a454f5a0ebf46810998d5cdc3bbe4bc31666fa69333b0b05211c6"
+      "sha256": "61fd5aef606f8deb27636869059cedd003b407abc056e3cfc07ded1d1af52132"
     },
     "input": {
       "path": "fixtures/input.frame",
       "bytes": 188,
-      "sha256": "9ea71b1ec7c26de3f91788d01585990ce4ebfc5f145866e18e306602a4a8ae81"
+      "sha256": "52cf55a3b4365b7edcb2c39e586e31d85e164832fce2e2199e76679b955b0675"
     },
     "completion": {
       "path": "fixtures/completion.frame",
       "bytes": 259,
-      "sha256": "e211f63cf95dcc949816859353157e09f6f0c3c2206623d727acb45173c876ee"
+      "sha256": "1c21a5d3922a0088dc068f31877b0c3a1b53ccd7962722db5720117d06af5e7f"
+    }
+  },
+  "fixedPayloads": {
+    "source": {
+      "path": "fixtures/source.payload",
+      "bytes": 103,
+      "sha256": "c8e940feb89b342de2d5e6bd13c413226676de9a539fce34c4107516e635b475"
+    },
+    "input": {
+      "path": "fixtures/input.payload",
+      "bytes": 36,
+      "sha256": "9de0c909cfb111bd99c3b0b5f7a10972894270c2867022a71b6b6f3c0cd1af6e"
+    },
+    "completion": {
+      "path": "fixtures/completion.payload",
+      "bytes": 35,
+      "sha256": "bb7234ee486b0fbccc2091859ec93499e6a14ea7d6e091cdef60a0e2a6e8371c"
     }
   },
   "reconciliationMatrix": {
     "path": "fixtures/reconciliation-matrix.json",
-    "bytes": 53549,
-    "sha256": "d101826f271c94add4dd3300ef036336e52a09438e72e477e80825ee23d3789c"
+    "bytes": 52251,
+    "sha256": "1dfb19cd115178f845ac20c1ce4ca738ac15ff62ffe73f1f38ea8452d8617dea"
   },
   "independentRecoveryOracle": {
     "path": "oracles/independent-recovery-oracle.json",
-    "bytes": 4383,
-    "sha256": "d035eaa8abb5417ec9da6fa03d1c6f6b816c69d4aedc7ac7aad0bdaac3a11ebb"
+    "bytes": 4913,
+    "sha256": "8eab411938fb495e292ccb2db8c97ca914033b8a5f40748e2a11309307994f54"
   },
   "authorization": {
     "host": null,

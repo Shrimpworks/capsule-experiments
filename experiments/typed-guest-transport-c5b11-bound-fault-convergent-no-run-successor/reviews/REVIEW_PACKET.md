@@ -1,30 +1,32 @@
-# C5b11 C5b-S1B fresh independent-review packet
+# C5b11 C5b-S1C fresh independent-review packet
 
-Review status: `PENDING`. Review must use a brand-new context/worktree at the exact draft-PR head.
-Do not inherit conclusions from C5b-S3 head `d4a805ab6fc6fb700d06f57896a2775680755d0f`.
+Review status: `PENDING`. Use a fifth brand-new context/worktree at the exact draft-PR head. Do not
+inherit conclusions from reviewed heads `d4a805ab6fc6fb700d06f57896a2775680755d0f` or
+`5a671198a61280ce343e2ba03787430da27fc1b7`.
 
 ## Required questions
 
-1. Does the attempt profile bind the exact runner source/object, libkrun/libkrunfw/root, governed
-   runtime executable and snapshot, C5b7 profile/archive identity, and C5b6 provenance/SBOM/notice
-   inputs? Does every frame/effect carry its derived digest rather than stale C5b8 digest `06079eea…`?
-2. Is the layering non-self-referential: attempt profile excludes the driver, while the outer
-   immutable profile binds driver source/object/ABI/generated bindings and the complete packet?
-3. Before spawn, does source enter process-may-exist? Does every provider error, `INDETERMINATE`,
-   echo/fact mismatch, and unproven `NOT_APPLIED` converge without spawn/teardown redrive through
-   fence/reopen, teardown reconciliation, terminal join, authoritative absence, and root cleanup—or
-   retain durable unresolved ambiguity?
-4. Is the recovery oracle genuinely independent of candidate generator constants? Does it cross all
-   13 nominal effects and 11 recovery steps with all five failure kinds, plus ambiguous spawn,
-   interruption/reopen/resume, and teardown outcomes? Would it reject the former spawn bypass?
-5. Do Clang AST checks establish the key state/call structure, and are remaining source/verifier/tool
-   trust assumptions described without claiming real provider/platform exhaustiveness?
-6. Are all 21 completion fields independently parsed and mutated? Do driver source/object and each
-   runtime/snapshot/root/provenance/SBOM/notice binding refuse substitution?
-7. Are C5b4 preferred-form source/distribution compliance and all provider, cross-host, installed,
-   runtime/profile, and product admission states still explicitly `BLOCKED`?
-8. Do sole-libkrun-owner, registration-only entry, fixed-byte authority, caps, completion-last,
-   closed inventory, C5b10 immutability, and total no-run properties remain exact?
+1. After independently parsing every source/input/completion frame field and completion trailer,
+   do extracted payload length, SHA-256, and exact bytes match the attempt-plan declarations and
+   retained payload files? Are input/completion valid repository-canonical JSON and source exact?
+2. Do payload mutations that recompute frame payload/trailer hashes, generated C bindings, outer
+   references, packet references, and archive inventory still fail when the plan is unchanged?
+   Do invalid/noncanonical JSON and plan length/digest/path/form substitutions fail directly?
+3. Are `recovery_step` and `durable_resume_step` independently defined and validated? Does startup
+   require exact path-specific pairs, `(0,0)` for fresh state, reject missing/invalid/non-monotone
+   pairs, and dispatch only from `result.durable_resume_step`?
+4. Is teardown step 16 modeled consistently everywhere as a one-shot request with durable pair
+   `(16,17)` whose every provider outcome continues through step 17–20 reconciliation? Is step 16
+   absent from the generic immediate-unresolved cross-product and never blindly redriven?
+5. Does the independent oracle derive exactly 65 primary, 50 generic recovery/failure, 11 reopen,
+   and five teardown-outcome cases without candidate imports? Do AST checks prove the exact cursor
+   member expressions and dispatch, not merely token order?
+6. Do executable mutations reject runtime-bundle and C5b4 recovery-manifest substitutions, as well
+   as all earlier runtime/snapshot/root/provenance/SBOM/notice and driver substitutions?
+7. Do the single-libkrun-owner, registration-only entry, fixed authority, caps, completion-last,
+   closed 34-file inventory, predecessor immutability, and total no-run properties remain exact?
+8. Are C5b4 source compliance, provider behavior/provenance, cross-host/installed composition,
+   runtime/profile admission, and product admission still explicitly `BLOCKED`?
 
 ## Review commands
 
@@ -38,12 +40,11 @@ node scripts/test-mutations.mjs
 git diff --check
 ```
 
-Independently parse frames, inspect both objects statically, recompute all binding digests, compare
-the candidate matrix against the retained literal oracle, inspect the Clang AST checks, and confirm
-all 69 restored-invalid mutations exercise the claimed properties. Verify C5b10 `6eb0301…` and
-C5b11 review head `d4a805a…` remain ancestors and unchanged.
+Independently inspect both unlinked objects, all frames/payloads, the attempt plan/profile, literal
+oracle/matrix, source and Clang AST verifier, and all 95 restored-invalid mutations. Verify C5b10,
+`d4a805a…`, and `5a67119…` remain unchanged ancestors.
 
-Return `PASSED`, `BLOCKED`, or `NO_GO` for the exact new C5b11 head, separately state parent C5b and
-admission status, and report all trusted inputs/limitations. Do not link/load/execute any object or
-dylib, call libkrun/HVF, start a runner/VM/guest, touch credentials/services/product state, or request
-execution authorization.
+Return `PASSED`, `BLOCKED`, or `NO_GO` for the exact new head, separately state parent/admission
+status and all trusted inputs/limitations. Do not link/load/execute any object or dylib, call
+libkrun/HVF, start a runner/VM/guest, touch credentials/services/product state, or request execution
+authorization.

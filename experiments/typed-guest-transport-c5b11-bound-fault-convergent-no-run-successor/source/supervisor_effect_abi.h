@@ -48,7 +48,11 @@ struct c5b11_effect_request {
     uint32_t effect;
     uint32_t failed_sequence;
     uint32_t observed_outcome;
+    /* recovery_step is the provider transition being attempted. */
     uint32_t recovery_step;
+    /* durable_resume_step is the safe cursor persisted before that transition;
+     * it equals recovery_step except teardown 16, which persists 17 before the
+     * one-shot request so restart cannot redrive teardown. */
     uint32_t durable_resume_step;
 };
 
@@ -63,6 +67,9 @@ struct c5b11_effect_result {
     uint32_t effect;
     uint32_t outcome;
     uint32_t failed_sequence;
+    /* Ordinary providers echo both request fields. Recovery-cursor lookup
+     * instead returns the last attempted transition plus its independently
+     * persisted safe resume cursor. */
     uint32_t recovery_step;
     uint32_t durable_resume_step;
 };

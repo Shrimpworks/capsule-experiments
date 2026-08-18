@@ -38,7 +38,7 @@
   "createdRecovery": [
     { "step": 14, "effect": "fence-attempt", "retryClass": "idempotent-reconciliation", "resumeStepAfterInterruption": 14 },
     { "step": 15, "effect": "lookup-fenced-attempt", "retryClass": "read-only-lookup", "resumeStepAfterInterruption": 15 },
-    { "step": 16, "effect": "request-teardown-once", "retryClass": "non-redriven-intent", "resumeStepAfterInterruption": 17 },
+    { "step": 16, "effect": "request-teardown-once", "retryClass": "one-shot-always-reconcile", "resumeStepAfterInterruption": 17, "genericImmediateUnresolved": false, "providerOutcomeDisposition": "continue-to-step-17" },
     { "step": 17, "effect": "reconcile-teardown-outcome", "retryClass": "read-only-reconciliation", "resumeStepAfterInterruption": 17 },
     { "step": 18, "effect": "reconcile-terminal-state", "retryClass": "read-only-reconciliation", "resumeStepAfterInterruption": 18 },
     { "step": 19, "effect": "reconcile-authoritative-absence", "retryClass": "read-only-reconciliation", "resumeStepAfterInterruption": 19 },
@@ -53,9 +53,17 @@
   "startupRecovery": {
     "effect": "lookup-recovery-cursor",
     "step": 24,
-    "freshProof": { "outcome": "not-applied", "fact": "attempt-fresh", "failedSequence": 0, "recoveryStep": 0 },
+    "freshProof": { "outcome": "not-applied", "fact": "attempt-fresh", "failedSequence": 0, "recoveryStep": 0, "durableResumeStep": 0 },
     "untrustedResultDisposition": "process-may-exist-created-convergence",
     "reopenedDisposition": "resume-from-durable-recovery-step"
+  },
+  "cursorSemantics": {
+    "recoveryStep": "the provider transition last attempted or observed",
+    "durableResumeStep": "the independently persisted safe restart cursor used for dispatch",
+    "createdAllowedPairs": [[14,14],[15,15],[16,17],[17,17],[18,18],[19,19],[20,20]],
+    "completionAllowedPairs": [[14,14],[15,15],[22,22],[23,23]],
+    "dispatchField": "durableResumeStep",
+    "monotone": true
   },
   "completionFields": [
     "magic", "protocol", "method", "role", "header-length", "attempt-id", "registration-id",
