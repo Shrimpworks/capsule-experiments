@@ -1,0 +1,44 @@
+{
+  "workItem": "C5b-S1 fixed-runner no-run successor",
+  "scopedStatus": "PASSED",
+  "parentC5bStatus": "BLOCKED",
+  "result": "The versioned source/object packet resolves the four retained static contradictions without linking, loading, or executing a native artifact.",
+  "deterministicObjects": {
+    "builds": 2,
+    "byteEqual": true
+  },
+  "toolchain": {
+    "appleClang": "21.0.0 (clang-2100.1.1.101)",
+    "node": "22.22.1",
+    "target": "arm64-apple-macos"
+  },
+  "authorization": {
+    "host": null,
+    "guest": null,
+    "executionAuthorization": null,
+    "executionAuthorized": false,
+    "constructionAuthorized": true,
+    "finalManifestAuthorizationRequired": true,
+    "callerSelectedAuthority": false
+  },
+  "performedEffects": {
+    "artifactLinked": false,
+    "artifactLoaded": false,
+    "artifactExecuted": false,
+    "libkrunLoaded": false,
+    "hvfCalled": false,
+    "runnerStarted": false,
+    "processStarted": false,
+    "vmStarted": false,
+    "guestStarted": false,
+    "hostEffectPerformed": false,
+    "completionCommitted": false,
+    "deliveryPerformed": false,
+    "networkAccessed": false,
+    "credentialsAccessed": false,
+    "keychainAccessed": false,
+    "signingIdentityAccessed": false,
+    "productStateMutated": false,
+    "admissionChanged": false
+  }
+}
