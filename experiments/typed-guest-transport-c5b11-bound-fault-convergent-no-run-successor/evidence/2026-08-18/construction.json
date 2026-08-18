@@ -1,0 +1,55 @@
+{
+  "workItem": "C5b-S1C C5b11 payload-bound cursor-consistent no-run successor amendment",
+  "scopedStatus": "PASSED",
+  "parentC5bStatus": "BLOCKED",
+  "result": "The amended immutable packet closes the four C5b-S4 Important findings without native linking, loading, or execution.",
+  "deterministicObjects": {
+    "builds": 2,
+    "byteEqual": true
+  },
+  "toolchain": {
+    "appleClang": "21.0.0 (clang-2100.1.1.101)",
+    "node": "22.22.1",
+    "target": "arm64-apple-macos"
+  },
+  "attemptRuntimeProfile": {
+    "path": "contracts/attempt-runtime-profile.json",
+    "bytes": 6266,
+    "sha256": "829bdd048210c14d67f4cfcb659c39db69fe5ed2ff4edb74f3f2d9f3c869f82d"
+  },
+  "attemptPlan": {
+    "path": "contracts/attempt-plan.json",
+    "bytes": 1223,
+    "sha256": "891359ad03c420b658f0ce66769fd9996eae0022bdd0ea92a3884a8c7723bf29"
+  },
+  "authorization": {
+    "host": null,
+    "guest": null,
+    "executionAuthorization": null,
+    "executionAuthorized": false,
+    "constructionAuthorized": true,
+    "finalManifestAuthorizationRequired": true,
+    "callerSelectedAuthority": false
+  },
+  "performedEffects": {
+    "artifactLinked": false,
+    "artifactLoaded": false,
+    "artifactExecuted": false,
+    "libkrunLoaded": false,
+    "hvfCalled": false,
+    "runnerStarted": false,
+    "processStarted": false,
+    "vmStarted": false,
+    "guestStarted": false,
+    "hostEffectPerformed": false,
+    "completionCommitted": false,
+    "deliveryPerformed": false,
+    "networkAccessed": false,
+    "credentialsAccessed": false,
+    "keychainAccessed": false,
+    "signingIdentityAccessed": false,
+    "serviceStateMutated": false,
+    "productStateMutated": false,
+    "admissionChanged": false
+  }
+}

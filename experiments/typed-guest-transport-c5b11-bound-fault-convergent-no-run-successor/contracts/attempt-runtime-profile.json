@@ -1,0 +1,152 @@
+{
+  "objectType": "capsule.c5b11.attempt-runtime-profile",
+  "objectVersion": 1,
+  "identity": "capsule.c5b11.attempt-runtime-profile/2026-08-18",
+  "status": "construction-only-not-authorized",
+  "selectedBytes": {
+    "fixedRunnerSource": {
+      "path": "source/fixed_runner.c",
+      "bytes": 7748,
+      "sha256": "a36bdaebfec4d0282d7257415c005ff2962ec49c21e5a00989523d856a3ace58"
+    },
+    "fixedRunnerObject": {
+      "path": "dist/fixed-runner.o",
+      "bytes": 74624,
+      "sha256": "e3d249c29885e9f1b3d961296835830d1b735d246d5b58d5656b9a7dbb46a65b"
+    },
+    "libkrun": {
+      "path": "experiments/typed-guest-transport-c5b2-governed-input-closure/inputs/c2b-v4/libkrun.1.dylib",
+      "bytes": 4393448,
+      "sha256": "055d9d18dc964fec4aba21948c4a344cb7a51cb48a2c70017484b718eae12f9f"
+    },
+    "libkrunfw": {
+      "path": "experiments/typed-guest-transport-c5b4-libkrunfw-recovery/artifacts/libkrunfw.5.dylib",
+      "bytes": 24339104,
+      "sha256": "0b14f4b8005dafd33c38df5935b9efdb6381c724224b3967ba1cecbecf10b6e9"
+    },
+    "runtimeRoot": {
+      "path": "experiments/typed-guest-transport-c5b7-deterministic-runtime-root/dist/runtime-root.ext4",
+      "bytes": 100663296,
+      "sha256": "5ad18f20cbc97c7a70ead3e795fd3649672513323041e913b0eb55b7acc88775"
+    }
+  },
+  "rootComposition": {
+    "identity": "capsule.c5b7.typed-transport-runtime-root/2026-08-13",
+    "repositoryBaseline": "d9967e80a6155a65c6876dc686d8f8498b4a908f",
+    "profile": {
+      "path": "experiments/typed-guest-transport-c5b7-deterministic-runtime-root/manifests/runtime-root-profile.json",
+      "bytes": 8254,
+      "sha256": "6c39f9803cdd4129c10f86f3eecd10ed9e40d89548a8745221818539b65b644d"
+    },
+    "archiveManifest": {
+      "path": "experiments/typed-guest-transport-c5b7-deterministic-runtime-root/manifests/archive-manifest.json",
+      "bytes": 2958,
+      "sha256": "1f57d5d3499d794653871f6f7f517a12bc61c47e623c411976a73a58d5551396"
+    },
+    "root": {
+      "path": "dist/runtime-root.ext4",
+      "bytes": 100663296,
+      "sha256": "5ad18f20cbc97c7a70ead3e795fd3649672513323041e913b0eb55b7acc88775",
+      "versionedSuccessor": true,
+      "c5b1ByteEquivalent": false,
+      "reason": "The governed runtime and snapshot require a larger explicitly versioned root than C5b1's 8 MiB runtime-absent image.",
+      "format": "raw ext4 extent filesystem",
+      "blockBytes": 4096,
+      "blocks": 24576,
+      "usedBlocks": 17115,
+      "freeBlocks": 7461,
+      "inodes": 256,
+      "nodes": 19,
+      "journal": false,
+      "compatibleFeatures": [],
+      "incompatibleFeatures": [
+        "filetype",
+        "extents"
+      ],
+      "readOnlyCompatibleFeatures": [],
+      "uid": 0,
+      "gid": 0,
+      "ambientFiles": 0
+    }
+  },
+  "runtimeContents": {
+    "executable": {
+      "path": "/usr/local/bin/capsule-deno-core-c5b1",
+      "bytes": 68496520,
+      "sha256": "e781a90236cdf1272a9a16189c6be033164fa25a5aa9e52376ef998982ec0a77",
+      "mode": "0755"
+    },
+    "snapshot": {
+      "path": "/usr/local/share/capsule-deno-core/capsule_core_snapshot.bin",
+      "bytes": 699988,
+      "sha256": "4e8965217d5a6675a880326eee6f690bbeec7e7cb243decf2f3e9f453a871a2c",
+      "mode": "0444"
+    },
+    "runtimeBundle": {
+      "path": "experiments/typed-guest-transport-c5b6-deno-static-reproduction/artifacts/capsule-deno-core-c2b-runtime-bundle.tar.gz",
+      "bytes": 20981992,
+      "sha256": "ad908b8289c86f25c3413713fa3e60c4c8bb91fec0d52763e870d7a186865ee6"
+    }
+  },
+  "provenanceInputs": {
+    "c5b6MergeCommit": "d9967e80a6155a65c6876dc686d8f8498b4a908f",
+    "c5b6ArchiveManifest": {
+      "path": "experiments/typed-guest-transport-c5b6-deno-static-reproduction/manifests/archive-manifest.json",
+      "bytes": 5508,
+      "sha256": "99a241a484b5e2d6c2f07e132e2c306c9e341ebeee93c882c6ae840614dba245"
+    },
+    "c5b6ReleaseManifest": {
+      "path": "experiments/typed-guest-transport-c5b6-deno-static-reproduction/inputs/release-manifest.json",
+      "bytes": 1743,
+      "sha256": "9dd57fe8ab08725549b53d6f416dc2191484bc78044adc74e442cde5e71f8735"
+    },
+    "c5b6SameHostComparison": {
+      "path": "experiments/typed-guest-transport-c5b6-deno-static-reproduction/evidence/2026-08-12/same-host-comparison.json",
+      "bytes": 764,
+      "sha256": "2e0e8d978acffc9ce63feb990743edaef2b81ffb7ac33b2929095ebf52aac0a7"
+    },
+    "runtimeProvenance": {
+      "path": "experiments/typed-guest-transport-c5b6-deno-static-reproduction/evidence/2026-08-12/provenance.intoto.json",
+      "bytes": 1541,
+      "sha256": "4fe04b1bc9329bbc7234ea06df99c6a5b21f35d5181a8c31a6464704ba7fbe65"
+    },
+    "runtimeSbom": {
+      "path": "experiments/typed-guest-transport-c5b6-deno-static-reproduction/evidence/2026-08-12/sbom.cdx.json",
+      "bytes": 93305,
+      "sha256": "670bd33b99cd121f8fd7dc0d58af0b6df44877c3fdde4680c3cdf0edead1930d"
+    },
+    "runtimeNoticeClosure": {
+      "path": "experiments/typed-guest-transport-c5b6-deno-static-reproduction/evidence/2026-08-12/source-notice-closure.json",
+      "bytes": 1693,
+      "sha256": "8280d5cbcd37fa90b4e2a8b7d5837f29b6341e639483eb7caef10f44ead9816e"
+    }
+  },
+  "sourceObligations": {
+    "libkrunfwRecoveryManifest": {
+      "path": "experiments/typed-guest-transport-c5b4-libkrunfw-recovery/manifests/recovery.json",
+      "bytes": 5786,
+      "sha256": "814eef24d1583b49ecf773043d142b6c7d77fb00a304dc964be7360b427b9cb4"
+    },
+    "preferredFormKernelSourceComplete": false,
+    "distributionSourceComplianceStatus": "BLOCKED",
+    "reason": "the release asset contains generated kernel.c but not the complete preferred-form Linux source, configuration, patches, and build-tool closure",
+    "dependencySourceAdmission": "BLOCKED"
+  },
+  "runtimeRoot": {
+    "bytes": 100663296,
+    "sha256": "5ad18f20cbc97c7a70ead3e795fd3649672513323041e913b0eb55b7acc88775"
+  },
+  "authority": {
+    "fixedRunner": true,
+    "fixedRuntime": true,
+    "fixedRoot": true,
+    "callerSelectableBytes": false,
+    "supervisorDriverIncluded": false,
+    "supervisorDriverLayer": "outer-composition",
+    "providerProvenance": "BLOCKED",
+    "crossHostReproducibility": "BLOCKED",
+    "installedComposition": "BLOCKED",
+    "runtimeProfileAdmission": "BLOCKED"
+  },
+  "executionAuthorized": false
+}

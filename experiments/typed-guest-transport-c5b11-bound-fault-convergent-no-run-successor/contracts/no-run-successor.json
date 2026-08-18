@@ -1,0 +1,117 @@
+{
+  "objectType": "capsule.c5b11.bound-fault-convergent-no-run-packet",
+  "objectVersion": 1,
+  "identity": "capsule.c5b11.bound-fault-convergent-no-run-packet/2026-08-18",
+  "status": "construction-only-not-authorized",
+  "scopedStatus": "PASSED",
+  "parentStatus": "BLOCKED",
+  "profile": {
+    "path": "contracts/fixed-runner-profile.json",
+    "bytes": 17549,
+    "sha256": "81477fbe353183ac70e688f178c10de03b49b81c19d3aa67daaa625d51282fdd"
+  },
+  "attemptRuntimeProfile": {
+    "path": "contracts/attempt-runtime-profile.json",
+    "bytes": 6266,
+    "sha256": "829bdd048210c14d67f4cfcb659c39db69fe5ed2ff4edb74f3f2d9f3c869f82d"
+  },
+  "attemptPlan": {
+    "path": "contracts/attempt-plan.json",
+    "bytes": 1223,
+    "sha256": "891359ad03c420b658f0ce66769fd9996eae0022bdd0ea92a3884a8c7723bf29"
+  },
+  "executionRequest": {
+    "acceptedFields": [
+      "registrationId"
+    ],
+    "registrationId": "5273186561778ee1bb8d78c7911321ce",
+    "attemptId": "c5ab61f60d5ddc4c00a1bf50a8669344",
+    "attemptBound": true,
+    "attemptIssuedBeforeEffects": true,
+    "replacementPlanBytes": false,
+    "replacementSourceBytes": false,
+    "replacementInputBytes": false,
+    "callerExecutableBytes": false,
+    "callerHostPaths": false,
+    "callerEndpoints": false,
+    "callerFlags": false,
+    "callerImages": false,
+    "callerMounts": false,
+    "callerBackendConfiguration": false,
+    "callerEnvironment": false
+  },
+  "fixedFixtures": {
+    "source": {
+      "path": "fixtures/source.frame",
+      "bytes": 255,
+      "sha256": "61fd5aef606f8deb27636869059cedd003b407abc056e3cfc07ded1d1af52132"
+    },
+    "input": {
+      "path": "fixtures/input.frame",
+      "bytes": 188,
+      "sha256": "52cf55a3b4365b7edcb2c39e586e31d85e164832fce2e2199e76679b955b0675"
+    },
+    "completion": {
+      "path": "fixtures/completion.frame",
+      "bytes": 259,
+      "sha256": "1c21a5d3922a0088dc068f31877b0c3a1b53ccd7962722db5720117d06af5e7f"
+    }
+  },
+  "fixedPayloads": {
+    "source": {
+      "path": "fixtures/source.payload",
+      "bytes": 103,
+      "sha256": "c8e940feb89b342de2d5e6bd13c413226676de9a539fce34c4107516e635b475"
+    },
+    "input": {
+      "path": "fixtures/input.payload",
+      "bytes": 36,
+      "sha256": "9de0c909cfb111bd99c3b0b5f7a10972894270c2867022a71b6b6f3c0cd1af6e"
+    },
+    "completion": {
+      "path": "fixtures/completion.payload",
+      "bytes": 35,
+      "sha256": "bb7234ee486b0fbccc2091859ec93499e6a14ea7d6e091cdef60a0e2a6e8371c"
+    }
+  },
+  "reconciliationMatrix": {
+    "path": "fixtures/reconciliation-matrix.json",
+    "bytes": 52251,
+    "sha256": "1dfb19cd115178f845ac20c1ce4ca738ac15ff62ffe73f1f38ea8452d8617dea"
+  },
+  "independentRecoveryOracle": {
+    "path": "oracles/independent-recovery-oracle.json",
+    "bytes": 4913,
+    "sha256": "8eab411938fb495e292ccb2db8c97ca914033b8a5f40748e2a11309307994f54"
+  },
+  "authorization": {
+    "host": null,
+    "guest": null,
+    "executionAuthorization": null,
+    "executionAuthorized": false,
+    "constructionAuthorized": true,
+    "finalManifestAuthorizationRequired": true,
+    "callerSelectedAuthority": false
+  },
+  "performedEffects": {
+    "artifactLinked": false,
+    "artifactLoaded": false,
+    "artifactExecuted": false,
+    "libkrunLoaded": false,
+    "hvfCalled": false,
+    "runnerStarted": false,
+    "processStarted": false,
+    "vmStarted": false,
+    "guestStarted": false,
+    "hostEffectPerformed": false,
+    "completionCommitted": false,
+    "deliveryPerformed": false,
+    "networkAccessed": false,
+    "credentialsAccessed": false,
+    "keychainAccessed": false,
+    "signingIdentityAccessed": false,
+    "serviceStateMutated": false,
+    "productStateMutated": false,
+    "admissionChanged": false
+  }
+}

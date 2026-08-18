@@ -1,0 +1,39 @@
+{
+  "objectType": "capsule.c5b11.registered-attempt-plan",
+  "objectVersion": 1,
+  "identity": "capsule.c5b11.registered-attempt-plan/2026-08-18",
+  "registrationId": "5273186561778ee1bb8d78c7911321ce",
+  "attemptId": "c5ab61f60d5ddc4c00a1bf50a8669344",
+  "runtimeProfile": {
+    "path": "contracts/attempt-runtime-profile.json",
+    "bytes": 6266,
+    "sha256": "829bdd048210c14d67f4cfcb659c39db69fe5ed2ff4edb74f3f2d9f3c869f82d"
+  },
+  "payloads": {
+    "source": {
+      "path": "fixtures/source.payload",
+      "bytes": 103,
+      "sha256": "c8e940feb89b342de2d5e6bd13c413226676de9a539fce34c4107516e635b475"
+    },
+    "input": {
+      "path": "fixtures/input.payload",
+      "bytes": 36,
+      "sha256": "9de0c909cfb111bd99c3b0b5f7a10972894270c2867022a71b6b6f3c0cd1af6e"
+    },
+    "completion": {
+      "path": "fixtures/completion.payload",
+      "bytes": 35,
+      "sha256": "bb7234ee486b0fbccc2091859ec93499e6a14ea7d6e091cdef60a0e2a6e8371c"
+    }
+  },
+  "payloadForms": {
+    "source": "exact-bytes",
+    "input": "canonical-json-utf8-v1",
+    "completion": "canonical-json-utf8-v1"
+  },
+  "acceptedExecutionFields": [
+    "registrationId"
+  ],
+  "replacementBytesAccepted": false,
+  "executionAuthorized": false
+}
