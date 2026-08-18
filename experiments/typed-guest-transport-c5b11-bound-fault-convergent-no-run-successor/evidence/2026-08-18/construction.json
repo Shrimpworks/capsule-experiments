@@ -1,8 +1,8 @@
 {
-  "workItem": "C5b-S1A C5b11 bound fault-convergent no-run successor",
+  "workItem": "C5b-S1B C5b11 bound fault-convergent no-run successor amendment",
   "scopedStatus": "PASSED",
   "parentC5bStatus": "BLOCKED",
-  "result": "The immutable packet closes both C5b10 Important findings without native linking, loading, or execution.",
+  "result": "The amended immutable packet closes the three C5b-S3 Important findings without native linking, loading, or execution.",
   "deterministicObjects": {
     "builds": 2,
     "byteEqual": true
@@ -14,13 +14,13 @@
   },
   "attemptRuntimeProfile": {
     "path": "contracts/attempt-runtime-profile.json",
-    "bytes": 1675,
-    "sha256": "a330c5e3e275b39eed804eea2b9cebe6a5e39a93bd54bbf71d32c3a497acd986"
+    "bytes": 6266,
+    "sha256": "829bdd048210c14d67f4cfcb659c39db69fe5ed2ff4edb74f3f2d9f3c869f82d"
   },
   "attemptPlan": {
     "path": "contracts/attempt-plan.json",
     "bytes": 1087,
-    "sha256": "204610f232aef6caf55212744b0112820a9cd1fc140b07fd32101b2a065575dd"
+    "sha256": "bab8d7daa7c6444b6b972c18cf6152f1c53c5712f13b4fb4948fdcc9a560947b"
   },
   "authorization": {
     "host": null,

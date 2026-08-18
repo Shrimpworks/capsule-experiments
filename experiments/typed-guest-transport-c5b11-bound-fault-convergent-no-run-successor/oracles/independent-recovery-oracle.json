@@ -1,0 +1,66 @@
+{
+  "objectType": "capsule.c5b11.independent-recovery-oracle",
+  "objectVersion": 1,
+  "identity": "capsule.c5b11.independent-recovery-oracle/2026-08-18",
+  "provenance": {
+    "authoredIndependentOfCandidateGenerator": true,
+    "importsCandidateConstants": false,
+    "sources": [
+      "capsule-corp/docs/protocol/TYPED_GUEST_TRANSPORT_V1.md:80-165",
+      "capsule-corp/docs/TECHNICAL_DESIGN.md:571-579,859-876",
+      "capsule-corp/docs/adr/0041-freeze-passive-fixed-owned-guest-successor.md:65-70",
+      "capsule-corp/docs/adr/0042-freeze-passive-durable-completion-transaction.md:51-60,69-75"
+    ],
+    "trustedRemainder": "The oracle checks the frozen no-run C subset and contracts; absent provider implementations and real platform behavior remain unproved."
+  },
+  "failureKinds": [
+    "provider-error",
+    "not-applied",
+    "indeterminate",
+    "echo-mismatch",
+    "fact-mismatch"
+  ],
+  "nominalEffects": [
+    { "sequence": 1, "effect": "create-fixed-endpoints", "failureClass": "pre-creation" },
+    { "sequence": 2, "effect": "spawn-fixed-runner", "failureClass": "ambiguous-spawn-process-may-exist" },
+    { "sequence": 3, "effect": "verify-ready-byte", "failureClass": "process-may-exist" },
+    { "sequence": 4, "effect": "write-source-frame", "failureClass": "process-may-exist" },
+    { "sequence": 5, "effect": "write-input-frame", "failureClass": "process-may-exist" },
+    { "sequence": 6, "effect": "close-input-writers", "failureClass": "process-may-exist" },
+    { "sequence": 7, "effect": "send-start-byte", "failureClass": "process-may-exist" },
+    { "sequence": 8, "effect": "drain-and-validate-completion", "failureClass": "process-may-exist" },
+    { "sequence": 9, "effect": "join-terminal-state", "failureClass": "process-may-exist" },
+    { "sequence": 10, "effect": "prove-authoritative-absence", "failureClass": "process-may-exist" },
+    { "sequence": 11, "effect": "remove-fixed-root", "failureClass": "process-may-exist" },
+    { "sequence": 12, "effect": "commit-durable-completion", "failureClass": "completion-response-loss" },
+    { "sequence": 13, "effect": "deliver-stored-completion", "failureClass": "completion-response-loss" }
+  ],
+  "createdRecovery": [
+    { "step": 14, "effect": "fence-attempt", "retryClass": "idempotent-reconciliation", "resumeStepAfterInterruption": 14 },
+    { "step": 15, "effect": "lookup-fenced-attempt", "retryClass": "read-only-lookup", "resumeStepAfterInterruption": 15 },
+    { "step": 16, "effect": "request-teardown-once", "retryClass": "non-redriven-intent", "resumeStepAfterInterruption": 17 },
+    { "step": 17, "effect": "reconcile-teardown-outcome", "retryClass": "read-only-reconciliation", "resumeStepAfterInterruption": 17 },
+    { "step": 18, "effect": "reconcile-terminal-state", "retryClass": "read-only-reconciliation", "resumeStepAfterInterruption": 18 },
+    { "step": 19, "effect": "reconcile-authoritative-absence", "retryClass": "read-only-reconciliation", "resumeStepAfterInterruption": 19 },
+    { "step": 20, "effect": "reconcile-fixed-root-removal", "retryClass": "idempotent-reconciliation", "resumeStepAfterInterruption": 20 }
+  ],
+  "completionRecovery": [
+    { "step": 14, "effect": "fence-attempt", "retryClass": "idempotent-reconciliation", "resumeStepAfterInterruption": 14 },
+    { "step": 15, "effect": "lookup-fenced-attempt", "retryClass": "read-only-lookup", "resumeStepAfterInterruption": 15 },
+    { "step": 22, "effect": "reopen-stored-completion", "retryClass": "read-only-reopen", "resumeStepAfterInterruption": 22 },
+    { "step": 23, "effect": "replay-exact-stored-completion", "retryClass": "exact-byte-replay", "resumeStepAfterInterruption": 23 }
+  ],
+  "startupRecovery": {
+    "effect": "lookup-recovery-cursor",
+    "step": 24,
+    "freshProof": { "outcome": "not-applied", "fact": "attempt-fresh", "failedSequence": 0, "recoveryStep": 0 },
+    "untrustedResultDisposition": "process-may-exist-created-convergence",
+    "reopenedDisposition": "resume-from-durable-recovery-step"
+  },
+  "completionFields": [
+    "magic", "protocol", "method", "role", "header-length", "attempt-id", "registration-id",
+    "plan-digest", "profile-digest", "status", "flags", "reserved", "payload-length",
+    "payload-digest", "trailer-magic", "trailer-protocol", "trailer-method", "trailer-role",
+    "trailer-length", "trailer-attempt-id", "trailer-digest"
+  ]
+}

@@ -6,8 +6,8 @@
   "attemptId": "c5ab61f60d5ddc4c00a1bf50a8669344",
   "runtimeProfile": {
     "path": "contracts/attempt-runtime-profile.json",
-    "bytes": 1675,
-    "sha256": "a330c5e3e275b39eed804eea2b9cebe6a5e39a93bd54bbf71d32c3a497acd986"
+    "bytes": 6266,
+    "sha256": "829bdd048210c14d67f4cfcb659c39db69fe5ed2ff4edb74f3f2d9f3c869f82d"
   },
   "payloads": {
     "source": {

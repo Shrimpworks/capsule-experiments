@@ -5,9 +5,10 @@ import { existsSync, readFileSync, readdirSync, statSync } from "node:fs";
 import { join, relative, resolve } from "node:path";
 
 import { libkrunSymbols, nominalEffects, providerSymbols, validateProfile } from "./verify-profile.mjs";
-import { validateReconciliationFixture } from "./verify-reconciliation.mjs";
+import { validateIndependentOracle, validateReconciliationFixture } from "./verify-reconciliation.mjs";
 
 const staleC5b8Profile = "06079eea39ce9a2e0547837555a6953787d8c32d614f0ec7b9b07ef408de04cd";
+const independentOracleSha256 = "d035eaa8abb5417ec9da6fa03d1c6f6b816c69d4aedc7ac7aad0bdaac3a11ebb";
 const sha256 = (bytes) => createHash("sha256").update(bytes).digest("hex");
 const readJson = (path) => JSON.parse(readFileSync(path, "utf8"));
 
@@ -34,7 +35,7 @@ function filesBelow(root, current = root) {
 }
 
 function verifyRef(candidateRoot, repositoryRoot, name, reference) {
-  const local = ["source/", "dist/", "fixtures/", "contracts/"].some((prefix) =>
+  const local = ["source/", "dist/", "fixtures/", "contracts/", "oracles/"].some((prefix) =>
     reference.path.startsWith(prefix));
   const absolute = join(local ? candidateRoot : repositoryRoot, reference.path);
   const bytes = readFileSync(absolute);
@@ -85,6 +86,12 @@ function verifyCompletionFrame(frame, expected) {
   assert.equal(trailer.subarray(16, 32).toString("hex"), expected.attemptId, "trailer attempt");
   assert.equal(trailer.subarray(32).toString("hex"),
     sha256(Buffer.concat([frame.subarray(0, 160), payload])), "trailer digest");
+  return [
+    "magic", "protocol", "method", "role", "header-length", "attempt-id", "registration-id",
+    "plan-digest", "profile-digest", "status", "flags", "reserved", "payload-length",
+    "payload-digest", "trailer-magic", "trailer-protocol", "trailer-method", "trailer-role",
+    "trailer-length", "trailer-attempt-id", "trailer-digest",
+  ];
 }
 
 function assertOrdered(source, names, label) {
@@ -101,6 +108,87 @@ function embeddedDigest(source, name) {
   return [...body.matchAll(/0x([0-9a-f]{2})/gu)].map((match) => match[1]).join("");
 }
 
+const clangAstCache = new Map();
+function clangFunctionAst(candidateRoot, functionName) {
+  const sourcePath = join(candidateRoot, "source/supervisor_effect_driver.c");
+  if (!clangAstCache.has(candidateRoot)) {
+    const output = execFileSync("/usr/bin/clang", [
+      "-std=c17", "-fsyntax-only", `-I${join(candidateRoot, "source")}`,
+      "-Xclang", "-ast-dump=json", sourcePath,
+    ], { encoding: "utf8", maxBuffer: 64 * 1024 * 1024 });
+    clangAstCache.set(candidateRoot, JSON.parse(output));
+  }
+  const matches = astNodes(clangAstCache.get(candidateRoot), (item) =>
+    item.kind === "FunctionDecl" && item.name === functionName &&
+    (item.inner ?? []).some((child) => child.kind === "CompoundStmt"));
+  assert.equal(matches.length, 1, `AST function definition: ${functionName}`);
+  return matches[0];
+}
+
+function astNodes(node, predicate, output = []) {
+  if (predicate(node)) output.push(node);
+  for (const child of node.inner ?? []) astNodes(child, predicate, output);
+  return output;
+}
+
+function astNames(node) {
+  return new Set(astNodes(node, (item) => item.kind === "DeclRefExpr")
+    .map((item) => item.referencedDecl?.name).filter(Boolean));
+}
+
+function astCalls(node) {
+  return astNodes(node, (item) => item.kind === "CallExpr").map((call) => ({
+    name: [...astNames(call)].find((name) => name.startsWith("c5b11_")) ?? "",
+    offset: call.range?.begin?.offset ?? call.range?.begin?.expansionLoc?.offset ??
+      call.range?.begin?.spellingLoc?.offset ?? call.loc?.offset ?? -1,
+  }));
+}
+
+function verifyDriverAst(candidateRoot) {
+  const drive = clangFunctionAst(candidateRoot, "c5b11_drive_registered_attempt");
+  const calls = astCalls(drive);
+  const spawnOffset = calls.find(({ name }) => name === "c5b11_supervisor_spawn_fixed_runner")?.offset ?? -1;
+  const assignments = astNodes(drive, (item) => item.kind === "BinaryOperator" && item.opcode === "=")
+    .map((assignment) => ({ names: astNames(assignment), offset: assignment.range?.begin?.offset ?? -1 }));
+  const mayExistOffset = assignments.find(({ names }) =>
+    names.has("process_state") && names.has("C5B11_PROCESS_MAY_EXIST"))?.offset ?? -1;
+  const confirmedOffset = assignments.find(({ names }) =>
+    names.has("process_state") && names.has("C5B11_PROCESS_CONFIRMED"))?.offset ?? -1;
+  assert.equal(mayExistOffset >= 0 && mayExistOffset < spawnOffset, true,
+    "AST: process-may-exist transition precedes spawn call");
+  assert.equal(confirmedOffset > spawnOffset, true, "AST: confirmed transition follows trusted spawn result");
+
+  const processFailureIf = astNodes(drive, (item) => item.kind === "IfStmt").find((item) => {
+    const names = astNames(item);
+    return names.has("process_state") && names.has("C5B11_PROCESS_NONE") &&
+      names.has("reconcile_created_attempt");
+  });
+  assert.ok(processFailureIf, "AST: any process-may-exist state enters created convergence");
+  assert.ok(calls.some(({ name }) => name === "c5b11_supervisor_lookup_recovery_cursor"),
+    "AST: registration retry reopens recovery cursor before nominal effects");
+  const driveNames = astNames(drive);
+  assert.equal(driveNames.has("valid_created_recovery_step") &&
+    driveNames.has("valid_completion_recovery_step"), true,
+  "AST: reopened cursors are constrained to their recovery path");
+
+  const created = clangFunctionAst(candidateRoot, "reconcile_created_attempt");
+  const createdCalls = astCalls(created).map(({ name }) => name).filter((name) =>
+    name.startsWith("c5b11_supervisor_"));
+  assert.deepEqual(createdCalls, [
+    "c5b11_supervisor_fence_attempt", "c5b11_supervisor_lookup_fenced_attempt",
+    "c5b11_supervisor_request_teardown", "c5b11_supervisor_reconcile_teardown_outcome",
+    "c5b11_supervisor_reconcile_terminal_state", "c5b11_supervisor_reconcile_authoritative_absence",
+    "c5b11_supervisor_reconcile_fixed_root_removal",
+  ], "AST: created recovery provider structure");
+  const completion = clangFunctionAst(candidateRoot, "reconcile_completion_response_loss");
+  const completionCalls = astCalls(completion).map(({ name }) => name).filter((name) =>
+    name.startsWith("c5b11_supervisor_"));
+  assert.deepEqual(completionCalls, [
+    "c5b11_supervisor_fence_attempt", "c5b11_supervisor_lookup_fenced_attempt",
+    "c5b11_supervisor_reopen_stored_completion", "c5b11_supervisor_replay_stored_completion",
+  ], "AST: completion recovery provider structure");
+}
+
 export function verifyCandidate(candidateRoot, repositoryRoot = resolve(candidateRoot, "..", "..")) {
   const profilePath = join(candidateRoot, "contracts/fixed-runner-profile.json");
   const profileBytes = readFileSync(profilePath);
@@ -114,6 +202,14 @@ export function verifyCandidate(candidateRoot, repositoryRoot = resolve(candidat
   }
   const attemptProfile = JSON.parse(loaded.attemptRuntimeProfile);
   const attemptPlan = JSON.parse(loaded.attemptPlan);
+  const independentOracle = JSON.parse(loaded.independentRecoveryOracle);
+  assert.equal(sha256(loaded.independentRecoveryOracle), independentOracleSha256,
+    "independently authored oracle digest");
+  const reconciliationVerifierSource = readFileSync(
+    join(candidateRoot, "scripts/verify-reconciliation.mjs"), "utf8");
+  assert.doesNotMatch(reconciliationVerifierSource,
+    /from ["'].+(?:verify-profile|generate)\.mjs["']/u,
+    "independent oracle verifier must not import candidate constants");
   assert.equal(sha256(loaded.attemptRuntimeProfile), profile.bindingLayers.attemptRuntimeProfile.sha256);
   assert.equal(sha256(loaded.attemptPlan), profile.bindingLayers.attemptPlan.sha256);
   assert.notEqual(sha256(loaded.attemptRuntimeProfile), staleC5b8Profile, "stale C5b8 profile rejected");
@@ -129,6 +225,49 @@ export function verifyCandidate(candidateRoot, repositoryRoot = resolve(candidat
   assert.deepEqual(profile.bindingLayers.outerComposition.generatedBindings,
     profile.components.generatedAttemptBindings, "outer generated-binding identity");
 
+  const c5b7ProfileBytes = verifyRef(candidateRoot, repositoryRoot, "C5b7 root profile",
+    attemptProfile.rootComposition.profile);
+  const c5b7Profile = JSON.parse(c5b7ProfileBytes);
+  verifyRef(candidateRoot, repositoryRoot, "C5b7 archive manifest",
+    attemptProfile.rootComposition.archiveManifest);
+  verifyRef(candidateRoot, repositoryRoot, "C5b6 archive manifest",
+    attemptProfile.provenanceInputs.c5b6ArchiveManifest);
+  verifyRef(candidateRoot, repositoryRoot, "C5b6 release manifest",
+    attemptProfile.provenanceInputs.c5b6ReleaseManifest);
+  const c5b6Comparison = JSON.parse(verifyRef(candidateRoot, repositoryRoot, "C5b6 comparison",
+    attemptProfile.provenanceInputs.c5b6SameHostComparison));
+  verifyRef(candidateRoot, repositoryRoot, "runtime bundle", attemptProfile.runtimeContents.runtimeBundle);
+  verifyRef(candidateRoot, repositoryRoot, "runtime provenance",
+    attemptProfile.provenanceInputs.runtimeProvenance);
+  verifyRef(candidateRoot, repositoryRoot, "runtime SBOM", attemptProfile.provenanceInputs.runtimeSbom);
+  verifyRef(candidateRoot, repositoryRoot, "runtime notice closure",
+    attemptProfile.provenanceInputs.runtimeNoticeClosure);
+  const c5b4Recovery = JSON.parse(verifyRef(candidateRoot, repositoryRoot, "C5b4 recovery manifest",
+    attemptProfile.sourceObligations.libkrunfwRecoveryManifest));
+  assert.equal(attemptProfile.rootComposition.identity, c5b7Profile.identity, "C5b7 identity binding");
+  assert.deepEqual(attemptProfile.rootComposition.root, c5b7Profile.root, "C5b7 root-profile binding");
+  assert.deepEqual(attemptProfile.runtimeContents.executable, c5b7Profile.content.runtime,
+    "C5b7 runtime executable binding");
+  assert.deepEqual(attemptProfile.runtimeContents.snapshot, c5b7Profile.content.snapshot,
+    "C5b7 snapshot binding");
+  assert.equal(attemptProfile.runtimeContents.executable.sha256,
+    c5b6Comparison.artifacts.runtimeBinary.sha256, "C5b6 runtime executable identity");
+  assert.equal(attemptProfile.runtimeContents.snapshot.sha256,
+    c5b6Comparison.artifacts.snapshot.sha256, "C5b6 snapshot identity");
+  assert.deepEqual(attemptProfile.provenanceInputs.runtimeProvenance,
+    c5b7Profile.sourceInputs.runtimeProvenance, "C5b7 provenance binding");
+  assert.deepEqual(attemptProfile.provenanceInputs.runtimeSbom,
+    c5b7Profile.sourceInputs.runtimeSbom, "C5b7 SBOM binding");
+  assert.deepEqual(attemptProfile.provenanceInputs.runtimeNoticeClosure,
+    c5b7Profile.sourceInputs.runtimeNoticeClosure, "C5b7 notice binding");
+  assert.equal(attemptProfile.sourceObligations.preferredFormKernelSourceComplete, false,
+    "preferred-form kernel source remains incomplete");
+  assert.equal(attemptProfile.sourceObligations.distributionSourceComplianceStatus, "BLOCKED");
+  assert.equal(c5b4Recovery.sourceAvailability.preferredFormKernelSourceComplete, false);
+  assert.equal(attemptProfile.authority.providerProvenance, "BLOCKED");
+  assert.equal(attemptProfile.authority.crossHostReproducibility, "BLOCKED");
+  assert.equal(attemptProfile.authority.installedComposition, "BLOCKED");
+
   const expectedBindings = {
     registrationId: attemptPlan.registrationId,
     attemptId: attemptPlan.attemptId,
@@ -137,7 +276,9 @@ export function verifyCandidate(candidateRoot, repositoryRoot = resolve(candidat
   };
   verifySourceOrInputFrame(loaded.sourceFrame, "CPSRC001", 1, expectedBindings);
   verifySourceOrInputFrame(loaded.inputFrame, "CPINP001", 2, expectedBindings);
-  verifyCompletionFrame(loaded.completionFrame, expectedBindings);
+  const verifiedCompletionFields = verifyCompletionFrame(loaded.completionFrame, expectedBindings);
+  assert.deepEqual(verifiedCompletionFields, independentOracle.completionFields,
+    "independent completion-field coverage");
 
   const runnerSource = loaded.fixedRunnerSource.toString("utf8");
   const driverSource = loaded.supervisorDriverSource.toString("utf8");
@@ -202,6 +343,9 @@ export function verifyCandidate(candidateRoot, repositoryRoot = resolve(candidat
   ], "created-attempt convergence");
   assert.equal((createdRecoveryBody.match(/c5b11_supervisor_request_teardown/gu) ?? []).length, 1,
     "teardown request exactly once");
+  assert.match(createdRecoveryBody,
+    /request\.recovery_step = 16;[\s\S]+request\.durable_resume_step = 17;/u,
+    "teardown request carries non-redrive durable resume cursor");
   assert.equal((driverSource.match(/return durable_unresolved/gu) ?? []).length, 2,
     "durable unresolved path");
   const completionRecoveryBody = driverSource.slice(driverSource.indexOf("static int reconcile_completion_response_loss"),
@@ -212,7 +356,9 @@ export function verifyCandidate(candidateRoot, repositoryRoot = resolve(candidat
   ], "completion response-loss convergence");
   assert.doesNotMatch(driverSource, /fail_closed/u);
 
-  validateReconciliationFixture(JSON.parse(loaded.reconciliationMatrix));
+  verifyDriverAst(candidateRoot);
+  validateIndependentOracle(independentOracle);
+  validateReconciliationFixture(JSON.parse(loaded.reconciliationMatrix), independentOracle);
   assert.equal(packet.profile.sha256, sha256(profileBytes));
   assert.equal(packet.attemptRuntimeProfile.sha256, expectedBindings.profileSha256);
   assert.equal(packet.attemptPlan.sha256, expectedBindings.planSha256);
@@ -244,6 +390,8 @@ export function verifyCandidate(candidateRoot, repositoryRoot = resolve(candidat
     runnerLibkrunImports: runnerImports.length,
     supervisorEffectImports: driverProviderImports.length,
     reconciliationCases: JSON.parse(loaded.reconciliationMatrix).primaryFailureCases.length,
+    recoveryFailureCases: JSON.parse(loaded.reconciliationMatrix).recoveryStepFailureCases.length,
+    reopenRetryCases: JSON.parse(loaded.reconciliationMatrix).reopenRetryCases.length,
     performedEffects: "NONE",
   };
 }

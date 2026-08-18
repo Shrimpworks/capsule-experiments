@@ -16,6 +16,7 @@ export const recoveryEffects = [
   "reconcile-teardown-outcome", "reconcile-terminal-state",
   "reconcile-authoritative-absence", "reconcile-fixed-root-removal",
   "record-unresolved-cleanup", "reopen-stored-completion", "replay-exact-stored-completion",
+  "lookup-recovery-cursor",
 ];
 
 export const providerSymbols = [
@@ -26,6 +27,7 @@ export const providerSymbols = [
   "lookup_fenced_attempt", "request_teardown", "reconcile_teardown_outcome",
   "reconcile_terminal_state", "reconcile_authoritative_absence", "reconcile_fixed_root_removal",
   "record_unresolved_cleanup", "reopen_stored_completion", "replay_stored_completion",
+  "lookup_recovery_cursor",
 ].map((name) => `_c5b11_supervisor_${name}`);
 
 export const libkrunSymbols = [
@@ -73,6 +75,10 @@ export function validateProfile(profile) {
     profile.components.attemptRuntimeProfile.sha256);
   assert.notEqual(profile.bindingLayers.attemptRuntimeProfile.sha256,
     "06079eea39ce9a2e0547837555a6953787d8c32d614f0ec7b9b07ef408de04cd");
+  assert.equal(profile.bindingLayers.attemptRuntimeProfile.binds.includes("runtimeExecutable"), true);
+  assert.equal(profile.bindingLayers.attemptRuntimeProfile.binds.includes("runtimeSnapshot"), true);
+  assert.equal(profile.bindingLayers.attemptRuntimeProfile.binds.includes("c5b7RootProfile"), true);
+  assert.equal(profile.bindingLayers.attemptRuntimeProfile.binds.includes("c5b6Provenance"), true);
 
   assert.equal(profile.runnerRoot.bytes, 100663296);
   assert.equal(profile.runnerRoot.sha256, profile.components.runtimeRoot.sha256);
@@ -90,6 +96,9 @@ export function validateProfile(profile) {
   assert.equal(profile.effectAbi.profileEchoRequired, true);
   assert.equal(profile.effectAbi.frameEchoRequired, true);
   assert.equal(profile.effectAbi.providersRetained, false);
+  assert.equal(profile.effectAbi.teardownIntentDurableBeforeSideEffectRequired, true);
+  assert.equal(profile.effectAbi.teardownDurableResumeStep, 17);
+  assert.equal(profile.effectAbi.recoveryCursorDurableAndMonotonicRequired, true);
   assert.deepEqual(profile.ordering.nominalEffects, nominalEffects);
   assert.deepEqual(profile.ordering.recoveryEffects, recoveryEffects);
   for (const value of Object.values(profile.ordering).filter((item) => typeof item === "boolean")) {
@@ -100,6 +109,10 @@ export function validateProfile(profile) {
   assert.equal(profile.faultConvergence.unresolvedCleanupDurable, true);
   assert.equal(profile.faultConvergence.commitResponseLossUsesStoredRecord, true);
   assert.equal(profile.faultConvergence.replayExactBytes, true);
+  assert.equal(profile.faultConvergence.ambiguousSpawnProcessMayExist, true);
+  assert.equal(profile.faultConvergence.startupRecoveryCursorLookup, true);
+  assert.equal(profile.faultConvergence.recoveryStepFailureCrossProduct, true);
+  assert.equal(profile.faultConvergence.interruptionReopenResume, true);
 
   assert.deepEqual(profile.executionRequest.acceptedFields, ["registrationId"]);
   for (const [key, value] of Object.entries(profile.executionRequest)) {

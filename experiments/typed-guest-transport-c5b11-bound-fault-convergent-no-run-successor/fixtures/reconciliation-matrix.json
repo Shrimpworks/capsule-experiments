@@ -1,13 +1,13 @@
 {
   "objectType": "capsule.c5b11.reconciliation-matrix",
-  "objectVersion": 1,
+  "objectVersion": 2,
   "performed": false,
   "primaryFailureCases": [
     {
       "sequence": 1,
       "effect": "create-fixed-endpoints",
       "failure": "provider-error",
-      "processCreated": false,
+      "processMayExist": false,
       "trace": [
         "record-unresolved-cleanup"
       ]
@@ -16,7 +16,7 @@
       "sequence": 1,
       "effect": "create-fixed-endpoints",
       "failure": "not-applied",
-      "processCreated": false,
+      "processMayExist": false,
       "trace": [
         "record-unresolved-cleanup"
       ]
@@ -25,7 +25,7 @@
       "sequence": 1,
       "effect": "create-fixed-endpoints",
       "failure": "indeterminate",
-      "processCreated": false,
+      "processMayExist": false,
       "trace": [
         "record-unresolved-cleanup"
       ]
@@ -34,7 +34,7 @@
       "sequence": 1,
       "effect": "create-fixed-endpoints",
       "failure": "echo-mismatch",
-      "processCreated": false,
+      "processMayExist": false,
       "trace": [
         "record-unresolved-cleanup"
       ]
@@ -43,7 +43,7 @@
       "sequence": 1,
       "effect": "create-fixed-endpoints",
       "failure": "fact-mismatch",
-      "processCreated": false,
+      "processMayExist": false,
       "trace": [
         "record-unresolved-cleanup"
       ]
@@ -52,52 +52,82 @@
       "sequence": 2,
       "effect": "spawn-fixed-runner",
       "failure": "provider-error",
-      "processCreated": false,
+      "processMayExist": true,
       "trace": [
-        "record-unresolved-cleanup"
+        "fence-attempt",
+        "lookup-fenced-attempt",
+        "request-teardown-once",
+        "reconcile-teardown-outcome",
+        "reconcile-terminal-state",
+        "reconcile-authoritative-absence",
+        "reconcile-fixed-root-removal"
       ]
     },
     {
       "sequence": 2,
       "effect": "spawn-fixed-runner",
       "failure": "not-applied",
-      "processCreated": false,
+      "processMayExist": true,
       "trace": [
-        "record-unresolved-cleanup"
+        "fence-attempt",
+        "lookup-fenced-attempt",
+        "request-teardown-once",
+        "reconcile-teardown-outcome",
+        "reconcile-terminal-state",
+        "reconcile-authoritative-absence",
+        "reconcile-fixed-root-removal"
       ]
     },
     {
       "sequence": 2,
       "effect": "spawn-fixed-runner",
       "failure": "indeterminate",
-      "processCreated": false,
+      "processMayExist": true,
       "trace": [
-        "record-unresolved-cleanup"
+        "fence-attempt",
+        "lookup-fenced-attempt",
+        "request-teardown-once",
+        "reconcile-teardown-outcome",
+        "reconcile-terminal-state",
+        "reconcile-authoritative-absence",
+        "reconcile-fixed-root-removal"
       ]
     },
     {
       "sequence": 2,
       "effect": "spawn-fixed-runner",
       "failure": "echo-mismatch",
-      "processCreated": false,
+      "processMayExist": true,
       "trace": [
-        "record-unresolved-cleanup"
+        "fence-attempt",
+        "lookup-fenced-attempt",
+        "request-teardown-once",
+        "reconcile-teardown-outcome",
+        "reconcile-terminal-state",
+        "reconcile-authoritative-absence",
+        "reconcile-fixed-root-removal"
       ]
     },
     {
       "sequence": 2,
       "effect": "spawn-fixed-runner",
       "failure": "fact-mismatch",
-      "processCreated": false,
+      "processMayExist": true,
       "trace": [
-        "record-unresolved-cleanup"
+        "fence-attempt",
+        "lookup-fenced-attempt",
+        "request-teardown-once",
+        "reconcile-teardown-outcome",
+        "reconcile-terminal-state",
+        "reconcile-authoritative-absence",
+        "reconcile-fixed-root-removal"
       ]
     },
     {
       "sequence": 3,
       "effect": "verify-ready-byte",
       "failure": "provider-error",
-      "processCreated": true,
+      "processMayExist": true,
       "trace": [
         "fence-attempt",
         "lookup-fenced-attempt",
@@ -112,7 +142,7 @@
       "sequence": 3,
       "effect": "verify-ready-byte",
       "failure": "not-applied",
-      "processCreated": true,
+      "processMayExist": true,
       "trace": [
         "fence-attempt",
         "lookup-fenced-attempt",
@@ -127,7 +157,7 @@
       "sequence": 3,
       "effect": "verify-ready-byte",
       "failure": "indeterminate",
-      "processCreated": true,
+      "processMayExist": true,
       "trace": [
         "fence-attempt",
         "lookup-fenced-attempt",
@@ -142,7 +172,7 @@
       "sequence": 3,
       "effect": "verify-ready-byte",
       "failure": "echo-mismatch",
-      "processCreated": true,
+      "processMayExist": true,
       "trace": [
         "fence-attempt",
         "lookup-fenced-attempt",
@@ -157,7 +187,7 @@
       "sequence": 3,
       "effect": "verify-ready-byte",
       "failure": "fact-mismatch",
-      "processCreated": true,
+      "processMayExist": true,
       "trace": [
         "fence-attempt",
         "lookup-fenced-attempt",
@@ -172,7 +202,7 @@
       "sequence": 4,
       "effect": "write-source-frame",
       "failure": "provider-error",
-      "processCreated": true,
+      "processMayExist": true,
       "trace": [
         "fence-attempt",
         "lookup-fenced-attempt",
@@ -187,7 +217,7 @@
       "sequence": 4,
       "effect": "write-source-frame",
       "failure": "not-applied",
-      "processCreated": true,
+      "processMayExist": true,
       "trace": [
         "fence-attempt",
         "lookup-fenced-attempt",
@@ -202,7 +232,7 @@
       "sequence": 4,
       "effect": "write-source-frame",
       "failure": "indeterminate",
-      "processCreated": true,
+      "processMayExist": true,
       "trace": [
         "fence-attempt",
         "lookup-fenced-attempt",
@@ -217,7 +247,7 @@
       "sequence": 4,
       "effect": "write-source-frame",
       "failure": "echo-mismatch",
-      "processCreated": true,
+      "processMayExist": true,
       "trace": [
         "fence-attempt",
         "lookup-fenced-attempt",
@@ -232,7 +262,7 @@
       "sequence": 4,
       "effect": "write-source-frame",
       "failure": "fact-mismatch",
-      "processCreated": true,
+      "processMayExist": true,
       "trace": [
         "fence-attempt",
         "lookup-fenced-attempt",
@@ -247,7 +277,7 @@
       "sequence": 5,
       "effect": "write-input-frame",
       "failure": "provider-error",
-      "processCreated": true,
+      "processMayExist": true,
       "trace": [
         "fence-attempt",
         "lookup-fenced-attempt",
@@ -262,7 +292,7 @@
       "sequence": 5,
       "effect": "write-input-frame",
       "failure": "not-applied",
-      "processCreated": true,
+      "processMayExist": true,
       "trace": [
         "fence-attempt",
         "lookup-fenced-attempt",
@@ -277,7 +307,7 @@
       "sequence": 5,
       "effect": "write-input-frame",
       "failure": "indeterminate",
-      "processCreated": true,
+      "processMayExist": true,
       "trace": [
         "fence-attempt",
         "lookup-fenced-attempt",
@@ -292,7 +322,7 @@
       "sequence": 5,
       "effect": "write-input-frame",
       "failure": "echo-mismatch",
-      "processCreated": true,
+      "processMayExist": true,
       "trace": [
         "fence-attempt",
         "lookup-fenced-attempt",
@@ -307,7 +337,7 @@
       "sequence": 5,
       "effect": "write-input-frame",
       "failure": "fact-mismatch",
-      "processCreated": true,
+      "processMayExist": true,
       "trace": [
         "fence-attempt",
         "lookup-fenced-attempt",
@@ -322,7 +352,7 @@
       "sequence": 6,
       "effect": "close-input-writers",
       "failure": "provider-error",
-      "processCreated": true,
+      "processMayExist": true,
       "trace": [
         "fence-attempt",
         "lookup-fenced-attempt",
@@ -337,7 +367,7 @@
       "sequence": 6,
       "effect": "close-input-writers",
       "failure": "not-applied",
-      "processCreated": true,
+      "processMayExist": true,
       "trace": [
         "fence-attempt",
         "lookup-fenced-attempt",
@@ -352,7 +382,7 @@
       "sequence": 6,
       "effect": "close-input-writers",
       "failure": "indeterminate",
-      "processCreated": true,
+      "processMayExist": true,
       "trace": [
         "fence-attempt",
         "lookup-fenced-attempt",
@@ -367,7 +397,7 @@
       "sequence": 6,
       "effect": "close-input-writers",
       "failure": "echo-mismatch",
-      "processCreated": true,
+      "processMayExist": true,
       "trace": [
         "fence-attempt",
         "lookup-fenced-attempt",
@@ -382,7 +412,7 @@
       "sequence": 6,
       "effect": "close-input-writers",
       "failure": "fact-mismatch",
-      "processCreated": true,
+      "processMayExist": true,
       "trace": [
         "fence-attempt",
         "lookup-fenced-attempt",
@@ -397,7 +427,7 @@
       "sequence": 7,
       "effect": "send-start-byte",
       "failure": "provider-error",
-      "processCreated": true,
+      "processMayExist": true,
       "trace": [
         "fence-attempt",
         "lookup-fenced-attempt",
@@ -412,7 +442,7 @@
       "sequence": 7,
       "effect": "send-start-byte",
       "failure": "not-applied",
-      "processCreated": true,
+      "processMayExist": true,
       "trace": [
         "fence-attempt",
         "lookup-fenced-attempt",
@@ -427,7 +457,7 @@
       "sequence": 7,
       "effect": "send-start-byte",
       "failure": "indeterminate",
-      "processCreated": true,
+      "processMayExist": true,
       "trace": [
         "fence-attempt",
         "lookup-fenced-attempt",
@@ -442,7 +472,7 @@
       "sequence": 7,
       "effect": "send-start-byte",
       "failure": "echo-mismatch",
-      "processCreated": true,
+      "processMayExist": true,
       "trace": [
         "fence-attempt",
         "lookup-fenced-attempt",
@@ -457,7 +487,7 @@
       "sequence": 7,
       "effect": "send-start-byte",
       "failure": "fact-mismatch",
-      "processCreated": true,
+      "processMayExist": true,
       "trace": [
         "fence-attempt",
         "lookup-fenced-attempt",
@@ -472,7 +502,7 @@
       "sequence": 8,
       "effect": "drain-and-validate-completion",
       "failure": "provider-error",
-      "processCreated": true,
+      "processMayExist": true,
       "trace": [
         "fence-attempt",
         "lookup-fenced-attempt",
@@ -487,7 +517,7 @@
       "sequence": 8,
       "effect": "drain-and-validate-completion",
       "failure": "not-applied",
-      "processCreated": true,
+      "processMayExist": true,
       "trace": [
         "fence-attempt",
         "lookup-fenced-attempt",
@@ -502,7 +532,7 @@
       "sequence": 8,
       "effect": "drain-and-validate-completion",
       "failure": "indeterminate",
-      "processCreated": true,
+      "processMayExist": true,
       "trace": [
         "fence-attempt",
         "lookup-fenced-attempt",
@@ -517,7 +547,7 @@
       "sequence": 8,
       "effect": "drain-and-validate-completion",
       "failure": "echo-mismatch",
-      "processCreated": true,
+      "processMayExist": true,
       "trace": [
         "fence-attempt",
         "lookup-fenced-attempt",
@@ -532,7 +562,7 @@
       "sequence": 8,
       "effect": "drain-and-validate-completion",
       "failure": "fact-mismatch",
-      "processCreated": true,
+      "processMayExist": true,
       "trace": [
         "fence-attempt",
         "lookup-fenced-attempt",
@@ -547,7 +577,7 @@
       "sequence": 9,
       "effect": "join-terminal-state",
       "failure": "provider-error",
-      "processCreated": true,
+      "processMayExist": true,
       "trace": [
         "fence-attempt",
         "lookup-fenced-attempt",
@@ -562,7 +592,7 @@
       "sequence": 9,
       "effect": "join-terminal-state",
       "failure": "not-applied",
-      "processCreated": true,
+      "processMayExist": true,
       "trace": [
         "fence-attempt",
         "lookup-fenced-attempt",
@@ -577,7 +607,7 @@
       "sequence": 9,
       "effect": "join-terminal-state",
       "failure": "indeterminate",
-      "processCreated": true,
+      "processMayExist": true,
       "trace": [
         "fence-attempt",
         "lookup-fenced-attempt",
@@ -592,7 +622,7 @@
       "sequence": 9,
       "effect": "join-terminal-state",
       "failure": "echo-mismatch",
-      "processCreated": true,
+      "processMayExist": true,
       "trace": [
         "fence-attempt",
         "lookup-fenced-attempt",
@@ -607,7 +637,7 @@
       "sequence": 9,
       "effect": "join-terminal-state",
       "failure": "fact-mismatch",
-      "processCreated": true,
+      "processMayExist": true,
       "trace": [
         "fence-attempt",
         "lookup-fenced-attempt",
@@ -622,7 +652,7 @@
       "sequence": 10,
       "effect": "prove-authoritative-absence",
       "failure": "provider-error",
-      "processCreated": true,
+      "processMayExist": true,
       "trace": [
         "fence-attempt",
         "lookup-fenced-attempt",
@@ -637,7 +667,7 @@
       "sequence": 10,
       "effect": "prove-authoritative-absence",
       "failure": "not-applied",
-      "processCreated": true,
+      "processMayExist": true,
       "trace": [
         "fence-attempt",
         "lookup-fenced-attempt",
@@ -652,7 +682,7 @@
       "sequence": 10,
       "effect": "prove-authoritative-absence",
       "failure": "indeterminate",
-      "processCreated": true,
+      "processMayExist": true,
       "trace": [
         "fence-attempt",
         "lookup-fenced-attempt",
@@ -667,7 +697,7 @@
       "sequence": 10,
       "effect": "prove-authoritative-absence",
       "failure": "echo-mismatch",
-      "processCreated": true,
+      "processMayExist": true,
       "trace": [
         "fence-attempt",
         "lookup-fenced-attempt",
@@ -682,7 +712,7 @@
       "sequence": 10,
       "effect": "prove-authoritative-absence",
       "failure": "fact-mismatch",
-      "processCreated": true,
+      "processMayExist": true,
       "trace": [
         "fence-attempt",
         "lookup-fenced-attempt",
@@ -697,7 +727,7 @@
       "sequence": 11,
       "effect": "remove-fixed-root",
       "failure": "provider-error",
-      "processCreated": true,
+      "processMayExist": true,
       "trace": [
         "fence-attempt",
         "lookup-fenced-attempt",
@@ -712,7 +742,7 @@
       "sequence": 11,
       "effect": "remove-fixed-root",
       "failure": "not-applied",
-      "processCreated": true,
+      "processMayExist": true,
       "trace": [
         "fence-attempt",
         "lookup-fenced-attempt",
@@ -727,7 +757,7 @@
       "sequence": 11,
       "effect": "remove-fixed-root",
       "failure": "indeterminate",
-      "processCreated": true,
+      "processMayExist": true,
       "trace": [
         "fence-attempt",
         "lookup-fenced-attempt",
@@ -742,7 +772,7 @@
       "sequence": 11,
       "effect": "remove-fixed-root",
       "failure": "echo-mismatch",
-      "processCreated": true,
+      "processMayExist": true,
       "trace": [
         "fence-attempt",
         "lookup-fenced-attempt",
@@ -757,7 +787,7 @@
       "sequence": 11,
       "effect": "remove-fixed-root",
       "failure": "fact-mismatch",
-      "processCreated": true,
+      "processMayExist": true,
       "trace": [
         "fence-attempt",
         "lookup-fenced-attempt",
@@ -772,7 +802,7 @@
       "sequence": 12,
       "effect": "commit-durable-completion",
       "failure": "provider-error",
-      "processCreated": true,
+      "processMayExist": true,
       "trace": [
         "fence-attempt",
         "lookup-fenced-attempt",
@@ -784,7 +814,7 @@
       "sequence": 12,
       "effect": "commit-durable-completion",
       "failure": "not-applied",
-      "processCreated": true,
+      "processMayExist": true,
       "trace": [
         "fence-attempt",
         "lookup-fenced-attempt",
@@ -796,7 +826,7 @@
       "sequence": 12,
       "effect": "commit-durable-completion",
       "failure": "indeterminate",
-      "processCreated": true,
+      "processMayExist": true,
       "trace": [
         "fence-attempt",
         "lookup-fenced-attempt",
@@ -808,7 +838,7 @@
       "sequence": 12,
       "effect": "commit-durable-completion",
       "failure": "echo-mismatch",
-      "processCreated": true,
+      "processMayExist": true,
       "trace": [
         "fence-attempt",
         "lookup-fenced-attempt",
@@ -820,7 +850,7 @@
       "sequence": 12,
       "effect": "commit-durable-completion",
       "failure": "fact-mismatch",
-      "processCreated": true,
+      "processMayExist": true,
       "trace": [
         "fence-attempt",
         "lookup-fenced-attempt",
@@ -832,7 +862,7 @@
       "sequence": 13,
       "effect": "deliver-stored-completion",
       "failure": "provider-error",
-      "processCreated": true,
+      "processMayExist": true,
       "trace": [
         "fence-attempt",
         "lookup-fenced-attempt",
@@ -844,7 +874,7 @@
       "sequence": 13,
       "effect": "deliver-stored-completion",
       "failure": "not-applied",
-      "processCreated": true,
+      "processMayExist": true,
       "trace": [
         "fence-attempt",
         "lookup-fenced-attempt",
@@ -856,7 +886,7 @@
       "sequence": 13,
       "effect": "deliver-stored-completion",
       "failure": "indeterminate",
-      "processCreated": true,
+      "processMayExist": true,
       "trace": [
         "fence-attempt",
         "lookup-fenced-attempt",
@@ -868,7 +898,7 @@
       "sequence": 13,
       "effect": "deliver-stored-completion",
       "failure": "echo-mismatch",
-      "processCreated": true,
+      "processMayExist": true,
       "trace": [
         "fence-attempt",
         "lookup-fenced-attempt",
@@ -880,7 +910,7 @@
       "sequence": 13,
       "effect": "deliver-stored-completion",
       "failure": "fact-mismatch",
-      "processCreated": true,
+      "processMayExist": true,
       "trace": [
         "fence-attempt",
         "lookup-fenced-attempt",
@@ -889,39 +919,284 @@
       ]
     }
   ],
-  "createdRecoveryFailureCases": [
+  "ambiguousSpawnCases": [
     {
-      "failedStep": "fence-attempt",
+      "sequence": 2,
+      "effect": "spawn-fixed-runner",
+      "failure": "provider-error",
+      "processMayExist": true,
+      "trace": [
+        "fence-attempt",
+        "lookup-fenced-attempt",
+        "request-teardown-once",
+        "reconcile-teardown-outcome",
+        "reconcile-terminal-state",
+        "reconcile-authoritative-absence",
+        "reconcile-fixed-root-removal"
+      ]
+    },
+    {
+      "sequence": 2,
+      "effect": "spawn-fixed-runner",
+      "failure": "not-applied",
+      "processMayExist": true,
+      "trace": [
+        "fence-attempt",
+        "lookup-fenced-attempt",
+        "request-teardown-once",
+        "reconcile-teardown-outcome",
+        "reconcile-terminal-state",
+        "reconcile-authoritative-absence",
+        "reconcile-fixed-root-removal"
+      ]
+    },
+    {
+      "sequence": 2,
+      "effect": "spawn-fixed-runner",
+      "failure": "indeterminate",
+      "processMayExist": true,
+      "trace": [
+        "fence-attempt",
+        "lookup-fenced-attempt",
+        "request-teardown-once",
+        "reconcile-teardown-outcome",
+        "reconcile-terminal-state",
+        "reconcile-authoritative-absence",
+        "reconcile-fixed-root-removal"
+      ]
+    },
+    {
+      "sequence": 2,
+      "effect": "spawn-fixed-runner",
+      "failure": "echo-mismatch",
+      "processMayExist": true,
+      "trace": [
+        "fence-attempt",
+        "lookup-fenced-attempt",
+        "request-teardown-once",
+        "reconcile-teardown-outcome",
+        "reconcile-terminal-state",
+        "reconcile-authoritative-absence",
+        "reconcile-fixed-root-removal"
+      ]
+    },
+    {
+      "sequence": 2,
+      "effect": "spawn-fixed-runner",
+      "failure": "fact-mismatch",
+      "processMayExist": true,
+      "trace": [
+        "fence-attempt",
+        "lookup-fenced-attempt",
+        "request-teardown-once",
+        "reconcile-teardown-outcome",
+        "reconcile-terminal-state",
+        "reconcile-authoritative-absence",
+        "reconcile-fixed-root-removal"
+      ]
+    }
+  ],
+  "recoveryStepFailureCases": [
+    {
+      "path": "created",
+      "step": 14,
+      "effect": "fence-attempt",
+      "failure": "provider-error",
       "trace": [
         "fence-attempt",
         "record-unresolved-cleanup"
       ],
-      "rootRemovalAllowed": false,
-      "terminalDisposition": "unresolved-cleanup-durable"
+      "durableResumeStep": 14,
+      "originalEffectRedriven": false
     },
     {
-      "failedStep": "lookup-fenced-attempt",
+      "path": "created",
+      "step": 14,
+      "effect": "fence-attempt",
+      "failure": "not-applied",
+      "trace": [
+        "fence-attempt",
+        "record-unresolved-cleanup"
+      ],
+      "durableResumeStep": 14,
+      "originalEffectRedriven": false
+    },
+    {
+      "path": "created",
+      "step": 14,
+      "effect": "fence-attempt",
+      "failure": "indeterminate",
+      "trace": [
+        "fence-attempt",
+        "record-unresolved-cleanup"
+      ],
+      "durableResumeStep": 14,
+      "originalEffectRedriven": false
+    },
+    {
+      "path": "created",
+      "step": 14,
+      "effect": "fence-attempt",
+      "failure": "echo-mismatch",
+      "trace": [
+        "fence-attempt",
+        "record-unresolved-cleanup"
+      ],
+      "durableResumeStep": 14,
+      "originalEffectRedriven": false
+    },
+    {
+      "path": "created",
+      "step": 14,
+      "effect": "fence-attempt",
+      "failure": "fact-mismatch",
+      "trace": [
+        "fence-attempt",
+        "record-unresolved-cleanup"
+      ],
+      "durableResumeStep": 14,
+      "originalEffectRedriven": false
+    },
+    {
+      "path": "created",
+      "step": 15,
+      "effect": "lookup-fenced-attempt",
+      "failure": "provider-error",
       "trace": [
         "fence-attempt",
         "lookup-fenced-attempt",
         "record-unresolved-cleanup"
       ],
-      "rootRemovalAllowed": false,
-      "terminalDisposition": "unresolved-cleanup-durable"
+      "durableResumeStep": 15,
+      "originalEffectRedriven": false
     },
     {
-      "failedStep": "request-teardown-once",
+      "path": "created",
+      "step": 15,
+      "effect": "lookup-fenced-attempt",
+      "failure": "not-applied",
+      "trace": [
+        "fence-attempt",
+        "lookup-fenced-attempt",
+        "record-unresolved-cleanup"
+      ],
+      "durableResumeStep": 15,
+      "originalEffectRedriven": false
+    },
+    {
+      "path": "created",
+      "step": 15,
+      "effect": "lookup-fenced-attempt",
+      "failure": "indeterminate",
+      "trace": [
+        "fence-attempt",
+        "lookup-fenced-attempt",
+        "record-unresolved-cleanup"
+      ],
+      "durableResumeStep": 15,
+      "originalEffectRedriven": false
+    },
+    {
+      "path": "created",
+      "step": 15,
+      "effect": "lookup-fenced-attempt",
+      "failure": "echo-mismatch",
+      "trace": [
+        "fence-attempt",
+        "lookup-fenced-attempt",
+        "record-unresolved-cleanup"
+      ],
+      "durableResumeStep": 15,
+      "originalEffectRedriven": false
+    },
+    {
+      "path": "created",
+      "step": 15,
+      "effect": "lookup-fenced-attempt",
+      "failure": "fact-mismatch",
+      "trace": [
+        "fence-attempt",
+        "lookup-fenced-attempt",
+        "record-unresolved-cleanup"
+      ],
+      "durableResumeStep": 15,
+      "originalEffectRedriven": false
+    },
+    {
+      "path": "created",
+      "step": 16,
+      "effect": "request-teardown-once",
+      "failure": "provider-error",
       "trace": [
         "fence-attempt",
         "lookup-fenced-attempt",
         "request-teardown-once",
         "record-unresolved-cleanup"
       ],
-      "rootRemovalAllowed": false,
-      "terminalDisposition": "unresolved-cleanup-durable"
+      "durableResumeStep": 17,
+      "originalEffectRedriven": false
     },
     {
-      "failedStep": "reconcile-teardown-outcome",
+      "path": "created",
+      "step": 16,
+      "effect": "request-teardown-once",
+      "failure": "not-applied",
+      "trace": [
+        "fence-attempt",
+        "lookup-fenced-attempt",
+        "request-teardown-once",
+        "record-unresolved-cleanup"
+      ],
+      "durableResumeStep": 17,
+      "originalEffectRedriven": false
+    },
+    {
+      "path": "created",
+      "step": 16,
+      "effect": "request-teardown-once",
+      "failure": "indeterminate",
+      "trace": [
+        "fence-attempt",
+        "lookup-fenced-attempt",
+        "request-teardown-once",
+        "record-unresolved-cleanup"
+      ],
+      "durableResumeStep": 17,
+      "originalEffectRedriven": false
+    },
+    {
+      "path": "created",
+      "step": 16,
+      "effect": "request-teardown-once",
+      "failure": "echo-mismatch",
+      "trace": [
+        "fence-attempt",
+        "lookup-fenced-attempt",
+        "request-teardown-once",
+        "record-unresolved-cleanup"
+      ],
+      "durableResumeStep": 17,
+      "originalEffectRedriven": false
+    },
+    {
+      "path": "created",
+      "step": 16,
+      "effect": "request-teardown-once",
+      "failure": "fact-mismatch",
+      "trace": [
+        "fence-attempt",
+        "lookup-fenced-attempt",
+        "request-teardown-once",
+        "record-unresolved-cleanup"
+      ],
+      "durableResumeStep": 17,
+      "originalEffectRedriven": false
+    },
+    {
+      "path": "created",
+      "step": 17,
+      "effect": "reconcile-teardown-outcome",
+      "failure": "provider-error",
       "trace": [
         "fence-attempt",
         "lookup-fenced-attempt",
@@ -929,11 +1204,74 @@
         "reconcile-teardown-outcome",
         "record-unresolved-cleanup"
       ],
-      "rootRemovalAllowed": false,
-      "terminalDisposition": "unresolved-cleanup-durable"
+      "durableResumeStep": 17,
+      "originalEffectRedriven": false
     },
     {
-      "failedStep": "reconcile-terminal-state",
+      "path": "created",
+      "step": 17,
+      "effect": "reconcile-teardown-outcome",
+      "failure": "not-applied",
+      "trace": [
+        "fence-attempt",
+        "lookup-fenced-attempt",
+        "request-teardown-once",
+        "reconcile-teardown-outcome",
+        "record-unresolved-cleanup"
+      ],
+      "durableResumeStep": 17,
+      "originalEffectRedriven": false
+    },
+    {
+      "path": "created",
+      "step": 17,
+      "effect": "reconcile-teardown-outcome",
+      "failure": "indeterminate",
+      "trace": [
+        "fence-attempt",
+        "lookup-fenced-attempt",
+        "request-teardown-once",
+        "reconcile-teardown-outcome",
+        "record-unresolved-cleanup"
+      ],
+      "durableResumeStep": 17,
+      "originalEffectRedriven": false
+    },
+    {
+      "path": "created",
+      "step": 17,
+      "effect": "reconcile-teardown-outcome",
+      "failure": "echo-mismatch",
+      "trace": [
+        "fence-attempt",
+        "lookup-fenced-attempt",
+        "request-teardown-once",
+        "reconcile-teardown-outcome",
+        "record-unresolved-cleanup"
+      ],
+      "durableResumeStep": 17,
+      "originalEffectRedriven": false
+    },
+    {
+      "path": "created",
+      "step": 17,
+      "effect": "reconcile-teardown-outcome",
+      "failure": "fact-mismatch",
+      "trace": [
+        "fence-attempt",
+        "lookup-fenced-attempt",
+        "request-teardown-once",
+        "reconcile-teardown-outcome",
+        "record-unresolved-cleanup"
+      ],
+      "durableResumeStep": 17,
+      "originalEffectRedriven": false
+    },
+    {
+      "path": "created",
+      "step": 18,
+      "effect": "reconcile-terminal-state",
+      "failure": "provider-error",
       "trace": [
         "fence-attempt",
         "lookup-fenced-attempt",
@@ -942,11 +1280,78 @@
         "reconcile-terminal-state",
         "record-unresolved-cleanup"
       ],
-      "rootRemovalAllowed": false,
-      "terminalDisposition": "unresolved-cleanup-durable"
+      "durableResumeStep": 18,
+      "originalEffectRedriven": false
     },
     {
-      "failedStep": "reconcile-authoritative-absence",
+      "path": "created",
+      "step": 18,
+      "effect": "reconcile-terminal-state",
+      "failure": "not-applied",
+      "trace": [
+        "fence-attempt",
+        "lookup-fenced-attempt",
+        "request-teardown-once",
+        "reconcile-teardown-outcome",
+        "reconcile-terminal-state",
+        "record-unresolved-cleanup"
+      ],
+      "durableResumeStep": 18,
+      "originalEffectRedriven": false
+    },
+    {
+      "path": "created",
+      "step": 18,
+      "effect": "reconcile-terminal-state",
+      "failure": "indeterminate",
+      "trace": [
+        "fence-attempt",
+        "lookup-fenced-attempt",
+        "request-teardown-once",
+        "reconcile-teardown-outcome",
+        "reconcile-terminal-state",
+        "record-unresolved-cleanup"
+      ],
+      "durableResumeStep": 18,
+      "originalEffectRedriven": false
+    },
+    {
+      "path": "created",
+      "step": 18,
+      "effect": "reconcile-terminal-state",
+      "failure": "echo-mismatch",
+      "trace": [
+        "fence-attempt",
+        "lookup-fenced-attempt",
+        "request-teardown-once",
+        "reconcile-teardown-outcome",
+        "reconcile-terminal-state",
+        "record-unresolved-cleanup"
+      ],
+      "durableResumeStep": 18,
+      "originalEffectRedriven": false
+    },
+    {
+      "path": "created",
+      "step": 18,
+      "effect": "reconcile-terminal-state",
+      "failure": "fact-mismatch",
+      "trace": [
+        "fence-attempt",
+        "lookup-fenced-attempt",
+        "request-teardown-once",
+        "reconcile-teardown-outcome",
+        "reconcile-terminal-state",
+        "record-unresolved-cleanup"
+      ],
+      "durableResumeStep": 18,
+      "originalEffectRedriven": false
+    },
+    {
+      "path": "created",
+      "step": 19,
+      "effect": "reconcile-authoritative-absence",
+      "failure": "provider-error",
       "trace": [
         "fence-attempt",
         "lookup-fenced-attempt",
@@ -956,11 +1361,82 @@
         "reconcile-authoritative-absence",
         "record-unresolved-cleanup"
       ],
-      "rootRemovalAllowed": false,
-      "terminalDisposition": "unresolved-cleanup-durable"
+      "durableResumeStep": 19,
+      "originalEffectRedriven": false
     },
     {
-      "failedStep": "reconcile-fixed-root-removal",
+      "path": "created",
+      "step": 19,
+      "effect": "reconcile-authoritative-absence",
+      "failure": "not-applied",
+      "trace": [
+        "fence-attempt",
+        "lookup-fenced-attempt",
+        "request-teardown-once",
+        "reconcile-teardown-outcome",
+        "reconcile-terminal-state",
+        "reconcile-authoritative-absence",
+        "record-unresolved-cleanup"
+      ],
+      "durableResumeStep": 19,
+      "originalEffectRedriven": false
+    },
+    {
+      "path": "created",
+      "step": 19,
+      "effect": "reconcile-authoritative-absence",
+      "failure": "indeterminate",
+      "trace": [
+        "fence-attempt",
+        "lookup-fenced-attempt",
+        "request-teardown-once",
+        "reconcile-teardown-outcome",
+        "reconcile-terminal-state",
+        "reconcile-authoritative-absence",
+        "record-unresolved-cleanup"
+      ],
+      "durableResumeStep": 19,
+      "originalEffectRedriven": false
+    },
+    {
+      "path": "created",
+      "step": 19,
+      "effect": "reconcile-authoritative-absence",
+      "failure": "echo-mismatch",
+      "trace": [
+        "fence-attempt",
+        "lookup-fenced-attempt",
+        "request-teardown-once",
+        "reconcile-teardown-outcome",
+        "reconcile-terminal-state",
+        "reconcile-authoritative-absence",
+        "record-unresolved-cleanup"
+      ],
+      "durableResumeStep": 19,
+      "originalEffectRedriven": false
+    },
+    {
+      "path": "created",
+      "step": 19,
+      "effect": "reconcile-authoritative-absence",
+      "failure": "fact-mismatch",
+      "trace": [
+        "fence-attempt",
+        "lookup-fenced-attempt",
+        "request-teardown-once",
+        "reconcile-teardown-outcome",
+        "reconcile-terminal-state",
+        "reconcile-authoritative-absence",
+        "record-unresolved-cleanup"
+      ],
+      "durableResumeStep": 19,
+      "originalEffectRedriven": false
+    },
+    {
+      "path": "created",
+      "step": 20,
+      "effect": "reconcile-fixed-root-removal",
+      "failure": "provider-error",
       "trace": [
         "fence-attempt",
         "lookup-fenced-attempt",
@@ -971,43 +1447,281 @@
         "reconcile-fixed-root-removal",
         "record-unresolved-cleanup"
       ],
-      "rootRemovalAllowed": true,
-      "terminalDisposition": "unresolved-cleanup-durable"
-    }
-  ],
-  "completionRecoveryFailureCases": [
+      "durableResumeStep": 20,
+      "originalEffectRedriven": false
+    },
     {
-      "failedStep": "fence-attempt",
+      "path": "created",
+      "step": 20,
+      "effect": "reconcile-fixed-root-removal",
+      "failure": "not-applied",
+      "trace": [
+        "fence-attempt",
+        "lookup-fenced-attempt",
+        "request-teardown-once",
+        "reconcile-teardown-outcome",
+        "reconcile-terminal-state",
+        "reconcile-authoritative-absence",
+        "reconcile-fixed-root-removal",
+        "record-unresolved-cleanup"
+      ],
+      "durableResumeStep": 20,
+      "originalEffectRedriven": false
+    },
+    {
+      "path": "created",
+      "step": 20,
+      "effect": "reconcile-fixed-root-removal",
+      "failure": "indeterminate",
+      "trace": [
+        "fence-attempt",
+        "lookup-fenced-attempt",
+        "request-teardown-once",
+        "reconcile-teardown-outcome",
+        "reconcile-terminal-state",
+        "reconcile-authoritative-absence",
+        "reconcile-fixed-root-removal",
+        "record-unresolved-cleanup"
+      ],
+      "durableResumeStep": 20,
+      "originalEffectRedriven": false
+    },
+    {
+      "path": "created",
+      "step": 20,
+      "effect": "reconcile-fixed-root-removal",
+      "failure": "echo-mismatch",
+      "trace": [
+        "fence-attempt",
+        "lookup-fenced-attempt",
+        "request-teardown-once",
+        "reconcile-teardown-outcome",
+        "reconcile-terminal-state",
+        "reconcile-authoritative-absence",
+        "reconcile-fixed-root-removal",
+        "record-unresolved-cleanup"
+      ],
+      "durableResumeStep": 20,
+      "originalEffectRedriven": false
+    },
+    {
+      "path": "created",
+      "step": 20,
+      "effect": "reconcile-fixed-root-removal",
+      "failure": "fact-mismatch",
+      "trace": [
+        "fence-attempt",
+        "lookup-fenced-attempt",
+        "request-teardown-once",
+        "reconcile-teardown-outcome",
+        "reconcile-terminal-state",
+        "reconcile-authoritative-absence",
+        "reconcile-fixed-root-removal",
+        "record-unresolved-cleanup"
+      ],
+      "durableResumeStep": 20,
+      "originalEffectRedriven": false
+    },
+    {
+      "path": "completion",
+      "step": 14,
+      "effect": "fence-attempt",
+      "failure": "provider-error",
       "trace": [
         "fence-attempt",
         "record-unresolved-cleanup"
       ],
-      "storedCompletionDelivered": false,
-      "terminalDisposition": "unresolved-cleanup-durable"
+      "durableResumeStep": 14,
+      "originalEffectRedriven": false
     },
     {
-      "failedStep": "lookup-fenced-attempt",
+      "path": "completion",
+      "step": 14,
+      "effect": "fence-attempt",
+      "failure": "not-applied",
+      "trace": [
+        "fence-attempt",
+        "record-unresolved-cleanup"
+      ],
+      "durableResumeStep": 14,
+      "originalEffectRedriven": false
+    },
+    {
+      "path": "completion",
+      "step": 14,
+      "effect": "fence-attempt",
+      "failure": "indeterminate",
+      "trace": [
+        "fence-attempt",
+        "record-unresolved-cleanup"
+      ],
+      "durableResumeStep": 14,
+      "originalEffectRedriven": false
+    },
+    {
+      "path": "completion",
+      "step": 14,
+      "effect": "fence-attempt",
+      "failure": "echo-mismatch",
+      "trace": [
+        "fence-attempt",
+        "record-unresolved-cleanup"
+      ],
+      "durableResumeStep": 14,
+      "originalEffectRedriven": false
+    },
+    {
+      "path": "completion",
+      "step": 14,
+      "effect": "fence-attempt",
+      "failure": "fact-mismatch",
+      "trace": [
+        "fence-attempt",
+        "record-unresolved-cleanup"
+      ],
+      "durableResumeStep": 14,
+      "originalEffectRedriven": false
+    },
+    {
+      "path": "completion",
+      "step": 15,
+      "effect": "lookup-fenced-attempt",
+      "failure": "provider-error",
       "trace": [
         "fence-attempt",
         "lookup-fenced-attempt",
         "record-unresolved-cleanup"
       ],
-      "storedCompletionDelivered": false,
-      "terminalDisposition": "unresolved-cleanup-durable"
+      "durableResumeStep": 15,
+      "originalEffectRedriven": false
     },
     {
-      "failedStep": "reopen-stored-completion",
+      "path": "completion",
+      "step": 15,
+      "effect": "lookup-fenced-attempt",
+      "failure": "not-applied",
+      "trace": [
+        "fence-attempt",
+        "lookup-fenced-attempt",
+        "record-unresolved-cleanup"
+      ],
+      "durableResumeStep": 15,
+      "originalEffectRedriven": false
+    },
+    {
+      "path": "completion",
+      "step": 15,
+      "effect": "lookup-fenced-attempt",
+      "failure": "indeterminate",
+      "trace": [
+        "fence-attempt",
+        "lookup-fenced-attempt",
+        "record-unresolved-cleanup"
+      ],
+      "durableResumeStep": 15,
+      "originalEffectRedriven": false
+    },
+    {
+      "path": "completion",
+      "step": 15,
+      "effect": "lookup-fenced-attempt",
+      "failure": "echo-mismatch",
+      "trace": [
+        "fence-attempt",
+        "lookup-fenced-attempt",
+        "record-unresolved-cleanup"
+      ],
+      "durableResumeStep": 15,
+      "originalEffectRedriven": false
+    },
+    {
+      "path": "completion",
+      "step": 15,
+      "effect": "lookup-fenced-attempt",
+      "failure": "fact-mismatch",
+      "trace": [
+        "fence-attempt",
+        "lookup-fenced-attempt",
+        "record-unresolved-cleanup"
+      ],
+      "durableResumeStep": 15,
+      "originalEffectRedriven": false
+    },
+    {
+      "path": "completion",
+      "step": 22,
+      "effect": "reopen-stored-completion",
+      "failure": "provider-error",
       "trace": [
         "fence-attempt",
         "lookup-fenced-attempt",
         "reopen-stored-completion",
         "record-unresolved-cleanup"
       ],
-      "storedCompletionDelivered": false,
-      "terminalDisposition": "unresolved-cleanup-durable"
+      "durableResumeStep": 22,
+      "originalEffectRedriven": false
     },
     {
-      "failedStep": "replay-exact-stored-completion",
+      "path": "completion",
+      "step": 22,
+      "effect": "reopen-stored-completion",
+      "failure": "not-applied",
+      "trace": [
+        "fence-attempt",
+        "lookup-fenced-attempt",
+        "reopen-stored-completion",
+        "record-unresolved-cleanup"
+      ],
+      "durableResumeStep": 22,
+      "originalEffectRedriven": false
+    },
+    {
+      "path": "completion",
+      "step": 22,
+      "effect": "reopen-stored-completion",
+      "failure": "indeterminate",
+      "trace": [
+        "fence-attempt",
+        "lookup-fenced-attempt",
+        "reopen-stored-completion",
+        "record-unresolved-cleanup"
+      ],
+      "durableResumeStep": 22,
+      "originalEffectRedriven": false
+    },
+    {
+      "path": "completion",
+      "step": 22,
+      "effect": "reopen-stored-completion",
+      "failure": "echo-mismatch",
+      "trace": [
+        "fence-attempt",
+        "lookup-fenced-attempt",
+        "reopen-stored-completion",
+        "record-unresolved-cleanup"
+      ],
+      "durableResumeStep": 22,
+      "originalEffectRedriven": false
+    },
+    {
+      "path": "completion",
+      "step": 22,
+      "effect": "reopen-stored-completion",
+      "failure": "fact-mismatch",
+      "trace": [
+        "fence-attempt",
+        "lookup-fenced-attempt",
+        "reopen-stored-completion",
+        "record-unresolved-cleanup"
+      ],
+      "durableResumeStep": 22,
+      "originalEffectRedriven": false
+    },
+    {
+      "path": "completion",
+      "step": 23,
+      "effect": "replay-exact-stored-completion",
+      "failure": "provider-error",
       "trace": [
         "fence-attempt",
         "lookup-fenced-attempt",
@@ -1015,8 +1729,206 @@
         "replay-exact-stored-completion",
         "record-unresolved-cleanup"
       ],
-      "storedCompletionDelivered": false,
-      "terminalDisposition": "unresolved-cleanup-durable"
+      "durableResumeStep": 23,
+      "originalEffectRedriven": false
+    },
+    {
+      "path": "completion",
+      "step": 23,
+      "effect": "replay-exact-stored-completion",
+      "failure": "not-applied",
+      "trace": [
+        "fence-attempt",
+        "lookup-fenced-attempt",
+        "reopen-stored-completion",
+        "replay-exact-stored-completion",
+        "record-unresolved-cleanup"
+      ],
+      "durableResumeStep": 23,
+      "originalEffectRedriven": false
+    },
+    {
+      "path": "completion",
+      "step": 23,
+      "effect": "replay-exact-stored-completion",
+      "failure": "indeterminate",
+      "trace": [
+        "fence-attempt",
+        "lookup-fenced-attempt",
+        "reopen-stored-completion",
+        "replay-exact-stored-completion",
+        "record-unresolved-cleanup"
+      ],
+      "durableResumeStep": 23,
+      "originalEffectRedriven": false
+    },
+    {
+      "path": "completion",
+      "step": 23,
+      "effect": "replay-exact-stored-completion",
+      "failure": "echo-mismatch",
+      "trace": [
+        "fence-attempt",
+        "lookup-fenced-attempt",
+        "reopen-stored-completion",
+        "replay-exact-stored-completion",
+        "record-unresolved-cleanup"
+      ],
+      "durableResumeStep": 23,
+      "originalEffectRedriven": false
+    },
+    {
+      "path": "completion",
+      "step": 23,
+      "effect": "replay-exact-stored-completion",
+      "failure": "fact-mismatch",
+      "trace": [
+        "fence-attempt",
+        "lookup-fenced-attempt",
+        "reopen-stored-completion",
+        "replay-exact-stored-completion",
+        "record-unresolved-cleanup"
+      ],
+      "durableResumeStep": 23,
+      "originalEffectRedriven": false
+    }
+  ],
+  "reopenRetryCases": [
+    {
+      "path": "created",
+      "interruptedStep": 14,
+      "durableResumeStep": 14,
+      "trace": [
+        "lookup-recovery-cursor",
+        "fence-attempt",
+        "lookup-fenced-attempt",
+        "request-teardown-once",
+        "reconcile-teardown-outcome",
+        "reconcile-terminal-state",
+        "reconcile-authoritative-absence",
+        "reconcile-fixed-root-removal"
+      ],
+      "originalEffectRedriven": false
+    },
+    {
+      "path": "created",
+      "interruptedStep": 15,
+      "durableResumeStep": 15,
+      "trace": [
+        "lookup-recovery-cursor",
+        "lookup-fenced-attempt",
+        "request-teardown-once",
+        "reconcile-teardown-outcome",
+        "reconcile-terminal-state",
+        "reconcile-authoritative-absence",
+        "reconcile-fixed-root-removal"
+      ],
+      "originalEffectRedriven": false
+    },
+    {
+      "path": "created",
+      "interruptedStep": 16,
+      "durableResumeStep": 17,
+      "trace": [
+        "lookup-recovery-cursor",
+        "reconcile-teardown-outcome",
+        "reconcile-terminal-state",
+        "reconcile-authoritative-absence",
+        "reconcile-fixed-root-removal"
+      ],
+      "originalEffectRedriven": false
+    },
+    {
+      "path": "created",
+      "interruptedStep": 17,
+      "durableResumeStep": 17,
+      "trace": [
+        "lookup-recovery-cursor",
+        "reconcile-teardown-outcome",
+        "reconcile-terminal-state",
+        "reconcile-authoritative-absence",
+        "reconcile-fixed-root-removal"
+      ],
+      "originalEffectRedriven": false
+    },
+    {
+      "path": "created",
+      "interruptedStep": 18,
+      "durableResumeStep": 18,
+      "trace": [
+        "lookup-recovery-cursor",
+        "reconcile-terminal-state",
+        "reconcile-authoritative-absence",
+        "reconcile-fixed-root-removal"
+      ],
+      "originalEffectRedriven": false
+    },
+    {
+      "path": "created",
+      "interruptedStep": 19,
+      "durableResumeStep": 19,
+      "trace": [
+        "lookup-recovery-cursor",
+        "reconcile-authoritative-absence",
+        "reconcile-fixed-root-removal"
+      ],
+      "originalEffectRedriven": false
+    },
+    {
+      "path": "created",
+      "interruptedStep": 20,
+      "durableResumeStep": 20,
+      "trace": [
+        "lookup-recovery-cursor",
+        "reconcile-fixed-root-removal"
+      ],
+      "originalEffectRedriven": false
+    },
+    {
+      "path": "completion",
+      "interruptedStep": 14,
+      "durableResumeStep": 14,
+      "trace": [
+        "lookup-recovery-cursor",
+        "fence-attempt",
+        "lookup-fenced-attempt",
+        "reopen-stored-completion",
+        "replay-exact-stored-completion"
+      ],
+      "originalEffectRedriven": false
+    },
+    {
+      "path": "completion",
+      "interruptedStep": 15,
+      "durableResumeStep": 15,
+      "trace": [
+        "lookup-recovery-cursor",
+        "lookup-fenced-attempt",
+        "reopen-stored-completion",
+        "replay-exact-stored-completion"
+      ],
+      "originalEffectRedriven": false
+    },
+    {
+      "path": "completion",
+      "interruptedStep": 22,
+      "durableResumeStep": 22,
+      "trace": [
+        "lookup-recovery-cursor",
+        "reopen-stored-completion",
+        "replay-exact-stored-completion"
+      ],
+      "originalEffectRedriven": false
+    },
+    {
+      "path": "completion",
+      "interruptedStep": 23,
+      "durableResumeStep": 23,
+      "trace": [
+        "lookup-recovery-cursor",
+        "replay-exact-stored-completion"
+      ],
+      "originalEffectRedriven": false
     }
   ],
   "teardownOutcomeCases": [
@@ -1032,6 +1944,7 @@
         "reconcile-authoritative-absence",
         "reconcile-fixed-root-removal"
       ],
+      "resumeStepAfterAmbiguousResponse": 17,
       "nonIdempotentEffectRedriven": false
     },
     {
@@ -1046,6 +1959,7 @@
         "reconcile-authoritative-absence",
         "reconcile-fixed-root-removal"
       ],
+      "resumeStepAfterAmbiguousResponse": 17,
       "nonIdempotentEffectRedriven": false
     },
     {
@@ -1060,6 +1974,7 @@
         "reconcile-authoritative-absence",
         "reconcile-fixed-root-removal"
       ],
+      "resumeStepAfterAmbiguousResponse": 17,
       "nonIdempotentEffectRedriven": false
     },
     {
@@ -1074,6 +1989,7 @@
         "reconcile-authoritative-absence",
         "reconcile-fixed-root-removal"
       ],
+      "resumeStepAfterAmbiguousResponse": 17,
       "nonIdempotentEffectRedriven": false
     },
     {
@@ -1088,11 +2004,13 @@
         "reconcile-authoritative-absence",
         "reconcile-fixed-root-removal"
       ],
+      "resumeStepAfterAmbiguousResponse": 17,
       "nonIdempotentEffectRedriven": false
     }
   ],
   "durableRecordFailure": {
     "attemptRemainsFenced": true,
+    "processMayExist": true,
     "cleanupResolved": false,
     "terminalDisposition": "recovery-required-no-success"
   }

@@ -7,18 +7,18 @@
   "parentStatus": "BLOCKED",
   "profile": {
     "path": "contracts/fixed-runner-profile.json",
-    "bytes": 15030,
-    "sha256": "a6ae1d308187c4f78ff94745e3426c07048b91ec99996fc1f66372a9b45ed329"
+    "bytes": 16608,
+    "sha256": "b62b11d082a7cec97646e0febad2f64b98b9bd5fa950cc0b61f3ab802f8961f0"
   },
   "attemptRuntimeProfile": {
     "path": "contracts/attempt-runtime-profile.json",
-    "bytes": 1675,
-    "sha256": "a330c5e3e275b39eed804eea2b9cebe6a5e39a93bd54bbf71d32c3a497acd986"
+    "bytes": 6266,
+    "sha256": "829bdd048210c14d67f4cfcb659c39db69fe5ed2ff4edb74f3f2d9f3c869f82d"
   },
   "attemptPlan": {
     "path": "contracts/attempt-plan.json",
     "bytes": 1087,
-    "sha256": "204610f232aef6caf55212744b0112820a9cd1fc140b07fd32101b2a065575dd"
+    "sha256": "bab8d7daa7c6444b6b972c18cf6152f1c53c5712f13b4fb4948fdcc9a560947b"
   },
   "executionRequest": {
     "acceptedFields": [
@@ -44,23 +44,28 @@
     "source": {
       "path": "fixtures/source.frame",
       "bytes": 255,
-      "sha256": "4e4cfcaeb311137dd72cc7b9f74849484bb866d82a237ae64fe2000a675795fa"
+      "sha256": "277dfb97424a454f5a0ebf46810998d5cdc3bbe4bc31666fa69333b0b05211c6"
     },
     "input": {
       "path": "fixtures/input.frame",
       "bytes": 188,
-      "sha256": "027b5a1a619f41a8c2cefa959c0e969cc513465752635302de14bfb41ed091e6"
+      "sha256": "9ea71b1ec7c26de3f91788d01585990ce4ebfc5f145866e18e306602a4a8ae81"
     },
     "completion": {
       "path": "fixtures/completion.frame",
       "bytes": 259,
-      "sha256": "68077473515e6942438e93e7730dcaa9950e84784dabd3385b18e28f327dfea6"
+      "sha256": "e211f63cf95dcc949816859353157e09f6f0c3c2206623d727acb45173c876ee"
     }
   },
   "reconciliationMatrix": {
     "path": "fixtures/reconciliation-matrix.json",
-    "bytes": 29445,
-    "sha256": "2d576c456328560404a175281fd63f449ee8b701b2e7a62b1ec1fd0fc542d682"
+    "bytes": 53549,
+    "sha256": "d101826f271c94add4dd3300ef036336e52a09438e72e477e80825ee23d3789c"
+  },
+  "independentRecoveryOracle": {
+    "path": "oracles/independent-recovery-oracle.json",
+    "bytes": 4383,
+    "sha256": "d035eaa8abb5417ec9da6fa03d1c6f6b816c69d4aedc7ac7aad0bdaac3a11ebb"
   },
   "authorization": {
     "host": null,

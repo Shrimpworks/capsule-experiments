@@ -36,6 +36,16 @@ const inputPayload = predecessorInput.subarray(152);
 const completionPayloadBytes = Number(predecessorCompletion.readBigUInt64BE(120));
 const completionPayload = predecessorCompletion.subarray(160, 160 + completionPayloadBytes);
 
+const c5b7ProfilePath = "experiments/typed-guest-transport-c5b7-deterministic-runtime-root/manifests/runtime-root-profile.json";
+const c5b7ArchivePath = "experiments/typed-guest-transport-c5b7-deterministic-runtime-root/manifests/archive-manifest.json";
+const c5b6ArchivePath = "experiments/typed-guest-transport-c5b6-deno-static-reproduction/manifests/archive-manifest.json";
+const c5b6ReleasePath = "experiments/typed-guest-transport-c5b6-deno-static-reproduction/inputs/release-manifest.json";
+const c5b6ComparisonPath = "experiments/typed-guest-transport-c5b6-deno-static-reproduction/evidence/2026-08-12/same-host-comparison.json";
+const c5b4RecoveryPath = "experiments/typed-guest-transport-c5b4-libkrunfw-recovery/manifests/recovery.json";
+const c5b7ProfileBytes = await readFile(join(repository, c5b7ProfilePath));
+const c5b7Profile = JSON.parse(c5b7ProfileBytes);
+const c5b4Recovery = JSON.parse(await readFile(join(repository, c5b4RecoveryPath)));
+
 const runtimeProfile = {
   objectType: "capsule.c5b11.attempt-runtime-profile",
   objectVersion: 1,
@@ -48,6 +58,34 @@ const runtimeProfile = {
     libkrunfw: await repositoryRef("experiments/typed-guest-transport-c5b4-libkrunfw-recovery/artifacts/libkrunfw.5.dylib"),
     runtimeRoot: await repositoryRef("experiments/typed-guest-transport-c5b7-deterministic-runtime-root/dist/runtime-root.ext4"),
   },
+  rootComposition: {
+    identity: c5b7Profile.identity,
+    repositoryBaseline: c5b7Profile.repositoryBaseline,
+    profile: reference(c5b7ProfilePath, c5b7ProfileBytes),
+    archiveManifest: await repositoryRef(c5b7ArchivePath),
+    root: c5b7Profile.root,
+  },
+  runtimeContents: {
+    executable: c5b7Profile.content.runtime,
+    snapshot: c5b7Profile.content.snapshot,
+    runtimeBundle: c5b7Profile.sourceInputs.runtimeBundle,
+  },
+  provenanceInputs: {
+    c5b6MergeCommit: c5b7Profile.predecessors.c5b6Runtime.mergeCommit,
+    c5b6ArchiveManifest: await repositoryRef(c5b6ArchivePath),
+    c5b6ReleaseManifest: await repositoryRef(c5b6ReleasePath),
+    c5b6SameHostComparison: await repositoryRef(c5b6ComparisonPath),
+    runtimeProvenance: c5b7Profile.sourceInputs.runtimeProvenance,
+    runtimeSbom: c5b7Profile.sourceInputs.runtimeSbom,
+    runtimeNoticeClosure: c5b7Profile.sourceInputs.runtimeNoticeClosure,
+  },
+  sourceObligations: {
+    libkrunfwRecoveryManifest: await repositoryRef(c5b4RecoveryPath),
+    preferredFormKernelSourceComplete: c5b4Recovery.sourceAvailability.preferredFormKernelSourceComplete,
+    distributionSourceComplianceStatus: c5b4Recovery.sourceAvailability.distributionSourceComplianceStatus,
+    reason: c5b4Recovery.sourceAvailability.reason,
+    dependencySourceAdmission: "BLOCKED",
+  },
   runtimeRoot: {
     bytes: 100663296,
     sha256: "5ad18f20cbc97c7a70ead3e795fd3649672513323041e913b0eb55b7acc88775",
@@ -59,6 +97,10 @@ const runtimeProfile = {
     callerSelectableBytes: false,
     supervisorDriverIncluded: false,
     supervisorDriverLayer: "outer-composition",
+    providerProvenance: "BLOCKED",
+    crossHostReproducibility: "BLOCKED",
+    installedComposition: "BLOCKED",
+    runtimeProfileAdmission: "BLOCKED",
   },
   executionAuthorized: false,
 };

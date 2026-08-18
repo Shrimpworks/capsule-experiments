@@ -1,96 +1,121 @@
 import assert from "node:assert/strict";
 
-import { nominalEffects } from "./verify-profile.mjs";
+/* This verifier deliberately imports no candidate profile, generator, effect,
+ * or trace constants. Its only model input is the separately retained literal
+ * oracle, whose provenance and digest are checked by verify-lib.mjs. */
 
-export const failureKinds = [
-  "provider-error", "not-applied", "indeterminate", "echo-mismatch", "fact-mismatch",
-];
-export const createdRecovery = [
-  "fence-attempt",
-  "lookup-fenced-attempt",
-  "request-teardown-once",
-  "reconcile-teardown-outcome",
-  "reconcile-terminal-state",
-  "reconcile-authoritative-absence",
-  "reconcile-fixed-root-removal",
-];
-export const completionRecovery = [
-  "fence-attempt",
-  "lookup-fenced-attempt",
-  "reopen-stored-completion",
-  "replay-exact-stored-completion",
-];
-
-export function buildReconciliationFixture() {
+function expectedMatrix(oracle) {
+  const created = oracle.createdRecovery;
+  const completion = oracle.completionRecovery;
   const primaryFailureCases = [];
-  for (const [index, effect] of nominalEffects.entries()) {
-    const sequence = index + 1;
-    for (const failure of failureKinds) {
-      const processCreated = sequence >= 3;
-      const trace = sequence >= 12
-        ? completionRecovery
-        : processCreated ? createdRecovery : ["record-unresolved-cleanup"];
-      primaryFailureCases.push({ sequence, effect, failure, processCreated, trace: [...trace] });
+  for (const nominal of oracle.nominalEffects) {
+    for (const failure of oracle.failureKinds) {
+      const path = nominal.failureClass === "completion-response-loss" ? completion
+        : nominal.failureClass === "pre-creation" ? null : created;
+      primaryFailureCases.push({
+        sequence: nominal.sequence,
+        effect: nominal.effect,
+        failure,
+        processMayExist: nominal.failureClass !== "pre-creation",
+        trace: path ? path.map(({ effect }) => effect) : ["record-unresolved-cleanup"],
+      });
     }
   }
-  const createdRecoveryFailureCases = createdRecovery.map((failedStep, index) => ({
-    failedStep,
-    trace: [...createdRecovery.slice(0, index + 1), "record-unresolved-cleanup"],
-    rootRemovalAllowed: index > createdRecovery.indexOf("reconcile-authoritative-absence"),
-    terminalDisposition: "unresolved-cleanup-durable",
-  }));
-  const completionRecoveryFailureCases = completionRecovery.map((failedStep, index) => ({
-    failedStep,
-    trace: [...completionRecovery.slice(0, index + 1), "record-unresolved-cleanup"],
-    storedCompletionDelivered: false,
-    terminalDisposition: "unresolved-cleanup-durable",
-  }));
-  const teardownOutcomeCases = failureKinds.map((outcome) => ({
-    outcome,
-    requestCount: 1,
-    trace: [...createdRecovery],
-    nonIdempotentEffectRedriven: false,
-  }));
+  const recoveryStepFailureCases = [];
+  const reopenRetryCases = [];
+  for (const [pathName, path] of [["created", created], ["completion", completion]]) {
+    for (const [index, item] of path.entries()) {
+      for (const failure of oracle.failureKinds) {
+        recoveryStepFailureCases.push({
+          path: pathName,
+          step: item.step,
+          effect: item.effect,
+          failure,
+          trace: [...path.slice(0, index + 1).map(({ effect }) => effect), "record-unresolved-cleanup"],
+          durableResumeStep: item.resumeStepAfterInterruption,
+          originalEffectRedriven: false,
+        });
+      }
+      const resumeIndex = path.findIndex(({ step }) => step >= item.resumeStepAfterInterruption);
+      reopenRetryCases.push({
+        path: pathName,
+        interruptedStep: item.step,
+        durableResumeStep: item.resumeStepAfterInterruption,
+        trace: ["lookup-recovery-cursor", ...path.slice(resumeIndex).map(({ effect }) => effect)],
+        originalEffectRedriven: false,
+      });
+    }
+  }
   return {
     objectType: "capsule.c5b11.reconciliation-matrix",
-    objectVersion: 1,
+    objectVersion: 2,
     performed: false,
     primaryFailureCases,
-    createdRecoveryFailureCases,
-    completionRecoveryFailureCases,
-    teardownOutcomeCases,
+    ambiguousSpawnCases: primaryFailureCases.filter(({ sequence }) => sequence === 2),
+    recoveryStepFailureCases,
+    reopenRetryCases,
+    teardownOutcomeCases: oracle.failureKinds.map((outcome) => ({
+      outcome,
+      requestCount: 1,
+      trace: created.map(({ effect }) => effect),
+      resumeStepAfterAmbiguousResponse: 17,
+      nonIdempotentEffectRedriven: false,
+    })),
     durableRecordFailure: {
       attemptRemainsFenced: true,
+      processMayExist: true,
       cleanupResolved: false,
       terminalDisposition: "recovery-required-no-success",
     },
   };
 }
 
-export function validateReconciliationFixture(value) {
-  assert.deepEqual(value, buildReconciliationFixture(), "exhaustive reconciliation state matrix");
-  for (const item of value.primaryFailureCases.filter(({ processCreated, sequence }) =>
-    processCreated && sequence < 12)) {
-    assert.deepEqual(item.trace, createdRecovery, `${item.effect}/${item.failure} convergence`);
-    assert.equal(item.trace.indexOf("reconcile-terminal-state") <
-      item.trace.indexOf("reconcile-authoritative-absence"), true, "terminal before absence");
-    assert.equal(item.trace.indexOf("reconcile-authoritative-absence") <
-      item.trace.indexOf("reconcile-fixed-root-removal"), true, "absence before root removal");
+export function validateIndependentOracle(oracle) {
+  assert.equal(oracle.objectType, "capsule.c5b11.independent-recovery-oracle");
+  assert.equal(oracle.provenance.authoredIndependentOfCandidateGenerator, true);
+  assert.equal(oracle.provenance.importsCandidateConstants, false);
+  assert.deepEqual(oracle.failureKinds,
+    ["provider-error", "not-applied", "indeterminate", "echo-mismatch", "fact-mismatch"]);
+  assert.deepEqual(oracle.nominalEffects.map(({ sequence }) => sequence),
+    [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]);
+  assert.equal(oracle.nominalEffects[1].failureClass, "ambiguous-spawn-process-may-exist");
+  assert.deepEqual(oracle.createdRecovery.map(({ step }) => step), [14, 15, 16, 17, 18, 19, 20]);
+  assert.deepEqual(oracle.completionRecovery.map(({ step }) => step), [14, 15, 22, 23]);
+  assert.equal(oracle.createdRecovery.find(({ step }) => step === 16).resumeStepAfterInterruption, 17,
+    "ambiguous teardown response resumes at reconciliation, not request redrive");
+  assert.deepEqual(oracle.completionFields, [
+    "magic", "protocol", "method", "role", "header-length", "attempt-id", "registration-id",
+    "plan-digest", "profile-digest", "status", "flags", "reserved", "payload-length",
+    "payload-digest", "trailer-magic", "trailer-protocol", "trailer-method", "trailer-role",
+    "trailer-length", "trailer-attempt-id", "trailer-digest",
+  ]);
+  return true;
+}
+
+export function validateReconciliationFixture(value, oracle) {
+  validateIndependentOracle(oracle);
+  assert.deepEqual(value, expectedMatrix(oracle), "independent exhaustive reconciliation matrix");
+  assert.equal(value.primaryFailureCases.length, 65, "all nominal/failure crossings");
+  assert.equal(value.ambiguousSpawnCases.length, 5, "all ambiguous spawn outcomes");
+  assert.equal(value.recoveryStepFailureCases.length, 55, "all recovery-step/failure crossings");
+  assert.equal(value.reopenRetryCases.length, 11, "all interruption/reopen/resume paths");
+  for (const item of value.ambiguousSpawnCases) {
+    assert.equal(item.processMayExist, true, `${item.failure}: spawn may exist`);
+    assert.deepEqual(item.trace, oracle.createdRecovery.map(({ effect }) => effect),
+      `${item.failure}: full created convergence`);
   }
-  for (const item of value.primaryFailureCases.filter(({ sequence }) => sequence >= 12)) {
-    assert.deepEqual(item.trace, completionRecovery, `${item.effect}/${item.failure} stored replay`);
+  for (const item of value.recoveryStepFailureCases) {
+    assert.equal(item.trace.at(-1), "record-unresolved-cleanup", `${item.path}/${item.effect} durable`);
+    assert.equal(item.originalEffectRedriven, false, `${item.path}/${item.effect} no redrive`);
   }
-  for (const item of value.teardownOutcomeCases) {
-    assert.equal(item.requestCount, 1, `${item.outcome} teardown requested once`);
-    assert.equal(item.nonIdempotentEffectRedriven, false, `${item.outcome} no redrive`);
+  for (const item of value.reopenRetryCases) {
+    assert.equal(item.trace[0], "lookup-recovery-cursor", `${item.path}/${item.interruptedStep} reopen`);
+    assert.equal(item.originalEffectRedriven, false, `${item.path}/${item.interruptedStep} no redrive`);
   }
-  for (const item of [...value.createdRecoveryFailureCases, ...value.completionRecoveryFailureCases]) {
-    assert.equal(item.trace.at(-1), "record-unresolved-cleanup", `${item.failedStep} durable unresolved`);
-  }
-  assert.deepEqual(value.durableRecordFailure, {
-    attemptRemainsFenced: true,
-    cleanupResolved: false,
-    terminalDisposition: "recovery-required-no-success",
-  }, "durable unresolved record failure remains fenced");
+  const createdTrace = oracle.createdRecovery.map(({ effect }) => effect);
+  assert.equal(createdTrace.indexOf("reconcile-terminal-state") <
+    createdTrace.indexOf("reconcile-authoritative-absence"), true, "terminal before absence");
+  assert.equal(createdTrace.indexOf("reconcile-authoritative-absence") <
+    createdTrace.indexOf("reconcile-fixed-root-removal"), true, "absence before root removal");
   return true;
 }

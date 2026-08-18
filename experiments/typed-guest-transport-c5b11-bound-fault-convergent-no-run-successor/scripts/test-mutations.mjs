@@ -62,6 +62,28 @@ function mutateMatrix(candidate, mutate) {
   writeFileSync(profileFile, `${JSON.stringify(profile, null, 2)}\n`);
 }
 
+function mutateAttemptProfile(candidate, mutate) {
+  const profileFile = profilePath(candidate);
+  const profile = JSON.parse(readFileSync(profileFile, "utf8"));
+  const absolute = join(candidate, profile.components.attemptRuntimeProfile.path);
+  const value = JSON.parse(readFileSync(absolute, "utf8"));
+  mutate(value);
+  const bytes = Buffer.from(`${JSON.stringify(value, null, 2)}\n`);
+  writeFileSync(absolute, bytes);
+  const reference = { path: profile.components.attemptRuntimeProfile.path,
+    bytes: bytes.length, sha256: sha256(bytes) };
+  profile.components.attemptRuntimeProfile = reference;
+  Object.assign(profile.bindingLayers.attemptRuntimeProfile, reference);
+  writeFileSync(profileFile, `${JSON.stringify(profile, null, 2)}\n`);
+}
+
+function substituteBoundComponent(candidate, component, outerKey) {
+  mutateProfile(candidate, (profile) => {
+    profile.components[component].sha256 = "0".repeat(64);
+    if (outerKey) profile.bindingLayers.outerComposition[outerKey].sha256 = "0".repeat(64);
+  });
+}
+
 function mutateDriverSource(candidate, from, to) {
   const profileFile = profilePath(candidate);
   const profile = JSON.parse(readFileSync(profileFile, "utf8"));
@@ -105,6 +127,19 @@ const cases = [
   ["frame-profile-substitution", (c) => mutateComponent(c, "sourceFrame", (b) => b.fill(0, 80, 112)), /CPSRC001 profile/u],
   ["effect-echo-profile-removal", (c) => mutateDriverSource(c,
     "result->profile_sha256", "result->profile_sha25x"), /profile echo validation/u],
+  ["ambiguous-spawn-state-bypass", (c) => mutateDriverSource(c,
+    "process_state = C5B11_PROCESS_MAY_EXIST;", "process_state = C5B11_PROCESS_NONE;"),
+  /process-may-exist transition/u],
+  ["ambiguous-spawn-failure-bypass", (c) => mutateDriverSource(c,
+    "process_state != C5B11_PROCESS_NONE", "process_state == C5B11_PROCESS_CONFIRMED"),
+  /process-may-exist state enters/u],
+  ["startup-recovery-cursor-removal", (c) => mutateDriverSource(c,
+    "c5b11_supervisor_lookup_recovery_cursor", "c5b11_supervisor_lookup_fenced_attempt"),
+  /recovery cursor/u],
+  ["startup-recovery-path-confusion", (c) => mutateDriverSource(c,
+    "valid_created_recovery_step(result.recovery_step)",
+    "valid_completion_recovery_step(result.recovery_step)"),
+  /reopened cursors are constrained/u],
   ["source-reconciliation-absence", (c) => mutateDriverSource(c,
     "c5b11_supervisor_reconcile_authoritative_absence", "c5b11_supervisor_reconcile_authoritative_absencx"),
   /created-attempt convergence/u],
@@ -114,6 +149,9 @@ const cases = [
   ["source-teardown-reconciliation", (c) => mutateDriverSource(c,
     "c5b11_supervisor_reconcile_teardown_outcome", "c5b11_supervisor_reconcile_teardown_outcomX"),
   /created-attempt convergence/u],
+  ["source-teardown-redrive-cursor", (c) => mutateDriverSource(c,
+    "request.durable_resume_step = 17;", "request.durable_resume_step = 16;"),
+  /non-redrive durable resume cursor/u],
   ["source-unresolved-cleanup", (c) => mutateDriverSource(c,
     "return durable_unresolved", "return durable_unresolveX"), /durable unresolved path/u],
   ["source-stored-completion-replay", (c) => mutateDriverSource(c,
@@ -121,6 +159,41 @@ const cases = [
   /completion response-loss convergence/u],
   ["stored-completion-frame-binding", (c) => mutateGeneratedBindings(c),
     /generated completion\/replay binding/u],
+  ["runtime-executable-substitution", (c) => mutateAttemptProfile(c, (p) => {
+    p.runtimeContents.executable.sha256 = "0".repeat(64);
+  }), /C5b7 runtime executable binding/u],
+  ["runtime-snapshot-substitution", (c) => mutateAttemptProfile(c, (p) => {
+    p.runtimeContents.snapshot.sha256 = "0".repeat(64);
+  }), /C5b7 snapshot binding/u],
+  ["root-profile-identity-substitution", (c) => mutateAttemptProfile(c, (p) => {
+    p.rootComposition.identity = "capsule.invalid";
+  }), /C5b7 identity binding/u],
+  ["root-profile-manifest-substitution", (c) => mutateAttemptProfile(c, (p) => {
+    p.rootComposition.profile.sha256 = "0".repeat(64);
+  }), /C5b7 root profile digest/u],
+  ["root-archive-manifest-substitution", (c) => mutateAttemptProfile(c, (p) => {
+    p.rootComposition.archiveManifest.sha256 = "0".repeat(64);
+  }), /C5b7 archive manifest digest/u],
+  ["runtime-provenance-substitution", (c) => mutateAttemptProfile(c, (p) => {
+    p.provenanceInputs.runtimeProvenance.sha256 = "0".repeat(64);
+  }), /runtime provenance digest/u],
+  ["runtime-sbom-substitution", (c) => mutateAttemptProfile(c, (p) => {
+    p.provenanceInputs.runtimeSbom.sha256 = "0".repeat(64);
+  }), /runtime SBOM digest/u],
+  ["runtime-notice-substitution", (c) => mutateAttemptProfile(c, (p) => {
+    p.provenanceInputs.runtimeNoticeClosure.sha256 = "0".repeat(64);
+  }), /runtime notice closure digest/u],
+  ["kernel-source-obligation-substitution", (c) => mutateAttemptProfile(c, (p) => {
+    p.sourceObligations.preferredFormKernelSourceComplete = true;
+  }), /preferred-form kernel source/u],
+  ["driver-source-substitution", (c) => substituteBoundComponent(c,
+    "supervisorDriverSource", "driverSource"), /supervisorDriverSource digest/u],
+  ["driver-object-substitution", (c) => substituteBoundComponent(c,
+    "supervisorDriverObject", "driverObject"), /supervisorDriverObject digest/u],
+  ["independent-oracle-substitution", (c) => mutateProfile(c, (p) => {
+    p.components.independentRecoveryOracle.sha256 = "0".repeat(64);
+    p.faultConvergence.independentOracle.sha256 = "0".repeat(64);
+  }), /independentRecoveryOracle digest/u],
   ["effect-order", (c) => mutateProfile(c, (p) => { p.ordering.nominalEffects.reverse(); }), /Expected values/u],
   ["per-effect-abi", (c) => mutateProfile(c, (p) => { p.effectAbi.providerSymbols.pop(); }), /Expected values/u],
   ["supervisor-libkrun-import", (c) => mutateProfile(c, (p) => { p.ownership.supervisorLibkrunImports.push("_krun_create_ctx"); }), /Expected values/u],
@@ -131,21 +204,35 @@ const cases = [
   ["guest-presence", (c) => mutateProfile(c, (p) => { p.authorization.guest = "guest"; }), /null/u],
   ["execution-authorization", (c) => mutateProfile(c, (p) => { p.authorization.executionAuthorized = true; }), /false/u],
   ["performed-effect", (c) => mutateProfile(c, (p) => { p.performedEffects.runnerStarted = true; }), /performed effects/u],
+  frameCase("completion-magic", "completionFrame", 0, (b, o) => b.write("BADMAGIC", o, 8, "ascii"), /completion magic/u),
   frameCase("completion-protocol", "completionFrame", 8, (b, o) => b.writeUInt16BE(2, o), /completion protocol/u),
   frameCase("completion-method", "completionFrame", 10, (b, o) => b.writeUInt16BE(2, o), /completion method/u),
+  frameCase("completion-role", "completionFrame", 12, (b, o) => b.writeUInt16BE(2, o), /completion role/u),
+  frameCase("completion-header-length", "completionFrame", 14, (b, o) => b.writeUInt16BE(159, o), /completion header length/u),
+  frameCase("completion-attempt", "completionFrame", 16, (b, o) => b.fill(0, o, o + 16), /completion attempt/u),
   frameCase("completion-registration", "completionFrame", 32, (b, o) => b.fill(0, o, o + 16), /completion registration/u),
+  frameCase("completion-plan", "completionFrame", 48, (b, o) => b.fill(0, o, o + 32), /completion plan/u),
+  frameCase("completion-profile", "completionFrame", 80, (b, o) => b.fill(0, o, o + 32), /completion profile/u),
   frameCase("completion-status", "completionFrame", 112, (b, o) => b.writeUInt16BE(2, o), /completion status/u),
   frameCase("completion-flags", "completionFrame", 114, (b, o) => b.writeUInt16BE(1, o), /completion flags/u),
   frameCase("completion-reserved", "completionFrame", 116, (b, o) => b.writeUInt32BE(1, o), /completion reserved/u),
+  frameCase("completion-payload-length", "completionFrame", 120, (b, o) => b.writeBigUInt64BE(BigInt(b.length), o), /completion payload length/u),
+  frameCase("completion-payload-digest", "completionFrame", 128, (b, o) => b.fill(0, o, o + 32), /completion payload digest/u),
+  frameCase("completion-trailer-magic", "completionFrame", 195, (b) => b.write("BADEND00", b.length - 64, 8, "ascii"), /trailer magic/u),
   frameCase("completion-trailer-protocol", "completionFrame", 203, (b) => b.writeUInt16BE(2, b.length - 56), /trailer protocol/u),
   frameCase("completion-trailer-method", "completionFrame", 205, (b) => b.writeUInt16BE(2, b.length - 54), /trailer method/u),
   frameCase("completion-trailer-role", "completionFrame", 207, (b) => b.writeUInt16BE(2, b.length - 52), /trailer role/u),
   frameCase("completion-trailer-length", "completionFrame", 209, (b) => b.writeUInt16BE(63, b.length - 50), /trailer length/u),
-  ["reconciliation-absence", (c) => mutateMatrix(c, (m) => { for (const x of m.primaryFailureCases.filter((x) => x.processCreated && x.sequence < 12)) x.trace = x.trace.filter((v) => v !== "reconcile-authoritative-absence"); }), /reconciliation state matrix/u],
-  ["reconciliation-root-removal", (c) => mutateMatrix(c, (m) => { for (const x of m.primaryFailureCases.filter((x) => x.processCreated && x.sequence < 12)) x.trace = x.trace.filter((v) => v !== "reconcile-fixed-root-removal"); }), /reconciliation state matrix/u],
-  ["reconciliation-teardown", (c) => mutateMatrix(c, (m) => { for (const x of m.primaryFailureCases.filter((x) => x.processCreated && x.sequence < 12)) x.trace = x.trace.filter((v) => v !== "reconcile-teardown-outcome"); for (const x of m.teardownOutcomeCases) x.trace = x.trace.filter((v) => v !== "reconcile-teardown-outcome"); }), /reconciliation state matrix/u],
-  ["unresolved-cleanup", (c) => mutateMatrix(c, (m) => { for (const x of [...m.createdRecoveryFailureCases, ...m.completionRecoveryFailureCases]) x.trace.pop(); }), /reconciliation state matrix/u],
-  ["stored-completion-replay", (c) => mutateMatrix(c, (m) => { for (const x of m.primaryFailureCases.filter((x) => x.sequence >= 12)) x.trace.pop(); }), /reconciliation state matrix/u],
+  frameCase("completion-trailer-attempt", "completionFrame", 211, (b) => b.fill(0, b.length - 48, b.length - 32), /trailer attempt/u),
+  frameCase("completion-trailer-digest", "completionFrame", 227, (b) => b.fill(0, b.length - 32), /trailer digest/u),
+  ["ambiguous-spawn-matrix-bypass", (c) => mutateMatrix(c, (m) => { for (const x of m.ambiguousSpawnCases) { x.processMayExist = false; x.trace = ["record-unresolved-cleanup"]; } }), /reconciliation matrix/u],
+  ["recovery-cross-product-missing", (c) => mutateMatrix(c, (m) => { m.recoveryStepFailureCases.pop(); }), /reconciliation matrix/u],
+  ["reopen-retry-missing", (c) => mutateMatrix(c, (m) => { m.reopenRetryCases.pop(); }), /reconciliation matrix/u],
+  ["reconciliation-absence", (c) => mutateMatrix(c, (m) => { for (const x of m.primaryFailureCases.filter((x) => x.processMayExist && x.sequence < 12)) x.trace = x.trace.filter((v) => v !== "reconcile-authoritative-absence"); }), /reconciliation matrix/u],
+  ["reconciliation-root-removal", (c) => mutateMatrix(c, (m) => { for (const x of m.primaryFailureCases.filter((x) => x.processMayExist && x.sequence < 12)) x.trace = x.trace.filter((v) => v !== "reconcile-fixed-root-removal"); }), /reconciliation matrix/u],
+  ["reconciliation-teardown", (c) => mutateMatrix(c, (m) => { for (const x of m.primaryFailureCases.filter((x) => x.processMayExist && x.sequence < 12)) x.trace = x.trace.filter((v) => v !== "reconcile-teardown-outcome"); for (const x of m.teardownOutcomeCases) x.trace = x.trace.filter((v) => v !== "reconcile-teardown-outcome"); }), /reconciliation matrix/u],
+  ["unresolved-cleanup", (c) => mutateMatrix(c, (m) => { for (const x of m.recoveryStepFailureCases) x.trace.pop(); }), /reconciliation matrix/u],
+  ["stored-completion-replay", (c) => mutateMatrix(c, (m) => { for (const x of m.primaryFailureCases.filter((x) => x.sequence >= 12)) x.trace.pop(); }), /reconciliation matrix/u],
   ["component-substitution", (c) => mutateProfile(c, (p) => { p.components.fixedRunnerObject.sha256 = "0".repeat(64); }), /fixedRunnerObject digest/u],
   ["closed-inventory-extra", (c) => writeFileSync(join(c, "undeclared-authority.txt"), "unexpected\n"), /closed archive inventory/u],
 ];
@@ -153,6 +240,10 @@ const cases = [
 let completed = 0;
 try {
   assert.equal(verifyCandidate(root, repository).status, "PASSED");
+  const retainedNames = JSON.parse(readFileSync(
+    join(root, "evidence/2026-08-18/mutation-dispositions.json"), "utf8")).restoredInvalidCases;
+  assert.deepEqual(retainedNames, cases.map(([name]) => name),
+    "retained mutation inventory matches executable suite");
   for (const [name, mutate, expected] of cases) {
     const candidate = join(mutationRoot, `case-${completed}`);
     cpSync(root, candidate, { recursive: true });

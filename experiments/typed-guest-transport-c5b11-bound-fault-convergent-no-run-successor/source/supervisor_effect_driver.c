@@ -40,6 +40,13 @@
 #define C5B11_FACT_UNRESOLVED_DURABLE (UINT64_C(1) << 17)
 #define C5B11_FACT_STORE_REOPENED (UINT64_C(1) << 18)
 #define C5B11_FACT_REPLAY_EXACT (UINT64_C(1) << 19)
+#define C5B11_FACT_ATTEMPT_FRESH (UINT64_C(1) << 20)
+
+enum c5b11_process_state {
+    C5B11_PROCESS_NONE = 0,
+    C5B11_PROCESS_MAY_EXIST = 1,
+    C5B11_PROCESS_CONFIRMED = 2,
+};
 
 static const uint8_t c5b11_registration_id[16] = {
     0x52, 0x73, 0x18, 0x65, 0x61, 0x77, 0x8e, 0xe1,
@@ -81,18 +88,17 @@ static struct c5b11_effect_request request_for(
     request.effect = effect;
     request.failed_sequence = failed_sequence;
     request.observed_outcome = observed_outcome;
+    request.recovery_step = 0;
+    request.durable_resume_step = 0;
     return request;
 }
 
-static int valid_applied(
+static int valid_echo(
     const struct c5b11_effect_request *request,
-    const struct c5b11_effect_result *result,
-    uint64_t exact_facts
+    const struct c5b11_effect_result *result
 ) {
     return result->sequence == request->sequence &&
         result->effect == request->effect &&
-        result->outcome == C5B11_EFFECT_APPLIED &&
-        result->facts == exact_facts &&
         equal_bytes(result->registration_id, request->registration_id, 16) &&
         equal_bytes(result->attempt_id, request->attempt_id, 16) &&
         equal_bytes(result->plan_sha256, request->plan_sha256, 32) &&
@@ -100,10 +106,38 @@ static int valid_applied(
         equal_bytes(result->frame_sha256, request->frame_sha256, 32);
 }
 
-static int durable_unresolved(uint32_t failed_sequence, uint32_t observed_outcome) {
+static int valid_applied(
+    const struct c5b11_effect_request *request,
+    const struct c5b11_effect_result *result,
+    uint64_t exact_facts
+) {
+    return valid_echo(request, result) &&
+        result->outcome == C5B11_EFFECT_APPLIED &&
+        result->facts == exact_facts &&
+        result->failed_sequence == request->failed_sequence &&
+        result->recovery_step == request->recovery_step &&
+        result->durable_resume_step == request->durable_resume_step;
+}
+
+static int valid_created_recovery_step(uint32_t recovery_step) {
+    return recovery_step >= 14 && recovery_step <= 20;
+}
+
+static int valid_completion_recovery_step(uint32_t recovery_step) {
+    return recovery_step == 14 || recovery_step == 15 ||
+        recovery_step == 22 || recovery_step == 23;
+}
+
+static int durable_unresolved(
+    uint32_t failed_sequence,
+    uint32_t observed_outcome,
+    uint32_t recovery_step
+) {
     struct c5b11_effect_request request = request_for(
         C5B11_EFFECT_RECORD_UNRESOLVED_CLEANUP, 21, failed_sequence,
         observed_outcome, 0, 0, NULL);
+    request.recovery_step = recovery_step;
+    request.durable_resume_step = recovery_step;
     struct c5b11_effect_result result = {0};
     if (c5b11_supervisor_record_unresolved_cleanup(&request, &result) != 0 ||
         !valid_applied(&request, &result, C5B11_FACT_UNRESOLVED_DURABLE)) return -3;
@@ -114,56 +148,89 @@ static int durable_unresolved(uint32_t failed_sequence, uint32_t observed_outcom
     do { \
         struct c5b11_effect_request recovery_request = request_for( \
             effect_value, sequence_value, failed_sequence, observed_outcome, 0, 0, frame_value); \
+        recovery_request.recovery_step = sequence_value; \
+        recovery_request.durable_resume_step = sequence_value; \
         struct c5b11_effect_result recovery_result = {0}; \
         if (provider(&recovery_request, &recovery_result) != 0 || \
             !valid_applied(&recovery_request, &recovery_result, facts_value)) \
-            return durable_unresolved(failed_sequence, C5B11_EFFECT_INDETERMINATE); \
+            return durable_unresolved(failed_sequence, C5B11_EFFECT_INDETERMINATE, sequence_value); \
     } while (0)
 
-static int reconcile_created_attempt(uint32_t failed_sequence, uint32_t observed_outcome) {
-    C5B11_RECOVERY_APPLIED(c5b11_supervisor_fence_attempt,
-        C5B11_EFFECT_FENCE_ATTEMPT, 14, C5B11_FACT_ATTEMPT_FENCED, NULL);
-    C5B11_RECOVERY_APPLIED(c5b11_supervisor_lookup_fenced_attempt,
-        C5B11_EFFECT_LOOKUP_FENCED_ATTEMPT, 15, C5B11_FACT_ATTEMPT_REOPENED, NULL);
+static int reconcile_created_attempt(
+    uint32_t failed_sequence,
+    uint32_t observed_outcome,
+    uint32_t recovery_step
+) {
+    if (recovery_step <= 14) {
+        C5B11_RECOVERY_APPLIED(c5b11_supervisor_fence_attempt,
+            C5B11_EFFECT_FENCE_ATTEMPT, 14, C5B11_FACT_ATTEMPT_FENCED, NULL);
+    }
+    if (recovery_step <= 15) {
+        C5B11_RECOVERY_APPLIED(c5b11_supervisor_lookup_fenced_attempt,
+            C5B11_EFFECT_LOOKUP_FENCED_ATTEMPT, 15, C5B11_FACT_ATTEMPT_REOPENED, NULL);
+    }
 
-    /* Request teardown exactly once. Its response is evidence, never authority
-     * to redrive; APPLIED, NOT_APPLIED, errors, and INDETERMINATE all proceed to
-     * the distinct reconciliation lookup below. */
-    {
+    /* Request teardown exactly once. The closed provider contract requires the
+     * durable resume cursor (17) to be recorded before the side effect. Its
+     * response is evidence, never authority to redrive: APPLIED, NOT_APPLIED,
+     * errors, and INDETERMINATE all resume at the reconciliation lookup. */
+    if (recovery_step <= 16) {
         struct c5b11_effect_request request = request_for(
             C5B11_EFFECT_REQUEST_TEARDOWN, 16, failed_sequence,
             observed_outcome, 0, 0, NULL);
+        request.recovery_step = 16;
+        request.durable_resume_step = 17;
         struct c5b11_effect_result ignored = {0};
         (void)c5b11_supervisor_request_teardown(&request, &ignored);
     }
-    C5B11_RECOVERY_APPLIED(c5b11_supervisor_reconcile_teardown_outcome,
-        C5B11_EFFECT_RECONCILE_TEARDOWN_OUTCOME, 17,
-        C5B11_FACT_TEARDOWN_RECONCILED, NULL);
-    C5B11_RECOVERY_APPLIED(c5b11_supervisor_reconcile_terminal_state,
-        C5B11_EFFECT_RECONCILE_TERMINAL_STATE, 18,
-        C5B11_FACT_RUNNER_TERMINAL, NULL);
-    C5B11_RECOVERY_APPLIED(c5b11_supervisor_reconcile_authoritative_absence,
-        C5B11_EFFECT_RECONCILE_AUTHORITATIVE_ABSENCE, 19,
-        C5B11_FACT_AUTHORITATIVE_ABSENCE, NULL);
-    C5B11_RECOVERY_APPLIED(c5b11_supervisor_reconcile_fixed_root_removal,
-        C5B11_EFFECT_RECONCILE_FIXED_ROOT_REMOVAL, 20,
-        C5B11_FACT_ROOT_REMOVED, NULL);
+    if (recovery_step <= 17) {
+        C5B11_RECOVERY_APPLIED(c5b11_supervisor_reconcile_teardown_outcome,
+            C5B11_EFFECT_RECONCILE_TEARDOWN_OUTCOME, 17,
+            C5B11_FACT_TEARDOWN_RECONCILED, NULL);
+    }
+    if (recovery_step <= 18) {
+        C5B11_RECOVERY_APPLIED(c5b11_supervisor_reconcile_terminal_state,
+            C5B11_EFFECT_RECONCILE_TERMINAL_STATE, 18,
+            C5B11_FACT_RUNNER_TERMINAL, NULL);
+    }
+    if (recovery_step <= 19) {
+        C5B11_RECOVERY_APPLIED(c5b11_supervisor_reconcile_authoritative_absence,
+            C5B11_EFFECT_RECONCILE_AUTHORITATIVE_ABSENCE, 19,
+            C5B11_FACT_AUTHORITATIVE_ABSENCE, NULL);
+    }
+    if (recovery_step <= 20) {
+        C5B11_RECOVERY_APPLIED(c5b11_supervisor_reconcile_fixed_root_removal,
+            C5B11_EFFECT_RECONCILE_FIXED_ROOT_REMOVAL, 20,
+            C5B11_FACT_ROOT_REMOVED, NULL);
+    }
     return -1;
 }
 
-static int reconcile_completion_response_loss(uint32_t failed_sequence, uint32_t observed_outcome) {
-    C5B11_RECOVERY_APPLIED(c5b11_supervisor_fence_attempt,
-        C5B11_EFFECT_FENCE_ATTEMPT, 14, C5B11_FACT_ATTEMPT_FENCED, NULL);
-    C5B11_RECOVERY_APPLIED(c5b11_supervisor_lookup_fenced_attempt,
-        C5B11_EFFECT_LOOKUP_FENCED_ATTEMPT, 15, C5B11_FACT_ATTEMPT_REOPENED, NULL);
-    C5B11_RECOVERY_APPLIED(c5b11_supervisor_reopen_stored_completion,
-        C5B11_EFFECT_REOPEN_STORED_COMPLETION, 22,
-        C5B11_FACT_STORE_REOPENED | C5B11_FACT_DURABLE_RECORD,
-        c5b11_completion_frame_sha256);
-    C5B11_RECOVERY_APPLIED(c5b11_supervisor_replay_stored_completion,
-        C5B11_EFFECT_REPLAY_STORED_COMPLETION, 23,
-        C5B11_FACT_REPLAY_EXACT | C5B11_FACT_DURABLE_RECORD,
-        c5b11_completion_frame_sha256);
+static int reconcile_completion_response_loss(
+    uint32_t failed_sequence,
+    uint32_t observed_outcome,
+    uint32_t recovery_step
+) {
+    if (recovery_step <= 14) {
+        C5B11_RECOVERY_APPLIED(c5b11_supervisor_fence_attempt,
+            C5B11_EFFECT_FENCE_ATTEMPT, 14, C5B11_FACT_ATTEMPT_FENCED, NULL);
+    }
+    if (recovery_step <= 15) {
+        C5B11_RECOVERY_APPLIED(c5b11_supervisor_lookup_fenced_attempt,
+            C5B11_EFFECT_LOOKUP_FENCED_ATTEMPT, 15, C5B11_FACT_ATTEMPT_REOPENED, NULL);
+    }
+    if (recovery_step <= 22) {
+        C5B11_RECOVERY_APPLIED(c5b11_supervisor_reopen_stored_completion,
+            C5B11_EFFECT_REOPEN_STORED_COMPLETION, 22,
+            C5B11_FACT_STORE_REOPENED | C5B11_FACT_DURABLE_RECORD,
+            c5b11_completion_frame_sha256);
+    }
+    if (recovery_step <= 23) {
+        C5B11_RECOVERY_APPLIED(c5b11_supervisor_replay_stored_completion,
+            C5B11_EFFECT_REPLAY_STORED_COMPLETION, 23,
+            C5B11_FACT_REPLAY_EXACT | C5B11_FACT_DURABLE_RECORD,
+            c5b11_completion_frame_sha256);
+    }
     return 0;
 }
 
@@ -183,14 +250,50 @@ static int reconcile_completion_response_loss(uint32_t failed_sequence, uint32_t
 int32_t c5b11_drive_registered_attempt(const uint8_t registration_id[16]) {
     uint32_t failed_sequence = 0;
     uint32_t observed_outcome = 0;
-    int process_created = 0;
+    enum c5b11_process_state process_state = C5B11_PROCESS_NONE;
     if (registration_id == NULL || !equal_bytes(registration_id, c5b11_registration_id, 16)) return -1;
+
+    /* A repeated registration-only call must reopen durable state before any
+     * nominal effect. Only a bound fresh-state proof may enter nominal work.
+     * Every missing, errored, or mismatched lookup is treated as if a process
+     * may already exist. */
+    {
+        struct c5b11_effect_request request = request_for(
+            C5B11_EFFECT_LOOKUP_RECOVERY_CURSOR, 24, 0, 0, 0, 0, NULL);
+        struct c5b11_effect_result result = {0};
+        int provider_status = c5b11_supervisor_lookup_recovery_cursor(&request, &result);
+        if (provider_status != 0 || !valid_echo(&request, &result)) {
+            return reconcile_created_attempt(2, C5B11_EFFECT_INDETERMINATE, 14);
+        }
+        if (result.outcome == C5B11_EFFECT_APPLIED &&
+            result.facts == C5B11_FACT_ATTEMPT_REOPENED &&
+            result.failed_sequence >= 2 && result.failed_sequence <= 13 &&
+            result.recovery_step >= 14 && result.recovery_step <= 23) {
+            if (result.failed_sequence >= 12 &&
+                valid_completion_recovery_step(result.recovery_step)) {
+                return reconcile_completion_response_loss(
+                    result.failed_sequence, C5B11_EFFECT_INDETERMINATE, result.recovery_step);
+            }
+            if (result.failed_sequence < 12 &&
+                valid_created_recovery_step(result.recovery_step)) {
+                return reconcile_created_attempt(
+                    result.failed_sequence, C5B11_EFFECT_INDETERMINATE, result.recovery_step);
+            }
+            return reconcile_created_attempt(2, C5B11_EFFECT_INDETERMINATE, 14);
+        }
+        if (result.outcome != C5B11_EFFECT_NOT_APPLIED ||
+            result.facts != C5B11_FACT_ATTEMPT_FRESH ||
+            result.failed_sequence != 0 || result.recovery_step != 0) {
+            return reconcile_created_attempt(2, C5B11_EFFECT_INDETERMINATE, 14);
+        }
+    }
 
     C5B11_NOMINAL(c5b11_supervisor_create_fixed_endpoints,
         C5B11_EFFECT_CREATE_FIXED_ENDPOINTS, 1, 0, 0, NULL, C5B11_FACT_ENDPOINTS_DISTINCT);
+    process_state = C5B11_PROCESS_MAY_EXIST;
     C5B11_NOMINAL(c5b11_supervisor_spawn_fixed_runner,
         C5B11_EFFECT_SPAWN_FIXED_RUNNER, 2, 0, 0, NULL, C5B11_FACT_RUNNER_SPAWNED);
-    process_created = 1;
+    process_state = C5B11_PROCESS_CONFIRMED;
     C5B11_NOMINAL(c5b11_supervisor_verify_ready_byte,
         C5B11_EFFECT_VERIFY_READY_BYTE, 3, 1, 1, NULL, C5B11_FACT_READY_EXACT);
     C5B11_NOMINAL(c5b11_supervisor_write_source_frame,
@@ -225,8 +328,10 @@ int32_t c5b11_drive_registered_attempt(const uint8_t registration_id[16]) {
 
 fail_nominal:
     if (failed_sequence >= 12) {
-        return reconcile_completion_response_loss(failed_sequence, observed_outcome);
+        return reconcile_completion_response_loss(failed_sequence, observed_outcome, 14);
     }
-    if (process_created) return reconcile_created_attempt(failed_sequence, observed_outcome);
-    return durable_unresolved(failed_sequence, observed_outcome);
+    if (process_state != C5B11_PROCESS_NONE) {
+        return reconcile_created_attempt(failed_sequence, observed_outcome, 14);
+    }
+    return durable_unresolved(failed_sequence, observed_outcome, 21);
 }

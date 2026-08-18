@@ -97,6 +97,10 @@
     {
       "sequence": 23,
       "effect": "replay-exact-stored-completion"
+    },
+    {
+      "sequence": 24,
+      "effect": "lookup-recovery-cursor"
     }
   ],
   "performed": false

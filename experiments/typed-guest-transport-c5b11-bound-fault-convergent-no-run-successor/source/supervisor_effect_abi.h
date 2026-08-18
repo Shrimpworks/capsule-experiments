@@ -27,6 +27,7 @@ enum c5b11_effect {
     C5B11_EFFECT_RECORD_UNRESOLVED_CLEANUP = 21,
     C5B11_EFFECT_REOPEN_STORED_COMPLETION = 22,
     C5B11_EFFECT_REPLAY_STORED_COMPLETION = 23,
+    C5B11_EFFECT_LOOKUP_RECOVERY_CURSOR = 24,
 };
 
 enum c5b11_effect_outcome {
@@ -47,6 +48,8 @@ struct c5b11_effect_request {
     uint32_t effect;
     uint32_t failed_sequence;
     uint32_t observed_outcome;
+    uint32_t recovery_step;
+    uint32_t durable_resume_step;
 };
 
 struct c5b11_effect_result {
@@ -59,6 +62,9 @@ struct c5b11_effect_result {
     uint32_t sequence;
     uint32_t effect;
     uint32_t outcome;
+    uint32_t failed_sequence;
+    uint32_t recovery_step;
+    uint32_t durable_resume_step;
 };
 
 #define C5B11_PROVIDER(name) int32_t name( \
@@ -87,6 +93,7 @@ C5B11_PROVIDER(c5b11_supervisor_reconcile_fixed_root_removal);
 C5B11_PROVIDER(c5b11_supervisor_record_unresolved_cleanup);
 C5B11_PROVIDER(c5b11_supervisor_reopen_stored_completion);
 C5B11_PROVIDER(c5b11_supervisor_replay_stored_completion);
+C5B11_PROVIDER(c5b11_supervisor_lookup_recovery_cursor);
 
 #undef C5B11_PROVIDER
 

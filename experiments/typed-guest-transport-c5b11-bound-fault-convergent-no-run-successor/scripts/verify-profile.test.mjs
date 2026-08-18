@@ -12,10 +12,12 @@ import { validateReconciliationFixture } from "./verify-reconciliation.mjs";
 const root = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 const actualProfile = JSON.parse(readFileSync(join(root, "contracts/fixed-runner-profile.json")));
 const actualMatrix = JSON.parse(readFileSync(join(root, "fixtures/reconciliation-matrix.json")));
+const actualOracle = JSON.parse(readFileSync(join(root, "oracles/independent-recovery-oracle.json")));
 const clone = (value) => structuredClone(value);
 
 test("accepts the exact C5b11 profile", () => validateProfile(actualProfile));
-test("accepts the exhaustive reconciliation matrix", () => validateReconciliationFixture(actualMatrix));
+test("accepts the oracle-derived reconciliation matrix", () =>
+  validateReconciliationFixture(actualMatrix, actualOracle));
 
 for (const [name, mutate, expected] of [
   ["stale C5b8 profile", (p) => { p.bindingLayers.attemptRuntimeProfile.sha256 = "06079eea39ce9a2e0547837555a6953787d8c32d614f0ec7b9b07ef408de04cd"; }, /Expected values|not equal/u],
@@ -36,13 +38,31 @@ for (const [name, mutate, expected] of [
   });
 }
 
-test("rejects missing absence in every relevant fault path", () => {
+test("rejects missing absence in every process-may-exist fault path", () => {
   const candidate = clone(actualMatrix);
-  for (const item of candidate.primaryFailureCases.filter(({ processCreated, sequence }) =>
-    processCreated && sequence < 12)) {
+  for (const item of candidate.primaryFailureCases.filter(({ processMayExist, sequence }) =>
+    processMayExist && sequence < 12)) {
     item.trace = item.trace.filter((step) => step !== "reconcile-authoritative-absence");
   }
-  assert.throws(() => validateReconciliationFixture(candidate), /reconciliation state matrix/u);
+  assert.throws(() => validateReconciliationFixture(candidate, actualOracle), /reconciliation matrix/u);
+});
+
+test("rejects ambiguous spawn bypass", () => {
+  const candidate = clone(actualMatrix);
+  for (const item of candidate.ambiguousSpawnCases) item.processMayExist = false;
+  assert.throws(() => validateReconciliationFixture(candidate, actualOracle), /reconciliation matrix/u);
+});
+
+test("rejects a missing recovery-step failure crossing", () => {
+  const candidate = clone(actualMatrix);
+  candidate.recoveryStepFailureCases.pop();
+  assert.throws(() => validateReconciliationFixture(candidate, actualOracle), /reconciliation matrix/u);
+});
+
+test("rejects a missing interruption reopen path", () => {
+  const candidate = clone(actualMatrix);
+  candidate.reopenRetryCases.pop();
+  assert.throws(() => validateReconciliationFixture(candidate, actualOracle), /reconciliation matrix/u);
 });
 
 test("rejects missing exact stored replay in every response-loss path", () => {
@@ -50,5 +70,5 @@ test("rejects missing exact stored replay in every response-loss path", () => {
   for (const item of candidate.primaryFailureCases.filter(({ sequence }) => sequence >= 12)) {
     item.trace = item.trace.filter((step) => step !== "replay-exact-stored-completion");
   }
-  assert.throws(() => validateReconciliationFixture(candidate), /reconciliation state matrix/u);
+  assert.throws(() => validateReconciliationFixture(candidate, actualOracle), /reconciliation matrix/u);
 });
