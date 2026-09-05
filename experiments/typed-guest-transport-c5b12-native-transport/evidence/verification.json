@@ -1,0 +1,51 @@
+{
+  "status": "PASSED",
+  "scope": "seven native transport providers; local pipes only",
+  "materials": {
+    "inputs/attempt_bindings.h": "915280dff180f975cf7eadc45d817c639183f3d8723b126dd7d4798595089f2c",
+    "inputs/completion.frame": "1c21a5d3922a0088dc068f31877b0c3a1b53ccd7962722db5720117d06af5e7f",
+    "inputs/input.frame": "52cf55a3b4365b7edcb2c39e586e31d85e164832fce2e2199e76679b955b0675",
+    "inputs/source.frame": "61fd5aef606f8deb27636869059cedd003b407abc056e3cfc07ded1d1af52132",
+    "inputs/supervisor_effect_abi.h": "d6869868b8a7f5891f50328800f014891854e7ed8ac2a3d9c504848c472796c4",
+    "scripts/generate.mjs": "6d7188c807ec1a5a60041841159d7edb30d5d15ddd1e09623b1220b55bb33cb2",
+    "scripts/verify.mjs": "e71bdbcba0c864cced0fcdd4250f69987199ea74e4641bf025c87c5eff278ce4",
+    "source/frames.h": "1248b9d3f0d43e4efc9ecd3774479520ebdef288c0b7642ce972b425d8d169e7",
+    "source/transport.c": "1502c8472166407f5bc038b4535fd2e3871be12f74f6e443d45b044a378231ad",
+    "tests/transport_test.c": "8461b9f5ecaa3e40581b2999665d02f4b0d27d500eb15f136b6147df0b2e5f22"
+  },
+  "objectSha256": "a9e2c80ce273f19869a5ba496248b66ac9244fc504cee9c341973644673376de",
+  "exports": [
+    "_c5b11_supervisor_close_input_writers",
+    "_c5b11_supervisor_create_fixed_endpoints",
+    "_c5b11_supervisor_drain_validate_completion",
+    "_c5b11_supervisor_send_start_byte",
+    "_c5b11_supervisor_verify_ready_byte",
+    "_c5b11_supervisor_write_input_frame",
+    "_c5b11_supervisor_write_source_frame"
+  ],
+  "imports": [
+    "___chkstk_darwin",
+    "___error",
+    "___stack_chk_fail",
+    "___stack_chk_guard",
+    "_clock_gettime",
+    "_close",
+    "_fcntl",
+    "_memcmp",
+    "_memcpy",
+    "_pipe",
+    "_poll",
+    "_pthread_create",
+    "_pthread_join",
+    "_read",
+    "_write"
+  ],
+  "cases": 39,
+  "sanitizedCases": 39,
+  "mutations": 6,
+  "guestEffects": "NONE",
+  "compiler": "Apple clang version 21.0.0 (clang-2100.1.1.101)\nTarget: arm64-apple-darwin25.6.0\nThread model: posix\nInstalledDir: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin",
+  "os": "ProductName:\t\tmacOS\nProductVersion:\t\t26.6.2\nBuildVersion:\t\t25G83",
+  "sdk": "26.5",
+  "node": "v22.22.1"
+}
