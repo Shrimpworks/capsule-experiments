@@ -1,6 +1,7 @@
 # C5b16 bounded timing/fault probe plan
 
-Status: IN_PROGRESS — TRENDING_GOOD. Parent owner-only alpha: IN_PROGRESS — TRENDING_GOOD.
+Status: implementation, verification and review PASSED; publication owned by parent.
+Parent owner-only alpha: IN_PROGRESS — TRENDING_GOOD.
 Installed lifecycle, guest execution and product admission: BLOCKED.
 
 ## Question and authorized scope

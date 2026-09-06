@@ -1,6 +1,7 @@
 # C5b16 native timing/fault baseline
 
-Status: IN_PROGRESS — TRENDING_GOOD; installed/guest/product: BLOCKED.
+Status: construction, verification and independent review PASSED / Ready (2 of 3);
+installed/guest/product: BLOCKED.
 Owner: Capsule maintainer. One-time defensive local experiment, never a product import.
 
 Versioned derivative of C5b14B, with fixed-capacity monotonic phase recording and
@@ -14,3 +15,7 @@ Authoring uses explicit `--record` to retain new reviewed evidence; ordinary run
 refuse material drift and check retained observations without equating new durations.
 
 Replace only with a separately versioned experiment and retain old evidence.
+
+See [review closure](review/CLOSURE.md) for results, finding dispositions and
+verification limits. Raw observations remain in `evidence/timing.json`; full
+regression evidence remains in `evidence/results.json`.
