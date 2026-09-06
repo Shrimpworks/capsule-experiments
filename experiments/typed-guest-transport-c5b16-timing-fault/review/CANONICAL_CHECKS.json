@@ -1,0 +1,144 @@
+{
+  "canonicalBase": "cf835768c3cb04bf6ad9ad3cb2ed8e90ab313db5",
+  "scope": "Orchestrator-run canonical verification; docs-only worktree. Not independent reviewer testimony.",
+  "toolchains": {
+    "node": "v22.22.1",
+    "pnpm": "10.28.2",
+    "go": "1.25.13"
+  },
+  "results": [
+    {
+      "check": "install",
+      "command": [
+        "pnpm",
+        "install"
+      ],
+      "exit": 0,
+      "evidence": "Executed separately by orchestrator: pnpm 10.28.2, locked dependencies installed, exit 0."
+    },
+    {
+      "check": "check",
+      "command": [
+        "pnpm",
+        "check"
+      ],
+      "exit": 0
+    },
+    {
+      "check": "lint",
+      "command": [
+        "pnpm",
+        "lint"
+      ],
+      "exit": 0
+    },
+    {
+      "check": "test",
+      "command": [
+        "pnpm",
+        "test"
+      ],
+      "exit": 0
+    },
+    {
+      "check": "schemas",
+      "command": [
+        "pnpm",
+        "verify:schemas"
+      ],
+      "exit": 0
+    },
+    {
+      "check": "adrs",
+      "command": [
+        "pnpm",
+        "verify:adrs"
+      ],
+      "exit": 0
+    },
+    {
+      "check": "go-test",
+      "command": [
+        "go",
+        "test",
+        "./..."
+      ],
+      "exit": 0
+    },
+    {
+      "check": "go-vet",
+      "command": [
+        "go",
+        "vet",
+        "./..."
+      ],
+      "exit": 0
+    },
+    {
+      "check": "go-build",
+      "command": [
+        "go",
+        "build",
+        "./..."
+      ],
+      "exit": 0
+    },
+    {
+      "check": "golangci-full",
+      "command": [
+        "golangci-lint",
+        "run",
+        "./..."
+      ],
+      "exit": 1
+    },
+    {
+      "check": "golangci-blocking",
+      "command": [
+        "golangci-lint",
+        "run",
+        "--disable",
+        "revive",
+        "./..."
+      ],
+      "exit": 0
+    },
+    {
+      "check": "golangci-ratchet",
+      "command": [
+        "golangci-lint",
+        "run",
+        "--enable-only",
+        "revive",
+        "--new-from-rev=origin/main",
+        "./..."
+      ],
+      "exit": 0
+    },
+    {
+      "check": "govulncheck",
+      "command": [
+        "go",
+        "run",
+        "golang.org/x/vuln/cmd/govulncheck@v1.6.0",
+        "./..."
+      ],
+      "exit": 0
+    }
+  ],
+  "limitation": "Full golangci reports the same 50 pre-existing revive documentation issues; blocking non-revive and new-code revive ratchet pass.",
+  "logSHA256": {
+    "go-vet.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "go-test.log": "969ab0b95c786699269f6da7d4410718eb4b627971f31b1d46bee8859b5395c2",
+    "lint.log": "96d9eeee59795771e7e0d0c29296f0648515ba65543798414ab771ad84e56463",
+    "test.log": "27521b26d546a5779931875712bd34a76cc2a83032d066d7c868f484035bef42",
+    "schemas.log": "bc1e5c3649890732e2994c6426853ae84abc0b9693fd8220913492b66a9d0309",
+    "golangci-blocking.log": "e92606b0bf483111dff0a120c315ea165821348f31365020e2468a0059095c47",
+    "govulncheck.log": "3016e51e4eac0d421674d2128bbbdefb2924b4646e0c14a1ab034977ad73fae5",
+    "adrs.log": "988ae3f4b794c7e6843d09cbd1c7ee327772d55c26628cc9277b411deaee0827",
+    "golangci-ratchet.log": "e92606b0bf483111dff0a120c315ea165821348f31365020e2468a0059095c47",
+    "go-build.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "check.log": "6866982778cb257a84429d89e47138de4b28005e5f6d3694aa636d0f8a0c61e6",
+    "golangci-full.log": "1d163e4af7e68e682bed82162934b849bf6fa4ecaae3894e9ee45e7928a83775"
+  }
+}

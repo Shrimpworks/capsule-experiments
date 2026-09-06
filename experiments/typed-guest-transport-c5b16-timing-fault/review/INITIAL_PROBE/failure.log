@@ -1,0 +1,43 @@
+PASSED: ordinary teardown-prepublish-refusal gate=5.843 total=null
+PASSED: ordinary normal gate=null total=null
+PASSED: ordinary teardown-no-delay gate=11.716 total=57.089
+PASSED: ordinary teardown-edge1-800 gate=814.57 total=844.046
+PASSED: ordinary teardown-edge1-1200 gate=1212.272 total=1242.635
+PASSED: ordinary teardown-edge1-1600 gate=1614.805 total=1651.253
+PASSED: ordinary teardown-edge2-800 gate=814.46 total=854.476
+PASSED: ordinary teardown-edge2-1200 gate=1214.312 total=1250.777
+PASSED: ordinary teardown-edge2-1600 gate=1620.15 total=1660.491
+PASSED: ordinary teardown-edge3-800 gate=816.592 total=856.386
+PASSED: ordinary teardown-edge3-1200 gate=1214.935 total=1261.419
+PASSED: ordinary teardown-edge3-1600 gate=1614.707 total=1653.123
+PASSED: ordinary teardown-refusal-edge1-1600 gate=1607.742 total=null
+PASSED: ordinary teardown-refusal-edge2-1600 gate=1608.926 total=null
+PASSED: ordinary teardown-refusal-edge3-1600 gate=1614.927 total=null
+PASSED: ordinary spawn-edge1-1200 gate=11.99 total=49.909
+PASSED: ordinary spawn-edge2-1200 gate=16.876 total=58.463
+PASSED: ordinary spawn-edge3-1200 gate=14.31 total=60.838
+node:internal/modules/run_main:123
+    triggerUncaughtException(
+    ^
+
+AssertionError [ERR_ASSERTION]: /var/folders/lg/j56llg991d1gpjvtjh8l9gbh0000gn/T/capsule-c5b16-timing-OcLwHD/build-0/timing-test
+Assertion failed: (result==0 && spawn_calls==1 && kill_calls==0 && complete==1), function main, file timing.c, line 38.
+
+
+'SIGABRT' !== null
+
+    at run (file:///private/tmp/capsule-c5b16-timing/experiments/typed-guest-transport-c5b16-timing-fault/scripts/timing-verify.mjs:37:34)
+    at invoke (file:///private/tmp/capsule-c5b16-timing/experiments/typed-guest-transport-c5b16-timing-fault/scripts/timing-verify.mjs:43:21)
+    at file:///private/tmp/capsule-c5b16-timing/experiments/typed-guest-transport-c5b16-timing-fault/scripts/timing-verify.mjs:58:17
+    at ModuleJob.run (node:internal/modules/esm/module_job:343:25)
+    at async onImport.tracePromise.__proto__ (node:internal/modules/esm/loader:665:26)
+    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:117:5) {
+  generatedMessage: false,
+  code: 'ERR_ASSERTION',
+  actual: 'SIGABRT',
+  expected: null,
+  operator: 'strictEqual',
+  diff: 'simple'
+}
+
+Node.js v22.22.1
