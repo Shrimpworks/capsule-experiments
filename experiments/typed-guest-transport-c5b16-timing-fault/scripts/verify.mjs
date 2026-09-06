@@ -44,7 +44,7 @@ try {
     run('/usr/bin/clang',[...flags,'-O1','-g','-fsanitize=address,undefined','-fno-omit-frame-pointer','tests/driver_test.c','owner.a','-o','driver-sanitized'],{cwd:build});
     run('/usr/bin/clang',[...flags,'-O1','-g','-fsanitize=address,undefined','-fno-omit-frame-pointer','tests/normal.c','source/providers.c','owner.a','-o','native-sanitized'],{cwd:build});
     artifacts[mode]={};
-    for(const p of ['fixture-runner','root.input','owner.a','owner.h','providers.o','native-driver','driver-test','inputs/profile.json','inputs/plan.json','inputs/attempt_bindings.h','inputs/supervisor_effect_abi.h','inputs/supervisor_effect_driver.c','inputs/source.frame','inputs/input.frame','inputs/completion.frame','source/transport.c','source/frames.h','source/lifecycle.c','source/providers.c','store/fixture_generated.go'])artifacts[mode][p]=hash(readFileSync(join(build,p)));
+    for(const p of ['fixture-runner','root.input','owner.a','owner.h','providers.o','native-driver','driver-test','timing-test','source/timing.h','inputs/profile.json','inputs/plan.json','inputs/attempt_bindings.h','inputs/supervisor_effect_abi.h','inputs/supervisor_effect_driver.c','inputs/source.frame','inputs/input.frame','inputs/completion.frame','source/transport.c','source/frames.h','source/lifecycle.c','source/providers.c','store/fixture_generated.go'])artifacts[mode][p]=hash(readFileSync(join(build,p)));
     console.log(`PASSED: build and store tests, variant ${mode}`);
   }
   const main=builds[0];

@@ -26,6 +26,18 @@ int main(int argc,char **argv) {
     assert(BridgeSetDelay(effect,edge,0)==-1);
     int unresolved=BridgeFact(3),complete=BridgeFact(4);
     int step=BridgeFact(5),resume=BridgeFact(6);
+    if(fault) {
+        assert(effect==16 && result==-2 && spawn_calls==1 && kill_calls==0);
+        assert(state.phase==2 && step==17 && resume==17 && unresolved==1 && complete==0);
+    } else if(effect==2 && delay>=1000) {
+        assert(result==-1 && spawn_calls==0 && kill_calls==0 && complete==0);
+    } else if(scenario==13) {
+        assert(result==-1 && spawn_calls==1 && kill_calls==1);
+        assert(step==20 && unresolved==0 && complete==0 && life.absent);
+    } else {
+        assert(result==0 && spawn_calls==1 && kill_calls==0 && complete==1);
+        exact_delivery();
+    }
     /* No driver retry. Harness reaping after refusal cannot update native facts. */
     int harness_status=0,harness_reaped=0;
     if(harness_child>0) {
@@ -48,21 +60,5 @@ int main(int argc,char **argv) {
             timing.events[i].kind,timing.events[i].effect,timing.events[i].phase,timing.events[i].detail);
     }
     puts("]}");
-    fflush(stdout);
-    if(fault) {
-        assert(effect==16 && result==-2 && spawn_calls==1 && kill_calls==0);
-        assert(state.phase==2 && step==17 && resume==17 && unresolved==1 && complete==0);
-    } else if(effect==2 && delay>=1000) {
-        assert(result==-1 && spawn_calls==0 && kill_calls==0 && complete==0);
-    } else if(effect==2 && delay>0 && result<0) {
-        assert(result==-1 && spawn_calls==1 && complete==0);
-        assert(step==20 && unresolved==0 && life.absent);
-    } else if(scenario==13) {
-        assert(result==-1 && spawn_calls==1 && kill_calls==1);
-        assert(step==20 && unresolved==0 && complete==0 && life.absent);
-    } else {
-        assert(result==0 && spawn_calls==1 && kill_calls==0 && complete==1);
-        exact_delivery();
-    }
     return 0;
 }

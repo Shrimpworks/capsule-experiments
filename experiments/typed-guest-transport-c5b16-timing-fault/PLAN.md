@@ -27,7 +27,10 @@ The native/Go namespaces and profile/plan/frame identities are versioned C5b16.
    no signal, unresolved cursor 17, no completion and self-alarm-only containment.
    Then compare finite 800/1200/1600-ms teardown publication delays, including
    refused publication, against no-delay controls and delayed spawn intent.
-   Preserve separate gate, post-gate, total teardown and full drive intervals;
+   An 800-ms spawn delay may leave insufficient startup time: retain its actual
+   success or completed conservative refusal, with exact first refusal phase.
+   The zero-delay normal case must still succeed. Preserve separate gate,
+   post-gate, total teardown and full drive intervals;
    preserve absent observations as null. No retry, widened limits, invented
    custody/completion, changed durable ordering or extra lifecycle effect.
 3. Rerun affected full predecessor-derived native/refusal/compiled mutation corpus,

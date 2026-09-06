@@ -282,15 +282,16 @@ func BridgeSetFault(effect, edge, mode C.int) C.int {
 
 // BridgeSetDelay is trusted, one-use fixture configuration before any drive.
 // It is never an execute-time plan option or product interface.
+//
 //export BridgeSetDelay
 func BridgeSetDelay(effect, edge, milliseconds C.int) C.int {
-    bridgeMu.Lock()
-    defer bridgeMu.Unlock()
-    if owner == nil || activeEffect != 0 || delayArmed || delayConsumed ||
-       (effect != 2 && effect != 16) || edge < 1 || edge > 3 || milliseconds < 0 || milliseconds > 1600 {
-        return -1
-    }
-    delayEffect, delayEdge, delayMS = uint32(effect), uint32(edge), uint32(milliseconds)
-    delayArmed = true
-    return 0
+	bridgeMu.Lock()
+	defer bridgeMu.Unlock()
+	if owner == nil || activeEffect != 0 || delayArmed || delayConsumed ||
+		(effect != 2 && effect != 16) || edge < 1 || edge > 3 || milliseconds < 0 || milliseconds > 1600 {
+		return -1
+	}
+	delayEffect, delayEdge, delayMS = uint32(effect), uint32(edge), uint32(milliseconds)
+	delayArmed = true
+	return 0
 }

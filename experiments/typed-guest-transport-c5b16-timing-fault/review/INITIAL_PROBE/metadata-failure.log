@@ -1,0 +1,66 @@
+PASSED: ordinary teardown-prepublish-refusal gate=8.391 total=null
+PASSED: ordinary normal gate=null total=null
+PASSED: ordinary teardown-no-delay gate=11.356 total=49.9
+PASSED: ordinary teardown-edge1-800 gate=815.632 total=854.848
+PASSED: ordinary teardown-edge1-1200 gate=1217.489 total=1269.817
+PASSED: ordinary teardown-edge1-1600 gate=1620.719 total=1663.222
+PASSED: ordinary teardown-edge2-800 gate=816.948 total=850.35
+PASSED: ordinary teardown-edge2-1200 gate=1219.463 total=1259.506
+PASSED: ordinary teardown-edge2-1600 gate=1619.291 total=1664.814
+PASSED: ordinary teardown-edge3-800 gate=816.227 total=853.753
+PASSED: ordinary teardown-edge3-1200 gate=1214.882 total=1256.451
+PASSED: ordinary teardown-edge3-1600 gate=1611.942 total=1663.234
+PASSED: ordinary teardown-refusal-edge1-1600 gate=1609.076 total=null
+PASSED: ordinary teardown-refusal-edge2-1600 gate=1615.649 total=null
+PASSED: ordinary teardown-refusal-edge3-1600 gate=1616.559 total=null
+PASSED: ordinary spawn-edge1-1200 gate=10.226 total=43.98
+PASSED: ordinary spawn-edge2-1200 gate=12.472 total=54.887
+PASSED: ordinary spawn-edge3-1200 gate=10.138 total=39.99
+PASSED: ordinary spawn-edge1-800 gate=9.925 total=45.084
+PASSED: parent-C-ASan-UBSan teardown-prepublish-refusal gate=5.47 total=null
+PASSED: parent-C-ASan-UBSan normal gate=null total=null
+PASSED: parent-C-ASan-UBSan teardown-no-delay gate=11.957 total=51.985
+PASSED: parent-C-ASan-UBSan teardown-edge1-800 gate=813.411 total=846.926
+PASSED: parent-C-ASan-UBSan teardown-edge1-1200 gate=1213.684 total=1243.593
+PASSED: parent-C-ASan-UBSan teardown-edge1-1600 gate=1618.909 total=1660.315
+PASSED: parent-C-ASan-UBSan teardown-edge2-800 gate=815.465 total=847.378
+PASSED: parent-C-ASan-UBSan teardown-edge2-1200 gate=1215.984 total=1255.208
+PASSED: parent-C-ASan-UBSan teardown-edge2-1600 gate=1615.987 total=1647.67
+PASSED: parent-C-ASan-UBSan teardown-edge3-800 gate=815.313 total=846.537
+PASSED: parent-C-ASan-UBSan teardown-edge3-1200 gate=1213.946 total=1248.917
+PASSED: parent-C-ASan-UBSan teardown-edge3-1600 gate=1615.497 total=1661.072
+PASSED: parent-C-ASan-UBSan teardown-refusal-edge1-1600 gate=1610.926 total=null
+PASSED: parent-C-ASan-UBSan teardown-refusal-edge2-1600 gate=1608.039 total=null
+PASSED: parent-C-ASan-UBSan teardown-refusal-edge3-1600 gate=1617.73 total=null
+PASSED: parent-C-ASan-UBSan spawn-edge1-1200 gate=11.772 total=61.184
+PASSED: parent-C-ASan-UBSan spawn-edge2-1200 gate=12.412 total=52.2
+PASSED: parent-C-ASan-UBSan spawn-edge3-1200 gate=10.57 total=43.976
+PASSED: parent-C-ASan-UBSan spawn-edge1-800 gate=null total=null
+PASSED: compiled timing mutation missing-teardown-request
+PASSED: compiled timing mutation missing-absence
+PASSED: compiled timing mutation delay-not-executed
+node:internal/modules/run_main:123
+    triggerUncaughtException(
+    ^
+
+AssertionError [ERR_ASSERTION]: /usr/sbin/sysctl
+
+sysctl: sysctl fmt -1 1024 1: Operation not permitted
+
+
+1 !== 0
+
+    at run (file:///private/tmp/capsule-c5b16-timing/experiments/typed-guest-transport-c5b16-timing-fault/scripts/timing-verify.mjs:37:97)
+    at file:///private/tmp/capsule-c5b16-timing/experiments/typed-guest-transport-c5b16-timing-fault/scripts/timing-verify.mjs:83:169
+    at ModuleJob.run (node:internal/modules/esm/module_job:343:25)
+    at async onImport.tracePromise.__proto__ (node:internal/modules/esm/loader:665:26)
+    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:117:5) {
+  generatedMessage: false,
+  code: 'ERR_ASSERTION',
+  actual: 1,
+  expected: 0,
+  operator: 'strictEqual',
+  diff: 'simple'
+}
+
+Node.js v22.22.1
