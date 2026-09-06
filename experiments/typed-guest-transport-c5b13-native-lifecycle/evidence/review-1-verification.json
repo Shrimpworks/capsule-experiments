@@ -1,0 +1,277 @@
+{
+  "status": "PASSED",
+  "scope": "same-session benign native lifecycle fixture; test-only store acknowledgments",
+  "materials": {
+    "source/fixture-runner.c": "3c1d16d7ff8caac8eb01c7691676a3afb191b9e37822acac9e82eb6d476a96a6",
+    "source/lifecycle.c": "e721af3c7fed064f534ac11f216e2238297dbc9f027361ed0d6fc961bb3aabba",
+    "tests/lifecycle_test.c": "d3df0b467f96df3c6eecda5a41e896e54095203143cab692829d321c4c84c325",
+    "scripts/generate.mjs": "715d2151237f0d57f4de250f95ec56f52bd533755a5f2c2492399ab022bb11a2",
+    "scripts/verify.mjs": "4d189154f6149c19f1fad66499dc62fafc2d658421019e514741a3cca6c5034e",
+    "inputs/c5b12-transport.c": "1502c8472166407f5bc038b4535fd2e3871be12f74f6e443d45b044a378231ad",
+    "inputs/completion.payload": "bb7234ee486b0fbccc2091859ec93499e6a14ea7d6e091cdef60a0e2a6e8371c",
+    "inputs/input.payload": "9de0c909cfb111bd99c3b0b5f7a10972894270c2867022a71b6b6f3c0cd1af6e",
+    "inputs/source.payload": "c8e940feb89b342de2d5e6bd13c413226676de9a539fce34c4107516e635b475",
+    "inputs/supervisor_effect_abi.h": "d6869868b8a7f5891f50328800f014891854e7ed8ac2a3d9c504848c472796c4",
+    "inputs/supervisor_effect_driver.c": "902f22cc09012f4a5553c3e0dcfcf094bb90874db02ddaa91ac89fe29a441a71"
+  },
+  "profiles": {
+    "0": {
+      "schema": "c5b13-benign-fixture-v1",
+      "mode": 0,
+      "executable": {
+        "sha256": "b17557f9e16c2867c8e5638e0be3cd8c27cc88dee3e815959161c06d8202578b",
+        "length": 34160
+      },
+      "root": {
+        "sha256": "17c6a634896586167cd528fcb1847263c67d3dc404dd7d9fe7a2424ff5c615f3",
+        "length": 65536
+      },
+      "fds": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "argv": [
+        "fixture-runner"
+      ],
+      "environment": [],
+      "setupDeadlineMs": 1000,
+      "cleanupDeadlineMs": 1000
+    },
+    "1": {
+      "schema": "c5b13-benign-fixture-v1",
+      "mode": 1,
+      "executable": {
+        "sha256": "8c5ea8d21fef77729cfed87480dd790b54af490078523a7d1267d6f1097a588a",
+        "length": 33840
+      },
+      "root": {
+        "sha256": "17c6a634896586167cd528fcb1847263c67d3dc404dd7d9fe7a2424ff5c615f3",
+        "length": 65536
+      },
+      "fds": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "argv": [
+        "fixture-runner"
+      ],
+      "environment": [],
+      "setupDeadlineMs": 1000,
+      "cleanupDeadlineMs": 1000
+    },
+    "2": {
+      "schema": "c5b13-benign-fixture-v1",
+      "mode": 2,
+      "executable": {
+        "sha256": "3553b02d94961b42e0d8ca141f45aece4e24685138b73ff874f209fd34caa641",
+        "length": 34160
+      },
+      "root": {
+        "sha256": "17c6a634896586167cd528fcb1847263c67d3dc404dd7d9fe7a2424ff5c615f3",
+        "length": 65536
+      },
+      "fds": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "argv": [
+        "fixture-runner"
+      ],
+      "environment": [],
+      "setupDeadlineMs": 1000,
+      "cleanupDeadlineMs": 1000
+    },
+    "3": {
+      "schema": "c5b13-benign-fixture-v1",
+      "mode": 3,
+      "executable": {
+        "sha256": "fe8064c83f1379779cd152caf42e6d745bc5f2b5c99f6682f62f68f5f947cdfd",
+        "length": 34160
+      },
+      "root": {
+        "sha256": "17c6a634896586167cd528fcb1847263c67d3dc404dd7d9fe7a2424ff5c615f3",
+        "length": 65536
+      },
+      "fds": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "argv": [
+        "fixture-runner"
+      ],
+      "environment": [],
+      "setupDeadlineMs": 1000,
+      "cleanupDeadlineMs": 1000
+    }
+  },
+  "objects": {
+    "0": "a65936a25a98def6f2cb81a1522c45c9120753c2f7495ca77b9fdb811165ad92",
+    "1": "9df08b60a766306952ba9a5f709b2fcde5c2d4e39506bf4ef999cfc053b35a65",
+    "2": "4ce7c26bd74ffbeb05195329eaaee7c80a69fff991071b75e40f825393ea8e55",
+    "3": "a3f6b83c782ec52c2471c8d46fb6f3293a03f7c800c61b48c9964c1d802ef9cd"
+  },
+  "generated": {
+    "0": {
+      "fixture-runner": "b17557f9e16c2867c8e5638e0be3cd8c27cc88dee3e815959161c06d8202578b",
+      "root.input": "17c6a634896586167cd528fcb1847263c67d3dc404dd7d9fe7a2424ff5c615f3",
+      "lifecycle.o": "a65936a25a98def6f2cb81a1522c45c9120753c2f7495ca77b9fdb811165ad92",
+      "inputs/profile.json": "52982252adfc2a7a731f7dd159d9f980be30f5447bfb59a98dc52131938e863f",
+      "inputs/plan.json": "8b60b24fca1c7ec8f2934a648e6b00da45acac73a4c2be7283f11a5b224d9304",
+      "inputs/attempt_bindings.h": "5fffc02eef95c1e3ff779d9c2f8924cd36ba7eb8dd7f5a854cd512c74d70b39d",
+      "inputs/supervisor_effect_abi.h": "b12095f2dd7399118a2cdf4097a175159d091c84d1659c6dd726c29115644e95",
+      "inputs/source.frame": "8d09ded0e2a8fbfbe074a62bbbc92690012fd0d40854310dac6ca4d7d48b58db",
+      "inputs/input.frame": "d7210e0812940df6bc5ee8328f9c17be502a7a20437f1570514846b3e196ae85",
+      "inputs/completion.frame": "8eec2aacf39de088b77890c0953abb199a67d389b338977d556329ef51a9ad54",
+      "source/transport.c": "8994ccfaa33c62de8b10269d9ff642981297af9dc53871884a4fef0a2ff492d4",
+      "source/frames.h": "eb2c41182d8c54b21fb7ac6c293e444b206d0455896617f1ea70a1407f1289ac",
+      "source/payloads.h": "dfe81c6d6b95cc343018a95e92498947eb830c6e9fae907a8ec5f3dfa3f2910e"
+    },
+    "1": {
+      "fixture-runner": "8c5ea8d21fef77729cfed87480dd790b54af490078523a7d1267d6f1097a588a",
+      "root.input": "17c6a634896586167cd528fcb1847263c67d3dc404dd7d9fe7a2424ff5c615f3",
+      "lifecycle.o": "9df08b60a766306952ba9a5f709b2fcde5c2d4e39506bf4ef999cfc053b35a65",
+      "inputs/profile.json": "d34f560dcaa80e58972a02505709d55d324ba4d7c6d70a5e05dddc19b0ff4c1b",
+      "inputs/plan.json": "f110db5eebf1205cda83bbf7e21d89d2193024db388a29bd2cdfb366c0c74a29",
+      "inputs/attempt_bindings.h": "b5c5114fc9329c5fae29b54a4e5de2432ed815cff012f3f4a319f4350a2dab4c",
+      "inputs/supervisor_effect_abi.h": "b12095f2dd7399118a2cdf4097a175159d091c84d1659c6dd726c29115644e95",
+      "inputs/source.frame": "65634c09e474d1cd61369f5bf87a1d5ba6b738dcf579e4b5d765b655e4a7c022",
+      "inputs/input.frame": "1ba8796eb7c0c98459d095fa617cbddbe6598a615e372bf8d55b0b7c621b61fc",
+      "inputs/completion.frame": "7b56925b1343f2178d38e9da89501ff8719dbec45efb1f0d8fcac948d0fe7130",
+      "source/transport.c": "8994ccfaa33c62de8b10269d9ff642981297af9dc53871884a4fef0a2ff492d4",
+      "source/frames.h": "b1107ab1468e9827225ce32829b049fc8e07be48e5ad3e8e6b4ea4629590a995",
+      "source/payloads.h": "dfe81c6d6b95cc343018a95e92498947eb830c6e9fae907a8ec5f3dfa3f2910e"
+    },
+    "2": {
+      "fixture-runner": "3553b02d94961b42e0d8ca141f45aece4e24685138b73ff874f209fd34caa641",
+      "root.input": "17c6a634896586167cd528fcb1847263c67d3dc404dd7d9fe7a2424ff5c615f3",
+      "lifecycle.o": "4ce7c26bd74ffbeb05195329eaaee7c80a69fff991071b75e40f825393ea8e55",
+      "inputs/profile.json": "7b73f0c2c9d836281a9e44705ccf1ee82a6954e5d7a04f77ad835b5af5d467f8",
+      "inputs/plan.json": "d17cf4d66549526e95cb3eb8b6a6078385774a0f463de55214e3ff6fcebc98d3",
+      "inputs/attempt_bindings.h": "f0860ee853e616aca6dcc249e9ad5891d7794f735562a9c8ff6031492ca7440d",
+      "inputs/supervisor_effect_abi.h": "b12095f2dd7399118a2cdf4097a175159d091c84d1659c6dd726c29115644e95",
+      "inputs/source.frame": "55bb7221da94a01b415e5fa31fa33a453bb934d6cb1f595874f6298142ad1b34",
+      "inputs/input.frame": "2ee262f3a1b6d1ddf4210a776272d3bc7ed8e45dadb5391b9b9c5178cce306bc",
+      "inputs/completion.frame": "f05270182a4bf1a452cc9803f4bda6d956d3b07d3b8b840555d217084e1c26d0",
+      "source/transport.c": "8994ccfaa33c62de8b10269d9ff642981297af9dc53871884a4fef0a2ff492d4",
+      "source/frames.h": "c55cb7dfa4c36ad83a7c3c2327f6ce7652e5f1999f2388a0897d942ca7ca3d44",
+      "source/payloads.h": "dfe81c6d6b95cc343018a95e92498947eb830c6e9fae907a8ec5f3dfa3f2910e"
+    },
+    "3": {
+      "fixture-runner": "fe8064c83f1379779cd152caf42e6d745bc5f2b5c99f6682f62f68f5f947cdfd",
+      "root.input": "17c6a634896586167cd528fcb1847263c67d3dc404dd7d9fe7a2424ff5c615f3",
+      "lifecycle.o": "a3f6b83c782ec52c2471c8d46fb6f3293a03f7c800c61b48c9964c1d802ef9cd",
+      "inputs/profile.json": "1b68af0bd1927bb3aceed19865526f68514e2d9c0bca8edc02b8c0140004bb47",
+      "inputs/plan.json": "461e85bf6bc14002527610d2bcb47dbb77dcaec3370e7ab34ec53dad823070a2",
+      "inputs/attempt_bindings.h": "9896de2ffb0d86bc4c640807806581190358a3e6811aaaf93c6ebc76fa113dbf",
+      "inputs/supervisor_effect_abi.h": "b12095f2dd7399118a2cdf4097a175159d091c84d1659c6dd726c29115644e95",
+      "inputs/source.frame": "d13f9affbae8293faac80a8bfcca22e7d9ca81219792e05325c50f36c2e67ef6",
+      "inputs/input.frame": "12cba1c88bc8d6304e8d6166b59e6792f8453e36b9f1f4cf2770d15481606eb9",
+      "inputs/completion.frame": "0b6981610435bdbbdd4db8dc870bd05f82aa95f817b6172c8c3ac73b50e98dcf",
+      "source/transport.c": "8994ccfaa33c62de8b10269d9ff642981297af9dc53871884a4fef0a2ff492d4",
+      "source/frames.h": "6b91c4bb1db243e16152c2559a85eb14cef88ce5d3a7a9fe1b08b3ff23e9977c",
+      "source/payloads.h": "dfe81c6d6b95cc343018a95e92498947eb830c6e9fae907a8ec5f3dfa3f2910e"
+    }
+  },
+  "exports": [
+    "_c5b13_supervisor_close_input_writers",
+    "_c5b13_supervisor_create_fixed_endpoints",
+    "_c5b13_supervisor_drain_validate_completion",
+    "_c5b13_supervisor_join_terminal_state",
+    "_c5b13_supervisor_prove_authoritative_absence",
+    "_c5b13_supervisor_reconcile_authoritative_absence",
+    "_c5b13_supervisor_reconcile_fixed_root_removal",
+    "_c5b13_supervisor_reconcile_teardown_outcome",
+    "_c5b13_supervisor_reconcile_terminal_state",
+    "_c5b13_supervisor_remove_fixed_root",
+    "_c5b13_supervisor_request_teardown",
+    "_c5b13_supervisor_send_start_byte",
+    "_c5b13_supervisor_spawn_fixed_runner",
+    "_c5b13_supervisor_verify_ready_byte",
+    "_c5b13_supervisor_write_input_frame",
+    "_c5b13_supervisor_write_source_frame"
+  ],
+  "imports": [
+    "_CC_SHA256_Final",
+    "_CC_SHA256_Init",
+    "_CC_SHA256_Update",
+    "___chkstk_darwin",
+    "___error",
+    "___stack_chk_fail",
+    "___stack_chk_guard",
+    "_c5b13_store_before_spawn",
+    "_c5b13_store_before_teardown",
+    "_clock_gettime",
+    "_close",
+    "_fchmod",
+    "_fcntl",
+    "_fstat",
+    "_getpid",
+    "_getuid",
+    "_kill",
+    "_memcmp",
+    "_memcpy",
+    "_nanosleep",
+    "_open",
+    "_pipe",
+    "_poll",
+    "_posix_spawn",
+    "_posix_spawn_file_actions_addclose",
+    "_posix_spawn_file_actions_adddup2",
+    "_posix_spawn_file_actions_destroy",
+    "_posix_spawn_file_actions_init",
+    "_posix_spawnattr_destroy",
+    "_posix_spawnattr_init",
+    "_posix_spawnattr_setflags",
+    "_posix_spawnattr_setsigdefault",
+    "_posix_spawnattr_setsigmask",
+    "_pread",
+    "_pthread_create",
+    "_pthread_join",
+    "_read",
+    "_sigaction",
+    "_unlink",
+    "_waitpid",
+    "_write"
+  ],
+  "mutations": [
+    "spawn durable gate",
+    "teardown durable gate",
+    "request registration",
+    "safe resume cursor",
+    "root absence prerequisite",
+    "nonzero terminal refusal",
+    "reaped child signal prohibition",
+    "post-store deadline"
+  ],
+  "cases": 24,
+  "sanitizedCases": 24,
+  "guestEffects": "NONE",
+  "storeEvidence": "NONE",
+  "compiler": "Apple clang version 21.0.0 (clang-2100.1.1.101)\nTarget: arm64-apple-darwin25.6.0\nThread model: posix\nInstalledDir: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin",
+  "os": "ProductName:\t\tmacOS\nProductVersion:\t\t26.6.2\nBuildVersion:\t\t25G83",
+  "sdk": "26.5"
+}
