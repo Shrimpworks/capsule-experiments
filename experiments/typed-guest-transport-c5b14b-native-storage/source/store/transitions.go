@@ -57,7 +57,7 @@ func (s *Store) begin(q Request, effect uint32, frames bool) error {
 			return ErrRefused
 		}
 	} else {
-		if q.Failure < 2 || q.Failure > 13 || q.Outcome < 1 || q.Outcome > 3 || !validCursor(q.Failure, q.Step, q.Resume) {
+		if q.Failure < 1 || (q.Failure == 1 && effect != 21) || q.Failure > 13 || q.Outcome < 1 || q.Outcome > 3 || !validCursor(q.Failure, q.Step, q.Resume) {
 			return ErrRefused
 		}
 		if effect != 21 && q.Step != effect {
@@ -221,7 +221,7 @@ func (s *Store) RecordUnresolved(q Request) error {
 				((q.Failure < 12 && q.Step == 17) || (q.Failure >= 12 && q.Step == 22)))) {
 			return ErrRefused
 		}
-	} else if q.Step != 14 || (!s.current.SpawnIntent && q.Failure != 2) {
+	} else if !((q.Step == 14 && (s.current.SpawnIntent || q.Failure == 2)) || (q.Failure == 1 && q.Step == 21 && !s.current.SpawnIntent)) {
 		return ErrRefused
 	}
 	next := s.current

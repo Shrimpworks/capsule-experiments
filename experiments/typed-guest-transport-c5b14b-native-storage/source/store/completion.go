@@ -5,7 +5,7 @@ import (
 	"crypto/sha256"
 )
 
-const FixtureObservationScope = "storage-fixture-only-no-native-observer"
+const FixtureObservationScope = "c5b14b-private-native-fixture-observer"
 
 // Observation is trusted test testimony. The store cannot verify an OS lifecycle.
 // C5b14B must bind a fixed native owner view before any integration claim.

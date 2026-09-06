@@ -52,17 +52,17 @@ type snapshot struct {
 }
 
 const maximumSnapshotBytes = 4096
-const snapshotVersion = "capsule.c5b14a.storage-only.v1"
+const snapshotVersion = "capsule.c5b14b.native-fixture.v1"
 
 func (s snapshot) validate() error {
 	if s.Version != snapshotVersion || s.Binding != FixtureBinding() || s.Generation < 1 || s.Generation > 32 {
 		return ErrRefused
 	}
-	if (!s.SpawnIntent && s.Fenced && s.Failure != 2) || (!s.SpawnIntent && !s.Fenced && s.Generation != 1) || (s.SpawnIntent && s.Generation < 2) {
+	if (!s.SpawnIntent && s.Fenced && s.Failure != 2 && s.Failure != 1) || (!s.SpawnIntent && !s.Fenced && s.Generation != 1) || (s.SpawnIntent && s.Generation < 2) {
 		return ErrRefused
 	}
 	if s.Fenced {
-		if s.Failure < 2 || s.Failure > 13 || s.Outcome < 1 || s.Outcome > 3 {
+		if s.Failure < 1 || s.Failure > 13 || s.Outcome < 1 || s.Outcome > 3 {
 			return ErrRefused
 		}
 		if !validCursor(s.Failure, s.Step, s.Resume) {
@@ -88,6 +88,9 @@ func (s snapshot) validate() error {
 }
 
 func validCursor(failure, step, resume uint32) bool {
+	if failure == 1 {
+		return step == 21 && resume == 21
+	}
 	if step == 14 || step == 15 {
 		return resume == step
 	}

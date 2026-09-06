@@ -10,6 +10,7 @@
 /* Fixed trusted store-owner imports, deliberately unresolved in native object.
  * Return zero only after exact attempt intent / fenced safe cursor is durable.
  * Tests acknowledge in memory; these declarations are NOT storage evidence. */
+static int store_checkpoint(const struct c5b13_effect_request *);
 extern int c5b13_store_before_spawn(const struct c5b13_effect_request *);
 extern int c5b13_store_before_teardown(const struct c5b13_effect_request *);
 static struct {
@@ -245,25 +246,25 @@ int32_t c5b13_supervisor_request_teardown(const struct c5b13_effect_request *q,
 }
 int32_t c5b13_supervisor_reconcile_teardown_outcome(const struct c5b13_effect_request *q,
                                                   struct c5b13_effect_result *r) {
-    if(!recovery_begin(q,r,17))return -1;
+    if(!recovery_begin(q,r,17) || store_checkpoint(q)!=0)return refuse(r);
     if(!life.teardown_intent || (life.spawn_attempted && !join_child(life.cleanup_deadline)))return refuse(r);
     return applied(q,r,UINT64_C(1)<<16);
 }
 int32_t c5b13_supervisor_reconcile_terminal_state(const struct c5b13_effect_request *q,
                                                 struct c5b13_effect_result *r) {
-    if(!recovery_begin(q,r,18))return -1;
+    if(!recovery_begin(q,r,18) || store_checkpoint(q)!=0)return refuse(r);
     if(state.phase!=17 || !life.teardown_intent || (life.spawn_attempted && !life.reaped))return refuse(r);
     return applied(q,r,UINT64_C(1)<<9);
 }
 int32_t c5b13_supervisor_reconcile_authoritative_absence(const struct c5b13_effect_request *q,
                                                        struct c5b13_effect_result *r) {
-    if(!recovery_begin(q,r,19))return -1;
+    if(!recovery_begin(q,r,19) || store_checkpoint(q)!=0)return refuse(r);
     if(state.phase!=18 || life.ownership_lost || (life.spawn_attempted && !life.reaped))return refuse(r);
     life.absent=true;return applied(q,r,UINT64_C(1)<<10);
 }
 int32_t c5b13_supervisor_reconcile_fixed_root_removal(const struct c5b13_effect_request *q,
                                                    struct c5b13_effect_result *r) {
-    if(!recovery_begin(q,r,20))return -1;
+    if(!recovery_begin(q,r,20) || store_checkpoint(q)!=0)return refuse(r);
     if((state.phase!=19 && state.phase!=20) || !remove_root())return refuse(r);
     return applied(q,r,UINT64_C(1)<<11);
 }

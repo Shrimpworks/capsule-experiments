@@ -1,0 +1,18 @@
+import {prepare,bind} from './generate.mjs';
+import {execFileSync} from 'node:child_process';
+import {resolve,join} from 'node:path';
+import {cpSync,mkdirSync} from 'node:fs';
+import {tmpdir} from 'node:os';
+const env={...process.env,GOTOOLCHAIN:'go1.25.13',GOCACHE:process.env.GOCACHE??join(tmpdir(),'capsule-c5b14b-go-cache')};
+const out=resolve(process.argv[2]),mode=Number(process.argv[3]??0);
+prepare(out);
+execFileSync('/usr/bin/clang',['-std=c17','-Wall','-Wextra','-Werror','-Wno-deprecated-declarations','-O2',`-DFIXTURE_MODE=${mode}`,'source/fixture-runner.c','-o','fixture-runner'],{cwd:out});
+bind(out,mode);
+execFileSync('gofmt',['-w','store','bridge'],{cwd:out});
+execFileSync('go',['test','-count=1','-timeout=45s','./store'],{cwd:out,env,stdio:'inherit'});
+execFileSync('go',['build','-buildmode=c-archive','-trimpath','-buildvcs=false','-ldflags=-buildid=','-o','owner.a','./bridge'],{cwd:out,env,stdio:'inherit'});
+mkdirSync(join(out,'tests'),{recursive:true});cpSync(join(import.meta.dirname,'../tests'),join(out,'tests'),{recursive:true});
+const flags=['-std=c17','-Wall','-Wextra','-Werror','-Wno-deprecated-declarations','-pthread','-O2'];
+execFileSync('/usr/bin/clang',[...flags,'-c','source/providers.c','-o','providers.o'],{cwd:out,stdio:'inherit'});
+execFileSync('/usr/bin/clang',[...flags,'tests/driver_test.c','owner.a','-o','driver-test'],{cwd:out,stdio:'inherit'});
+console.log(out);

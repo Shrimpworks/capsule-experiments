@@ -73,3 +73,26 @@ handler. No handler is reset or bypassed. This selects the already planned nativ
 front end with in-process Go library. The installed Go source `src/os/signal/doc.go`
 ("Non-Go programs that call Go code") documents this distinction; the retained
 probe and exact local compile/run corroborate it. No process reaping was delegated.
+
+## Integration checkpoint
+
+`PASSED`: native C front end and Go archive complete the nominal 24-provider benign
+flow and replay after owner reopen. All eight native store bodies, the two durable
+gates and checkpoints 17–20 are linked. Go copies scalar requests and completion
+bytes synchronously; private native state supplies observations. Snapshot keys and
+frames derive from the generated C5b14B fixture profile, not C5b14A's isolated test
+identity. The native provider keeps its phase separate from storage cursor replies.
+
+Recovery failures are conservatively normalized to indeterminate. Endpoint failure
+before a process intent retains failure 1 / cursor 21 as permanently unresolved;
+the derived driver recognizes that terminal refusal without retrying endpoints.
+Missing completion stays unresolved at 22. Native lifecycle custody is never
+reconstructed from the store; a restarted process with consumed intent refuses
+native reconciliation and retains unresolved state without PID probing or signaling.
+
+Observed first corpus includes ordinary completion/replay, three spawn publication
+faults, three completion faults, endpoint failure, lost wait/spawn response, lost
+completion/delivery response, three teardown faults, normal timeout cleanup,
+nonzero-exit refusal, native observation/binding refusals and abrupt-process reopen.
+Full retained corpus, reproduction, restoration mutations and review remain
+`IN_PROGRESS — TRENDING_GOOD`.
