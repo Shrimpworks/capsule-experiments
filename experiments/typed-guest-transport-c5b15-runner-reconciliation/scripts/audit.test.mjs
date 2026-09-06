@@ -9,7 +9,9 @@ test('exact inputs retain incompatible identities without readiness promotion',(
   assert.deepEqual(r.directSubstitution.argv0,{c5b11:'capsule-c5b11-fixed-runner',c5b14b:'fixture-runner'});
   assert.notEqual(r.directSubstitution.profileSHA256.c5b11,r.directSubstitution.profileSHA256.c5b14b);
   assert.equal(r.sourceObservations.cleanupClock,'after-durable-teardown-gate-return');
-  assert.equal(r.sourceObservations.restartWithoutCustody,'unresolved-resume-17');
+  assert.deepEqual(r.sourceObservations.restartLookup,{alreadyFenced:'return-existing-cursor',
+    unfencedWithoutSpawnIntent:'fresh',unfencedSpawnIntentWithCompletion:'fenced-resume-22',
+    unfencedSpawnIntentWithoutCompletion:'unresolved-resume-17',consumedIntentBranchesRequireSuccessfulPublish:true});
   assert.equal(r.directSubstitution.status,'NO_GO');assert.equal(r.executionAuthorized,false);
 });
 for(const name of Object.keys(origins))test(`changed exact input refuses: ${name}`,()=>{
@@ -28,7 +30,7 @@ for(const [name,change] of [
   ['fresh execution testimony',r=>{r.retainedTestimony.freshlyRerun=true;}],
   ['cleanup clock hides publication',r=>{r.sourceObservations.cleanupClock='before-durable-teardown-gate';}],
   ['root identity collapse',r=>{r.directSubstitution.rootBytes.c5b14b=100663296;}],
-  ['restart custody promotion',r=>{r.sourceObservations.restartWithoutCustody='recovered-child';}],
+  ['restart custody promotion',r=>{r.sourceObservations.restartLookup.unfencedSpawnIntentWithoutCompletion='recovered-child';}],
 ])test(`false report refuses: ${name}`,()=>{
   const report=audit(inputs);change(report);assert.throws(()=>verifyReport(report,inputs),/report differs/);
 });

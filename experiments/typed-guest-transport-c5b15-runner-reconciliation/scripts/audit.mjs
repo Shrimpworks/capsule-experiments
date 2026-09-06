@@ -56,14 +56,18 @@ export function audit(inputs) {
   const setupMs=Number(one(text('c14-transport.c'),/DEADLINE_MS = (\d+)/g));
   assert.equal(setupMs,fixture.setupDeadlineMs);
   const reopen=one(text('c14-transitions.go'),/func \(s \*Store\) LookupRecovery\(q Request\) \(Cursor, error\) \{([\s\S]+?)\n\}/g);
-  for(const token of ['next.Failure = 2','next.Step = 17','next.Resume = 17','next.Unresolved = true'])assert(reopen.includes(token));
+  for(const token of ['if s.current.Fenced', 'return currentCursor(s.current), nil', 'if !s.current.SpawnIntent', 'return Cursor{Fresh: true}, nil', 'if len(next.Completion) > 0', 'next.Step = 22', 'next.Resume = 22', 'next.Failure = 2','next.Step = 17','next.Resume = 17','next.Unresolved = true', 'if err := s.save(next); err != nil', 'return Cursor{}, err'])assert(reopen.includes(token));
   return {scope:'C5b15 exact-input static reconciliation only',status:'PASSED',
     directSubstitution:{status:'NO_GO',candidate:'unchanged C5b14B providers substituted into retained C5b11',
       rootBytes:{c5b11:rootBytes,c5b14b:fixture.root.length},argv0:{c5b11:argv,c5b14b:fixtureArgv},
       providerNamespaces:{c5b11:'_c5b11_',c5b14b:'_c5b14b_',logicalRoles:24},
       profileSHA256:{c5b11:old.components.attemptRuntimeProfile.sha256,c5b14b:native.artifacts[0]['inputs/profile.json']}},
     sourceObservations:{setupDeadlineMs:setupMs,setupClock:'endpoint-creation',cleanupDeadlineMs:1000,
-      cleanupClock:'after-durable-teardown-gate-return',restartWithoutCustody:'unresolved-resume-17',
+      cleanupClock:'after-durable-teardown-gate-return',
+      restartLookup:{alreadyFenced:'return-existing-cursor',unfencedWithoutSpawnIntent:'fresh',
+        unfencedSpawnIntentWithCompletion:'fenced-resume-22',
+        unfencedSpawnIntentWithoutCompletion:'unresolved-resume-17',
+        consumedIntentBranchesRequireSuccessfulPublish:true},
       executableCheck:'fixed-path-preflight-in-trusted-fixture-directory'},
     retainedTestimony:{source:'c14-results.json',nativeCases:native.cases.length,goSuites:native.passedGoTests.filter(n=>!n.includes('/')).length,mutations:native.mutations.length,freshlyRerun:false},
     remaining:{composition:'BLOCKED',launchIdentity:'BLOCKED',restartCustody:'BLOCKED',timing:'BLOCKED',provenance:'BLOCKED',candidateReview:'BLOCKED'},

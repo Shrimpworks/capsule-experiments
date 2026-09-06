@@ -1,0 +1,22 @@
+import assert from 'node:assert/strict';
+import {spawnSync} from 'node:child_process';
+import {readFileSync,writeFileSync,readdirSync} from 'node:fs';
+import {join,resolve} from 'node:path';
+import {audit,readInputs,verifyReport,sha256} from './audit.mjs';
+
+const root=resolve(import.meta.dirname,'..'),args=process.argv.slice(2);
+assert(args.length===0 || (args.length===1 && args[0]==='--record'),'unknown arguments');
+assert(Number(process.versions.node.split('.')[0])>=22,'Node 22+ required');
+const record=args.length===1;
+const paths=['PLAN.md','README.md',...readdirSync(join(root,'inputs')).map(n=>'inputs/'+n),...readdirSync(join(root,'scripts')).map(n=>'scripts/'+n)].sort();
+const materials=Object.fromEntries(paths.map(p=>[p,sha256(readFileSync(join(root,p)))]));
+const retained=record?null:JSON.parse(readFileSync(join(root,'evidence/results.json')));
+if(retained)assert.deepEqual(materials,retained.materials,'material drift: review before recording');
+const inputs=readInputs(),report=audit(inputs);
+if(retained)verifyReport(retained.report,inputs);
+const tests=spawnSync(process.execPath,['--test','scripts/audit.test.mjs'],{cwd:root,encoding:'utf8',timeout:10000});
+assert.ifError(tests.error);assert.equal(tests.signal,null);assert.equal(tests.status,0,tests.stdout+tests.stderr);
+const names=[...tests.stdout.matchAll(/^# Subtest: (.+)$/gm)].map(m=>m[1]);assert.equal(names.length,21);
+const result={status:'PASSED',environment:{node:process.version,platform:process.platform,arch:process.arch},materials,report,tests:names};
+if(retained)assert.deepEqual(result.tests,retained.tests);else writeFileSync(join(root,'evidence/results.json'),JSON.stringify(result,null,2)+'\n');
+console.log('PASSED: 13 exact inputs, internal provenance edges, deterministic static report, 21 refusal tests; candidate effects NONE.');

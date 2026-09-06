@@ -1,0 +1,103 @@
+{
+  "status": "PASSED",
+  "environment": {
+    "node": "v22.22.1",
+    "platform": "darwin",
+    "arch": "arm64"
+  },
+  "materials": {
+    "PLAN.md": "70b2c82cfa4f94029a15c4c136d367bd9524a7ae2932d4488f55419c49a80c80",
+    "README.md": "ff0bae378f2cc679ec636c3a09adf2172c9e4f0cfaf0689dec541d399a6113ba",
+    "inputs/ORIGINS.json": "fcc374cfcb306e83e9713b62b39d2efe76b2fdcdb10825b49c19618570ce7145",
+    "inputs/adr-0041.md": "148f2f766c217f710669eef79b90a09113380feed76d2496142e1601aa5a692d",
+    "inputs/c11-abi.h": "d6869868b8a7f5891f50328800f014891854e7ed8ac2a3d9c504848c472796c4",
+    "inputs/c11-profile.json": "81477fbe353183ac70e688f178c10de03b49b81c19d3aa67daaa625d51282fdd",
+    "inputs/c11-runner.c": "a36bdaebfec4d0282d7257415c005ff2962ec49c21e5a00989523d856a3ace58",
+    "inputs/c11-runtime.json": "829bdd048210c14d67f4cfcb659c39db69fe5ed2ff4edb74f3f2d9f3c869f82d",
+    "inputs/c14-abi.h": "d6869868b8a7f5891f50328800f014891854e7ed8ac2a3d9c504848c472796c4",
+    "inputs/c14-generate.mjs": "300cb09f37ae39cd68d70f643a3f2bee903a07ca30a7b669019ad9e98dec7537",
+    "inputs/c14-lifecycle.c": "e6e3d6863d533eb9f01de87679c867511064587396dd4e7c21a108b8dcb83a24",
+    "inputs/c14-readme.md": "0395ad100cdcca8443d153399cd6433a74a980f391d1440235b9e02c11442388",
+    "inputs/c14-results.json": "0b0b427a64e486aa962f9b6859932ab1849a03e96e44f9f51cf3f40e4f5880dc",
+    "inputs/c14-transitions.go": "6d88d19ebdf40a39d746c2e886b80f12476810fc045bf6bcd3d1719cb38bdd60",
+    "inputs/c14-transport.c": "1502c8472166407f5bc038b4535fd2e3871be12f74f6e443d45b044a378231ad",
+    "inputs/c2a-profile.md": "ba04aafccb5da51d0da48d5d998aa1dcdcaf50064098d7d788a09e36dc07c997",
+    "scripts/audit.mjs": "24db2d9f61a490e647a638cb19b303ca8c6b9ca6024df06c716980b56aa5a8ed",
+    "scripts/audit.test.mjs": "747bc36eb2b853cd9385323fd6e294d1d86ff3a6fa96ff79fadc4d69caf56e80",
+    "scripts/verify.mjs": "eef550a9e947e1214d9d5ca2b8bd50cd2c1e5efa0553c0c2c6f375caada55fc2"
+  },
+  "report": {
+    "scope": "C5b15 exact-input static reconciliation only",
+    "status": "PASSED",
+    "directSubstitution": {
+      "status": "NO_GO",
+      "candidate": "unchanged C5b14B providers substituted into retained C5b11",
+      "rootBytes": {
+        "c5b11": 100663296,
+        "c5b14b": 65536
+      },
+      "argv0": {
+        "c5b11": "capsule-c5b11-fixed-runner",
+        "c5b14b": "fixture-runner"
+      },
+      "providerNamespaces": {
+        "c5b11": "_c5b11_",
+        "c5b14b": "_c5b14b_",
+        "logicalRoles": 24
+      },
+      "profileSHA256": {
+        "c5b11": "829bdd048210c14d67f4cfcb659c39db69fe5ed2ff4edb74f3f2d9f3c869f82d",
+        "c5b14b": "f1f6cb0eb8d5f663a5b90ce77fdb1e5830eac0c47e952bb587d4dfaa7d8a137c"
+      }
+    },
+    "sourceObservations": {
+      "setupDeadlineMs": 1000,
+      "setupClock": "endpoint-creation",
+      "cleanupDeadlineMs": 1000,
+      "cleanupClock": "after-durable-teardown-gate-return",
+      "restartWithoutCustody": "unresolved-resume-17",
+      "executableCheck": "fixed-path-preflight-in-trusted-fixture-directory"
+    },
+    "retainedTestimony": {
+      "source": "c14-results.json",
+      "nativeCases": 126,
+      "goSuites": 17,
+      "mutations": 10,
+      "freshlyRerun": false
+    },
+    "remaining": {
+      "composition": "BLOCKED",
+      "launchIdentity": "BLOCKED",
+      "restartCustody": "BLOCKED",
+      "timing": "BLOCKED",
+      "provenance": "BLOCKED",
+      "candidateReview": "BLOCKED"
+    },
+    "executionAuthorized": false,
+    "productAdmission": "BLOCKED",
+    "performedCandidateEffects": "NONE"
+  },
+  "tests": [
+    "exact inputs retain incompatible identities without readiness promotion",
+    "changed exact input refuses: c11-profile.json",
+    "changed exact input refuses: c11-runtime.json",
+    "changed exact input refuses: c11-runner.c",
+    "changed exact input refuses: c11-abi.h",
+    "changed exact input refuses: c14-results.json",
+    "changed exact input refuses: c14-lifecycle.c",
+    "changed exact input refuses: c14-transport.c",
+    "changed exact input refuses: c14-transitions.go",
+    "changed exact input refuses: c14-generate.mjs",
+    "changed exact input refuses: c14-readme.md",
+    "changed exact input refuses: c14-abi.h",
+    "changed exact input refuses: c2a-profile.md",
+    "changed exact input refuses: adr-0041.md",
+    "missing, extra and redirected inputs refuse",
+    "false report refuses: execution authorization",
+    "false report refuses: composition readiness",
+    "false report refuses: fresh execution testimony",
+    "false report refuses: cleanup clock hides publication",
+    "false report refuses: root identity collapse",
+    "false report refuses: restart custody promotion"
+  ]
+}
