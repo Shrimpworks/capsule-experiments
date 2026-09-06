@@ -64,7 +64,9 @@ static void nominal_until_root(void) {
         if(e==5){cap=262296;size=sizeof(input_frame);hash=c5b14b_input_frame_sha256;}
         if(e==8){cap=RETAIN_CAP;size=sizeof(completion_frame);hash=c5b14b_completion_frame_sha256;}
         struct c5b14b_effect_request q=request_for(e,e,0,0,cap,size,hash);struct c5b14b_effect_result r;
-        assert(effect[e](&q,&r)==0);
+        int result=effect[e](&q,&r);
+        if(result!=0)fprintf(stderr,"nominal setup refusal: effect=%u phase=%u remaining_ms=%d errno=%d\n",e,state.phase,remaining_ms(),errno);
+        assert(result==0);
     }
 }
 static void contract_refusals(void) {

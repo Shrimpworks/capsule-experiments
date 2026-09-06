@@ -94,5 +94,33 @@ Observed first corpus includes ordinary completion/replay, three spawn publicati
 faults, three completion faults, endpoint failure, lost wait/spawn response, lost
 completion/delivery response, three teardown faults, normal timeout cleanup,
 nonzero-exit refusal, native observation/binding refusals and abrupt-process reopen.
-Full retained corpus, reproduction, restoration mutations and review remain
+Full retained corpus, reproduction and restoration mutations `PASSED`: 126 native
+case records, 17 Go suites / 58 subtests, eight Go-race integration cases and ten
+compiled intended-assertion mutations. Independent review and publication remain
 `IN_PROGRESS — TRENDING_GOOD`.
+
+
+## Reproduction metadata
+
+Initial two-directory comparison found identical archive member bytes but different
+Darwin ar timestamps/owner metadata and Mach-O object-symbol archive paths. Normal
+builds now set `ZERO_AR_DATE=1` and normalize linker `-oso_prefix` against the
+physical output directory (including macOS `/tmp` and `/var` aliases); Go retains
+`-trimpath`, disabled VCS embedding and an empty build ID. A focused two-directory
+check reproduces both the Go archive and linked native executable. No debug code,
+reaper check, validation guard or runtime behavior was removed to obtain equality.
+Full exact-material evidence is regenerated after this build correction.
+
+## Setup-refusal diagnostic limitation
+
+One pre-freeze full run refused in case 20 nominal setup before the intended
+root-observation mutation. Earlier output did not identify the step or remaining
+time, so cause is unclassified. The next full corpus passed with per-step/deadline
+diagnostics added. Preserve the existing one-second setup and cleanup limits,
+four-second child alarm and no-retry verifier; make no timing/load-tolerance claim.
+Compiled mutations now require each named intended assertion, so an unrelated
+setup refusal cannot falsely count as mutation sensitivity.
+
+A focused repetition of case 20 using the diagnostic-enabled ordinary binary
+completed 30/30 fresh-directory runs with no refusal. This narrows no root cause
+and does not erase the earlier failed run. The full verifier remains fail-fast.

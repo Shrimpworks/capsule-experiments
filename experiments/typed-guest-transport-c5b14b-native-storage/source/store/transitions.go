@@ -7,7 +7,7 @@ import (
 )
 
 // Request mirrors logical effect/cursor fields, not the native C ABI layout.
-// The future trusted in-process bridge must supply binding and observations.
+// The trusted in-process bridge supplies copied binding and native observations.
 type Request struct {
 	Binding                        Binding
 	Effect, Sequence               uint32

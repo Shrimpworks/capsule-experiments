@@ -7,9 +7,9 @@
 #include <sys/stat.h>
 #include <sys/wait.h>
 
-/* Fixed trusted store-owner imports, deliberately unresolved in native object.
+/* Fixed trusted store-owner imports supplied by the C5b14B Go bridge.
  * Return zero only after exact attempt intent / fenced safe cursor is durable.
- * Tests acknowledge in memory; these declarations are NOT storage evidence. */
+ * Native state remains sole owner of child custody and lifecycle observations. */
 static int store_checkpoint(const struct c5b13_effect_request *);
 extern int c5b13_store_before_spawn(const struct c5b13_effect_request *);
 extern int c5b13_store_before_teardown(const struct c5b13_effect_request *);
