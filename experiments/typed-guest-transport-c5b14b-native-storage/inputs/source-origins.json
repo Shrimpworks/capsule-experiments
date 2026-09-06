@@ -1,0 +1,74 @@
+{
+  "inputs/input.payload@6dc12dca10c9cb88370bf3f16d0e3d6305b7fd7f": {
+    "commit": "6dc12dca10c9cb88370bf3f16d0e3d6305b7fd7f",
+    "sha256": "9de0c909cfb111bd99c3b0b5f7a10972894270c2867022a71b6b6f3c0cd1af6e"
+  },
+  "inputs/completion.payload@6dc12dca10c9cb88370bf3f16d0e3d6305b7fd7f": {
+    "commit": "6dc12dca10c9cb88370bf3f16d0e3d6305b7fd7f",
+    "sha256": "bb7234ee486b0fbccc2091859ec93499e6a14ea7d6e091cdef60a0e2a6e8371c"
+  },
+  "inputs/source.payload@6dc12dca10c9cb88370bf3f16d0e3d6305b7fd7f": {
+    "commit": "6dc12dca10c9cb88370bf3f16d0e3d6305b7fd7f",
+    "sha256": "c8e940feb89b342de2d5e6bd13c413226676de9a539fce34c4107516e635b475"
+  },
+  "inputs/supervisor_effect_abi.h@6dc12dca10c9cb88370bf3f16d0e3d6305b7fd7f": {
+    "commit": "6dc12dca10c9cb88370bf3f16d0e3d6305b7fd7f",
+    "sha256": "d6869868b8a7f5891f50328800f014891854e7ed8ac2a3d9c504848c472796c4"
+  },
+  "inputs/c5b12-transport.c@6dc12dca10c9cb88370bf3f16d0e3d6305b7fd7f": {
+    "commit": "6dc12dca10c9cb88370bf3f16d0e3d6305b7fd7f",
+    "sha256": "1502c8472166407f5bc038b4535fd2e3871be12f74f6e443d45b044a378231ad"
+  },
+  "inputs/supervisor_effect_driver.c@6dc12dca10c9cb88370bf3f16d0e3d6305b7fd7f": {
+    "commit": "6dc12dca10c9cb88370bf3f16d0e3d6305b7fd7f",
+    "sha256": "902f22cc09012f4a5553c3e0dcfcf094bb90874db02ddaa91ac89fe29a441a71"
+  },
+  "source/lifecycle.c@6dc12dca10c9cb88370bf3f16d0e3d6305b7fd7f": {
+    "commit": "6dc12dca10c9cb88370bf3f16d0e3d6305b7fd7f",
+    "sha256": "f21fe2d805fa4ec956d331787e4e6f600dd99603b6388319c3749210031e6522"
+  },
+  "source/fixture-runner.c@6dc12dca10c9cb88370bf3f16d0e3d6305b7fd7f": {
+    "commit": "6dc12dca10c9cb88370bf3f16d0e3d6305b7fd7f",
+    "sha256": "3c1d16d7ff8caac8eb01c7691676a3afb191b9e37822acac9e82eb6d476a96a6"
+  },
+  "scripts/generate.mjs@6dc12dca10c9cb88370bf3f16d0e3d6305b7fd7f": {
+    "commit": "6dc12dca10c9cb88370bf3f16d0e3d6305b7fd7f",
+    "sha256": "9b7787371a0493cef5dbae4aa4c343aff2f81a1d58fd09c5729041f22181e5ea"
+  },
+  "store/completion.go@c4d25e2beec0bc2e886a1df29135dea534b53626": {
+    "commit": "c4d25e2beec0bc2e886a1df29135dea534b53626",
+    "sha256": "a196c9b22e330211fe959a3e4e67e4608b32307bf227cc33a04cff7a1c2b5c2f"
+  },
+  "store/files.go@c4d25e2beec0bc2e886a1df29135dea534b53626": {
+    "commit": "c4d25e2beec0bc2e886a1df29135dea534b53626",
+    "sha256": "be96c5ac854913b6834165b494a13e4ec6730b64916ea3051c70b36bbfcf84b4"
+  },
+  "store/types.go@c4d25e2beec0bc2e886a1df29135dea534b53626": {
+    "commit": "c4d25e2beec0bc2e886a1df29135dea534b53626",
+    "sha256": "e43de980c91105810697cb735f63d14ed826eaff2223e9b80eab88050c8c9dde"
+  },
+  "store/completion_test.go@c4d25e2beec0bc2e886a1df29135dea534b53626": {
+    "commit": "c4d25e2beec0bc2e886a1df29135dea534b53626",
+    "sha256": "dd9fffd52277bfe8f07f408cdaff20f0aebfc7be8f573a4b6e3c9142369bf064"
+  },
+  "store/integrity_test.go@c4d25e2beec0bc2e886a1df29135dea534b53626": {
+    "commit": "c4d25e2beec0bc2e886a1df29135dea534b53626",
+    "sha256": "6a885b5c596e33ca4f62e97ac8eef4a028427c12c38e42c64c4d2d289a20df8d"
+  },
+  "store/transitions_test.go@c4d25e2beec0bc2e886a1df29135dea534b53626": {
+    "commit": "c4d25e2beec0bc2e886a1df29135dea534b53626",
+    "sha256": "85dc09baf75648137e537a3a3d16b93e339c73af0c5c27aa1a34896a0424fcff"
+  },
+  "store/files_test.go@c4d25e2beec0bc2e886a1df29135dea534b53626": {
+    "commit": "c4d25e2beec0bc2e886a1df29135dea534b53626",
+    "sha256": "530e98a40002b589911e0afb1c04a944f4fb7abfe68277631f039f878c501f87"
+  },
+  "store/transitions.go@c4d25e2beec0bc2e886a1df29135dea534b53626": {
+    "commit": "c4d25e2beec0bc2e886a1df29135dea534b53626",
+    "sha256": "8125464492f24990e2c088dc6a1319b47a27a4198c0a9bfd645f21e687aac51b"
+  },
+  "store/recovery_test.go@c4d25e2beec0bc2e886a1df29135dea534b53626": {
+    "commit": "c4d25e2beec0bc2e886a1df29135dea534b53626",
+    "sha256": "33c8217b9c2cb2a4a722c59b7b0ce7c34394098821a553708e5fbc188b8156ab"
+  }
+}
