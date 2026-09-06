@@ -1,0 +1,93 @@
+{
+  "c11-profile.json": {
+    "repository": "Shrimpworks/capsule-experiments",
+    "commit": "f206e4ef2cd326ee74e5b7b2739c62efe6da7d6d",
+    "path": "experiments/typed-guest-transport-c5b11-bound-fault-convergent-no-run-successor/contracts/fixed-runner-profile.json",
+    "bytes": 17549,
+    "sha256": "81477fbe353183ac70e688f178c10de03b49b81c19d3aa67daaa625d51282fdd"
+  },
+  "c11-runtime.json": {
+    "repository": "Shrimpworks/capsule-experiments",
+    "commit": "f206e4ef2cd326ee74e5b7b2739c62efe6da7d6d",
+    "path": "experiments/typed-guest-transport-c5b11-bound-fault-convergent-no-run-successor/contracts/attempt-runtime-profile.json",
+    "bytes": 6266,
+    "sha256": "829bdd048210c14d67f4cfcb659c39db69fe5ed2ff4edb74f3f2d9f3c869f82d"
+  },
+  "c11-runner.c": {
+    "repository": "Shrimpworks/capsule-experiments",
+    "commit": "f206e4ef2cd326ee74e5b7b2739c62efe6da7d6d",
+    "path": "experiments/typed-guest-transport-c5b11-bound-fault-convergent-no-run-successor/source/fixed_runner.c",
+    "bytes": 7748,
+    "sha256": "a36bdaebfec4d0282d7257415c005ff2962ec49c21e5a00989523d856a3ace58"
+  },
+  "c11-abi.h": {
+    "repository": "Shrimpworks/capsule-experiments",
+    "commit": "f206e4ef2cd326ee74e5b7b2739c62efe6da7d6d",
+    "path": "experiments/typed-guest-transport-c5b11-bound-fault-convergent-no-run-successor/source/supervisor_effect_abi.h",
+    "bytes": 4189,
+    "sha256": "d6869868b8a7f5891f50328800f014891854e7ed8ac2a3d9c504848c472796c4"
+  },
+  "c14-results.json": {
+    "repository": "Shrimpworks/capsule-experiments",
+    "commit": "294559e78b410f4b25e0e25fcf373ec0c7d1cfb5",
+    "path": "experiments/typed-guest-transport-c5b14b-native-storage/evidence/results.json",
+    "bytes": 46770,
+    "sha256": "0b0b427a64e486aa962f9b6859932ab1849a03e96e44f9f51cf3f40e4f5880dc"
+  },
+  "c14-lifecycle.c": {
+    "repository": "Shrimpworks/capsule-experiments",
+    "commit": "294559e78b410f4b25e0e25fcf373ec0c7d1cfb5",
+    "path": "experiments/typed-guest-transport-c5b14b-native-storage/source/native/lifecycle.c",
+    "bytes": 13615,
+    "sha256": "e6e3d6863d533eb9f01de87679c867511064587396dd4e7c21a108b8dcb83a24"
+  },
+  "c14-transport.c": {
+    "repository": "Shrimpworks/capsule-experiments",
+    "commit": "294559e78b410f4b25e0e25fcf373ec0c7d1cfb5",
+    "path": "experiments/typed-guest-transport-c5b14b-native-storage/inputs/c5b12-transport.c",
+    "bytes": 10231,
+    "sha256": "1502c8472166407f5bc038b4535fd2e3871be12f74f6e443d45b044a378231ad"
+  },
+  "c14-transitions.go": {
+    "repository": "Shrimpworks/capsule-experiments",
+    "commit": "294559e78b410f4b25e0e25fcf373ec0c7d1cfb5",
+    "path": "experiments/typed-guest-transport-c5b14b-native-storage/source/store/transitions.go",
+    "bytes": 6164,
+    "sha256": "6d88d19ebdf40a39d746c2e886b80f12476810fc045bf6bcd3d1719cb38bdd60"
+  },
+  "c14-generate.mjs": {
+    "repository": "Shrimpworks/capsule-experiments",
+    "commit": "294559e78b410f4b25e0e25fcf373ec0c7d1cfb5",
+    "path": "experiments/typed-guest-transport-c5b14b-native-storage/scripts/generate.mjs",
+    "bytes": 8152,
+    "sha256": "300cb09f37ae39cd68d70f643a3f2bee903a07ca30a7b669019ad9e98dec7537"
+  },
+  "c14-readme.md": {
+    "repository": "Shrimpworks/capsule-experiments",
+    "commit": "294559e78b410f4b25e0e25fcf373ec0c7d1cfb5",
+    "path": "experiments/typed-guest-transport-c5b14b-native-storage/README.md",
+    "bytes": 6246,
+    "sha256": "0395ad100cdcca8443d153399cd6433a74a980f391d1440235b9e02c11442388"
+  },
+  "c14-abi.h": {
+    "repository": "Shrimpworks/capsule-experiments",
+    "commit": "294559e78b410f4b25e0e25fcf373ec0c7d1cfb5",
+    "path": "experiments/typed-guest-transport-c5b14b-native-storage/inputs/supervisor_effect_abi.h",
+    "bytes": 4189,
+    "sha256": "d6869868b8a7f5891f50328800f014891854e7ed8ac2a3d9c504848c472796c4"
+  },
+  "c2a-profile.md": {
+    "repository": "Shrimpworks/capsule-corp",
+    "commit": "2c30faa8c0e88dd43f289bbea18f58232d02cf23",
+    "path": "docs/protocol/GOVERNED_DENO_CORE_C2A_EXECUTION_PROFILE.md",
+    "bytes": 13957,
+    "sha256": "ba04aafccb5da51d0da48d5d998aa1dcdcaf50064098d7d788a09e36dc07c997"
+  },
+  "adr-0041.md": {
+    "repository": "Shrimpworks/capsule-corp",
+    "commit": "2c30faa8c0e88dd43f289bbea18f58232d02cf23",
+    "path": "docs/adr/0041-freeze-passive-fixed-owned-guest-successor.md",
+    "bytes": 4985,
+    "sha256": "148f2f766c217f710669eef79b90a09113380feed76d2496142e1601aa5a692d"
+  }
+}
