@@ -1,0 +1,1254 @@
+{
+  "status": "PASSED",
+  "scope": "C5b14B local benign native fixture integration; installed/guest/product boundary BLOCKED",
+  "environment": {
+    "go": "go version go1.25.13 darwin/arm64",
+    "node": "v22.22.1",
+    "compiler": "Apple clang version 21.0.0 (clang-2100.1.1.101)\nTarget: arm64-apple-darwin25.6.0\nThread model: posix\nInstalledDir: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin",
+    "os": "ProductName:\t\tmacOS\nProductVersion:\t\t26.6.2\nBuildVersion:\t\t25G83",
+    "sdk": "26.5"
+  },
+  "materials": {
+    "PLAN.md": "0899cb657b2904f7cc88e32032783c6b70bcfaabf69a276f273c01c0b143c92c",
+    "README.md": "f44a88ce0a2bcf4b6cd14bc750360427efb1544509de14adad23da36f622f935",
+    "go.mod": "ed52bdec97614fa6090e6f114edceea3a9601e9b0e7aa0c4bb9f497b3ae75813",
+    "inputs/ORIGINS.json": "b513ee8a23c32fbc7d22a5818402bdb48f7c88dd3a429d04cc0d55d4481f4aca",
+    "inputs/c5b12-transport.c": "1502c8472166407f5bc038b4535fd2e3871be12f74f6e443d45b044a378231ad",
+    "inputs/completion.payload": "bb7234ee486b0fbccc2091859ec93499e6a14ea7d6e091cdef60a0e2a6e8371c",
+    "inputs/input.payload": "9de0c909cfb111bd99c3b0b5f7a10972894270c2867022a71b6b6f3c0cd1af6e",
+    "inputs/source-origins.json": "a7cda2edf65d2037c86e8ece37161d2018f43c527da8f2f7b106dacd4dfd2745",
+    "inputs/source.payload": "c8e940feb89b342de2d5e6bd13c413226676de9a539fce34c4107516e635b475",
+    "inputs/supervisor_effect_abi.h": "d6869868b8a7f5891f50328800f014891854e7ed8ac2a3d9c504848c472796c4",
+    "inputs/supervisor_effect_driver.c": "902f22cc09012f4a5553c3e0dcfcf094bb90874db02ddaa91ac89fe29a441a71",
+    "scripts/build.mjs": "820566507a578b07c20a32bc587e4fe7d69589c88388be3b493aef248402ca0a",
+    "scripts/generate.mjs": "7223c992870aea0459a681d53fe433e69e12a69ea5bdb7346888fd2f244f9af6",
+    "scripts/timing-analysis.mjs": "baa83a721930c0150d8a47aa83a305ab9784fb616fc01982ef903506f002b130",
+    "scripts/timing-verify.mjs": "1010e5ae9f7dc811a73ab4e8f841691cf587cd64013399453d175411dfe43a25",
+    "scripts/verify.mjs": "c9597a94b7e2f2c07baabe394b21eeed40b38110a1727c8dfa79fc479ef50fef",
+    "source/bridge/api.h": "1239c91f023bbecf79db9625c553272ebff5682fed0334ccea1c8c42f70813f1",
+    "source/bridge/contract.go": "d4190a4ceb8f641c6cba24e5d00cd62996b97c3189fc767661668d07383e001a",
+    "source/bridge/contract_test.go": "06310336d968bea606c15e642fd13df981e1ffa4ff5aa50b566937148c909fea",
+    "source/bridge/owner.go": "20aa892d42afd615af2d4935e54aa255ba98de166bf2ee4a2d9e2822dbde22be",
+    "source/native/fixture-runner.c": "3c1d16d7ff8caac8eb01c7691676a3afb191b9e37822acac9e82eb6d476a96a6",
+    "source/native/lifecycle.c": "a49a01b914dbee0592a55e6d28f9fdce1eb0997ab1c5c13077a2a4dccce65d3c",
+    "source/native/providers.c": "8cb9abb1d62e686ee1766aa572d83454aa9d0cdcce1544a27e267c6f2f31ec04",
+    "source/native/timing.h": "ffe44de15722395847bc79ca83770b5f527fe5b3e8a5140c54fc535bf7da2921",
+    "source/store/completion.go": "da3f390bfd911d653c406443aac6a7f2cdd4b0eb9bd41685c4e414fa36a2fd49",
+    "source/store/completion_test.go": "dd9fffd52277bfe8f07f408cdaff20f0aebfc7be8f573a4b6e3c9142369bf064",
+    "source/store/endpoint_test.go": "b334824d4ff3e16eb6592cfe58c15d50236ee4dde3d446b01ef652c084aec03f",
+    "source/store/files.go": "be96c5ac854913b6834165b494a13e4ec6730b64916ea3051c70b36bbfcf84b4",
+    "source/store/files_test.go": "530e98a40002b589911e0afb1c04a944f4fb7abfe68277631f039f878c501f87",
+    "source/store/integrity_test.go": "6a885b5c596e33ca4f62e97ac8eef4a028427c12c38e42c64c4d2d289a20df8d",
+    "source/store/recovery_test.go": "33c8217b9c2cb2a4a722c59b7b0ce7c34394098821a553708e5fbc188b8156ab",
+    "source/store/transitions.go": "6d88d19ebdf40a39d746c2e886b80f12476810fc045bf6bcd3d1719cb38bdd60",
+    "source/store/transitions_test.go": "85dc09baf75648137e537a3a3d16b93e339c73af0c5c27aa1a34896a0424fcff",
+    "source/store/types.go": "0d5909e4ac734049da2e5b77c9cab6f69fca1b606277164b5879857724793a1f",
+    "source/store/view.go": "1d278884f22bf7d6e78af6fd4aa21e34f38785fc748957ddbb7f82d5bfffc46b",
+    "tests/driver_test.c": "6e881516f6258abff431fd3d1bfeec8af6b76402925bd906c140a177450402c1",
+    "tests/normal.c": "a31fcbde896cdd8445d727a10af4f478d23dd1fb320ea8572d9d976c766e8935",
+    "tests/reaper_contract.c": "0787f398d8d953acf197b684459be9a9f5379b042d2db49d6a09cbca4c46486a",
+    "tests/timing.c": "d357801320ea8ad4cab3ff07a2409971a461cfbac374d31a0ae521af58f6b768"
+  },
+  "profiles": [
+    {
+      "sourceMaterials": {
+        "source/bridge/api.h": "1239c91f023bbecf79db9625c553272ebff5682fed0334ccea1c8c42f70813f1",
+        "source/bridge/contract.go": "d4190a4ceb8f641c6cba24e5d00cd62996b97c3189fc767661668d07383e001a",
+        "source/bridge/owner.go": "20aa892d42afd615af2d4935e54aa255ba98de166bf2ee4a2d9e2822dbde22be",
+        "source/native/fixture-runner.c": "3c1d16d7ff8caac8eb01c7691676a3afb191b9e37822acac9e82eb6d476a96a6",
+        "source/native/lifecycle.c": "a49a01b914dbee0592a55e6d28f9fdce1eb0997ab1c5c13077a2a4dccce65d3c",
+        "source/native/providers.c": "8cb9abb1d62e686ee1766aa572d83454aa9d0cdcce1544a27e267c6f2f31ec04",
+        "source/native/timing.h": "ffe44de15722395847bc79ca83770b5f527fe5b3e8a5140c54fc535bf7da2921",
+        "source/store/completion.go": "da3f390bfd911d653c406443aac6a7f2cdd4b0eb9bd41685c4e414fa36a2fd49",
+        "source/store/files.go": "be96c5ac854913b6834165b494a13e4ec6730b64916ea3051c70b36bbfcf84b4",
+        "source/store/transitions.go": "6d88d19ebdf40a39d746c2e886b80f12476810fc045bf6bcd3d1719cb38bdd60",
+        "source/store/types.go": "0d5909e4ac734049da2e5b77c9cab6f69fca1b606277164b5879857724793a1f",
+        "source/store/view.go": "1d278884f22bf7d6e78af6fd4aa21e34f38785fc748957ddbb7f82d5bfffc46b",
+        "scripts/generate.mjs": "7223c992870aea0459a681d53fe433e69e12a69ea5bdb7346888fd2f244f9af6",
+        "scripts/build.mjs": "820566507a578b07c20a32bc587e4fe7d69589c88388be3b493aef248402ca0a",
+        "inputs/supervisor_effect_abi.h": "d6869868b8a7f5891f50328800f014891854e7ed8ac2a3d9c504848c472796c4",
+        "inputs/supervisor_effect_driver.c": "902f22cc09012f4a5553c3e0dcfcf094bb90874db02ddaa91ac89fe29a441a71",
+        "inputs/c5b12-transport.c": "1502c8472166407f5bc038b4535fd2e3871be12f74f6e443d45b044a378231ad"
+      },
+      "schema": "c5b16-benign-fixture-v1",
+      "mode": 0,
+      "executable": {
+        "sha256": "b17557f9e16c2867c8e5638e0be3cd8c27cc88dee3e815959161c06d8202578b",
+        "length": 34160
+      },
+      "root": {
+        "sha256": "17c6a634896586167cd528fcb1847263c67d3dc404dd7d9fe7a2424ff5c615f3",
+        "length": 65536
+      },
+      "fds": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "argv": [
+        "fixture-runner"
+      ],
+      "environment": [],
+      "setupDeadlineMs": 1000,
+      "cleanupDeadlineMs": 1000
+    },
+    {
+      "sourceMaterials": {
+        "source/bridge/api.h": "1239c91f023bbecf79db9625c553272ebff5682fed0334ccea1c8c42f70813f1",
+        "source/bridge/contract.go": "d4190a4ceb8f641c6cba24e5d00cd62996b97c3189fc767661668d07383e001a",
+        "source/bridge/owner.go": "20aa892d42afd615af2d4935e54aa255ba98de166bf2ee4a2d9e2822dbde22be",
+        "source/native/fixture-runner.c": "3c1d16d7ff8caac8eb01c7691676a3afb191b9e37822acac9e82eb6d476a96a6",
+        "source/native/lifecycle.c": "a49a01b914dbee0592a55e6d28f9fdce1eb0997ab1c5c13077a2a4dccce65d3c",
+        "source/native/providers.c": "8cb9abb1d62e686ee1766aa572d83454aa9d0cdcce1544a27e267c6f2f31ec04",
+        "source/native/timing.h": "ffe44de15722395847bc79ca83770b5f527fe5b3e8a5140c54fc535bf7da2921",
+        "source/store/completion.go": "da3f390bfd911d653c406443aac6a7f2cdd4b0eb9bd41685c4e414fa36a2fd49",
+        "source/store/files.go": "be96c5ac854913b6834165b494a13e4ec6730b64916ea3051c70b36bbfcf84b4",
+        "source/store/transitions.go": "6d88d19ebdf40a39d746c2e886b80f12476810fc045bf6bcd3d1719cb38bdd60",
+        "source/store/types.go": "0d5909e4ac734049da2e5b77c9cab6f69fca1b606277164b5879857724793a1f",
+        "source/store/view.go": "1d278884f22bf7d6e78af6fd4aa21e34f38785fc748957ddbb7f82d5bfffc46b",
+        "scripts/generate.mjs": "7223c992870aea0459a681d53fe433e69e12a69ea5bdb7346888fd2f244f9af6",
+        "scripts/build.mjs": "820566507a578b07c20a32bc587e4fe7d69589c88388be3b493aef248402ca0a",
+        "inputs/supervisor_effect_abi.h": "d6869868b8a7f5891f50328800f014891854e7ed8ac2a3d9c504848c472796c4",
+        "inputs/supervisor_effect_driver.c": "902f22cc09012f4a5553c3e0dcfcf094bb90874db02ddaa91ac89fe29a441a71",
+        "inputs/c5b12-transport.c": "1502c8472166407f5bc038b4535fd2e3871be12f74f6e443d45b044a378231ad"
+      },
+      "schema": "c5b16-benign-fixture-v1",
+      "mode": 1,
+      "executable": {
+        "sha256": "8c5ea8d21fef77729cfed87480dd790b54af490078523a7d1267d6f1097a588a",
+        "length": 33840
+      },
+      "root": {
+        "sha256": "17c6a634896586167cd528fcb1847263c67d3dc404dd7d9fe7a2424ff5c615f3",
+        "length": 65536
+      },
+      "fds": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "argv": [
+        "fixture-runner"
+      ],
+      "environment": [],
+      "setupDeadlineMs": 1000,
+      "cleanupDeadlineMs": 1000
+    },
+    {
+      "sourceMaterials": {
+        "source/bridge/api.h": "1239c91f023bbecf79db9625c553272ebff5682fed0334ccea1c8c42f70813f1",
+        "source/bridge/contract.go": "d4190a4ceb8f641c6cba24e5d00cd62996b97c3189fc767661668d07383e001a",
+        "source/bridge/owner.go": "20aa892d42afd615af2d4935e54aa255ba98de166bf2ee4a2d9e2822dbde22be",
+        "source/native/fixture-runner.c": "3c1d16d7ff8caac8eb01c7691676a3afb191b9e37822acac9e82eb6d476a96a6",
+        "source/native/lifecycle.c": "a49a01b914dbee0592a55e6d28f9fdce1eb0997ab1c5c13077a2a4dccce65d3c",
+        "source/native/providers.c": "8cb9abb1d62e686ee1766aa572d83454aa9d0cdcce1544a27e267c6f2f31ec04",
+        "source/native/timing.h": "ffe44de15722395847bc79ca83770b5f527fe5b3e8a5140c54fc535bf7da2921",
+        "source/store/completion.go": "da3f390bfd911d653c406443aac6a7f2cdd4b0eb9bd41685c4e414fa36a2fd49",
+        "source/store/files.go": "be96c5ac854913b6834165b494a13e4ec6730b64916ea3051c70b36bbfcf84b4",
+        "source/store/transitions.go": "6d88d19ebdf40a39d746c2e886b80f12476810fc045bf6bcd3d1719cb38bdd60",
+        "source/store/types.go": "0d5909e4ac734049da2e5b77c9cab6f69fca1b606277164b5879857724793a1f",
+        "source/store/view.go": "1d278884f22bf7d6e78af6fd4aa21e34f38785fc748957ddbb7f82d5bfffc46b",
+        "scripts/generate.mjs": "7223c992870aea0459a681d53fe433e69e12a69ea5bdb7346888fd2f244f9af6",
+        "scripts/build.mjs": "820566507a578b07c20a32bc587e4fe7d69589c88388be3b493aef248402ca0a",
+        "inputs/supervisor_effect_abi.h": "d6869868b8a7f5891f50328800f014891854e7ed8ac2a3d9c504848c472796c4",
+        "inputs/supervisor_effect_driver.c": "902f22cc09012f4a5553c3e0dcfcf094bb90874db02ddaa91ac89fe29a441a71",
+        "inputs/c5b12-transport.c": "1502c8472166407f5bc038b4535fd2e3871be12f74f6e443d45b044a378231ad"
+      },
+      "schema": "c5b16-benign-fixture-v1",
+      "mode": 2,
+      "executable": {
+        "sha256": "3553b02d94961b42e0d8ca141f45aece4e24685138b73ff874f209fd34caa641",
+        "length": 34160
+      },
+      "root": {
+        "sha256": "17c6a634896586167cd528fcb1847263c67d3dc404dd7d9fe7a2424ff5c615f3",
+        "length": 65536
+      },
+      "fds": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "argv": [
+        "fixture-runner"
+      ],
+      "environment": [],
+      "setupDeadlineMs": 1000,
+      "cleanupDeadlineMs": 1000
+    },
+    {
+      "sourceMaterials": {
+        "source/bridge/api.h": "1239c91f023bbecf79db9625c553272ebff5682fed0334ccea1c8c42f70813f1",
+        "source/bridge/contract.go": "d4190a4ceb8f641c6cba24e5d00cd62996b97c3189fc767661668d07383e001a",
+        "source/bridge/owner.go": "20aa892d42afd615af2d4935e54aa255ba98de166bf2ee4a2d9e2822dbde22be",
+        "source/native/fixture-runner.c": "3c1d16d7ff8caac8eb01c7691676a3afb191b9e37822acac9e82eb6d476a96a6",
+        "source/native/lifecycle.c": "a49a01b914dbee0592a55e6d28f9fdce1eb0997ab1c5c13077a2a4dccce65d3c",
+        "source/native/providers.c": "8cb9abb1d62e686ee1766aa572d83454aa9d0cdcce1544a27e267c6f2f31ec04",
+        "source/native/timing.h": "ffe44de15722395847bc79ca83770b5f527fe5b3e8a5140c54fc535bf7da2921",
+        "source/store/completion.go": "da3f390bfd911d653c406443aac6a7f2cdd4b0eb9bd41685c4e414fa36a2fd49",
+        "source/store/files.go": "be96c5ac854913b6834165b494a13e4ec6730b64916ea3051c70b36bbfcf84b4",
+        "source/store/transitions.go": "6d88d19ebdf40a39d746c2e886b80f12476810fc045bf6bcd3d1719cb38bdd60",
+        "source/store/types.go": "0d5909e4ac734049da2e5b77c9cab6f69fca1b606277164b5879857724793a1f",
+        "source/store/view.go": "1d278884f22bf7d6e78af6fd4aa21e34f38785fc748957ddbb7f82d5bfffc46b",
+        "scripts/generate.mjs": "7223c992870aea0459a681d53fe433e69e12a69ea5bdb7346888fd2f244f9af6",
+        "scripts/build.mjs": "820566507a578b07c20a32bc587e4fe7d69589c88388be3b493aef248402ca0a",
+        "inputs/supervisor_effect_abi.h": "d6869868b8a7f5891f50328800f014891854e7ed8ac2a3d9c504848c472796c4",
+        "inputs/supervisor_effect_driver.c": "902f22cc09012f4a5553c3e0dcfcf094bb90874db02ddaa91ac89fe29a441a71",
+        "inputs/c5b12-transport.c": "1502c8472166407f5bc038b4535fd2e3871be12f74f6e443d45b044a378231ad"
+      },
+      "schema": "c5b16-benign-fixture-v1",
+      "mode": 3,
+      "executable": {
+        "sha256": "fe8064c83f1379779cd152caf42e6d745bc5f2b5c99f6682f62f68f5f947cdfd",
+        "length": 34160
+      },
+      "root": {
+        "sha256": "17c6a634896586167cd528fcb1847263c67d3dc404dd7d9fe7a2424ff5c615f3",
+        "length": 65536
+      },
+      "fds": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "argv": [
+        "fixture-runner"
+      ],
+      "environment": [],
+      "setupDeadlineMs": 1000,
+      "cleanupDeadlineMs": 1000
+    }
+  ],
+  "artifacts": {
+    "0": {
+      "fixture-runner": "b17557f9e16c2867c8e5638e0be3cd8c27cc88dee3e815959161c06d8202578b",
+      "root.input": "17c6a634896586167cd528fcb1847263c67d3dc404dd7d9fe7a2424ff5c615f3",
+      "owner.a": "fdbf0f811bfdd13d2ff355e72b3a2695043e0d514e341bb3611ffac366f0e44b",
+      "owner.h": "2ac6d674531081ed71d19c6dc2dc616eec33df3103abbe8e6ff7fbfc5e79ebeb",
+      "providers.o": "d52f8aff81d00c930c9b5d8fc3a6652aca2cf3d08c89f61898d634ebc87d164f",
+      "native-driver": "9e38cd1d925b37c82aa4fc873cb4d751857d716b286fc1d88d51ba9982f2a881",
+      "driver-test": "f3937873be6e98bc722c2afe8c9892b2368306e858ca0ac0342656fb5e33d6ed",
+      "timing-test": "a68d670b54fbadfe186c3c54ef497c10ee6cdc865d58665430fadd621f6fdaf6",
+      "source/timing.h": "ffe44de15722395847bc79ca83770b5f527fe5b3e8a5140c54fc535bf7da2921",
+      "inputs/profile.json": "0c102c535990dcf076860c6c279b4ab5989d71c2a91753faaf456fcd23a96f02",
+      "inputs/plan.json": "3609a0d28618c95153415e91a04135a86323eb982bc6169ab9e03dea7c856222",
+      "inputs/attempt_bindings.h": "013aeebea6fa2c26fd5f346fc09491470212ec6571b1ee5ae3ed0e342658c4c9",
+      "inputs/supervisor_effect_abi.h": "fce78bb5893f9396bdcbe94f04612631b718735e22f63d76df95a14016c6339a",
+      "inputs/supervisor_effect_driver.c": "5cca38d4f95cb5007cb9efbda32bc7363d42b499ae09ff9699c73832db8a35e9",
+      "inputs/source.frame": "230099ce3fdfeff20791edd904954d504722090ca9d4d86a33aa5a84ea112a41",
+      "inputs/input.frame": "244de62135455d309fd96190871fd3c0d0d9471dd03ee55e124219e4566fb3f3",
+      "inputs/completion.frame": "c4df30dd5864262c00337918bf38d98077169046be6073a3ae689e3b54af89ec",
+      "source/transport.c": "05d1ef5c28f5dbdab10fb74a7784e5fc565fc090a385df7572f3e681f2a8639b",
+      "source/frames.h": "6615e6e2a374dd937fa5c804fd0aed5ff82069608d59ea300370ea5dc3ed5c8e",
+      "source/lifecycle.c": "aa9676d377d023113159e44c0bc969e4e7857be3d9f1b1682c69ae4b3a57bada",
+      "source/providers.c": "8cb9abb1d62e686ee1766aa572d83454aa9d0cdcce1544a27e267c6f2f31ec04",
+      "store/fixture_generated.go": "9880886c8e012f4ae2d4da06116b182e9610ec69fd3f3416303d44e910e5b865"
+    },
+    "1": {
+      "fixture-runner": "8c5ea8d21fef77729cfed87480dd790b54af490078523a7d1267d6f1097a588a",
+      "root.input": "17c6a634896586167cd528fcb1847263c67d3dc404dd7d9fe7a2424ff5c615f3",
+      "owner.a": "1c8b3e99ee6690df1eda9f1cc9f97ddb823c920a29c5cdf0f316e2cac4b9ff3d",
+      "owner.h": "2ac6d674531081ed71d19c6dc2dc616eec33df3103abbe8e6ff7fbfc5e79ebeb",
+      "providers.o": "8b48c0fe680258f613ad7f504cde5d23665c983000b6d22460503a6ea0752cc5",
+      "native-driver": "1082b211b17d0dd8d8d3f9bb536797ef40a9b08242e9f43ab4ade3a062058e9b",
+      "driver-test": "d8890d6dcce072f877bd717e96d27def88d3a8334eb2df03a3a472eedd9cecc0",
+      "timing-test": "0edd14c92f68ab7df9e6e59d8154d5aa69f0ef7a0021f306adb5c1f3c0a7a5ae",
+      "source/timing.h": "ffe44de15722395847bc79ca83770b5f527fe5b3e8a5140c54fc535bf7da2921",
+      "inputs/profile.json": "69801f6e87899512e24c6d4c051d60e1722bc591c070f2f6ed6d0161c385ddf6",
+      "inputs/plan.json": "ba22c5ab62052fb9deb71242917298d135677a0c6efa55ea841fc607efe77508",
+      "inputs/attempt_bindings.h": "cfd741315a013ca8510a60e7cf4300cc65b582ca9686263183ff6d6b0cbb0587",
+      "inputs/supervisor_effect_abi.h": "fce78bb5893f9396bdcbe94f04612631b718735e22f63d76df95a14016c6339a",
+      "inputs/supervisor_effect_driver.c": "5cca38d4f95cb5007cb9efbda32bc7363d42b499ae09ff9699c73832db8a35e9",
+      "inputs/source.frame": "08561933a75119074420040b2b4d66caa3acf1168001a05614c2ef372b3a3698",
+      "inputs/input.frame": "c167b6b8cdfe75bd66f237445c54cd6fdb5ea343dfc7c58288b6e251c4315de6",
+      "inputs/completion.frame": "d63277a2963b1b31fa9643aa55ec032c9d98a7d1a469de4db58651d8c6af90e5",
+      "source/transport.c": "05d1ef5c28f5dbdab10fb74a7784e5fc565fc090a385df7572f3e681f2a8639b",
+      "source/frames.h": "e0e57c6e2bcf7f39aedf9bc1f275a6d4822b38db6760431cca584a8e080b6067",
+      "source/lifecycle.c": "aa9676d377d023113159e44c0bc969e4e7857be3d9f1b1682c69ae4b3a57bada",
+      "source/providers.c": "8cb9abb1d62e686ee1766aa572d83454aa9d0cdcce1544a27e267c6f2f31ec04",
+      "store/fixture_generated.go": "eb082707a13c3078232a6adaacbe6d6f7e39a51ca911a7a417f709ecf167d232"
+    },
+    "2": {
+      "fixture-runner": "3553b02d94961b42e0d8ca141f45aece4e24685138b73ff874f209fd34caa641",
+      "root.input": "17c6a634896586167cd528fcb1847263c67d3dc404dd7d9fe7a2424ff5c615f3",
+      "owner.a": "cd6751fe5696c39c8a7a6ffc94e69c9d66e6bb48cf33a694d5c607147776fd74",
+      "owner.h": "2ac6d674531081ed71d19c6dc2dc616eec33df3103abbe8e6ff7fbfc5e79ebeb",
+      "providers.o": "2a15b0fb053a9df29a8513c54773f5939ce8574cc62a78957bad9f21fae561f1",
+      "native-driver": "d35d99d18517e44b894898f75e0e0300844cc1d8778e9147dc665ef468d0a8d4",
+      "driver-test": "5527eea7ded2ee5d416453b462dee933736aecdb04f969c6fcf0f67660a6569b",
+      "timing-test": "c47bae449bd9bf2aa6da9dc25b7bf4bb24adb3e68dd88bc0bc1dd0cd09ae39f9",
+      "source/timing.h": "ffe44de15722395847bc79ca83770b5f527fe5b3e8a5140c54fc535bf7da2921",
+      "inputs/profile.json": "4ae3f2323da26fa597a8c901816f38d5bd665e56f1f0d2bb2251b9ba4d1c23a4",
+      "inputs/plan.json": "1964e1079fb298bf47906e03189e3c0431538b8858136239917920454074fc99",
+      "inputs/attempt_bindings.h": "5b51eaf65cae14509c3ea0d3409226ccbcfff5575f542ec031cb2188d31980ef",
+      "inputs/supervisor_effect_abi.h": "fce78bb5893f9396bdcbe94f04612631b718735e22f63d76df95a14016c6339a",
+      "inputs/supervisor_effect_driver.c": "5cca38d4f95cb5007cb9efbda32bc7363d42b499ae09ff9699c73832db8a35e9",
+      "inputs/source.frame": "abf6e1cd2a04a674580b23e8640bb8f60a50aed1bbb8bf589b752ff8bc01f804",
+      "inputs/input.frame": "7e32885093f7355608de4d03e275490e5cdd0e7c9010c8b794685fe76ac24e0e",
+      "inputs/completion.frame": "23b5b35ff6520646da15e3fa4bb815ed827d5e99d86b9fd7d30ecf2bc290196e",
+      "source/transport.c": "05d1ef5c28f5dbdab10fb74a7784e5fc565fc090a385df7572f3e681f2a8639b",
+      "source/frames.h": "25ff58934e2be324899e5d7833c21359078057651fc1379fea92df0f314aac80",
+      "source/lifecycle.c": "aa9676d377d023113159e44c0bc969e4e7857be3d9f1b1682c69ae4b3a57bada",
+      "source/providers.c": "8cb9abb1d62e686ee1766aa572d83454aa9d0cdcce1544a27e267c6f2f31ec04",
+      "store/fixture_generated.go": "2dd1e4f0ebe93e9a8e58890da2e93e1bfa6d4a40bfb00afa570092792b3fc8a3"
+    },
+    "3": {
+      "fixture-runner": "fe8064c83f1379779cd152caf42e6d745bc5f2b5c99f6682f62f68f5f947cdfd",
+      "root.input": "17c6a634896586167cd528fcb1847263c67d3dc404dd7d9fe7a2424ff5c615f3",
+      "owner.a": "76ee1bebbe3087d50cd603713d3225c9896b94a1276e4627d68f9e97c613b5c2",
+      "owner.h": "2ac6d674531081ed71d19c6dc2dc616eec33df3103abbe8e6ff7fbfc5e79ebeb",
+      "providers.o": "39b7a95b98b24554782f06077a880ca2c7ec7ad9b0bf8596aa04779a4182d2cf",
+      "native-driver": "b3b7b7834dc11e9c40a1e6a9cd968aa71763428e37231f202571a343e12c8529",
+      "driver-test": "5d853399f0923d87a4a1379418a0d6339b4f95f332d03244a7b6ff4e9db046f1",
+      "timing-test": "f90e5ab51ad5f81ad7af2b2fe0bf49bffe2d9fd1ea71dc5e2cda42ab9617d532",
+      "source/timing.h": "ffe44de15722395847bc79ca83770b5f527fe5b3e8a5140c54fc535bf7da2921",
+      "inputs/profile.json": "970201ad980a22bb5953099b000bccd5f79188af2d1efff4f1b9328fab6a1c79",
+      "inputs/plan.json": "c7dd5fd3b3bca3dc13dd8bfceb58bc7aae88b404dff756512e01f3a4a49d80c4",
+      "inputs/attempt_bindings.h": "d647906b0dd8dc4fb888cb8e07ef4c10f91e87d4c7c92f0625415f8b9532474c",
+      "inputs/supervisor_effect_abi.h": "fce78bb5893f9396bdcbe94f04612631b718735e22f63d76df95a14016c6339a",
+      "inputs/supervisor_effect_driver.c": "5cca38d4f95cb5007cb9efbda32bc7363d42b499ae09ff9699c73832db8a35e9",
+      "inputs/source.frame": "b864cc76f1913c53eb402cd3564cb021c21f962a20221d87593b144fb13cd99e",
+      "inputs/input.frame": "32ce697b4a212d784f84fa69829f0ba963f7d0963fb1716797b415f37d8e590d",
+      "inputs/completion.frame": "9476b94c1a087ec685a39d74aa41c442ca172c8abcadfc1e2c0d9c0a22c09a3d",
+      "source/transport.c": "05d1ef5c28f5dbdab10fb74a7784e5fc565fc090a385df7572f3e681f2a8639b",
+      "source/frames.h": "87709d19fea175818f149f8e9f2ab5c0caa4d3c8eae935e89d2520527d214d31",
+      "source/lifecycle.c": "aa9676d377d023113159e44c0bc969e4e7857be3d9f1b1682c69ae4b3a57bada",
+      "source/providers.c": "8cb9abb1d62e686ee1766aa572d83454aa9d0cdcce1544a27e267c6f2f31ec04",
+      "store/fixture_generated.go": "5ab28543e67ca27d40e64750797b6e74a46bf572775b99f4219e55a126e8344c"
+    }
+  },
+  "sanitizerArtifacts": [
+    {
+      "driver-sanitized": "8b3de0e67ddc1199981fa504ff8788d9e5eca5428f8581dbb8ccf4a94529683d",
+      "native-sanitized": "9109cad048d57e738cd6729a0577261d0e123b6145f07542293c97089762f284"
+    },
+    {
+      "driver-sanitized": "fdf11b1ebb95fad02b75c66c26d97a1bc57fea7862509a6c41d24bfa004cec26",
+      "native-sanitized": "ece640b51a12ac05cf68c6be63c27e3b6be3f913bb81e5721e95550fd36a1153"
+    },
+    {
+      "driver-sanitized": "0827240751f98fd3067813d47f6b48cc4ce32d736367ab0de0ade4af18db9eda",
+      "native-sanitized": "ce7d01ff0df256f27a9df49f0bdba87bdf3db40a89adfc8106e99c76b69de1dc"
+    },
+    {
+      "driver-sanitized": "74f05d15e5fb1f760dc691523b20a0accdb63f68a9fba9e394108c86c6b6fdac",
+      "native-sanitized": "197b531b687cda56ace7455b7dbdeb7e0bd8f87404435381694587626946ff7f"
+    }
+  ],
+  "passedGoTests": [
+    "TestBootstrapRefusesNonempty",
+    "TestBoundRequestsAndSkippedRecoveryRefuse",
+    "TestCanonicalSnapshotRefusals",
+    "TestCompletionLastImmutableAndCopied",
+    "TestCompletionLostResponseReopenReplay",
+    "TestCompletionLostResponseReopenReplay/after-directory-sync",
+    "TestCompletionLostResponseReopenReplay/after-publish",
+    "TestCompletionLostResponseReopenReplay/before-publish",
+    "TestConcurrentImmutableReads",
+    "TestCorruptMissingAndExtraRefuse",
+    "TestCorruptMissingAndExtraRefuse/corrupt",
+    "TestCorruptMissingAndExtraRefuse/extra",
+    "TestCorruptMissingAndExtraRefuse/missing",
+    "TestCorruptMissingAndExtraRefuse/symlink",
+    "TestCrashWorker",
+    "TestEndpointFailureNeverBecomesFresh",
+    "TestEveryMutationPublicationBoundary",
+    "TestEveryMutationPublicationBoundary/absence/after-directory-sync",
+    "TestEveryMutationPublicationBoundary/absence/after-publish",
+    "TestEveryMutationPublicationBoundary/absence/before-publish",
+    "TestEveryMutationPublicationBoundary/completion/after-directory-sync",
+    "TestEveryMutationPublicationBoundary/completion/after-publish",
+    "TestEveryMutationPublicationBoundary/completion/before-publish",
+    "TestEveryMutationPublicationBoundary/fence/after-directory-sync",
+    "TestEveryMutationPublicationBoundary/fence/after-publish",
+    "TestEveryMutationPublicationBoundary/fence/before-publish",
+    "TestEveryMutationPublicationBoundary/lookup-fenced/after-directory-sync",
+    "TestEveryMutationPublicationBoundary/lookup-fenced/after-publish",
+    "TestEveryMutationPublicationBoundary/lookup-fenced/before-publish",
+    "TestEveryMutationPublicationBoundary/lookup-recovery/after-directory-sync",
+    "TestEveryMutationPublicationBoundary/lookup-recovery/after-publish",
+    "TestEveryMutationPublicationBoundary/lookup-recovery/before-publish",
+    "TestEveryMutationPublicationBoundary/reconcile/after-directory-sync",
+    "TestEveryMutationPublicationBoundary/reconcile/after-publish",
+    "TestEveryMutationPublicationBoundary/reconcile/before-publish",
+    "TestEveryMutationPublicationBoundary/reopen/after-directory-sync",
+    "TestEveryMutationPublicationBoundary/reopen/after-publish",
+    "TestEveryMutationPublicationBoundary/reopen/before-publish",
+    "TestEveryMutationPublicationBoundary/replay/after-directory-sync",
+    "TestEveryMutationPublicationBoundary/replay/after-publish",
+    "TestEveryMutationPublicationBoundary/replay/before-publish",
+    "TestEveryMutationPublicationBoundary/root/after-directory-sync",
+    "TestEveryMutationPublicationBoundary/root/after-publish",
+    "TestEveryMutationPublicationBoundary/root/before-publish",
+    "TestEveryMutationPublicationBoundary/spawn/after-directory-sync",
+    "TestEveryMutationPublicationBoundary/spawn/after-publish",
+    "TestEveryMutationPublicationBoundary/spawn/before-publish",
+    "TestEveryMutationPublicationBoundary/teardown/after-directory-sync",
+    "TestEveryMutationPublicationBoundary/teardown/after-publish",
+    "TestEveryMutationPublicationBoundary/teardown/before-publish",
+    "TestEveryMutationPublicationBoundary/terminal/after-directory-sync",
+    "TestEveryMutationPublicationBoundary/terminal/after-publish",
+    "TestEveryMutationPublicationBoundary/terminal/before-publish",
+    "TestEveryMutationPublicationBoundary/unresolved/after-directory-sync",
+    "TestEveryMutationPublicationBoundary/unresolved/after-publish",
+    "TestEveryMutationPublicationBoundary/unresolved/before-publish",
+    "TestInitializeAndExclusiveReopen",
+    "TestIntentRestartNeverFresh",
+    "TestLiveIdentityLossFences",
+    "TestLiveIdentityLossFences/directory-replaced",
+    "TestLiveIdentityLossFences/lock-replaced",
+    "TestLiveIdentityLossFences/pending-added",
+    "TestLiveIdentityLossFences/state-edited",
+    "TestLiveIdentityLossFences/state-replaced",
+    "TestMissingCompletionRemainsUnresolved",
+    "TestPublicationBoundaries",
+    "TestPublicationBoundaries/after-directory-sync",
+    "TestPublicationBoundaries/after-publish",
+    "TestPublicationBoundaries/before-publish",
+    "TestSubprocessCrashReopen",
+    "TestSubprocessCrashReopen/completion",
+    "TestSubprocessCrashReopen/spawn",
+    "TestSubprocessCrashReopen/staging",
+    "TestSubprocessCrashReopen/teardown",
+    "TestTeardownPersistsSafeCursorAndCannotRedrive"
+  ],
+  "goRace": "PASSED",
+  "goVetBuild": "PASSED",
+  "cases": [
+    {
+      "variant": "driver-test",
+      "case": "functional-0",
+      "status": "PASSED"
+    },
+    {
+      "variant": "driver-test",
+      "case": "functional-1",
+      "status": "PASSED"
+    },
+    {
+      "variant": "driver-test",
+      "case": "functional-2",
+      "status": "PASSED"
+    },
+    {
+      "variant": "driver-test",
+      "case": "functional-3",
+      "status": "PASSED"
+    },
+    {
+      "variant": "driver-test",
+      "case": "functional-4",
+      "status": "PASSED"
+    },
+    {
+      "variant": "driver-test",
+      "case": "functional-5",
+      "status": "PASSED"
+    },
+    {
+      "variant": "driver-test",
+      "case": "functional-6",
+      "status": "PASSED"
+    },
+    {
+      "variant": "driver-test",
+      "case": "functional-7",
+      "status": "PASSED"
+    },
+    {
+      "variant": "driver-test",
+      "case": "functional-8",
+      "status": "PASSED"
+    },
+    {
+      "variant": "driver-test",
+      "case": "functional-9",
+      "status": "PASSED"
+    },
+    {
+      "variant": "driver-test",
+      "case": "functional-10",
+      "status": "PASSED"
+    },
+    {
+      "variant": "driver-test",
+      "case": "functional-11",
+      "status": "PASSED"
+    },
+    {
+      "variant": "driver-test",
+      "case": "functional-12",
+      "status": "PASSED"
+    },
+    {
+      "variant": "driver-test",
+      "case": "functional-13",
+      "status": "PASSED"
+    },
+    {
+      "variant": "driver-test",
+      "case": "functional-14",
+      "status": "PASSED"
+    },
+    {
+      "variant": "driver-test",
+      "case": "functional-15",
+      "status": "PASSED"
+    },
+    {
+      "variant": "driver-test",
+      "case": "functional-16",
+      "status": "PASSED"
+    },
+    {
+      "variant": "driver-test",
+      "case": "functional-17",
+      "status": "PASSED"
+    },
+    {
+      "variant": "driver-test",
+      "case": "functional-18",
+      "status": "PASSED"
+    },
+    {
+      "variant": "driver-test",
+      "case": "functional-19",
+      "status": "PASSED"
+    },
+    {
+      "variant": "driver-test",
+      "case": "functional-20",
+      "status": "PASSED"
+    },
+    {
+      "variant": "driver-test",
+      "case": "functional-21",
+      "status": "PASSED"
+    },
+    {
+      "variant": "driver-test",
+      "case": "functional-22",
+      "status": "PASSED"
+    },
+    {
+      "variant": "driver-test",
+      "case": "functional-23",
+      "status": "PASSED"
+    },
+    {
+      "variant": "driver-test",
+      "case": "functional-29",
+      "status": "PASSED"
+    },
+    {
+      "variant": "driver-test",
+      "case": "publication-14-1",
+      "status": "PASSED"
+    },
+    {
+      "variant": "driver-test",
+      "case": "publication-14-2",
+      "status": "PASSED"
+    },
+    {
+      "variant": "driver-test",
+      "case": "publication-14-3",
+      "status": "PASSED"
+    },
+    {
+      "variant": "driver-test",
+      "case": "publication-15-1",
+      "status": "PASSED"
+    },
+    {
+      "variant": "driver-test",
+      "case": "publication-15-2",
+      "status": "PASSED"
+    },
+    {
+      "variant": "driver-test",
+      "case": "publication-15-3",
+      "status": "PASSED"
+    },
+    {
+      "variant": "driver-test",
+      "case": "publication-17-1",
+      "status": "PASSED"
+    },
+    {
+      "variant": "driver-test",
+      "case": "publication-17-2",
+      "status": "PASSED"
+    },
+    {
+      "variant": "driver-test",
+      "case": "publication-17-3",
+      "status": "PASSED"
+    },
+    {
+      "variant": "driver-test",
+      "case": "publication-18-1",
+      "status": "PASSED"
+    },
+    {
+      "variant": "driver-test",
+      "case": "publication-18-2",
+      "status": "PASSED"
+    },
+    {
+      "variant": "driver-test",
+      "case": "publication-18-3",
+      "status": "PASSED"
+    },
+    {
+      "variant": "driver-test",
+      "case": "publication-19-1",
+      "status": "PASSED"
+    },
+    {
+      "variant": "driver-test",
+      "case": "publication-19-2",
+      "status": "PASSED"
+    },
+    {
+      "variant": "driver-test",
+      "case": "publication-19-3",
+      "status": "PASSED"
+    },
+    {
+      "variant": "driver-test",
+      "case": "publication-20-1",
+      "status": "PASSED"
+    },
+    {
+      "variant": "driver-test",
+      "case": "publication-20-2",
+      "status": "PASSED"
+    },
+    {
+      "variant": "driver-test",
+      "case": "publication-20-3",
+      "status": "PASSED"
+    },
+    {
+      "variant": "driver-test",
+      "case": "publication-21-1",
+      "status": "PASSED"
+    },
+    {
+      "variant": "driver-test",
+      "case": "publication-21-2",
+      "status": "PASSED"
+    },
+    {
+      "variant": "driver-test",
+      "case": "publication-21-3",
+      "status": "PASSED"
+    },
+    {
+      "variant": "driver-test",
+      "case": "publication-22-1",
+      "status": "PASSED"
+    },
+    {
+      "variant": "driver-test",
+      "case": "publication-22-2",
+      "status": "PASSED"
+    },
+    {
+      "variant": "driver-test",
+      "case": "publication-22-3",
+      "status": "PASSED"
+    },
+    {
+      "variant": "driver-test",
+      "case": "publication-23-1",
+      "status": "PASSED"
+    },
+    {
+      "variant": "driver-test",
+      "case": "publication-23-2",
+      "status": "PASSED"
+    },
+    {
+      "variant": "driver-test",
+      "case": "publication-23-3",
+      "status": "PASSED"
+    },
+    {
+      "variant": "driver-test",
+      "case": "publication-24-1",
+      "status": "PASSED"
+    },
+    {
+      "variant": "driver-test",
+      "case": "publication-24-2",
+      "status": "PASSED"
+    },
+    {
+      "variant": "driver-test",
+      "case": "publication-24-3",
+      "status": "PASSED"
+    },
+    {
+      "variant": "driver-test",
+      "case": "crash-reopen-50",
+      "status": "PASSED"
+    },
+    {
+      "variant": "driver-test",
+      "case": "crash-reopen-51",
+      "status": "PASSED"
+    },
+    {
+      "variant": "driver-test",
+      "case": "crash-reopen-52",
+      "status": "PASSED"
+    },
+    {
+      "variant": "driver-test",
+      "case": "crash-reopen-53",
+      "status": "PASSED"
+    },
+    {
+      "variant": "driver-test",
+      "case": "store-refusal-missing",
+      "status": "PASSED"
+    },
+    {
+      "variant": "driver-test",
+      "case": "store-refusal-corrupt",
+      "status": "PASSED"
+    },
+    {
+      "variant": "driver-test",
+      "case": "store-refusal-cross-profile",
+      "status": "PASSED"
+    },
+    {
+      "variant": "native-driver",
+      "case": "uninterposed-native",
+      "status": "PASSED"
+    },
+    {
+      "variant": "driver-sanitized",
+      "case": "functional-0",
+      "status": "PASSED"
+    },
+    {
+      "variant": "driver-sanitized",
+      "case": "functional-1",
+      "status": "PASSED"
+    },
+    {
+      "variant": "driver-sanitized",
+      "case": "functional-2",
+      "status": "PASSED"
+    },
+    {
+      "variant": "driver-sanitized",
+      "case": "functional-3",
+      "status": "PASSED"
+    },
+    {
+      "variant": "driver-sanitized",
+      "case": "functional-4",
+      "status": "PASSED"
+    },
+    {
+      "variant": "driver-sanitized",
+      "case": "functional-5",
+      "status": "PASSED"
+    },
+    {
+      "variant": "driver-sanitized",
+      "case": "functional-6",
+      "status": "PASSED"
+    },
+    {
+      "variant": "driver-sanitized",
+      "case": "functional-7",
+      "status": "PASSED"
+    },
+    {
+      "variant": "driver-sanitized",
+      "case": "functional-8",
+      "status": "PASSED"
+    },
+    {
+      "variant": "driver-sanitized",
+      "case": "functional-9",
+      "status": "PASSED"
+    },
+    {
+      "variant": "driver-sanitized",
+      "case": "functional-10",
+      "status": "PASSED"
+    },
+    {
+      "variant": "driver-sanitized",
+      "case": "functional-11",
+      "status": "PASSED"
+    },
+    {
+      "variant": "driver-sanitized",
+      "case": "functional-12",
+      "status": "PASSED"
+    },
+    {
+      "variant": "driver-sanitized",
+      "case": "functional-13",
+      "status": "PASSED"
+    },
+    {
+      "variant": "driver-sanitized",
+      "case": "functional-14",
+      "status": "PASSED"
+    },
+    {
+      "variant": "driver-sanitized",
+      "case": "functional-15",
+      "status": "PASSED"
+    },
+    {
+      "variant": "driver-sanitized",
+      "case": "functional-16",
+      "status": "PASSED"
+    },
+    {
+      "variant": "driver-sanitized",
+      "case": "functional-17",
+      "status": "PASSED"
+    },
+    {
+      "variant": "driver-sanitized",
+      "case": "functional-18",
+      "status": "PASSED"
+    },
+    {
+      "variant": "driver-sanitized",
+      "case": "functional-19",
+      "status": "PASSED"
+    },
+    {
+      "variant": "driver-sanitized",
+      "case": "functional-20",
+      "status": "PASSED"
+    },
+    {
+      "variant": "driver-sanitized",
+      "case": "functional-21",
+      "status": "PASSED"
+    },
+    {
+      "variant": "driver-sanitized",
+      "case": "functional-22",
+      "status": "PASSED"
+    },
+    {
+      "variant": "driver-sanitized",
+      "case": "functional-23",
+      "status": "PASSED"
+    },
+    {
+      "variant": "driver-sanitized",
+      "case": "functional-29",
+      "status": "PASSED"
+    },
+    {
+      "variant": "driver-sanitized",
+      "case": "publication-14-1",
+      "status": "PASSED"
+    },
+    {
+      "variant": "driver-sanitized",
+      "case": "publication-14-2",
+      "status": "PASSED"
+    },
+    {
+      "variant": "driver-sanitized",
+      "case": "publication-14-3",
+      "status": "PASSED"
+    },
+    {
+      "variant": "driver-sanitized",
+      "case": "publication-15-1",
+      "status": "PASSED"
+    },
+    {
+      "variant": "driver-sanitized",
+      "case": "publication-15-2",
+      "status": "PASSED"
+    },
+    {
+      "variant": "driver-sanitized",
+      "case": "publication-15-3",
+      "status": "PASSED"
+    },
+    {
+      "variant": "driver-sanitized",
+      "case": "publication-17-1",
+      "status": "PASSED"
+    },
+    {
+      "variant": "driver-sanitized",
+      "case": "publication-17-2",
+      "status": "PASSED"
+    },
+    {
+      "variant": "driver-sanitized",
+      "case": "publication-17-3",
+      "status": "PASSED"
+    },
+    {
+      "variant": "driver-sanitized",
+      "case": "publication-18-1",
+      "status": "PASSED"
+    },
+    {
+      "variant": "driver-sanitized",
+      "case": "publication-18-2",
+      "status": "PASSED"
+    },
+    {
+      "variant": "driver-sanitized",
+      "case": "publication-18-3",
+      "status": "PASSED"
+    },
+    {
+      "variant": "driver-sanitized",
+      "case": "publication-19-1",
+      "status": "PASSED"
+    },
+    {
+      "variant": "driver-sanitized",
+      "case": "publication-19-2",
+      "status": "PASSED"
+    },
+    {
+      "variant": "driver-sanitized",
+      "case": "publication-19-3",
+      "status": "PASSED"
+    },
+    {
+      "variant": "driver-sanitized",
+      "case": "publication-20-1",
+      "status": "PASSED"
+    },
+    {
+      "variant": "driver-sanitized",
+      "case": "publication-20-2",
+      "status": "PASSED"
+    },
+    {
+      "variant": "driver-sanitized",
+      "case": "publication-20-3",
+      "status": "PASSED"
+    },
+    {
+      "variant": "driver-sanitized",
+      "case": "publication-21-1",
+      "status": "PASSED"
+    },
+    {
+      "variant": "driver-sanitized",
+      "case": "publication-21-2",
+      "status": "PASSED"
+    },
+    {
+      "variant": "driver-sanitized",
+      "case": "publication-21-3",
+      "status": "PASSED"
+    },
+    {
+      "variant": "driver-sanitized",
+      "case": "publication-22-1",
+      "status": "PASSED"
+    },
+    {
+      "variant": "driver-sanitized",
+      "case": "publication-22-2",
+      "status": "PASSED"
+    },
+    {
+      "variant": "driver-sanitized",
+      "case": "publication-22-3",
+      "status": "PASSED"
+    },
+    {
+      "variant": "driver-sanitized",
+      "case": "publication-23-1",
+      "status": "PASSED"
+    },
+    {
+      "variant": "driver-sanitized",
+      "case": "publication-23-2",
+      "status": "PASSED"
+    },
+    {
+      "variant": "driver-sanitized",
+      "case": "publication-23-3",
+      "status": "PASSED"
+    },
+    {
+      "variant": "driver-sanitized",
+      "case": "publication-24-1",
+      "status": "PASSED"
+    },
+    {
+      "variant": "driver-sanitized",
+      "case": "publication-24-2",
+      "status": "PASSED"
+    },
+    {
+      "variant": "driver-sanitized",
+      "case": "publication-24-3",
+      "status": "PASSED"
+    },
+    {
+      "variant": "driver-sanitized",
+      "case": "crash-reopen-50",
+      "status": "PASSED"
+    },
+    {
+      "variant": "driver-sanitized",
+      "case": "crash-reopen-51",
+      "status": "PASSED"
+    },
+    {
+      "variant": "driver-sanitized",
+      "case": "crash-reopen-52",
+      "status": "PASSED"
+    },
+    {
+      "variant": "driver-sanitized",
+      "case": "crash-reopen-53",
+      "status": "PASSED"
+    },
+    {
+      "variant": "driver-sanitized",
+      "case": "store-refusal-missing",
+      "status": "PASSED"
+    },
+    {
+      "variant": "driver-sanitized",
+      "case": "store-refusal-corrupt",
+      "status": "PASSED"
+    },
+    {
+      "variant": "driver-sanitized",
+      "case": "store-refusal-cross-profile",
+      "status": "PASSED"
+    },
+    {
+      "variant": "native-sanitized",
+      "case": "uninterposed-native",
+      "status": "PASSED"
+    }
+  ],
+  "variants": [
+    {
+      "name": "Go race archive",
+      "cases": 8,
+      "status": "PASSED",
+      "linkerOutput": "ld: warning: '/private<verifier-temp>/mode0/owner-race.a[16](000013.o)' has malformed LC_DYSYMTAB, expected 98 undefined symbols to start at index 1626, found 95 undefined symbols starting at index 1626",
+      "artifacts": {
+        "owner-race.a": "04b7c007edeccfe6f5ad26c2fa563af1f30c5c00497c2d9fa67a39f49b10846a",
+        "driver-race": "c0c5e30f27ef6acd10ba89eb1e71ea874e6272f828b0babd808a9e05fadc26b9"
+      }
+    }
+  ],
+  "mutations": [
+    {
+      "name": "spawn-gate",
+      "status": "PASSED",
+      "assertion": "Assertion failed: (BridgeFact(1)==1), function checked_spawn, file driver_test.c, line 16.",
+      "outputSHA256": "f361e968b06f0f5b745e45a01ea85dcf03d376fdddfdab9774d3f7b03b17423d"
+    },
+    {
+      "name": "teardown-gate",
+      "status": "PASSED",
+      "assertion": "Assertion failed: (BridgeFact(2)==1 && BridgeFact(6)==17), function checked_kill, file driver_test.c, line 22.",
+      "outputSHA256": "e88366e57096737f2cc2e1e502a4567214ccf5109ba544d4ae1b45af5c0d6e4a"
+    },
+    {
+      "name": "native-absence",
+      "status": "PASSED",
+      "assertion": "Assertion failed: (c5b16_supervisor_commit_durable_completion(&q,&r)==-1), function contract_refusals, file driver_test.c, line 86.",
+      "outputSHA256": "46bb1c15b69ec4131bcad0c71963cbbdee53b7435db5013b2eb06a543ccba52d"
+    },
+    {
+      "name": "recovery-checkpoint",
+      "status": "PASSED",
+      "assertion": "Assertion failed: (first<0 && BridgeFact(8)==0), function publication_matrix, file driver_test.c, line 96.",
+      "outputSHA256": "e77a898410ca5350af0e945ef078e0ebe9851beadd79c4d1c834e096f07c3cdf"
+    },
+    {
+      "name": "endpoint-terminal-cursor",
+      "status": "PASSED",
+      "assertion": "case=10 result=-2 spawn=0 kill=0 phase=0 cursor=21/21 unresolved=1 complete=0\nAssertion failed: (c5b16_drive_registered_attempt(registration)==-2), function main, file driver_test.c, line 145.",
+      "outputSHA256": "d692c04a88c19ee113f8c384a7be393643770d73e8f0eee1ee4b2c41a8dc1a86"
+    },
+    {
+      "name": "native-terminal-exit",
+      "status": "PASSED",
+      "assertion": "case=11 result=-2 spawn=1 kill=0 phase=11 cursor=22/22 unresolved=1 complete=0\nAssertion failed: (result==-1 && spawn_calls==1 && BridgeFact(5)==20), function main, file driver_test.c, line 146.",
+      "outputSHA256": "0c2e35bbf98c186d58965f97d3f164d6a28d001fee311e8e36125bcf5b84116a"
+    },
+    {
+      "name": "request-binding",
+      "status": "PASSED",
+      "assertion": "Assertion failed: (c5b16_supervisor_lookup_recovery_cursor(&q,&r)==-1), function contract_refusals, file driver_test.c, line 76.",
+      "outputSHA256": "d9e77436844d9d9e5fc88499854423c96896fabc2825f26365c7f47f7af595b4"
+    },
+    {
+      "name": "native-frame-fields",
+      "status": "PASSED",
+      "assertion": "Assertion failed: (c5b16_supervisor_commit_durable_completion(&q,&r)==-1), function contract_refusals, file driver_test.c, line 86.",
+      "outputSHA256": "46bb1c15b69ec4131bcad0c71963cbbdee53b7435db5013b2eb06a543ccba52d"
+    },
+    {
+      "name": "delivery-store-recheck",
+      "status": "PASSED",
+      "assertion": "Assertion failed: (BridgeCopyDelivery(b,sizeof(b))==-1), function main, file driver_test.c, line 124.",
+      "outputSHA256": "078f00c7ebecff5fb4cf236e72a0af38c2baa3caf33c1bae3f858b039ee55fca"
+    },
+    {
+      "name": "restart-fresh-refusal",
+      "status": "PASSED",
+      "assertion": "Assertion failed: (result==-2 && BridgeFact(3)==1 && BridgeFact(6)==17), function main, file driver_test.c, line 115.",
+      "outputSHA256": "427d8d3812f6742ac368f495df06346fce6fa6c6b4f6d77d55aac2d7d821bfc3"
+    }
+  ],
+  "exports": [
+    "_bridge_observed_completion",
+    "_bridge_timing_edge",
+    "_c5b16_drive_registered_attempt",
+    "_c5b16_store_before_spawn",
+    "_c5b16_store_before_teardown",
+    "_c5b16_supervisor_close_input_writers",
+    "_c5b16_supervisor_commit_durable_completion",
+    "_c5b16_supervisor_create_fixed_endpoints",
+    "_c5b16_supervisor_deliver_stored_completion",
+    "_c5b16_supervisor_drain_validate_completion",
+    "_c5b16_supervisor_fence_attempt",
+    "_c5b16_supervisor_join_terminal_state",
+    "_c5b16_supervisor_lookup_fenced_attempt",
+    "_c5b16_supervisor_lookup_recovery_cursor",
+    "_c5b16_supervisor_prove_authoritative_absence",
+    "_c5b16_supervisor_reconcile_authoritative_absence",
+    "_c5b16_supervisor_reconcile_fixed_root_removal",
+    "_c5b16_supervisor_reconcile_teardown_outcome",
+    "_c5b16_supervisor_reconcile_terminal_state",
+    "_c5b16_supervisor_record_unresolved_cleanup",
+    "_c5b16_supervisor_remove_fixed_root",
+    "_c5b16_supervisor_reopen_stored_completion",
+    "_c5b16_supervisor_replay_stored_completion",
+    "_c5b16_supervisor_request_teardown",
+    "_c5b16_supervisor_send_start_byte",
+    "_c5b16_supervisor_spawn_fixed_runner",
+    "_c5b16_supervisor_verify_ready_byte",
+    "_c5b16_supervisor_write_input_frame",
+    "_c5b16_supervisor_write_source_frame"
+  ],
+  "imports": [
+    "_BridgeApply",
+    "_CC_SHA256_Final",
+    "_CC_SHA256_Init",
+    "_CC_SHA256_Update",
+    "___chkstk_darwin",
+    "___error",
+    "___stack_chk_fail",
+    "___stack_chk_guard",
+    "_clock_gettime",
+    "_close",
+    "_fchmod",
+    "_fcntl",
+    "_fstat",
+    "_getpid",
+    "_getuid",
+    "_kill",
+    "_memcmp",
+    "_memcpy",
+    "_nanosleep",
+    "_open",
+    "_pipe",
+    "_poll",
+    "_posix_spawn",
+    "_posix_spawn_file_actions_addclose",
+    "_posix_spawn_file_actions_adddup2",
+    "_posix_spawn_file_actions_destroy",
+    "_posix_spawn_file_actions_init",
+    "_posix_spawnattr_destroy",
+    "_posix_spawnattr_init",
+    "_posix_spawnattr_setflags",
+    "_posix_spawnattr_setsigdefault",
+    "_posix_spawnattr_setsigmask",
+    "_pread",
+    "_pthread_create",
+    "_pthread_join",
+    "_read",
+    "_sigaction",
+    "_unlink",
+    "_waitpid",
+    "_write"
+  ],
+  "libraries": [
+    "/usr/lib/libSystem.B.dylib (compatibility version 1.0.0, current version 1356.0.0)"
+  ],
+  "reproduction": {
+    "mode": 0,
+    "directories": 2,
+    "artifacts": [
+      "fixture-runner",
+      "root.input",
+      "owner.a",
+      "owner.h",
+      "providers.o",
+      "native-driver",
+      "driver-test",
+      "timing-test",
+      "source/timing.h",
+      "inputs/profile.json",
+      "inputs/plan.json",
+      "inputs/attempt_bindings.h",
+      "inputs/supervisor_effect_abi.h",
+      "inputs/supervisor_effect_driver.c",
+      "inputs/source.frame",
+      "inputs/input.frame",
+      "inputs/completion.frame",
+      "source/transport.c",
+      "source/frames.h",
+      "source/lifecycle.c",
+      "source/providers.c",
+      "store/fixture_generated.go"
+    ]
+  },
+  "limits": [
+    "No interpreter/guest/backend, installed service, signing, Keychain or user content.",
+    "No restart process-custody reconstruction, PID adoption, power-loss, rollback or installed-root claim.",
+    "ASan/UBSan cover parent C code; ordinary Go archive and benign child are not instrumented by those native checks.",
+    "Go race archive is a separate variant; linker diagnostic is retained. Debug sanitizer binaries are hashed but not included in two-directory reproduction.",
+    "Bridge fixture provisioning, fault and copy-inspection exports are trusted test controls, not product/daemon APIs."
+  ]
+}
