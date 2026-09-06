@@ -31,6 +31,7 @@ export function analyze(trace,spec) {
   const elapsed=(a,b)=>{if(!a||!b)return null;assert(b[0]>=a[0],'reversed interval');return (b[0]-a[0])/1e6;};
   const drive=one(22),end=one(23),setup=one(4),spawnGate=one(9),spawnEnd=one(10);
   assert.equal(end[4],trace.result,'drive outcome');
+  if(trace.result<0)assert(all(3).length>0,'missing refusal observation');
   for(const kind of [5,6,7,8])one(kind);
   assert.equal(one(6)[4],1);assert.equal(one(8)[4],1);
   assert(spawnGate[0]>=one(8)[0]);assert(spawnEnd[0]>=spawnGate[0]);

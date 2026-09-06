@@ -21,9 +21,13 @@ function checkEvidence(evidence) {
   assert.equal(evidence.status,'PASSED');assert.equal(evidence.productAdmission,'BLOCKED');
   assert.deepEqual(evidence.kinds,kinds);assert.deepEqual(evidence.specifications,cases);
   assert.equal(evidence.runs.length,cases.length*2);
+  assert.equal(evidence.sanitizerArtifacts.length,2);
+  for(const digest of evidence.sanitizerArtifacts)assert(/^[0-9a-f]{64}$/.test(digest),'sanitizer artifact digest');
   for(const [i,run] of evidence.runs.entries()) {
     const spec=cases[i%cases.length];
     assert.equal(run.variant,i<cases.length?'ordinary':'parent-C-ASan-UBSan');
+    const executable=i<cases.length?evidence.artifacts[spec.mode]['timing-test']:evidence.sanitizerArtifacts[spec.mode];
+    assert.equal(run.artifactSHA256,executable,'run executable identity');
     assert.equal(run.rawSHA256,hash(JSON.stringify(run.raw)));
     assert.deepEqual(run.analysis,analyze(run.raw,spec),'retained timing summary');
   }
@@ -45,19 +49,21 @@ function invoke(build,binary,spec) {
 function replace(path,before,after) {const text=readFileSync(path,'utf8');assert.equal(text.split(before).length,2,'unique mutation');writeFileSync(path,text.replace(before,after));}
 try {
   const environment={go:run('go',['version']).trim(),node:process.version,compiler:run('/usr/bin/clang',['--version']).trim(),os:run('/usr/bin/sw_vers',[]).trim(),hardware:run('/usr/sbin/sysctl',['-n','hw.model']).trim(),sdk:run('/usr/bin/xcrun',['--show-sdk-version']).trim()};
-  const builds=[],artifacts=[];
+  const builds=[],artifacts=[],sanitizerArtifacts=[];
   assert.equal(run('go',['version']).trim(),'go version go1.25.13 darwin/arm64');
   for(let mode=0;mode<=1;mode++) {
     const build=join(temp,`build-${mode}`);builds.push(build);
     run('node',['scripts/build.mjs',build,String(mode)]);
     run('/usr/bin/clang',[...flags,'-O1','-g','-fsanitize=address,undefined','-fno-omit-frame-pointer','tests/timing.c','owner.a','-o','timing-sanitized'],{cwd:build});
+    sanitizerArtifacts.push(hash(readFileSync(join(build,'timing-sanitized'))));
     artifacts.push(Object.fromEntries(['timing-test','fixture-runner','owner.a','inputs/profile.json','inputs/plan.json','inputs/attempt_bindings.h','inputs/completion.frame'].map(p=>[p,hash(readFileSync(join(build,p)))])));
   }
   const runs=[];
   for(const [binary,variant] of [['timing-test','ordinary'],['timing-sanitized','parent-C-ASan-UBSan']]) {
     for(const spec of cases) {
       const raw=invoke(builds[spec.mode],binary,spec),analysis=analyze(raw,spec);
-      runs.push({variant,raw,rawSHA256:hash(JSON.stringify(raw)),analysis});
+      const artifactSHA256=binary==='timing-test'?artifacts[spec.mode]['timing-test']:sanitizerArtifacts[spec.mode];
+      runs.push({variant,artifactSHA256,raw,rawSHA256:hash(JSON.stringify(raw)),analysis});
       console.log(`PASSED: ${variant} ${spec.name} gate=${analysis.intervals.teardownGateMs} total=${analysis.intervals.totalTeardownAbsenceMs}`);
     }
   }
@@ -80,7 +86,7 @@ try {
     mutations.push({name,status:'PASSED',refusal,rawSHA256:hash(JSON.stringify(raw)),raw});
     console.log(`PASSED: compiled timing mutation ${name}`);
   }
-  const evidence={status:'PASSED',productAdmission:'BLOCKED',materials,kinds,specifications:cases,artifacts,runs,mutations,
+  const evidence={status:'PASSED',productAdmission:'BLOCKED',materials,kinds,specifications:cases,artifacts,sanitizerArtifacts,runs,mutations,
     environment,
     limits:['One fixed benign child, exclusive temporary directories, no guest/backend/installed authority.',
       'C ASan/UBSan covers parent C only; Go race checked separately in regression verifier.',
@@ -93,6 +99,8 @@ try {
     ['false-product-admission',e=>e.productAdmission='PASSED'],
     ['false-total-bound',e=>e.runs[0].analysis.totalWithin1200=true],
     ['missing-case',e=>e.runs.pop()],
+    ['wrong-sanitizer-artifact',e=>e.runs[cases.length].artifactSHA256='0'.repeat(64)],
+    ['missing-refusal',e=>{e.runs[0].raw.events=e.runs[0].raw.events.filter(v=>v[1]!==3);e.runs[0].rawSHA256=hash(JSON.stringify(e.runs[0].raw));}],
     ['reversed-time',e=>{e.runs[0].raw.events[1][0]=-1;e.runs[0].rawSHA256=hash(JSON.stringify(e.runs[0].raw));}],
     ['invented-absence',e=>{e.runs[0].raw.nativeAbsent=1;e.runs[0].rawSHA256=hash(JSON.stringify(e.runs[0].raw));}],
   ]) {
@@ -100,6 +108,8 @@ try {
     mutations.push({name,status:'PASSED'});
   }
   if(retained) {
+    // Debug sanitizer binaries embed temporary build paths: retain their exact
+    // per-run identities, but do not claim byte reproduction across directories.
     assert.deepEqual(artifacts,retained.artifacts,'timing artifact reproduction');
     assert.deepEqual(mutations.map(m=>m.name),retained.mutations.map(m=>m.name));
   } else writeFileSync(join(root,'evidence/timing.json'),JSON.stringify(evidence,null,2)+'\n');
