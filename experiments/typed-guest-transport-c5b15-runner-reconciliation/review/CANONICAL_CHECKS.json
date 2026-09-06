@@ -1,0 +1,119 @@
+[
+  {
+    "check": "install",
+    "command": [
+      "pnpm",
+      "install"
+    ],
+    "exit": 0
+  },
+  {
+    "check": "check",
+    "command": [
+      "pnpm",
+      "check"
+    ],
+    "exit": 0
+  },
+  {
+    "check": "lint",
+    "command": [
+      "pnpm",
+      "lint"
+    ],
+    "exit": 0
+  },
+  {
+    "check": "test",
+    "command": [
+      "pnpm",
+      "test"
+    ],
+    "exit": 0
+  },
+  {
+    "check": "schemas",
+    "command": [
+      "pnpm",
+      "verify:schemas"
+    ],
+    "exit": 0
+  },
+  {
+    "check": "adrs",
+    "command": [
+      "pnpm",
+      "verify:adrs"
+    ],
+    "exit": 0
+  },
+  {
+    "check": "go-test",
+    "command": [
+      "go",
+      "test",
+      "./..."
+    ],
+    "exit": 0
+  },
+  {
+    "check": "go-vet",
+    "command": [
+      "go",
+      "vet",
+      "./..."
+    ],
+    "exit": 0
+  },
+  {
+    "check": "go-build",
+    "command": [
+      "go",
+      "build",
+      "./..."
+    ],
+    "exit": 0
+  },
+  {
+    "check": "golangci-full",
+    "command": [
+      "golangci-lint",
+      "run",
+      "./..."
+    ],
+    "exit": 1
+  },
+  {
+    "check": "golangci-blocking",
+    "command": [
+      "golangci-lint",
+      "run",
+      "--disable",
+      "revive",
+      "./..."
+    ],
+    "exit": 0
+  },
+  {
+    "check": "golangci-ratchet",
+    "command": [
+      "golangci-lint",
+      "run",
+      "--enable-only",
+      "revive",
+      "--new-from-rev=origin/main",
+      "./..."
+    ],
+    "exit": 0
+  },
+  {
+    "check": "govulncheck",
+    "command": [
+      "go",
+      "run",
+      "golang.org/x/vuln/cmd/govulncheck@v1.6.0",
+      "./..."
+    ],
+    "exit": 0
+  }
+]
