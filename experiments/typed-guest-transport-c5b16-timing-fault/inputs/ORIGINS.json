@@ -1,0 +1,290 @@
+[
+  {
+    "path": "go.mod",
+    "repository": "Shrimpworks/capsule-experiments",
+    "commit": "294559e78b410f4b25e0e25fcf373ec0c7d1cfb5",
+    "sourcePath": "experiments/typed-guest-transport-c5b14b-native-storage/go.mod",
+    "sha256": "7e158c9c7edf5bd74fa4295557ab2503c550debed305fdbe63870c2fa1a7d50b",
+    "bytes": 46,
+    "derivation": "namespace replacement then reviewed C5b16 delta"
+  },
+  {
+    "path": "inputs/c5b12-transport.c",
+    "repository": "Shrimpworks/capsule-experiments",
+    "commit": "294559e78b410f4b25e0e25fcf373ec0c7d1cfb5",
+    "sourcePath": "experiments/typed-guest-transport-c5b14b-native-storage/inputs/c5b12-transport.c",
+    "sha256": "1502c8472166407f5bc038b4535fd2e3871be12f74f6e443d45b044a378231ad",
+    "bytes": 10231,
+    "derivation": "unchanged"
+  },
+  {
+    "path": "inputs/completion.payload",
+    "repository": "Shrimpworks/capsule-experiments",
+    "commit": "294559e78b410f4b25e0e25fcf373ec0c7d1cfb5",
+    "sourcePath": "experiments/typed-guest-transport-c5b14b-native-storage/inputs/completion.payload",
+    "sha256": "bb7234ee486b0fbccc2091859ec93499e6a14ea7d6e091cdef60a0e2a6e8371c",
+    "bytes": 35,
+    "derivation": "unchanged"
+  },
+  {
+    "path": "inputs/input.payload",
+    "repository": "Shrimpworks/capsule-experiments",
+    "commit": "294559e78b410f4b25e0e25fcf373ec0c7d1cfb5",
+    "sourcePath": "experiments/typed-guest-transport-c5b14b-native-storage/inputs/input.payload",
+    "sha256": "9de0c909cfb111bd99c3b0b5f7a10972894270c2867022a71b6b6f3c0cd1af6e",
+    "bytes": 36,
+    "derivation": "unchanged"
+  },
+  {
+    "path": "inputs/source-origins.json",
+    "repository": "Shrimpworks/capsule-experiments",
+    "commit": "294559e78b410f4b25e0e25fcf373ec0c7d1cfb5",
+    "sourcePath": "experiments/typed-guest-transport-c5b14b-native-storage/inputs/source-origins.json",
+    "sha256": "a7cda2edf65d2037c86e8ece37161d2018f43c527da8f2f7b106dacd4dfd2745",
+    "bytes": 3871,
+    "derivation": "unchanged"
+  },
+  {
+    "path": "inputs/source.payload",
+    "repository": "Shrimpworks/capsule-experiments",
+    "commit": "294559e78b410f4b25e0e25fcf373ec0c7d1cfb5",
+    "sourcePath": "experiments/typed-guest-transport-c5b14b-native-storage/inputs/source.payload",
+    "sha256": "c8e940feb89b342de2d5e6bd13c413226676de9a539fce34c4107516e635b475",
+    "bytes": 103,
+    "derivation": "unchanged"
+  },
+  {
+    "path": "inputs/supervisor_effect_abi.h",
+    "repository": "Shrimpworks/capsule-experiments",
+    "commit": "294559e78b410f4b25e0e25fcf373ec0c7d1cfb5",
+    "sourcePath": "experiments/typed-guest-transport-c5b14b-native-storage/inputs/supervisor_effect_abi.h",
+    "sha256": "d6869868b8a7f5891f50328800f014891854e7ed8ac2a3d9c504848c472796c4",
+    "bytes": 4189,
+    "derivation": "unchanged"
+  },
+  {
+    "path": "inputs/supervisor_effect_driver.c",
+    "repository": "Shrimpworks/capsule-experiments",
+    "commit": "294559e78b410f4b25e0e25fcf373ec0c7d1cfb5",
+    "sourcePath": "experiments/typed-guest-transport-c5b14b-native-storage/inputs/supervisor_effect_driver.c",
+    "sha256": "902f22cc09012f4a5553c3e0dcfcf094bb90874db02ddaa91ac89fe29a441a71",
+    "bytes": 16029,
+    "derivation": "unchanged"
+  },
+  {
+    "path": "scripts/build.mjs",
+    "repository": "Shrimpworks/capsule-experiments",
+    "commit": "294559e78b410f4b25e0e25fcf373ec0c7d1cfb5",
+    "sourcePath": "experiments/typed-guest-transport-c5b14b-native-storage/scripts/build.mjs",
+    "sha256": "0edbfacbe285d1b60a8b971610bc47cdaeb2e323c1bfd04877a4072a71b78eb3",
+    "bytes": 1879,
+    "derivation": "namespace replacement then reviewed C5b16 delta"
+  },
+  {
+    "path": "scripts/generate.mjs",
+    "repository": "Shrimpworks/capsule-experiments",
+    "commit": "294559e78b410f4b25e0e25fcf373ec0c7d1cfb5",
+    "sourcePath": "experiments/typed-guest-transport-c5b14b-native-storage/scripts/generate.mjs",
+    "sha256": "300cb09f37ae39cd68d70f643a3f2bee903a07ca30a7b669019ad9e98dec7537",
+    "bytes": 8152,
+    "derivation": "namespace replacement then reviewed C5b16 delta"
+  },
+  {
+    "path": "scripts/verify.mjs",
+    "repository": "Shrimpworks/capsule-experiments",
+    "commit": "294559e78b410f4b25e0e25fcf373ec0c7d1cfb5",
+    "sourcePath": "experiments/typed-guest-transport-c5b14b-native-storage/scripts/verify.mjs",
+    "sha256": "bb6d95dd77696ef9179391c9c25587e1d59e24ee54325ea4d34b63353266d831",
+    "bytes": 14302,
+    "derivation": "namespace replacement then reviewed C5b16 delta"
+  },
+  {
+    "path": "source/bridge/api.h",
+    "repository": "Shrimpworks/capsule-experiments",
+    "commit": "294559e78b410f4b25e0e25fcf373ec0c7d1cfb5",
+    "sourcePath": "experiments/typed-guest-transport-c5b14b-native-storage/source/bridge/api.h",
+    "sha256": "0a8252e770f5b19e6f18a351d92a23f0b9a8c26a25b606e5cb01a21ae9f38e1e",
+    "bytes": 758,
+    "derivation": "namespace replacement then reviewed C5b16 delta"
+  },
+  {
+    "path": "source/bridge/contract.go",
+    "repository": "Shrimpworks/capsule-experiments",
+    "commit": "294559e78b410f4b25e0e25fcf373ec0c7d1cfb5",
+    "sourcePath": "experiments/typed-guest-transport-c5b14b-native-storage/source/bridge/contract.go",
+    "sha256": "d4190a4ceb8f641c6cba24e5d00cd62996b97c3189fc767661668d07383e001a",
+    "bytes": 354,
+    "derivation": "namespace replacement then reviewed C5b16 delta"
+  },
+  {
+    "path": "source/bridge/contract_test.go",
+    "repository": "Shrimpworks/capsule-experiments",
+    "commit": "294559e78b410f4b25e0e25fcf373ec0c7d1cfb5",
+    "sourcePath": "experiments/typed-guest-transport-c5b14b-native-storage/source/bridge/contract_test.go",
+    "sha256": "06310336d968bea606c15e642fd13df981e1ffa4ff5aa50b566937148c909fea",
+    "bytes": 185,
+    "derivation": "namespace replacement then reviewed C5b16 delta"
+  },
+  {
+    "path": "source/bridge/owner.go",
+    "repository": "Shrimpworks/capsule-experiments",
+    "commit": "294559e78b410f4b25e0e25fcf373ec0c7d1cfb5",
+    "sourcePath": "experiments/typed-guest-transport-c5b14b-native-storage/source/bridge/owner.go",
+    "sha256": "cfd47ca5deda6ed00440d2360056e9486b013bb62121c4eff5e7800ddfe96516",
+    "bytes": 6023,
+    "derivation": "namespace replacement then reviewed C5b16 delta"
+  },
+  {
+    "path": "source/native/fixture-runner.c",
+    "repository": "Shrimpworks/capsule-experiments",
+    "commit": "294559e78b410f4b25e0e25fcf373ec0c7d1cfb5",
+    "sourcePath": "experiments/typed-guest-transport-c5b14b-native-storage/source/native/fixture-runner.c",
+    "sha256": "3c1d16d7ff8caac8eb01c7691676a3afb191b9e37822acac9e82eb6d476a96a6",
+    "bytes": 2997,
+    "derivation": "namespace replacement then reviewed C5b16 delta"
+  },
+  {
+    "path": "source/native/lifecycle.c",
+    "repository": "Shrimpworks/capsule-experiments",
+    "commit": "294559e78b410f4b25e0e25fcf373ec0c7d1cfb5",
+    "sourcePath": "experiments/typed-guest-transport-c5b14b-native-storage/source/native/lifecycle.c",
+    "sha256": "e6e3d6863d533eb9f01de87679c867511064587396dd4e7c21a108b8dcb83a24",
+    "bytes": 13615,
+    "derivation": "namespace replacement then reviewed C5b16 delta"
+  },
+  {
+    "path": "source/native/providers.c",
+    "repository": "Shrimpworks/capsule-experiments",
+    "commit": "294559e78b410f4b25e0e25fcf373ec0c7d1cfb5",
+    "sourcePath": "experiments/typed-guest-transport-c5b14b-native-storage/source/native/providers.c",
+    "sha256": "fd017e7bfed4f274d683d67aa560d8bb17fa99eee4fa5d044a4658317fe321c1",
+    "bytes": 2874,
+    "derivation": "namespace replacement then reviewed C5b16 delta"
+  },
+  {
+    "path": "source/store/completion.go",
+    "repository": "Shrimpworks/capsule-experiments",
+    "commit": "294559e78b410f4b25e0e25fcf373ec0c7d1cfb5",
+    "sourcePath": "experiments/typed-guest-transport-c5b14b-native-storage/source/store/completion.go",
+    "sha256": "c8ff82f6879761e42f7702ab0c60083a14f6d26f7825a916e535b480d9e1d390",
+    "bytes": 2667,
+    "derivation": "namespace replacement then reviewed C5b16 delta"
+  },
+  {
+    "path": "source/store/completion_test.go",
+    "repository": "Shrimpworks/capsule-experiments",
+    "commit": "294559e78b410f4b25e0e25fcf373ec0c7d1cfb5",
+    "sourcePath": "experiments/typed-guest-transport-c5b14b-native-storage/source/store/completion_test.go",
+    "sha256": "dd9fffd52277bfe8f07f408cdaff20f0aebfc7be8f573a4b6e3c9142369bf064",
+    "bytes": 4289,
+    "derivation": "namespace replacement then reviewed C5b16 delta"
+  },
+  {
+    "path": "source/store/endpoint_test.go",
+    "repository": "Shrimpworks/capsule-experiments",
+    "commit": "294559e78b410f4b25e0e25fcf373ec0c7d1cfb5",
+    "sourcePath": "experiments/typed-guest-transport-c5b14b-native-storage/source/store/endpoint_test.go",
+    "sha256": "b334824d4ff3e16eb6592cfe58c15d50236ee4dde3d446b01ef652c084aec03f",
+    "bytes": 962,
+    "derivation": "namespace replacement then reviewed C5b16 delta"
+  },
+  {
+    "path": "source/store/files.go",
+    "repository": "Shrimpworks/capsule-experiments",
+    "commit": "294559e78b410f4b25e0e25fcf373ec0c7d1cfb5",
+    "sourcePath": "experiments/typed-guest-transport-c5b14b-native-storage/source/store/files.go",
+    "sha256": "be96c5ac854913b6834165b494a13e4ec6730b64916ea3051c70b36bbfcf84b4",
+    "bytes": 6348,
+    "derivation": "namespace replacement then reviewed C5b16 delta"
+  },
+  {
+    "path": "source/store/files_test.go",
+    "repository": "Shrimpworks/capsule-experiments",
+    "commit": "294559e78b410f4b25e0e25fcf373ec0c7d1cfb5",
+    "sourcePath": "experiments/typed-guest-transport-c5b14b-native-storage/source/store/files_test.go",
+    "sha256": "530e98a40002b589911e0afb1c04a944f4fb7abfe68277631f039f878c501f87",
+    "bytes": 2577,
+    "derivation": "namespace replacement then reviewed C5b16 delta"
+  },
+  {
+    "path": "source/store/integrity_test.go",
+    "repository": "Shrimpworks/capsule-experiments",
+    "commit": "294559e78b410f4b25e0e25fcf373ec0c7d1cfb5",
+    "sourcePath": "experiments/typed-guest-transport-c5b14b-native-storage/source/store/integrity_test.go",
+    "sha256": "6a885b5c596e33ca4f62e97ac8eef4a028427c12c38e42c64c4d2d289a20df8d",
+    "bytes": 3996,
+    "derivation": "namespace replacement then reviewed C5b16 delta"
+  },
+  {
+    "path": "source/store/recovery_test.go",
+    "repository": "Shrimpworks/capsule-experiments",
+    "commit": "294559e78b410f4b25e0e25fcf373ec0c7d1cfb5",
+    "sourcePath": "experiments/typed-guest-transport-c5b14b-native-storage/source/store/recovery_test.go",
+    "sha256": "33c8217b9c2cb2a4a722c59b7b0ce7c34394098821a553708e5fbc188b8156ab",
+    "bytes": 6576,
+    "derivation": "namespace replacement then reviewed C5b16 delta"
+  },
+  {
+    "path": "source/store/transitions.go",
+    "repository": "Shrimpworks/capsule-experiments",
+    "commit": "294559e78b410f4b25e0e25fcf373ec0c7d1cfb5",
+    "sourcePath": "experiments/typed-guest-transport-c5b14b-native-storage/source/store/transitions.go",
+    "sha256": "6d88d19ebdf40a39d746c2e886b80f12476810fc045bf6bcd3d1719cb38bdd60",
+    "bytes": 6164,
+    "derivation": "namespace replacement then reviewed C5b16 delta"
+  },
+  {
+    "path": "source/store/transitions_test.go",
+    "repository": "Shrimpworks/capsule-experiments",
+    "commit": "294559e78b410f4b25e0e25fcf373ec0c7d1cfb5",
+    "sourcePath": "experiments/typed-guest-transport-c5b14b-native-storage/source/store/transitions_test.go",
+    "sha256": "85dc09baf75648137e537a3a3d16b93e339c73af0c5c27aa1a34896a0424fcff",
+    "bytes": 3297,
+    "derivation": "namespace replacement then reviewed C5b16 delta"
+  },
+  {
+    "path": "source/store/types.go",
+    "repository": "Shrimpworks/capsule-experiments",
+    "commit": "294559e78b410f4b25e0e25fcf373ec0c7d1cfb5",
+    "sourcePath": "experiments/typed-guest-transport-c5b14b-native-storage/source/store/types.go",
+    "sha256": "c4eba89842609a7fbaa175bf01a6141343480346716403fcb8da6a9f1d658c69",
+    "bytes": 4081,
+    "derivation": "namespace replacement then reviewed C5b16 delta"
+  },
+  {
+    "path": "source/store/view.go",
+    "repository": "Shrimpworks/capsule-experiments",
+    "commit": "294559e78b410f4b25e0e25fcf373ec0c7d1cfb5",
+    "sourcePath": "experiments/typed-guest-transport-c5b14b-native-storage/source/store/view.go",
+    "sha256": "1d278884f22bf7d6e78af6fd4aa21e34f38785fc748957ddbb7f82d5bfffc46b",
+    "bytes": 559,
+    "derivation": "namespace replacement then reviewed C5b16 delta"
+  },
+  {
+    "path": "tests/driver_test.c",
+    "repository": "Shrimpworks/capsule-experiments",
+    "commit": "294559e78b410f4b25e0e25fcf373ec0c7d1cfb5",
+    "sourcePath": "experiments/typed-guest-transport-c5b14b-native-storage/tests/driver_test.c",
+    "sha256": "9cdc699c572028b530766681f653fc632b7cc2112eaeb56311ef11cfa47b0ee8",
+    "bytes": 8689,
+    "derivation": "namespace replacement then reviewed C5b16 delta"
+  },
+  {
+    "path": "tests/normal.c",
+    "repository": "Shrimpworks/capsule-experiments",
+    "commit": "294559e78b410f4b25e0e25fcf373ec0c7d1cfb5",
+    "sourcePath": "experiments/typed-guest-transport-c5b14b-native-storage/tests/normal.c",
+    "sha256": "53b49039474f4e82aaf52d207f9a2462a5d1e9289a5491ca96102dbdd1fdcb9d",
+    "bytes": 620,
+    "derivation": "namespace replacement then reviewed C5b16 delta"
+  },
+  {
+    "path": "tests/reaper_contract.c",
+    "repository": "Shrimpworks/capsule-experiments",
+    "commit": "294559e78b410f4b25e0e25fcf373ec0c7d1cfb5",
+    "sourcePath": "experiments/typed-guest-transport-c5b14b-native-storage/tests/reaper_contract.c",
+    "sha256": "0787f398d8d953acf197b684459be9a9f5379b042d2db49d6a09cbca4c46486a",
+    "bytes": 118,
+    "derivation": "namespace replacement then reviewed C5b16 delta"
+  }
+]
