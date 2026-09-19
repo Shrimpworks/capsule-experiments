@@ -57,3 +57,65 @@ func deriveProcessIdentity(attempt [16]byte, pid uint32, sequence, tick uint64, 
 	copy(identity[:], hash.Sum(nil))
 	return identity, nil
 }
+
+type obligationBindings struct {
+	Installation [16]byte
+	TrustEpoch   [32]byte
+	Supervisor   [32]byte
+	Attempt      [16]byte
+	Approval     [16]byte
+	Registration [16]byte
+	Plan         [32]byte
+	Profile      [32]byte
+	Runner       [32]byte
+	Preparation  [16]byte
+}
+
+var errObligationBinding = errors.New("C5B19_OBLIGATION_BINDING")
+
+// encodeObligationPreimage builds the immutable, cleanup-only v1 obligation
+// preimage. Changing policy, trigger mask or bindings requires a new packet.
+func encodeObligationPreimage(b obligationBindings) ([]byte, error) {
+	ids := [5][16]byte{b.Installation, b.Attempt, b.Approval, b.Registration, b.Preparation}
+	digests := [5][32]byte{b.TrustEpoch, b.Supervisor, b.Plan, b.Profile, b.Runner}
+	for i, id := range ids {
+		if id == [16]byte{} {
+			return nil, errObligationBinding
+		}
+		for j := 0; j < i; j++ {
+			if id == ids[j] {
+				return nil, errObligationBinding
+			}
+		}
+	}
+	for i, digest := range digests {
+		if digest == [32]byte{} {
+			return nil, errObligationBinding
+		}
+		for j := 0; j < i; j++ {
+			if digest == digests[j] {
+				return nil, errObligationBinding
+			}
+		}
+	}
+	preimage := make([]byte, 0, 295)
+	preimage = append(preimage, []byte("capsule.c5b19.obligation/v1\x00")...)
+	preimage = append(preimage, 0, 1)
+	preimage = append(preimage, b.Installation[:]...)
+	preimage = append(preimage, b.TrustEpoch[:]...)
+	preimage = append(preimage, b.Supervisor[:]...)
+	preimage = append(preimage, b.Attempt[:]...)
+	preimage = append(preimage, b.Approval[:]...)
+	preimage = append(preimage, b.Registration[:]...)
+	preimage = append(preimage, b.Plan[:]...)
+	preimage = append(preimage, b.Profile[:]...)
+	preimage = append(preimage, b.Runner[:]...)
+	preimage = append(preimage, b.Preparation[:]...)
+	var clocks [24]byte
+	binary.BigEndian.PutUint64(clocks[0:8], 1000)
+	binary.BigEndian.PutUint64(clocks[8:16], 1000)
+	binary.BigEndian.PutUint64(clocks[16:24], 1200)
+	preimage = append(preimage, clocks[:]...)
+	preimage = append(preimage, 0x07)
+	return preimage, nil
+}

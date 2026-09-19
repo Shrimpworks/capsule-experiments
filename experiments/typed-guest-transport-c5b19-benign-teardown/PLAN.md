@@ -15,13 +15,16 @@ and was integrated at `a6ef83a6b43cd4940547b138529ebbb91cff8da6`.
 ## Current slice
 
 The implemented behavior is a pure Go, offline cancellation-frame parser
-with a literal 57-byte vector and mutation/refusal tests, plus the exact
-domain-separated process-identity digest with an independently calculated
-known answer and invalid-observation refusals. It cannot create, inspect,
+with a literal 57-byte vector and mutation/refusal tests, the exact
+domain-separated process-identity digest, and the immutable 295-byte
+obligation preimage with independently calculated known-answer digests and
+invalid-binding refusals. It cannot create, inspect,
 signal, or wait for any process and is not the eventual executable oracle.
 Red/green evidence: the first `go test ./...` failed on missing parser names;
 after its implementation the tests passed. The next test run failed on the
-missing identity derivation, then passed after its implementation. All other Gate-2 manifest
+missing identity derivation, then passed after its implementation. The third
+test run failed on the missing obligation encoder, then passed after the
+minimal implementation. All other Gate-2 manifest
 source, native control, store, full trace oracle, build scripts, and negative
 fixtures remain unimplemented. `go build ./...` and `go vet ./...` are required
 for this slice. No experiment result or security/timing claim follows.
