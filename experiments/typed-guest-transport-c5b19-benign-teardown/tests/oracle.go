@@ -4,6 +4,8 @@ package oracle
 
 import (
 	"bytes"
+	"crypto/sha256"
+	"encoding/binary"
 	"errors"
 )
 
@@ -31,4 +33,27 @@ func validateCancellationFrame(frame []byte, frozen cancelBindings) error {
 		return errCancellationFrame
 	}
 	return nil
+}
+
+var errProcessObservation = errors.New("C5B19_PROCESS_OBSERVATION")
+
+// deriveProcessIdentity is an offline binding calculation only. Its digest
+// does not grant PID-targeting or signal authority; that requires exact live
+// same-parent custody and an exclusive unreaped child in the Supervisor.
+func deriveProcessIdentity(attempt [16]byte, pid uint32, sequence, tick uint64, fixtureDigest [32]byte) ([32]byte, error) {
+	if attempt == [16]byte{} || pid == 0 || pid > 1<<31-1 || sequence == 0 || tick == 0 || fixtureDigest == [32]byte{} {
+		return [32]byte{}, errProcessObservation
+	}
+	var fields [20]byte
+	binary.BigEndian.PutUint32(fields[0:4], pid)
+	binary.BigEndian.PutUint64(fields[4:12], sequence)
+	binary.BigEndian.PutUint64(fields[12:20], tick)
+	hash := sha256.New()
+	hash.Write([]byte("capsule.c5b19.process-identity/v1\x00"))
+	hash.Write(attempt[:])
+	hash.Write(fields[:])
+	hash.Write(fixtureDigest[:])
+	var identity [32]byte
+	copy(identity[:], hash.Sum(nil))
+	return identity, nil
 }
