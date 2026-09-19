@@ -29,6 +29,31 @@ source, native control, store, full trace oracle, build scripts, and negative
 fixtures remain unimplemented. `go build ./...` and `go vet ./...` are required
 for this slice. No experiment result or security/timing claim follows.
 
+## Review-1 test-sensitivity correction
+
+Fresh-context review 1 of 3 on `cd9e20a145f584f7e4ee66684c2cb39621112621`
+returned **Not ready** with two accepted P2 test gaps. Invalid cancellation
+bindings now appear in both the frozen expectation and the matching raw frame,
+so only binding validation can reject them. All three zero-ID and all three
+duplicate-ID cases are covered. Obligation tests now change each of the ten
+bindings independently while remaining valid, and compare all 295 expected
+preimage bytes at the exact field offset.
+
+Two controlled, local, no-child mutants were run against the corrected tests
+and removed immediately afterward:
+
+- Replacing the cancellation binding guard with `if false` made
+  `go test ./tests -run '^TestCancellationRejectsInvalidFrozenBindings$' -count=1`
+  fail in all six zero/duplicate subtests with `invalid frozen binding accepted`.
+- Replacing the encoded `Plan` field with the original fixture's 32 bytes made
+  `go test ./tests -run '^TestObligationEveryValidBindingChangesExactBytes$' -count=1`
+  fail in its `plan` subtest with `changed plan binding produced wrong exact preimage`.
+
+The original implementation bytes were restored; no mutant is retained. These
+checks demonstrate sensitivity only for the named mutations, not exhaustive
+mutant proof or C/Go conformance. The original three test-first red compiler
+outputs remain author-observed task history, not retained raw logs.
+
 ## Authority and stop rules
 
 The eventual controlled target is one fixed inert direct child in an

@@ -84,12 +84,18 @@ func TestCancellationRejectsInvalidFrozenBindings(t *testing.T) {
 		{"zero attempt", func(b *cancelBindings) { b.Attempt = [16]byte{} }},
 		{"zero approval", func(b *cancelBindings) { b.Approval = [16]byte{} }},
 		{"zero registration", func(b *cancelBindings) { b.Registration = [16]byte{} }},
-		{"duplicate", func(b *cancelBindings) { b.Registration = b.Approval }},
+		{"attempt equals approval", func(b *cancelBindings) { b.Attempt = b.Approval }},
+		{"attempt equals registration", func(b *cancelBindings) { b.Attempt = b.Registration }},
+		{"approval equals registration", func(b *cancelBindings) { b.Approval = b.Registration }},
 	} {
 		t.Run(tc.name, func(t *testing.T) {
 			changed := binding
 			tc.change(&changed)
-			if err := validateCancellationFrame(frame, changed); err == nil {
+			matchingFrame := bytes.Clone(frame)
+			copy(matchingFrame[8:24], changed.Attempt[:])
+			copy(matchingFrame[24:40], changed.Approval[:])
+			copy(matchingFrame[40:56], changed.Registration[:])
+			if err := validateCancellationFrame(matchingFrame, changed); err == nil {
 				t.Fatal("invalid frozen binding accepted")
 			}
 		})

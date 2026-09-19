@@ -44,6 +44,46 @@ func TestObligationPreimageKnownAnswer(t *testing.T) {
 	}
 }
 
+func TestObligationEveryValidBindingChangesExactBytes(t *testing.T) {
+	base, err := encodeObligationPreimage(obligationFixture())
+	if err != nil {
+		t.Fatal(err)
+	}
+	for _, tc := range []struct {
+		name   string
+		from   int
+		to     int
+		change func(*obligationBindings)
+	}{
+		{"installation", 30, 46, func(b *obligationBindings) { b.Installation = [16]byte(bytes.Repeat([]byte{11}, 16)) }},
+		{"trust epoch", 46, 78, func(b *obligationBindings) { b.TrustEpoch = [32]byte(bytes.Repeat([]byte{11}, 32)) }},
+		{"supervisor", 78, 110, func(b *obligationBindings) { b.Supervisor = [32]byte(bytes.Repeat([]byte{11}, 32)) }},
+		{"attempt", 110, 126, func(b *obligationBindings) { b.Attempt = [16]byte(bytes.Repeat([]byte{11}, 16)) }},
+		{"approval", 126, 142, func(b *obligationBindings) { b.Approval = [16]byte(bytes.Repeat([]byte{11}, 16)) }},
+		{"registration", 142, 158, func(b *obligationBindings) { b.Registration = [16]byte(bytes.Repeat([]byte{11}, 16)) }},
+		{"plan", 158, 190, func(b *obligationBindings) { b.Plan = [32]byte(bytes.Repeat([]byte{11}, 32)) }},
+		{"profile", 190, 222, func(b *obligationBindings) { b.Profile = [32]byte(bytes.Repeat([]byte{11}, 32)) }},
+		{"runner", 222, 254, func(b *obligationBindings) { b.Runner = [32]byte(bytes.Repeat([]byte{11}, 32)) }},
+		{"preparation", 254, 270, func(b *obligationBindings) { b.Preparation = [16]byte(bytes.Repeat([]byte{11}, 16)) }},
+	} {
+		t.Run(tc.name, func(t *testing.T) {
+			changed := obligationFixture()
+			tc.change(&changed)
+			got, err := encodeObligationPreimage(changed)
+			if err != nil {
+				t.Fatal(err)
+			}
+			want := bytes.Clone(base)
+			for i := tc.from; i < tc.to; i++ {
+				want[i] = 11
+			}
+			if !bytes.Equal(got, want) {
+				t.Fatalf("changed %s binding produced wrong exact preimage", tc.name)
+			}
+		})
+	}
+}
+
 func TestObligationRejectsZeroOrDuplicateBindings(t *testing.T) {
 	for _, tc := range []struct {
 		name   string
