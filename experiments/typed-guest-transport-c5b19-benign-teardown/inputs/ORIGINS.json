@@ -1,0 +1,13 @@
+{
+  "experiment": "capsule.c5b19.benign-teardown/v1",
+  "status": "IN_PROGRESS — TRENDING_GOOD",
+  "archive_base_commit": "d8fd74a158f2227277ccfce5532e9bd8ad3e714e",
+  "gate2_reviewed_commit": "e7b68c57d59abe66c68d849473e21fe74f4e31b7",
+  "gate2_integration_commit": "a6ef83a6b43cd4940547b138529ebbb91cff8da6",
+  "c5b16_read_only_reference": "0efd03def6bc333a92c8b9809bc56b7b3ce9ea80",
+  "toolchain": {
+    "go": "1.25.13"
+  },
+  "run_authorized": false,
+  "product_admitted": false
+}
