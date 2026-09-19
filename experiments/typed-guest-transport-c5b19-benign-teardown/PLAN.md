@@ -54,6 +54,18 @@ checks demonstrate sensitivity only for the named mutations, not exhaustive
 mutant proof or C/Go conformance. The original three test-first red compiler
 outputs remain author-observed task history, not retained raw logs.
 
+Fresh-context review 2 of 3 on `1ef2dcabeeef6591e5f45ba4a0d0a5a6e6661fcb`
+returned **Not ready** on one further accepted P2 test gap: a hardcoded
+original cancellation tuple survived the valid tests. Each of the three
+frozen IDs is now changed independently to another valid value; its matching
+changed frame must pass and its stale original frame must fail. A controlled
+local mutant replaced the three frozen-ID comparisons with hardcoded original
+fixture values. `go test ./tests -run '^TestCancellationAcceptsEachChangedValidFrozenBinding$' -count=1`
+failed in all three `attempt`, `approval`, and `registration` subtests with
+`valid changed binding refused: C5B19_CANCEL_FRAME`. The original comparisons
+were restored. Review instance 3 remains pending; passing local checks alone
+do not close this independent-review gate.
+
 ## Authority and stop rules
 
 The eventual controlled target is one fixed inert direct child in an

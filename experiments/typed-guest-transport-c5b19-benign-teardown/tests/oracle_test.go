@@ -75,6 +75,33 @@ func TestCancellationRejectsMutations(t *testing.T) {
 	}
 }
 
+func TestCancellationAcceptsEachChangedValidFrozenBinding(t *testing.T) {
+	frame, binding := cancellationFixture(t)
+	for _, tc := range []struct {
+		name   string
+		change func(*cancelBindings)
+	}{
+		{"attempt", func(b *cancelBindings) { b.Attempt = [16]byte(bytes.Repeat([]byte{4}, 16)) }},
+		{"approval", func(b *cancelBindings) { b.Approval = [16]byte(bytes.Repeat([]byte{5}, 16)) }},
+		{"registration", func(b *cancelBindings) { b.Registration = [16]byte(bytes.Repeat([]byte{6}, 16)) }},
+	} {
+		t.Run(tc.name, func(t *testing.T) {
+			changed := binding
+			tc.change(&changed)
+			matchingFrame := bytes.Clone(frame)
+			copy(matchingFrame[8:24], changed.Attempt[:])
+			copy(matchingFrame[24:40], changed.Approval[:])
+			copy(matchingFrame[40:56], changed.Registration[:])
+			if err := validateCancellationFrame(matchingFrame, changed); err != nil {
+				t.Fatalf("valid changed binding refused: %v", err)
+			}
+			if err := validateCancellationFrame(frame, changed); err == nil {
+				t.Fatal("stale original frame accepted for changed binding")
+			}
+		})
+	}
+}
+
 func TestCancellationRejectsInvalidFrozenBindings(t *testing.T) {
 	frame, binding := cancellationFixture(t)
 	for _, tc := range []struct {
