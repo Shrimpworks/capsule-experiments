@@ -26,7 +26,9 @@
       "tests/model_test.go": "faa1a4ed113c9c30a7528b9b1096d734b7134173b4cf05f07e3b84c0736e0a2e"
     },
     "historical_review_3": "PR38 claims Ready; contemporaneous PLAN said pending; report not recovered and verdict not newly corroborated",
-    "fresh_review_status": "BLOCKED pending distinct G3a2 review",
-    "dependencies": "Go1.25.13 standard library only; no added requirements or go.sum"
+    "fresh_review_status": "PASSED; instance 1 of 3 Ready; no remaining actionable findings",
+    "dependencies": "Go1.25.13 standard library only; no added requirements or go.sum",
+    "reviewed_implementation_commit": "c4d3c33ed04c1dff213e2c69064a6113892d9653",
+    "review_report_sha256": "de83bb2d6ad5d9c289c8f33fa48b9036fc2023dde5159a2e311248d0d39a2872"
   }
 }

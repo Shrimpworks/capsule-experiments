@@ -189,3 +189,23 @@ obligation_test.go content was consolidated without dropping tests into the
 frozen-listed oracle_test.go. No native/store source, run script or build/run
 manifest is claimed complete by this subset. The brain owns exact commit/PR
 publication and canonical Capsule roadmap reconciliation before delivery.
+
+## G3a2 independent acceptance
+
+Status: `PASSED` for the bounded wire/record increment at reviewed implementation
+`c4d3c33ed04c1dff213e2c69064a6113892d9653`. Fresh-context review instance 1 of 3
+returned **Ready** with no remaining actionable findings. The sole P3 was a stale
+CI merge sentence in canonical Capsule documentation, corrected and verified in
+the same pass; no archive implementation changed after review. The reviewer
+independently reconstructed literal vectors, verified source/reference/log hashes,
+and ran offline Go1.25.13 test/race/vet/build successfully. Mutation log contents
+were inspected; mutants were not independently rerun. Remote GitHub readback was
+network-limited for the reviewer; Brain owns publication verification.
+
+The full report and preliminary ledger are retained by the canonical recovery
+PR under `.planning/c5b19-foundation/`; report SHA-256
+`de83bb2d6ad5d9c289c8f33fa48b9036fc2023dde5159a2e311248d0d39a2872`. PR #38 links that canonical delivery.
+This verdict covers G3a2 and integration only, not the historical G3a review-3
+claim. Full Gate3 remains `IN_PROGRESS — TRENDING_GOOD`; Gate4–6 and product
+admission remain `BLOCKED`. This PR deliberately remains draft for the unfinished
+experiment; no child fixture was run or authorized.
