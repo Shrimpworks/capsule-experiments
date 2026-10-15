@@ -30,5 +30,39 @@
     "dependencies": "Go1.25.13 standard library only; no added requirements or go.sum",
     "reviewed_implementation_commit": "c4d3c33ed04c1dff213e2c69064a6113892d9653",
     "review_report_sha256": "de83bb2d6ad5d9c289c8f33fa48b9036fc2023dde5159a2e311248d0d39a2872"
+  },
+  "g3a3": {
+    "scope": "pure bounded one-attempt write-history and simulated exact settlement conformance; no control authority or live effects",
+    "continued_archive_head": "2274a6c7c751ded537541438f473e81ccd293457",
+    "canonical_reference_commit": "080e9203c6c96d1494ea3a52e8855816fec3fa38",
+    "canonical_reference_sha256": {
+      "docs/C5B19_GATE2_IMPLEMENTATION_PACKET.md": "65c885425298ce056f8619c5d0837f97ba54dee91c025fea5621a2d75d5ef4f0",
+      "internal/execution/teardownpassive/types.go": "249b7ef054134f47974bf769c3fb37309b867b1be42ae53c18baf23dc8bacfd0",
+      "internal/execution/teardownpassive/model.go": "1e3a8be8527554d3953d494086c5313ceeca5806b40a7661ab488717f4a94c40"
+    },
+    "implementation_sha256": {
+      "go.mod": "5f40cde18c2d82fe5d57f3a8822377c12e473f1026f174165dfecd126bea3eeb",
+      "tests/oracle.go": "fe36b0504a4a69623b1f64e791487e35ae78869c8e1524ff131d9790d3180dc2",
+      "tests/oracle_test.go": "c505b8fea9df4059a503b683b916343a95261b2172436eaa0308fa4a108f15fe",
+      "tests/model_test.go": "b0f3b9d063c225eb887cecaf16f4058f0ed07ae8f14c3d92c49acacabb0a931e"
+    },
+    "evidence_log_sha256": {
+      "red": "6ede3099c141d7f697a673e89035e76ed1ee02641a7396536a59066773a31f5d",
+      "green": "3bedce5d7ccb8c646d14ea9c399e167553a7fdd22ad61a484a3e8db8b1a7a44a",
+      "race": "ecc4354fb360b922b3c4b8e5349cdd985d19eebaaa722605c8ec9d56dffb1ba9",
+      "vet": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "build": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "restored": "f2c3e8848befcc2dac325f73761b1eb4a24bb873ab439030e6b2833c310ca04e",
+      "mutant-overlap": "c80d550a77c6ee00138b51b39a7ed9282c04dd3e00e264f37976d2544f84130a",
+      "mutant-generation": "cff1cf44430f9d875ceb935d4f9c237a65cffe1396e98dedaac4f4ca0c753ce2",
+      "mutant-fresh-id": "31fbf454ffe5810c788c77f7de4a9e62839b4d6558b8006e88fe9456812bd428",
+      "mutant-uncertainty": "ffbc4b02b8bc062883cd4b4a1786d4943da2df976582d5cfbdb36dfc0e2653d1",
+      "mutant-terminal-identity": "92c4d719d0260b4e7ebd131c14089b3d61a899d1c33fc9d0fda5ae5632c46adb",
+      "mutant-settlement-binding": "dad42dc5b970ad1012317f0187a7ce66e7a54e9811994629032b5ab885631d97"
+    },
+    "review_status": "PASSED; fresh instance 1 of 3 Ready; no actionable findings",
+    "dependencies": "Go1.25.13 standard library only; no added requirements or go.sum",
+    "apply_reply_meaning": "simulated accepted control application, not worker arrival or observed storage confirmation",
+    "review_report_sha256": "949c324bd0a069f2cb63b06fb429a1c46537b81211a74351ad47d5e9ce72fb2a"
   }
 }

@@ -254,3 +254,132 @@ func validateReply(reply, request []byte, frozen obligationBindings) (byte, erro
 	}
 	return outcome, nil
 }
+
+var errWriteHistory = errors.New("C5B19_WRITE_HISTORY")
+
+type writeSettlement struct {
+	Operation wireOperation
+	Outcome   byte
+}
+
+// All snapshot fields are values. Confirmed is an offline claimed write fact;
+// it supplies no custody, timing, start, completion or capacity authority.
+type writeHistorySnapshot struct {
+	Pending            bool
+	PendingOperation   wireOperation
+	LastSettledPresent bool
+	LastSettled        writeSettlement
+	Confirmed          [68]byte
+}
+
+// writeHistory is bounded to one synthetic attempt and its three possible writes.
+// It is not the control model, a store, or a live Supervisor. There is no reset,
+// record-loading, timeout or implicit settlement path.
+type writeHistory struct {
+	initialized    bool
+	frozen         obligationBindings
+	state          writeHistorySnapshot
+	pendingRequest [397]byte
+	usedIDs        [3][16]byte
+	usedCount      uint8
+	attempted      [4]bool
+	runnerAttempt  [32]byte
+}
+
+func newWriteHistory(frozen obligationBindings) (*writeHistory, error) {
+	if _, err := encodeObligationPreimage(frozen); err != nil {
+		return nil, errWriteHistory
+	}
+	return &writeHistory{initialized: true, frozen: frozen}, nil
+}
+
+func (h *writeHistory) snapshot() writeHistorySnapshot {
+	if h == nil {
+		return writeHistorySnapshot{}
+	}
+	return h.state
+}
+
+// begin records one submitted byte candidate, not permission to submit an actual
+// operation. Every refusal leaves all accepted history and pending bytes intact.
+func (h *writeHistory) begin(request []byte) error {
+	if h == nil || !h.initialized {
+		return errWriteHistory
+	}
+	if h.state.Pending {
+		return errWriteHistory
+	}
+	op, err := decodeRequest(request, h.frozen)
+	if err != nil {
+		return errWriteHistory
+	}
+	nextGeneration := uint64(1)
+	if h.state.LastSettledPresent {
+		nextGeneration = h.state.LastSettled.Operation.Generation + 1
+	}
+	if op.Generation != nextGeneration {
+		return errWriteHistory
+	}
+	if h.usedCount >= 3 || h.attempted[op.Kind] || h.attempted[3] {
+		return errWriteHistory
+	}
+	for _, used := range h.usedIDs[:h.usedCount] {
+		if op.Operation == used {
+			return errWriteHistory
+		}
+	}
+	if op.Kind == 1 {
+		if h.usedCount != 0 {
+			return errWriteHistory
+		}
+	} else if h.state.Confirmed[0] != 1 {
+		return errWriteHistory
+	}
+	if op.Kind == 3 {
+		// Preserve the exact prepared/confirmed-runner prefix, including uncertainty
+		// after runner publication failed. The request parser checks terminal shape.
+		if !bytes.Equal(op.Candidate[:34], h.state.Confirmed[:34]) {
+			return errWriteHistory
+		}
+		// An attempted runner's identity remains the sole modeled process even when
+		// its publication was uncertain. Skipping runner publication has no observed
+		// process identity here; a future trace/control model must establish custody.
+		if h.attempted[2] && [32]byte(op.Candidate[34:66]) != h.runnerAttempt {
+			return errWriteHistory
+		}
+	}
+	// No state mutation occurs until every structural/history check has passed.
+	h.usedIDs[h.usedCount] = op.Operation
+	h.usedCount++
+	h.attempted[op.Kind] = true
+	if op.Kind == 2 {
+		h.runnerAttempt = [32]byte(op.Candidate[2:34])
+	}
+	copy(h.pendingRequest[:], request)
+	h.state.Pending = true
+	h.state.PendingOperation = op
+	return nil
+}
+
+// applyReply represents a simulated accepted control application, not worker
+// arrival or observed fsync. It matches only the privately copied pending request;
+// callers cannot substitute request/candidate/record bytes at settlement time.
+func (h *writeHistory) applyReply(reply []byte) error {
+	if h == nil || !h.initialized || !h.state.Pending {
+		return errWriteHistory
+	}
+	outcome, err := validateReply(reply, h.pendingRequest[:], h.frozen)
+	if err != nil {
+		return errWriteHistory
+	}
+	pending := h.state.PendingOperation
+	h.state.LastSettledPresent = true
+	h.state.LastSettled = writeSettlement{Operation: pending, Outcome: outcome}
+	if outcome == 1 {
+		h.state.Confirmed = pending.Candidate
+	}
+	h.state.Pending = false
+	h.state.PendingOperation = wireOperation{}
+	h.pendingRequest = [397]byte{}
+	return nil
+}

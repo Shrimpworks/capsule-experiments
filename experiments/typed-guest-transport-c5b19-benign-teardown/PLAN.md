@@ -209,3 +209,162 @@ This verdict covers G3a2 and integration only, not the historical G3a review-3
 claim. Full Gate3 remains `IN_PROGRESS — TRENDING_GOOD`; Gate4–6 and product
 admission remain `BLOCKED`. This PR deliberately remains draft for the unfinished
 experiment; no child fixture was run or authorized.
+
+## G3a3 bounded write-history scope and dependency decision (before behavior)
+
+Status: `IN_PROGRESS — TRENDING_GOOD`. G3a3 adds only one-attempt write-history
+and exact simulated settlement conformance in tests/oracle.go and model_test.go.
+`applyReply` means simulated accepted control application, not worker arrival or
+actual fsync evidence. Full control/trace, custody, timing, lifecycle and storage
+remain deferred. No start/stop/permission or capacity API belongs in this slice.
+
+Accepted invariants: constructor-frozen bindings and owned copies; one pending
+request until exact applied reply; next generation and fresh operation IDs;
+preparation first/confirmed before successors, optional runner then terminal and
+each kind once; exact settlement with rejection preserving all state; uncertainty
+retaining settlement without promoting confirmed projection; terminal preserving
+confirmed runner facts; terminal absence matching the attempted runner even when
+publication failed (or nonzero absence with no runner attempt); no hidden control
+state. Direct preparation-to-terminal history is supported. A zero/uninitialized
+tracker refuses operations. All validation precedes mutation.
+
+Custom-primitive checklist: applicable ecosystem row is C5b19 prospective
+Supervisor control/storage lane exchange, ADOPT-PLATFORM / BUILD-NARROWLY. Only
+the fixed in-memory BUILD-NARROWLY evidence projection is implemented. Trust class
+is test/evidence; authority is synthetic-byte validation only. Bounds: one attempt,
+three operations, one copied 397-byte pending request, 98-byte reply and 68-byte
+confirmed projection; fixed arrays, no queue/map. No dependencies or source
+manifest changes, Go1.25.13 standard library only (BSD-style license), immutable
+provenance inherited from ORIGINS. No process/network/filesystem/credential/store
+or clock effects in tests; no goroutines, guests, children, signals or waits.
+
+Tests precede behavior and retain positive, negative and restored-mutant results.
+Reproduction uses the existing exact Go1.25.13 binary offline with GOTOOLCHAIN=local,
+GOPROXY=off, GOSUMDB=off and GOCACHE=/tmp/c5b19-g3a3-go-cache. Capsule maintainer
+owns upgrade/removal; ABI/toolchain changes require their own review. Current
+G3a2 hashes remain historical at reviewed commit c4d3c33; G3a3 provenance will
+pin canonical 080e9203c6c96d1494ea3a52e8855816fec3fa38. New G3a3 independent review
+has its own maximum three passes; earlier review budgets/verdicts are unchanged.
+Full Gate3 remains IN_PROGRESS — TRENDING_GOOD; Gate4+ and child execution BLOCKED.
+
+
+## G3a3 local evidence and handoff — 2026-10-15
+
+Status: `PASSED` for local implementation verification; fresh G3a3 independent
+review is `BLOCKED` pending dispatch. Full Gate3 remains
+`IN_PROGRESS — TRENDING_GOOD`; Gate4+ and product admission remain `BLOCKED`.
+This increment does not implement the full passive model or full trace oracle.
+
+Implemented constructor/begin/applyReply/value-snapshot use only fixed arrays and
+already-validated wire frames. The sole pending request is privately copied.
+Rejected operations preserve all private state, confirmed bytes and pending data.
+A settled failed/indeterminate write consumes its generation and operation ID but
+cannot promote its candidate. Each kind is attempted at most once; terminal
+closes submission regardless of outcome. Terminal preserves the exact confirmed
+runner prefix and matches an attempted runner's identity even when that runner
+publication failed. Direct preparation-to-terminal is valid with nonzero absence
+bytes, whose real custody remains outside this model. `applyReply` is simulated
+accepted control application, not mere worker reply arrival or observed fsync.
+
+Positive tests cover 24 runner/terminal/disposition combinations (including no
+runner attempt), two uncertain preparation outcomes, independent changed valid
+bindings/process/operation IDs, private pending ownership and value snapshots.
+Negative tests include nil/zero receivers, invalid frozen bindings, exact next
+generation and freshness, kind ordering/retries/fourth writes, overlap, substituted
+requests, replayed/cross-attempt/candidate-swapped replies, every reply-byte mutation,
+short/trailing replies, and terminal history invention/erasure/substitution.
+Every refusal helper compares the entire private history before/after. Standalone
+reply validation and repeated snapshots never settle the pending request. There
+are no tests with live effects, sleeps, clocks, goroutines or subprocess creation.
+
+TDD red was observed before adding any write-history behavior:
+
+```text
+# capsule.experiments/c5b19/tests [capsule.experiments/c5b19/tests.test]
+tests/model_test.go:94:39: undefined: writeHistory
+tests/model_test.go:96:12: undefined: newWriteHistory
+tests/model_test.go:102:37: undefined: writeHistory
+FAIL capsule.experiments/c5b19/tests [build failed]
+```
+
+All following Go commands ran in this experiment directory with the exact local
+`/Users/dsteele/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.25.13.darwin-arm64/bin/go`,
+`GOCACHE=/tmp/c5b19-g3a3-go-cache GOTOOLCHAIN=local GOPROXY=off GOSUMDB=off`:
+
+- `go test ./... -count=1`: exit0, `ok capsule.experiments/c5b19/tests 0.276s`.
+- `go test -race ./... -count=1`: exit0, `ok ... 1.312s`.
+- `go vet ./...`: exit0, no diagnostics.
+- `go build ./...`: exit0, no diagnostics.
+- `git diff --check`: exit0, no diagnostics.
+
+Each mutant below was applied separately, tested with
+`go test ./tests -run '^TESTNAME$' -count=1`, then restored in a finally block.
+All six compiled and exited1 through the named behavioral assertion:
+
+| Disabled guard / change | TESTNAME | Retained failure excerpt |
+| --- | --- | --- |
+| Pending overlap guard | TestWriteHistoryRequestBindingAndRejectionOwnership | `model_test.go:431: invalid begin accepted` |
+| Exact next-generation equality | TestWriteHistoryGenerationFreshnessAndOrdering | `model_test.go:240: invalid begin accepted` |
+| Used operation-ID guard | TestWriteHistoryGenerationFreshnessAndOrdering | outcomes1/2/3: `model_test.go:264: invalid begin accepted` |
+| Apply candidate for every outcome | TestWriteHistoryPositiveSettlementMatrix | `uncertain outcome promoted candidate or confirmed outcome lost exact projection` |
+| Attempted-runner terminal absence identity | TestWriteHistoryTerminalContinuity | failed/indeterminate runner cases: `model_test.go:290: invalid begin accepted` |
+| Replace exact pending reply validation with assumed confirmed outcome | TestWriteHistoryExactSettlementAndReplays | `model_test.go:305: invalid reply accepted` |
+
+The overlap vector is an otherwise valid terminal with the exact next generation,
+fresh operation and matching attempted-runner absence identity. Fresh-ID vectors
+use an otherwise valid terminal after each runner outcome. Terminal-identity vectors
+remain structurally valid and preserve confirmed projection. Thus these checks
+exercise the intended history guards rather than incidental parse refusal.
+
+Exact oracle.go SHA256 restoration was verified, followed by
+`go test ./... -count=1`: exit0, `ok ... 0.201s`. No mutant remains. These six
+checks are bounded sensitivity evidence, not exhaustive proof. Current source
+hashes (G3a2 historical hashes remain attached to its reviewed c4d3c33 commit):
+
+- `go.mod`: `5f40cde18c2d82fe5d57f3a8822377c12e473f1026f174165dfecd126bea3eeb`
+- `tests/oracle.go`: `fe36b0504a4a69623b1f64e791487e35ae78869c8e1524ff131d9790d3180dc2`
+- `tests/oracle_test.go`: `c505b8fea9df4059a503b683b916343a95261b2172436eaa0308fa4a108f15fe`
+- `tests/model_test.go`: `b0f3b9d063c225eb887cecaf16f4058f0ed07ae8f14c3d92c49acacabb0a931e`
+
+Raw logs live at `/tmp/c5b19-g3a3-<name>.log` and are ephemeral. The exact commands,
+results and excerpts above are retained here; log hashes at the time of handoff:
+
+- `red`: `6ede3099c141d7f697a673e89035e76ed1ee02641a7396536a59066773a31f5d`
+- `green`: `3bedce5d7ccb8c646d14ea9c399e167553a7fdd22ad61a484a3e8db8b1a7a44a`
+- `race`: `ecc4354fb360b922b3c4b8e5349cdd985d19eebaaa722605c8ec9d56dffb1ba9`
+- `vet`: `e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855`
+- `build`: `e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855`
+- `restored`: `f2c3e8848befcc2dac325f73761b1eb4a24bb873ab439030e6b2833c310ca04e`
+- `mutant-overlap`: `c80d550a77c6ee00138b51b39a7ed9282c04dd3e00e264f37976d2544f84130a`
+- `mutant-generation`: `cff1cf44430f9d875ceb935d4f9c237a65cffe1396e98dedaac4f4ca0c753ce2`
+- `mutant-fresh-id`: `31fbf454ffe5810c788c77f7de4a9e62839b4d6558b8006e88fe9456812bd428`
+- `mutant-uncertainty`: `ffbc4b02b8bc062883cd4b4a1786d4943da2df976582d5cfbdb36dfc0e2653d1`
+- `mutant-terminal-identity`: `92c4d719d0260b4e7ebd131c14089b3d61a899d1c33fc9d0fda5ae5632c46adb`
+- `mutant-settlement-binding`: `dad42dc5b970ad1012317f0187a7ce66e7a54e9811994629032b5ab885631d97`
+
+Deferred: actual control application/worker-arrival trace pairing, stop/start races,
+clock/timing bounds, real creation/wait custody and absence observations, filesystem
+publication/uncertainty, native/C conformance, full source/build closure and child
+execution. No authority methods or pretend permission stubs were added. This
+history cannot turn record presence into confirmation and has no import/recovery
+API. The brain owns fresh review (max3 for G3a3), commits, linked PR publication,
+exact immutable canonical evidence links and subsequent gate decisions.
+
+## G3a3 independent acceptance
+
+Status: `PASSED` for bounded write-history implementation, local verification and
+fresh review instance 1 of 3, verdict **Ready**, with no actionable findings.
+The reviewer examined the explicit working diff from archive base
+`2274a6c7c751ded537541438f473e81ccd293457` and the source hashes in ORIGINS.
+No implementation changed after that freeze. This acceptance note and the review
+metadata are the only post-review edits. The reviewer independently ran offline
+Go1.25.13 test/race/vet/build and verified source/reference/log hashes. The six
+mutant logs were inspected, not independently rerun; race-test success is not a
+claim of concurrent API safety. This projection is sequential and inert.
+
+The canonical continuation retains the full report and independent preliminary
+ledger under `.planning/c5b19-settlement/`; report SHA256
+`949c324bd0a069f2cb63b06fb429a1c46537b81211a74351ad47d5e9ce72fb2a`. The archive PR links that canonical delivery.
+Historical G3a/G3a2 reviews and limitations remain unchanged. Full Gate3 remains
+`IN_PROGRESS — TRENDING_GOOD`; Gate4–6 and product admission remain `BLOCKED`.
+The draft remains unfinished experiment work, with no child execution authorized.
