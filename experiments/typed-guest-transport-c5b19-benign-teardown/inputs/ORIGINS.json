@@ -1,6 +1,6 @@
 {
   "experiment": "capsule.c5b19.benign-teardown/v1",
-  "status": "IN_PROGRESS — TRENDING_GOOD",
+  "status": "IN_PROGRESS \u2014 TRENDING_GOOD",
   "archive_base_commit": "d8fd74a158f2227277ccfce5532e9bd8ad3e714e",
   "gate2_reviewed_commit": "e7b68c57d59abe66c68d849473e21fe74f4e31b7",
   "gate2_integration_commit": "a6ef83a6b43cd4940547b138529ebbb91cff8da6",
@@ -9,5 +9,24 @@
     "go": "1.25.13"
   },
   "run_authorized": false,
-  "product_admitted": false
+  "product_admitted": false,
+  "g3a2": {
+    "scope": "pure stateless request397/reply98/record395 decoding and correspondence; no lifecycle or storage effects",
+    "continued_archive_head": "1e3f3bb154d0ef24412002ac47adef22ba3c46a9",
+    "canonical_reference_commit": "ba28f9c0b33c2366ccb892c2cf5bc33dcf792600",
+    "canonical_reference_sha256": {
+      "docs/C5B19_GATE2_IMPLEMENTATION_PACKET.md": "65c885425298ce056f8619c5d0837f97ba54dee91c025fea5621a2d75d5ef4f0",
+      "internal/execution/teardownpassive/types.go": "249b7ef054134f47974bf769c3fb37309b867b1be42ae53c18baf23dc8bacfd0",
+      "internal/execution/teardownpassive/model.go": "1e3a8be8527554d3953d494086c5313ceeca5806b40a7661ab488717f4a94c40"
+    },
+    "implementation_sha256": {
+      "go.mod": "5f40cde18c2d82fe5d57f3a8822377c12e473f1026f174165dfecd126bea3eeb",
+      "tests/oracle.go": "0c370da8d89c792d6b0efcfce42b64772c74e42f4c4bae45f1df4c6398e5ff7b",
+      "tests/oracle_test.go": "c505b8fea9df4059a503b683b916343a95261b2172436eaa0308fa4a108f15fe",
+      "tests/model_test.go": "faa1a4ed113c9c30a7528b9b1096d734b7134173b4cf05f07e3b84c0736e0a2e"
+    },
+    "historical_review_3": "PR38 claims Ready; contemporaneous PLAN said pending; report not recovered and verdict not newly corroborated",
+    "fresh_review_status": "BLOCKED pending distinct G3a2 review",
+    "dependencies": "Go1.25.13 standard library only; no added requirements or go.sum"
+  }
 }

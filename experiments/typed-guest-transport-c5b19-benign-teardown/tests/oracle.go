@@ -119,3 +119,138 @@ func encodeObligationPreimage(b obligationBindings) ([]byte, error) {
 	preimage = append(preimage, 0x07)
 	return preimage, nil
 }
+
+var errWire = errors.New("C5B19_WIRE")
+
+// wireOperation is a copied, structurally valid candidate, not a pending-write
+// capability or evidence of storage confirmation. It deliberately has no
+// control-state, process, completion or capacity methods.
+type wireOperation struct {
+	Bindings   obligationBindings
+	Obligation [32]byte
+	Operation  [16]byte
+	Generation uint64
+	Kind       byte
+	Candidate  [68]byte
+}
+
+func decodeRequest(frame []byte, frozen obligationBindings) (wireOperation, error) {
+	if len(frame) != 397 || !bytes.Equal(frame[:8], []byte{'C', '5', '1', '9', 1, 1, 1, 141}) {
+		return wireOperation{}, errWire
+	}
+	return decodeWireFields(frame[8:248], frame[248:280], frame[280:296], frame[296:304], frame[304], frame[305:373], frame[373:397], frozen)
+}
+
+func decodeRecord(record []byte, frozen obligationBindings) (wireOperation, error) {
+	if len(record) != 395 || !bytes.Equal(record[:6], []byte{'C', '5', 'R', '1', 0, 1}) {
+		return wireOperation{}, errWire
+	}
+	return decodeWireFields(record[6:246], record[246:278], record[310:326], record[302:310], record[326], record[327:395], record[278:302], frozen)
+}
+
+// Only the fixed-size decoders call this helper. Comparing against the frozen
+// immutable preimage validates all bindings, the exact clock policy and the
+// immutable obligation digest before accepting any operation fields.
+func decodeWireFields(bindings, obligation, operation, generation []byte, kind byte, candidate, policy []byte, frozen obligationBindings) (wireOperation, error) {
+	preimage, err := encodeObligationPreimage(frozen)
+	if err != nil || !bytes.Equal(bindings, preimage[30:270]) || !bytes.Equal(policy, preimage[270:294]) {
+		return wireOperation{}, errWire
+	}
+	digest := sha256.Sum256(preimage)
+	if !bytes.Equal(obligation, digest[:]) {
+		return wireOperation{}, errWire
+	}
+	value := wireOperation{Bindings: frozen, Obligation: digest, Generation: binary.BigEndian.Uint64(generation), Kind: kind}
+	copy(value.Operation[:], operation)
+	copy(value.Candidate[:], candidate)
+	if value.Operation == [16]byte{} || value.Generation == 0 || value.Generation > 1<<53-1 || !validWireCandidate(kind, value.Candidate) {
+		return wireOperation{}, errWire
+	}
+	if (kind == 1 && value.Operation != frozen.Preparation) || (kind != 1 && value.Operation == frozen.Preparation) {
+		return wireOperation{}, errWire
+	}
+	// Freshness, exact predecessor generation and custody require the separate
+	// stateful model. Structural decoding makes no claim about those relations.
+	return value, nil
+}
+
+func validWireCandidate(kind byte, candidate [68]byte) bool {
+	if candidate[0] != 1 || candidate[1] > 1 || candidate[66] > 1 || candidate[67] > 2 {
+		return false
+	}
+	runner := [32]byte(candidate[2:34])
+	absence := [32]byte(candidate[34:66])
+	if (candidate[1] == 1) != (runner != [32]byte{}) {
+		return false
+	}
+	switch kind {
+	case 1:
+		return candidate == [68]byte{1}
+	case 2:
+		return candidate[1] == 1 && absence == [32]byte{} && candidate[66] == 0 && candidate[67] == 0
+	case 3:
+		// Identity publication may have failed before authoritative absence. Such
+		// terminal evidence has a zero runner identity but a nonzero absence identity.
+		return candidate[66] == 1 && candidate[67] != 0 && absence != [32]byte{} && (candidate[1] == 0 || runner == absence)
+	default:
+		return false
+	}
+}
+
+func validateRecordForRequest(record, request []byte, frozen obligationBindings) error {
+	req, err := decodeRequest(request, frozen)
+	if err != nil {
+		return err
+	}
+	rec, err := decodeRecord(record, frozen)
+	if err != nil {
+		return err
+	}
+	if req != rec {
+		return errWire
+	}
+	return nil
+}
+
+// validateReply checks wire correspondence only. Even a confirmed outcome does
+// not establish fsync/rename success, live custody, start or release authority.
+func validateReply(reply, request []byte, frozen obligationBindings) (byte, error) {
+	req, err := decodeRequest(request, frozen)
+	if err != nil {
+		return 0, err
+	}
+	if len(reply) != 98 || !bytes.Equal(reply[:8], []byte{'C', '5', '1', '9', 1, 2, 0, 98}) ||
+		!bytes.Equal(reply[8:24], req.Operation[:]) || binary.BigEndian.Uint64(reply[24:32]) != req.Generation || reply[32] != req.Kind {
+		return 0, errWire
+	}
+	requestHash := sha256.Sum256(request[8:])
+	if !bytes.Equal(reply[33:65], requestHash[:]) {
+		return 0, errWire
+	}
+	outcome := reply[65]
+	var expectedDigest [32]byte
+	switch outcome {
+	case 1:
+		// The validated request's exact fields are reordered into the frozen record
+		// schema; no struct serialization, native padding or extra authority fields.
+		var record [395]byte
+		copy(record[:6], []byte{'C', '5', 'R', '1', 0, 1})
+		copy(record[6:246], request[8:248])
+		copy(record[246:278], req.Obligation[:])
+		copy(record[278:302], request[373:397])
+		binary.BigEndian.PutUint64(record[302:310], req.Generation)
+		copy(record[310:326], req.Operation[:])
+		record[326] = req.Kind
+		copy(record[327:395], req.Candidate[:])
+		expectedDigest = sha256.Sum256(record[:])
+	case 2, 3:
+		// Failed/indeterminate bytes remain uncertainty, including after a record
+		// became present. Never promote presence to confirmed publication.
+	default:
+		return 0, errWire
+	}
+	if !bytes.Equal(reply[66:98], expectedDigest[:]) {
+		return 0, errWire
+	}
+	return outcome, nil
+}
