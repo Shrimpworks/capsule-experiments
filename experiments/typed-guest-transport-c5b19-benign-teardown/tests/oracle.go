@@ -486,3 +486,133 @@ func validateLaneEnvelope(raw []byte, expectedLane byte, firstSequence uint64, f
 	}
 	return nil
 }
+
+var errEventFields = errors.New("C5B19_EVENT_FIELDS")
+
+type eventFieldMask uint16
+
+const (
+	fieldAuxiliary eventFieldMask = 1 << iota
+	fieldOperation
+	fieldGeneration
+	fieldRequest
+	fieldIdentity
+	fieldPID
+	fieldResult
+	fieldErrno
+	fieldSite
+	fieldWaitStatus
+	fieldOutcome
+	fieldApplication
+	fieldRecord
+	fieldCandidate
+
+	tupleFields    = fieldOperation | fieldGeneration | fieldRequest | fieldCandidate
+	identityFields = fieldIdentity | fieldPID
+	syscallFields  = fieldResult | fieldErrno
+	replyFields    = fieldOutcome | fieldRecord
+)
+
+// decodeEventFields opts into the table-defined local shapes after common
+// envelope validation. It does not check lane sequences, sidecars, causal pairs,
+// syscall semantics, terminal wait status, timing or any actual lifecycle fact.
+// Kind29 supports only the payload-free subset; the optional harness identity
+// mapping remains unspecified. Kind8 supports complete represented replies for
+// both decisions, not arbitrary malformed-reply diagnostic encodings.
+func decodeEventFields(raw []byte, frozen obligationBindings, numer, denom uint32) (eventEnvelope, error) {
+	event, err := decodeEventEnvelope(raw, frozen, numer, denom)
+	if err != nil {
+		return eventEnvelope{}, err
+	}
+	// Lane zero means any known lane, solely for the lane-local trace-fault kind.
+	// Unlisted non-common fields are forbidden, even when their values would be
+	// meaningful for another kind. No successful return is a trace/case verdict.
+	shapes := [30]struct {
+		lane   byte
+		fields eventFieldMask
+	}{
+		1:  {1, 0},                                                // endpoint-created
+		2:  {1, fieldAuxiliary},                                   // setup-check
+		3:  {1, tupleFields},                                      // write-request
+		4:  {1, tupleFields | syscallFields},                      // request-write-result
+		5:  {2, tupleFields | replyFields},                        // worker-reply
+		6:  {2, tupleFields | syscallFields | replyFields},        // worker-reply-write-result
+		7:  {1, tupleFields | replyFields},                        // control-reply-received
+		8:  {1, tupleFields | replyFields | fieldApplication},     // control-reply-applied
+		9:  {1, 0},                                                // spawn-call
+		10: {1, fieldPID | syscallFields},                         // spawn-result
+		11: {1, identityFields},                                   // identity-frozen
+		12: {1, 0},                                                // cancel-ingress
+		13: {1, 0},                                                // start-admission
+		14: {1, 0},                                                // start-token-call
+		15: {1, syscallFields},                                    // start-token-result
+		16: {1, fieldAuxiliary},                                   // start-post-service
+		17: {1, fieldAuxiliary},                                   // wall-service
+		18: {1, 0},                                                // fatal-service
+		19: {1, fieldAuxiliary},                                   // stop-latch
+		20: {1, identityFields},                                   // signal-latch
+		21: {1, identityFields},                                   // signal-call
+		22: {1, identityFields | syscallFields},                   // signal-result
+		23: {1, identityFields},                                   // wait-call
+		24: {1, identityFields | syscallFields | fieldWaitStatus}, // wait-result
+		25: {1, identityFields},                                   // absence (status belongs to24)
+		26: {2, tupleFields | fieldSite},                          // store-edge
+		27: {2, tupleFields | fieldOutcome},                       // store-outcome: no record digest
+		28: {0, 0},                                                // lane-local trace-fault
+		29: {3, 0},                                                // payload-free harness-containment
+	}
+	shape := shapes[event.Kind] // envelope already closed the kind range to1–29
+	if shape.lane != 0 && event.Lane != shape.lane {
+		return eventEnvelope{}, errEventFields
+	}
+	var present eventFieldMask
+	for _, field := range [...]struct {
+		mask    eventFieldMask
+		nonzero bool
+	}{
+		{fieldAuxiliary, event.AuxiliaryTick != 0},
+		{fieldOperation, event.Operation != [16]byte{}},
+		{fieldGeneration, event.Generation != 0},
+		{fieldRequest, event.RequestDigest != [32]byte{}},
+		{fieldIdentity, event.ProcessIdentity != [32]byte{}},
+		{fieldPID, event.PID != 0},
+		{fieldResult, event.SyscallResult != 0},
+		{fieldErrno, event.Errno != 0},
+		{fieldSite, event.Flags != 0},
+		{fieldWaitStatus, event.WaitStatus != 0},
+		{fieldOutcome, event.Outcome != 0},
+		{fieldApplication, event.ApplicationResult != 0},
+		{fieldRecord, event.RecordDigest != [32]byte{}},
+		{fieldCandidate, event.CandidateDigest != [32]byte{}},
+	} {
+		if field.nonzero {
+			present |= field.mask
+		}
+	}
+	if present & ^shape.fields != 0 {
+		return eventEnvelope{}, errEventFields
+	}
+	if shape.fields&tupleFields != 0 &&
+		(present&tupleFields != tupleFields || event.Generation > 1<<53-1) {
+		return eventEnvelope{}, errEventFields
+	}
+	if event.PID > 1<<31-1 || (shape.fields&fieldIdentity != 0 && present&identityFields != identityFields) {
+		return eventEnvelope{}, errEventFields
+	}
+	if (shape.fields&fieldOutcome != 0 && event.Outcome == 0) ||
+		(shape.fields&fieldApplication != 0 && event.ApplicationResult == 0) {
+		return eventEnvelope{}, errEventFields
+	}
+	if shape.fields&fieldRecord != 0 && (event.Outcome == 1) != (event.RecordDigest != [32]byte{}) {
+		return eventEnvelope{}, errEventFields
+	}
+	if shape.fields&fieldSite != 0 && (event.Flags < 1 || event.Flags > 4) {
+		return eventEnvelope{}, errEventFields
+	}
+	// A zero status is representable. Nonzero status requires a matching target
+	// return, but this neither interprets Darwin status bits nor proves absence.
+	if event.WaitStatus != 0 && event.SyscallResult != int32(event.PID) {
+		return eventEnvelope{}, errEventFields
+	}
+	return event, nil
+}

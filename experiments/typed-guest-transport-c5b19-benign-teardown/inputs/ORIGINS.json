@@ -99,5 +99,42 @@
     "sequence_origin": "explicit trusted firstSequence parameter; Gate2 writer origin unspecified and not inferred from raw input",
     "scope_limit": "syntactic acceptance only; per-kind field/lane ownership, frame pairing, causality, timing and real evidence remain deferred",
     "review_report_sha256": "9b4a00d4eaedfe9abfe17de33d5fcef38dc6849086f8212f13b826d794647f64"
+  },
+  "g3a5": {
+    "scope": "opt-in local kind-specific field shape and lane ownership for 29 table-defined event kinds; no whole-trace or causal verdict",
+    "continued_archive_head": "3e26b809a40832a3351fdc6b5e0ffc1ef0094792",
+    "canonical_reference_commit": "fe3d22c84b5d41e0a4edbfacb531563040e16995",
+    "canonical_reference_sha256": {
+      "docs/C5B19_GATE2_IMPLEMENTATION_PACKET.md": "65c885425298ce056f8619c5d0837f97ba54dee91c025fea5621a2d75d5ef4f0",
+      "internal/execution/teardownpassive/types.go": "249b7ef054134f47974bf769c3fb37309b867b1be42ae53c18baf23dc8bacfd0",
+      "internal/execution/teardownpassive/model.go": "1e3a8be8527554d3953d494086c5313ceeca5806b40a7661ab488717f4a94c40"
+    },
+    "implementation_sha256": {
+      "go.mod": "5f40cde18c2d82fe5d57f3a8822377c12e473f1026f174165dfecd126bea3eeb",
+      "tests/oracle.go": "d82c587990d8516e89b442d1d89707fed7a2114a6a906c9b76a624dfd39fd114",
+      "tests/oracle_test.go": "fb643536635b8e73fb2c2d52aeae782b7350162613b09577a01cbc50f34ad410",
+      "tests/model_test.go": "b0f3b9d063c225eb887cecaf16f4058f0ed07ae8f14c3d92c49acacabb0a931e"
+    },
+    "evidence_log_sha256": {
+      "red": "c813e98a946e71940b4f769e12c9324bfce187715ade36a9212d44b6f9143ae1",
+      "green": "a4b3ab9dfeb04a6f059fb0092c9c81d86645d4d11c1f8ab0b9c2e51364ea0309",
+      "race": "717cd6c8ae93adf9f48fa127a2e9e7a28e4bfe9daf674e945942dcffbd0667f3",
+      "vet": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "build": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "restored": "d4710b8cb96e035d9ccca9bf8620476fefee4534d99030c3f86b19cf9b9690e2",
+      "mutant-lane": "29ae5a6845eae5df27ee1b356a9386ceb217af2ed139f10d6ede00338236614e",
+      "mutant-forbidden": "98178f3cb4655f68fda1e47e6a05f3a1131ebdea0bb5b49ae88ff8112732b9aa",
+      "mutant-tuple": "6edd6c920b7b2f93671b404a3baefd08bc95e439b6875af8f0fa4ebdfc130471",
+      "mutant-identity": "0b5d11e9b80f68774567d0bf51273cc9f951054c68f48b641e2b05aa173b0765",
+      "mutant-store-record": "42456a617960b494d1f27f6ba9c465b2467f71b89fc1cf3c34f1b06f4410a153",
+      "mutant-reply-coupling": "3263d47b28e8d3ff7770616d2edccae276a5fbdeb4e8d50e2bb11bf8a8c93eed",
+      "mutant-store-site": "af6360cfdad899c260bd9fa56ea15446665cd85f72d2fca561df5fc3797cfa75",
+      "mutant-wait-return": "d873c5274437121fc066f0d03b7b905915abd28c6e2327038294ff95f3c153a7"
+    },
+    "review_status": "PASSED; fresh instance 1 of 3 Ready; no actionable findings",
+    "dependencies": "Go 1.25.13 standard library only; no added requirements or go.sum",
+    "supported_subset": "payload-free harness kind 29; complete represented reply shapes for both kind 8 decisions; optional harness identity and malformed-reply diagnostics remain unmapped",
+    "scope_limit": "local field and lane consistency only; scalar zeros remain observations; no guessed syscall semantics or terminal-status decoding; sidecars, pairing, causality, timing and execution remain deferred",
+    "review_report_sha256": "2d3d7cba6b135a4dc42d6ae7dfadc1927e257482dd5127d909f1f5a9acc1c940"
   }
 }

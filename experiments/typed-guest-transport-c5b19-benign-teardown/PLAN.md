@@ -518,3 +518,148 @@ were not independently replayed. Full report retained in canonical
 Reviewed oracle/test bytes are unchanged; only acceptance metadata was appended
 after freeze. Publication is owned by the Brain. Full Gate3 remains
 IN_PROGRESS — TRENDING_GOOD; child execution, Gate4–6 and product admission BLOCKED.
+
+## G3a5 event field shape and lane ownership
+
+Status: `PASSED` for bounded implementation and local verification; fresh
+independent review is `IN_PROGRESS — TRENDING_GOOD` (pending). Full Gate 3
+remains `IN_PROGRESS — TRENDING_GOOD`; child execution, Gates 4–6 and product
+admission remain `BLOCKED`. Archive baseline is
+`3e26b809a40832a3351fdc6b5e0ffc1ef0094792`; canonical reference is
+`fe3d22c84b5d41e0a4edbfacb531563040e16995`. Earlier review counts, limitations
+and source/log hashes stay historical and unchanged.
+
+The accepted pre-implementation scope adds only `decodeEventFields`, an opt-in
+raw-byte wrapper around the unchanged G3a4 envelope decoder. A visible 29-kind
+field/lane table permits only the named non-common fields. A fixed presence
+mask rejects every forbidden nonzero field. Required operation tuples contain
+nonzero operation/request/candidate identifiers and generation 1 through
+2^53-1. Identity-bearing events require nonzero identity and PID 1 through
+2^31-1. The spawn-result PID may also be zero, with no guessed syscall success
+relation. Outcome-bearing records require outcomes 1–3; application decisions
+on kind 8 require 1 or 2. Transport kinds 5–8 require a nonzero record digest
+exactly for confirmed outcome; store kind 27 always has zero record digest.
+Store-edge sites are exactly 1–4. Nonzero wait status requires a result matching
+the recorded PID; zero wait status remains allowed. Signed syscall/errno fields
+are preserved without guessing result/errno success rules. Common tick/anchor
+scalars can be zero; this local check does not establish observation presence.
+Every error returns a zero event. Caller bytes and returned arrays are independent.
+
+The supported matrix is the Gate2 field table interpreted within these explicit
+limits: payload-free harness kind 29 only; complete represented replies for both
+kind 8 decisions; no mapping for optional harness identity or arbitrary malformed-
+reply diagnostics. Refusing those unmapped variants means unsupported by this
+subset, not universally forbidden by the whole frozen packet. The existing
+syntactic envelope API remains unchanged. No new lane walker, write-history
+settlement, authority method, source file, native code or live effect is added.
+
+A locally accepted absence shape without a prior wait remains insufficient
+absence evidence. A locally accepted trace-fault shape is still failure evidence
+for the future case oracle. Field acceptance does not verify raw sidecars,
+request/candidate equality, received/applied or wait pairs, custody, terminal
+status bits, causal transitions, clocks/bounds, real storage confirmation,
+completion or release. These remain later work; no first-run gate is opened.
+
+Dependency-policy record: the C5b19 prospective Supervisor control/storage lane
+exchange row recommends ADOPT-PLATFORM / BUILD-NARROWLY. This increment uses
+only BUILD-NARROWLY fixed parsing, the already-pinned Go 1.25.13 standard library
+and inherited BSD-style toolchain provenance. No dependency, go.sum, module,
+platform API, frozen manifest entry or product import is added. Input is exactly
+256 bytes before the fixed 29-row and 14-field checks. No allocation proportional
+to unchecked input size occurs. Trust class is test/evidence only, authority is
+none beyond interpreting owned synthetic bytes, and refusal changes no state.
+There are no child/guest, process-target, signal/wait, filesystem/store, network,
+credential, real-clock, service, user-data or goroutine effects in new code/tests.
+Capsule maintainer owns upgrade/removal. Offline reproduction, boundary faults,
+mutation sensitivity and exact restoration are retained below.
+
+### G3a5 test-first and verification evidence
+
+Every Go command used the exact locally cached toolchain from this experiment:
+
+```sh
+GOCACHE=/tmp/c5b19-g3a5-go-cache GOTOOLCHAIN=local GOPROXY=off GOSUMDB=off /Users/dsteele/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.25.13.darwin-arm64/bin/go
+```
+
+Before implementation, `test ./... -count=1` exited 1 with missing-symbol
+compiler errors, including `tests/oracle_test.go:938:11: undefined:
+decodeEventFields`, followed by `FAIL [build failed]`. The new wrapper did not
+exist. After implementation, the same command exited 0 (`ok ... 0.261s`).
+`test -race ./... -count=1` exited 0 (`ok ... 1.795s`). `vet ./...` and
+`build ./...` exited 0 with no diagnostics. `git diff --check` exited 0.
+Ordinary compiler/unit-test execution did not execute an experiment child.
+
+Fixtures independently transcribe byte offsets from the packet into test-owned
+bytes, not implementation masks or production encoders. The unchanged G3a4
+literal binding hash anchors common fields. All 29 kinds are tested across all
+three lanes; all 31 supported kind/lane shapes preserve the envelope fields.
+Every forbidden non-common field is injected independently. Positive and negative
+cases cover required tuple/identity members, generation 0/max/max+1, PID 0/max/
+max+1, all represented reply outcomes with both kind 8 decisions, missing/extra
+record digests, all four store sites and invalid boundaries, confirmed store
+outcome without a record digest, zero and nonzero wait status with matching or
+wrong returns, signed spawn/errno observations, zero scalar observations,
+envelope refusal composition, zero error results and ownership. Existing G3a4
+broad syntax tests stay unchanged. No syscall success or causal pass is inferred.
+
+### G3a5 targeted mutation sensitivity
+
+Each one-at-a-time source mutation ran `test ./tests -run '^TESTNAME$' -count=1`.
+All eight compiled and exited 1 through the intended assertion. A finally block
+restored exact original source bytes after each test; no mutant is retained.
+These are selected guard-sensitivity checks, not exhaustive proof.
+
+| Mutation | TESTNAME | Retained failing assertion |
+| --- | --- | --- |
+| lane | TestEventFieldsAllKindsAndLanes | `invalid event fields returned` |
+| forbidden | TestEventFieldsEveryForbiddenField | `invalid event fields returned` |
+| tuple | TestEventFieldsRequiredTupleAndIdentity | `invalid event fields returned` |
+| identity | TestEventFieldsRequiredTupleAndIdentity | `invalid event fields returned` |
+| store-record | TestEventFieldsStoreSitesAndOutcome | `store outcome with zero record digest refused` |
+| reply-coupling | TestEventFieldsReplyOutcomesAndDecisions | `invalid event fields returned` |
+| store-site | TestEventFieldsStoreSitesAndOutcome | `invalid event fields returned` |
+| wait-return | TestEventFieldsWaitAndSpawnLocalShapeOnly | `invalid event fields returned` |
+
+Restored `oracle.go` SHA256: `d82c587990d8516e89b442d1d89707fed7a2114a6a906c9b76a624dfd39fd114`.
+Restored `test ./... -count=1`: exit 0, `ok ... 0.236s`.
+
+Current source hashes (older slice hashes remain historical):
+
+- `go.mod`: `5f40cde18c2d82fe5d57f3a8822377c12e473f1026f174165dfecd126bea3eeb`
+- `tests/oracle.go`: `d82c587990d8516e89b442d1d89707fed7a2114a6a906c9b76a624dfd39fd114`
+- `tests/oracle_test.go`: `fb643536635b8e73fb2c2d52aeae782b7350162613b09577a01cbc50f34ad410`
+- `tests/model_test.go`: `b0f3b9d063c225eb887cecaf16f4058f0ed07ae8f14c3d92c49acacabb0a931e`
+
+Raw `/tmp/c5b19-g3a5-<name>.log` files are ephemeral. Commands, results and
+excerpts above remain retained alongside these log hashes:
+
+- `red`: `c813e98a946e71940b4f769e12c9324bfce187715ade36a9212d44b6f9143ae1`
+- `green`: `a4b3ab9dfeb04a6f059fb0092c9c81d86645d4d11c1f8ab0b9c2e51364ea0309`
+- `race`: `717cd6c8ae93adf9f48fa127a2e9e7a28e4bfe9daf674e945942dcffbd0667f3`
+- `vet`: `e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855`
+- `build`: `e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855`
+- `restored`: `d4710b8cb96e035d9ccca9bf8620476fefee4534d99030c3f86b19cf9b9690e2`
+- `mutant-lane`: `29ae5a6845eae5df27ee1b356a9386ceb217af2ed139f10d6ede00338236614e`
+- `mutant-forbidden`: `98178f3cb4655f68fda1e47e6a05f3a1131ebdea0bb5b49ae88ff8112732b9aa`
+- `mutant-tuple`: `6edd6c920b7b2f93671b404a3baefd08bc95e439b6875af8f0fa4ebdfc130471`
+- `mutant-identity`: `0b5d11e9b80f68774567d0bf51273cc9f951054c68f48b641e2b05aa173b0765`
+- `mutant-store-record`: `42456a617960b494d1f27f6ba9c465b2467f71b89fc1cf3c34f1b06f4410a153`
+- `mutant-reply-coupling`: `3263d47b28e8d3ff7770616d2edccae276a5fbdeb4e8d50e2bb11bf8a8c93eed`
+- `mutant-store-site`: `af6360cfdad899c260bd9fa56ea15446665cd85f72d2fca561df5fc3797cfa75`
+- `mutant-wait-return`: `d873c5274437121fc066f0d03b7b905915abd28c6e2327038294ff95f3c153a7`
+
+Fresh independent review of this distinct G3a5 delta is pending (maximum three
+instances). Brain owns source freeze, review reconciliation, both PR destinations,
+commits and exact immutable canonical links. Prior acceptance is not reused as
+review of these bytes. All lifecycle execution and admission gates stay closed.
+
+### G3a5 acceptance
+
+PASSED: fresh independent review instance 1 of 3 returned **Ready**, no actionable
+findings. The reviewer independently ran exact offline test/race/vet/build and
+verified source/reference/log hashes. Mutation and canonical CI results were
+inspected as retained evidence, not rerun. Full report retained canonically at
+`.planning/c5b19-event-fields/review-1.md`, SHA256 `2d3d7cba6b135a4dc42d6ae7dfadc1927e257482dd5127d909f1f5a9acc1c940`.
+Reviewed Go/test bytes remain unchanged; only acceptance metadata was appended
+after freeze. Brain owns immutable publication. Full Gate 3 remains
+IN_PROGRESS — TRENDING_GOOD; child execution, Gates 4–6 and admission remain BLOCKED.

@@ -873,3 +873,345 @@ func TestLaneEnvelopeControlTickOrderAndIndependence(t *testing.T) {
 		t.Fatal("worker advanced control watermark")
 	}
 }
+
+// These byte-offset cases independently transcribe the accepted packet field
+// matrix. They do not use the implementation's masks or a production encoder.
+func eventFieldCases() []struct {
+	kind   uint16
+	lane   byte // zero means all three writers for lane-local trace faults
+	fields []int
+} {
+	return []struct {
+		kind   uint16
+		lane   byte
+		fields []int
+	}{
+		{1, 1, nil}, {2, 1, []int{24}},
+		{3, 1, []int{72, 88, 96, 214}},
+		{4, 1, []int{72, 88, 96, 164, 168, 214}},
+		{5, 2, []int{72, 88, 96, 180, 182, 214}},
+		{6, 2, []int{72, 88, 96, 164, 168, 180, 182, 214}},
+		{7, 1, []int{72, 88, 96, 180, 182, 214}},
+		{8, 1, []int{72, 88, 96, 180, 181, 182, 214}},
+		{9, 1, nil}, {10, 1, []int{160, 164, 168}},
+		{11, 1, []int{128, 160}}, {12, 1, nil}, {13, 1, nil}, {14, 1, nil},
+		{15, 1, []int{164, 168}}, {16, 1, []int{24}}, {17, 1, []int{24}},
+		{18, 1, nil}, {19, 1, []int{24}},
+		{20, 1, []int{128, 160}}, {21, 1, []int{128, 160}},
+		{22, 1, []int{128, 160, 164, 168}}, {23, 1, []int{128, 160}},
+		{24, 1, []int{128, 160, 164, 168, 176}}, {25, 1, []int{128, 160}},
+		{26, 2, []int{72, 88, 96, 172, 214}},
+		{27, 2, []int{72, 88, 96, 180, 214}}, {28, 0, nil}, {29, 3, nil},
+	}
+}
+
+func eventFieldsFixture(t *testing.T, kind uint16) []byte {
+	t.Helper()
+	raw := make([]byte, 256)
+	copy(raw[:5], []byte{'C', '5', 'E', 'V', 1})
+	binary.BigEndian.PutUint16(raw[6:8], kind)
+	binary.BigEndian.PutUint64(raw[8:16], 7)
+	binary.BigEndian.PutUint32(raw[32:36], 125)
+	binary.BigEndian.PutUint32(raw[36:40], 3)
+	copy(raw[40:72], wireBytes(t, eventBindingDigestVector))
+	for _, tc := range eventFieldCases() {
+		if tc.kind != kind {
+			continue
+		}
+		raw[5] = tc.lane
+		if raw[5] == 0 {
+			raw[5] = 1
+		}
+		for _, offset := range tc.fields {
+			switch offset {
+			case 24, 88:
+				binary.BigEndian.PutUint64(raw[offset:offset+8], 1)
+			case 72:
+				copy(raw[72:88], bytes.Repeat([]byte{11}, 16))
+			case 96, 128, 182, 214:
+				copy(raw[offset:offset+32], bytes.Repeat([]byte{byte(offset)}, 32))
+			case 160:
+				binary.BigEndian.PutUint32(raw[160:164], 41)
+			case 164:
+				binary.BigEndian.PutUint32(raw[164:168], ^uint32(0))
+			case 168:
+				binary.BigEndian.PutUint32(raw[168:172], 22)
+			case 172, 176:
+				binary.BigEndian.PutUint32(raw[offset:offset+4], 2)
+			case 180, 181:
+				raw[offset] = 1
+			default:
+				t.Fatalf("unknown test offset %d", offset)
+			}
+		}
+		if kind == 24 {
+			binary.BigEndian.PutUint32(raw[164:168], 41)
+		}
+		return raw
+	}
+	t.Fatalf("unknown test kind %d", kind)
+	return nil
+}
+
+func requireEventFieldsRefused(t *testing.T, raw []byte) {
+	t.Helper()
+	got, err := decodeEventFields(raw, obligationFixture(), 125, 3)
+	if err == nil || got != (eventEnvelope{}) {
+		t.Fatalf("invalid event fields returned %+v, %v", got, err)
+	}
+}
+
+func TestEventFieldsAllKindsAndLanes(t *testing.T) {
+	for _, tc := range eventFieldCases() {
+		for lane := byte(1); lane <= 3; lane++ {
+			t.Run(fmt.Sprintf("kind%d/lane%d", tc.kind, lane), func(t *testing.T) {
+				raw := eventFieldsFixture(t, tc.kind)
+				raw[5] = lane
+				if tc.lane != 0 && lane != tc.lane {
+					requireEventFieldsRefused(t, raw)
+					return
+				}
+				before := bytes.Clone(raw)
+				got, err := decodeEventFields(raw, obligationFixture(), 125, 3)
+				want, envelopeErr := decodeEventEnvelope(raw, obligationFixture(), 125, 3)
+				if err != nil || envelopeErr != nil || got != want {
+					t.Fatalf("supported local shape refused or changed: %+v %v", got, err)
+				}
+				if !bytes.Equal(raw, before) {
+					t.Fatal("field decoder changed input")
+				}
+			})
+		}
+	}
+}
+
+func TestEventFieldsEveryForbiddenField(t *testing.T) {
+	fields := []struct{ offset, size int }{
+		{24, 8}, {72, 16}, {88, 8}, {96, 32}, {128, 32}, {160, 4}, {164, 4},
+		{168, 4}, {172, 4}, {176, 4}, {180, 1}, {181, 1}, {182, 32}, {214, 32},
+	}
+	for _, tc := range eventFieldCases() {
+		for _, field := range fields {
+			allowed := false
+			for _, offset := range tc.fields {
+				if field.offset == offset {
+					allowed = true
+				}
+			}
+			if allowed {
+				continue
+			}
+			t.Run(fmt.Sprintf("kind%d/offset%d", tc.kind, field.offset), func(t *testing.T) {
+				raw := eventFieldsFixture(t, tc.kind)
+				raw[field.offset+field.size-1] = 1
+				requireEventFieldsRefused(t, raw)
+			})
+		}
+	}
+}
+
+func TestEventFieldsRequiredTupleAndIdentity(t *testing.T) {
+	for _, kind := range []uint16{3, 4, 5, 6, 7, 8, 26, 27} {
+		for _, field := range [][2]int{{72, 16}, {88, 8}, {96, 32}, {214, 32}} {
+			raw := eventFieldsFixture(t, kind)
+			clear(raw[field[0] : field[0]+field[1]])
+			t.Run(fmt.Sprintf("kind%d/missing%d", kind, field[0]), func(t *testing.T) { requireEventFieldsRefused(t, raw) })
+		}
+		for _, generation := range []uint64{1, 1<<53 - 1} {
+			raw := eventFieldsFixture(t, kind)
+			binary.BigEndian.PutUint64(raw[88:96], generation)
+			if _, err := decodeEventFields(raw, obligationFixture(), 125, 3); err != nil {
+				t.Fatal("valid generation boundary refused", kind, generation, err)
+			}
+		}
+		for _, generation := range []uint64{0, 1 << 53, ^uint64(0)} {
+			raw := eventFieldsFixture(t, kind)
+			binary.BigEndian.PutUint64(raw[88:96], generation)
+			requireEventFieldsRefused(t, raw)
+		}
+	}
+	for _, kind := range []uint16{11, 20, 21, 22, 23, 24, 25} {
+		raw := eventFieldsFixture(t, kind)
+		clear(raw[128:160])
+		requireEventFieldsRefused(t, raw)
+		for _, pid := range []uint32{0, 1 << 31, ^uint32(0)} {
+			raw := eventFieldsFixture(t, kind)
+			binary.BigEndian.PutUint32(raw[160:164], pid)
+			// Keep the wait return matched so this tests the PID guard alone.
+			if kind == 24 {
+				binary.BigEndian.PutUint32(raw[164:168], pid)
+			}
+			requireEventFieldsRefused(t, raw)
+		}
+		for _, pid := range []uint32{1, 1<<31 - 1} {
+			raw := eventFieldsFixture(t, kind)
+			binary.BigEndian.PutUint32(raw[160:164], pid)
+			if kind == 24 {
+				binary.BigEndian.PutUint32(raw[164:168], pid)
+			}
+			if _, err := decodeEventFields(raw, obligationFixture(), 125, 3); err != nil {
+				t.Fatal("valid PID boundary refused", kind, pid, err)
+			}
+		}
+	}
+}
+
+func TestEventFieldsReplyOutcomesAndDecisions(t *testing.T) {
+	for _, kind := range []uint16{5, 6, 7, 8} {
+		decisions := []byte{0}
+		if kind == 8 {
+			decisions = []byte{1, 2}
+		}
+		for _, decision := range decisions {
+			for _, outcome := range []byte{1, 2, 3} {
+				raw := eventFieldsFixture(t, kind)
+				raw[180] = outcome
+				raw[181] = decision
+				if outcome != 1 {
+					clear(raw[182:214])
+				}
+				if _, err := decodeEventFields(raw, obligationFixture(), 125, 3); err != nil {
+					t.Fatal("represented reply refused", kind, outcome, decision, err)
+				}
+				if outcome == 1 {
+					clear(raw[182:214])
+				} else {
+					raw[182] = 1
+				}
+				t.Run(fmt.Sprintf("kind%d/outcome%d/decision%d", kind, outcome, decision), func(t *testing.T) { requireEventFieldsRefused(t, raw) })
+			}
+			for _, outcome := range []byte{0, 4, 255} {
+				raw := eventFieldsFixture(t, kind)
+				raw[180] = outcome
+				raw[181] = decision
+				clear(raw[182:214])
+				requireEventFieldsRefused(t, raw)
+			}
+		}
+	}
+	for _, decision := range []byte{0, 3, 255} {
+		raw := eventFieldsFixture(t, 8)
+		raw[181] = decision
+		requireEventFieldsRefused(t, raw)
+	}
+}
+
+func TestEventFieldsStoreSitesAndOutcome(t *testing.T) {
+	for _, site := range []uint32{1, 2, 3, 4} {
+		raw := eventFieldsFixture(t, 26)
+		binary.BigEndian.PutUint32(raw[172:176], site)
+		if _, err := decodeEventFields(raw, obligationFixture(), 125, 3); err != nil {
+			t.Fatal("frozen store site refused", site, err)
+		}
+	}
+	for _, site := range []uint32{0, 5, ^uint32(0)} {
+		raw := eventFieldsFixture(t, 26)
+		binary.BigEndian.PutUint32(raw[172:176], site)
+		requireEventFieldsRefused(t, raw)
+	}
+	for _, outcome := range []byte{1, 2, 3} {
+		raw := eventFieldsFixture(t, 27)
+		raw[180] = outcome
+		if _, err := decodeEventFields(raw, obligationFixture(), 125, 3); err != nil {
+			t.Fatal("store outcome with zero record digest refused", outcome, err)
+		}
+		raw[182] = 1
+		requireEventFieldsRefused(t, raw)
+	}
+	for _, outcome := range []byte{0, 4, 255} {
+		raw := eventFieldsFixture(t, 27)
+		raw[180] = outcome
+		requireEventFieldsRefused(t, raw)
+	}
+}
+
+func TestEventFieldsWaitAndSpawnLocalShapeOnly(t *testing.T) {
+	for _, status := range []uint32{0, 1, 0xffff} {
+		raw := eventFieldsFixture(t, 24)
+		binary.BigEndian.PutUint32(raw[176:180], status)
+		if _, err := decodeEventFields(raw, obligationFixture(), 125, 3); err != nil {
+			t.Fatal("matching wait shape refused", status, err)
+		}
+		for _, result := range []uint32{0, ^uint32(0), 42} {
+			binary.BigEndian.PutUint32(raw[164:168], result)
+			if status != 0 {
+				requireEventFieldsRefused(t, raw)
+			} else if _, err := decodeEventFields(raw, obligationFixture(), 125, 3); err != nil {
+				t.Fatal("zero status observation refused", result, err)
+			}
+		}
+	}
+	for _, pid := range []uint32{0, 1, 1<<31 - 1} {
+		for _, result := range []uint32{0, 17, ^uint32(0)} {
+			raw := eventFieldsFixture(t, 10)
+			binary.BigEndian.PutUint32(raw[160:164], pid)
+			binary.BigEndian.PutUint32(raw[164:168], result)
+			binary.BigEndian.PutUint32(raw[168:172], 1<<31)
+			if _, err := decodeEventFields(raw, obligationFixture(), 125, 3); err != nil {
+				t.Fatal("named spawn observations refused", pid, result, err)
+			}
+		}
+	}
+	for _, pid := range []uint32{1 << 31, ^uint32(0)} {
+		raw := eventFieldsFixture(t, 10)
+		binary.BigEndian.PutUint32(raw[160:164], pid)
+		requireEventFieldsRefused(t, raw)
+	}
+	// All-zero scalar observations are representable, not inferred successes.
+	for _, kind := range []uint16{2, 4, 6, 10, 15, 16, 17, 19, 22, 24} {
+		raw := eventFieldsFixture(t, kind)
+		clear(raw[24:32])
+		clear(raw[164:172])
+		clear(raw[176:180])
+		if _, err := decodeEventFields(raw, obligationFixture(), 125, 3); err != nil {
+			t.Fatal("zero scalar observations refused", kind, err)
+		}
+	}
+}
+
+func TestEventFieldsEnvelopeRefusalOwnershipAndLimits(t *testing.T) {
+	base := eventFieldsFixture(t, 8)
+	for _, offset := range []int{0, 4, 5, 6, 32, 40, 246} {
+		raw := bytes.Clone(base)
+		raw[offset] ^= 0xff
+		requireEventFieldsRefused(t, raw)
+	}
+	for _, raw := range [][]byte{nil, base[:255], append(bytes.Clone(base), 0)} {
+		requireEventFieldsRefused(t, raw)
+	}
+	for _, tc := range []struct {
+		frozen       obligationBindings
+		numer, denom uint32
+	}{{obligationBindings{}, 125, 3}, {obligationFixture(), 0, 3}, {obligationFixture(), 125, 0}, {obligationFixture(), 126, 3}} {
+		got, err := decodeEventFields(base, tc.frozen, tc.numer, tc.denom)
+		if err == nil || got != (eventEnvelope{}) {
+			t.Fatal("wrapper skipped frozen envelope validation")
+		}
+	}
+	got, err := decodeEventFields(base, obligationFixture(), 125, 3)
+	if err != nil {
+		t.Fatal(err)
+	}
+	before := bytes.Clone(base)
+	got.Operation[0] ^= 1
+	got.CandidateDigest[0] ^= 1
+	if !bytes.Equal(base, before) {
+		t.Fatal("result aliases raw frame")
+	}
+	copyOfValue := got
+	clear(base)
+	if got != copyOfValue {
+		t.Fatal("raw frame aliases result")
+	}
+	// This single-record API can accept an absence shape without a prior wait.
+	// It supplies no proof of custody, prior wait, terminality or actual absence.
+	if _, err := decodeEventFields(eventFieldsFixture(t, 25), obligationFixture(), 125, 3); err != nil {
+		t.Fatal(err)
+	}
+	// G3a4 remains broad syntax; callers must explicitly choose field validation.
+	raw := wireBytes(t, eventEnvelopeVector)
+	if _, err := decodeEventEnvelope(raw, obligationFixture(), 125, 3); err != nil {
+		t.Fatal("G3a4 contract changed")
+	}
+	requireEventFieldsRefused(t, raw)
+}
