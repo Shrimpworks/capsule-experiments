@@ -870,3 +870,141 @@ func (h *decisionHistory) reconcile(pair receivedAppliedPair) error {
 	*h = trial
 	return nil
 }
+
+var errSnapshotHistory = errors.New("C5B19_SNAPSHOT_HISTORY")
+
+type snapshotSubmission struct {
+	request [397]byte
+	reply   [98]byte
+	outcome byte
+}
+
+// snapshotCorrespondence contains copied represented facts, not a confirmation
+// or final-store verdict. AcceptedOutcome zero means no accepted code1 evidence;
+// WorkerOutcome zero means no worker evidence was supplied. LaterSubmitted is
+// entry order only, never proof of physical supersession or snapshot timing.
+type snapshotCorrespondence struct {
+	Present         bool
+	Operation       wireOperation
+	LaterSubmitted  bool
+	AcceptedOutcome byte
+	WorkerPresent   bool
+	WorkerOutcome   byte
+	History         decisionHistorySnapshot
+}
+
+// snapshotHistory privately retains at most three submitted requests and their
+// accepted replies. It cannot load a record into history or import caller state.
+// All begin/reconcile semantics remain the existing serial G3a8 contract.
+type snapshotHistory struct {
+	initialized bool
+	history     decisionHistory
+	entries     [3]snapshotSubmission
+	count       uint8
+}
+
+func newSnapshotHistory(frozen obligationBindings, numer, denom uint32) (*snapshotHistory, error) {
+	history, err := newDecisionHistory(frozen, numer, denom)
+	if err != nil {
+		return nil, errSnapshotHistory
+	}
+	return &snapshotHistory{initialized: true, history: *history}, nil
+}
+
+func (h *snapshotHistory) begin(pair capturedFramePair) error {
+	if h == nil || !h.initialized || h.count >= 3 {
+		return errSnapshotHistory
+	}
+	trial := *h
+	if err := trial.history.begin(pair); err != nil {
+		return errSnapshotHistory
+	}
+	copy(trial.entries[trial.count].request[:], pair.Request)
+	trial.count++
+	*h = trial
+	return nil
+}
+
+func (h *snapshotHistory) reconcile(pair receivedAppliedPair) error {
+	if h == nil || !h.initialized {
+		return errSnapshotHistory
+	}
+	trial := *h
+	if err := trial.history.reconcile(pair); err != nil {
+		return errSnapshotHistory
+	}
+	applied, _ := decodeEventFields(pair.Applied, trial.history.history.frozen, trial.history.numer, trial.history.denom)
+	if applied.ApplicationResult == 1 {
+		found := false
+		for i := uint8(0); i < trial.count; i++ {
+			if bytes.Equal(pair.Received.Request, trial.entries[i].request[:]) {
+				copy(trial.entries[i].reply[:], pair.Received.Reply)
+				trial.entries[i].outcome = applied.Outcome
+				found = true
+				break
+			}
+		}
+		if !found {
+			return errSnapshotHistory
+		}
+	}
+	*h = trial
+	return nil
+}
+
+// inspect is a nonmutating correspondence query over a supplied observation.
+// Explicit absence does not erase accepted history or prove a consistent final
+// store. Present bytes can belong to an earlier, pending, failed or indeterminate
+// submission. Neither presence nor worker outcome supplies control settlement.
+func (h *snapshotHistory) inspect(present bool, record []byte, worker *capturedFramePair) (snapshotCorrespondence, error) {
+	if h == nil || !h.initialized {
+		return snapshotCorrespondence{}, errSnapshotHistory
+	}
+	result := snapshotCorrespondence{History: h.history.snapshot()}
+	if !present {
+		if len(record) != 0 || worker != nil {
+			return snapshotCorrespondence{}, errSnapshotHistory
+		}
+		return result, nil
+	}
+	frozen := h.history.history.frozen
+	operation, err := decodeRecord(record, frozen)
+	if err != nil {
+		return snapshotCorrespondence{}, errSnapshotHistory
+	}
+	index := -1
+	for i := uint8(0); i < h.count; i++ {
+		if validateRecordForRequest(record, h.entries[i].request[:], frozen) == nil {
+			index = int(i)
+			break
+		}
+	}
+	if index < 0 {
+		return snapshotCorrespondence{}, errSnapshotHistory
+	}
+	entry := h.entries[index]
+	digest := sha256.Sum256(record)
+	if entry.outcome == 1 && digest != [32]byte(entry.reply[66:98]) {
+		return snapshotCorrespondence{}, errSnapshotHistory
+	}
+	result.Present, result.Operation = true, operation
+	result.LaterSubmitted = index+1 < int(h.count)
+	result.AcceptedOutcome = entry.outcome
+	if worker != nil {
+		if err := validateCapturedFrame(*worker, frozen, h.history.numer, h.history.denom); err != nil {
+			return snapshotCorrespondence{}, errSnapshotHistory
+		}
+		event, _ := decodeEventFields(worker.Event, frozen, h.history.numer, h.history.denom)
+		if event.Kind != 5 || !bytes.Equal(worker.Request, entry.request[:]) {
+			return snapshotCorrespondence{}, errSnapshotHistory
+		}
+		if event.Outcome == 1 && digest != [32]byte(worker.Reply[66:98]) {
+			return snapshotCorrespondence{}, errSnapshotHistory
+		}
+		if entry.outcome != 0 && !bytes.Equal(worker.Reply, entry.reply[:]) {
+			return snapshotCorrespondence{}, errSnapshotHistory
+		}
+		result.WorkerPresent, result.WorkerOutcome = true, event.Outcome
+	}
+	return result, nil
+}

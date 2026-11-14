@@ -1183,3 +1183,166 @@ Full Gate3 remains IN_PROGRESS — TRENDING_GOOD. Child execution, Gates4–6 an
 product admission remain BLOCKED. No child fixture ran. Next recommended bounded
 scope is supplied durable-snapshot correspondence; visible bytes must not be
 promoted to accepted confirmation.
+
+## G3a9 supplied durable-snapshot correspondence
+
+Status: PASSED for bounded implementation and local checks. Independent review
+IN_PROGRESS — TRENDING_GOOD, pending instance1/3. Full Gate3 remains IN_PROGRESS —
+TRENDING_GOOD; child execution, Gates4–6 and admission remain BLOCKED.
+
+Defensive environment: owned inert synthetic record/request/reply/event bytes and
+ordinary offline Go tests only. No native fixture, child/guest, lifecycle target,
+live clock/store/network, credential or user-data operation. Canonical reference
+f3f2e0755c0c284dd28019225bef0cf8482d3cdd; archive baseline
+febb88d6421058f048f75319baae7cf9bd5a0cbb. Brain accepted the retained G3a9 scope
+before edits/tests. C5b19 ADOPT-PLATFORM / BUILD-NARROWLY remains test-only; this
+composition adds no dependency, serialization, manifest, ABI, privileged role or
+product import. All prior source/test prefixes and parsed provenance stay intact.
+
+### Contract and implementation
+
+A new value-owned `snapshotHistory` wraps unchanged G3a8 `decisionHistory` and
+retains three fixed request/accepted-reply/outcome slots. `begin` commits a copied
+request only after G3a8 accepts the trial. `reconcile` commits G3a8 effects and
+stores exact reply/outcome only for successful code1 and an existing exact request.
+Code2 never creates a submission or overwrites accepted evidence. Whole-value trial
+commit preserves atomic refusal and prior pending, generation, uniqueness, kind,
+terminal, chronology and decision bounds. History recording grants no admission.
+
+`inspect(present, record, optionalWorker)` validates context and never writes state.
+Explicit absence accepts only zero record bytes and no worker; it returns zero
+correspondence fields plus a copied current G3a8 snapshot. It does not erase prior
+confirmation or pending work, prove never-published, or assert a consistent final
+post-history store. Present records must strictly decode and equal an actually
+retained submitted request. A valid but unsubmitted candidate remains refused,
+including an anchor seen only in a rejected reply.
+
+Optional worker evidence must be a strict kind5 capture with the exact private
+request. Its reply must equal the retained accepted reply when one exists.
+Confirmed accepted/worker replies additionally match SHA256 of supplied395 bytes;
+failed/indeterminate replies retain the existing zero-digest convention while a
+matching record may still be visible. `AcceptedOutcome` is0 without accepted code1,
+otherwise its exact1/2/3 outcome. `WorkerOutcome` is0 when omitted, otherwise the
+validated supplied outcome. Neither record presence nor worker-only outcome1
+creates settlement. A historical accepted outcome1 with omitted worker remains a
+represented control fact, not fully corroborated confirmation.
+
+`LaterSubmitted` means a later entry exists in selected submission order only.
+Earlier records remain queryable and preserve their own outcomes while the copied
+G3a8 snapshot keeps its current projection. No inferred physical supersession,
+rollback, final snapshot capture order or publication timing. No `Confirmed`,
+fully-corroborated, admission or final-case-verdict boolean. Returned values and
+stored arrays have no aliases; repeated accepted/refused queries consume no budget.
+
+### Tests-first and verification
+
+Exact installed Go1.25.13 binary:
+`/Users/dsteele/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.25.13.darwin-arm64/bin/go`.
+Environment `GOTOOLCHAIN=local GOPROXY=off GOSUMDB=off
+GOCACHE=/tmp/c5b19-g3a9-go-cache`, cwd this experiment.
+
+- `go test ./...`: compiler-red before implementation, undefined new wrapper API.
+- `go test ./...`: initial green; refined fixtures and focused subtest labels then
+  passed green and `go test ./... -count=1` mutation baseline.
+- Each selected mutant below: exact retained `go test ./... -run <pattern> -count=1`
+  compiled, exited1 and reached its named assertion the required number of times.
+  No surviving mutant, panic or construction failure. Source restored in finally.
+- Final restored `go test ./... -count=1`: passed.
+- `go test -race -count=1 ./...`: passed,2.684s; `go vet ./...` and `go build ./...`:
+  exit0, no diagnostics. No network/dependency fetch or native fixture run.
+- Prefix comparisons for prior oracle/test source, exact go.mod/model_test bytes,
+  historical parsed ORIGINS equality and `git diff --check`: passed.
+
+Ten tests cover explicit absence/context, pending worker-only outcomes, accepted
+all-outcome correspondence and contradictions, three-write/direct-terminal
+histories, earlier and uncertain visible candidates, never-submitted/rejected
+anchors, strict worker linkage and malformed fields, code2 evidence preservation,
+whole-state atomicity, ownership/nonmutation/repeated queries, and inherited bounds.
+Every record byte substitution plus short/extra lengths is refused. Valid
+unsubmitted records and uncertain foreign worker replies are independently decoded
+before the intended correspondence refusal, avoiding earlier malformed-fixture
+failures. Worker-kind mutation targets valid kind7 with complete reply; accepted-
+worker equality mutation targets failed versus indeterminate, both zero digest.
+
+### Selected mutation sensitivity
+
+Exact replacements, commands, intended assertion strings, required/observed counts
+and log hashes are retained in ORIGINS.g3a9.selected_mutations. These mutations
+are temporary test-only edits; the committed source contains none of the bypasses.
+
+| Mutant | Intended assertion / count |
+| --- | --- |
+| `membership-and-accepted-digest` | `oracle_test.go:2398: invalid snapshot correspondence accepted` ×4 |
+| `worker-kind` | `oracle_test.go:2432: invalid snapshot correspondence accepted` ×1 |
+| `worker-request` | `oracle_test.go:2591: invalid snapshot correspondence accepted` ×8 |
+| `worker-accepted-reply` | `oracle_test.go:2300: invalid snapshot correspondence accepted` ×1 |
+| `accepted-worker-separation` | `oracle_test.go:2260: worker or record presence promoted settlement` ×1 |
+| `code2-evidence` | `oracle_test.go:2484: code2 overwrote accepted evidence` ×1 |
+| `later-submitted` | `oracle_test.go:2324: wrong submission-order relation` ×1 |
+| `query-fatal-mutation` | `oracle_test.go:2482: snapshot query mutated private history` ×1 |
+| `begin-request-bookkeeping` | `oracle_test.go:2252: C5B19_SNAPSHOT_HISTORY` ×1 |
+| `accepted-outcome-bookkeeping` | `oracle_test.go:2288: accepted outcome/worker evidence conflated` ×1 |
+| `reconcile-commit` | `oracle_test.go:2288: accepted outcome/worker evidence conflated` ×1 |
+| `absence-unused-evidence` | `oracle_test.go:2227: invalid snapshot correspondence accepted` ×1 |
+
+The membership mutant removes exact record/request selection **and** its overlapping
+accepted-confirmed digest comparison, preserving normal history setup. It reaches
+all four independently valid operation/generation/candidate/kind substitutions.
+This proves the combined boundary's tested sensitivity, not isolated necessity of
+either redundant comparison. Individual confirmed-digest and wrapper-capacity
+removals are not claimed: existing exact byte equality/reply validation and G3a8
+bounds already imply them. No hash-collision fixture or private-state corruption
+was used to manufacture sensitivity. Other mutations are likewise credited only
+for their observed intended assertions, not merely a failing command.
+
+### Evidence identities and limits
+
+Raw `/tmp/c5b19-g3a9-*` logs/script are ephemeral; retained exact definitions,
+assertion locations/counts and SHA256 identities below survive their removal.
+No release-grade capture or exhaustive protocol proof is claimed. Implementation
+and canonical reference hashes are in ORIGINS.g3a9.
+
+- `red`: `0f9b8c41a5bcefb804892a7291d7406daa9a6e29bc1f9bd7908d4e08126de4df`.
+- `green`: `361059641df780ed77a03fe458b2178a5c92ec24558d35b82c37c10307793fdb`.
+- `refined-green`: `ad0ade73f472c26cc36e511c5f084ea3810b81a9ae8f7b4e4b9f02c22957a5fa`.
+- `mutation-baseline`: `b7d9be8322c95737ddf155e9ec6ae0a4e4b9279343d35a556fe4c713f6afca3f`.
+- `restored`: `ba7267f1401ea0826a06a967689fbdea0b4860582279db9a07288431f384c5b0`.
+- `race`: `5c71ed696fdfa86a5e62b09d3259ce525c93775f1fdc1ed76bc87bdf88003bfc`.
+- `vet`: `e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855`.
+- `build`: `e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855`.
+- `mutant-membership-and-accepted-digest`: `e8cf1301460f695c4453651ed15570821821e0f0682f00ffd473c9f7c0600b2b`.
+- `mutant-worker-kind`: `84b0558372e5eb99d091a716d04b9213c903b01db362b01fc5e20c960cd8d187`.
+- `mutant-worker-request`: `1b3348cdb1bad3edd938f037fb061520fd494d5c62453acdcaf035039d6d1953`.
+- `mutant-worker-accepted-reply`: `67990c07c9d884dd2a9d8fe2cceca4f1a51ea2fb45261bf472f7f1e581f1b7c0`.
+- `mutant-accepted-worker-separation`: `71aca9cb641af87a398b6402487d948b33305e6e3e4ffdb0b50aaba45765dbb0`.
+- `mutant-code2-evidence`: `a3045e55e45b70f5a7b9d277f8b2ce161f243f5c7f19ac8be8836bbd3e296dec`.
+- `mutant-later-submitted`: `ebd3422fd1c40400cd4c910fcdfd788e0acd39d412082bf8bb2403c075c448fb`.
+- `mutant-query-fatal-mutation`: `71b4f39c89711626f190678a2b6f1c31fd5b915ef0461a78a7750168ca2e9055`.
+- `mutant-begin-request-bookkeeping`: `dfc02940f5aedd797d89c6a9d5bc31904d8cb84fb3d71917112a37d8792ae207`.
+- `mutant-accepted-outcome-bookkeeping`: `bff94ebf30f65cf8351f0e38c1af972f8d3ea2ac5e2f4631ac2a5d572f191e74`.
+- `mutant-reconcile-commit`: `980ae9d29ae1417bf649f1e3197ab2088cc9766c4b6e758c557dbb7a8a1d5bce`.
+- `mutant-absence-unused-evidence`: `3351a40255ed71d60f1d1a56f021f02ff8d8f377c8333039014e44d7b04725c6`.
+
+Full trace completeness, optional worker-received/sent mapping, malformed-reply
+diagnostics, G3a8 interleaving, process-observation-derived projections, snapshot
+capture timing, final-store contradiction, physical publication/durability,
+restart recovery, actual control admission, deadlines and native lifecycle effects
+remain deferred. Child execution and product admission remain BLOCKED. Brain owns
+fresh independent review, immutable pinning, canonical roadmap and shared PRs.
+
+### G3a9 independent acceptance
+
+PASSED: fresh independent review1/3 returned **Ready**, no actionable findings.
+Reviewer independently passed exact offline Go1.25.13 test/race/vet/build and both
+diff checks; verified source/reference/provenance hashes, all20 archive author logs
+and4 canonical baseline logs, and all12 exact mutation assertion counts. Mutation
+execution and canonical full-check results were inspected, not independently rerun.
+Report retained in canonical .planning/c5b19-snapshot-correspondence/review-1.md,
+SHA256 `eb877a513f345642468b776f0b9fc6e6ac8ed6b64c1949c45e09dc719d4103bb`.
+Final canonical commit/PR links are recorded in archive PR38. Reviewed source/test
+bytes stay unchanged; only acceptance metadata follows freeze.
+
+Full Gate3 remains IN_PROGRESS — TRENDING_GOOD. Child execution, Gates4–6 and
+admission remain BLOCKED. No child fixture ran. Next recommended bounded work is
+supplied worker-received/sent sidecar correspondence, preserving partial evidence
+and keeping decoding context distinct from independently supplied worker capture.

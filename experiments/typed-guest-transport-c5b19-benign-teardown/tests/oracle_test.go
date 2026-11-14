@@ -2164,3 +2164,475 @@ func TestDecisionHistoryTerminalAndInputPreservation(t *testing.T) {
 	binary.BigEndian.PutUint64(terminal[296:304], 4)
 	requireDecisionRefusal(t, h, func() error { return h.begin(decisionBeginFixture(t, terminal, 9, 0)) })
 }
+
+// G3a9 supplies inert observations, never a filesystem read or final-store verdict.
+func snapshotFixture(t *testing.T) *snapshotHistory {
+	t.Helper()
+	h, err := newSnapshotHistory(obligationFixture(), 125, 3)
+	if err != nil {
+		t.Fatal(err)
+	}
+	return h
+}
+
+func inspectSnapshot(t *testing.T, h *snapshotHistory, present bool, record []byte, worker *capturedFramePair) snapshotCorrespondence {
+	t.Helper()
+	before := *h
+	got, err := h.inspect(present, record, worker)
+	if err != nil {
+		t.Fatal(err)
+	}
+	if *h != before {
+		t.Fatal("snapshot query mutated private history")
+	}
+	return got
+}
+
+func refuseSnapshot(t *testing.T, h *snapshotHistory, present bool, record []byte, worker *capturedFramePair) {
+	t.Helper()
+	before := *h
+	if _, err := h.inspect(present, record, worker); err == nil {
+		t.Fatal("invalid snapshot correspondence accepted")
+	}
+	if *h != before {
+		t.Fatal("snapshot refusal mutated private history")
+	}
+}
+
+func TestSnapshotContextAndExplicitAbsence(t *testing.T) {
+	for _, fraction := range [][2]uint32{{0, 3}, {125, 0}} {
+		if _, err := newSnapshotHistory(obligationFixture(), fraction[0], fraction[1]); err == nil {
+			t.Fatal("invalid snapshot timebase accepted")
+		}
+	}
+	bad := obligationFixture()
+	bad.Preparation = [16]byte{}
+	if _, err := newSnapshotHistory(bad, 125, 3); err == nil {
+		t.Fatal("invalid snapshot binding accepted")
+	}
+	for _, h := range []*snapshotHistory{nil, {}} {
+		if _, err := h.inspect(false, nil, nil); err == nil {
+			t.Fatal("uninitialized snapshot query accepted")
+		}
+		if h.begin(capturedFramePair{}) == nil || h.reconcile(receivedAppliedPair{}) == nil {
+			t.Fatal("uninitialized snapshot transition accepted")
+		}
+	}
+	h := snapshotFixture(t)
+	if got := inspectSnapshot(t, h, false, nil, nil); got != (snapshotCorrespondence{History: h.history.snapshot()}) {
+		t.Fatal("absence fabricated correspondence", got)
+	}
+	prep := wireBytes(t, requestVector)
+	worker := capturedPairFixture(t, 5, prep, 1)
+	refuseSnapshot(t, h, false, []byte{0}, nil)
+	refuseSnapshot(t, h, false, nil, &worker)
+	refuseSnapshot(t, h, true, nil, nil)
+	if err := h.begin(decisionBeginFixture(t, prep, 0, 0)); err != nil {
+		t.Fatal(err)
+	}
+	if !inspectSnapshot(t, h, false, nil, nil).History.History.Pending {
+		t.Fatal("absence erased pending")
+	}
+	if err := h.reconcile(decisionPairFixture(t, prep, 1, 1, 1, 0)); err != nil {
+		t.Fatal(err)
+	}
+	got := inspectSnapshot(t, h, false, []byte{}, nil)
+	if got.Present || got.AcceptedOutcome != 0 || got.WorkerPresent || got.WorkerOutcome != 0 || got.Operation != (wireOperation{}) || got.LaterSubmitted || got.History.History.Confirmed != ([68]byte{1}) {
+		t.Fatal("absence erased historical confirmation or fabricated a match", got)
+	}
+}
+
+func TestSnapshotPendingWorkerEvidenceDoesNotSettle(t *testing.T) {
+	h := snapshotFixture(t)
+	prep := wireBytes(t, requestVector)
+	if err := h.begin(decisionBeginFixture(t, prep, 0, 0)); err != nil {
+		t.Fatal(err)
+	}
+	record := wireBytes(t, recordVector)
+	got := inspectSnapshot(t, h, true, record, nil)
+	if !got.Present || got.AcceptedOutcome != 0 || got.WorkerPresent || got.WorkerOutcome != 0 || got.LaterSubmitted || got.Operation.Generation != 1 || got.Operation.Operation != obligationFixture().Preparation || got.Operation.Candidate != ([68]byte{1}) {
+		t.Fatal("wrong pending record facts", got)
+	}
+	for _, outcome := range []byte{1, 2, 3} {
+		worker := capturedPairFixture(t, 5, prep, outcome)
+		got := inspectSnapshot(t, h, true, record, &worker)
+		if !got.WorkerPresent || got.WorkerOutcome != outcome || got.AcceptedOutcome != 0 || !got.History.History.Pending || got.History.History.LastSettledPresent || got.History.History.Confirmed != ([68]byte{}) {
+			t.Fatal("worker or record presence promoted settlement", got)
+		}
+	}
+}
+
+func TestSnapshotAcceptedOutcomesRemainSeparate(t *testing.T) {
+	for _, outcome := range []byte{1, 2, 3} {
+		t.Run(fmt.Sprint(outcome), func(t *testing.T) {
+			h := snapshotFixture(t)
+			prep := wireBytes(t, requestVector)
+			if err := h.begin(decisionBeginFixture(t, prep, 0, 0)); err != nil {
+				t.Fatal(err)
+			}
+			if err := h.reconcile(decisionPairFixture(t, prep, outcome, 1, 1, 0)); err != nil {
+				t.Fatal(err)
+			}
+			for _, supplied := range []bool{false, true} {
+				var worker *capturedFramePair
+				if supplied {
+					pair := capturedPairFixture(t, 5, prep, outcome)
+					worker = &pair
+				}
+				got := inspectSnapshot(t, h, true, recordFromRequest(prep), worker)
+				wantProjection := [68]byte{}
+				if outcome == 1 {
+					wantProjection[0] = 1
+				}
+				if got.AcceptedOutcome != outcome || got.WorkerPresent != supplied || got.History.History.Pending || got.History.History.Confirmed != wantProjection || (!supplied && got.WorkerOutcome != 0) || (supplied && got.WorkerOutcome != outcome) {
+					t.Fatal("accepted outcome/worker evidence conflated", got)
+				}
+			}
+			for _, contrary := range []byte{1, 2, 3} {
+				if contrary == outcome {
+					continue
+				}
+				t.Run(fmt.Sprint("worker", contrary), func(t *testing.T) {
+					worker := capturedPairFixture(t, 5, prep, contrary)
+					if err := validateCapturedFrame(worker, obligationFixture(), 125, 3); err != nil {
+						t.Fatal("contradiction fixture malformed", err)
+					}
+					refuseSnapshot(t, h, true, recordFromRequest(prep), &worker)
+				})
+			}
+		})
+	}
+}
+
+func TestSnapshotHistoricalCandidatesDoNotRewriteProjection(t *testing.T) {
+	for _, runnerOutcome := range []byte{1, 2, 3} {
+		t.Run(fmt.Sprint(runnerOutcome), func(t *testing.T) {
+			h := snapshotFixture(t)
+			prep := wireBytes(t, requestVector)
+			runner := operationRequest(t, 2, true, 0)
+			terminal := operationRequest(t, 3, runnerOutcome == 1, 1)
+			terminal[280] = 13
+			binary.BigEndian.PutUint64(terminal[296:304], 3)
+			requests := [][]byte{prep, runner, terminal}
+			for i, request := range requests {
+				if err := h.begin(decisionBeginFixture(t, request, uint64(i*3), 0)); err != nil {
+					t.Fatal(err)
+				}
+				for j := 0; j <= i; j++ {
+					got := inspectSnapshot(t, h, true, recordFromRequest(requests[j]), nil)
+					if got.LaterSubmitted != (j < i) || (j == i && got.AcceptedOutcome != 0) || got.Operation.Candidate != [68]byte(requests[j][305:373]) {
+						t.Fatal("wrong submission-order relation", i, j, got)
+					}
+				}
+				outcome := byte(1)
+				if i == 1 {
+					outcome = runnerOutcome
+				}
+				if err := h.reconcile(decisionPairFixture(t, request, outcome, 1, uint64(i*3+1), 0)); err != nil {
+					t.Fatal(err)
+				}
+				wantProjection := [68]byte(request[305:373])
+				if i == 1 && runnerOutcome != 1 {
+					wantProjection = [68]byte{1}
+				}
+				for j := 0; j <= i; j++ {
+					got := inspectSnapshot(t, h, true, recordFromRequest(requests[j]), nil)
+					wantOutcome := byte(1)
+					if j == 1 {
+						wantOutcome = runnerOutcome
+					}
+					if got.AcceptedOutcome != wantOutcome || got.LaterSubmitted != (j < i) || got.History.History.Confirmed != wantProjection {
+						t.Fatal("historical snapshot rewrote projection or outcome", got)
+					}
+				}
+			}
+		})
+	}
+	// Direct preparation-to-terminal is an existing inert history shape.
+	h := snapshotFixture(t)
+	prep := wireBytes(t, requestVector)
+	for i, request := range [][]byte{prep, operationRequest(t, 3, false, 1)} {
+		if err := h.begin(decisionBeginFixture(t, request, uint64(i*3), 0)); err != nil {
+			t.Fatal(err)
+		}
+		if err := h.reconcile(decisionPairFixture(t, request, 1, 1, uint64(i*3+1), 0)); err != nil {
+			t.Fatal(err)
+		}
+		if got := inspectSnapshot(t, h, true, recordFromRequest(request), nil); got.AcceptedOutcome != 1 {
+			t.Fatal("direct terminal correspondence missing")
+		}
+	}
+}
+
+func TestSnapshotMembershipAndRejectedAnchors(t *testing.T) {
+	h := snapshotFixture(t)
+	prep := wireBytes(t, requestVector)
+	refuseSnapshot(t, h, true, recordFromRequest(prep), nil)
+	if err := h.begin(decisionBeginFixture(t, prep, 0, 0)); err != nil {
+		t.Fatal(err)
+	}
+	if err := h.reconcile(decisionPairFixture(t, prep, 1, 1, 1, 0)); err != nil {
+		t.Fatal(err)
+	}
+	runner := operationRequest(t, 2, true, 0)
+	if err := h.begin(decisionBeginFixture(t, runner, 3, 0)); err != nil {
+		t.Fatal(err)
+	}
+	for _, field := range []string{"operation", "generation", "candidate", "kind"} {
+		t.Run(field, func(t *testing.T) {
+			other := bytes.Clone(runner)
+			switch field {
+			case "operation":
+				other[280] ^= 1
+			case "generation":
+				binary.BigEndian.PutUint64(other[296:304], 3)
+			case "candidate":
+				other[307] ^= 1
+			case "kind":
+				other = operationRequest(t, 3, false, 1)
+			}
+			record := recordFromRequest(other)
+			if _, err := decodeRecord(record, obligationFixture()); err != nil {
+				t.Fatal("unsubmitted record fixture malformed", err)
+			}
+			refuseSnapshot(t, h, true, record, nil)
+		})
+	}
+	other := bytes.Clone(runner)
+	other[280] ^= 1
+	if err := h.reconcile(decisionPairFixture(t, other, 1, 2, 4, 0)); err != nil {
+		t.Fatal(err)
+	}
+	refuseSnapshot(t, h, true, recordFromRequest(other), nil)
+	got := inspectSnapshot(t, h, true, recordFromRequest(runner), nil)
+	if !got.History.Fatal || got.AcceptedOutcome != 0 || !got.History.History.Pending {
+		t.Fatal("rejected anchor created accepted evidence", got)
+	}
+	if err := h.reconcile(decisionPairFixture(t, runner, 1, 1, 6, 0)); err != nil {
+		t.Fatal(err)
+	}
+	if got := inspectSnapshot(t, h, true, recordFromRequest(runner), nil); !got.History.Fatal || got.AcceptedOutcome != 1 {
+		t.Fatal("late correspondence cleared fatal or lost outcome", got)
+	}
+}
+
+func TestSnapshotWorkerLinkageAndMalformedEvidence(t *testing.T) {
+	h := snapshotFixture(t)
+	prep := wireBytes(t, requestVector)
+	if err := h.begin(decisionBeginFixture(t, prep, 0, 0)); err != nil {
+		t.Fatal(err)
+	}
+	record := recordFromRequest(prep)
+	for _, kind := range []uint16{3, 7} {
+		t.Run(fmt.Sprint("kind", kind), func(t *testing.T) {
+			worker := capturedPairFixture(t, kind, prep, 1)
+			if kind == 3 {
+				worker.Reply = nil
+			}
+			refuseSnapshot(t, h, true, record, &worker)
+		})
+	}
+	other := bytes.Clone(prep)
+	binary.BigEndian.PutUint64(other[296:304], 2)
+	worker := capturedPairFixture(t, 5, other, 1)
+	if err := validateCapturedFrame(worker, obligationFixture(), 125, 3); err != nil {
+		t.Fatal("wrong worker fixture malformed", err)
+	}
+	refuseSnapshot(t, h, true, record, &worker)
+	for _, field := range []string{"event", "request", "reply", "outcome", "digest", "lane"} {
+		worker := capturedPairFixture(t, 5, prep, 1)
+		switch field {
+		case "event":
+			worker.Event = worker.Event[:255]
+		case "request":
+			worker.Request[280] ^= 1
+		case "reply":
+			worker.Reply = append(worker.Reply, 0)
+		case "outcome":
+			worker.Reply[65] = 2
+		case "digest":
+			worker.Reply[66] ^= 1
+		case "lane":
+			worker.Event[5] = 1
+		}
+		refuseSnapshot(t, h, true, record, &worker)
+	}
+	for i := range record {
+		changed := bytes.Clone(record)
+		changed[i] ^= 0x80
+		refuseSnapshot(t, h, true, changed, nil)
+	}
+	for _, malformed := range [][]byte{record[:394], append(bytes.Clone(record), 0)} {
+		refuseSnapshot(t, h, true, malformed, nil)
+	}
+}
+
+func TestSnapshotRejectedDuplicatePreservesAcceptedEvidence(t *testing.T) {
+	h := snapshotFixture(t)
+	prep := wireBytes(t, requestVector)
+	if err := h.begin(decisionBeginFixture(t, prep, 0, 0)); err != nil {
+		t.Fatal(err)
+	}
+	if err := h.reconcile(decisionPairFixture(t, prep, 1, 1, 1, 0)); err != nil {
+		t.Fatal(err)
+	}
+	if err := h.reconcile(decisionPairFixture(t, prep, 2, 2, 3, 0)); err != nil {
+		t.Fatal(err)
+	}
+	got := inspectSnapshot(t, h, true, recordFromRequest(prep), nil)
+	if got.AcceptedOutcome != 1 || !got.History.Fatal || got.History.History.Confirmed != ([68]byte{1}) {
+		t.Fatal("code2 overwrote accepted evidence", got)
+	}
+	worker := capturedPairFixture(t, 5, prep, 1)
+	inspectSnapshot(t, h, true, recordFromRequest(prep), &worker)
+	contrary := capturedPairFixture(t, 5, prep, 2)
+	refuseSnapshot(t, h, true, recordFromRequest(prep), &contrary)
+}
+
+func TestSnapshotTransitionsAndOwnedValues(t *testing.T) {
+	h := snapshotFixture(t)
+	prep := wireBytes(t, requestVector)
+	begin := decisionBeginFixture(t, prep, 0, 0)
+	invalid := decisionBeginFixture(t, prep, 0, 0)
+	invalid.Event[96] ^= 1
+	before := *h
+	if h.begin(invalid) == nil || *h != before {
+		t.Fatal("invalid begin consumed submission evidence")
+	}
+	if err := h.begin(begin); err != nil {
+		t.Fatal(err)
+	}
+	before = *h
+	if h.begin(decisionBeginFixture(t, prep, 1, 0)) == nil || *h != before {
+		t.Fatal("second pending begin changed evidence")
+	}
+	for _, raw := range [][]byte{begin.Event, begin.Request} {
+		for i := range raw {
+			raw[i] ^= 1
+		}
+	}
+	if *h != before {
+		t.Fatal("borrowed begin storage")
+	}
+	pair := decisionPairFixture(t, prep, 1, 2, 1, 0)
+	if h.reconcile(pair) == nil || *h != before {
+		t.Fatal("invalid reconcile consumed evidence")
+	}
+	pair.Applied[181] = 1
+	if err := h.reconcile(pair); err != nil {
+		t.Fatal(err)
+	}
+	before = *h
+	for _, raw := range [][]byte{pair.Received.Event, pair.Received.Request, pair.Received.Reply, pair.Applied} {
+		for i := range raw {
+			raw[i] ^= 1
+		}
+	}
+	if *h != before {
+		t.Fatal("borrowed accepted evidence")
+	}
+	for range 5 {
+		worker := capturedPairFixture(t, 5, prep, 1)
+		record := recordFromRequest(prep)
+		recordBefore, eventBefore := bytes.Clone(record), bytes.Clone(worker.Event)
+		requestBefore, replyBefore := bytes.Clone(worker.Request), bytes.Clone(worker.Reply)
+		got := inspectSnapshot(t, h, true, record, &worker)
+		if !bytes.Equal(record, recordBefore) || !bytes.Equal(worker.Event, eventBefore) || !bytes.Equal(worker.Request, requestBefore) || !bytes.Equal(worker.Reply, replyBefore) {
+			t.Fatal("query mutated caller bytes")
+		}
+		got.Operation.Candidate[0] ^= 1
+		got.History.Fatal = true
+		for _, raw := range [][]byte{record, worker.Event, worker.Request, worker.Reply} {
+			for i := range raw {
+				raw[i] ^= 1
+			}
+		}
+		if *h != before {
+			t.Fatal("query retained borrowed evidence or result alias")
+		}
+		refuseSnapshot(t, h, true, record, &worker)
+	}
+	if h.reconcile(decisionPairFixture(t, prep, 1, 1, 1, 0)) == nil || *h != before {
+		t.Fatal("replayed reconcile changed evidence")
+	}
+}
+
+func TestSnapshotWorkerExactRequestLinkage(t *testing.T) {
+	h := snapshotFixture(t)
+	prep := wireBytes(t, requestVector)
+	if err := h.begin(decisionBeginFixture(t, prep, 0, 0)); err != nil {
+		t.Fatal(err)
+	}
+	if err := h.reconcile(decisionPairFixture(t, prep, 1, 1, 1, 0)); err != nil {
+		t.Fatal(err)
+	}
+	runner := operationRequest(t, 2, true, 0)
+	if err := h.begin(decisionBeginFixture(t, runner, 3, 0)); err != nil {
+		t.Fatal(err)
+	}
+	for _, field := range []string{"operation", "generation", "candidate", "kind"} {
+		for _, outcome := range []byte{2, 3} {
+			t.Run(fmt.Sprint(field, outcome), func(t *testing.T) {
+				other := bytes.Clone(runner)
+				switch field {
+				case "operation":
+					other[280] ^= 1
+				case "generation":
+					binary.BigEndian.PutUint64(other[296:304], 3)
+				case "candidate":
+					other[307] ^= 1
+				case "kind":
+					other = operationRequest(t, 3, false, 1)
+				}
+				worker := capturedPairFixture(t, 5, other, outcome)
+				if err := validateCapturedFrame(worker, obligationFixture(), 125, 3); err != nil {
+					t.Fatal("wrong-request worker fixture malformed", err)
+				}
+				refuseSnapshot(t, h, true, recordFromRequest(runner), &worker)
+			})
+		}
+	}
+}
+
+func TestSnapshotWrapperBoundsAndChronology(t *testing.T) {
+	h := snapshotFixture(t)
+	requests := [][]byte{wireBytes(t, requestVector), operationRequest(t, 2, true, 0), operationRequest(t, 3, true, 1)}
+	requests[2][280] = 13
+	binary.BigEndian.PutUint64(requests[2][296:304], 3)
+	for i, request := range requests {
+		if i != 0 {
+			before := *h
+			if h.begin(decisionBeginFixture(t, request, uint64(i*3-1), 0)) == nil || *h != before {
+				t.Fatal("begin chronology refusal consumed entry")
+			}
+		}
+		if err := h.begin(decisionBeginFixture(t, request, uint64(i*3), 0)); err != nil {
+			t.Fatal(err)
+		}
+		before := *h
+		if h.reconcile(decisionPairFixture(t, request, 1, 1, uint64(i*3), 0)) == nil || *h != before {
+			t.Fatal("receive chronology refusal consumed evidence")
+		}
+		if err := h.reconcile(decisionPairFixture(t, request, 1, 1, uint64(i*3+1), 0)); err != nil {
+			t.Fatal(err)
+		}
+	}
+	before := *h
+	fourth := bytes.Clone(requests[2])
+	fourth[280] = 14
+	binary.BigEndian.PutUint64(fourth[296:304], 4)
+	if h.begin(decisionBeginFixture(t, fourth, 9, 0)) == nil || *h != before {
+		t.Fatal("fourth begin consumed entry")
+	}
+	if h.reconcile(decisionPairFixture(t, requests[2], 1, 2, 9, 0)) == nil || *h != before {
+		t.Fatal("fourth decision consumed evidence")
+	}
+	empty := snapshotFixture(t)
+	if err := empty.reconcile(decisionPairFixture(t, requests[0], 1, 2, 0, 0)); err != nil {
+		t.Fatal(err)
+	}
+	refuseSnapshot(t, empty, true, recordFromRequest(requests[0]), nil)
+	if got := inspectSnapshot(t, empty, false, nil, nil); !got.History.Fatal || got.History.History.LastSettledPresent {
+		t.Fatal("unsubmitted rejection fabricated settlement", got)
+	}
+}

@@ -319,5 +319,326 @@
       "ledger_sha256": "6046bfd42347f68e372fe739920824db34355d0f248a3a14b3df0e4b0048283a"
     },
     "review_report_sha256": "8a0fd66f9acdfcc623660f65d138dd56430cc2e4ff85747707f442db7e3728a8"
+  },
+  "g3a9": {
+    "scope": "bounded read-only supplied durable-snapshot correspondence using private recorded submissions, accepted control outcomes and optional worker evidence",
+    "continued_archive_head": "febb88d6421058f048f75319baae7cf9bd5a0cbb",
+    "canonical_reference_commit": "f3f2e0755c0c284dd28019225bef0cf8482d3cdd",
+    "canonical_reference_sha256": {
+      "docs/C5B19_GATE2_IMPLEMENTATION_PACKET.md": "65c885425298ce056f8619c5d0837f97ba54dee91c025fea5621a2d75d5ef4f0",
+      "internal/execution/teardownpassive/types.go": "249b7ef054134f47974bf769c3fb37309b867b1be42ae53c18baf23dc8bacfd0",
+      "internal/execution/teardownpassive/model.go": "1e3a8be8527554d3953d494086c5313ceeca5806b40a7661ab488717f4a94c40"
+    },
+    "implementation_sha256": {
+      "go.mod": "5f40cde18c2d82fe5d57f3a8822377c12e473f1026f174165dfecd126bea3eeb",
+      "tests/oracle.go": "d3287284d42f5280fd4d2f80afeb898ac652e909697fdf140cefef17a0e77484",
+      "tests/oracle_test.go": "3d63c8885e15d4c0ea5854272ffaab6b618882cae11e73ce21ddd1cff387c1b9",
+      "tests/model_test.go": "b0f3b9d063c225eb887cecaf16f4058f0ed07ae8f14c3d92c49acacabb0a931e"
+    },
+    "dependencies": "Go1.25.13 standard library only; no requirement, source-manifest or run/admission flag change",
+    "local_verification": "PASSED: compiler-red then green; ten tests, twelve compiled mutants each reached exact intended assertions, byte-exact restoration; offline full test/race/vet/build",
+    "fresh_review_status": "PASSED: fresh independent review instance 1 of 3 Ready; no actionable findings",
+    "scope_report_sha256": "72fba76b83ea74818462c48bcdcea83fc1d1c3280efcb89c5f751cce3366e747",
+    "log_sha256": {
+      "red": "0f9b8c41a5bcefb804892a7291d7406daa9a6e29bc1f9bd7908d4e08126de4df",
+      "green": "361059641df780ed77a03fe458b2178a5c92ec24558d35b82c37c10307793fdb",
+      "refined-green": "ad0ade73f472c26cc36e511c5f084ea3810b81a9ae8f7b4e4b9f02c22957a5fa",
+      "mutation-baseline": "b7d9be8322c95737ddf155e9ec6ae0a4e4b9279343d35a556fe4c713f6afca3f",
+      "restored": "ba7267f1401ea0826a06a967689fbdea0b4860582279db9a07288431f384c5b0",
+      "race": "5c71ed696fdfa86a5e62b09d3259ce525c93775f1fdc1ed76bc87bdf88003bfc",
+      "vet": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "build": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "mutant-membership-and-accepted-digest": "e8cf1301460f695c4453651ed15570821821e0f0682f00ffd473c9f7c0600b2b",
+      "mutant-worker-kind": "84b0558372e5eb99d091a716d04b9213c903b01db362b01fc5e20c960cd8d187",
+      "mutant-worker-request": "1b3348cdb1bad3edd938f037fb061520fd494d5c62453acdcaf035039d6d1953",
+      "mutant-worker-accepted-reply": "67990c07c9d884dd2a9d8fe2cceca4f1a51ea2fb45261bf472f7f1e581f1b7c0",
+      "mutant-accepted-worker-separation": "71aca9cb641af87a398b6402487d948b33305e6e3e4ffdb0b50aaba45765dbb0",
+      "mutant-code2-evidence": "a3045e55e45b70f5a7b9d277f8b2ce161f243f5c7f19ac8be8836bbd3e296dec",
+      "mutant-later-submitted": "ebd3422fd1c40400cd4c910fcdfd788e0acd39d412082bf8bb2403c075c448fb",
+      "mutant-query-fatal-mutation": "71b4f39c89711626f190678a2b6f1c31fd5b915ef0461a78a7750168ca2e9055",
+      "mutant-begin-request-bookkeeping": "dfc02940f5aedd797d89c6a9d5bc31904d8cb84fb3d71917112a37d8792ae207",
+      "mutant-accepted-outcome-bookkeeping": "bff94ebf30f65cf8351f0e38c1af972f8d3ea2ac5e2f4631ac2a5d572f191e74",
+      "mutant-reconcile-commit": "980ae9d29ae1417bf649f1e3197ab2088cc9766c4b6e758c557dbb7a8a1d5bce",
+      "mutant-absence-unused-evidence": "3351a40255ed71d60f1d1a56f021f02ff8d8f377c8333039014e44d7b04725c6"
+    },
+    "mutation_script_sha256": "9b0f3574314feb25d9cf0cf59e70f4fa5a7b04780f8cbdff9ef66e8c66901726",
+    "selected_mutations": [
+      {
+        "name": "membership-and-accepted-digest",
+        "replacements": [
+          [
+            "if validateRecordForRequest(record, h.entries[i].request[:], frozen) == nil {",
+            "if true {"
+          ],
+          [
+            "\tif entry.outcome == 1 && digest != [32]byte(entry.reply[66:98]) {\n\t\treturn snapshotCorrespondence{}, errSnapshotHistory\n\t}\n",
+            ""
+          ]
+        ],
+        "command": [
+          "/Users/dsteele/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.25.13.darwin-arm64/bin/go",
+          "test",
+          "./...",
+          "-run",
+          "^TestSnapshotMembershipAndRejectedAnchors$/^(operation|generation|candidate|kind)$",
+          "-count=1"
+        ],
+        "exit": 1,
+        "intended_assertion": "oracle_test.go:2398: invalid snapshot correspondence accepted",
+        "expected_occurrences": 4,
+        "actual_occurrences": 4,
+        "sha256": "e8cf1301460f695c4453651ed15570821821e0f0682f00ffd473c9f7c0600b2b"
+      },
+      {
+        "name": "worker-kind",
+        "replacements": [
+          [
+            "event.Kind != 5 || !bytes.Equal(worker.Request, entry.request[:])",
+            "!bytes.Equal(worker.Request, entry.request[:])"
+          ]
+        ],
+        "command": [
+          "/Users/dsteele/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.25.13.darwin-arm64/bin/go",
+          "test",
+          "./...",
+          "-run",
+          "^TestSnapshotWorkerLinkageAndMalformedEvidence$/kind7$",
+          "-count=1"
+        ],
+        "exit": 1,
+        "intended_assertion": "oracle_test.go:2432: invalid snapshot correspondence accepted",
+        "expected_occurrences": 1,
+        "actual_occurrences": 1,
+        "sha256": "84b0558372e5eb99d091a716d04b9213c903b01db362b01fc5e20c960cd8d187"
+      },
+      {
+        "name": "worker-request",
+        "replacements": [
+          [
+            "event.Kind != 5 || !bytes.Equal(worker.Request, entry.request[:])",
+            "event.Kind != 5"
+          ]
+        ],
+        "command": [
+          "/Users/dsteele/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.25.13.darwin-arm64/bin/go",
+          "test",
+          "./...",
+          "-run",
+          "^TestSnapshotWorkerExactRequestLinkage$",
+          "-count=1"
+        ],
+        "exit": 1,
+        "intended_assertion": "oracle_test.go:2591: invalid snapshot correspondence accepted",
+        "expected_occurrences": 8,
+        "actual_occurrences": 8,
+        "sha256": "1b3348cdb1bad3edd938f037fb061520fd494d5c62453acdcaf035039d6d1953"
+      },
+      {
+        "name": "worker-accepted-reply",
+        "replacements": [
+          [
+            "\t\tif entry.outcome != 0 && !bytes.Equal(worker.Reply, entry.reply[:]) {\n\t\t\treturn snapshotCorrespondence{}, errSnapshotHistory\n\t\t}\n",
+            ""
+          ]
+        ],
+        "command": [
+          "/Users/dsteele/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.25.13.darwin-arm64/bin/go",
+          "test",
+          "./...",
+          "-run",
+          "^TestSnapshotAcceptedOutcomesRemainSeparate$/2$/worker3$",
+          "-count=1"
+        ],
+        "exit": 1,
+        "intended_assertion": "oracle_test.go:2300: invalid snapshot correspondence accepted",
+        "expected_occurrences": 1,
+        "actual_occurrences": 1,
+        "sha256": "67990c07c9d884dd2a9d8fe2cceca4f1a51ea2fb45261bf472f7f1e581f1b7c0"
+      },
+      {
+        "name": "accepted-worker-separation",
+        "replacements": [
+          [
+            "result.WorkerPresent, result.WorkerOutcome = true, event.Outcome",
+            "result.WorkerPresent, result.WorkerOutcome = true, event.Outcome\n\t\tresult.AcceptedOutcome = event.Outcome"
+          ]
+        ],
+        "command": [
+          "/Users/dsteele/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.25.13.darwin-arm64/bin/go",
+          "test",
+          "./...",
+          "-run",
+          "^TestSnapshotPendingWorkerEvidenceDoesNotSettle$",
+          "-count=1"
+        ],
+        "exit": 1,
+        "intended_assertion": "oracle_test.go:2260: worker or record presence promoted settlement",
+        "expected_occurrences": 1,
+        "actual_occurrences": 1,
+        "sha256": "71aca9cb641af87a398b6402487d948b33305e6e3e4ffdb0b50aaba45765dbb0"
+      },
+      {
+        "name": "code2-evidence",
+        "replacements": [
+          [
+            "if applied.ApplicationResult == 1 {",
+            "if applied.ApplicationResult == 1 || applied.ApplicationResult == 2 {"
+          ]
+        ],
+        "command": [
+          "/Users/dsteele/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.25.13.darwin-arm64/bin/go",
+          "test",
+          "./...",
+          "-run",
+          "^TestSnapshotRejectedDuplicatePreservesAcceptedEvidence$",
+          "-count=1"
+        ],
+        "exit": 1,
+        "intended_assertion": "oracle_test.go:2484: code2 overwrote accepted evidence",
+        "expected_occurrences": 1,
+        "actual_occurrences": 1,
+        "sha256": "a3045e55e45b70f5a7b9d277f8b2ce161f243f5c7f19ac8be8836bbd3e296dec"
+      },
+      {
+        "name": "later-submitted",
+        "replacements": [
+          [
+            "result.LaterSubmitted = index+1 < int(h.count)",
+            "result.LaterSubmitted = false"
+          ]
+        ],
+        "command": [
+          "/Users/dsteele/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.25.13.darwin-arm64/bin/go",
+          "test",
+          "./...",
+          "-run",
+          "^TestSnapshotHistoricalCandidatesDoNotRewriteProjection$/1$",
+          "-count=1"
+        ],
+        "exit": 1,
+        "intended_assertion": "oracle_test.go:2324: wrong submission-order relation",
+        "expected_occurrences": 1,
+        "actual_occurrences": 1,
+        "sha256": "ebd3422fd1c40400cd4c910fcdfd788e0acd39d412082bf8bb2403c075c448fb"
+      },
+      {
+        "name": "query-fatal-mutation",
+        "replacements": [
+          [
+            "result := snapshotCorrespondence{History: h.history.snapshot()}",
+            "h.history.fatal = false\n\tresult := snapshotCorrespondence{History: h.history.snapshot()}"
+          ]
+        ],
+        "command": [
+          "/Users/dsteele/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.25.13.darwin-arm64/bin/go",
+          "test",
+          "./...",
+          "-run",
+          "^TestSnapshotRejectedDuplicatePreservesAcceptedEvidence$",
+          "-count=1"
+        ],
+        "exit": 1,
+        "intended_assertion": "oracle_test.go:2482: snapshot query mutated private history",
+        "expected_occurrences": 1,
+        "actual_occurrences": 1,
+        "sha256": "71b4f39c89711626f190678a2b6f1c31fd5b915ef0461a78a7750168ca2e9055"
+      },
+      {
+        "name": "begin-request-bookkeeping",
+        "replacements": [
+          [
+            "\tcopy(trial.entries[trial.count].request[:], pair.Request)\n",
+            ""
+          ]
+        ],
+        "command": [
+          "/Users/dsteele/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.25.13.darwin-arm64/bin/go",
+          "test",
+          "./...",
+          "-run",
+          "^TestSnapshotPendingWorkerEvidenceDoesNotSettle$",
+          "-count=1"
+        ],
+        "exit": 1,
+        "intended_assertion": "oracle_test.go:2252: C5B19_SNAPSHOT_HISTORY",
+        "expected_occurrences": 1,
+        "actual_occurrences": 1,
+        "sha256": "dfc02940f5aedd797d89c6a9d5bc31904d8cb84fb3d71917112a37d8792ae207"
+      },
+      {
+        "name": "accepted-outcome-bookkeeping",
+        "replacements": [
+          [
+            "\t\t\t\ttrial.entries[i].outcome = applied.Outcome\n",
+            ""
+          ]
+        ],
+        "command": [
+          "/Users/dsteele/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.25.13.darwin-arm64/bin/go",
+          "test",
+          "./...",
+          "-run",
+          "^TestSnapshotAcceptedOutcomesRemainSeparate$/1$",
+          "-count=1"
+        ],
+        "exit": 1,
+        "intended_assertion": "oracle_test.go:2288: accepted outcome/worker evidence conflated",
+        "expected_occurrences": 1,
+        "actual_occurrences": 1,
+        "sha256": "bff94ebf30f65cf8351f0e38c1af972f8d3ea2ac5e2f4631ac2a5d572f191e74"
+      },
+      {
+        "name": "reconcile-commit",
+        "replacements": [
+          [
+            "\t*h = trial\n\treturn nil\n}\n\n// inspect",
+            "\treturn nil\n}\n\n// inspect"
+          ]
+        ],
+        "command": [
+          "/Users/dsteele/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.25.13.darwin-arm64/bin/go",
+          "test",
+          "./...",
+          "-run",
+          "^TestSnapshotAcceptedOutcomesRemainSeparate$/1$",
+          "-count=1"
+        ],
+        "exit": 1,
+        "intended_assertion": "oracle_test.go:2288: accepted outcome/worker evidence conflated",
+        "expected_occurrences": 1,
+        "actual_occurrences": 1,
+        "sha256": "980ae9d29ae1417bf649f1e3197ab2088cc9766c4b6e758c557dbb7a8a1d5bce"
+      },
+      {
+        "name": "absence-unused-evidence",
+        "replacements": [
+          [
+            "\t\tif len(record) != 0 || worker != nil {\n\t\t\treturn snapshotCorrespondence{}, errSnapshotHistory\n\t\t}\n",
+            ""
+          ]
+        ],
+        "command": [
+          "/Users/dsteele/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.25.13.darwin-arm64/bin/go",
+          "test",
+          "./...",
+          "-run",
+          "^TestSnapshotContextAndExplicitAbsence$",
+          "-count=1"
+        ],
+        "exit": 1,
+        "intended_assertion": "oracle_test.go:2227: invalid snapshot correspondence accepted",
+        "expected_occurrences": 1,
+        "actual_occurrences": 1,
+        "sha256": "3351a40255ed71d60f1d1a56f021f02ff8d8f377c8333039014e44d7b04725c6"
+      }
+    ],
+    "mutation_note": "Membership and confirmed-record digest guards overlap; the disclosed combined bypass preserves setup and reaches all four valid unsubmitted-record assertions. No isolated digest/capacity necessity or exhaustive mutation proof is claimed.",
+    "limits": [
+      "Supplied observation only: explicit absence and earlier candidates do not prove final-store consistency, capture timing or physical supersession",
+      "AcceptedOutcome and WorkerOutcome are separate represented facts; record presence or worker-only confirmed outcome never supplies accepted settlement",
+      "Worker omission remains unknown; there is no full-confirmation/admission boolean and query never mutates retained history",
+      "Serial G3a8 groups only; full trace/worker-received mapping, malformed diagnostics, control admission, actual fsync/rename, restart recovery, lifecycle and native execution remain deferred"
+    ],
+    "review_report_sha256": "eb877a513f345642468b776f0b9fc6e6ac8ed6b64c1949c45e09dc719d4103bb"
   }
 }
