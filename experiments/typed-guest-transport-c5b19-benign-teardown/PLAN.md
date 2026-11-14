@@ -663,3 +663,160 @@ inspected as retained evidence, not rerun. Full report retained canonically at
 Reviewed Go/test bytes remain unchanged; only acceptance metadata was appended
 after freeze. Brain owns immutable publication. Full Gate 3 remains
 IN_PROGRESS — TRENDING_GOOD; child execution, Gates 4–6 and admission remain BLOCKED.
+
+## G3a6 captured-frame sidecar correspondence
+
+Status: PASSED for bounded local implementation and verification; independent
+review and publication remain IN_PROGRESS — TRENDING_GOOD. Full Gate 3 remains
+IN_PROGRESS — TRENDING_GOOD; child execution, Gates 4–6 and admission remain BLOCKED.
+
+Defensive scope: owned inert synthetic in-memory bytes and ordinary offline Go
+compiler/unit-test processes only. No C5b19 native fixture, child, guest, signal,
+wait, live clock/store/network, credentials or user data. Continue archive head
+7aac77de36e33059ef0759b44ca02ab5ad080343; canonical reference is merged #403 at
+e1a966e7c6f18665784984e97b6697cc472cb288. The frozen Gate2 packet, ABI/manifest,
+Go1.25.13 module, normative model, previous source prefixes and historical ORIGINS
+values remain unchanged. The C5b19 reuse row permits this narrow standard-library
+parsing/SHA256 composition; no new primitive, dependency or authority is introduced.
+
+### Supported correspondence contract
+
+`capturedFramePair` is an in-memory selection of raw event, request and reply
+bytes, not a new serialized format. `validateCapturedFrame` returns only an error:
+
+- Kind3/control1 binds exact397-byte request, operation/generation, SHA256 of
+  request body `[8:397]` and exact68-byte candidate `[305:373]`; reply must be empty.
+- Kind5/worker2 and kind7/control1 bind exact98-byte reply plus exact397-byte
+  request context. Existing `validateReply` independently validates request tuple,
+  body hash and expected395-byte candidate-record hash. Event outcome and record
+  digest must match the raw reply; failed/indeterminate digests remain zero.
+- Existing `decodeEventFields` and `decodeRequest` enforce the lower-level shapes.
+  All other event kinds refuse. Inputs are neither changed nor retained.
+
+`validateCapturedFrames` checks at most9 supplied pairs, at most3 per category,
+and at most3 distinct operation anchors across the selection. Same-category
+repeated operation IDs refuse even with changed generation. Shared operation IDs
+across categories require byte-identical request anchors; supplied worker5 and
+control7 peers additionally require byte-identical replies. Missing pair members
+refuse. The empty selection still requires valid frozen bindings and nonzero
+timebase, but supplies no evidence. Pair order and lane sequence are not inferred.
+
+A reply's request anchor is context, not proof of worker receipt or captured kind3.
+No corresponding event number is invented for worker-received-request capture.
+Request-only, worker-only or received-only selections are supported; dropped,
+pending and incomplete paths are not silently converted into a full-roundtrip
+requirement. Omitting a whole pair cannot be detected by this API. Historical
+fresh-operation/kind/generation ordering stays in the separate model/history layer.
+
+### Local tests and verification
+
+Seven new tests use independent literal offsets and existing independently-built
+request/reply vectors. They cover all three operation kinds, both terminal identity
+shapes and dispositions, all three outcomes, both reply categories, matching peers,
+request-only/worker-only/received-only/empty selections and nine valid pairs.
+Negative coverage includes each event tuple/hash/outcome/record comparison,
+whole-frame versus body hash, valid changed candidate with stale event digest,
+raw header/role/kind/hash/length substitution, nil/short/long members, forbidden
+reply on request, unsupported matching kind8, wrong lane/common/frozen context,
+repeated category IDs, fourth category capture, fourth distinct anchor spread
+across categories, missing members, ambiguous anchors and differing reply peers.
+Inputs and unrelated pending history are unchanged on success and refusal;
+previous field API acceptance remains explicitly independent.
+
+All commands ran in this experiment directory with
+`GOTOOLCHAIN=local GOPROXY=off GOSUMDB=off GOCACHE=/tmp/c5b19-g3a6-go-cache`
+and `/Users/dsteele/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.25.13.darwin-arm64/bin/go`.
+
+| Command | Result |
+| --- | --- |
+| `test ./... -count=1` before implementation | exit1, undefined capturedFramePair/validateCapturedFrame/validateCapturedFrames |
+| `test ./... -count=1` after implementation/final test additions | exit0, package tests passed (0.278s) |
+| `test -count=1 ./...` after mutation restoration | exit0, package tests passed (0.373s) |
+| `test -race -count=1 ./...` | exit0, package tests passed (1.819s) |
+| `vet ./...` | exit0, no diagnostics |
+| `build ./...` | exit0, no diagnostics |
+
+An initial red command was mistakenly run from the archive repository root and
+failed module discovery; it was corrected to this module before implementation.
+That setup error is not the red evidence. The retained red log demonstrates the
+missing APIs. No gate or test was weakened to obtain green results.
+
+### Targeted guard mutations and restoration
+
+One mutation at a time ran `test ./tests -run '^TESTNAME$' -count=1`. Each compiled
+and exited1 through its intended test assertion. A finally block restored exact
+original source bytes after every mutation; no mutant remains. These are selected
+sensitivity checks, not exhaustive proof.
+
+| Guard removed or loosened | TESTNAME | Observed refusal assertion |
+| --- | --- | --- |
+| tuple | TestCapturedFrameEventCorrespondence | `invalid captured pair accepted` |
+| request-hash | TestCapturedFrameEventCorrespondence | `invalid captured pair accepted` |
+| candidate-hash | TestCapturedFrameEventCorrespondence | `invalid captured pair accepted` |
+| outcome | TestCapturedFrameEventCorrespondence | `invalid captured pair accepted` |
+| record | TestCapturedFrameEventCorrespondence | `invalid captured pair accepted` |
+| category | TestCapturedFrameRejectsUnsupportedEventsAndContext | `invalid captured pair accepted` |
+| lane | TestCapturedFrameRejectsUnsupportedEventsAndContext | `invalid captured pair accepted` |
+| duplicate | TestCapturedFramesCapsAndDuplicates | `duplicate category operation accepted 3` |
+| caps | TestCapturedFramesCapsAndDuplicates | `category cap not enforced 3` |
+| anchors | TestCapturedFramesPeerEquality | `ambiguous request anchors accepted [3 5]` |
+| peers | TestCapturedFramesPeerEquality | `disagreeing worker/control replies accepted` |
+
+Current implementation hashes (older slice hashes remain historical):
+
+- `go.mod`: `5f40cde18c2d82fe5d57f3a8822377c12e473f1026f174165dfecd126bea3eeb`
+- `tests/oracle.go`: `5106897e28cfadd491f4080c1c8d2cd3901fc49bbafe9ce8900924e35adac46e`
+- `tests/oracle_test.go`: `a44445ff7cf4bbef309205971eb914fead4dcd93ac45b40d499bef66cea42ea4`
+- `tests/model_test.go`: `b0f3b9d063c225eb887cecaf16f4058f0ed07ae8f14c3d92c49acacabb0a931e`
+
+Raw `/tmp/c5b19-g3a6-<name>.log` files are ephemeral; commands, results, excerpts
+and hashes are retained here and in ORIGINS. Log SHA256:
+
+- `red`: `51cd1433dc9adb2d07c359001fe36eba1a5395300349112e8191705f54667e7e`
+- `green`: `8aa6efdf3a3c9270a2dd274117fdb9f3a1b5d56698c6278841a406615697b79f`
+- `restored`: `33bbd8e4efefa78d2115334a95550c4a72afa3f16eb60f820e1c41627f6f3890`
+- `race`: `33f3a509f3dc4da9d9da9b3e3f992d22c74c9615ad96ef14f1fa5aa0eaae6157`
+- `vet`: `e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855`
+- `build`: `e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855`
+- `mutant-tuple`: `e9fc8dfa750eaf88d7871519fe221cf137f59375c8306ec41719e241e641b132`
+- `mutant-request-hash`: `7d35989982688149b6da3572049de04faae1bd1c9d8216aa07bca49b2c34ee5a`
+- `mutant-candidate-hash`: `a9a19d8b9a1c1f93f4488ac8898ac42d02d3ad825d72cf6ea042eee0fc3cb567`
+- `mutant-outcome`: `68a70087b352ca6901b958a3d1a27ce4aa8a3f706c6e4cc8bb644964daf29cc1`
+- `mutant-record`: `b999141d8e5df4f32549a52ded85030a25f92792ffe33e82f8f1f49704a6959d`
+- `mutant-category`: `7fefef9fb36d67687efb0bc25794fd4e001ebcef0374fcb62cb2fc0cda0b7941`
+- `mutant-lane`: `afd4a753c7ea049438f67301fd007642d402cd67789c821cdf6a792afd2cd7f5`
+- `mutant-duplicate`: `2392adbec59a0dec2b94da1f6555d34b41e917884d8319a1d28bda1ab72bdccd`
+- `mutant-caps`: `806f97312fa2b8376872d0678b0878ee5499510e07a15b88b8bd13b608ce097d`
+- `mutant-anchors`: `8aeb8493b8f49415a764e0a217612d30e57e073e828b8a5a69c9dc3eb5845475`
+- `mutant-peers`: `25aadfe56dca600e481a58e27e977cf5b2d774ace53d370932e1a4af837b0b38`
+
+### Limits and next boundary
+
+This is represented well-formed local byte correspondence. Arbitrary malformed/
+rejected reply diagnostics remain unsupported; the packet does not freeze their
+encoding here. No kind8 application, received/applied pair, expected projection
+from actual process observations, durable snapshot, capture completeness/origin,
+lane sequence, syscall semantics, causal/timing or full-case verdict is checked.
+No start, settlement, storage durability, absence, completion or capacity authority
+is granted. Later composition must close received/applied ordering and model
+transitions before confirmation claims. Child execution remains separately gated.
+
+Brain owns fresh independent review (at most three instances for this distinct
+slice), source freeze, canonical/archive publication and immutable cross-repository
+pins. Prior review verdicts do not review these new bytes.
+
+### G3a6 independent acceptance
+
+PASSED: fresh independent review instance1/3 returned **Ready**, no actionable
+findings. Reviewer independently ran exact offline Go1.25.13 test/race/vet/build
+and both repository diff checks; verified frozen hashes, prior source/provenance
+and retained log hashes. Red/mutation and canonical CI logs were inspected, not
+replayed. The caps mutant checks combined cap sensitivity, not each redundant
+cap independently. Report retained in canonical .planning/c5b19-frame-sidecars/review-1.md,
+SHA256 `999b894f06fa2c327320b951e5e28ad669e8ba31e346e0602b334dc10a09b692`; final canonical commit/PR linkage is recorded in archive PR38.
+
+Reviewed Go/test bytes remain unchanged; only this acceptance paragraph and G3a6
+review metadata were appended after freeze. Full Gate3 remains IN_PROGRESS —
+TRENDING_GOOD; child execution, Gates4–6 and product admission remain BLOCKED.
+No child fixture ran. Next bounded work: received/applied correspondence before
+full model and timing composition.

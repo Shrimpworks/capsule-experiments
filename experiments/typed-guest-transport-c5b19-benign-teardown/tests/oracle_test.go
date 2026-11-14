@@ -1215,3 +1215,284 @@ func TestEventFieldsEnvelopeRefusalOwnershipAndLimits(t *testing.T) {
 	}
 	requireEventFieldsRefused(t, raw)
 }
+
+// Sidecar fixtures transcribe packet offsets and use the existing independent
+// request/reply vectors; they do not call the correspondence implementation.
+func capturedPairFixture(t *testing.T, kind uint16, request []byte, outcome byte) capturedFramePair {
+	t.Helper()
+	event := eventFieldsFixture(t, kind)
+	copy(event[72:88], request[280:296])
+	copy(event[88:96], request[296:304])
+	requestHash := sha256.Sum256(request[8:])
+	candidateHash := sha256.Sum256(request[305:373])
+	copy(event[96:128], requestHash[:])
+	copy(event[214:246], candidateHash[:])
+	pair := capturedFramePair{Event: event, Request: bytes.Clone(request)}
+	if kind != 3 {
+		pair.Reply = replyFromRequest(request, outcome)
+		event[180] = outcome
+		copy(event[182:214], pair.Reply[66:98])
+	}
+	return pair
+}
+
+func requireCapturedPairRefused(t *testing.T, pair capturedFramePair) {
+	t.Helper()
+	if err := validateCapturedFrame(pair, obligationFixture(), 125, 3); err == nil {
+		t.Fatal("invalid captured pair accepted")
+	}
+}
+
+func TestCapturedFrameKindsOutcomesAndSelection(t *testing.T) {
+	for _, op := range []struct {
+		kind        byte
+		runner      bool
+		disposition byte
+	}{
+		{1, false, 0}, {2, true, 0}, {3, true, 1}, {3, false, 1}, {3, true, 2}, {3, false, 2},
+	} {
+		for _, eventKind := range []uint16{3, 5, 7} {
+			for _, outcome := range []byte{1, 2, 3} {
+				pair := capturedPairFixture(t, eventKind, operationRequest(t, op.kind, op.runner, op.disposition), outcome)
+				if err := validateCapturedFrame(pair, obligationFixture(), 125, 3); err != nil {
+					t.Fatal(op, eventKind, outcome, err)
+				}
+				if err := validateCapturedFrames([]capturedFramePair{pair}, obligationFixture(), 125, 3); err != nil {
+					t.Fatal("partial selection refused", err)
+				}
+			}
+		}
+	}
+	// Empty means no represented correspondence, never a complete trace verdict.
+	if err := validateCapturedFrames(nil, obligationFixture(), 125, 3); err != nil {
+		t.Fatal(err)
+	}
+}
+
+func TestCapturedFrameEventCorrespondence(t *testing.T) {
+	for _, kind := range []uint16{3, 5, 7} {
+		for _, offset := range []int{72, 95, 96, 214} {
+			t.Run(fmt.Sprintf("kind%d/offset%d", kind, offset), func(t *testing.T) {
+				pair := capturedPairFixture(t, kind, wireBytes(t, requestVector), 1)
+				pair.Event[offset] ^= 1
+				requireCapturedPairRefused(t, pair)
+			})
+		}
+		pair := capturedPairFixture(t, kind, wireBytes(t, requestVector), 1)
+		wholeHash := sha256.Sum256(pair.Request)
+		copy(pair.Event[96:128], wholeHash[:])
+		requireCapturedPairRefused(t, pair)
+	}
+	for _, kind := range []uint16{5, 7} {
+		pair := capturedPairFixture(t, kind, wireBytes(t, requestVector), 2)
+		pair.Event[180] = 3 // Both values are well-formed, but do not correspond.
+		requireCapturedPairRefused(t, pair)
+		pair = capturedPairFixture(t, kind, wireBytes(t, requestVector), 1)
+		pair.Event[182] ^= 1
+		requireCapturedPairRefused(t, pair)
+	}
+}
+
+func TestCapturedFrameRawBytesAndLengths(t *testing.T) {
+	for _, kind := range []uint16{3, 5, 7} {
+		for _, offset := range []int{0, 5, 7, 8, 248, 280, 303, 304, 305, 396} {
+			pair := capturedPairFixture(t, kind, wireBytes(t, requestVector), 1)
+			pair.Request[offset] ^= 1
+			t.Run(fmt.Sprintf("request/kind%d/offset%d", kind, offset), func(t *testing.T) { requireCapturedPairRefused(t, pair) })
+		}
+		// A structurally valid changed candidate still fails the stale event hash.
+		pair := capturedPairFixture(t, kind, operationRequest(t, 2, true, 0), 1)
+		pair.Request[307] ^= 1
+		if kind != 3 {
+			pair.Reply = replyFromRequest(pair.Request, 1)
+			copy(pair.Event[182:214], pair.Reply[66:98])
+			copy(pair.Event[96:128], pair.Reply[33:65])
+		}
+		requireCapturedPairRefused(t, pair)
+		for _, member := range []string{"event", "request", "reply"} {
+			if kind == 3 && member == "reply" {
+				continue
+			}
+			for _, length := range []int{0, -1, 1} {
+				pair := capturedPairFixture(t, kind, wireBytes(t, requestVector), 1)
+				var raw *[]byte
+				switch member {
+				case "event":
+					raw = &pair.Event
+				case "request":
+					raw = &pair.Request
+				case "reply":
+					raw = &pair.Reply
+				}
+				if length == 0 {
+					*raw = nil
+				} else if length < 0 {
+					*raw = (*raw)[:len(*raw)-1]
+				} else {
+					*raw = append(*raw, 0)
+				}
+				t.Run(fmt.Sprintf("kind%d/%s/length%d", kind, member, length), func(t *testing.T) { requireCapturedPairRefused(t, pair) })
+			}
+		}
+	}
+	for _, kind := range []uint16{5, 7} {
+		for _, offset := range []int{0, 4, 5, 7, 8, 31, 32, 33, 65, 66} {
+			pair := capturedPairFixture(t, kind, wireBytes(t, requestVector), 1)
+			pair.Reply[offset] ^= 1
+			t.Run(fmt.Sprintf("reply/kind%d/offset%d", kind, offset), func(t *testing.T) { requireCapturedPairRefused(t, pair) })
+		}
+		pair := capturedPairFixture(t, kind, wireBytes(t, requestVector), 2)
+		pair.Reply[66] = 1
+		requireCapturedPairRefused(t, pair)
+	}
+	pair := capturedPairFixture(t, 3, wireBytes(t, requestVector), 1)
+	pair.Reply = wireBytes(t, replyVector)
+	requireCapturedPairRefused(t, pair)
+}
+
+func TestCapturedFrameRejectsUnsupportedEventsAndContext(t *testing.T) {
+	// A fully matching applied-reply shape is still outside the capture API.
+	applied := capturedPairFixture(t, 7, wireBytes(t, requestVector), 1)
+	binary.BigEndian.PutUint16(applied.Event[6:8], 8)
+	applied.Event[181] = 1
+	requireCapturedPairRefused(t, applied)
+	for kind := uint16(1); kind <= 29; kind++ {
+		if kind == 3 || kind == 5 || kind == 7 {
+			continue
+		}
+		pair := capturedFramePair{Event: eventFieldsFixture(t, kind), Request: wireBytes(t, requestVector)}
+		if kind == 6 || kind == 8 {
+			pair.Reply = wireBytes(t, replyVector)
+		}
+		requireCapturedPairRefused(t, pair)
+	}
+	for _, offset := range []int{0, 4, 5, 32, 40, 246} {
+		pair := capturedPairFixture(t, 5, wireBytes(t, requestVector), 1)
+		pair.Event[offset] ^= 1
+		requireCapturedPairRefused(t, pair)
+	}
+	for _, context := range []struct {
+		bindings     obligationBindings
+		numer, denom uint32
+	}{
+		{obligationBindings{}, 125, 3}, {obligationFixture(), 0, 3}, {obligationFixture(), 125, 0}, {obligationFixture(), 126, 3},
+	} {
+		pair := capturedPairFixture(t, 3, wireBytes(t, requestVector), 1)
+		if err := validateCapturedFrame(pair, context.bindings, context.numer, context.denom); err == nil {
+			t.Fatal("bad pair context accepted")
+		}
+		if context.numer == 126 {
+			continue
+		} // No event in an empty selection fixes a timebase value.
+		if err := validateCapturedFrames(nil, context.bindings, context.numer, context.denom); err == nil {
+			t.Fatal("invalid empty selection context accepted")
+		}
+	}
+}
+
+func TestCapturedFramesCapsAndDuplicates(t *testing.T) {
+	requests := [][]byte{wireBytes(t, requestVector), operationRequest(t, 2, true, 0), operationRequest(t, 3, true, 1)}
+	requests[2][280] = 13
+	binary.BigEndian.PutUint64(requests[2][296:304], 3)
+	var pairs []capturedFramePair
+	for _, request := range requests {
+		for _, kind := range []uint16{3, 5, 7} {
+			pairs = append(pairs, capturedPairFixture(t, kind, request, 1))
+		}
+	}
+	if err := validateCapturedFrames(pairs, obligationFixture(), 125, 3); err != nil {
+		t.Fatal("nine bounded matching captures refused", err)
+	}
+	if err := validateCapturedFrames(append(pairs, pairs[0]), obligationFixture(), 125, 3); err == nil {
+		t.Fatal("total cap not enforced")
+	}
+	for _, kind := range []uint16{3, 5, 7} {
+		first := capturedPairFixture(t, kind, requests[1], 1)
+		secondRequest := bytes.Clone(requests[1])
+		binary.BigEndian.PutUint64(secondRequest[296:304], 3)
+		for _, second := range []capturedFramePair{first, capturedPairFixture(t, kind, secondRequest, 1)} {
+			if err := validateCapturedFrames([]capturedFramePair{first, second}, obligationFixture(), 125, 3); err == nil {
+				t.Fatal("duplicate category operation accepted", kind)
+			}
+		}
+		var four []capturedFramePair
+		for i := byte(0); i < 4; i++ {
+			request := bytes.Clone(requests[1])
+			request[280] = 20 + i
+			four = append(four, capturedPairFixture(t, kind, request, 1))
+		}
+		if err := validateCapturedFrames(four, obligationFixture(), 125, 3); err == nil {
+			t.Fatal("category cap not enforced", kind)
+		}
+	}
+	// Four distinct anchors spread across categories still exceed one attempt.
+	var four []capturedFramePair
+	for i, kind := range []uint16{3, 3, 5, 7} {
+		request := bytes.Clone(requests[1])
+		request[280] = byte(20 + i)
+		four = append(four, capturedPairFixture(t, kind, request, 1))
+	}
+	if err := validateCapturedFrames(four, obligationFixture(), 125, 3); err == nil {
+		t.Fatal("request anchor cap not enforced")
+	}
+	if err := validateCapturedFrames([]capturedFramePair{{}}, obligationFixture(), 125, 3); err == nil {
+		t.Fatal("missing pair members accepted")
+	}
+}
+
+func TestCapturedFramesPeerEquality(t *testing.T) {
+	request := operationRequest(t, 2, true, 0)
+	for _, kinds := range [][2]uint16{{3, 5}, {3, 7}, {5, 7}} {
+		first := capturedPairFixture(t, kinds[0], request, 1)
+		changed := bytes.Clone(request)
+		changed[307] ^= 1
+		second := capturedPairFixture(t, kinds[1], changed, 1)
+		if err := validateCapturedFrames([]capturedFramePair{first, second}, obligationFixture(), 125, 3); err == nil {
+			t.Fatal("ambiguous request anchors accepted", kinds)
+		}
+	}
+	for _, outcomes := range [][2]byte{{1, 2}, {2, 3}} {
+		pairs := []capturedFramePair{capturedPairFixture(t, 5, request, outcomes[0]), capturedPairFixture(t, 7, request, outcomes[1])}
+		if err := validateCapturedFrames(pairs, obligationFixture(), 125, 3); err == nil {
+			t.Fatal("disagreeing worker/control replies accepted")
+		}
+	}
+	// Cross-lane observations can share a sequence; no order is inferred here.
+	pairs := []capturedFramePair{capturedPairFixture(t, 7, request, 2), capturedPairFixture(t, 5, request, 2), capturedPairFixture(t, 3, request, 1)}
+	if err := validateCapturedFrames(pairs, obligationFixture(), 125, 3); err != nil {
+		t.Fatal("unordered matching selection refused", err)
+	}
+}
+
+func TestCapturedFramesNoMutationOrImplicitSettlement(t *testing.T) {
+	request := wireBytes(t, requestVector)
+	pair := capturedPairFixture(t, 7, request, 1)
+	history, err := newWriteHistory(obligationFixture())
+	if err != nil {
+		t.Fatal(err)
+	}
+	if err = history.begin(request); err != nil {
+		t.Fatal(err)
+	}
+	before := history.snapshot()
+	for _, valid := range []bool{true, false} {
+		if !valid {
+			pair.Event[96] ^= 1
+		}
+		eventBefore, requestBefore, replyBefore := bytes.Clone(pair.Event), bytes.Clone(pair.Request), bytes.Clone(pair.Reply)
+		err := validateCapturedFrames([]capturedFramePair{pair}, obligationFixture(), 125, 3)
+		if (err == nil) != valid {
+			t.Fatal("unexpected correspondence result", err)
+		}
+		if !bytes.Equal(pair.Event, eventBefore) || !bytes.Equal(pair.Request, requestBefore) || !bytes.Equal(pair.Reply, replyBefore) {
+			t.Fatal("correspondence mutated inputs")
+		}
+		if history.snapshot() != before {
+			t.Fatal("correspondence settled history")
+		}
+	}
+	// Local fields stay opt-in and can accept a shape whose sidecar disagrees.
+	if _, err := decodeEventFields(pair.Event, obligationFixture(), 125, 3); err != nil {
+		t.Fatal("prior field API changed", err)
+	}
+}

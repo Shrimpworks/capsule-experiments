@@ -1,6 +1,6 @@
 {
   "experiment": "capsule.c5b19.benign-teardown/v1",
-  "status": "IN_PROGRESS \u2014 TRENDING_GOOD",
+  "status": "IN_PROGRESS — TRENDING_GOOD",
   "archive_base_commit": "d8fd74a158f2227277ccfce5532e9bd8ad3e714e",
   "gate2_reviewed_commit": "e7b68c57d59abe66c68d849473e21fe74f4e31b7",
   "gate2_integration_commit": "a6ef83a6b43cd4940547b138529ebbb91cff8da6",
@@ -136,5 +136,50 @@
     "supported_subset": "payload-free harness kind 29; complete represented reply shapes for both kind 8 decisions; optional harness identity and malformed-reply diagnostics remain unmapped",
     "scope_limit": "local field and lane consistency only; scalar zeros remain observations; no guessed syscall semantics or terminal-status decoding; sidecars, pairing, causality, timing and execution remain deferred",
     "review_report_sha256": "2d3d7cba6b135a4dc42d6ae7dfadc1927e257482dd5127d909f1f5a9acc1c940"
+  },
+  "g3a6": {
+    "scope": "pure in-memory selected event3/5/7 and captured request397/reply98 correspondence; no serialized sidecar container, settlement or lifecycle effects",
+    "continued_archive_head": "7aac77de36e33059ef0759b44ca02ab5ad080343",
+    "canonical_reference_commit": "e1a966e7c6f18665784984e97b6697cc472cb288",
+    "canonical_reference_sha256": {
+      "docs/C5B19_GATE2_IMPLEMENTATION_PACKET.md": "65c885425298ce056f8619c5d0837f97ba54dee91c025fea5621a2d75d5ef4f0",
+      "internal/execution/teardownpassive/types.go": "249b7ef054134f47974bf769c3fb37309b867b1be42ae53c18baf23dc8bacfd0",
+      "internal/execution/teardownpassive/model.go": "1e3a8be8527554d3953d494086c5313ceeca5806b40a7661ab488717f4a94c40"
+    },
+    "implementation_sha256": {
+      "go.mod": "5f40cde18c2d82fe5d57f3a8822377c12e473f1026f174165dfecd126bea3eeb",
+      "tests/oracle.go": "5106897e28cfadd491f4080c1c8d2cd3901fc49bbafe9ce8900924e35adac46e",
+      "tests/oracle_test.go": "a44445ff7cf4bbef309205971eb914fead4dcd93ac45b40d499bef66cea42ea4",
+      "tests/model_test.go": "b0f3b9d063c225eb887cecaf16f4058f0ed07ae8f14c3d92c49acacabb0a931e"
+    },
+    "dependencies": "Go1.25.13 standard library only; no new requirements, go.sum or manifest entries",
+    "local_verification": "PASSED: compiler-red then green; exact offline test/race/vet/build; eleven selected compiled guard mutants failed intended assertions and source restored exactly",
+    "fresh_review_status": "PASSED: independent review instance 1 of 3 Ready; no actionable findings",
+    "log_sha256": {
+      "red": "51cd1433dc9adb2d07c359001fe36eba1a5395300349112e8191705f54667e7e",
+      "green": "8aa6efdf3a3c9270a2dd274117fdb9f3a1b5d56698c6278841a406615697b79f",
+      "restored": "33bbd8e4efefa78d2115334a95550c4a72afa3f16eb60f820e1c41627f6f3890",
+      "race": "33f3a509f3dc4da9d9da9b3e3f992d22c74c9615ad96ef14f1fa5aa0eaae6157",
+      "vet": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "build": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "mutant-tuple": "e9fc8dfa750eaf88d7871519fe221cf137f59375c8306ec41719e241e641b132",
+      "mutant-request-hash": "7d35989982688149b6da3572049de04faae1bd1c9d8216aa07bca49b2c34ee5a",
+      "mutant-candidate-hash": "a9a19d8b9a1c1f93f4488ac8898ac42d02d3ad825d72cf6ea042eee0fc3cb567",
+      "mutant-outcome": "68a70087b352ca6901b958a3d1a27ce4aa8a3f706c6e4cc8bb644964daf29cc1",
+      "mutant-record": "b999141d8e5df4f32549a52ded85030a25f92792ffe33e82f8f1f49704a6959d",
+      "mutant-category": "7fefef9fb36d67687efb0bc25794fd4e001ebcef0374fcb62cb2fc0cda0b7941",
+      "mutant-lane": "afd4a753c7ea049438f67301fd007642d402cd67789c821cdf6a792afd2cd7f5",
+      "mutant-duplicate": "2392adbec59a0dec2b94da1f6555d34b41e917884d8319a1d28bda1ab72bdccd",
+      "mutant-caps": "806f97312fa2b8376872d0678b0878ee5499510e07a15b88b8bd13b608ce097d",
+      "mutant-anchors": "8aeb8493b8f49415a764e0a217612d30e57e073e828b8a5a69c9dc3eb5845475",
+      "mutant-peers": "25aadfe56dca600e481a58e27e977cf5b2d774ace53d370932e1a4af837b0b38"
+    },
+    "limits": [
+      "Only supplied pairs are checked; omitted whole pairs and full trace completeness are not detected",
+      "Request anchors accompanying replies are context, not worker receipt proof",
+      "Malformed/rejected reply diagnostics and worker-received-request event mapping remain undefined",
+      "Kind8 application, received/applied order, model transitions, snapshots, causality/timing, native semantics, durability and lifecycle authority remain deferred"
+    ],
+    "review_report_sha256": "999b894f06fa2c327320b951e5e28ad669e8ba31e346e0602b334dc10a09b692"
   }
 }

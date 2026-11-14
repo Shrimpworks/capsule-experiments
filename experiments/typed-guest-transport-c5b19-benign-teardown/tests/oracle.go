@@ -616,3 +616,90 @@ func decodeEventFields(raw []byte, frozen obligationBindings, numer, denom uint3
 	}
 	return event, nil
 }
+
+var errCapturedFrame = errors.New("C5B19_CAPTURED_FRAME")
+
+// capturedFramePair is an in-memory selection, not a serialized sidecar format.
+// For kind3, Request is the captured control request and Reply must be empty.
+// For kinds5/7, Request is decoding context, not proof of worker receipt or a
+// captured kind3 event. The caller owns these bytes; validation retains none.
+type capturedFramePair struct {
+	Event   []byte
+	Request []byte
+	Reply   []byte
+}
+
+// validateCapturedFrame checks represented well-formed bytes only. Success is
+// not control application, durable publication, a passing trace or authority.
+func validateCapturedFrame(pair capturedFramePair, frozen obligationBindings, numer, denom uint32) error {
+	event, err := decodeEventFields(pair.Event, frozen, numer, denom)
+	if err != nil || (event.Kind != 3 && event.Kind != 5 && event.Kind != 7) {
+		return errCapturedFrame
+	}
+	request, err := decodeRequest(pair.Request, frozen)
+	if err != nil {
+		return errCapturedFrame
+	}
+	if event.Operation != request.Operation || event.Generation != request.Generation ||
+		event.RequestDigest != sha256.Sum256(pair.Request[8:]) ||
+		event.CandidateDigest != sha256.Sum256(request.Candidate[:]) {
+		return errCapturedFrame
+	}
+	if event.Kind == 3 {
+		if len(pair.Reply) != 0 {
+			return errCapturedFrame
+		}
+		return nil
+	}
+	outcome, err := validateReply(pair.Reply, pair.Request, frozen)
+	if err != nil || event.Outcome != outcome || event.RecordDigest != [32]byte(pair.Reply[66:98]) {
+		return errCapturedFrame
+	}
+	return nil
+}
+
+// validateCapturedFrames checks only supplied pairs: at most three per supported
+// category and three distinct operation anchors for one attempt. An omitted
+// entire pair cannot be detected. No full round trip, lane sequence, causal or
+// timing order is required or established, and an empty selection is no evidence.
+// In particular, this never applies kind8 or changes writeHistory.
+func validateCapturedFrames(pairs []capturedFramePair, frozen obligationBindings, numer, denom uint32) error {
+	if _, err := encodeObligationPreimage(frozen); err != nil || numer == 0 || denom == 0 || len(pairs) > 9 {
+		return errCapturedFrame
+	}
+	var events [9]eventEnvelope
+	var counts [8]byte
+	unique := 0
+	for i, pair := range pairs {
+		if err := validateCapturedFrame(pair, frozen, numer, denom); err != nil {
+			return err
+		}
+		// The pair validator already verified every event byte and closed kinds.
+		event, _ := decodeEventFields(pair.Event, frozen, numer, denom)
+		counts[event.Kind]++
+		if counts[event.Kind] > 3 {
+			return errCapturedFrame
+		}
+		seen := false
+		for j := 0; j < i; j++ {
+			if events[j].Operation != event.Operation {
+				continue
+			}
+			seen = true
+			if events[j].Kind == event.Kind || !bytes.Equal(pairs[j].Request, pair.Request) {
+				return errCapturedFrame
+			}
+			if event.Kind != 3 && events[j].Kind != 3 && !bytes.Equal(pairs[j].Reply, pair.Reply) {
+				return errCapturedFrame
+			}
+		}
+		if !seen {
+			unique++
+			if unique > 3 {
+				return errCapturedFrame
+			}
+		}
+		events[i] = event
+	}
+	return nil
+}
