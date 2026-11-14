@@ -1728,5 +1728,450 @@
       "Child execution, Gates4\u20136 and product admission remain BLOCKED; future supplied lane consistency and producer syscall normalization require separate scope"
     ],
     "review_report_sha256": "8cc9291674610ac9f2f97a571186c6796e1b82edec88e6cf9c97b1f1f135bea6"
+  },
+  "g3a12": {
+    "scope": "pure error-only bounded partial kind3\u20138 transport lane consistency: duplicate kind/op refusal, lane sequence uniqueness and tick monotonicity independent of input order",
+    "continued_archive_head": "7ec433aa17c623f58a81118bab87f1ada49770f3",
+    "canonical_reference_commit": "f1ded569af4a6ae20f2a93b7e476825959f97143",
+    "canonical_reference_sha256": {
+      "docs/C5B19_GATE2_IMPLEMENTATION_PACKET.md": "65c885425298ce056f8619c5d0837f97ba54dee91c025fea5621a2d75d5ef4f0",
+      "internal/execution/teardownpassive/types.go": "249b7ef054134f47974bf769c3fb37309b867b1be42ae53c18baf23dc8bacfd0",
+      "internal/execution/teardownpassive/model.go": "1e3a8be8527554d3953d494086c5313ceeca5806b40a7661ab488717f4a94c40"
+    },
+    "implementation_sha256": {
+      "go.mod": "5f40cde18c2d82fe5d57f3a8822377c12e473f1026f174165dfecd126bea3eeb",
+      "tests/oracle.go": "22e91fd0c95e778f9e8e68480bcb586fb4fe64d4d3c0ebb9b0c56b887b7ac0be",
+      "tests/oracle_test.go": "8c10cdab499b5e0e9260848548adae83fc788b9f1c26defae054dd06c9cf5b2c",
+      "tests/model_test.go": "b0f3b9d063c225eb887cecaf16f4058f0ed07ae8f14c3d92c49acacabb0a931e"
+    },
+    "dependencies": "Go1.25.13 standard library only; no import, dependency, primitive, serialized format, manifest, ABI or run/admission flag change",
+    "local_verification": "PASSED: compiler-red then green; ten appended test groups; twelve compiled mutants reached seventeen exact intended assertions; exact source restoration; final offline test/race/vet/build",
+    "fresh_review_status": "PASSED: fresh independent review instance 1 of 3 Ready; no actionable findings",
+    "scope_report_sha256": "a4f53ac068916ba94897bfeed8275a594c2b2127ed7b858cf8dcb0a45045eef4",
+    "environment": {
+      "GOTOOLCHAIN": "local",
+      "GOPROXY": "off",
+      "GOSUMDB": "off",
+      "GOCACHE": "/tmp/c5b19-g3a12-go-cache"
+    },
+    "verification": [
+      {
+        "name": "red",
+        "command": [
+          "/Users/dsteele/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.25.13.darwin-arm64/bin/go",
+          "test",
+          "./..."
+        ],
+        "exit": 1,
+        "log": "/tmp/c5b19-g3a12-red.log",
+        "sha256": "1f6176723bf4ead02bb4db7407f79d5b3b9d507b1b3ed9da06314a7097af2d45"
+      },
+      {
+        "name": "green",
+        "command": [
+          "/Users/dsteele/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.25.13.darwin-arm64/bin/go",
+          "test",
+          "./..."
+        ],
+        "exit": 0,
+        "log": "/tmp/c5b19-g3a12-green.log",
+        "sha256": "e5bd60ef196d77fdecbef9ce3131b7f9c2fb3bfbace7055c2450957a9cbeb54c"
+      },
+      {
+        "name": "mutation-baseline",
+        "command": [
+          "/Users/dsteele/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.25.13.darwin-arm64/bin/go",
+          "test",
+          "./...",
+          "-count=1"
+        ],
+        "exit": 0,
+        "log": "/tmp/c5b19-g3a12-mutation-baseline.log",
+        "sha256": "bb187a81052ac031864853d38f58f81b9ff6114da1ecc06e8aad39c63f4bf2e7"
+      },
+      {
+        "name": "restored",
+        "command": [
+          "/Users/dsteele/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.25.13.darwin-arm64/bin/go",
+          "test",
+          "./...",
+          "-count=1"
+        ],
+        "exit": 0,
+        "log": "/tmp/c5b19-g3a12-restored.log",
+        "sha256": "7c7510df158490436c19b19d491c83634c5d6ca1eaf0bb290bc90322dedd080f"
+      },
+      {
+        "name": "race",
+        "command": [
+          "/Users/dsteele/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.25.13.darwin-arm64/bin/go",
+          "test",
+          "-race",
+          "./...",
+          "-count=1"
+        ],
+        "exit": 0,
+        "log": "/tmp/c5b19-g3a12-race.log",
+        "sha256": "f80ae054612f80c4ffcd0f8d3ea26685cda6d5ba4f9d5d124b9afb755993b853"
+      },
+      {
+        "name": "vet",
+        "command": [
+          "/Users/dsteele/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.25.13.darwin-arm64/bin/go",
+          "vet",
+          "./..."
+        ],
+        "exit": 0,
+        "log": "/tmp/c5b19-g3a12-vet.log",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "name": "build",
+        "command": [
+          "/Users/dsteele/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.25.13.darwin-arm64/bin/go",
+          "build",
+          "./..."
+        ],
+        "exit": 0,
+        "log": "/tmp/c5b19-g3a12-build.log",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "name": "final-test",
+        "command": [
+          "/Users/dsteele/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.25.13.darwin-arm64/bin/go",
+          "test",
+          "./...",
+          "-count=1"
+        ],
+        "exit": 0,
+        "log": "/tmp/c5b19-g3a12-final-test.log",
+        "sha256": "8aa6efdf3a3c9270a2dd274117fdb9f3a1b5d56698c6278841a406615697b79f"
+      },
+      {
+        "name": "final-race",
+        "command": [
+          "/Users/dsteele/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.25.13.darwin-arm64/bin/go",
+          "test",
+          "-race",
+          "./...",
+          "-count=1"
+        ],
+        "exit": 0,
+        "log": "/tmp/c5b19-g3a12-final-race.log",
+        "sha256": "ae26aa7403c36406625080b2a24629e34629b9b868f6508d8747c71435235395"
+      },
+      {
+        "name": "final-vet",
+        "command": [
+          "/Users/dsteele/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.25.13.darwin-arm64/bin/go",
+          "vet",
+          "./..."
+        ],
+        "exit": 0,
+        "log": "/tmp/c5b19-g3a12-final-vet.log",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "name": "final-build",
+        "command": [
+          "/Users/dsteele/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.25.13.darwin-arm64/bin/go",
+          "build",
+          "./..."
+        ],
+        "exit": 0,
+        "log": "/tmp/c5b19-g3a12-final-build.log",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    ],
+    "selected_mutations": [
+      {
+        "name": "supported-kind-lower-bound",
+        "replacements": [
+          [
+            " || event.Kind < 3",
+            ""
+          ]
+        ],
+        "command": [
+          "/Users/dsteele/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.25.13.darwin-arm64/bin/go",
+          "test",
+          "./...",
+          "-run",
+          "^TestTransportLanesStrictDomainAndMalformed$/kind2$",
+          "-count=1"
+        ],
+        "intended_assertion": "oracle_test.go:3633: invalid transport lane selection accepted",
+        "expected_occurrences": 1,
+        "exit": 1,
+        "actual_occurrences": 1,
+        "log": "/tmp/c5b19-g3a12-mutant-supported-kind-lower-bound.log",
+        "sha256": "3d21a07c883f3a9ca35206c568ab9b1a2797291f0e734531a259f052ca290b60"
+      },
+      {
+        "name": "duplicate-kind-operation",
+        "replacements": [
+          [
+            "prior.Kind == event.Kind",
+            "false"
+          ]
+        ],
+        "command": [
+          "/Users/dsteele/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.25.13.darwin-arm64/bin/go",
+          "test",
+          "./...",
+          "-run",
+          "^TestTransportLanesCapsAndDuplicates$/duplicate-kind-operation$",
+          "-count=1"
+        ],
+        "intended_assertion": "oracle_test.go:3613: invalid transport lane selection accepted",
+        "expected_occurrences": 1,
+        "exit": 1,
+        "actual_occurrences": 1,
+        "log": "/tmp/c5b19-g3a12-mutant-duplicate-kind-operation.log",
+        "sha256": "e2b665007bf56da08643408283e0087b1036254e11b30746eb5b731cfd6e3a00"
+      },
+      {
+        "name": "same-lane-sequence",
+        "replacements": [
+          [
+            "event.Sequence == prior.Sequence",
+            "false"
+          ]
+        ],
+        "command": [
+          "/Users/dsteele/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.25.13.darwin-arm64/bin/go",
+          "test",
+          "./...",
+          "-run",
+          "^TestTransportLanesLocallyValidWritePairs$/^kind(3|5)$/sequence-reuse$",
+          "-count=1"
+        ],
+        "intended_assertion": "oracle_test.go:3500: invalid transport lane selection accepted",
+        "expected_occurrences": 4,
+        "exit": 1,
+        "actual_occurrences": 4,
+        "log": "/tmp/c5b19-g3a12-mutant-same-lane-sequence.log",
+        "sha256": "3e9e61db3f6cea19fe73367b87b5d5631765135c72447532fec6b9370906f6d2"
+      },
+      {
+        "name": "reverse-input-tick-branch",
+        "replacements": [
+          [
+            "(event.Sequence < prior.Sequence && event.Tick > prior.Tick)",
+            "false"
+          ]
+        ],
+        "command": [
+          "/Users/dsteele/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.25.13.darwin-arm64/bin/go",
+          "test",
+          "./...",
+          "-run",
+          "^TestTransportLanesLocallyValidWritePairs$/^kind(3|5)$/tick-regression$/reversetrue$",
+          "-count=1"
+        ],
+        "intended_assertion": "oracle_test.go:3500: invalid transport lane selection accepted",
+        "expected_occurrences": 2,
+        "exit": 1,
+        "actual_occurrences": 2,
+        "log": "/tmp/c5b19-g3a12-mutant-reverse-input-tick-branch.log",
+        "sha256": "68fcd2c06600f5615002127307ac235122a82a60c787075274df2fa60795b269"
+      },
+      {
+        "name": "forward-input-tick-branch",
+        "replacements": [
+          [
+            "(event.Sequence > prior.Sequence && event.Tick < prior.Tick)",
+            "false"
+          ]
+        ],
+        "command": [
+          "/Users/dsteele/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.25.13.darwin-arm64/bin/go",
+          "test",
+          "./...",
+          "-run",
+          "^TestTransportLanesLocallyValidWritePairs$/^kind(3|5)$/tick-regression$/reversefalse$",
+          "-count=1"
+        ],
+        "intended_assertion": "oracle_test.go:3500: invalid transport lane selection accepted",
+        "expected_occurrences": 2,
+        "exit": 1,
+        "actual_occurrences": 2,
+        "log": "/tmp/c5b19-g3a12-mutant-forward-input-tick-branch.log",
+        "sha256": "f5c188ec6a0cd6d815eefa57a4a31dadc0814a0fe0f5e0fc2962e9826b9a1619"
+      },
+      {
+        "name": "cross-lane-filter",
+        "replacements": [
+          [
+            "prior.Lane != event.Lane",
+            "false"
+          ]
+        ],
+        "command": [
+          "/Users/dsteele/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.25.13.darwin-arm64/bin/go",
+          "test",
+          "./...",
+          "-run",
+          "^TestTransportLanesIndependentLanesAndBoundaries$/worker-same-sequence$",
+          "-count=1"
+        ],
+        "intended_assertion": "oracle_test.go:3558: valid transport lane selection refused",
+        "expected_occurrences": 1,
+        "exit": 1,
+        "actual_occurrences": 1,
+        "log": "/tmp/c5b19-g3a12-mutant-cross-lane-filter.log",
+        "sha256": "e5b7125f26d0f0e8b9893dede2089e7a1f99d7282934e8dc749d1ea5eb51f074"
+      },
+      {
+        "name": "strict-tick-increase",
+        "replacements": [
+          [
+            "event.Sequence > prior.Sequence && event.Tick < prior.Tick",
+            "event.Sequence > prior.Sequence && event.Tick <= prior.Tick"
+          ]
+        ],
+        "command": [
+          "/Users/dsteele/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.25.13.darwin-arm64/bin/go",
+          "test",
+          "./...",
+          "-run",
+          "^TestTransportLanesIndependentLanesAndBoundaries$/equal-tick$",
+          "-count=1"
+        ],
+        "intended_assertion": "oracle_test.go:3558: valid transport lane selection refused",
+        "expected_occurrences": 1,
+        "exit": 1,
+        "actual_occurrences": 1,
+        "log": "/tmp/c5b19-g3a12-mutant-strict-tick-increase.log",
+        "sha256": "3a574dd38b1576403d4861ebc317c0e60719fefb172cc9437a401bf81963a784"
+      },
+      {
+        "name": "unique-operation-cap",
+        "replacements": [
+          [
+            "unique > 3",
+            "false"
+          ]
+        ],
+        "command": [
+          "/Users/dsteele/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.25.13.darwin-arm64/bin/go",
+          "test",
+          "./...",
+          "-run",
+          "^TestTransportLanesCapsAndDuplicates$/four-operations$",
+          "-count=1"
+        ],
+        "intended_assertion": "oracle_test.go:3617: invalid transport lane selection accepted",
+        "expected_occurrences": 1,
+        "exit": 1,
+        "actual_occurrences": 1,
+        "log": "/tmp/c5b19-g3a12-mutant-unique-operation-cap.log",
+        "sha256": "5b251db99d3bce383d31a5dedf081353280af32efb6e7cc155168e0585cf58b3"
+      },
+      {
+        "name": "unintended-adjacency",
+        "replacements": [
+          [
+            "if event.Sequence == prior.Sequence ||",
+            "if (event.Sequence > prior.Sequence && event.Sequence-prior.Sequence != 1) || event.Sequence == prior.Sequence ||"
+          ]
+        ],
+        "command": [
+          "/Users/dsteele/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.25.13.darwin-arm64/bin/go",
+          "test",
+          "./...",
+          "-run",
+          "^TestTransportLanesIndependentLanesAndBoundaries$/gap$",
+          "-count=1"
+        ],
+        "intended_assertion": "oracle_test.go:3558: valid transport lane selection refused",
+        "expected_occurrences": 1,
+        "exit": 1,
+        "actual_occurrences": 1,
+        "log": "/tmp/c5b19-g3a12-mutant-unintended-adjacency.log",
+        "sha256": "57657ba8577e6bf210e086df9f7ae331660a6c58832cdc685834587a62f3919a"
+      },
+      {
+        "name": "unintended-correspondence",
+        "replacements": [
+          [
+            "if prior.Operation == event.Operation {",
+            "if prior.Operation == event.Operation {\n\t\t\t\tif prior.RequestDigest != event.RequestDigest { return errTransportLanes }"
+          ]
+        ],
+        "command": [
+          "/Users/dsteele/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.25.13.darwin-arm64/bin/go",
+          "test",
+          "./...",
+          "-run",
+          "^TestTransportLanesCompositionRemainsSeparate$",
+          "-count=1"
+        ],
+        "intended_assertion": "oracle_test.go:3679: valid transport lane selection refused",
+        "expected_occurrences": 1,
+        "exit": 1,
+        "actual_occurrences": 1,
+        "log": "/tmp/c5b19-g3a12-mutant-unintended-correspondence.log",
+        "sha256": "eed83546d2bc7ea9f966aec87a6c4fd77ccbaa776f0591e92980616028df38a4"
+      },
+      {
+        "name": "empty-timebase",
+        "replacements": [
+          [
+            " || numer == 0 || denom == 0",
+            ""
+          ]
+        ],
+        "command": [
+          "/Users/dsteele/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.25.13.darwin-arm64/bin/go",
+          "test",
+          "./...",
+          "-run",
+          "^TestTransportLanesContextAndPartialSelection$",
+          "-count=1"
+        ],
+        "intended_assertion": "oracle_test.go:3463: invalid empty lane context accepted",
+        "expected_occurrences": 1,
+        "exit": 1,
+        "actual_occurrences": 1,
+        "log": "/tmp/c5b19-g3a12-mutant-empty-timebase.log",
+        "sha256": "12fc0f91d1da97c16e401a6a13853f195eec6a01cc8837bba915bc85037fb32d"
+      },
+      {
+        "name": "reordered-caller-slices",
+        "replacements": [
+          [
+            "var events [18]eventEnvelope",
+            "if len(rawEvents) > 1 { rawEvents[0], rawEvents[1] = rawEvents[1], rawEvents[0] }\n\tvar events [18]eventEnvelope"
+          ]
+        ],
+        "command": [
+          "/Users/dsteele/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.25.13.darwin-arm64/bin/go",
+          "test",
+          "./...",
+          "-run",
+          "^TestTransportLanesIndependentLanesAndBoundaries$/equal-tick$",
+          "-count=1"
+        ],
+        "intended_assertion": "oracle_test.go:3558: lane validator mutated supplied bytes or slice identity",
+        "expected_occurrences": 1,
+        "exit": 1,
+        "actual_occurrences": 1,
+        "log": "/tmp/c5b19-g3a12-mutant-reordered-caller-slices.log",
+        "sha256": "7a2b3269241afcb94ec004ac34e0393639ac672f5cb3cc088702dc0003b5c921"
+      }
+    ],
+    "invalid_mutation_constructions": [],
+    "mutation_driver_sha256": "6c89a5789eba75faf5f47a9dfd41879aa57e83cf6d6459e1f4f856bf4a38708b",
+    "mutation_note": "All twelve selected mutants compiled, exited1 and reached exact intended assertion counts after valid setup; no invalid construction, panic, setup failure or survivor. Source restored in finally. Full18 permutation/raw-diagnostic positive appended after campaign without changing earlier target bytes or line numbers; final checks passed.",
+    "limits": [
+      "Partial selected local lane consistency only; gaps/omissions do not establish complete/contiguous stream or capture authenticity/completeness",
+      "No implicit raw-frame/tuple correspondence, local kind-pair presence/order, decision/history validation, transport success or settlement",
+      "Independent lanes share no sequence/tick watermark; no cross-lane causal ordering, elapsed timing, physical effect or execution authority",
+      "Total/per-kind caps overlap with distinct-operation and duplicate kind/op limits; no isolated redundant-cap necessity or exhaustive mutation claim. Supported-kind mutation tests safe lower-bound removal only, not unsafe high-kind array indexing.",
+      "Same-operation control ordering, full trace/native mechanisms and first-run/admission gates remain deferred; child execution BLOCKED"
+    ],
+    "review_report_sha256": "b4b3439e43c40466703442212b77b707ac2915bb47f24fca0a2627e239567ee1"
   }
 }

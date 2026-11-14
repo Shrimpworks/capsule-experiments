@@ -3404,3 +3404,344 @@ func TestWriteResultCopiedOperationFacts(t *testing.T) {
 		}
 	}
 }
+
+// G3a12 selects strict raw events only; frame/pair validity is checked separately.
+func transportLaneEvent(t *testing.T, kind uint16, operation byte, sequence, tick uint64) []byte {
+	t.Helper()
+	raw := eventFieldsFixture(t, kind)
+	raw[72] = operation
+	binary.BigEndian.PutUint64(raw[8:16], sequence)
+	binary.BigEndian.PutUint64(raw[16:24], tick)
+	return raw
+}
+
+func checkTransportLaneInputs(t *testing.T, events [][]byte, valid bool) {
+	t.Helper()
+	copies := make([][]byte, len(events))
+	identities := make([]*byte, len(events))
+	capacities := make([]int, len(events))
+	nils := make([]bool, len(events))
+	for i := range events {
+		copies[i] = bytes.Clone(events[i])
+		capacities[i], nils[i] = cap(events[i]), events[i] == nil
+		if len(events[i]) != 0 {
+			identities[i] = &events[i][0]
+		}
+	}
+	frozen := obligationFixture()
+	before := frozen
+	err := validateTransportLanes(events, frozen, 125, 3)
+	if valid && err != nil {
+		t.Fatal("valid transport lane selection refused", err)
+	}
+	if !valid && err == nil {
+		t.Fatal("invalid transport lane selection accepted")
+	}
+	if frozen != before {
+		t.Fatal("lane validator mutated context")
+	}
+	for i := range events {
+		if !bytes.Equal(events[i], copies[i]) || cap(events[i]) != capacities[i] || (events[i] == nil) != nils[i] {
+			t.Fatal("lane validator mutated supplied bytes or slice identity")
+		}
+		if len(events[i]) != 0 && &events[i][0] != identities[i] {
+			t.Fatal("lane validator reordered/replaced supplied slices")
+		}
+	}
+}
+
+func TestTransportLanesContextAndPartialSelection(t *testing.T) {
+	for _, events := range [][][]byte{nil, {}} {
+		checkTransportLaneInputs(t, events, true)
+		bad := obligationFixture()
+		bad.Preparation = [16]byte{}
+		for _, context := range []struct {
+			bindings obligationBindings
+			n, d     uint32
+		}{{bad, 125, 3}, {obligationFixture(), 0, 3}, {obligationFixture(), 125, 0}} {
+			if validateTransportLanes(events, context.bindings, context.n, context.d) == nil {
+				t.Fatal("invalid empty lane context accepted")
+			}
+		}
+	}
+	for kind := uint16(3); kind <= 8; kind++ {
+		checkTransportLaneInputs(t, [][]byte{transportLaneEvent(t, kind, 11, ^uint64(0), ^uint64(0))}, true)
+	}
+	// Even lone kind8 is only local consistency: no kind7, request, or decision proof.
+	for _, decision := range []byte{1, 2} {
+		event := transportLaneEvent(t, 8, 11, 0, 0)
+		event[181] = decision
+		checkTransportLaneInputs(t, [][]byte{event}, true)
+	}
+}
+
+func TestTransportLanesLocallyValidWritePairs(t *testing.T) {
+	requests := [][]byte{wireBytes(t, requestVector), operationRequest(t, 2, true, 0)}
+	for _, kind := range []uint16{3, 5} {
+		for _, fault := range []string{"sequence-reuse", "tick-regression"} {
+			for _, reverse := range []bool{false, true} {
+				t.Run(fmt.Sprintf("kind%d/%s/reverse%v", kind, fault, reverse), func(t *testing.T) {
+					left := writeResultFixture(t, kind, requests[0], 2, -1, 22)
+					right := writeResultFixture(t, kind, requests[1], 2, -1, 22)
+					if fault == "tick-regression" {
+						binary.BigEndian.PutUint64(left.Before.Event[16:24], 10)
+						binary.BigEndian.PutUint64(left.Result[16:24], 10)
+						binary.BigEndian.PutUint64(right.Before.Event[8:16], 9)
+						binary.BigEndian.PutUint64(right.Result[8:16], 17)
+					}
+					// G3a11 passes both pairs and their collection: the contradiction is between pairs.
+					inspectWriteResultFixture(t, []writeResultPair{left, right})
+					events := [][]byte{left.Before.Event, left.Result, right.Before.Event, right.Result}
+					if reverse {
+						for i, j := 0, len(events)-1; i < j; i, j = i+1, j-1 {
+							events[i], events[j] = events[j], events[i]
+						}
+					}
+					checkTransportLaneInputs(t, events, false)
+				})
+			}
+		}
+	}
+}
+
+func TestTransportLanesLocallyValidReceivePairs(t *testing.T) {
+	requests := [][]byte{wireBytes(t, requestVector), operationRequest(t, 2, true, 0)}
+	for _, fault := range []string{"sequence-reuse", "tick-regression"} {
+		for _, reverse := range []bool{false, true} {
+			t.Run(fmt.Sprintf("%s/reverse%v", fault, reverse), func(t *testing.T) {
+				left := decisionPairFixture(t, requests[0], 1, 1, 0, 10)
+				right := decisionPairFixture(t, requests[1], 2, 2, 0, 10)
+				if fault == "tick-regression" {
+					right = decisionPairFixture(t, requests[1], 2, 2, 2, 5)
+				}
+				for _, pair := range []receivedAppliedPair{left, right} {
+					if err := validateReceivedApplied(pair, obligationFixture(), 125, 3); err != nil {
+						t.Fatal("local receive fixture invalid", err)
+					}
+				}
+				events := [][]byte{left.Received.Event, left.Applied, right.Received.Event, right.Applied}
+				if reverse {
+					for i, j := 0, len(events)-1; i < j; i, j = i+1, j-1 {
+						events[i], events[j] = events[j], events[i]
+					}
+				}
+				checkTransportLaneInputs(t, events, false)
+			})
+		}
+	}
+	// The two families also share control lane1; each separate pair check still passes.
+	write := writeResultFixture(t, 3, requests[0], 0, 397, 0)
+	receive := decisionPairFixture(t, requests[0], 1, 1, 0, 5)
+	inspectWriteResultFixture(t, []writeResultPair{write})
+	if err := validateReceivedApplied(receive, obligationFixture(), 125, 3); err != nil {
+		t.Fatal(err)
+	}
+	checkTransportLaneInputs(t, [][]byte{write.Before.Event, write.Result, receive.Received.Event, receive.Applied}, false)
+}
+
+func TestTransportLanesIndependentLanesAndBoundaries(t *testing.T) {
+	for _, tc := range []struct {
+		name           string
+		kind           uint16
+		sequence, tick uint64
+		valid          bool
+	}{
+		{"equal-tick", 4, 9, 5, true}, {"gap", 4, 100, 6, true}, {"same-sequence", 4, 0, 5, false}, {"older-sequence-higher-tick", 4, 0, 6, false},
+		{"worker-same-sequence", 5, 0, 5, true}, {"worker-earlier-tick", 5, 0, 0, true}, {"worker-later-tick", 5, 0, ^uint64(0), true},
+	} {
+		t.Run(tc.name, func(t *testing.T) {
+			first := transportLaneEvent(t, 3, 11, 0, 5)
+			if tc.name == "older-sequence-higher-tick" {
+				binary.BigEndian.PutUint64(first[8:16], 1)
+			}
+			second := transportLaneEvent(t, tc.kind, 11, tc.sequence, tc.tick)
+			checkTransportLaneInputs(t, [][]byte{first, second}, tc.valid)
+			checkTransportLaneInputs(t, [][]byte{second, first}, tc.valid)
+		})
+	}
+	for _, tc := range []struct {
+		aSeq, bSeq, aTick, bTick uint64
+		valid                    bool
+	}{
+		{0, ^uint64(0), 0, ^uint64(0), true}, {^uint64(0) - 1, ^uint64(0), ^uint64(0), ^uint64(0), true},
+		{0, ^uint64(0), ^uint64(0), 0, false}, {^uint64(0), 0, ^uint64(0), 0, true}, {^uint64(0), ^uint64(0), 0, 0, false},
+	} {
+		a := transportLaneEvent(t, 5, 11, tc.aSeq, tc.aTick)
+		b := transportLaneEvent(t, 6, 11, tc.bSeq, tc.bTick)
+		checkTransportLaneInputs(t, [][]byte{a, b}, tc.valid)
+		checkTransportLaneInputs(t, [][]byte{b, a}, tc.valid)
+	}
+}
+
+func TestTransportLanesAllPermutations(t *testing.T) {
+	base := [][]byte{transportLaneEvent(t, 3, 11, 0, 1), transportLaneEvent(t, 4, 11, 8, 1), transportLaneEvent(t, 5, 11, 0, 999), transportLaneEvent(t, 6, 11, 8, 999)}
+	for a := 0; a < 4; a++ {
+		for b := 0; b < 4; b++ {
+			for c := 0; c < 4; c++ {
+				for d := 0; d < 4; d++ {
+					if a == b || a == c || a == d || b == c || b == d || c == d {
+						continue
+					}
+					checkTransportLaneInputs(t, [][]byte{base[a], base[b], base[c], base[d]}, true)
+				}
+			}
+		}
+	}
+}
+
+func TestTransportLanesCapsAndDuplicates(t *testing.T) {
+	var events [][]byte
+	for operation := byte(11); operation < 14; operation++ {
+		for kind := uint16(3); kind <= 8; kind++ {
+			events = append(events, transportLaneEvent(t, kind, operation, uint64((operation-11)*6)+uint64(kind-3), 5))
+		}
+	}
+	checkTransportLaneInputs(t, events, true)
+	for i, j := 0, len(events)-1; i < j; i, j = i+1, j-1 {
+		events[i], events[j] = events[j], events[i]
+	}
+	checkTransportLaneInputs(t, events, true)
+	checkTransportLaneInputs(t, append(append([][]byte{}, events...), transportLaneEvent(t, 3, 11, 100, 5)), false)
+	t.Run("duplicate-kind-operation", func(t *testing.T) {
+		a := transportLaneEvent(t, 3, 11, 0, 0)
+		b := transportLaneEvent(t, 3, 11, 1, 1)
+		// Changed but strictly valid payload must not hide repeated kind/op identity.
+		b[96] ^= 1
+		if _, err := decodeEventFields(b, obligationFixture(), 125, 3); err != nil {
+			t.Fatal("duplicate fixture malformed", err)
+		}
+		checkTransportLaneInputs(t, [][]byte{a, b}, false)
+	})
+	t.Run("four-operations", func(t *testing.T) {
+		selection := [][]byte{transportLaneEvent(t, 3, 11, 0, 0), transportLaneEvent(t, 4, 12, 1, 1), transportLaneEvent(t, 5, 13, 0, 0), transportLaneEvent(t, 6, 14, 1, 1)}
+		checkTransportLaneInputs(t, selection, false)
+	})
+	var sameKind [][]byte
+	for operation := byte(11); operation < 15; operation++ {
+		sameKind = append(sameKind, transportLaneEvent(t, 3, operation, uint64(operation), 0))
+	}
+	checkTransportLaneInputs(t, sameKind, false)
+}
+
+func TestTransportLanesStrictDomainAndMalformed(t *testing.T) {
+	for _, kind := range []uint16{1, 2, 9, 26, 27, 28, 29} {
+		t.Run(fmt.Sprintf("kind%d", kind), func(t *testing.T) {
+			raw := eventFieldsFixture(t, kind)
+			if _, err := decodeEventFields(raw, obligationFixture(), 125, 3); err != nil {
+				t.Fatal("unsupported-kind fixture malformed", err)
+			}
+			checkTransportLaneInputs(t, [][]byte{raw}, false)
+		})
+	}
+	for _, field := range []string{"nil", "empty", "short", "long", "header", "lane", "binding", "timebase", "reserved", "forbidden", "zero-operation", "zero-generation", "zero-digest", "bad-outcome"} {
+		t.Run(field, func(t *testing.T) {
+			raw := transportLaneEvent(t, 6, 11, 0, 0)
+			switch field {
+			case "nil":
+				raw = nil
+			case "empty":
+				raw = []byte{}
+			case "short":
+				raw = raw[:255]
+			case "long":
+				raw = append(raw, 0)
+			case "header":
+				raw[0] ^= 1
+			case "lane":
+				raw[5] = 1
+			case "binding":
+				raw[40] ^= 1
+			case "timebase":
+				binary.BigEndian.PutUint32(raw[36:40], 4)
+			case "reserved":
+				raw[255] = 1
+			case "forbidden":
+				raw[128] = 1
+			case "zero-operation":
+				clear(raw[72:88])
+			case "zero-generation":
+				clear(raw[88:96])
+			case "zero-digest":
+				clear(raw[96:128])
+			case "bad-outcome":
+				raw[180] = 0
+			}
+			checkTransportLaneInputs(t, [][]byte{raw}, false)
+		})
+	}
+}
+
+func TestTransportLanesCompositionRemainsSeparate(t *testing.T) {
+	request := wireBytes(t, requestVector)
+	pair := writeResultFixture(t, 3, request, 0, 397, 0)
+	pair.Result[96] ^= 1
+	// Both events have consistent lane coordinates, while exact pair identity fails.
+	checkTransportLaneInputs(t, [][]byte{pair.Before.Event, pair.Result}, true)
+	refuseWriteResultFixture(t, []writeResultPair{pair})
+	worker := capturedPairFixture(t, 5, request, 1)
+	worker.Reply[0] ^= 1
+	checkTransportLaneInputs(t, [][]byte{worker.Event}, true)
+	if validateCapturedFrame(worker, obligationFixture(), 125, 3) == nil {
+		t.Fatal("separate sidecar mismatch was accepted")
+	}
+	// Lane order does not infer the semantic ordering of kind labels.
+	before := transportLaneEvent(t, 8, 11, 0, 0)
+	after := transportLaneEvent(t, 7, 11, 1, 1)
+	checkTransportLaneInputs(t, [][]byte{before, after}, true)
+	late := transportLaneEvent(t, 6, 11, 2, 2)
+	late[255] = 1
+	checkTransportLaneInputs(t, [][]byte{before, after, late}, false)
+	checkTransportLaneInputs(t, [][]byte{before, after}, true)
+}
+
+func TestTransportLanesCrossKindPairBoundary(t *testing.T) {
+	requests := [][]byte{wireBytes(t, requestVector), operationRequest(t, 2, true, 0)}
+	for _, kind := range []uint16{3, 5} {
+		for _, fault := range []string{"sequence-reuse", "tick-regression"} {
+			left := writeResultFixture(t, kind, requests[0], 2, -1, 22)
+			right := writeResultFixture(t, kind, requests[1], 2, -1, 22)
+			binary.BigEndian.PutUint64(left.Before.Event[8:16], 1)
+			binary.BigEndian.PutUint64(left.Result[8:16], 2)
+			binary.BigEndian.PutUint64(right.Before.Event[8:16], 2)
+			binary.BigEndian.PutUint64(right.Result[8:16], 3)
+			if fault == "tick-regression" {
+				binary.BigEndian.PutUint64(right.Before.Event[8:16], 3)
+				binary.BigEndian.PutUint64(right.Result[8:16], 4)
+				binary.BigEndian.PutUint64(right.Before.Event[16:24], 1)
+				binary.BigEndian.PutUint64(right.Result[16:24], 2)
+			}
+			inspectWriteResultFixture(t, []writeResultPair{left, right})
+			base := [][]byte{left.Before.Event, left.Result, right.Before.Event, right.Result}
+			for _, order := range [][4]int{{0, 1, 2, 3}, {3, 2, 1, 0}, {2, 0, 3, 1}} {
+				checkTransportLaneInputs(t, [][]byte{base[order[0]], base[order[1]], base[order[2]], base[order[3]]}, false)
+			}
+		}
+	}
+	left := transportLaneEvent(t, 7, 11, 0, 0)
+	right := transportLaneEvent(t, 8, 11, 1, 1)
+	binary.BigEndian.PutUint64(right[88:96], 2)
+	right[96] ^= 1
+	right[214] ^= 1
+	right[180] = 2
+	clear(right[182:214])
+	checkTransportLaneInputs(t, [][]byte{left, right}, true)
+}
+
+func TestTransportLanesFullPermutationAndDiagnosticValues(t *testing.T) {
+	var events [][]byte
+	for operation := byte(11); operation < 14; operation++ {
+		for kind := uint16(3); kind <= 8; kind++ {
+			raw := transportLaneEvent(t, kind, operation, uint64(operation)*6+uint64(kind), 0)
+			if kind == 4 || kind == 6 {
+				binary.BigEndian.PutUint32(raw[164:168], 1<<31)
+				binary.BigEndian.PutUint32(raw[168:172], 1<<31-1)
+			}
+			events = append(events, raw)
+		}
+	}
+	var permuted [][]byte
+	for i := 0; i < 18; i++ {
+		permuted = append(permuted, events[(i*7)%18])
+	}
+	checkTransportLaneInputs(t, permuted, true)
+}

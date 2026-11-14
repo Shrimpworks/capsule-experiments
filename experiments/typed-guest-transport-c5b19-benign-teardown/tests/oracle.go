@@ -1195,3 +1195,56 @@ func inspectWriteResults(pairs []writeResultPair, frozen obligationBindings, num
 	}
 	return result, nil
 }
+
+var errTransportLanes = errors.New("C5B19_TRANSPORT_LANES")
+
+// validateTransportLanes checks only a partial supplied kind3–8 selection.
+// Empty success is no evidence; gaps and arbitrary input order are permitted.
+// Within each lane sequences are unique and ticks nondecreasing in sequence
+// order. Different lanes have independent sequences and clocks. This does not
+// check frames, tuple correspondence, pair presence/order or decision history;
+// those remain separate obligations. No full trace, effects or authority follow.
+// Input slices/bytes are never reordered, changed or retained.
+func validateTransportLanes(rawEvents [][]byte, frozen obligationBindings, numer, denom uint32) error {
+	if _, err := encodeObligationPreimage(frozen); err != nil || numer == 0 || denom == 0 || len(rawEvents) > 18 {
+		return errTransportLanes
+	}
+	var events [18]eventEnvelope
+	var counts [9]uint8
+	unique := 0
+	for i, raw := range rawEvents {
+		event, err := decodeEventFields(raw, frozen, numer, denom)
+		if err != nil || event.Kind < 3 || event.Kind > 8 {
+			return errTransportLanes
+		}
+		counts[event.Kind]++
+		if counts[event.Kind] > 3 {
+			return errTransportLanes
+		}
+		seen := false
+		for _, prior := range events[:i] {
+			if prior.Operation == event.Operation {
+				seen = true
+				if prior.Kind == event.Kind {
+					return errTransportLanes
+				}
+			}
+			if prior.Lane != event.Lane {
+				continue
+			}
+			if event.Sequence == prior.Sequence ||
+				(event.Sequence < prior.Sequence && event.Tick > prior.Tick) ||
+				(event.Sequence > prior.Sequence && event.Tick < prior.Tick) {
+				return errTransportLanes
+			}
+		}
+		if !seen {
+			unique++
+			if unique > 3 {
+				return errTransportLanes
+			}
+		}
+		events[i] = event
+	}
+	return nil
+}

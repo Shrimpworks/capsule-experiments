@@ -1659,3 +1659,145 @@ unchanged; only acceptance metadata follows the freeze. Brain owns immutable
 pinning and canonical publication; archive PR #38 remains draft. Full Gate 3
 remains IN_PROGRESS — TRENDING_GOOD; child execution, Gates 4–6 and admission
 remain BLOCKED. No child fixture ran.
+
+
+## G3a12 supplied transport lane consistency
+
+Status: PASSED for bounded implementation and local verification. Fresh independent
+review IN_PROGRESS — TRENDING_GOOD (pending). Full Gate3 IN_PROGRESS — TRENDING_GOOD;
+child execution, Gates4–6 and admission remain BLOCKED.
+
+Defensive scope: owned inert event/frame fixtures and ordinary offline Go unit/
+compiler processes only. No native fixture, child/guest, lifecycle/signal/wait target,
+live clock/store/network, credentials or user data. Brain accepted the bounded
+contract before edits/tests. Archive base7ec433aa17c623f58a81118bab87f1ada49770f3;
+canonical reference f1ded569af4a6ae20f2a93b7e476825959f97143. C5b19 remains test-only
+ADOPT-PLATFORM / BUILD-NARROWLY, with no dependency, primitive, format, manifest,
+ABI, privilege or product consumer change. Prior source/test prefixes, earlier
+parsed provenance and false run/admission flags remain exact.
+
+### Contract and flow
+
+Append `validateTransportLanes`, a stateless error-only function over raw event
+selections. Validate frozen context/nonzero timebase even when empty; cap18 entries.
+Every selected entry strictly decodes under the same context and must be kind3–8.
+Cap3 per kind and3 distinct operation IDs; duplicate kind/operation refuses even
+when generation/digest/other bytes differ. Fixed local decoded-value storage avoids
+mutating or sorting caller slices.
+
+For every same-lane pair, sequence reuse refuses and ticks must be nondecreasing
+in sequence order, regardless of input order. Direct unsigned comparisons avoid
+subtraction/cast overflow. Equal ticks, gaps, nonzero origins and zero/max widths
+are allowed where consistent. Different lanes may reuse sequences and have arbitrary
+relative clocks; no global watermark is created. Empty success is no evidence.
+
+Only selected lane contradictions are checked. Raw-frame/tuple correspondence,
+kind3→4/5→6/7→8 pairing and decision/history checks remain separate obligations;
+none is called or inferred. A lone result/application or different strict tuples
+for one operation across different kinds may pass. Even semantically reversed kind
+labels may pass consistent lane coordinates. No complete-stream, capture, transport,
+settlement, timing or authority verdict follows. No state, input bytes, outer order
+or inner slice identity is changed/retained. Error-only output cannot leak a prefix.
+
+### Tests-first and verification
+
+Compiler-red first named the missing validator; tests were refined with written-
+scope requirements before the53-line appended implementation, which passed green.
+Ten new groups (341 appended test lines) cover valid partial kinds/context, strict
+malformed/unsupported domain, locally valid control/worker write-result and received/
+applied counterexamples, cross-kind sequence reuse, forward/reverse/interleaved
+regressions, all24 four-event permutations and full18 deterministic permutation,
+independent lane clocks, equal ticks/gaps, zero/max boundaries, caps/duplicates,
+explicit layer-separation positives and outer order/slice identity/input preservation
+on success/error. Signed syscall diagnostics remain uninterpreted strict-event facts.
+
+Exact Go executable `/Users/dsteele/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.25.13.darwin-arm64/bin/go`
+reports Go1.25.13 darwin/arm64. Cwd this experiment; environment
+`GOTOOLCHAIN=local GOPROXY=off GOSUMDB=off GOCACHE=/tmp/c5b19-g3a12-go-cache`.
+Final `go test ./... -count=1`, `go test -race ./... -count=1`, `go vet ./...`,
+`go build ./...` all exited0. `git diff --check` passed.
+
+Twelve selected mutants compiled, exited1 and reached17 exact intended assertion
+occurrences after valid setup. No construction failure, panic, setup failure or
+survivor occurred. Source restored byte-exactly in finally after every attempt.
+ORIGINS.g3a12 retains each exact replacement, command, named assertion/count and
+log hash. The final18-event permutation/raw-diagnostic test was appended after the
+campaign without changing earlier target bytes/line numbers; all final checks passed.
+Total/per-kind caps overlap with operation/duplicate caps; no isolated redundant-cap
+necessity is claimed. Supported-kind mutation removes only the lower bound, keeping
+array indexing safe; no high-kind bypass evidence is claimed. This is finite
+sensitivity evidence, not exhaustive mutant proof.
+
+| Selected mutant | Intended assertion occurrences |
+|---|---:|
+| supported-kind-lower-bound | 1 |
+| duplicate-kind-operation | 1 |
+| same-lane-sequence | 4 |
+| reverse-input-tick-branch | 2 |
+| forward-input-tick-branch | 2 |
+| cross-lane-filter | 1 |
+| strict-tick-increase | 1 |
+| unique-operation-cap | 1 |
+| unintended-adjacency | 1 |
+| unintended-correspondence | 1 |
+| empty-timebase | 1 |
+| reordered-caller-slices | 1 |
+
+Verification log hashes (temporary raw logs; definitions retained in ORIGINS):
+
+- red exit1: `1f6176723bf4ead02bb4db7407f79d5b3b9d507b1b3ed9da06314a7097af2d45`
+- green exit0: `e5bd60ef196d77fdecbef9ce3131b7f9c2fb3bfbace7055c2450957a9cbeb54c`
+- mutation-baseline exit0: `bb187a81052ac031864853d38f58f81b9ff6114da1ecc06e8aad39c63f4bf2e7`
+- restored exit0: `7c7510df158490436c19b19d491c83634c5d6ca1eaf0bb290bc90322dedd080f`
+- race exit0: `f80ae054612f80c4ffcd0f8d3ea26685cda6d5ba4f9d5d124b9afb755993b853`
+- vet exit0: `e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855`
+- build exit0: `e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855`
+- final-test exit0: `8aa6efdf3a3c9270a2dd274117fdb9f3a1b5d56698c6278841a406615697b79f`
+- final-race exit0: `ae26aa7403c36406625080b2a24629e34629b9b868f6508d8747c71435235395`
+- final-vet exit0: `e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855`
+- final-build exit0: `e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855`
+- mutant-supported-kind-lower-bound exit1: `3d21a07c883f3a9ca35206c568ab9b1a2797291f0e734531a259f052ca290b60`
+- mutant-duplicate-kind-operation exit1: `e2b665007bf56da08643408283e0087b1036254e11b30746eb5b731cfd6e3a00`
+- mutant-same-lane-sequence exit1: `3e9e61db3f6cea19fe73367b87b5d5631765135c72447532fec6b9370906f6d2`
+- mutant-reverse-input-tick-branch exit1: `68fcd2c06600f5615002127307ac235122a82a60c787075274df2fa60795b269`
+- mutant-forward-input-tick-branch exit1: `f5c188ec6a0cd6d815eefa57a4a31dadc0814a0fe0f5e0fc2962e9826b9a1619`
+- mutant-cross-lane-filter exit1: `e5b7125f26d0f0e8b9893dede2089e7a1f99d7282934e8dc749d1ea5eb51f074`
+- mutant-strict-tick-increase exit1: `3a574dd38b1576403d4861ebc317c0e60719fefb172cc9437a401bf81963a784`
+- mutant-unique-operation-cap exit1: `5b251db99d3bce383d31a5dedf081353280af32efb6e7cc155168e0585cf58b3`
+- mutant-unintended-adjacency exit1: `57657ba8577e6bf210e086df9f7ae331660a6c58832cdc685834587a62f3919a`
+- mutant-unintended-correspondence exit1: `eed83546d2bc7ea9f966aec87a6c4fd77ccbaa776f0591e92980616028df38a4`
+- mutant-empty-timebase exit1: `12fc0f91d1da97c16e401a6a13853f195eec6a01cc8837bba915bc85037fb32d`
+- mutant-reordered-caller-slices exit1: `7a2b3269241afcb94ec004ac34e0393639ac672f5cb3cc088702dc0003b5c921`
+
+Frozen source hashes:
+
+- go.mod: `5f40cde18c2d82fe5d57f3a8822377c12e473f1026f174165dfecd126bea3eeb`
+- tests/oracle.go: `22e91fd0c95e778f9e8e68480bcb586fb4fe64d4d3c0ebb9b0c56b887b7ac0be`
+- tests/oracle_test.go: `8c10cdab499b5e0e9260848548adae83fc788b9f1c26defae054dd06c9cf5b2c`
+- tests/model_test.go: `b0f3b9d063c225eb887cecaf16f4058f0ed07ae8f14c3d92c49acacabb0a931e`
+- Accepted scope report: `a4f53ac068916ba94897bfeed8275a594c2b2127ed7b858cf8dcb0a45045eef4`
+- Mutation driver: `6c89a5789eba75faf5f47a9dfd41879aa57e83cf6d6459e1f4f856bf4a38708b`
+
+### Limits and delivery
+
+No complete/contiguous lane, omitted-event detection, capture authenticity, raw-frame
+correspondence, operation causality, physical effect, successful syscall, durable
+publication, settlement, full roundtrip, elapsed timing, start/stop permission or
+native absence is established. Same-operation control ordering is the recommended
+next bounded slice and is deferred here; full trace/native and first-run gates also
+remain deferred. Child execution and product admission stay BLOCKED. Brain owns
+fresh review, immutable canonical pinning, commits, pushes and shared PR38 delivery.
+The author provides no independent-review readiness verdict.
+
+### G3a12 Brain acceptance after independent review
+
+PASSED: fresh independent review instance 1 of 3 returned **Ready**, no actionable
+findings. Report SHA256 `b4b3439e43c40466703442212b77b707ac2915bb47f24fca0a2627e239567ee1` is retained in canonical
+`.planning/c5b19-transport-lanes/review-1.md`, with its source-first preliminary ledger.
+Reviewer independently reran offline Go 1.25.13 test/race/vet/build and verified
+frozen hashes, prior provenance and twelve mutation logs with seventeen intended
+assertions. Canonical baseline and mutation executions were inspected evidence,
+not reviewer reruns. Reviewed source/test bytes remain unchanged; only acceptance
+metadata follows the freeze. Brain owns immutable pinning and canonical publication;
+archive PR #38 remains draft. Full Gate 3 remains IN_PROGRESS — TRENDING_GOOD;
+child execution, Gates 4–6 and admission remain BLOCKED. No child fixture ran.
