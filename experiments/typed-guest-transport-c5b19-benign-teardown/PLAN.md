@@ -820,3 +820,148 @@ review metadata were appended after freeze. Full Gate3 remains IN_PROGRESS —
 TRENDING_GOOD; child execution, Gates4–6 and product admission remain BLOCKED.
 No child fixture ran. Next bounded work: received/applied correspondence before
 full model and timing composition.
+
+## G3a7 received/applied correspondence increment
+
+Status: PASSED for bounded implementation and local verification. Fresh independent
+review/publication remain IN_PROGRESS — TRENDING_GOOD. Parent full Gate3 remains
+IN_PROGRESS — TRENDING_GOOD; child execution, Gates4–6 and product admission stay BLOCKED.
+
+### Question and defensive scope
+
+Can selected complete kind7 receive records and kind8 decision records be bound to
+exact captured request/reply bytes, with local ordinal/numeric consistency, without
+pretending to validate control settlement? Only owned inert synthetic in-memory
+bytes and ordinary offline compiler/unit tests are used. No native fixture, child,
+guest, lifecycle/signal/wait, clock, live store/network, credentials or user data.
+This is non-production experiment code with no product imports or new dependencies.
+
+Canonical reference commit041b6d4e04df9667e6217f57df26f04eec7d2ddc; continued archive
+head14365fb4ba5d1525285406ae90feb1abdcc46269. The frozen Gate2 packet, ADR47 and C5b19
+BUILD-NARROWLY reuse row govern; Go1.25.13 and the source manifest are unchanged.
+
+### Implemented contract and limits
+
+The additive error-only receivedAppliedPair API contains Received capturedFramePair
+and raw Applied bytes. It composes the prior exact sidecar validator, requires
+received kind7 and strict applied kind8, and compares Operation, Generation,
+RequestDigest, CandidateDigest, Outcome and RecordDigest. Both application codes1/2
+and outcomes1/2/3 remain represented values, not correctness verdicts. Required
+sequence ordering is received < applied; tick ordering is received <= applied.
+Gaps, zero origins/ticks and same-tick ordering are allowed; direct comparisons
+avoid overflow and invent no consecutive-event requirement.
+
+A bounded list accepts0..3 pairs, validates bindings/nonzero timebase even empty,
+refuses repeated Operation IDs including changed generation, and requires unique
+control sequence values plus nondecreasing ticks in sequence order across all
+represented events. Input order is irrelevant and caller bytes are never sorted
+or retained. Missing members refuse; omitted whole pairs remain undetectable.
+
+This is supplied-subsequence consistency only. It does not prove application code1
+correctly settled, code2 latched fatal, actual C5b18 transitions, stop/apply ordering,
+full capture completeness, clock/deadline bounds, worker receipt, durable snapshot,
+expected process projection, native syscall semantics, durability or lifecycle
+claims. Arbitrary malformed/truncated rejected-reply diagnostic encodings remain
+unsupported rather than redefined. Prior field/sidecar/history APIs stay unchanged.
+Next bounded work is explicit pending-write/control-state composition before full
+causal/timing and snapshot checks; a successful code1 pair is not confirmation.
+
+### Verification and selected mutation evidence
+
+Binary `/Users/dsteele/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.25.13.darwin-arm64/bin/go`,
+`GOTOOLCHAIN=local GOPROXY=off GOSUMDB=off GOCACHE=/tmp/c5b19-g3a7-go-cache`, cwd this
+experiment directory. Meaningful `test -count=1 ./...` compiler-red exited1 with
+undefined receivedAppliedPair/validators before implementation. Green after final
+test fixture refinement exited0 (0.568s). Restored `test -count=1 ./...` exited0
+(0.320s), `test -race -count=1 ./...` exited0 (1.858s), `vet ./...` and `build ./...`
+exited0 with no diagnostics. `git diff --check` passed.
+
+Seven added tests independently encode packet offsets and cover all operation
+shapes, outcomes and decisions; exact tuple/hash/record equality; wrong kinds,
+lanes/context/forbidden fields; malformed/short/extra members; ordering gaps/zeros/
+uint64 boundaries; <=3 cap; operation and all cross-role sequence reuse; cross-pair
+tick regression and unordered valid input; nonmutation and opt-in preservation.
+
+Fourteen selected compiled mutants each failed their targeted assertion. Source
+was restored byte-for-byte after each, with restored offline checks above. The
+cap mutant relaxes the cap and enlarges its fixed metadata array to avoid using an
+out-of-range panic as the signal. The cross-tick mutant removes both directional
+comparisons; both list orders are exercised. Exact replacement strings are in
+`/tmp/c5b19-g3a7-mutations.json`; raw logs are ephemeral, retained excerpts/hashes
+below describe selected guard sensitivity, not exhaustive protocol proof.
+
+| Mutant | Target test (`go test ./tests -run '^TEST$' -count=1`) | Result |
+| --- | --- | --- |
+| tuple | `TestReceivedAppliedExactCorrespondence` | exit1, intended assertion |
+| request-hash | `TestReceivedAppliedExactCorrespondence` | exit1, intended assertion |
+| candidate-hash | `TestReceivedAppliedExactCorrespondence` | exit1, intended assertion |
+| outcome | `TestReceivedAppliedExactCorrespondence` | exit1, intended assertion |
+| record | `TestReceivedAppliedExactCorrespondence` | exit1, intended assertion |
+| sidecar | `TestReceivedAppliedKindsContextAndMembers` | exit1, intended assertion |
+| received-kind | `TestReceivedAppliedKindsContextAndMembers` | exit1, intended assertion |
+| applied-kind | `TestReceivedAppliedKindsContextAndMembers` | exit1, intended assertion |
+| pair-sequence | `TestReceivedAppliedLocalOrder` | exit1, intended assertion |
+| pair-tick | `TestReceivedAppliedLocalOrder` | exit1, intended assertion |
+| operation-reuse | `TestReceivedAppliedSelectionCapsAndReuse` | exit1, intended assertion |
+| cap | `TestReceivedAppliedSelectionCapsAndReuse` | exit1, intended assertion |
+| sequence-reuse | `TestReceivedAppliedSelectionCapsAndReuse` | exit1, intended assertion |
+| cross-ticks | `TestReceivedAppliedSelectionTickOrderAndInputOrder` | exit1, intended assertion |
+
+Representative failures: `invalid received/applied pair accepted`, `four pairs
+accepted`, `reused operation accepted`, `control ordinal reused`, and `cross-pair
+tick regression accepted`. Initial cross-tick mutation construction was rejected
+by Go vet for redundant false expressions; it was corrected before the compiled
+assertion-failure run and is not counted among the fourteen. That setup log has
+SHA256 `cde9086ea91861c64a469a543832059da03116d2e472dcb36eb73f1c36b5abcc`.
+
+All prior oracle/source-test byte prefixes, go.mod/model_test.go bytes and parsed
+historical ORIGINS values are preserved. No reviewed prior slice is recertified.
+Fresh review is pending instance1/3 for this distinct slice, owned by the Brain.
+
+Implementation/source SHA256:
+- `go.mod`: `5f40cde18c2d82fe5d57f3a8822377c12e473f1026f174165dfecd126bea3eeb`.
+- `tests/oracle.go`: `b9cf1d6c311da52062eb86aec40f2e1cce1f03767bfbb5f6686a23d4746672bb`.
+- `tests/oracle_test.go`: `2ae581d0ff919974d73319fd953580f878435ae4693a65186e276a4d081fabf6`.
+- `tests/model_test.go`: `b0f3b9d063c225eb887cecaf16f4058f0ed07ae8f14c3d92c49acacabb0a931e`.
+
+Unchanged canonical reference SHA256:
+- `docs/C5B19_GATE2_IMPLEMENTATION_PACKET.md`: `65c885425298ce056f8619c5d0837f97ba54dee91c025fea5621a2d75d5ef4f0`.
+- `internal/execution/teardownpassive/types.go`: `249b7ef054134f47974bf769c3fb37309b867b1be42ae53c18baf23dc8bacfd0`.
+- `internal/execution/teardownpassive/model.go`: `1e3a8be8527554d3953d494086c5313ceeca5806b40a7661ab488717f4a94c40`.
+
+Log SHA256 (`/tmp/c5b19-g3a7-NAME.log`):
+- `red`: `7548ce788344528f2ccc290c70ac00090c145bb6f522d7a5ba1d49de06bc820c`.
+- `green`: `7b209b31e212d5292cdc71945f403acdbb11a59eb53e811ef1b2c3645aed8354`.
+- `restored`: `61ac622f9401eb2ce3bc459d6d0ced2aa686e092447a2251e5e4e4966b0fabb9`.
+- `race`: `e5f4e343c4a2730b5a6261772f941b55d1519ac2ce8606fe937b03724a7b34d3`.
+- `vet`: `e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855`.
+- `build`: `e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855`.
+- `mutant-tuple`: `151909881a2b0a4b191f03a3a74662f76c26b3c089960148ed1eea36719268eb`.
+- `mutant-request-hash`: `691df4370522d978d57d73eb273809ff55cd0389b0ec4c57dfaf837bbc96b237`.
+- `mutant-candidate-hash`: `05ed16dec1dfdb41f36a25afc9c22c3352c4f04c85c65068a6af0005760bab9f`.
+- `mutant-outcome`: `44ad1fc9eaca1794acc6db235b52df01b4a39736a16499945633200c95ed8aa4`.
+- `mutant-record`: `2f16ba624ede818338a09623e47a35edfb27d31c00ba8b79a0f41121cf4bf9bc`.
+- `mutant-sidecar`: `4d7eb5c4674d25ceae53e2d54aab4b45e2621c3d182ff45bb471785ecc437714`.
+- `mutant-received-kind`: `4ea5874906c18ec27cc5a19fef3a7228b11236ef732737b5fa9e94bbbf232204`.
+- `mutant-applied-kind`: `e6094046435f15f698346cbfe72337a24f5e9758e725132d2299762ca1203c16`.
+- `mutant-pair-sequence`: `bd2c0b90f72519455a73cb377febd687f39bf810a1df7559355c5cc8a0b7b281`.
+- `mutant-pair-tick`: `4c579c7434a20225478702f1371c0c51670ca459924a84750ccb453f3c81c701`.
+- `mutant-operation-reuse`: `c0b670138a96308841169fdb6f80968e8319b07628c6d18c2fe9986421f782fa`.
+- `mutant-cap`: `d283da4eaad3294e6b0b78472a884ac22f40c9a7186811fd0a00ed2f74910c9f`.
+- `mutant-sequence-reuse`: `85d4e11ab329fbf08f8869c1ae30ae390b128b85ef71ef9a2f9581448bb7593d`.
+- `mutant-cross-ticks`: `def79d9ed16e0443820acdd03b36d06dc886b8fdf65801eefd7ff1db47e7db0c`.
+
+### G3a7 independent acceptance
+
+PASSED: fresh independent review instance1/3 returned **Ready**, no actionable
+findings. Reviewer independently ran exact offline Go1.25.13 test/race/vet/build
+and both diff checks; verified frozen source, historical provenance and all supplied
+log hashes. Canonical CI and mutation logs were inspected, not independently rerun.
+The excluded mutant-construction failure remains excluded from sensitivity evidence.
+Report retained in canonical .planning/c5b19-received-applied/review-1.md, SHA256
+`cf6cdb34a85d0b0195c1313b794ed6aee50c481fe7d43b493aee30e449945898`. Final canonical commit/PR links are recorded in archive PR38.
+
+Reviewed source/test bytes are unchanged; only acceptance metadata follows freeze.
+Full Gate3 remains IN_PROGRESS — TRENDING_GOOD. Child execution, Gates4–6 and
+admission remain BLOCKED. No child fixture ran. Next bounded work is pending-write/
+control-state decision reconciliation before full causal/timing and snapshot composition.

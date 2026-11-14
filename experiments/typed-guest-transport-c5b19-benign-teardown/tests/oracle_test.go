@@ -1496,3 +1496,274 @@ func TestCapturedFramesNoMutationOrImplicitSettlement(t *testing.T) {
 		t.Fatal("prior field API changed", err)
 	}
 }
+
+// Application fixtures copy the represented reply tuple, then encode only the
+// distinct kind, ordinal and decision fields at packet offsets.
+func receivedAppliedFixture(t *testing.T, request []byte, outcome, decision byte, sequence uint64) receivedAppliedPair {
+	t.Helper()
+	received := capturedPairFixture(t, 7, request, outcome)
+	binary.BigEndian.PutUint64(received.Event[8:16], sequence)
+	applied := bytes.Clone(received.Event)
+	binary.BigEndian.PutUint16(applied[6:8], 8)
+	binary.BigEndian.PutUint64(applied[8:16], sequence+1)
+	applied[181] = decision
+	return receivedAppliedPair{Received: received, Applied: applied}
+}
+
+func requireReceivedAppliedRefused(t *testing.T, pair receivedAppliedPair) {
+	t.Helper()
+	if err := validateReceivedApplied(pair, obligationFixture(), 125, 3); err == nil {
+		t.Fatal("invalid received/applied pair accepted")
+	}
+}
+
+func TestReceivedAppliedShapesOutcomesAndDecisions(t *testing.T) {
+	for _, op := range []struct {
+		kind        byte
+		runner      bool
+		disposition byte
+	}{{1, false, 0}, {2, true, 0}, {3, true, 1}, {3, false, 1}, {3, true, 2}, {3, false, 2}} {
+		for _, outcome := range []byte{1, 2, 3} {
+			for _, decision := range []byte{1, 2} {
+				pair := receivedAppliedFixture(t, operationRequest(t, op.kind, op.runner, op.disposition), outcome, decision, 0)
+				if err := validateReceivedApplied(pair, obligationFixture(), 125, 3); err != nil {
+					t.Fatal(op, outcome, decision, err)
+				}
+				if err := validateReceivedAppliedPairs([]receivedAppliedPair{pair}, obligationFixture(), 125, 3); err != nil {
+					t.Fatal(err)
+				}
+			}
+		}
+	}
+	if err := validateReceivedAppliedPairs(nil, obligationFixture(), 125, 3); err != nil {
+		t.Fatal("empty selection refused", err)
+	}
+}
+
+func TestReceivedAppliedExactCorrespondence(t *testing.T) {
+	for _, offset := range []int{72, 95, 96, 214, 182} {
+		t.Run(fmt.Sprint(offset), func(t *testing.T) {
+			pair := receivedAppliedFixture(t, wireBytes(t, requestVector), 1, 1, 7)
+			pair.Applied[offset] ^= 1
+			requireReceivedAppliedRefused(t, pair)
+		})
+	}
+	pair := receivedAppliedFixture(t, wireBytes(t, requestVector), 2, 2, 7)
+	pair.Applied[180] = 3 // Individually valid uncertainty cannot replace the raw outcome.
+	requireReceivedAppliedRefused(t, pair)
+	for _, decision := range []byte{0, 3, 255} {
+		pair := receivedAppliedFixture(t, wireBytes(t, requestVector), 1, 1, 7)
+		pair.Applied[181] = decision
+		requireReceivedAppliedRefused(t, pair)
+	}
+}
+
+func TestReceivedAppliedKindsContextAndMembers(t *testing.T) {
+	for _, receivedKind := range []uint16{3, 5} {
+		pair := receivedAppliedFixture(t, wireBytes(t, requestVector), 1, 1, 7)
+		pair.Received = capturedPairFixture(t, receivedKind, pair.Received.Request, 1)
+		requireReceivedAppliedRefused(t, pair)
+	}
+	pair := receivedAppliedFixture(t, wireBytes(t, requestVector), 1, 1, 7)
+	binary.BigEndian.PutUint16(pair.Applied[6:8], 7)
+	pair.Applied[181] = 0 // A valid received record is not an applied record.
+	requireReceivedAppliedRefused(t, pair)
+	for _, member := range []string{"received", "applied", "request", "reply"} {
+		for _, delta := range []int{0, -1, 1} {
+			pair := receivedAppliedFixture(t, wireBytes(t, requestVector), 1, 1, 7)
+			var raw *[]byte
+			switch member {
+			case "received":
+				raw = &pair.Received.Event
+			case "applied":
+				raw = &pair.Applied
+			case "request":
+				raw = &pair.Received.Request
+			case "reply":
+				raw = &pair.Received.Reply
+			}
+			if delta == 0 {
+				*raw = nil
+			} else if delta < 0 {
+				*raw = (*raw)[:len(*raw)-1]
+			} else {
+				*raw = append(*raw, 0)
+			}
+			t.Run(fmt.Sprintf("%s/%d", member, delta), func(t *testing.T) { requireReceivedAppliedRefused(t, pair) })
+		}
+	}
+	for _, applied := range []bool{false, true} {
+		for _, offset := range []int{0, 5, 32, 40, 172, 246} {
+			pair := receivedAppliedFixture(t, wireBytes(t, requestVector), 1, 1, 7)
+			raw := pair.Received.Event
+			if applied {
+				raw = pair.Applied
+			}
+			raw[offset] ^= 1
+			requireReceivedAppliedRefused(t, pair)
+		}
+	}
+	for _, member := range []string{"request", "reply"} {
+		pair := receivedAppliedFixture(t, wireBytes(t, requestVector), 1, 1, 7)
+		if member == "request" {
+			pair.Received.Request[280] ^= 1
+		} else {
+			pair.Received.Reply[66] ^= 1
+		}
+		requireReceivedAppliedRefused(t, pair)
+	}
+	for _, context := range []struct {
+		bindings     obligationBindings
+		numer, denom uint32
+	}{
+		{obligationBindings{}, 125, 3}, {obligationFixture(), 0, 3}, {obligationFixture(), 125, 0}, {obligationFixture(), 126, 3},
+	} {
+		pair := receivedAppliedFixture(t, wireBytes(t, requestVector), 1, 1, 7)
+		if err := validateReceivedApplied(pair, context.bindings, context.numer, context.denom); err == nil {
+			t.Fatal("bad context accepted")
+		}
+		if context.numer != 126 && validateReceivedAppliedPairs(nil, context.bindings, context.numer, context.denom) == nil {
+			t.Fatal("invalid empty context accepted")
+		}
+	}
+}
+
+func TestReceivedAppliedLocalOrder(t *testing.T) {
+	for _, tc := range []struct {
+		receivedSeq, appliedSeq, receivedTick, appliedTick uint64
+		valid                                              bool
+	}{
+		{0, 1, 0, 0, true}, {7, 20, 4, 4, true}, {7, 20, 4, 5, true},
+		{^uint64(0) - 1, ^uint64(0), ^uint64(0), ^uint64(0), true},
+		{7, 7, 4, 4, false}, {8, 7, 4, 4, false}, {7, 8, 5, 4, false},
+		{^uint64(0), 0, 0, 0, false},
+	} {
+		pair := receivedAppliedFixture(t, wireBytes(t, requestVector), 1, 1, 7)
+		binary.BigEndian.PutUint64(pair.Received.Event[8:16], tc.receivedSeq)
+		binary.BigEndian.PutUint64(pair.Applied[8:16], tc.appliedSeq)
+		binary.BigEndian.PutUint64(pair.Received.Event[16:24], tc.receivedTick)
+		binary.BigEndian.PutUint64(pair.Applied[16:24], tc.appliedTick)
+		if err := validateReceivedApplied(pair, obligationFixture(), 125, 3); (err == nil) != tc.valid {
+			t.Fatal(tc, err)
+		}
+	}
+}
+
+func applicationSelectionFixture(t *testing.T, count int) []receivedAppliedPair {
+	t.Helper()
+	var pairs []receivedAppliedPair
+	for i := 0; i < count; i++ {
+		request := operationRequest(t, 2, true, 0)
+		request[280] = byte(20 + i)
+		pairs = append(pairs, receivedAppliedFixture(t, request, 1, 1, uint64(2*i)))
+	}
+	return pairs
+}
+
+func TestReceivedAppliedSelectionCapsAndReuse(t *testing.T) {
+	pairs := applicationSelectionFixture(t, 3)
+	if err := validateReceivedAppliedPairs(pairs, obligationFixture(), 125, 3); err != nil {
+		t.Fatal(err)
+	}
+	if validateReceivedAppliedPairs(applicationSelectionFixture(t, 4), obligationFixture(), 125, 3) == nil {
+		t.Fatal("four pairs accepted")
+	}
+	if validateReceivedAppliedPairs([]receivedAppliedPair{{}}, obligationFixture(), 125, 3) == nil {
+		t.Fatal("missing members accepted")
+	}
+	for _, differentGeneration := range []bool{false, true} {
+		pairs := applicationSelectionFixture(t, 2)
+		request := bytes.Clone(pairs[0].Received.Request)
+		if differentGeneration {
+			binary.BigEndian.PutUint64(request[296:304], 4)
+		}
+		pairs[1] = receivedAppliedFixture(t, request, 1, 2, 10)
+		if validateReceivedAppliedPairs(pairs, obligationFixture(), 125, 3) == nil {
+			t.Fatal("reused operation accepted")
+		}
+	}
+	// Every collision role is refused, including received versus applied.
+	for _, firstApplied := range []bool{false, true} {
+		for _, secondApplied := range []bool{false, true} {
+			pairs := applicationSelectionFixture(t, 2)
+			first := pairs[0].Received.Event
+			if firstApplied {
+				first = pairs[0].Applied
+			}
+			second := pairs[1].Received.Event
+			if secondApplied {
+				second = pairs[1].Applied
+			}
+			// Only the chosen endpoints collide; other endpoints stay distinct.
+			for i := range pairs {
+				binary.BigEndian.PutUint64(pairs[i].Received.Event[8:16], uint64(i))
+				binary.BigEndian.PutUint64(pairs[i].Applied[8:16], uint64(20+i))
+			}
+			binary.BigEndian.PutUint64(first[8:16], 10)
+			binary.BigEndian.PutUint64(second[8:16], 10)
+			if validateReceivedAppliedPairs(pairs, obligationFixture(), 125, 3) == nil {
+				t.Fatal("control ordinal reused", firstApplied, secondApplied)
+			}
+		}
+	}
+}
+
+func TestReceivedAppliedSelectionTickOrderAndInputOrder(t *testing.T) {
+	for _, reverseInput := range []bool{false, true} {
+		pairs := applicationSelectionFixture(t, 2)
+		for i := range pairs {
+			for _, raw := range [][]byte{pairs[i].Received.Event, pairs[i].Applied} {
+				binary.BigEndian.PutUint64(raw[16:24], uint64(i+4))
+			}
+		}
+		if reverseInput {
+			pairs[0], pairs[1] = pairs[1], pairs[0]
+		}
+		if err := validateReceivedAppliedPairs(pairs, obligationFixture(), 125, 3); err != nil {
+			t.Fatal("ordered observations refused", err)
+		}
+		// Each pair stays locally valid, but the later ordinal backdates its tick.
+		for _, raw := range [][]byte{pairs[0].Received.Event, pairs[0].Applied} {
+			binary.BigEndian.PutUint64(raw[16:24], 9)
+		}
+		for _, raw := range [][]byte{pairs[1].Received.Event, pairs[1].Applied} {
+			binary.BigEndian.PutUint64(raw[16:24], 2)
+		}
+		if reverseInput {
+			for _, raw := range [][]byte{pairs[0].Received.Event, pairs[0].Applied} {
+				binary.BigEndian.PutUint64(raw[16:24], 2)
+			}
+			for _, raw := range [][]byte{pairs[1].Received.Event, pairs[1].Applied} {
+				binary.BigEndian.PutUint64(raw[16:24], 9)
+			}
+		}
+		if validateReceivedAppliedPairs(pairs, obligationFixture(), 125, 3) == nil {
+			t.Fatal("cross-pair tick regression accepted")
+		}
+	}
+}
+
+func TestReceivedAppliedNonmutationAndOptIn(t *testing.T) {
+	pair := receivedAppliedFixture(t, wireBytes(t, requestVector), 1, 2, 7)
+	for _, valid := range []bool{true, false} {
+		if !valid {
+			pair.Applied[96] ^= 1
+		}
+		before := [][]byte{bytes.Clone(pair.Received.Event), bytes.Clone(pair.Received.Request), bytes.Clone(pair.Received.Reply), bytes.Clone(pair.Applied)}
+		err := validateReceivedAppliedPairs([]receivedAppliedPair{pair}, obligationFixture(), 125, 3)
+		if (err == nil) != valid {
+			t.Fatal(err)
+		}
+		for i, raw := range [][]byte{pair.Received.Event, pair.Received.Request, pair.Received.Reply, pair.Applied} {
+			if !bytes.Equal(raw, before[i]) {
+				t.Fatal("input mutated")
+			}
+		}
+	}
+	if _, err := decodeEventFields(pair.Applied, obligationFixture(), 125, 3); err != nil {
+		t.Fatal("prior field contract changed", err)
+	}
+	if err := validateCapturedFrame(pair.Received, obligationFixture(), 125, 3); err != nil {
+		t.Fatal("prior sidecar contract changed", err)
+	}
+}

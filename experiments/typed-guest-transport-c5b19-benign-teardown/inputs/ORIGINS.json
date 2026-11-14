@@ -181,5 +181,54 @@
       "Kind8 application, received/applied order, model transitions, snapshots, causality/timing, native semantics, durability and lifecycle authority remain deferred"
     ],
     "review_report_sha256": "999b894f06fa2c327320b951e5e28ad669e8ba31e346e0602b334dc10a09b692"
+  },
+  "g3a7": {
+    "scope": "pure received kind7 / applied kind8 correspondence and bounded supplied control-subsequence consistency; no settlement or lifecycle effects",
+    "continued_archive_head": "14365fb4ba5d1525285406ae90feb1abdcc46269",
+    "canonical_reference_commit": "041b6d4e04df9667e6217f57df26f04eec7d2ddc",
+    "canonical_reference_sha256": {
+      "docs/C5B19_GATE2_IMPLEMENTATION_PACKET.md": "65c885425298ce056f8619c5d0837f97ba54dee91c025fea5621a2d75d5ef4f0",
+      "internal/execution/teardownpassive/types.go": "249b7ef054134f47974bf769c3fb37309b867b1be42ae53c18baf23dc8bacfd0",
+      "internal/execution/teardownpassive/model.go": "1e3a8be8527554d3953d494086c5313ceeca5806b40a7661ab488717f4a94c40"
+    },
+    "implementation_sha256": {
+      "go.mod": "5f40cde18c2d82fe5d57f3a8822377c12e473f1026f174165dfecd126bea3eeb",
+      "tests/oracle.go": "b9cf1d6c311da52062eb86aec40f2e1cce1f03767bfbb5f6686a23d4746672bb",
+      "tests/oracle_test.go": "2ae581d0ff919974d73319fd953580f878435ae4693a65186e276a4d081fabf6",
+      "tests/model_test.go": "b0f3b9d063c225eb887cecaf16f4058f0ed07ae8f14c3d92c49acacabb0a931e"
+    },
+    "dependencies": "Go1.25.13 standard library only; no new requirement or source-manifest entry",
+    "local_verification": "PASSED: compiler-red then green; exact offline test/race/vet/build; fourteen compiled guard mutants failed intended assertions and exact source restored",
+    "fresh_review_status": "PASSED: independent review instance 1 of 3 Ready; no actionable findings",
+    "log_sha256": {
+      "red": "7548ce788344528f2ccc290c70ac00090c145bb6f522d7a5ba1d49de06bc820c",
+      "green": "7b209b31e212d5292cdc71945f403acdbb11a59eb53e811ef1b2c3645aed8354",
+      "restored": "61ac622f9401eb2ce3bc459d6d0ced2aa686e092447a2251e5e4e4966b0fabb9",
+      "race": "e5f4e343c4a2730b5a6261772f941b55d1519ac2ce8606fe937b03724a7b34d3",
+      "vet": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "build": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "mutant-tuple": "151909881a2b0a4b191f03a3a74662f76c26b3c089960148ed1eea36719268eb",
+      "mutant-request-hash": "691df4370522d978d57d73eb273809ff55cd0389b0ec4c57dfaf837bbc96b237",
+      "mutant-candidate-hash": "05ed16dec1dfdb41f36a25afc9c22c3352c4f04c85c65068a6af0005760bab9f",
+      "mutant-outcome": "44ad1fc9eaca1794acc6db235b52df01b4a39736a16499945633200c95ed8aa4",
+      "mutant-record": "2f16ba624ede818338a09623e47a35edfb27d31c00ba8b79a0f41121cf4bf9bc",
+      "mutant-sidecar": "4d7eb5c4674d25ceae53e2d54aab4b45e2621c3d182ff45bb471785ecc437714",
+      "mutant-received-kind": "4ea5874906c18ec27cc5a19fef3a7228b11236ef732737b5fa9e94bbbf232204",
+      "mutant-applied-kind": "e6094046435f15f698346cbfe72337a24f5e9758e725132d2299762ca1203c16",
+      "mutant-pair-sequence": "bd2c0b90f72519455a73cb377febd687f39bf810a1df7559355c5cc8a0b7b281",
+      "mutant-pair-tick": "4c579c7434a20225478702f1371c0c51670ca459924a84750ccb453f3c81c701",
+      "mutant-operation-reuse": "c0b670138a96308841169fdb6f80968e8319b07628c6d18c2fe9986421f782fa",
+      "mutant-cap": "d283da4eaad3294e6b0b78472a884ac22f40c9a7186811fd0a00ed2f74910c9f",
+      "mutant-sequence-reuse": "85d4e11ab329fbf08f8869c1ae30ae390b128b85ef71ef9a2f9581448bb7593d",
+      "mutant-cross-ticks": "def79d9ed16e0443820acdd03b36d06dc886b8fdf65801eefd7ff1db47e7db0c"
+    },
+    "excluded_mutant_construction_failure_sha256": "cde9086ea91861c64a469a543832059da03116d2e472dcb36eb73f1c36b5abcc",
+    "limits": [
+      "Both application codes are represented values, not proof of correct settlement or fatal latch",
+      "Only supplied subsequence consistency; wholly omitted pairs and capture origin/completeness unproven",
+      "Malformed rejected-reply diagnostics remain unsupported pending exact mapping",
+      "Pending/control state, stop/apply causality, durable snapshots, clock bounds, native effects and lifecycle authority deferred"
+    ],
+    "review_report_sha256": "cf6cdb34a85d0b0195c1313b794ed6aee50c481fe7d43b493aee30e449945898"
   }
 }

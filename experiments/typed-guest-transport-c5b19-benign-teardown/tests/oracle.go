@@ -703,3 +703,72 @@ func validateCapturedFrames(pairs []capturedFramePair, frozen obligationBindings
 	}
 	return nil
 }
+
+var errReceivedApplied = errors.New("C5B19_RECEIVED_APPLIED")
+
+// receivedAppliedPair selects one well-formed receive/decision correspondence.
+// It is not a serialized format or proof that the recorded decision was valid.
+// Omitted whole pairs remain undetectable; caller-owned bytes are never retained.
+type receivedAppliedPair struct {
+	Received capturedFramePair
+	Applied  []byte
+}
+
+// validateReceivedApplied checks byte correspondence and local ordinal/numeric
+// consistency only. Both recorded decisions are representable, but neither a
+// valid settle transition nor a rejection's fatal latch is established here.
+func validateReceivedApplied(pair receivedAppliedPair, frozen obligationBindings, numer, denom uint32) error {
+	if err := validateCapturedFrame(pair.Received, frozen, numer, denom); err != nil {
+		return errReceivedApplied
+	}
+	received, _ := decodeEventFields(pair.Received.Event, frozen, numer, denom)
+	applied, err := decodeEventFields(pair.Applied, frozen, numer, denom)
+	if err != nil || received.Kind != 7 || applied.Kind != 8 {
+		return errReceivedApplied
+	}
+	if received.Operation != applied.Operation || received.Generation != applied.Generation ||
+		received.RequestDigest != applied.RequestDigest || received.CandidateDigest != applied.CandidateDigest ||
+		received.Outcome != applied.Outcome || received.RecordDigest != applied.RecordDigest {
+		return errReceivedApplied
+	}
+	if received.Sequence >= applied.Sequence || received.Tick > applied.Tick {
+		return errReceivedApplied
+	}
+	return nil
+}
+
+// validateReceivedAppliedPairs checks a supplied control subsequence of at most
+// three pairs. Input order is irrelevant; sequence values must be unique and
+// ticks nondecreasing in that order. Gaps and zero origins are representable.
+// Empty success is no evidence. No history, full trace, timing bound, stop/apply
+// causality, durability or lifecycle authority is established or changed.
+func validateReceivedAppliedPairs(pairs []receivedAppliedPair, frozen obligationBindings, numer, denom uint32) error {
+	if _, err := encodeObligationPreimage(frozen); err != nil || numer == 0 || denom == 0 || len(pairs) > 3 {
+		return errReceivedApplied
+	}
+	var events [6]eventEnvelope
+	for i, pair := range pairs {
+		if err := validateReceivedApplied(pair, frozen, numer, denom); err != nil {
+			return err
+		}
+		// Pair validation has already verified every byte of both event records.
+		received, _ := decodeEventFields(pair.Received.Event, frozen, numer, denom)
+		applied, _ := decodeEventFields(pair.Applied, frozen, numer, denom)
+		for j := 0; j < i; j++ {
+			if events[2*j].Operation == received.Operation {
+				return errReceivedApplied
+			}
+		}
+		for k, event := range [2]eventEnvelope{received, applied} {
+			for _, prior := range events[:2*i+k] {
+				if event.Sequence == prior.Sequence ||
+					(event.Sequence < prior.Sequence && event.Tick > prior.Tick) ||
+					(event.Sequence > prior.Sequence && event.Tick < prior.Tick) {
+					return errReceivedApplied
+				}
+			}
+			events[2*i+k] = event
+		}
+	}
+	return nil
+}
