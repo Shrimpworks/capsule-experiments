@@ -1106,3 +1106,92 @@ func (h *snapshotHistory) inspectWorkerSidecars(selections []workerSidecarSelect
 	}
 	return result, nil
 }
+
+var errWriteResult = errors.New("C5B19_WRITE_RESULT")
+
+// writeResultPair selects a pre-write captured frame and its required result
+// event. It introduces no serialized format. Kind5 Request remains decoding
+// context, not independent worker receipt; that evidence belongs to G3a10.
+type writeResultPair struct {
+	Before capturedFramePair
+	Result []byte
+}
+
+// ExactFrameCount is only numerical equality to the category's frame length.
+// Result/Errno remain raw signed diagnostics, including contradictory values;
+// neither validity nor an exact count establishes successful transport or receipt.
+type writeResultFacts struct {
+	Kind            uint16
+	Operation       wireOperation
+	Result          int32
+	Errno           int32
+	ExactFrameCount bool
+}
+
+type writeResultCorrespondence struct {
+	Entries [6]writeResultFacts
+	Count   uint8
+}
+
+// inspectWriteResults checks supplied kind3→4 and kind5→6 pairs only. Each local
+// pair increases sequence and does not regress ticks. Collection order is free;
+// inter-pair lane chronology, sequence uniqueness, cross-lane clock ordering and
+// omitted evidence are not checked. No history, retry, settlement or authority is
+// created. Returned values never alias input, and every refusal returns all zero.
+func inspectWriteResults(pairs []writeResultPair, frozen obligationBindings, numer, denom uint32) (writeResultCorrespondence, error) {
+	if _, err := encodeObligationPreimage(frozen); err != nil || numer == 0 || denom == 0 || len(pairs) > 6 {
+		return writeResultCorrespondence{}, errWriteResult
+	}
+	var result writeResultCorrespondence
+	var events [6]eventEnvelope
+	var counts [6]uint8
+	unique := 0
+	for i, pair := range pairs {
+		if err := validateCapturedFrame(pair.Before, frozen, numer, denom); err != nil {
+			return writeResultCorrespondence{}, errWriteResult
+		}
+		before, _ := decodeEventFields(pair.Before.Event, frozen, numer, denom)
+		after, err := decodeEventFields(pair.Result, frozen, numer, denom)
+		if err != nil || (before.Kind != 3 && before.Kind != 5) || after.Kind != before.Kind+1 {
+			return writeResultCorrespondence{}, errWriteResult
+		}
+		if before.Operation != after.Operation || before.Generation != after.Generation ||
+			before.RequestDigest != after.RequestDigest || before.CandidateDigest != after.CandidateDigest ||
+			before.Outcome != after.Outcome || before.RecordDigest != after.RecordDigest {
+			return writeResultCorrespondence{}, errWriteResult
+		}
+		if before.Sequence >= after.Sequence || before.Tick > after.Tick {
+			return writeResultCorrespondence{}, errWriteResult
+		}
+		counts[before.Kind]++
+		if counts[before.Kind] > 3 {
+			return writeResultCorrespondence{}, errWriteResult
+		}
+		seen := false
+		for j := 0; j < i; j++ {
+			if events[j].Operation != before.Operation {
+				continue
+			}
+			seen = true
+			if events[j].Kind == before.Kind || !bytes.Equal(pairs[j].Before.Request, pair.Before.Request) {
+				return writeResultCorrespondence{}, errWriteResult
+			}
+		}
+		if !seen {
+			unique++
+			if unique > 3 {
+				return writeResultCorrespondence{}, errWriteResult
+			}
+		}
+		operation, _ := decodeRequest(pair.Before.Request, frozen)
+		length := int32(397)
+		if before.Kind == 5 {
+			length = 98
+		}
+		result.Entries[i] = writeResultFacts{Kind: before.Kind, Operation: operation,
+			Result: after.SyscallResult, Errno: after.Errno, ExactFrameCount: after.SyscallResult == length}
+		result.Count++
+		events[i] = before
+	}
+	return result, nil
+}

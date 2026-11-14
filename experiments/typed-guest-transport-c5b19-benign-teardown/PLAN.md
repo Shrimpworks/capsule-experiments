@@ -1506,3 +1506,156 @@ test bytes are unchanged; only this acceptance metadata follows the freeze.
 Brain owns immutable archive pinning and canonical PR publication. Archive PR #38
 remains draft. Full Gate 3 remains IN_PROGRESS — TRENDING_GOOD; child execution,
 Gates 4–6 and admission remain BLOCKED. No child fixture ran.
+
+
+## G3a11 supplied write/result correspondence
+
+Status: PASSED for bounded implementation and local verification. Fresh independent
+review IN_PROGRESS — TRENDING_GOOD (pending). Full Gate3 IN_PROGRESS — TRENDING_GOOD;
+child execution, Gates4–6 and product admission remain BLOCKED.
+
+Defensively validate supplied inert pre-write/result bytes using ordinary offline
+Go unit/compiler processes in this owned archive. No native fixture, child/guest,
+lifecycle/signal/wait target, live store/clock/network, credentials or user data.
+Brain accepted the exact scope and raw-result/errno semantics before edits/tests.
+Archive baseline d698bd9332a000ad3c2b9f23f87d0353dc5964b4; canonical reference
+ d042e53a877e494bd2eb0e325ec084d4b9cc692a. C5b19 remains test-only ADOPT-PLATFORM /
+BUILD-NARROWLY; no new import/dependency, primitive, format, manifest, ABI, privileged
+role or product consumer. Prior source/test prefixes and parsed provenance preserved.
+
+### Contract and implementation
+
+The appended stateless `inspectWriteResults` accepts only captured kind3 request
+with kind4 result, or captured kind5 worker reply with kind6 result. Both members
+are required and strictly validated under one frozen context/timebase. Kind5 Request
+is still decoding context, not independent receipt. Operation, generation, request/
+candidate digest and outcome/recorddigest match exactly (kind3/4 reply fields are
+strictly zero). Result sequence must increase and tick must not regress; same ticks
+and gaps are valid. Direct comparisons avoid arithmetic overflow.
+
+Collections allow at most6 pairs,3 per category,3 distinct operation IDs. Same
+category/operation duplicates refuse even with changed diagnostics. Cross-category
+same-operation pairs require the exact full397 request bytes. Neither category
+requires the other; nil/empty selection with valid context is no evidence. Context
+is validated even when empty. Selection order is preserved; inter-pair lane ordering
+or sequence uniqueness and cross-lane clocks are explicitly unchecked. This does
+not retroactively strengthen G3a10 or establish complete stream chronology.
+
+Fixed value facts retain category, decoded request operation, raw signed i32 result
+and errno, and ExactFrameCount. That flag is only result==397 for request or==98 for
+reply, independent of errno. Packet does not freeze errno zeroing on success; this
+layer invents neither normalization nor an errno whitelist. Negative, excess or
+contradictory diagnostic values remain raw: valid representation does not establish
+that a conforming syscall could produce them. No FullWrite, Success, retry, transport
+progress, receipt, application or settlement verdict is exposed. All errors return
+an entirely zero result, even after an earlier valid item. No history or input mutates.
+
+### Tests-first and verification
+
+Nine new groups (335 appended test lines) preceded or refined the89-line appended
+implementation. The first test command failed compilation on the missing new pair,
+facts and query names; the minimal implementation then passed. Tests cover each
+category and all reply outcomes; valid/malformed/missing members; independent valid
+tuple/outcome/digest substitutions; strict roles/timebase/bindings; sequence/tick
+zero/max/gap/equality/regression boundaries; Cartesian raw signed result/errno
+boundaries and errno-independent exact category counts;6 pairs/3 operations,
+duplicate and fourth-operation/category/total bounds; cross-category exact request;
+arbitrary order and deliberately repeated inter-pair sequence values; copied facts,
+input preservation and all-zero late error. No real syscall or pipe fixture runs.
+
+Exact executable `/Users/dsteele/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.25.13.darwin-arm64/bin/go`
+reports Go1.25.13 darwin/arm64. Cwd this experiment; environment
+`GOTOOLCHAIN=local GOPROXY=off GOSUMDB=off GOCACHE=/tmp/c5b19-g3a11-go-cache`.
+Final `go test ./... -count=1`, `go test -race ./... -count=1`, `go vet ./...`,
+`go build ./...` all exited0. `git diff --check` passed.
+
+Eighteen selected mutants compiled, exited1 and reached27 exact intended assertion
+occurrences after valid setup. No construction failure, panic, setup failure or
+survivor occurred in this slice. ORIGINS.g3a11 retains every exact source replacement,
+command, assertion location/count and raw-log hash. The campaign restored exact
+original source in finally after each attempt; no mutant remains. These are selected
+sensitivity checks, not exhaustive proof. Category/total caps overlap with unique
+operation and duplicate guards; no isolated redundant-cap necessity is claimed.
+
+| Selected mutant | Intended assertion occurrences |
+|---|---:|
+| result-kind | 2 |
+| pair-operation | 2 |
+| pair-generation | 2 |
+| pair-request | 2 |
+| pair-candidate | 2 |
+| pair-outcome | 1 |
+| pair-record | 1 |
+| equal-sequence | 2 |
+| regressed-tick | 2 |
+| duplicate-category-operation | 1 |
+| unique-operation-cap | 1 |
+| cross-category-request | 3 |
+| category-frame-length | 1 |
+| errno-dependent-exact-count | 1 |
+| normalized-errno | 1 |
+| normalized-result | 1 |
+| empty-timebase | 1 |
+| partial-result-on-error | 1 |
+
+Verification log hashes (temporary raw logs; exact definitions retained in ORIGINS):
+
+- red exit1: `b185a38514ca77801877dd96673a34c6d86da09205bae559be7514768f2f8ab5`
+- green exit0: `0b3a4e17c1e8ac8c460a69bf285084d9bc088314f13d1e74a74245e6b6937960`
+- mutation-baseline exit0: `b26a014b4ef8d8fb0aa9c6c050a405f349404d17cfa6d3745d83d5594ade6765`
+- restored exit0: `adec114e8281fcda240a9dab64468b0f35a0917f8ef1f49c8035b0d2e0b314af`
+- race exit0: `517e2bf60ac2bf212c1861377f4f20bee5e6966fd67356af5dfa568f0bf6e160`
+- vet exit0: `e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855`
+- build exit0: `e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855`
+- mutant-result-kind exit1: `594630a196d9910e22a9d5ab06cfe05d7d27e2128169454ed31d3228e1b895e5`
+- mutant-pair-operation exit1: `55a8c9d98ceeb029df3c1bc1945c2489a1889867c0c7b1ab36f18f13cde4641b`
+- mutant-pair-generation exit1: `54ebbe5648e815305b60c90feb373e44d933d1e4b6606ee9e01deee9e899c097`
+- mutant-pair-request exit1: `f0c35e617b329d94b72fc1224d0eefe271c7137a0dde3401c348c9b8f91e6cdb`
+- mutant-pair-candidate exit1: `4352128aa702212f2886b460e7cd45e8a71d7934bb24c8b3a458741e6435a4ca`
+- mutant-pair-outcome exit1: `13f1807e7024cf1512f23cf847591d96e09a6a2a6c6d37269815118a5a07ac81`
+- mutant-pair-record exit1: `03ade7fcccd7406585d940e7eef4312e2052e395d21ead82e8b8776bcfea24ce`
+- mutant-equal-sequence exit1: `fa4a5c076d083de3db3385702b63bc5b9f816449856f91c3a6ed3c12bd1314e6`
+- mutant-regressed-tick exit1: `f601e71b2e163566a3b6c96ec0491886276adb4a9e65454c99ddfd8f178d2fa2`
+- mutant-duplicate-category-operation exit1: `e22b443ee73db1dab2c70f521ae0d09c1c9122211e6446a18257a6c1be2871fa`
+- mutant-unique-operation-cap exit1: `2e9338218889e1c890a4c9ad92453727d3776fdbcb7583ead259961837c21d7f`
+- mutant-cross-category-request exit1: `338741f1d720447ed991a4b549ae5e82ac97efa1270391d32099ffc44f0102d6`
+- mutant-category-frame-length exit1: `0e2c87631fab1c1540f78e385c6dcd3fea9e2ad2402e58560793644e4892e879`
+- mutant-errno-dependent-exact-count exit1: `ec4a39fbe2c36916e0828f9df8cdc947e9a362a6ab328c7bd4bc9acf2875ad99`
+- mutant-normalized-errno exit1: `92d9a14d31dbc661522dffd25c89616a2080945e049fd4b62d347320c546d7bd`
+- mutant-normalized-result exit1: `220f1c69d2a617e5c1362d771fa71c6d10ede8769a1fea75dd97f8ea2b5e6a9d`
+- mutant-empty-timebase exit1: `4e0be6d746dd54d9c93fb7876de59f91e513cc3ec62bb5aebc25f4006b5e1ab8`
+- mutant-partial-result-on-error exit1: `dd92dd8b14aaa36232a6ff494a821a8f2dfb9e8ad1f7153b4da278b614c5a94a`
+
+Frozen source hashes:
+
+- go.mod: `5f40cde18c2d82fe5d57f3a8822377c12e473f1026f174165dfecd126bea3eeb`
+- tests/oracle.go: `4b9012aa8e19b5b35995e5fb48a7e6fd8cd2f858ac7a92ea2c4678e85ce6bc69`
+- tests/oracle_test.go: `acb23007854fc92f8ddbffa7daea3c1bfeaa172ea85e88644fc7a0ef2f51975c`
+- tests/model_test.go: `b0f3b9d063c225eb887cecaf16f4058f0ed07ae8f14c3d92c49acacabb0a931e`
+- Accepted scope report: `f14ce069d653afd3c6819d89acd1dd2f511e14c844083fcd53c16d0a70a5a8e4`
+- Mutation driver: `8a08b5ae5414b69be92c404045ac2e008df5dc351d7554422bfb6a8aed3dd888`
+
+### Limits and delivery
+
+No authenticity/completeness, physical transfer, normalized syscall success,
+worker/control receipt, application, durability, full roundtrip, global chronology,
+timing, stop/start, native absence or authority follows. Kind3/4 and5/6 are supplied
+local observations only. Further transport-lane consistency across selected kinds3–8,
+producer errno semantics, full trace/control/native and first-run gates remain
+separately deferred. Child execution remains BLOCKED. Brain owns fresh review,
+immutable canonical pinning, commits, pushes and shared PR38 integration; author
+readiness is not an independent review verdict.
+
+### G3a11 Brain acceptance after independent review
+
+PASSED: fresh independent review instance 1 of 3 returned **Ready**, no actionable
+findings. Report SHA256 `8cc9291674610ac9f2f97a571186c6796e1b82edec88e6cf9c97b1f1f135bea6` is retained in canonical
+`.planning/c5b19-write-results/review-1.md`; source-first preliminary ledger is
+retained beside it. Reviewer independently reran offline Go 1.25.13 test/race/vet/
+build and checked frozen hashes, prior provenance and all eighteen mutation logs
+with twenty-seven intended assertions. Canonical baseline and mutation executions
+were inspected evidence, not reviewer reruns. Reviewed source/test bytes remain
+unchanged; only acceptance metadata follows the freeze. Brain owns immutable
+pinning and canonical publication; archive PR #38 remains draft. Full Gate 3
+remains IN_PROGRESS — TRENDING_GOOD; child execution, Gates 4–6 and admission
+remain BLOCKED. No child fixture ran.

@@ -1192,5 +1192,541 @@
       "Two invalid mutation constructions retained separately; only fourteen corrected compiled runs and their exact intended assertions count. No exhaustive mutation claim."
     ],
     "review_report_sha256": "e7ac4de9d08d2956db21730e47d15aeefc1b830995277d4e5ff88134a1af7620"
+  },
+  "g3a11": {
+    "scope": "pure bounded supplied kind3\u21924 request-write and kind5\u21926 worker-reply-write result correspondence, preserving raw signed diagnostic values",
+    "continued_archive_head": "d698bd9332a000ad3c2b9f23f87d0353dc5964b4",
+    "canonical_reference_commit": "d042e53a877e494bd2eb0e325ec084d4b9cc692a",
+    "canonical_reference_sha256": {
+      "docs/C5B19_GATE2_IMPLEMENTATION_PACKET.md": "65c885425298ce056f8619c5d0837f97ba54dee91c025fea5621a2d75d5ef4f0",
+      "internal/execution/teardownpassive/types.go": "249b7ef054134f47974bf769c3fb37309b867b1be42ae53c18baf23dc8bacfd0",
+      "internal/execution/teardownpassive/model.go": "1e3a8be8527554d3953d494086c5313ceeca5806b40a7661ab488717f4a94c40"
+    },
+    "implementation_sha256": {
+      "go.mod": "5f40cde18c2d82fe5d57f3a8822377c12e473f1026f174165dfecd126bea3eeb",
+      "tests/oracle.go": "4b9012aa8e19b5b35995e5fb48a7e6fd8cd2f858ac7a92ea2c4678e85ce6bc69",
+      "tests/oracle_test.go": "acb23007854fc92f8ddbffa7daea3c1bfeaa172ea85e88644fc7a0ef2f51975c",
+      "tests/model_test.go": "b0f3b9d063c225eb887cecaf16f4058f0ed07ae8f14c3d92c49acacabb0a931e"
+    },
+    "dependencies": "Go1.25.13 standard library only; no new import, dependency, primitive, serialized format, manifest, ABI or run/admission flag change",
+    "local_verification": "PASSED: compiler-red then green; nine appended test groups; eighteen compiled mutants reached twenty-seven exact intended assertions; byte-exact restoration; offline full test/race/vet/build",
+    "fresh_review_status": "PASSED: fresh independent review instance 1 of 3 Ready; no actionable findings",
+    "scope_report_sha256": "f14ce069d653afd3c6819d89acd1dd2f511e14c844083fcd53c16d0a70a5a8e4",
+    "environment": {
+      "GOTOOLCHAIN": "local",
+      "GOPROXY": "off",
+      "GOSUMDB": "off",
+      "GOCACHE": "/tmp/c5b19-g3a11-go-cache"
+    },
+    "verification": [
+      {
+        "name": "red",
+        "command": [
+          "/Users/dsteele/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.25.13.darwin-arm64/bin/go",
+          "test",
+          "./..."
+        ],
+        "exit": 1,
+        "log": "/tmp/c5b19-g3a11-red.log",
+        "sha256": "b185a38514ca77801877dd96673a34c6d86da09205bae559be7514768f2f8ab5"
+      },
+      {
+        "name": "green",
+        "command": [
+          "/Users/dsteele/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.25.13.darwin-arm64/bin/go",
+          "test",
+          "./..."
+        ],
+        "exit": 0,
+        "log": "/tmp/c5b19-g3a11-green.log",
+        "sha256": "0b3a4e17c1e8ac8c460a69bf285084d9bc088314f13d1e74a74245e6b6937960"
+      },
+      {
+        "name": "mutation-baseline",
+        "command": [
+          "/Users/dsteele/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.25.13.darwin-arm64/bin/go",
+          "test",
+          "./...",
+          "-count=1"
+        ],
+        "exit": 0,
+        "log": "/tmp/c5b19-g3a11-mutation-baseline.log",
+        "sha256": "b26a014b4ef8d8fb0aa9c6c050a405f349404d17cfa6d3745d83d5594ade6765"
+      },
+      {
+        "name": "restored",
+        "command": [
+          "/Users/dsteele/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.25.13.darwin-arm64/bin/go",
+          "test",
+          "./...",
+          "-count=1"
+        ],
+        "exit": 0,
+        "log": "/tmp/c5b19-g3a11-restored.log",
+        "sha256": "adec114e8281fcda240a9dab64468b0f35a0917f8ef1f49c8035b0d2e0b314af"
+      },
+      {
+        "name": "race",
+        "command": [
+          "/Users/dsteele/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.25.13.darwin-arm64/bin/go",
+          "test",
+          "-race",
+          "./...",
+          "-count=1"
+        ],
+        "exit": 0,
+        "log": "/tmp/c5b19-g3a11-race.log",
+        "sha256": "517e2bf60ac2bf212c1861377f4f20bee5e6966fd67356af5dfa568f0bf6e160"
+      },
+      {
+        "name": "vet",
+        "command": [
+          "/Users/dsteele/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.25.13.darwin-arm64/bin/go",
+          "vet",
+          "./..."
+        ],
+        "exit": 0,
+        "log": "/tmp/c5b19-g3a11-vet.log",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "name": "build",
+        "command": [
+          "/Users/dsteele/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.25.13.darwin-arm64/bin/go",
+          "build",
+          "./..."
+        ],
+        "exit": 0,
+        "log": "/tmp/c5b19-g3a11-build.log",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    ],
+    "selected_mutations": [
+      {
+        "name": "result-kind",
+        "replacements": [
+          [
+            " || after.Kind != before.Kind+1",
+            ""
+          ]
+        ],
+        "command": [
+          "/Users/dsteele/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.25.13.darwin-arm64/bin/go",
+          "test",
+          "./...",
+          "-run",
+          "^TestWriteResultKindsAndMalformedMembers$/^kind(3|5)$/result-kind$",
+          "-count=1"
+        ],
+        "intended_assertion": "oracle_test.go:3248: invalid write/result correspondence accepted",
+        "expected_occurrences": 2,
+        "exit": 1,
+        "actual_occurrences": 2,
+        "log": "/tmp/c5b19-g3a11-mutant-result-kind.log",
+        "sha256": "594630a196d9910e22a9d5ab06cfe05d7d27e2128169454ed31d3228e1b895e5"
+      },
+      {
+        "name": "pair-operation",
+        "replacements": [
+          [
+            "before.Operation != after.Operation",
+            "false"
+          ]
+        ],
+        "command": [
+          "/Users/dsteele/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.25.13.darwin-arm64/bin/go",
+          "test",
+          "./...",
+          "-run",
+          "^TestWriteResultValidTupleSubstitutions$/^kind(3|5)$/operation$",
+          "-count=1"
+        ],
+        "intended_assertion": "oracle_test.go:3190: invalid write/result correspondence accepted",
+        "expected_occurrences": 2,
+        "exit": 1,
+        "actual_occurrences": 2,
+        "log": "/tmp/c5b19-g3a11-mutant-pair-operation.log",
+        "sha256": "55a8c9d98ceeb029df3c1bc1945c2489a1889867c0c7b1ab36f18f13cde4641b"
+      },
+      {
+        "name": "pair-generation",
+        "replacements": [
+          [
+            "before.Generation != after.Generation",
+            "false"
+          ]
+        ],
+        "command": [
+          "/Users/dsteele/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.25.13.darwin-arm64/bin/go",
+          "test",
+          "./...",
+          "-run",
+          "^TestWriteResultValidTupleSubstitutions$/^kind(3|5)$/generation$",
+          "-count=1"
+        ],
+        "intended_assertion": "oracle_test.go:3190: invalid write/result correspondence accepted",
+        "expected_occurrences": 2,
+        "exit": 1,
+        "actual_occurrences": 2,
+        "log": "/tmp/c5b19-g3a11-mutant-pair-generation.log",
+        "sha256": "54ebbe5648e815305b60c90feb373e44d933d1e4b6606ee9e01deee9e899c097"
+      },
+      {
+        "name": "pair-request",
+        "replacements": [
+          [
+            "before.RequestDigest != after.RequestDigest",
+            "false"
+          ]
+        ],
+        "command": [
+          "/Users/dsteele/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.25.13.darwin-arm64/bin/go",
+          "test",
+          "./...",
+          "-run",
+          "^TestWriteResultValidTupleSubstitutions$/^kind(3|5)$/request$",
+          "-count=1"
+        ],
+        "intended_assertion": "oracle_test.go:3190: invalid write/result correspondence accepted",
+        "expected_occurrences": 2,
+        "exit": 1,
+        "actual_occurrences": 2,
+        "log": "/tmp/c5b19-g3a11-mutant-pair-request.log",
+        "sha256": "f0c35e617b329d94b72fc1224d0eefe271c7137a0dde3401c348c9b8f91e6cdb"
+      },
+      {
+        "name": "pair-candidate",
+        "replacements": [
+          [
+            "before.CandidateDigest != after.CandidateDigest",
+            "false"
+          ]
+        ],
+        "command": [
+          "/Users/dsteele/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.25.13.darwin-arm64/bin/go",
+          "test",
+          "./...",
+          "-run",
+          "^TestWriteResultValidTupleSubstitutions$/^kind(3|5)$/candidate$",
+          "-count=1"
+        ],
+        "intended_assertion": "oracle_test.go:3190: invalid write/result correspondence accepted",
+        "expected_occurrences": 2,
+        "exit": 1,
+        "actual_occurrences": 2,
+        "log": "/tmp/c5b19-g3a11-mutant-pair-candidate.log",
+        "sha256": "4352128aa702212f2886b460e7cd45e8a71d7934bb24c8b3a458741e6435a4ca"
+      },
+      {
+        "name": "pair-outcome",
+        "replacements": [
+          [
+            "before.Outcome != after.Outcome",
+            "false"
+          ]
+        ],
+        "command": [
+          "/Users/dsteele/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.25.13.darwin-arm64/bin/go",
+          "test",
+          "./...",
+          "-run",
+          "^TestWriteResultValidTupleSubstitutions$/^kind(3|5)$/outcome$",
+          "-count=1"
+        ],
+        "intended_assertion": "oracle_test.go:3190: invalid write/result correspondence accepted",
+        "expected_occurrences": 1,
+        "exit": 1,
+        "actual_occurrences": 1,
+        "log": "/tmp/c5b19-g3a11-mutant-pair-outcome.log",
+        "sha256": "13f1807e7024cf1512f23cf847591d96e09a6a2a6c6d37269815118a5a07ac81"
+      },
+      {
+        "name": "pair-record",
+        "replacements": [
+          [
+            "before.RecordDigest != after.RecordDigest",
+            "false"
+          ]
+        ],
+        "command": [
+          "/Users/dsteele/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.25.13.darwin-arm64/bin/go",
+          "test",
+          "./...",
+          "-run",
+          "^TestWriteResultValidTupleSubstitutions$/^kind(3|5)$/record$",
+          "-count=1"
+        ],
+        "intended_assertion": "oracle_test.go:3190: invalid write/result correspondence accepted",
+        "expected_occurrences": 1,
+        "exit": 1,
+        "actual_occurrences": 1,
+        "log": "/tmp/c5b19-g3a11-mutant-pair-record.log",
+        "sha256": "03ade7fcccd7406585d940e7eef4312e2052e395d21ead82e8b8776bcfea24ce"
+      },
+      {
+        "name": "equal-sequence",
+        "replacements": [
+          [
+            "before.Sequence >= after.Sequence",
+            "before.Sequence > after.Sequence"
+          ]
+        ],
+        "command": [
+          "/Users/dsteele/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.25.13.darwin-arm64/bin/go",
+          "test",
+          "./...",
+          "-run",
+          "^TestWriteResultLocalChronology$/^kind(3|5)$/equal-sequence$",
+          "-count=1"
+        ],
+        "intended_assertion": "oracle_test.go:3273: invalid write/result correspondence accepted",
+        "expected_occurrences": 2,
+        "exit": 1,
+        "actual_occurrences": 2,
+        "log": "/tmp/c5b19-g3a11-mutant-equal-sequence.log",
+        "sha256": "fa4a5c076d083de3db3385702b63bc5b9f816449856f91c3a6ed3c12bd1314e6"
+      },
+      {
+        "name": "regressed-tick",
+        "replacements": [
+          [
+            "before.Tick > after.Tick",
+            "false"
+          ]
+        ],
+        "command": [
+          "/Users/dsteele/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.25.13.darwin-arm64/bin/go",
+          "test",
+          "./...",
+          "-run",
+          "^TestWriteResultLocalChronology$/^kind(3|5)$/regressed-tick$",
+          "-count=1"
+        ],
+        "intended_assertion": "oracle_test.go:3273: invalid write/result correspondence accepted",
+        "expected_occurrences": 2,
+        "exit": 1,
+        "actual_occurrences": 2,
+        "log": "/tmp/c5b19-g3a11-mutant-regressed-tick.log",
+        "sha256": "f601e71b2e163566a3b6c96ec0491886276adb4a9e65454c99ddfd8f178d2fa2"
+      },
+      {
+        "name": "duplicate-category-operation",
+        "replacements": [
+          [
+            "events[j].Kind == before.Kind || ",
+            ""
+          ]
+        ],
+        "command": [
+          "/Users/dsteele/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.25.13.darwin-arm64/bin/go",
+          "test",
+          "./...",
+          "-run",
+          "^TestWriteResultCollectionBoundsAndOrdering$/duplicate$",
+          "-count=1"
+        ],
+        "intended_assertion": "oracle_test.go:3313: invalid write/result correspondence accepted",
+        "expected_occurrences": 1,
+        "exit": 1,
+        "actual_occurrences": 1,
+        "log": "/tmp/c5b19-g3a11-mutant-duplicate-category-operation.log",
+        "sha256": "e22b443ee73db1dab2c70f521ae0d09c1c9122211e6446a18257a6c1be2871fa"
+      },
+      {
+        "name": "unique-operation-cap",
+        "replacements": [
+          [
+            "unique > 3",
+            "false"
+          ]
+        ],
+        "command": [
+          "/Users/dsteele/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.25.13.darwin-arm64/bin/go",
+          "test",
+          "./...",
+          "-run",
+          "^TestWriteResultCollectionBoundsAndOrdering$/four-operations$",
+          "-count=1"
+        ],
+        "intended_assertion": "oracle_test.go:3323: invalid write/result correspondence accepted",
+        "expected_occurrences": 1,
+        "exit": 1,
+        "actual_occurrences": 1,
+        "log": "/tmp/c5b19-g3a11-mutant-unique-operation-cap.log",
+        "sha256": "2e9338218889e1c890a4c9ad92453727d3776fdbcb7583ead259961837c21d7f"
+      },
+      {
+        "name": "cross-category-request",
+        "replacements": [
+          [
+            " || !bytes.Equal(pairs[j].Before.Request, pair.Before.Request)",
+            ""
+          ]
+        ],
+        "command": [
+          "/Users/dsteele/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.25.13.darwin-arm64/bin/go",
+          "test",
+          "./...",
+          "-run",
+          "^TestWriteResultCrossCategoryExactRequest$",
+          "-count=1"
+        ],
+        "intended_assertion": "oracle_test.go:3350: invalid write/result correspondence accepted",
+        "expected_occurrences": 3,
+        "exit": 1,
+        "actual_occurrences": 3,
+        "log": "/tmp/c5b19-g3a11-mutant-cross-category-request.log",
+        "sha256": "338741f1d720447ed991a4b549ae5e82ac97efa1270391d32099ffc44f0102d6"
+      },
+      {
+        "name": "category-frame-length",
+        "replacements": [
+          [
+            "length = 98",
+            "length = 397"
+          ]
+        ],
+        "command": [
+          "/Users/dsteele/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.25.13.darwin-arm64/bin/go",
+          "test",
+          "./...",
+          "-run",
+          "^TestWriteResultSignedDiagnostics$/kind5$/result98$/errno0$",
+          "-count=1"
+        ],
+        "intended_assertion": "oracle_test.go:3153: raw diagnostic or category count changed",
+        "expected_occurrences": 1,
+        "exit": 1,
+        "actual_occurrences": 1,
+        "log": "/tmp/c5b19-g3a11-mutant-category-frame-length.log",
+        "sha256": "0e2c87631fab1c1540f78e385c6dcd3fea9e2ad2402e58560793644e4892e879"
+      },
+      {
+        "name": "errno-dependent-exact-count",
+        "replacements": [
+          [
+            "ExactFrameCount: after.SyscallResult == length",
+            "ExactFrameCount: after.SyscallResult == length && after.Errno == 0"
+          ]
+        ],
+        "command": [
+          "/Users/dsteele/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.25.13.darwin-arm64/bin/go",
+          "test",
+          "./...",
+          "-run",
+          "^TestWriteResultSignedDiagnostics$/kind3$/result397$/errno-1$",
+          "-count=1"
+        ],
+        "intended_assertion": "oracle_test.go:3153: raw diagnostic or category count changed",
+        "expected_occurrences": 1,
+        "exit": 1,
+        "actual_occurrences": 1,
+        "log": "/tmp/c5b19-g3a11-mutant-errno-dependent-exact-count.log",
+        "sha256": "ec4a39fbe2c36916e0828f9df8cdc947e9a362a6ab328c7bd4bc9acf2875ad99"
+      },
+      {
+        "name": "normalized-errno",
+        "replacements": [
+          [
+            "Errno: after.Errno",
+            "Errno: 0"
+          ]
+        ],
+        "command": [
+          "/Users/dsteele/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.25.13.darwin-arm64/bin/go",
+          "test",
+          "./...",
+          "-run",
+          "^TestWriteResultSignedDiagnostics$/kind5$/result-1$/errno-1$",
+          "-count=1"
+        ],
+        "intended_assertion": "oracle_test.go:3153: raw diagnostic or category count changed",
+        "expected_occurrences": 1,
+        "exit": 1,
+        "actual_occurrences": 1,
+        "log": "/tmp/c5b19-g3a11-mutant-normalized-errno.log",
+        "sha256": "92d9a14d31dbc661522dffd25c89616a2080945e049fd4b62d347320c546d7bd"
+      },
+      {
+        "name": "normalized-result",
+        "replacements": [
+          [
+            "Result: after.SyscallResult",
+            "Result: 0"
+          ]
+        ],
+        "command": [
+          "/Users/dsteele/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.25.13.darwin-arm64/bin/go",
+          "test",
+          "./...",
+          "-run",
+          "^TestWriteResultSignedDiagnostics$/kind5$/result-1$/errno0$",
+          "-count=1"
+        ],
+        "intended_assertion": "oracle_test.go:3153: raw diagnostic or category count changed",
+        "expected_occurrences": 1,
+        "exit": 1,
+        "actual_occurrences": 1,
+        "log": "/tmp/c5b19-g3a11-mutant-normalized-result.log",
+        "sha256": "220f1c69d2a617e5c1362d771fa71c6d10ede8769a1fea75dd97f8ea2b5e6a9d"
+      },
+      {
+        "name": "empty-timebase",
+        "replacements": [
+          [
+            " || numer == 0 || denom == 0",
+            ""
+          ]
+        ],
+        "command": [
+          "/Users/dsteele/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.25.13.darwin-arm64/bin/go",
+          "test",
+          "./...",
+          "-run",
+          "^TestWriteResultContextAndPartialSelection$",
+          "-count=1"
+        ],
+        "intended_assertion": "oracle_test.go:3120: invalid empty context accepted",
+        "expected_occurrences": 1,
+        "exit": 1,
+        "actual_occurrences": 1,
+        "log": "/tmp/c5b19-g3a11-mutant-empty-timebase.log",
+        "sha256": "4e0be6d746dd54d9c93fb7876de59f91e513cc3ec62bb5aebc25f4006b5e1ab8"
+      },
+      {
+        "name": "partial-result-on-error",
+        "replacements": [
+          [
+            "before.Outcome != after.Outcome || before.RecordDigest != after.RecordDigest {\n\t\t\treturn writeResultCorrespondence{}, errWriteResult",
+            "before.Outcome != after.Outcome || before.RecordDigest != after.RecordDigest {\n\t\t\treturn result, errWriteResult"
+          ]
+        ],
+        "command": [
+          "/Users/dsteele/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.25.13.darwin-arm64/bin/go",
+          "test",
+          "./...",
+          "-run",
+          "^TestWriteResultCollectionBoundsAndOrdering$/late-invalid$",
+          "-count=1"
+        ],
+        "intended_assertion": "oracle_test.go:3329: write/result refusal returned partial evidence",
+        "expected_occurrences": 1,
+        "exit": 1,
+        "actual_occurrences": 1,
+        "log": "/tmp/c5b19-g3a11-mutant-partial-result-on-error.log",
+        "sha256": "dd92dd8b14aaa36232a6ff494a821a8f2dfb9e8ad1f7153b4da278b614c5a94a"
+      }
+    ],
+    "invalid_mutation_constructions": [],
+    "mutation_driver_sha256": "8a08b5ae5414b69be92c404045ac2e008df5dc351d7554422bfb6a8aed3dd888",
+    "mutation_note": "Every selected mutant compiled and reached its exact intended assertion count after valid setup; no construction failure, panic, setup failure or survivor. Redundant cap guards were not isolated by weakening other safeguards. Every attempt restored exact original source in finally.",
+    "limits": [
+      "Raw signed result/errno diagnostic validity is not syscall realizability or success; ExactFrameCount is numerical equality independent of errno, with no FullWrite/Success verdict",
+      "No inter-pair lane ordering or sequence uniqueness, cross-lane chronology, omitted-event detection or full stream/case verdict; only each supplied local pair sequence/tick relationship",
+      "No worker receipt, control application, durable settlement, real transport, live store/clock/lifecycle, retry or execution authority",
+      "Total/category caps overlap with three unique operations and duplicate category/op refusal; no isolated redundant-cap necessity or exhaustive mutation claim",
+      "Child execution, Gates4\u20136 and product admission remain BLOCKED; future supplied lane consistency and producer syscall normalization require separate scope"
+    ],
+    "review_report_sha256": "8cc9291674610ac9f2f97a571186c6796e1b82edec88e6cf9c97b1f1f135bea6"
   }
 }

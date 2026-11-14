@@ -3069,3 +3069,338 @@ func TestWorkerSidecarRefusalPreservesSuppliedBytes(t *testing.T) {
 		}
 	}
 }
+
+// G3a11 transcribes result slots independently of the correspondence query.
+func writeResultFixture(t *testing.T, kind uint16, request []byte, outcome byte, result, errno int32) writeResultPair {
+	t.Helper()
+	before := capturedPairFixture(t, kind, request, outcome)
+	binary.BigEndian.PutUint64(before.Event[8:16], 0)
+	binary.BigEndian.PutUint64(before.Event[16:24], 5)
+	after := bytes.Clone(before.Event)
+	binary.BigEndian.PutUint16(after[6:8], kind+1)
+	binary.BigEndian.PutUint64(after[8:16], 8)
+	binary.BigEndian.PutUint32(after[164:168], uint32(result))
+	binary.BigEndian.PutUint32(after[168:172], uint32(errno))
+	return writeResultPair{Before: before, Result: after}
+}
+
+func inspectWriteResultFixture(t *testing.T, pairs []writeResultPair) writeResultCorrespondence {
+	t.Helper()
+	got, err := inspectWriteResults(pairs, obligationFixture(), 125, 3)
+	if err != nil {
+		t.Fatal("valid write/result correspondence refused", err)
+	}
+	return got
+}
+
+func refuseWriteResultFixture(t *testing.T, pairs []writeResultPair) {
+	t.Helper()
+	got, err := inspectWriteResults(pairs, obligationFixture(), 125, 3)
+	if err == nil {
+		t.Fatal("invalid write/result correspondence accepted")
+	}
+	if got != (writeResultCorrespondence{}) {
+		t.Fatal("write/result refusal returned partial evidence")
+	}
+}
+
+func TestWriteResultContextAndPartialSelection(t *testing.T) {
+	for _, pairs := range [][]writeResultPair{nil, {}} {
+		if got := inspectWriteResultFixture(t, pairs); got != (writeResultCorrespondence{}) {
+			t.Fatal("empty selection fabricated evidence")
+		}
+		bad := obligationFixture()
+		bad.Preparation = [16]byte{}
+		for _, context := range []struct {
+			bindings obligationBindings
+			n, d     uint32
+		}{{bad, 125, 3}, {obligationFixture(), 0, 3}, {obligationFixture(), 125, 0}} {
+			got, err := inspectWriteResults(pairs, context.bindings, context.n, context.d)
+			if err == nil || got != (writeResultCorrespondence{}) {
+				t.Fatal("invalid empty context accepted")
+			}
+		}
+	}
+	request := wireBytes(t, requestVector)
+	for _, kind := range []uint16{3, 5} {
+		for _, outcome := range []byte{1, 2, 3} {
+			length := int32(397)
+			if kind == 5 {
+				length = 98
+			}
+			pair := writeResultFixture(t, kind, request, outcome, length, -1)
+			got := inspectWriteResultFixture(t, []writeResultPair{pair})
+			if got.Count != 1 || got.Entries[0].Kind != kind || got.Entries[0].Operation.Operation != obligationFixture().Preparation || got.Entries[0].Result != length || got.Entries[0].Errno != -1 || !got.Entries[0].ExactFrameCount || got.Entries[1] != (writeResultFacts{}) {
+				t.Fatal("wrong partial write/result facts", got)
+			}
+		}
+	}
+}
+
+func TestWriteResultSignedDiagnostics(t *testing.T) {
+	request := wireBytes(t, requestVector)
+	for _, kind := range []uint16{3, 5} {
+		length := int32(397)
+		if kind == 5 {
+			length = 98
+		}
+		for _, result := range []int32{-1 << 31, -2, -1, 0, 1, length - 1, length, length + 1, 98, 397, 1<<31 - 1} {
+			for _, errno := range []int32{-1 << 31, -1, 0, 1, 1<<31 - 1} {
+				t.Run(fmt.Sprintf("kind%d/result%d/errno%d", kind, result, errno), func(t *testing.T) {
+					pair := writeResultFixture(t, kind, request, 2, result, errno)
+					got := inspectWriteResultFixture(t, []writeResultPair{pair}).Entries[0]
+					if got.Result != result || got.Errno != errno || got.ExactFrameCount != (result == length) {
+						t.Fatal("raw diagnostic or category count changed", got)
+					}
+				})
+			}
+		}
+	}
+}
+
+func TestWriteResultValidTupleSubstitutions(t *testing.T) {
+	for _, kind := range []uint16{3, 5} {
+		for _, field := range []string{"operation", "generation", "request", "candidate", "outcome", "record"} {
+			if kind == 3 && (field == "outcome" || field == "record") {
+				continue
+			}
+			t.Run(fmt.Sprintf("kind%d/%s", kind, field), func(t *testing.T) {
+				pair := writeResultFixture(t, kind, wireBytes(t, requestVector), 2, -1, 22)
+				switch field {
+				case "operation":
+					pair.Result[72] ^= 1
+				case "generation":
+					binary.BigEndian.PutUint64(pair.Result[88:96], 2)
+				case "request":
+					pair.Result[96] ^= 1
+				case "candidate":
+					pair.Result[214] ^= 1
+				case "outcome":
+					pair.Result[180] = 3
+				case "record":
+					pair = writeResultFixture(t, kind, wireBytes(t, requestVector), 1, -1, 22)
+					pair.Result[182] ^= 1
+				}
+				if err := validateCapturedFrame(pair.Before, obligationFixture(), 125, 3); err != nil {
+					t.Fatal("substitution pre-event malformed", err)
+				}
+				if _, err := decodeEventFields(pair.Result, obligationFixture(), 125, 3); err != nil {
+					t.Fatal("substitution result malformed", err)
+				}
+				refuseWriteResultFixture(t, []writeResultPair{pair})
+			})
+		}
+	}
+}
+
+func TestWriteResultKindsAndMalformedMembers(t *testing.T) {
+	request := wireBytes(t, requestVector)
+	for _, kind := range []uint16{3, 5} {
+		for _, field := range []string{"pre-kind", "result-kind", "pre-short", "result-short", "pre-long", "result-long", "request-short", "reply-short", "pre-lane", "result-lane", "binding", "timebase", "reserved", "forbidden", "missing-pre", "missing-result"} {
+			if kind == 3 && field == "reply-short" {
+				continue
+			}
+			t.Run(fmt.Sprintf("kind%d/%s", kind, field), func(t *testing.T) {
+				pair := writeResultFixture(t, kind, request, 2, 0, 0)
+				switch field {
+				case "pre-kind":
+					pair.Before = capturedPairFixture(t, 7, request, 2)
+					binary.BigEndian.PutUint64(pair.Before.Event[8:16], 0)
+				case "result-kind":
+					binary.BigEndian.PutUint16(pair.Result[6:8], kind)
+				case "pre-short":
+					pair.Before.Event = pair.Before.Event[:255]
+				case "result-short":
+					pair.Result = pair.Result[:255]
+				case "pre-long":
+					pair.Before.Event = append(pair.Before.Event, 0)
+				case "result-long":
+					pair.Result = append(pair.Result, 0)
+				case "request-short":
+					pair.Before.Request = pair.Before.Request[:396]
+				case "reply-short":
+					pair.Before.Reply = pair.Before.Reply[:97]
+				case "pre-lane":
+					pair.Before.Event[5] = 3
+				case "result-lane":
+					pair.Result[5] = 3
+				case "binding":
+					pair.Result[40] ^= 1
+				case "timebase":
+					binary.BigEndian.PutUint32(pair.Result[32:36], 124)
+				case "reserved":
+					pair.Result[255] = 1
+				case "forbidden":
+					pair.Result[128] = 1
+				case "missing-pre":
+					pair.Before = capturedFramePair{}
+				case "missing-result":
+					pair.Result = nil
+				}
+				if field == "result-kind" || field == "pre-kind" {
+					if err := validateCapturedFrame(pair.Before, obligationFixture(), 125, 3); err != nil {
+						t.Fatal("wrong-kind pre fixture malformed", err)
+					}
+					if _, err := decodeEventFields(pair.Result, obligationFixture(), 125, 3); err != nil {
+						t.Fatal("wrong-kind result fixture malformed", err)
+					}
+				}
+				refuseWriteResultFixture(t, []writeResultPair{pair})
+			})
+		}
+	}
+}
+
+func TestWriteResultLocalChronology(t *testing.T) {
+	for _, kind := range []uint16{3, 5} {
+		for _, tc := range []struct {
+			name                                   string
+			preSeq, resultSeq, preTick, resultTick uint64
+			valid                                  bool
+		}{
+			{"same-tick", 0, 1, 0, 0, true}, {"gap", 1, 100, 0, 5, true}, {"max", ^uint64(0) - 1, ^uint64(0), ^uint64(0), ^uint64(0), true},
+			{"equal-sequence", 5, 5, 1, 1, false}, {"reversed-sequence", 6, 5, 1, 2, false}, {"wrapped-sequence", ^uint64(0), 0, 0, 1, false}, {"regressed-tick", 0, 1, 6, 5, false}, {"wrapped-tick", 0, 1, ^uint64(0), 0, false},
+		} {
+			t.Run(fmt.Sprintf("kind%d/%s", kind, tc.name), func(t *testing.T) {
+				pair := writeResultFixture(t, kind, wireBytes(t, requestVector), 1, 0, 0)
+				binary.BigEndian.PutUint64(pair.Before.Event[8:16], tc.preSeq)
+				binary.BigEndian.PutUint64(pair.Result[8:16], tc.resultSeq)
+				binary.BigEndian.PutUint64(pair.Before.Event[16:24], tc.preTick)
+				binary.BigEndian.PutUint64(pair.Result[16:24], tc.resultTick)
+				if tc.valid {
+					inspectWriteResultFixture(t, []writeResultPair{pair})
+				} else {
+					refuseWriteResultFixture(t, []writeResultPair{pair})
+				}
+			})
+		}
+	}
+}
+
+func TestWriteResultCollectionBoundsAndOrdering(t *testing.T) {
+	requests := [][]byte{wireBytes(t, requestVector), operationRequest(t, 2, true, 0), operationRequest(t, 3, true, 1)}
+	requests[2][280] = 13
+	binary.BigEndian.PutUint64(requests[2][296:304], 3)
+	var pairs []writeResultPair
+	for _, request := range requests {
+		for _, kind := range []uint16{3, 5} {
+			pair := writeResultFixture(t, kind, request, 2, 17, -2)
+			// Identical per-lane indices across pairs deliberately carry no full-stream claim.
+			if kind == 5 {
+				binary.BigEndian.PutUint64(pair.Before.Event[16:24], 999)
+				binary.BigEndian.PutUint64(pair.Result[16:24], 999)
+			}
+			pairs = append(pairs, pair)
+		}
+	}
+	for _, order := range [][6]int{{0, 1, 2, 3, 4, 5}, {5, 2, 1, 4, 3, 0}} {
+		var selected []writeResultPair
+		for _, i := range order {
+			selected = append(selected, pairs[i])
+		}
+		got := inspectWriteResultFixture(t, selected)
+		if got.Count != 6 {
+			t.Fatal("full bounded selection lost entries", got)
+		}
+		for i, index := range order {
+			if got.Entries[i].Kind != []uint16{3, 5}[index%2] || got.Entries[i].Operation.Generation != uint64(index/2+1) {
+				t.Fatal("selection order changed", got)
+			}
+		}
+	}
+	inspectWriteResultFixture(t, []writeResultPair{pairs[0], pairs[2], pairs[4]})
+	inspectWriteResultFixture(t, []writeResultPair{pairs[1], pairs[3], pairs[5]})
+	t.Run("duplicate", func(t *testing.T) { refuseWriteResultFixture(t, []writeResultPair{pairs[0], pairs[0]}) })
+	t.Run("duplicate-different-result", func(t *testing.T) {
+		other := writeResultFixture(t, 3, requests[0], 0, -1, 22)
+		refuseWriteResultFixture(t, []writeResultPair{pairs[0], other})
+	})
+	refuseWriteResultFixture(t, append(append([]writeResultPair{}, pairs...), pairs[0]))
+	fourth := bytes.Clone(requests[2])
+	fourth[280] = 14
+	binary.BigEndian.PutUint64(fourth[296:304], 4)
+	t.Run("four-operations", func(t *testing.T) {
+		refuseWriteResultFixture(t, []writeResultPair{pairs[0], pairs[3], pairs[4], writeResultFixture(t, 5, fourth, 2, 0, 0)})
+	})
+	refuseWriteResultFixture(t, []writeResultPair{pairs[0], pairs[2], pairs[4], writeResultFixture(t, 3, fourth, 0, 0, 0)})
+	t.Run("late-invalid", func(t *testing.T) {
+		bad := writeResultFixture(t, 5, requests[1], 1, 0, 0)
+		bad.Result[72] ^= 1
+		refuseWriteResultFixture(t, []writeResultPair{pairs[0], bad})
+	})
+}
+
+func TestWriteResultCrossCategoryExactRequest(t *testing.T) {
+	request := operationRequest(t, 2, true, 0)
+	for _, field := range []string{"generation", "candidate", "kind"} {
+		t.Run(field, func(t *testing.T) {
+			other := bytes.Clone(request)
+			switch field {
+			case "generation":
+				binary.BigEndian.PutUint64(other[296:304], 3)
+			case "candidate":
+				other[307] ^= 1
+			case "kind":
+				other = operationRequest(t, 3, false, 1)
+			}
+			left := writeResultFixture(t, 3, request, 0, 397, 0)
+			right := writeResultFixture(t, 5, other, 2, 98, 0)
+			inspectWriteResultFixture(t, []writeResultPair{left})
+			inspectWriteResultFixture(t, []writeResultPair{right})
+			refuseWriteResultFixture(t, []writeResultPair{left, right})
+		})
+	}
+}
+
+func TestWriteResultOwnedFactsAndInputPreservation(t *testing.T) {
+	request := wireBytes(t, requestVector)
+	pair := writeResultFixture(t, 5, request, 1, 98, -1)
+	raw := [][]byte{pair.Before.Event, pair.Before.Request, pair.Before.Reply, pair.Result}
+	copies := make([][]byte, len(raw))
+	for i := range raw {
+		copies[i] = bytes.Clone(raw[i])
+	}
+	got := inspectWriteResultFixture(t, []writeResultPair{pair})
+	saved := got
+	for i := range raw {
+		if !bytes.Equal(raw[i], copies[i]) {
+			t.Fatal("write/result success mutated supplied input")
+		}
+		raw[i][0] ^= 1
+	}
+	if got != saved {
+		t.Fatal("write/result facts alias input")
+	}
+	badCopies := make([][]byte, len(raw))
+	for i := range raw {
+		badCopies[i] = bytes.Clone(raw[i])
+	}
+	refuseWriteResultFixture(t, []writeResultPair{pair})
+	for i := range raw {
+		if !bytes.Equal(raw[i], badCopies[i]) {
+			t.Fatal("write/result refusal mutated supplied input")
+		}
+	}
+	got.Entries[0].Operation.Candidate[0] = 9
+	got.Entries[0].Errno = 4
+	fresh := writeResultFixture(t, 5, request, 1, 98, -1)
+	if again := inspectWriteResultFixture(t, []writeResultPair{fresh}); again != saved {
+		t.Fatal("write/result facts retained mutable state", again)
+	}
+}
+
+func TestWriteResultCopiedOperationFacts(t *testing.T) {
+	for _, request := range [][]byte{wireBytes(t, requestVector), operationRequest(t, 2, true, 0), operationRequest(t, 3, false, 2)} {
+		want, err := decodeRequest(request, obligationFixture())
+		if err != nil {
+			t.Fatal("operation fact fixture malformed", err)
+		}
+		for _, kind := range []uint16{3, 5} {
+			pair := writeResultFixture(t, kind, request, 3, -2, 1<<31-1)
+			got := inspectWriteResultFixture(t, []writeResultPair{pair}).Entries[0]
+			if got != (writeResultFacts{Kind: kind, Operation: want, Result: -2, Errno: 1<<31 - 1}) {
+				t.Fatal("copied operation facts differ from supplied request", got)
+			}
+		}
+	}
+}
