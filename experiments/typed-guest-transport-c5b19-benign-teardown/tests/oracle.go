@@ -772,3 +772,101 @@ func validateReceivedAppliedPairs(pairs []receivedAppliedPair, frozen obligation
 	}
 	return nil
 }
+
+var errDecisionHistory = errors.New("C5B19_DECISION_HISTORY")
+
+// decisionHistorySnapshot describes only supplied inert history. Fatal is the
+// packet's rejection-derived latch, not full control state or execution authority.
+type decisionHistorySnapshot struct {
+	History   writeHistorySnapshot
+	Fatal     bool
+	Decisions uint8
+}
+
+// decisionHistory reconciles serial kind3 and whole kind7/8 action groups. A
+// begin interleaved between receive and apply is an unsupported selection, not
+// proof that its full trace is invalid. No slices, external history, clocks,
+// stores or native effects are retained; missing events cannot be detected here.
+type decisionHistory struct {
+	initialized    bool
+	history        writeHistory
+	numer, denom   uint32
+	fatal          bool
+	decisions      uint8
+	hasWatermark   bool
+	sequence, tick uint64
+}
+
+func newDecisionHistory(frozen obligationBindings, numer, denom uint32) (*decisionHistory, error) {
+	history, err := newWriteHistory(frozen)
+	if err != nil || numer == 0 || denom == 0 {
+		return nil, errDecisionHistory
+	}
+	return &decisionHistory{initialized: true, history: *history, numer: numer, denom: denom}, nil
+}
+
+func (h *decisionHistory) snapshot() decisionHistorySnapshot {
+	if h == nil {
+		return decisionHistorySnapshot{}
+	}
+	return decisionHistorySnapshot{History: h.history.snapshot(), Fatal: h.fatal, Decisions: h.decisions}
+}
+
+// begin records an already supplied history candidate. Even after modeled fatal,
+// acceptance supplies no permission to submit, create, start or publish. Actual
+// stop/fatal admission needs control state that this bounded oracle does not have.
+func (h *decisionHistory) begin(pair capturedFramePair) error {
+	if h == nil || !h.initialized {
+		return errDecisionHistory
+	}
+	if err := validateCapturedFrame(pair, h.history.frozen, h.numer, h.denom); err != nil {
+		return errDecisionHistory
+	}
+	event, _ := decodeEventFields(pair.Event, h.history.frozen, h.numer, h.denom)
+	if event.Kind != 3 || (h.hasWatermark && (event.Sequence <= h.sequence || event.Tick < h.tick)) {
+		return errDecisionHistory
+	}
+	trial := *h
+	if err := trial.history.begin(pair.Request); err != nil {
+		return errDecisionHistory
+	}
+	trial.hasWatermark, trial.sequence, trial.tick = true, event.Sequence, event.Tick
+	*h = trial
+	return nil
+}
+
+// reconcile distinguishes invalid evidence (atomic refusal) from valid evidence
+// representing code2 rejection (unchanged history, monotonically latched fatal).
+// The individual G3a7 validator permits fresh-ordinal duplicate/stale rejection;
+// the separate collection API's no-reused-operation rule does not apply here.
+// Strict framing intentionally excludes malformed rejected-frame diagnostics.
+func (h *decisionHistory) reconcile(pair receivedAppliedPair) error {
+	if h == nil || !h.initialized || h.decisions >= 3 {
+		return errDecisionHistory
+	}
+	if err := validateReceivedApplied(pair, h.history.frozen, h.numer, h.denom); err != nil {
+		return errDecisionHistory
+	}
+	received, _ := decodeEventFields(pair.Received.Event, h.history.frozen, h.numer, h.denom)
+	applied, _ := decodeEventFields(pair.Applied, h.history.frozen, h.numer, h.denom)
+	if h.hasWatermark && (received.Sequence <= h.sequence || received.Tick < h.tick) {
+		return errDecisionHistory
+	}
+	trial := *h
+	expected := byte(2)
+	if trial.history.state.Pending && bytes.Equal(pair.Received.Request, trial.history.pendingRequest[:]) {
+		if err := trial.history.applyReply(pair.Received.Reply); err == nil {
+			expected = 1
+		}
+	}
+	if applied.ApplicationResult != expected {
+		return errDecisionHistory
+	}
+	if expected == 2 {
+		trial.fatal = true
+	}
+	trial.decisions++
+	trial.hasWatermark, trial.sequence, trial.tick = true, applied.Sequence, applied.Tick
+	*h = trial
+	return nil
+}

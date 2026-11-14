@@ -1767,3 +1767,400 @@ func TestReceivedAppliedNonmutationAndOptIn(t *testing.T) {
 		t.Fatal("prior sidecar contract changed", err)
 	}
 }
+
+// G3a8 uses only inert, independently encoded request/event fixtures.
+func decisionBeginFixture(t *testing.T, request []byte, sequence, tick uint64) capturedFramePair {
+	t.Helper()
+	pair := capturedPairFixture(t, 3, request, 0)
+	binary.BigEndian.PutUint64(pair.Event[8:16], sequence)
+	binary.BigEndian.PutUint64(pair.Event[16:24], tick)
+	return pair
+}
+
+func decisionPairFixture(t *testing.T, request []byte, outcome, decision byte, sequence, tick uint64) receivedAppliedPair {
+	t.Helper()
+	pair := receivedAppliedFixture(t, request, outcome, decision, sequence)
+	binary.BigEndian.PutUint64(pair.Received.Event[16:24], tick)
+	binary.BigEndian.PutUint64(pair.Applied[16:24], tick)
+	return pair
+}
+
+func decisionFixture(t *testing.T) *decisionHistory {
+	t.Helper()
+	h, err := newDecisionHistory(obligationFixture(), 125, 3)
+	if err != nil {
+		t.Fatal(err)
+	}
+	return h
+}
+
+func requireDecisionRefusal(t *testing.T, h *decisionHistory, action func() error) {
+	t.Helper()
+	before := *h
+	if action() == nil {
+		t.Fatal("invalid decision history accepted")
+	}
+	if *h != before {
+		t.Fatal("refusal mutated private state")
+	}
+}
+
+func TestDecisionHistorySettlements(t *testing.T) {
+	for _, outcome := range []byte{1, 2, 3} {
+		t.Run(fmt.Sprint(outcome), func(t *testing.T) {
+			h := decisionFixture(t)
+			prep := wireBytes(t, requestVector)
+			runner := operationRequest(t, 2, true, 0)
+			terminal := operationRequest(t, 3, outcome == 1, 1)
+			terminal[280] = 13
+			binary.BigEndian.PutUint64(terminal[296:304], 3)
+			for i, request := range [][]byte{prep, runner, terminal} {
+				if err := h.begin(decisionBeginFixture(t, request, uint64(i*3), 0)); err != nil {
+					t.Fatal(i, err)
+				}
+				if !h.snapshot().History.Pending {
+					t.Fatal("begin did not record pending")
+				}
+				settledOutcome := byte(1)
+				if i == 1 {
+					settledOutcome = outcome
+				}
+				if err := h.reconcile(decisionPairFixture(t, request, settledOutcome, 1, uint64(i*3+1), 0)); err != nil {
+					t.Fatal(i, err)
+				}
+				got := h.snapshot()
+				expected := [68]byte(request[305:373])
+				if i == 1 && outcome != 1 {
+					expected = [68]byte(prep[305:373])
+				}
+				if got.History.Pending || !got.History.LastSettledPresent || got.History.LastSettled.Outcome != settledOutcome || got.History.Confirmed != expected || got.Fatal || got.Decisions != uint8(i+1) {
+					t.Fatalf("wrong settlement: %+v", got)
+				}
+			}
+		})
+	}
+	// Existing history supports a direct preparation-to-terminal selection.
+	h := decisionFixture(t)
+	prep := wireBytes(t, requestVector)
+	if err := h.begin(decisionBeginFixture(t, prep, 0, 0)); err != nil {
+		t.Fatal(err)
+	}
+	if err := h.reconcile(decisionPairFixture(t, prep, 1, 1, 1, 0)); err != nil {
+		t.Fatal(err)
+	}
+	terminal := operationRequest(t, 3, false, 1)
+	if err := h.begin(decisionBeginFixture(t, terminal, 3, 0)); err != nil {
+		t.Fatal(err)
+	}
+	if err := h.reconcile(decisionPairFixture(t, terminal, 1, 1, 4, 0)); err != nil {
+		t.Fatal(err)
+	}
+}
+
+func TestDecisionHistoryWrongDecisionsAtomic(t *testing.T) {
+	prep := wireBytes(t, requestVector)
+	h := decisionFixture(t)
+	requireDecisionRefusal(t, h, func() error { return h.reconcile(decisionPairFixture(t, prep, 1, 1, 0, 0)) })
+	if err := h.begin(decisionBeginFixture(t, prep, 0, 0)); err != nil {
+		t.Fatal(err)
+	}
+	requireDecisionRefusal(t, h, func() error { return h.reconcile(decisionPairFixture(t, prep, 1, 2, 1, 0)) })
+	if err := h.reconcile(decisionPairFixture(t, prep, 1, 1, 1, 0)); err != nil {
+		t.Fatal("refusal consumed ordinal or budget", err)
+	}
+}
+
+func TestDecisionHistoryMismatchedAnchorsAndLateSettlement(t *testing.T) {
+	for _, substitution := range []string{"operation", "generation", "kind", "candidate"} {
+		for _, outcome := range []byte{1, 2, 3} {
+			t.Run(fmt.Sprint(substitution, outcome), func(t *testing.T) {
+				h := decisionFixture(t)
+				prep := wireBytes(t, requestVector)
+				if err := h.begin(decisionBeginFixture(t, prep, 0, 0)); err != nil {
+					t.Fatal(err)
+				}
+				if err := h.reconcile(decisionPairFixture(t, prep, 1, 1, 1, 0)); err != nil {
+					t.Fatal(err)
+				}
+				runner := operationRequest(t, 2, true, 0)
+				if err := h.begin(decisionBeginFixture(t, runner, 3, 0)); err != nil {
+					t.Fatal(err)
+				}
+				other := bytes.Clone(runner)
+				switch substitution {
+				case "operation":
+					other[280] ^= 1
+				case "generation":
+					binary.BigEndian.PutUint64(other[296:304], 3)
+				case "kind":
+					other = operationRequest(t, 3, false, 1)
+				case "candidate":
+					other[307] ^= 1
+				}
+				pair := decisionPairFixture(t, other, 1, 2, 4, 0)
+				if err := validateReceivedApplied(pair, obligationFixture(), 125, 3); err != nil {
+					t.Fatal("mismatch fixture malformed", err)
+				}
+				pair.Applied[181] = 1
+				requireDecisionRefusal(t, h, func() error { return h.reconcile(pair) })
+				pair.Applied[181] = 2
+				before := h.history
+				if err := h.reconcile(pair); err != nil {
+					t.Fatal(err)
+				}
+				if h.history != before || !h.snapshot().Fatal {
+					t.Fatal("rejection changed history or failed to latch fatal")
+				}
+				requireDecisionRefusal(t, h, func() error { return h.reconcile(pair) })
+				if err := h.reconcile(decisionPairFixture(t, runner, outcome, 1, 6, 0)); err != nil {
+					t.Fatal(err)
+				}
+				got := h.snapshot()
+				expected := [68]byte(prep[305:373])
+				if outcome == 1 {
+					expected = [68]byte(runner[305:373])
+				}
+				if !got.Fatal || got.History.Pending || got.History.Confirmed != expected || got.History.LastSettled.Outcome != outcome {
+					t.Fatal("late settlement changed latch or projection", got)
+				}
+			})
+		}
+	}
+}
+
+func TestDecisionHistoryDuplicateStaleAndHistoryOnlyAfterFatal(t *testing.T) {
+	prep := wireBytes(t, requestVector)
+	h := decisionFixture(t)
+	if err := h.begin(decisionBeginFixture(t, prep, 0, 0)); err != nil {
+		t.Fatal(err)
+	}
+	if err := h.reconcile(decisionPairFixture(t, prep, 1, 1, 1, 0)); err != nil {
+		t.Fatal(err)
+	}
+	before := h.history
+	requireDecisionRefusal(t, h, func() error { return h.reconcile(decisionPairFixture(t, prep, 1, 1, 3, 0)) })
+	if err := h.reconcile(decisionPairFixture(t, prep, 1, 2, 3, 0)); err != nil {
+		t.Fatal(err)
+	}
+	if h.history != before || !h.snapshot().Fatal {
+		t.Fatal("duplicate rejection changed history")
+	}
+	// This merely records history. It does not admit a real post-fatal submission.
+	runner := operationRequest(t, 2, true, 0)
+	if err := h.begin(decisionBeginFixture(t, runner, 5, 0)); err != nil {
+		t.Fatal("history-only begin after fatal", err)
+	}
+	before = h.history
+	if err := h.reconcile(decisionPairFixture(t, prep, 1, 2, 6, 0)); err != nil {
+		t.Fatal(err)
+	}
+	if h.history != before || !h.snapshot().Fatal {
+		t.Fatal("stale rejection changed pending history")
+	}
+}
+
+func TestDecisionHistoryBoundedRejections(t *testing.T) {
+	h := decisionFixture(t)
+	prep := wireBytes(t, requestVector)
+	for i := uint64(0); i < 3; i++ {
+		pair := decisionPairFixture(t, prep, 1, 2, i*2, 0)
+		before := h.history
+		if err := h.reconcile(pair); err != nil {
+			t.Fatal(err)
+		}
+		if h.history != before || !h.snapshot().Fatal || h.snapshot().Decisions != uint8(i+1) {
+			t.Fatal("wrong rejection effect")
+		}
+	}
+	requireDecisionRefusal(t, h, func() error { return h.reconcile(decisionPairFixture(t, prep, 1, 2, 6, 0)) })
+}
+
+func TestDecisionHistoryMalformedAndContext(t *testing.T) {
+	for _, context := range []struct {
+		bindings     obligationBindings
+		numer, denom uint32
+	}{{obligationBindings{}, 125, 3}, {obligationFixture(), 0, 3}, {obligationFixture(), 125, 0}} {
+		if _, err := newDecisionHistory(context.bindings, context.numer, context.denom); err == nil {
+			t.Fatal("invalid constructor context accepted")
+		}
+	}
+	prep := wireBytes(t, requestVector)
+	for _, h := range []*decisionHistory{nil, {}} {
+		if h.begin(decisionBeginFixture(t, prep, 0, 0)) == nil || h.reconcile(decisionPairFixture(t, prep, 1, 2, 1, 0)) == nil {
+			t.Fatal("uninitialized history accepted")
+		}
+	}
+	for _, mutation := range []string{"request", "reply", "received", "applied", "outcome", "record", "decision", "kind", "clock-policy"} {
+		h := decisionFixture(t)
+		if err := h.begin(decisionBeginFixture(t, prep, 0, 0)); err != nil {
+			t.Fatal(err)
+		}
+		pair := decisionPairFixture(t, prep, 1, 1, 1, 0)
+		switch mutation {
+		case "clock-policy":
+			pair.Received.Request[380] ^= 1
+			setWireObligation(pair.Received.Request)
+		case "request":
+			pair.Received.Request = nil
+		case "reply":
+			pair.Received.Reply = nil
+		case "received":
+			pair.Received.Event = nil
+		case "applied":
+			pair.Applied = nil
+		case "outcome":
+			pair.Applied[180] = 2
+		case "record":
+			pair.Received.Reply[66] ^= 1
+		case "decision":
+			pair.Applied[181] = 0
+		case "kind":
+			binary.BigEndian.PutUint16(pair.Received.Event[6:8], 5)
+		}
+		requireDecisionRefusal(t, h, func() error { return h.reconcile(pair) })
+		if err := h.reconcile(decisionPairFixture(t, prep, 1, 1, 1, 0)); err != nil {
+			t.Fatal("bad evidence consumed ordinal", mutation, err)
+		}
+	}
+	h := decisionFixture(t)
+	bad := decisionBeginFixture(t, prep, 0, 0)
+	bad.Event[96] ^= 1
+	requireDecisionRefusal(t, h, func() error { return h.begin(bad) })
+	wrongKind := capturedPairFixture(t, 7, prep, 1)
+	requireDecisionRefusal(t, h, func() error { return h.begin(wrongKind) })
+	if err := h.begin(decisionBeginFixture(t, prep, 0, 0)); err != nil {
+		t.Fatal(err)
+	}
+	requireDecisionRefusal(t, h, func() error { return h.begin(decisionBeginFixture(t, operationRequest(t, 2, true, 0), 1, 0)) })
+}
+
+func TestDecisionHistoryCrossCallChronology(t *testing.T) {
+	prep := wireBytes(t, requestVector)
+	for _, transition := range []string{"begin-receive", "apply-begin", "apply-receive"} {
+		for _, backwardsTick := range []bool{false, true} {
+			h := decisionFixture(t)
+			var watermark uint64
+			if transition == "begin-receive" {
+				if err := h.begin(decisionBeginFixture(t, prep, 7, 10)); err != nil {
+					t.Fatal(err)
+				}
+				watermark = 7
+			} else {
+				if err := h.reconcile(decisionPairFixture(t, prep, 1, 2, 6, 10)); err != nil {
+					t.Fatal(err)
+				}
+				watermark = 7
+			}
+			seq, tick := watermark, uint64(10)
+			if backwardsTick {
+				seq, tick = watermark+1, 9
+			}
+			if transition == "apply-begin" {
+				requireDecisionRefusal(t, h, func() error { return h.begin(decisionBeginFixture(t, prep, seq, tick)) })
+				if err := h.begin(decisionBeginFixture(t, prep, 20, 10)); err != nil {
+					t.Fatal(err)
+				}
+			} else {
+				decision := byte(2)
+				if transition == "begin-receive" {
+					decision = 1
+				}
+				requireDecisionRefusal(t, h, func() error { return h.reconcile(decisionPairFixture(t, prep, 1, decision, seq, tick)) })
+				if err := h.reconcile(decisionPairFixture(t, prep, 1, decision, 20, 10)); err != nil {
+					t.Fatal(err)
+				}
+			}
+		}
+	}
+	h := decisionFixture(t)
+	if err := h.begin(decisionBeginFixture(t, prep, ^uint64(0)-2, ^uint64(0))); err != nil {
+		t.Fatal(err)
+	}
+	if err := h.reconcile(decisionPairFixture(t, prep, 1, 1, ^uint64(0)-1, ^uint64(0))); err != nil {
+		t.Fatal(err)
+	}
+	requireDecisionRefusal(t, h, func() error { return h.begin(decisionBeginFixture(t, operationRequest(t, 2, true, 0), 0, 0)) })
+	requireDecisionRefusal(t, h, func() error { return h.reconcile(decisionPairFixture(t, prep, 1, 2, 0, 0)) })
+}
+
+func TestDecisionHistoryOwnershipAndBeginRules(t *testing.T) {
+	h := decisionFixture(t)
+	prep := wireBytes(t, requestVector)
+	begin := decisionBeginFixture(t, prep, 0, 0)
+	if err := h.begin(begin); err != nil {
+		t.Fatal(err)
+	}
+	before := *h
+	for _, raw := range [][]byte{begin.Event, begin.Request} {
+		for i := range raw {
+			raw[i] ^= 1
+		}
+	}
+	snapshot := h.snapshot()
+	snapshot.Fatal = true
+	snapshot.History.PendingOperation.Candidate[0] ^= 1
+	if *h != before {
+		t.Fatal("borrowed begin/snapshot storage")
+	}
+	pair := decisionPairFixture(t, prep, 1, 1, 1, 0)
+	if err := h.reconcile(pair); err != nil {
+		t.Fatal(err)
+	}
+	before = *h
+	for _, raw := range [][]byte{pair.Received.Event, pair.Received.Request, pair.Received.Reply, pair.Applied} {
+		for i := range raw {
+			raw[i] ^= 1
+		}
+	}
+	if *h != before {
+		t.Fatal("borrowed pair storage")
+	}
+	requireDecisionRefusal(t, h, func() error { return h.begin(decisionBeginFixture(t, prep, 3, 0)) })
+	runner := operationRequest(t, 2, true, 0)
+	binary.BigEndian.PutUint64(runner[296:304], 3)
+	requireDecisionRefusal(t, h, func() error { return h.begin(decisionBeginFixture(t, runner, 3, 0)) })
+	binary.BigEndian.PutUint64(runner[296:304], 2)
+	if err := h.begin(decisionBeginFixture(t, runner, 3, 0)); err != nil {
+		t.Fatal(err)
+	}
+}
+
+func TestDecisionHistoryTerminalAndInputPreservation(t *testing.T) {
+	h := decisionFixture(t)
+	requests := [][]byte{wireBytes(t, requestVector), operationRequest(t, 2, true, 0), operationRequest(t, 3, true, 1)}
+	requests[2][280] = 13
+	binary.BigEndian.PutUint64(requests[2][296:304], 3)
+	for i, request := range requests {
+		if i == 2 {
+			reused := bytes.Clone(request)
+			copy(reused[280:296], requests[1][280:296])
+			requireDecisionRefusal(t, h, func() error { return h.begin(decisionBeginFixture(t, reused, 6, 0)) })
+		}
+		begin := decisionBeginFixture(t, request, uint64(i*3), 0)
+		originalEvent, originalRequest := bytes.Clone(begin.Event), bytes.Clone(begin.Request)
+		if err := h.begin(begin); err != nil {
+			t.Fatal(err)
+		}
+		if !bytes.Equal(begin.Event, originalEvent) || !bytes.Equal(begin.Request, originalRequest) {
+			t.Fatal("begin mutated input")
+		}
+		pair := decisionPairFixture(t, request, 1, 1, uint64(i*3+1), 0)
+		raw := [][]byte{pair.Received.Event, pair.Received.Request, pair.Received.Reply, pair.Applied}
+		copies := make([][]byte, len(raw))
+		for j := range raw {
+			copies[j] = bytes.Clone(raw[j])
+		}
+		if err := h.reconcile(pair); err != nil {
+			t.Fatal(err)
+		}
+		for j := range raw {
+			if !bytes.Equal(raw[j], copies[j]) {
+				t.Fatal("reconcile mutated input")
+			}
+		}
+	}
+	terminal := bytes.Clone(requests[2])
+	terminal[280] = 14
+	binary.BigEndian.PutUint64(terminal[296:304], 4)
+	requireDecisionRefusal(t, h, func() error { return h.begin(decisionBeginFixture(t, terminal, 9, 0)) })
+}

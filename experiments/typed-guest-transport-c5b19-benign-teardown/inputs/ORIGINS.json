@@ -1,6 +1,6 @@
 {
   "experiment": "capsule.c5b19.benign-teardown/v1",
-  "status": "IN_PROGRESS — TRENDING_GOOD",
+  "status": "IN_PROGRESS \u2014 TRENDING_GOOD",
   "archive_base_commit": "d8fd74a158f2227277ccfce5532e9bd8ad3e714e",
   "gate2_reviewed_commit": "e7b68c57d59abe66c68d849473e21fe74f4e31b7",
   "gate2_integration_commit": "a6ef83a6b43cd4940547b138529ebbb91cff8da6",
@@ -230,5 +230,94 @@
       "Pending/control state, stop/apply causality, durable snapshots, clock bounds, native effects and lifecycle authority deferred"
     ],
     "review_report_sha256": "cf6cdb34a85d0b0195c1313b794ed6aee50c481fe7d43b493aee30e449945898"
+  },
+  "g3a8": {
+    "scope": "pure bounded pending-write and represented decision reconciliation, composing private writeHistory and individual strict G3a7 pairs",
+    "continued_archive_head": "5d0e53cbccae3d4f587205df70253b776eae63e5",
+    "canonical_reference_commit": "8e4fd22cc00cd5e961544f6a803974600dc0e751",
+    "canonical_reference_sha256": {
+      "docs/C5B19_GATE2_IMPLEMENTATION_PACKET.md": "65c885425298ce056f8619c5d0837f97ba54dee91c025fea5621a2d75d5ef4f0",
+      "internal/execution/teardownpassive/types.go": "249b7ef054134f47974bf769c3fb37309b867b1be42ae53c18baf23dc8bacfd0",
+      "internal/execution/teardownpassive/model.go": "1e3a8be8527554d3953d494086c5313ceeca5806b40a7661ab488717f4a94c40"
+    },
+    "implementation_sha256": {
+      "go.mod": "5f40cde18c2d82fe5d57f3a8822377c12e473f1026f174165dfecd126bea3eeb",
+      "tests/oracle.go": "f9cc9258a05f61eb3e2abee65c004aebfd77c4305e7f396bd87536d5f29ee65b",
+      "tests/oracle_test.go": "493df8d0d94187dc975a6fa763b69eebae33dbff6bb56ac254189aa23d73f36d",
+      "tests/model_test.go": "b0f3b9d063c225eb887cecaf16f4058f0ed07ae8f14c3d92c49acacabb0a931e"
+    },
+    "dependencies": "Go1.25.13 standard library only; no new requirement or source-manifest entry",
+    "local_verification": "PASSED: red/green and offline test/race/vet/build; twelve original credited mutants plus corrected targeted wrong-pending mutant; all12 wrong-anchor cases fail intended assertion1905; exact restoration and targeted test passed. Original combined mutant retained but excluded from mismatch claim.",
+    "fresh_review_status": "PASSED: independent review instance 2 of 3 Ready; review1 P2 evidence finding resolved; no actionable findings",
+    "log_sha256": {
+      "red": "2225b5fb20f7aec9161ddcf300e370c7d93bcc5d0962eb59a3e4e0f7d6107279",
+      "green": "97418aace2dde2702250b7bed0509829c3283824dd374db8645d6210cb2f2337",
+      "fixture-failure": "0249926769b007af6820aa37fe40a1d19811ffe2b17cc50f7b2d8ca4cf7223af",
+      "restored": "e77a9e4b0df4183ff9f210d84cfff7d02d4ad2b2310683371cfa326254455470",
+      "race": "6aba0d8bb7f930ba3ea1992d198dc690cff121c5675e591be8da36aade22af83",
+      "vet": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "build": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "mutant-pending-and-private-settlement": "9004068ee065b3a0f41db271ef93319e3f6a9112b26c35f60c9acfdc2ba33c4f",
+      "mutant-decision": "5eee9a84708da0bb8221cd090bb8988649194b740dc09bc5d47de0fe28d519ed",
+      "mutant-settlement": "7306dec02b2a569235c2cecc747eb44ee52ba40773767637cae1488c8c6c81a3",
+      "mutant-rejection-history": "35fdf30e32aba338353619a51a04027149f7fc1a9980242a355ef7951aff7edb",
+      "mutant-fatal-latch": "e230f4d817fb78981d9a1f3e13302c873bcce465a84da1c8b0f35590ad4b5e1f",
+      "mutant-fatal-preservation": "1c5016f4fe401c01d28a4ce540cbbf8f1c872985158a3b976574218f94b97453",
+      "mutant-cap": "d1454bbc525e98bf425e8b7cceb1f981f266439c6c61e1257376d779fca69404",
+      "mutant-begin-sequence": "18c1dd95e2b6e355d4c19e95dc5019e3b462b5d6cc99c1d0b3337db849acc52c",
+      "mutant-begin-tick": "7a64ec0e0e19247c3ab94df9891e735043a75728ff067a5dc1c9cae5a115a3cb",
+      "mutant-receive-sequence": "624c1d2aa8c95373ab812d7f1dbdecc702eb29398c2b422405278b653cd5f278",
+      "mutant-receive-tick": "8618846cbd02d73baba56ee88340b63a92aad31e43a9194017c9a60d8e000a17",
+      "mutant-begin-watermark": "95cd641a5257076f77bb393fdf3ac6049bc9510ca7c55694b5c85323cf8b9409",
+      "mutant-applied-watermark": "ff15cda3d2d405f53e6f94576e75fa23af91555a2fc1b2d01b77f5fef610979d",
+      "mutant-targeted-wrong-pending": "274b47e802ba77c1500ab91a663198e8ff89087b60a036de1f8c25be41bb7657",
+      "targeted-restored": "f1a20070b176b6c88a35e0d304d81a962bfe7892c2fbc0fb562292d01f9e92bb"
+    },
+    "scope_report_sha256": "233dbfa14366829395ea03421fc535b20f37572f55464cfa594c1bb74626b4c6",
+    "mutation_note": "Exact-anchor comparison/private-pending reply validation overlap. Original unconditional bypass fails wrong-anchor setup1887, excluded from mismatch sensitivity. Corrected else-if-pending bypass preserves exact settlement and fails all12 false-accept assertions1905; no isolated-guard necessity claim.",
+    "limits": [
+      "Serial supplied kind3 and whole kind7/8 groups only; interleaved begin between receive/apply unsupported, without invalidating that full trace",
+      "Fatal is only rejection-derived modeled state; history-only begin after fatal is representable and supplies no control admission",
+      "Malformed rejected-frame diagnostics unsupported; invalid evidence refuses atomically and does not represent fatal",
+      "No omitted-event detection, worker/durable snapshot correspondence, stop/apply causality, deadlines, native effects, actual durability or lifecycle authority"
+    ],
+    "review1_evidence_correction": {
+      "review_report_sha256": "eb85cc2db8e12b84ce504bd3fe86a349c9ab25bc9863eff36157e5ebbbfe6ee0",
+      "original_combined_mutant_excluded": {
+        "log_sha256": "9004068ee065b3a0f41db271ef93319e3f6a9112b26c35f60c9acfdc2ba33c4f",
+        "reason": "wrong-pending cases fail setup at1887 because exact preparation never settles"
+      },
+      "mutation_before": "if trial.history.state.Pending && bytes.Equal(pair.Received.Request, trial.history.pendingRequest[:]) {\n\t\tif err := trial.history.applyReply(pair.Received.Reply); err == nil {\n\t\t\texpected = 1\n\t\t}\n\t}",
+      "mutation_after": "if trial.history.state.Pending && bytes.Equal(pair.Received.Request, trial.history.pendingRequest[:]) {\n\t\tif err := trial.history.applyReply(pair.Received.Reply); err == nil {\n\t\t\texpected = 1\n\t\t}\n\t} else if trial.history.state.Pending {\n\t\texpected = 1\n\t}",
+      "command": [
+        "/Users/dsteele/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.25.13.darwin-arm64/bin/go",
+        "test",
+        "./...",
+        "-run",
+        "^TestDecisionHistoryMismatchedAnchorsAndLateSettlement$",
+        "-count=1"
+      ],
+      "intended_assertion": "tests/oracle_test.go:1905: invalid decision history accepted",
+      "cases": [
+        "candidate1",
+        "candidate2",
+        "candidate3",
+        "generation1",
+        "generation2",
+        "generation3",
+        "kind1",
+        "kind2",
+        "kind3",
+        "operation1",
+        "operation2",
+        "operation3"
+      ],
+      "case_count": 12,
+      "setup_failure_1887_present": false,
+      "source_and_tests_unchanged": true,
+      "script_sha256": "9ff5defb4aade822fa7a39f2e591d3419fec2f6af27890b2777fc66ce43f7661",
+      "ledger_sha256": "6046bfd42347f68e372fe739920824db34355d0f248a3a14b3df0e4b0048283a"
+    },
+    "review_report_sha256": "8a0fd66f9acdfcc623660f65d138dd56430cc2e4ff85747707f442db7e3728a8"
   }
 }

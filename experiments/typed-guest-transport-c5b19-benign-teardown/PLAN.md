@@ -965,3 +965,221 @@ Reviewed source/test bytes are unchanged; only acceptance metadata follows freez
 Full Gate3 remains IN_PROGRESS — TRENDING_GOOD. Child execution, Gates4–6 and
 admission remain BLOCKED. No child fixture ran. Next bounded work is pending-write/
 control-state decision reconciliation before full causal/timing and snapshot composition.
+
+
+## G3a8 pending-write/control-state decision reconciliation
+
+Status: PASSED for bounded implementation and local verification; independent
+review IN_PROGRESS — TRENDING_GOOD. Full Gate 3 remains IN_PROGRESS —
+TRENDING_GOOD. Child execution, Gates 4–6 and product admission remain BLOCKED.
+No run/admission flag changed.
+
+This increment defensively validates only owned inert synthetic byte fixtures in
+ordinary offline Go tests. Archive base `5d0e53cbccae3d4f587205df70253b776eae63e5`;
+canonical reference `8e4fd22cc00cd5e961544f6a803974600dc0e751`. Scope accepted by
+Brain before behavior edits; source packet/model/type hashes are in ORIGINS.g3a8.
+The C5b19 reuse row remains ADOPT-PLATFORM / BUILD-NARROWLY for prospective lanes;
+this increment composes already present local test-only primitives and adds no
+dependency, transport, ABI, privileged responsibility or product import.
+
+### Contract and data flow
+
+`decisionHistory` owns a value copy of `writeHistory`, frozen timebase, bounded
+decision count, rejection-derived fatal latch and private control watermark.
+Constructor rejects invalid bindings or zero timebase. `begin` validates a strict
+kind3 sidecar, checks chronology, delegates to a trial history copy, and commits
+all state together. It retains the existing generation, unique-ID, one-pending,
+three-write, candidate and terminal guards. Acceptance records history only; it
+is never permission to submit, create, start, publish or otherwise execute.
+
+`reconcile` validates an individual strict G3a7 pair and derives code1 only when
+the entire 397-byte request equals the privately owned pending bytes and private
+reply settlement succeeds. Confirmed/failed/indeterminate outcomes all settle
+the exact pending operation; only confirmed changes the claimed projection.
+Code2 for no pending or another valid anchor preserves the complete private
+write history and latches fatal. A later exact reply may settle its write fact
+without clearing fatal. Wrong recorded decisions or malformed evidence return
+an error without changing any state, count or watermark. Validation refusal is
+not a represented rejection. The individual G3a7 API permits fresh-ordinal stale
+or duplicate replies to be represented as code2; the older collection API and
+its separate no-reused-operation constraint remain byte-identical.
+
+At most three accepted represented decisions, including rejections, are allowed.
+Accepted kind3 and kind7/8 events share strictly increasing sequences and
+nondecreasing ticks. Zero origins, gaps, equal ticks and uint64 maxima are valid;
+comparison avoids arithmetic wrap. The whole-pair API supports serial action
+groups only. A begin interleaved between receive and apply is an unsupported
+selection, not evidence that its full trace is invalid. No origin/completeness,
+worker-clock or elapsed-deadline claim follows from this watermark.
+
+The only represented control latch is rejection-derived fatal. History-only begin
+after fatal remains representable under existing write-history rules and conveys
+no actual control admission. Full stop/start/fatal submission admission needs
+additional state and remains deferred. Strict framing does not encode malformed
+rejected-frame diagnostics. Missing events, worker/durable snapshot correspondence,
+stop/apply causal decisions, real fsync, deadlines, native effects and lifecycle
+claims remain unimplemented. No fixture, child/guest, signal/wait target, live
+clock/store/network, credentials or user data was accessed by these tests.
+
+### Tests and verification
+
+Tests were appended before implementation; the first compile failed on missing
+`decisionHistory`/`newDecisionHistory`, then implementation made the API available.
+The initial clock-policy substitution fixture failed strict G3a7 validation
+because the packet freezes that policy. It was corrected to malformed-evidence
+coverage; its failure is retained below, not claimed as valid mismatch evidence.
+Valid operation, generation, kind and candidate substitutions use independently
+encoded matching sidecars/replies and prove code2 rather than malformed refusal.
+
+Coverage includes three-write and preparation-to-terminal histories; independent
+projection bytes for all outcomes; false accept/reject atomicity and ordinal
+reuse after refusal; no-pending/wrong-pending/stale/duplicate rejection; late
+settlement preserving fatal; repeated rejection cap; complete private-history
+preservation; malformed members/context/decisions; nil/uninitialized instances;
+begin generation/ID/one-pending/terminal bounds; cross-call sequence/tick guards;
+zero/gaps/equal ticks/max boundaries; copied caller buffers/value snapshots and
+input nonmutation; explicit history-only begin after fatal with no admission claim.
+
+Exact executable:
+`/Users/dsteele/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.25.13.darwin-arm64/bin/go`
+with `GOTOOLCHAIN=local GOPROXY=off GOSUMDB=off
+GOCACHE=/tmp/c5b19-g3a8-go-cache`, cwd this experiment. Commands:
+
+- `go test ./...`: expected initial compiler failure; later green.
+- `go test ./... -run TestDecisionHistory -count=1`: each selected mutant.
+- Restored `go test ./...`: PASSED.
+- `go test -race ./...`: PASSED.
+- `go vet ./...`: PASSED.
+- `go build ./...`: PASSED.
+
+The initial thirteen compiling mutants failed assertions, but review1 found that
+the original combined bypass failed wrong-anchor cases during setup, not at the
+claimed boundary. It is excluded from mismatch-sensitivity evidence. The twelve
+other mutants stand; the corrected targeted mutant below supplies the thirteenth
+credited guard mutation. Each mutation changed only the new suffix, restored
+exactly in finally. Exact-anchor equality and private-pending settlement overlap;
+removing equality alone is not claimed to bypass private reply validation. No
+construction failures occurred. Mutation failures are not runtime effects.
+Results and excerpts follow; full ephemeral logs and script are in
+`/tmp/c5b19-g3a8-*`. Retained hashes/excerpts survive removal of ephemeral files.
+
+- `pending-and-private-settlement`: original compiled failure, excluded from wrong-pending sensitivity; wrong-anchor cases fail setup at oracle_test.go:1887.
+- `decision`: compiled assertion failure; --- FAIL: TestDecisionHistoryWrongDecisionsAtomic (0.00s)
+- `settlement`: compiled assertion failure; --- FAIL: TestDecisionHistorySettlements (0.00s)
+- `rejection-history`: compiled assertion failure; --- FAIL: TestDecisionHistoryMismatchedAnchorsAndLateSettlement (0.00s)
+- `fatal-latch`: compiled assertion failure; --- FAIL: TestDecisionHistoryMismatchedAnchorsAndLateSettlement (0.00s)
+- `fatal-preservation`: compiled assertion failure; --- FAIL: TestDecisionHistoryMismatchedAnchorsAndLateSettlement (0.00s)
+- `cap`: compiled assertion failure; --- FAIL: TestDecisionHistoryBoundedRejections (0.00s)
+- `begin-sequence`: compiled assertion failure; --- FAIL: TestDecisionHistoryCrossCallChronology (0.00s)
+- `begin-tick`: compiled assertion failure; --- FAIL: TestDecisionHistoryCrossCallChronology (0.00s)
+- `receive-sequence`: compiled assertion failure; --- FAIL: TestDecisionHistoryMismatchedAnchorsAndLateSettlement (0.00s)
+- `receive-tick`: compiled assertion failure; --- FAIL: TestDecisionHistoryCrossCallChronology (0.00s)
+- `begin-watermark`: compiled assertion failure; --- FAIL: TestDecisionHistoryCrossCallChronology (0.00s)
+- `applied-watermark`: compiled assertion failure; --- FAIL: TestDecisionHistoryMismatchedAnchorsAndLateSettlement (0.00s)
+
+Log SHA256 (`/tmp/c5b19-g3a8-NAME.log`):
+
+```text
+red 2225b5fb20f7aec9161ddcf300e370c7d93bcc5d0962eb59a3e4e0f7d6107279
+green 97418aace2dde2702250b7bed0509829c3283824dd374db8645d6210cb2f2337
+fixture-failure 0249926769b007af6820aa37fe40a1d19811ffe2b17cc50f7b2d8ca4cf7223af
+restored e77a9e4b0df4183ff9f210d84cfff7d02d4ad2b2310683371cfa326254455470
+race 6aba0d8bb7f930ba3ea1992d198dc690cff121c5675e591be8da36aade22af83
+vet e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+build e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+mutant-pending-and-private-settlement 9004068ee065b3a0f41db271ef93319e3f6a9112b26c35f60c9acfdc2ba33c4f
+mutant-decision 5eee9a84708da0bb8221cd090bb8988649194b740dc09bc5d47de0fe28d519ed
+mutant-settlement 7306dec02b2a569235c2cecc747eb44ee52ba40773767637cae1488c8c6c81a3
+mutant-rejection-history 35fdf30e32aba338353619a51a04027149f7fc1a9980242a355ef7951aff7edb
+mutant-fatal-latch e230f4d817fb78981d9a1f3e13302c873bcce465a84da1c8b0f35590ad4b5e1f
+mutant-fatal-preservation 1c5016f4fe401c01d28a4ce540cbbf8f1c872985158a3b976574218f94b97453
+mutant-cap d1454bbc525e98bf425e8b7cceb1f981f266439c6c61e1257376d779fca69404
+mutant-begin-sequence 18c1dd95e2b6e355d4c19e95dc5019e3b462b5d6cc99c1d0b3337db849acc52c
+mutant-begin-tick 7a64ec0e0e19247c3ab94df9891e735043a75728ff067a5dc1c9cae5a115a3cb
+mutant-receive-sequence 624c1d2aa8c95373ab812d7f1dbdecc702eb29398c2b422405278b653cd5f278
+mutant-receive-tick 8618846cbd02d73baba56ee88340b63a92aad31e43a9194017c9a60d8e000a17
+mutant-begin-watermark 95cd641a5257076f77bb393fdf3ac6049bc9510ca7c55694b5c85323cf8b9409
+mutant-applied-watermark ff15cda3d2d405f53e6f94576e75fa23af91555a2fc1b2d01b77f5fef610979d
+```
+
+Earlier oracle/test prefixes match archive base byte-for-byte; go.mod and
+model_test.go are unchanged. All historical parsed ORIGINS values are preserved.
+Source SHA256 and canonical references are retained in ORIGINS.g3a8. No prior
+packet, source manifest, API or provenance claim was changed. The constructor
+and both transitions use constant-size value copies; validation cost is bounded
+by fixed frames and three decisions, with no I/O or unbounded work.
+
+Independent fresh-context review, archive commit/PR publication and canonical
+immutable linkage are Brain-owned integration steps. Author local verification
+is not an independent Ready verdict. All retained bytes belong to the shared
+archive branch and existing draft PR38 integration destination.
+
+
+### Review1 P2 evidence correction
+
+Review1 returned **Not ready** for the claimed wrong-pending mutation sensitivity,
+with no reconciler implementation defect found. Accepted: the original mutant
+replaced the entire match/settlement block with expected=1. Exact preparation
+never settled, so all12 wrong-anchor cases failed during setup1887. Its original
+script/log/hash and initial author/evidence artifacts remain preserved; it is
+excluded from the wrong-pending claim. Fresh review2/3 is pending.
+
+The corrected temporary mutant preserves exact preparation settlement and adds
+only an else-if-pending wrong-anchor acceptance path. Restored implementation does
+not contain this bypass:
+
+```go
+if trial.history.state.Pending && bytes.Equal(pair.Received.Request, trial.history.pendingRequest[:]) {
+		if err := trial.history.applyReply(pair.Received.Reply); err == nil {
+			expected = 1
+		}
+	} else if trial.history.state.Pending {
+		expected = 1
+	}
+```
+
+Using the exact Go1.25.13 executable/offline environment/cache above:
+`go test ./... -run '^TestDecisionHistoryMismatchedAnchorsAndLateSettlement$' -count=1`
+compiled and exited1. All12 subtests failed intended assertion
+`oracle_test.go:1905: invalid decision history accepted`: operation1/2/3,
+generation1/2/3, kind1/2/3, candidate1/2/3. No setup1887 failure occurred.
+The script requires the exact12 case set, twelve target assertion occurrences,
+no setup1887/build failure and nonzero exit. Source was restored byte-exact in
+finally; the same targeted command then exited0. Source/test hashes remain
+unchanged, so prior full test/race/vet/build results still apply; no redundant full
+rerun. No child/native or live clock/store/network effects.
+
+New evidence SHA256:
+
+```text
+mutant-targeted-wrong-pending 274b47e802ba77c1500ab91a663198e8ff89087b60a036de1f8c25be41bb7657
+targeted-restored f1a20070b176b6c88a35e0d304d81a962bfe7892c2fbc0fb562292d01f9e92bb
+targeted-script 9ff5defb4aade822fa7a39f2e591d3419fec2f6af27890b2777fc66ce43f7661
+targeted-ledger 6046bfd42347f68e372fe739920824db34355d0f248a3a14b3df0e4b0048283a
+review1 eb85cc2db8e12b84ce504bd3fe86a349c9ab25bc9863eff36157e5ebbbfe6ee0
+```
+
+Reproduction script /tmp/c5b19-g3a8-targeted-mutate.py and assertion ledger
+/tmp/c5b19-g3a8-targeted-mutation.json complement this retained exact mutation,
+command, result and hash record. Child execution/product admission remain BLOCKED.
+
+### G3a8 independent acceptance
+
+PASSED: fresh independent review2/3 returned **Ready**, no actionable findings.
+Review1's P2 evidence defect is closed; the original bypass remains excluded from
+wrong-pending sensitivity. The corrected mutation reaches all12 intended assertions
+and exact source restoration passes. Reviewer independently ran full archive race
+tests and three canonical adapter regressions under race ten times, verified
+source/provenance/log hashes and both diff checks, and inspected prior full checks
+and mutation execution evidence without rerunning mutation scripts.
+
+Report retained at canonical .planning/c5b19-decision-reconciliation/review-2.md,
+SHA256 `8a0fd66f9acdfcc623660f65d138dd56430cc2e4ff85747707f442db7e3728a8`.
+Review1 and author correction response remain retained. Final canonical commit/PR
+links are recorded in archive PR38. Reviewed implementation/test bytes remain
+unchanged; only acceptance metadata follows freeze.
+
+Full Gate3 remains IN_PROGRESS — TRENDING_GOOD. Child execution, Gates4–6 and
+product admission remain BLOCKED. No child fixture ran. Next recommended bounded
+scope is supplied durable-snapshot correspondence; visible bytes must not be
+promoted to accepted confirmation.
