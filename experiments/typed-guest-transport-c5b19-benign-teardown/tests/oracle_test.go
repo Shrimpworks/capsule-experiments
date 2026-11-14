@@ -2636,3 +2636,436 @@ func TestSnapshotWrapperBoundsAndChronology(t *testing.T) {
 		t.Fatal("unsubmitted rejection fabricated settlement", got)
 	}
 }
+
+// G3a10 uses independently supplied inert slots, never actual worker I/O.
+func workerSidecarFixture(t *testing.T, request []byte, outcome byte, control bool) workerSidecarSelection {
+	t.Helper()
+	worker := capturedPairFixture(t, 5, request, outcome)
+	s := workerSidecarSelection{WorkerReceived: bytes.Clone(request), WorkerSent: replyFromRequest(request, outcome), WorkerReply: &worker}
+	if control {
+		pair := capturedPairFixture(t, 7, request, outcome)
+		s.ControlReceived = &pair
+	}
+	return s
+}
+
+func inspectWorkerSidecars(t *testing.T, h *snapshotHistory, selections []workerSidecarSelection) workerSidecarCorrespondence {
+	t.Helper()
+	before := *h
+	got, err := h.inspectWorkerSidecars(selections)
+	if err != nil {
+		t.Fatal("valid worker selection refused", err)
+	}
+	if *h != before {
+		t.Fatal("worker query mutated private history")
+	}
+	return got
+}
+
+func refuseWorkerSidecars(t *testing.T, h *snapshotHistory, selections []workerSidecarSelection) {
+	t.Helper()
+	before := *h
+	got, err := h.inspectWorkerSidecars(selections)
+	if err == nil {
+		t.Fatal("invalid worker correspondence accepted")
+	}
+	if got != (workerSidecarCorrespondence{}) {
+		t.Fatal("worker refusal returned partial evidence")
+	}
+	if *h != before {
+		t.Fatal("worker refusal mutated private history")
+	}
+}
+
+func TestWorkerSidecarContextAndMemberRows(t *testing.T) {
+	for _, h := range []*snapshotHistory{nil, {}} {
+		for _, selections := range [][]workerSidecarSelection{nil, {{WorkerReceived: wireBytes(t, requestVector)}}} {
+			if got, err := h.inspectWorkerSidecars(selections); err == nil || got != (workerSidecarCorrespondence{}) {
+				t.Fatal("uninitialized worker query accepted")
+			}
+		}
+	}
+	h := snapshotFixture(t)
+	if got := inspectWorkerSidecars(t, h, nil); got != (workerSidecarCorrespondence{History: h.history.snapshot()}) {
+		t.Fatal("empty selection fabricated evidence")
+	}
+	if got := inspectWorkerSidecars(t, h, []workerSidecarSelection{}); got.Count != 0 {
+		t.Fatal("allocated empty selection fabricated evidence")
+	}
+	request := wireBytes(t, requestVector)
+	if err := h.begin(decisionBeginFixture(t, request, 0, 0)); err != nil {
+		t.Fatal(err)
+	}
+	for mask := 0; mask < 16; mask++ {
+		t.Run(fmt.Sprint(mask), func(t *testing.T) {
+			s := workerSidecarFixture(t, request, 1, true)
+			if mask&1 == 0 {
+				s.WorkerReceived = nil
+			}
+			if mask&2 == 0 {
+				s.WorkerSent = nil
+			}
+			if mask&4 == 0 {
+				s.WorkerReply = nil
+			}
+			if mask&8 == 0 {
+				s.ControlReceived = nil
+			}
+			if mask == 1 || mask == 7 || mask == 15 {
+				got := inspectWorkerSidecars(t, h, []workerSidecarSelection{s})
+				if got.Count != 1 || !got.Entries[0].ReceivedPresent || got.Entries[0].SentPresent != (mask&2 != 0) || got.Entries[0].ControlReceivedPresent != (mask&8 != 0) {
+					t.Fatal("wrong member presence facts", got)
+				}
+			} else {
+				refuseWorkerSidecars(t, h, []workerSidecarSelection{s})
+			}
+		})
+	}
+	for _, s := range []workerSidecarSelection{
+		{WorkerReceived: request, WorkerSent: []byte{}},
+		{WorkerReceived: request, WorkerReply: &capturedFramePair{}},
+		{WorkerReceived: request, ControlReceived: &capturedFramePair{}},
+	} {
+		refuseWorkerSidecars(t, h, []workerSidecarSelection{s})
+	}
+}
+
+func TestWorkerSidecarPendingPartialEvidence(t *testing.T) {
+	h := snapshotFixture(t)
+	request := wireBytes(t, requestVector)
+	if err := h.begin(decisionBeginFixture(t, request, 0, 100)); err != nil {
+		t.Fatal(err)
+	}
+	for _, outcome := range []byte{1, 2, 3} {
+		for row := 0; row < 3; row++ {
+			s := workerSidecarFixture(t, request, outcome, row == 2)
+			if row == 0 {
+				s.WorkerSent, s.WorkerReply = nil, nil
+			}
+			// Cross-lane/historical clocks and indices deliberately do not order control.
+			if s.WorkerReply != nil {
+				binary.BigEndian.PutUint64(s.WorkerReply.Event[8:16], ^uint64(0))
+				binary.BigEndian.PutUint64(s.WorkerReply.Event[16:24], ^uint64(0))
+			}
+			if s.ControlReceived != nil {
+				binary.BigEndian.PutUint64(s.ControlReceived.Event[8:16], 0)
+				binary.BigEndian.PutUint64(s.ControlReceived.Event[16:24], 0)
+			}
+			got := inspectWorkerSidecars(t, h, []workerSidecarSelection{s})
+			entry := got.Entries[0]
+			wantOutcome := outcome
+			if row == 0 {
+				wantOutcome = 0
+			}
+			if entry.AcceptedOutcome != 0 || entry.WorkerOutcome != wantOutcome || !entry.ReceivedPresent || entry.SentPresent != (row != 0) || entry.ControlReceivedPresent != (row == 2) || entry.Operation.Operation != obligationFixture().Preparation || !got.History.History.Pending || got.History.History.LastSettledPresent || got.History.History.Confirmed != ([68]byte{}) {
+				t.Fatal("partial worker evidence promoted settlement or fabricated facts", got)
+			}
+		}
+	}
+}
+
+func TestWorkerSidecarMembership(t *testing.T) {
+	h := snapshotFixture(t)
+	prep := wireBytes(t, requestVector)
+	refuseWorkerSidecars(t, h, []workerSidecarSelection{{WorkerReceived: prep}})
+	if err := h.begin(decisionBeginFixture(t, prep, 0, 0)); err != nil {
+		t.Fatal(err)
+	}
+	if err := h.reconcile(decisionPairFixture(t, prep, 1, 1, 1, 0)); err != nil {
+		t.Fatal(err)
+	}
+	runner := operationRequest(t, 2, true, 0)
+	if err := h.begin(decisionBeginFixture(t, runner, 3, 0)); err != nil {
+		t.Fatal(err)
+	}
+	for _, field := range []string{"operation", "generation", "candidate", "kind"} {
+		t.Run(field, func(t *testing.T) {
+			other := bytes.Clone(runner)
+			switch field {
+			case "operation":
+				other[280] ^= 1
+			case "generation":
+				binary.BigEndian.PutUint64(other[296:304], 3)
+			case "candidate":
+				other[307] ^= 1
+			case "kind":
+				other = operationRequest(t, 3, false, 1)
+			}
+			if _, err := decodeRequest(other, obligationFixture()); err != nil {
+				t.Fatal("membership fixture malformed", err)
+			}
+			refuseWorkerSidecars(t, h, []workerSidecarSelection{{WorkerReceived: other}})
+		})
+	}
+	// A rejected control anchor is not a retained submission.
+	other := bytes.Clone(runner)
+	other[280] ^= 1
+	if err := h.reconcile(decisionPairFixture(t, other, 2, 2, 4, 0)); err != nil {
+		t.Fatal(err)
+	}
+	refuseWorkerSidecars(t, h, []workerSidecarSelection{workerSidecarFixture(t, other, 2, true)})
+}
+
+func TestWorkerSidecarIndependentLinks(t *testing.T) {
+	h := snapshotFixture(t)
+	request := wireBytes(t, requestVector)
+	if err := h.begin(decisionBeginFixture(t, request, 0, 0)); err != nil {
+		t.Fatal(err)
+	}
+	for _, member := range []string{"worker-request", "worker-reply", "control-request", "control-reply", "worker-kind", "control-kind"} {
+		t.Run(member, func(t *testing.T) {
+			s := workerSidecarFixture(t, request, 2, true)
+			other := bytes.Clone(request)
+			binary.BigEndian.PutUint64(other[296:304], 2)
+			switch member {
+			case "worker-request":
+				pair := capturedPairFixture(t, 5, other, 2)
+				s.WorkerReply = &pair
+				s.WorkerSent = bytes.Clone(pair.Reply)
+				s.ControlReceived = nil
+			case "worker-reply":
+				pair := capturedPairFixture(t, 5, request, 3)
+				s.WorkerReply = &pair
+			case "control-request":
+				pair := capturedPairFixture(t, 7, other, 2)
+				s.ControlReceived = &pair
+			case "control-reply":
+				pair := capturedPairFixture(t, 7, request, 3)
+				s.ControlReceived = &pair
+			case "worker-kind":
+				pair := capturedPairFixture(t, 7, request, 2)
+				s.WorkerReply = &pair
+			case "control-kind":
+				pair := capturedPairFixture(t, 5, request, 2)
+				s.ControlReceived = &pair
+			}
+			for _, pair := range []*capturedFramePair{s.WorkerReply, s.ControlReceived} {
+				if pair == nil {
+					continue
+				}
+				if err := validateCapturedFrame(*pair, obligationFixture(), 125, 3); err != nil {
+					t.Fatal("link fixture malformed", err)
+				}
+			}
+			refuseWorkerSidecars(t, h, []workerSidecarSelection{s})
+		})
+	}
+}
+
+func TestWorkerSidecarAcceptedOutcomes(t *testing.T) {
+	for _, outcome := range []byte{1, 2, 3} {
+		t.Run(fmt.Sprint(outcome), func(t *testing.T) {
+			h := snapshotFixture(t)
+			request := wireBytes(t, requestVector)
+			if err := h.begin(decisionBeginFixture(t, request, 0, 0)); err != nil {
+				t.Fatal(err)
+			}
+			if err := h.reconcile(decisionPairFixture(t, request, outcome, 1, 1, 0)); err != nil {
+				t.Fatal(err)
+			}
+			for row := 0; row < 3; row++ {
+				s := workerSidecarFixture(t, request, outcome, row == 2)
+				if row == 0 {
+					s.WorkerSent, s.WorkerReply = nil, nil
+				}
+				got := inspectWorkerSidecars(t, h, []workerSidecarSelection{s})
+				want := byte(0)
+				if row != 0 {
+					want = outcome
+				}
+				if got.Entries[0].AcceptedOutcome != outcome || got.Entries[0].WorkerOutcome != want || got.Entries[0].SentPresent != (row != 0) {
+					t.Fatal("accepted and supplied worker facts conflated", got)
+				}
+			}
+			for _, contrary := range []byte{1, 2, 3} {
+				if contrary == outcome {
+					continue
+				}
+				t.Run(fmt.Sprint("contrary", contrary), func(t *testing.T) {
+					s := workerSidecarFixture(t, request, contrary, true)
+					if err := validateCapturedFrame(*s.WorkerReply, obligationFixture(), 125, 3); err != nil {
+						t.Fatal("contrary fixture malformed", err)
+					}
+					refuseWorkerSidecars(t, h, []workerSidecarSelection{s})
+				})
+			}
+		})
+	}
+}
+
+func TestWorkerSidecarMalformedMembers(t *testing.T) {
+	h := snapshotFixture(t)
+	request := wireBytes(t, requestVector)
+	if err := h.begin(decisionBeginFixture(t, request, 0, 0)); err != nil {
+		t.Fatal(err)
+	}
+	for _, field := range []string{"received-short", "received-long", "sent-empty", "sent-short", "sent-long", "sent-outcome", "sent-digest", "worker-event", "worker-lane", "worker-reserved", "worker-context", "control-event", "control-lane", "control-reserved", "control-context"} {
+		t.Run(field, func(t *testing.T) {
+			s := workerSidecarFixture(t, request, 1, true)
+			switch field {
+			case "received-short":
+				s.WorkerReceived = s.WorkerReceived[:396]
+			case "received-long":
+				s.WorkerReceived = append(s.WorkerReceived, 0)
+			case "sent-empty":
+				s.WorkerSent = []byte{}
+			case "sent-short":
+				s.WorkerSent = s.WorkerSent[:97]
+			case "sent-long":
+				s.WorkerSent = append(s.WorkerSent, 0)
+			case "sent-outcome":
+				s.WorkerSent[65] = 0
+			case "sent-digest":
+				s.WorkerSent[66] ^= 1
+			case "worker-event":
+				s.WorkerReply.Event = s.WorkerReply.Event[:255]
+			case "worker-lane":
+				s.WorkerReply.Event[5] = 1
+			case "worker-reserved":
+				s.WorkerReply.Event[255] = 1
+			case "worker-context":
+				s.WorkerReply.Request = nil
+			case "control-event":
+				s.ControlReceived.Event = append(s.ControlReceived.Event, 0)
+			case "control-lane":
+				s.ControlReceived.Event[5] = 2
+			case "control-reserved":
+				s.ControlReceived.Event[255] = 1
+			case "control-context":
+				s.ControlReceived.Request = nil
+			}
+			refuseWorkerSidecars(t, h, []workerSidecarSelection{s})
+		})
+	}
+}
+
+func TestWorkerSidecarCollectionAndHistoricalFacts(t *testing.T) {
+	h := snapshotFixture(t)
+	requests := [][]byte{wireBytes(t, requestVector), operationRequest(t, 2, true, 0), operationRequest(t, 3, false, 1)}
+	requests[2][280] = 13
+	binary.BigEndian.PutUint64(requests[2][296:304], 3)
+	var selections []workerSidecarSelection
+	for i, request := range requests {
+		if err := h.begin(decisionBeginFixture(t, request, uint64(3*i), uint64(100+i))); err != nil {
+			t.Fatal(err)
+		}
+		if err := h.reconcile(decisionPairFixture(t, request, byte(i+1), 1, uint64(3*i+1), uint64(100+i))); err != nil {
+			t.Fatal(err)
+		}
+		selections = append(selections, workerSidecarFixture(t, request, byte(i+1), true))
+	}
+	for _, order := range [][3]int{{0, 1, 2}, {2, 0, 1}, {1, 2, 0}} {
+		selected := []workerSidecarSelection{selections[order[0]], selections[order[1]], selections[order[2]]}
+		got := inspectWorkerSidecars(t, h, selected)
+		if got.Count != 3 || got.History.History.Confirmed != ([68]byte{1}) {
+			t.Fatal("wrong full selection facts", got)
+		}
+		for i, index := range order {
+			if got.Entries[i].Operation.Generation != uint64(index+1) || got.Entries[i].AcceptedOutcome != byte(index+1) || got.Entries[i].WorkerOutcome != byte(index+1) {
+				t.Fatal("historical facts lost", got)
+			}
+		}
+	}
+	refuseWorkerSidecars(t, h, append(append([]workerSidecarSelection{}, selections...), selections[0]))
+	t.Run("duplicate", func(t *testing.T) { refuseWorkerSidecars(t, h, []workerSidecarSelection{selections[0], selections[0]}) })
+	// A late invalid member must not leak the earlier successful result.
+	t.Run("late-invalid", func(t *testing.T) {
+		bad := workerSidecarFixture(t, requests[1], 2, true)
+		bad.WorkerSent[0] ^= 1
+		refuseWorkerSidecars(t, h, []workerSidecarSelection{selections[0], bad})
+	})
+	got := inspectWorkerSidecars(t, h, []workerSidecarSelection{selections[0]})
+	if got.Count != 1 || got.Entries[1] != (workerSidecarFacts{}) || got.Entries[2] != (workerSidecarFacts{}) {
+		t.Fatal("unused results fabricated", got)
+	}
+}
+
+func TestWorkerSidecarOwnedValuesAndFatalPreservation(t *testing.T) {
+	h := snapshotFixture(t)
+	request := wireBytes(t, requestVector)
+	if err := h.begin(decisionBeginFixture(t, request, 0, 0)); err != nil {
+		t.Fatal(err)
+	}
+	other := bytes.Clone(request)
+	binary.BigEndian.PutUint64(other[296:304], 2)
+	if err := h.reconcile(decisionPairFixture(t, other, 2, 2, 1, 0)); err != nil {
+		t.Fatal(err)
+	}
+	s := workerSidecarFixture(t, request, 1, true)
+	raw := [][]byte{s.WorkerReceived, s.WorkerSent, s.WorkerReply.Event, s.WorkerReply.Request, s.WorkerReply.Reply, s.ControlReceived.Event, s.ControlReceived.Request, s.ControlReceived.Reply}
+	copies := make([][]byte, len(raw))
+	for i := range raw {
+		copies[i] = bytes.Clone(raw[i])
+	}
+	got := inspectWorkerSidecars(t, h, []workerSidecarSelection{s})
+	if !got.History.Fatal || !got.History.History.Pending || got.Entries[0].AcceptedOutcome != 0 {
+		t.Fatal("worker query erased fatal/pending", got)
+	}
+	for i := range raw {
+		if !bytes.Equal(raw[i], copies[i]) {
+			t.Fatal("worker query mutated supplied input")
+		}
+	}
+	got.Entries[0].Operation.Candidate[0] = 9
+	got.History.Fatal = false
+	for i := range raw {
+		raw[i][0] ^= 1
+	}
+	fresh := workerSidecarFixture(t, request, 1, true)
+	got = inspectWorkerSidecars(t, h, []workerSidecarSelection{fresh})
+	if got.Entries[0].Operation.Candidate != ([68]byte{1}) || !got.History.Fatal {
+		t.Fatal("worker query retained caller aliases", got)
+	}
+	// Refusals and repeated queries consume no decision or selection budget.
+	for i := 0; i < 4; i++ {
+		refuseWorkerSidecars(t, h, []workerSidecarSelection{s})
+		inspectWorkerSidecars(t, h, []workerSidecarSelection{fresh})
+	}
+}
+
+func TestWorkerSidecarRejectedReplyAndMixedRows(t *testing.T) {
+	h := snapshotFixture(t)
+	prep := wireBytes(t, requestVector)
+	if err := h.begin(decisionBeginFixture(t, prep, 0, 0)); err != nil {
+		t.Fatal(err)
+	}
+	if err := h.reconcile(decisionPairFixture(t, prep, 1, 1, 1, 0)); err != nil {
+		t.Fatal(err)
+	}
+	runner := operationRequest(t, 2, true, 0)
+	if err := h.begin(decisionBeginFixture(t, runner, 3, 0)); err != nil {
+		t.Fatal(err)
+	}
+	if err := h.reconcile(decisionPairFixture(t, prep, 2, 2, 4, 0)); err != nil {
+		t.Fatal(err)
+	}
+	matching := workerSidecarFixture(t, prep, 1, true)
+	receivedOnly := workerSidecarSelection{WorkerReceived: bytes.Clone(runner)}
+	got := inspectWorkerSidecars(t, h, []workerSidecarSelection{receivedOnly, matching})
+	if got.Count != 2 || got.Entries[0].AcceptedOutcome != 0 || got.Entries[0].SentPresent || got.Entries[1].AcceptedOutcome != 1 || got.Entries[1].WorkerOutcome != 1 || !got.History.Fatal || !got.History.History.Pending {
+		t.Fatal("rejected evidence overwrote accepted worker relation", got)
+	}
+	refuseWorkerSidecars(t, h, []workerSidecarSelection{workerSidecarFixture(t, prep, 2, true)})
+	refuseWorkerSidecars(t, h, []workerSidecarSelection{receivedOnly, workerSidecarFixture(t, runner, 3, false)})
+}
+
+func TestWorkerSidecarRefusalPreservesSuppliedBytes(t *testing.T) {
+	h := snapshotFixture(t)
+	request := wireBytes(t, requestVector)
+	if err := h.begin(decisionBeginFixture(t, request, 0, 0)); err != nil {
+		t.Fatal(err)
+	}
+	s := workerSidecarFixture(t, request, 1, true)
+	s.ControlReceived.Event[255] = 1
+	raw := [][]byte{s.WorkerReceived, s.WorkerSent, s.WorkerReply.Event, s.WorkerReply.Request, s.WorkerReply.Reply, s.ControlReceived.Event, s.ControlReceived.Request, s.ControlReceived.Reply}
+	copies := make([][]byte, len(raw))
+	for i := range raw {
+		copies[i] = bytes.Clone(raw[i])
+	}
+	refuseWorkerSidecars(t, h, []workerSidecarSelection{s})
+	for i := range raw {
+		if !bytes.Equal(raw[i], copies[i]) {
+			t.Fatal("worker refusal mutated supplied input")
+		}
+	}
+}

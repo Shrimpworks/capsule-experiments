@@ -640,5 +640,557 @@
       "Serial G3a8 groups only; full trace/worker-received mapping, malformed diagnostics, control admission, actual fsync/rename, restart recovery, lifecycle and native execution remain deferred"
     ],
     "review_report_sha256": "eb877a513f345642468b776f0b9fc6e6ac8ed6b64c1949c45e09dc719d4103bb"
+  },
+  "g3a10": {
+    "scope": "bounded nonmutating supplied independent worker-received/sent slots against private submissions, strict kind5/optional kind7 and accepted replies",
+    "continued_archive_head": "7646d8faabb670ce8b5ff1b213c414d91deda2d9",
+    "canonical_reference_commit": "fe9009d5398a883735219e2a3a33c351c79aa54c",
+    "canonical_reference_sha256": {
+      "docs/C5B19_GATE2_IMPLEMENTATION_PACKET.md": "65c885425298ce056f8619c5d0837f97ba54dee91c025fea5621a2d75d5ef4f0",
+      "internal/execution/teardownpassive/types.go": "249b7ef054134f47974bf769c3fb37309b867b1be42ae53c18baf23dc8bacfd0",
+      "internal/execution/teardownpassive/model.go": "1e3a8be8527554d3953d494086c5313ceeca5806b40a7661ab488717f4a94c40"
+    },
+    "implementation_sha256": {
+      "go.mod": "5f40cde18c2d82fe5d57f3a8822377c12e473f1026f174165dfecd126bea3eeb",
+      "tests/oracle.go": "df113eff8793f07a2156984aebdf69e3dc77deda39dbdc1c80573ec8c6e392ef",
+      "tests/oracle_test.go": "05197b095ed3ed7da6ff9562b1b6e6da34a2624bf86821c138623a6f12a9448c",
+      "tests/model_test.go": "b0f3b9d063c225eb887cecaf16f4058f0ed07ae8f14c3d92c49acacabb0a931e"
+    },
+    "dependencies": "Go1.25.13 standard library only; no dependency, format, manifest, ABI or run/admission flag change",
+    "local_verification": "PASSED: compiler-red then green; ten appended test groups; fourteen corrected compiled mutants reached seventeen exact intended assertion occurrences; byte-exact restoration; final offline test/race/vet/build",
+    "fresh_review_status": "PASSED: fresh independent review instance 1 of 3 Ready; no actionable findings",
+    "scope_report_sha256": "49c058ebccaaffc53d69abfa3e871ed9afd618dd3ab5ba2fa0f13b1538c28578",
+    "environment": {
+      "GOTOOLCHAIN": "local",
+      "GOPROXY": "off",
+      "GOSUMDB": "off",
+      "GOCACHE": "/tmp/c5b19-g3a10-go-cache"
+    },
+    "verification": [
+      {
+        "name": "red",
+        "command": [
+          "/Users/dsteele/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.25.13.darwin-arm64/bin/go",
+          "test",
+          "./..."
+        ],
+        "exit": 1,
+        "log": "/tmp/c5b19-g3a10-red.log",
+        "sha256": "b88c066e49a61c1ce659e872fae2f17b411c3b2cd4901c630185c0f2d8f3ad5d"
+      },
+      {
+        "name": "green",
+        "command": [
+          "/Users/dsteele/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.25.13.darwin-arm64/bin/go",
+          "test",
+          "./..."
+        ],
+        "exit": 0,
+        "log": "/tmp/c5b19-g3a10-green.log",
+        "sha256": "e5bd60ef196d77fdecbef9ce3131b7f9c2fb3bfbace7055c2450957a9cbeb54c"
+      },
+      {
+        "name": "refined-green",
+        "command": [
+          "/Users/dsteele/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.25.13.darwin-arm64/bin/go",
+          "test",
+          "./...",
+          "-count=1"
+        ],
+        "exit": 0,
+        "log": "/tmp/c5b19-g3a10-refined-green.log",
+        "sha256": "f5e624fcb40238f144faf7ae9f2bcbaa353cfc68e5e5f31f3c70a757bdc56994"
+      },
+      {
+        "name": "mutation-baseline",
+        "command": [
+          "/Users/dsteele/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.25.13.darwin-arm64/bin/go",
+          "test",
+          "./...",
+          "-count=1"
+        ],
+        "exit": 0,
+        "log": "/tmp/c5b19-g3a10-mutation-baseline.log",
+        "sha256": "ca273146ad5426302e32e046919ac582694de81ce83a3dfad7e8d4f9cae53b08"
+      },
+      {
+        "name": "restored",
+        "command": [
+          "/Users/dsteele/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.25.13.darwin-arm64/bin/go",
+          "test",
+          "./...",
+          "-count=1"
+        ],
+        "exit": 0,
+        "log": "/tmp/c5b19-g3a10-restored.log",
+        "sha256": "28471f8304d1de94427a5e58e0eca88b9e9303e6c442391ca07ee88997d4b3a2"
+      },
+      {
+        "name": "race",
+        "command": [
+          "/Users/dsteele/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.25.13.darwin-arm64/bin/go",
+          "test",
+          "-race",
+          "./...",
+          "-count=1"
+        ],
+        "exit": 0,
+        "log": "/tmp/c5b19-g3a10-race.log",
+        "sha256": "12373c05568dd4c5611f25d202f093d726175770476b3499213dc7dbaa5962a8"
+      },
+      {
+        "name": "vet",
+        "command": [
+          "/Users/dsteele/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.25.13.darwin-arm64/bin/go",
+          "vet",
+          "./..."
+        ],
+        "exit": 0,
+        "log": "/tmp/c5b19-g3a10-vet.log",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "name": "build",
+        "command": [
+          "/Users/dsteele/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.25.13.darwin-arm64/bin/go",
+          "build",
+          "./..."
+        ],
+        "exit": 0,
+        "log": "/tmp/c5b19-g3a10-build.log",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "name": "final-test",
+        "command": [
+          "/Users/dsteele/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.25.13.darwin-arm64/bin/go",
+          "test",
+          "./...",
+          "-count=1"
+        ],
+        "exit": 0,
+        "log": "/tmp/c5b19-g3a10-final-test.log",
+        "sha256": "068b8ae823e4e6f5577b8f1557c50233869c22bc57fb28c32238f5167b108a73"
+      },
+      {
+        "name": "final-race",
+        "command": [
+          "/Users/dsteele/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.25.13.darwin-arm64/bin/go",
+          "test",
+          "-race",
+          "./...",
+          "-count=1"
+        ],
+        "exit": 0,
+        "log": "/tmp/c5b19-g3a10-final-race.log",
+        "sha256": "90eea5e2916f45bb0b006dfc760b0365aff1dda3cfee6ff903832238ee8d930b"
+      },
+      {
+        "name": "final-vet",
+        "command": [
+          "/Users/dsteele/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.25.13.darwin-arm64/bin/go",
+          "vet",
+          "./..."
+        ],
+        "exit": 0,
+        "log": "/tmp/c5b19-g3a10-final-vet.log",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "name": "final-build",
+        "command": [
+          "/Users/dsteele/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.25.13.darwin-arm64/bin/go",
+          "build",
+          "./..."
+        ],
+        "exit": 0,
+        "log": "/tmp/c5b19-g3a10-final-build.log",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    ],
+    "selected_mutations": [
+      {
+        "name": "retained-membership",
+        "replacements": [
+          [
+            "if bytes.Equal(selected.WorkerReceived, h.entries[j].request[:]) {",
+            "if true {"
+          ]
+        ],
+        "command": [
+          "/Users/dsteele/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.25.13.darwin-arm64/bin/go",
+          "test",
+          "./...",
+          "-run",
+          "^TestWorkerSidecarMembership$/^(operation|generation|candidate|kind)$",
+          "-count=1"
+        ],
+        "intended_assertion": "oracle_test.go:2797: invalid worker correspondence accepted",
+        "expected_occurrences": 4,
+        "exit": 1,
+        "actual_occurrences": 4,
+        "log": "/tmp/c5b19-g3a10-mutant-retained-membership.log",
+        "sha256": "36167ccd6e32f102645a2a1543ecf1cf3fe6e3bab70fb35e11d42077a9ec48a7"
+      },
+      {
+        "name": "worker-request",
+        "replacements": [
+          [
+            " || !bytes.Equal(worker.Request, selected.WorkerReceived)",
+            ""
+          ]
+        ],
+        "command": [
+          "/Users/dsteele/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.25.13.darwin-arm64/bin/go",
+          "test",
+          "./...",
+          "-run",
+          "^TestWorkerSidecarIndependentLinks$/worker-request$",
+          "-count=1"
+        ],
+        "intended_assertion": "oracle_test.go:2850: invalid worker correspondence accepted",
+        "expected_occurrences": 1,
+        "exit": 1,
+        "actual_occurrences": 1,
+        "log": "/tmp/c5b19-g3a10-mutant-worker-request.log",
+        "sha256": "b0df84e2fb324f4e4741be7b5ad1fd93a6b0b86bbf9dbc44d7d14e401e41c428"
+      },
+      {
+        "name": "worker-sent",
+        "replacements": [
+          [
+            " || !bytes.Equal(worker.Reply, selected.WorkerSent)",
+            ""
+          ]
+        ],
+        "command": [
+          "/Users/dsteele/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.25.13.darwin-arm64/bin/go",
+          "test",
+          "./...",
+          "-run",
+          "^TestWorkerSidecarIndependentLinks$/worker-reply$",
+          "-count=1"
+        ],
+        "intended_assertion": "oracle_test.go:2850: invalid worker correspondence accepted",
+        "expected_occurrences": 1,
+        "exit": 1,
+        "actual_occurrences": 1,
+        "log": "/tmp/c5b19-g3a10-mutant-worker-sent.log",
+        "sha256": "0cb4297aa8f7300af3a7be99547be34b0724a7e3df9ebc2445fbbcda99b2c10a"
+      },
+      {
+        "name": "worker-kind",
+        "replacements": [
+          [
+            "event.Kind != 5 || ",
+            ""
+          ]
+        ],
+        "command": [
+          "/Users/dsteele/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.25.13.darwin-arm64/bin/go",
+          "test",
+          "./...",
+          "-run",
+          "^TestWorkerSidecarIndependentLinks$/worker-kind$",
+          "-count=1"
+        ],
+        "intended_assertion": "oracle_test.go:2850: invalid worker correspondence accepted",
+        "expected_occurrences": 1,
+        "exit": 1,
+        "actual_occurrences": 1,
+        "log": "/tmp/c5b19-g3a10-mutant-worker-kind.log",
+        "sha256": "368d50e2c059e741ce2848a64efe24fb5f9b54147ee52c19cd8f7ed7b56b9a96"
+      },
+      {
+        "name": "control-kind",
+        "replacements": [
+          [
+            "received.Kind != 7 || ",
+            "received.Kind != 7 && false || "
+          ]
+        ],
+        "command": [
+          "/Users/dsteele/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.25.13.darwin-arm64/bin/go",
+          "test",
+          "./...",
+          "-run",
+          "^TestWorkerSidecarIndependentLinks$/control-kind$",
+          "-count=1"
+        ],
+        "intended_assertion": "oracle_test.go:2850: invalid worker correspondence accepted",
+        "expected_occurrences": 1,
+        "exit": 1,
+        "actual_occurrences": 1,
+        "log": "/tmp/c5b19-g3a10-mutant-control-kind.log",
+        "sha256": "2861a429c70164192df228d8a44fc637f03a310b954ea91732198884613b0adc"
+      },
+      {
+        "name": "control-request-and-reply",
+        "replacements": [
+          [
+            "received.Kind != 7 || !bytes.Equal(control.Request, selected.WorkerReceived) || !bytes.Equal(control.Reply, selected.WorkerSent)",
+            "received.Kind != 7"
+          ]
+        ],
+        "command": [
+          "/Users/dsteele/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.25.13.darwin-arm64/bin/go",
+          "test",
+          "./...",
+          "-run",
+          "^TestWorkerSidecarIndependentLinks$/control-request$",
+          "-count=1"
+        ],
+        "intended_assertion": "oracle_test.go:2850: invalid worker correspondence accepted",
+        "expected_occurrences": 1,
+        "exit": 1,
+        "actual_occurrences": 1,
+        "log": "/tmp/c5b19-g3a10-mutant-control-request-and-reply.log",
+        "sha256": "9ff732e192d29fcbb841e59c4b983f097308af8a1ccb39fbd4bc46a33b05d6a0"
+      },
+      {
+        "name": "control-reply",
+        "replacements": [
+          [
+            " || !bytes.Equal(control.Reply, selected.WorkerSent)",
+            ""
+          ]
+        ],
+        "command": [
+          "/Users/dsteele/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.25.13.darwin-arm64/bin/go",
+          "test",
+          "./...",
+          "-run",
+          "^TestWorkerSidecarIndependentLinks$/control-reply$",
+          "-count=1"
+        ],
+        "intended_assertion": "oracle_test.go:2850: invalid worker correspondence accepted",
+        "expected_occurrences": 1,
+        "exit": 1,
+        "actual_occurrences": 1,
+        "log": "/tmp/c5b19-g3a10-mutant-control-reply.log",
+        "sha256": "dd5c94f35d434f0c2818c70430593d89f5676b0b3e26b7c4498c71e533451ef9"
+      },
+      {
+        "name": "accepted-reply",
+        "replacements": [
+          [
+            "entry.outcome != 0 && !bytes.Equal(selected.WorkerSent, entry.reply[:])",
+            "false"
+          ]
+        ],
+        "command": [
+          "/Users/dsteele/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.25.13.darwin-arm64/bin/go",
+          "test",
+          "./...",
+          "-run",
+          "^TestWorkerSidecarAcceptedOutcomes$/2$/contrary3$",
+          "-count=1"
+        ],
+        "intended_assertion": "oracle_test.go:2889: invalid worker correspondence accepted",
+        "expected_occurrences": 1,
+        "exit": 1,
+        "actual_occurrences": 1,
+        "log": "/tmp/c5b19-g3a10-mutant-accepted-reply.log",
+        "sha256": "891162f11effd2d21976bda2ac41993b9ac2aca1b3477855cfd31d0be44689ae"
+      },
+      {
+        "name": "duplicate-operation",
+        "replacements": [
+          [
+            "result.Entries[j].Operation.Operation == operation.Operation",
+            "false"
+          ]
+        ],
+        "command": [
+          "/Users/dsteele/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.25.13.darwin-arm64/bin/go",
+          "test",
+          "./...",
+          "-run",
+          "^TestWorkerSidecarCollectionAndHistoricalFacts$/duplicate$",
+          "-count=1"
+        ],
+        "intended_assertion": "oracle_test.go:2970: invalid worker correspondence accepted",
+        "expected_occurrences": 1,
+        "exit": 1,
+        "actual_occurrences": 1,
+        "log": "/tmp/c5b19-g3a10-mutant-duplicate-operation.log",
+        "sha256": "8e2862a711099d7531dc91fee217f726351064934e67f060f007b86710694f8d"
+      },
+      {
+        "name": "sent-pair-presence",
+        "replacements": [
+          [
+            "sent != (selected.WorkerReply != nil) || (!sent && selected.ControlReceived != nil)",
+            "(sent && selected.WorkerReply == nil) || (!sent && selected.ControlReceived != nil)"
+          ]
+        ],
+        "command": [
+          "/Users/dsteele/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.25.13.darwin-arm64/bin/go",
+          "test",
+          "./...",
+          "-run",
+          "^TestWorkerSidecarContextAndMemberRows$/5$",
+          "-count=1"
+        ],
+        "intended_assertion": "oracle_test.go:2720: invalid worker correspondence accepted",
+        "expected_occurrences": 1,
+        "exit": 1,
+        "actual_occurrences": 1,
+        "log": "/tmp/c5b19-g3a10-mutant-sent-pair-presence.log",
+        "sha256": "e69c7cd271137f54cd0f9cd7429289fe28290eeb8b5cc14e22e93850d52ca408"
+      },
+      {
+        "name": "control-needs-sent",
+        "replacements": [
+          [
+            "sent != (selected.WorkerReply != nil) || (!sent && selected.ControlReceived != nil)",
+            "sent != (selected.WorkerReply != nil)"
+          ]
+        ],
+        "command": [
+          "/Users/dsteele/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.25.13.darwin-arm64/bin/go",
+          "test",
+          "./...",
+          "-run",
+          "^TestWorkerSidecarContextAndMemberRows$/9$",
+          "-count=1"
+        ],
+        "intended_assertion": "oracle_test.go:2720: invalid worker correspondence accepted",
+        "expected_occurrences": 1,
+        "exit": 1,
+        "actual_occurrences": 1,
+        "log": "/tmp/c5b19-g3a10-mutant-control-needs-sent.log",
+        "sha256": "441f2e4dde0dea0430eb42883c32fc701b0eae5c6bcece57aedc3f5e297f9b65"
+      },
+      {
+        "name": "worker-outcome-from-control",
+        "replacements": [
+          [
+            "facts.SentPresent, facts.WorkerOutcome = true, event.Outcome",
+            "facts.SentPresent, facts.WorkerOutcome = true, entry.outcome"
+          ]
+        ],
+        "command": [
+          "/Users/dsteele/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.25.13.darwin-arm64/bin/go",
+          "test",
+          "./...",
+          "-run",
+          "^TestWorkerSidecarPendingPartialEvidence$",
+          "-count=1"
+        ],
+        "intended_assertion": "oracle_test.go:2761: partial worker evidence promoted settlement or fabricated facts",
+        "expected_occurrences": 1,
+        "exit": 1,
+        "actual_occurrences": 1,
+        "log": "/tmp/c5b19-g3a10-mutant-worker-outcome-from-control.log",
+        "sha256": "55d1e1a163091cb8d9b4c915d17e143dbaf1c3f9dd4a4f81f4db482b2179567b"
+      },
+      {
+        "name": "query-clears-fatal",
+        "replacements": [
+          [
+            "result := workerSidecarCorrespondence{History: h.history.snapshot()}",
+            "h.history.fatal = false\n\tresult := workerSidecarCorrespondence{History: h.history.snapshot()}"
+          ]
+        ],
+        "command": [
+          "/Users/dsteele/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.25.13.darwin-arm64/bin/go",
+          "test",
+          "./...",
+          "-run",
+          "^TestWorkerSidecarOwnedValuesAndFatalPreservation$",
+          "-count=1"
+        ],
+        "intended_assertion": "oracle_test.go:3000: worker query mutated private history",
+        "expected_occurrences": 1,
+        "exit": 1,
+        "actual_occurrences": 1,
+        "log": "/tmp/c5b19-g3a10-mutant-query-clears-fatal.log",
+        "sha256": "779a087e646b4e2cc2a81e1b2dd00ab9eb53558ff7454a0a42f2dff99366111f"
+      },
+      {
+        "name": "partial-result-on-error",
+        "replacements": [
+          [
+            "if event.Kind != 5 || !bytes.Equal(worker.Request, selected.WorkerReceived) || !bytes.Equal(worker.Reply, selected.WorkerSent) {\n\t\t\t\treturn workerSidecarCorrespondence{}, errWorkerSidecars",
+            "if event.Kind != 5 || !bytes.Equal(worker.Request, selected.WorkerReceived) || !bytes.Equal(worker.Reply, selected.WorkerSent) {\n\t\t\t\treturn result, errWorkerSidecars"
+          ]
+        ],
+        "command": [
+          "/Users/dsteele/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.25.13.darwin-arm64/bin/go",
+          "test",
+          "./...",
+          "-run",
+          "^TestWorkerSidecarCollectionAndHistoricalFacts$/late-invalid$",
+          "-count=1"
+        ],
+        "intended_assertion": "oracle_test.go:2975: worker refusal returned partial evidence",
+        "expected_occurrences": 1,
+        "exit": 1,
+        "actual_occurrences": 1,
+        "log": "/tmp/c5b19-g3a10-mutant-partial-result-on-error.log",
+        "sha256": "efe3693e09cef55cf05d85e0502df7a23e643a81b6cffd3849f34ecd2291d6a5"
+      }
+    ],
+    "invalid_mutation_constructions": [
+      {
+        "name": "control-kind",
+        "replacements": [
+          [
+            "received.Kind != 7 || ",
+            ""
+          ]
+        ],
+        "command": [
+          "/Users/dsteele/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.25.13.darwin-arm64/bin/go",
+          "test",
+          "./...",
+          "-run",
+          "^TestWorkerSidecarIndependentLinks$/control-kind$",
+          "-count=1"
+        ],
+        "intended_assertion": "oracle_test.go:2850: invalid worker correspondence accepted",
+        "expected_occurrences": 1,
+        "exit": 1,
+        "actual_occurrences": 0,
+        "log": "/tmp/c5b19-g3a10-invalid-control-kind.log",
+        "sha256": "2a68c2679839756810cd00ce757eaa64786ba1bc9dfa0412847e2c5f2aa34192",
+        "classification": "Invalid mutation construction: removed only use of received, failed compilation; not behavioral evidence."
+      },
+      {
+        "name": "sent-pair-presence",
+        "replacements": [
+          [
+            "sent != (selected.WorkerReply != nil) || (!sent && selected.ControlReceived != nil)",
+            "!sent && selected.ControlReceived != nil"
+          ]
+        ],
+        "command": [
+          "/Users/dsteele/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.25.13.darwin-arm64/bin/go",
+          "test",
+          "./...",
+          "-run",
+          "^TestWorkerSidecarContextAndMemberRows$/5$",
+          "-count=1"
+        ],
+        "intended_assertion": "oracle_test.go:2720: invalid worker correspondence accepted",
+        "expected_occurrences": 1,
+        "exit": 1,
+        "actual_occurrences": 1,
+        "log": "/tmp/c5b19-g3a10-invalid-sent-pair-presence.log",
+        "sha256": "3662ced6877d8235b9ec78d24fd5633a0d1d17bf0513359ab6c939e2f15ca56c",
+        "classification": "Broad bypass reached intended assertion then panicked in an unfiltered parent-level empty-member case. Invalid campaign run, not counted as a kill. Corrected one-sided bypass preserves nil safety."
+      }
+    ],
+    "mutation_driver_sha256": "c6fb3fdfd738ecfeb29babb1a49c7b8d4ea8067e2126534bd249665450b93229",
+    "mutation_driver_note": "Driver resumed retained successful results after two invalid constructions; exact replacement/command/assertion definitions above are replayable independently. Final refusal-input test appended afterward without changing prior mutation-target bytes or line numbers; final four checks passed.",
+    "limits": [
+      "Supplied selections only; no capture authenticity/completeness, omitted-slot detection, physical transport/syscall success or completed roundtrip claim",
+      "Receive-only and sent-without-control remain partial; worker/control receipt never settles history or supplies accepted outcome",
+      "No lane chronology, watermark, full causal trace, elapsed timing, live store, native lifecycle or execution authority; child execution, Gates4\u20136 and admission BLOCKED",
+      "Control request and reply equality overlap through the request digest; disclosed combined bypass tests that relation, not necessity of each isolated guard. Cap is also implied by three private entries plus duplicate refusal; no cap-only mutation claim.",
+      "Two invalid mutation constructions retained separately; only fourteen corrected compiled runs and their exact intended assertions count. No exhaustive mutation claim."
+    ],
+    "review_report_sha256": "e7ac4de9d08d2956db21730e47d15aeefc1b830995277d4e5ff88134a1af7620"
   }
 }

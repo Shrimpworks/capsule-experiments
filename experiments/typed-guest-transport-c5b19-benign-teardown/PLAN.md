@@ -1346,3 +1346,163 @@ Full Gate3 remains IN_PROGRESS — TRENDING_GOOD. Child execution, Gates4–6 an
 admission remain BLOCKED. No child fixture ran. Next recommended bounded work is
 supplied worker-received/sent sidecar correspondence, preserving partial evidence
 and keeping decoding context distinct from independently supplied worker capture.
+
+
+## G3a10 supplied worker-received/sent sidecar correspondence
+
+Status: PASSED for bounded implementation and local checks. Independent review
+IN_PROGRESS — TRENDING_GOOD, pending fresh review. Full Gate3 remains IN_PROGRESS —
+TRENDING_GOOD; child execution, Gates4–6 and product admission remain BLOCKED.
+
+Defensively validate supplied inert worker slots against privately retained
+submissions in this owned archive with ordinary offline Go unit/compiler processes.
+No native fixture, child/guest, lifecycle/signal/wait target, live store/clock/network,
+credentials or user data. Brain accepted scope before implementation. Canonical
+reference fe9009d5398a883735219e2a3a33c351c79aa54c; archive baseline
+7646d8faabb670ce8b5ff1b213c414d91deda2d9. C5b19 test-only ADOPT-PLATFORM /
+BUILD-NARROWLY composition adds no dependency, primitive, serialized format, event
+kind, manifest/ABI change, privileged responsibility or product import. Prior
+source/test prefixes and all previous parsed provenance remain exact.
+
+### Contract and flow
+
+Append-only `snapshotHistory.inspectWorkerSidecars` accepts at most three distinct
+actually retained operations. Each selection requires independent raw397-byte
+WorkerReceived. Nil WorkerSent means omitted; any nonnil value must be exact98
+bytes and paired with strict kind5 WorkerReply. Optional strict kind7
+ControlReceived requires that pair. Only received-only, received/sent/kind5, and
+received/sent/kind5/kind7 rows are supported. Pair Request remains decoding context:
+it never substitutes for WorkerReceived. Empty selection on an initialized history
+is no evidence; nil/uninitialized history refuses it.
+
+The query strictly decodes received bytes, finds an exact private submitted request,
+refuses duplicate operations, validates optionality, then validates kind5 and kind7
+with unchanged strict helpers and compares their request/reply bytes to independent
+slots. Supplied sent bytes also equal the complete retained accepted reply whenever
+accepted outcome is nonzero (confirmed1, failed2 or indeterminate3). Rejected code2
+never replaces accepted evidence. Received-only never infers a missing send from
+accepted state. A pending confirmed worker reply or kind7 receipt never settles.
+
+Fixed three-entry value output exposes explicit presence plus separate accepted and
+worker outcomes and copied history. No confirmation/complete-roundtrip/admission
+boolean, aliases, history mutation or partial result on error. Input selection order
+is preserved; historical events are not compared with current control watermark.
+Per-event strict lane/field/timebase checks remain, but no lane sequence ordering,
+uniqueness, gaps, cross-lane clock, causal or elapsed-time contract is added.
+
+### Verification and sensitivity
+
+Tests were appended before implementation; red compiler output names the missing
+workerSidecarSelection/result/query API. Minimal implementation then passed. Ten
+new test groups cover all16 presence combinations, three valid partial rows and all
+outcomes, independent well-formed substitutions, malformed members, exact membership,
+accepted/rejected separation, three entries and duplicates/cap+1, arbitrary/historical
+order, zero error output, fatal/pending preservation, copied values and input
+nonmutation on success and refusal. Baseline prefixes remain byte-exact.
+
+Exact executable: `/Users/dsteele/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.25.13.darwin-arm64/bin/go`
+(`go version go1.25.13 darwin/arm64`). Cwd this experiment; environment
+`GOTOOLCHAIN=local GOPROXY=off GOSUMDB=off GOCACHE=/tmp/c5b19-g3a10-go-cache`.
+Final commands `go test ./... -count=1`, `go test -race ./... -count=1`,
+`go vet ./...`, `go build ./...` all exited0. All runs and exact raw-log SHA256
+values are below and in ORIGINS.g3a10. Source restoration uses finally and checks
+exact original bytes. No mutant remains.
+
+Fourteen corrected selected mutants compiled, exited1, and reached17 exact intended
+assertion occurrences after valid setup. ORIGINS.g3a10 retains each exact replacement,
+command, assertion location/count and output hash. They are bounded sensitivity
+evidence, not exhaustive proof. The control request/reply relation needs a disclosed
+combined bypass because strict reply identity also binds request digest. The
+three-entry capacity guard is reinforced by membership/duplicate checks; no isolated
+cap necessity is claimed.
+
+Two invalid constructions are retained separately and not counted: first control-
+kind deletion removed the only use of `received` and failed compilation; corrected
+predicate keeps variable use. Initial broad optional-pair bypass reached its target
+but later panicked on a parent-level empty-member case; corrected one-sided bypass
+keeps the required nil guard and reaches its intended assertion without panic.
+No fixture setup failure or survivor is claimed as a useful kill. The final explicit
+refusal-input nonmutation test was appended after mutation runs without changing any
+prior target bytes or line numbers; final full/race/vet/build checks then passed.
+
+| Corrected mutant | Intended assertion occurrences |
+|---|---:|
+| retained-membership | 4 |
+| worker-request | 1 |
+| worker-sent | 1 |
+| worker-kind | 1 |
+| control-kind | 1 |
+| control-request-and-reply | 1 |
+| control-reply | 1 |
+| accepted-reply | 1 |
+| duplicate-operation | 1 |
+| sent-pair-presence | 1 |
+| control-needs-sent | 1 |
+| worker-outcome-from-control | 1 |
+| query-clears-fatal | 1 |
+| partial-result-on-error | 1 |
+
+Exact verification log hashes (temporary raw logs; definitions retained in ORIGINS):
+
+- red exit1: `b88c066e49a61c1ce659e872fae2f17b411c3b2cd4901c630185c0f2d8f3ad5d`
+- green exit0: `e5bd60ef196d77fdecbef9ce3131b7f9c2fb3bfbace7055c2450957a9cbeb54c`
+- refined-green exit0: `f5e624fcb40238f144faf7ae9f2bcbaa353cfc68e5e5f31f3c70a757bdc56994`
+- mutation-baseline exit0: `ca273146ad5426302e32e046919ac582694de81ce83a3dfad7e8d4f9cae53b08`
+- restored exit0: `28471f8304d1de94427a5e58e0eca88b9e9303e6c442391ca07ee88997d4b3a2`
+- race exit0: `12373c05568dd4c5611f25d202f093d726175770476b3499213dc7dbaa5962a8`
+- vet exit0: `e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855`
+- build exit0: `e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855`
+- final-test exit0: `068b8ae823e4e6f5577b8f1557c50233869c22bc57fb28c32238f5167b108a73`
+- final-race exit0: `90eea5e2916f45bb0b006dfc760b0365aff1dda3cfee6ff903832238ee8d930b`
+- final-vet exit0: `e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855`
+- final-build exit0: `e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855`
+- mutant-retained-membership exit1: `36167ccd6e32f102645a2a1543ecf1cf3fe6e3bab70fb35e11d42077a9ec48a7`
+- mutant-worker-request exit1: `b0df84e2fb324f4e4741be7b5ad1fd93a6b0b86bbf9dbc44d7d14e401e41c428`
+- mutant-worker-sent exit1: `0cb4297aa8f7300af3a7be99547be34b0724a7e3df9ebc2445fbbcda99b2c10a`
+- mutant-worker-kind exit1: `368d50e2c059e741ce2848a64efe24fb5f9b54147ee52c19cd8f7ed7b56b9a96`
+- mutant-control-kind exit1: `2861a429c70164192df228d8a44fc637f03a310b954ea91732198884613b0adc`
+- mutant-control-request-and-reply exit1: `9ff732e192d29fcbb841e59c4b983f097308af8a1ccb39fbd4bc46a33b05d6a0`
+- mutant-control-reply exit1: `dd5c94f35d434f0c2818c70430593d89f5676b0b3e26b7c4498c71e533451ef9`
+- mutant-accepted-reply exit1: `891162f11effd2d21976bda2ac41993b9ac2aca1b3477855cfd31d0be44689ae`
+- mutant-duplicate-operation exit1: `8e2862a711099d7531dc91fee217f726351064934e67f060f007b86710694f8d`
+- mutant-sent-pair-presence exit1: `e69c7cd271137f54cd0f9cd7429289fe28290eeb8b5cc14e22e93850d52ca408`
+- mutant-control-needs-sent exit1: `441f2e4dde0dea0430eb42883c32fc701b0eae5c6bcece57aedc3f5e297f9b65`
+- mutant-worker-outcome-from-control exit1: `55d1e1a163091cb8d9b4c915d17e143dbaf1c3f9dd4a4f81f4db482b2179567b`
+- mutant-query-clears-fatal exit1: `779a087e646b4e2cc2a81e1b2dd00ab9eb53558ff7454a0a42f2dff99366111f`
+- mutant-partial-result-on-error exit1: `efe3693e09cef55cf05d85e0502df7a23e643a81b6cffd3849f34ecd2291d6a5`
+- invalid-control-kind exit1: `2a68c2679839756810cd00ce757eaa64786ba1bc9dfa0412847e2c5f2aa34192`
+- invalid-sent-pair-presence exit1: `3662ced6877d8235b9ec78d24fd5633a0d1d17bf0513359ab6c939e2f15ca56c`
+
+Frozen source hashes:
+
+- go.mod: `5f40cde18c2d82fe5d57f3a8822377c12e473f1026f174165dfecd126bea3eeb`
+- tests/oracle.go: `df113eff8793f07a2156984aebdf69e3dc77deda39dbdc1c80573ec8c6e392ef`
+- tests/oracle_test.go: `05197b095ed3ed7da6ff9562b1b6e6da34a2624bf86821c138623a6f12a9448c`
+- tests/model_test.go: `b0f3b9d063c225eb887cecaf16f4058f0ed07ae8f14c3d92c49acacabb0a931e`
+- Scope report: `49c058ebccaaffc53d69abfa3e871ed9afd618dd3ab5ba2fa0f13b1538c28578`
+- Resumed mutation driver: `c6fb3fdfd738ecfeb29babb1a49c7b8d4ea8067e2126534bd249665450b93229`
+
+### Limits and integration
+
+Supplied bytes cannot prove capture authenticity/completeness, omitted frames,
+physical transport or successful syscalls, full lane/causal/timing consistency,
+actual durability, stop/start permission, native absence, completion or capacity
+release. G3a9 absent/older snapshots remain uncertain. Child execution stays BLOCKED.
+Next supplied write/result correspondence (kind3→4 and kind5→6), full control trace,
+native implementation and later first-run gates remain deferred. Brain owns review,
+canonical pinning, commits, pushes and shared PR38 integration; the author does not
+issue an independent-review readiness verdict.
+
+### G3a10 Brain acceptance after independent review
+
+PASSED: fresh independent review instance 1 of 3 returned **Ready**, with no
+actionable findings. Report SHA256 `e7ac4de9d08d2956db21730e47d15aeefc1b830995277d4e5ff88134a1af7620` is retained in canonical
+`.planning/c5b19-worker-sidecars/review-1.md`; preliminary source-first ledger is
+retained beside it. Reviewer independently reran offline Go 1.25.13 test/race/vet/
+build and verified hashes, prior provenance, and all intended mutation assertions.
+Canonical baseline and mutation executions were inspected evidence, not reviewer
+reruns. Both invalid mutation constructions remain excluded. Reviewed source and
+test bytes are unchanged; only this acceptance metadata follows the freeze.
+Brain owns immutable archive pinning and canonical PR publication. Archive PR #38
+remains draft. Full Gate 3 remains IN_PROGRESS — TRENDING_GOOD; child execution,
+Gates 4–6 and admission remain BLOCKED. No child fixture ran.

@@ -1008,3 +1008,101 @@ func (h *snapshotHistory) inspect(present bool, record []byte, worker *capturedF
 	}
 	return result, nil
 }
+
+var errWorkerSidecars = errors.New("C5B19_WORKER_SIDECARS")
+
+// workerSidecarSelection separates independent raw slots from decoding context.
+// WorkerReceived is required. Nil WorkerSent means omitted; otherwise it and a
+// strict kind5 WorkerReply must both exist. Optional kind7 ControlReceived needs
+// that pair. These are supplied in-memory observations, not a sidecar wire format.
+type workerSidecarSelection struct {
+	WorkerReceived  []byte
+	WorkerSent      []byte
+	WorkerReply     *capturedFramePair
+	ControlReceived *capturedFramePair
+}
+
+// Presence/outcomes are represented facts only. In particular accepted control
+// evidence does not fill missing worker evidence, and worker evidence never
+// supplies an accepted outcome. Values contain no caller or history aliases.
+type workerSidecarFacts struct {
+	Operation              wireOperation
+	ReceivedPresent        bool
+	SentPresent            bool
+	ControlReceivedPresent bool
+	WorkerOutcome          byte
+	AcceptedOutcome        byte
+}
+
+type workerSidecarCorrespondence struct {
+	Entries [3]workerSidecarFacts
+	Count   uint8
+	History decisionHistorySnapshot
+}
+
+// inspectWorkerSidecars checks at most three distinct submitted operations.
+// Receive-only and sent-without-control selections are partial evidence; empty
+// selection is no evidence. No lane chronology, cross-lane ordering, capture
+// completeness/authenticity, syscall success, settlement or authority follows.
+// Historical observations never consult or update the current control watermark.
+func (h *snapshotHistory) inspectWorkerSidecars(selections []workerSidecarSelection) (workerSidecarCorrespondence, error) {
+	if h == nil || !h.initialized || len(selections) > 3 {
+		return workerSidecarCorrespondence{}, errWorkerSidecars
+	}
+	result := workerSidecarCorrespondence{History: h.history.snapshot()}
+	frozen := h.history.history.frozen
+	for i, selected := range selections {
+		operation, err := decodeRequest(selected.WorkerReceived, frozen)
+		if err != nil {
+			return workerSidecarCorrespondence{}, errWorkerSidecars
+		}
+		index := -1
+		for j := uint8(0); j < h.count; j++ {
+			if bytes.Equal(selected.WorkerReceived, h.entries[j].request[:]) {
+				index = int(j)
+				break
+			}
+		}
+		if index < 0 {
+			return workerSidecarCorrespondence{}, errWorkerSidecars
+		}
+		for j := 0; j < i; j++ {
+			if result.Entries[j].Operation.Operation == operation.Operation {
+				return workerSidecarCorrespondence{}, errWorkerSidecars
+			}
+		}
+		sent := selected.WorkerSent != nil
+		if sent != (selected.WorkerReply != nil) || (!sent && selected.ControlReceived != nil) {
+			return workerSidecarCorrespondence{}, errWorkerSidecars
+		}
+		entry := h.entries[index]
+		facts := workerSidecarFacts{Operation: operation, ReceivedPresent: true, AcceptedOutcome: entry.outcome}
+		if sent {
+			worker := selected.WorkerReply
+			if err := validateCapturedFrame(*worker, frozen, h.history.numer, h.history.denom); err != nil {
+				return workerSidecarCorrespondence{}, errWorkerSidecars
+			}
+			event, _ := decodeEventFields(worker.Event, frozen, h.history.numer, h.history.denom)
+			if event.Kind != 5 || !bytes.Equal(worker.Request, selected.WorkerReceived) || !bytes.Equal(worker.Reply, selected.WorkerSent) {
+				return workerSidecarCorrespondence{}, errWorkerSidecars
+			}
+			if entry.outcome != 0 && !bytes.Equal(selected.WorkerSent, entry.reply[:]) {
+				return workerSidecarCorrespondence{}, errWorkerSidecars
+			}
+			facts.SentPresent, facts.WorkerOutcome = true, event.Outcome
+			if control := selected.ControlReceived; control != nil {
+				if err := validateCapturedFrame(*control, frozen, h.history.numer, h.history.denom); err != nil {
+					return workerSidecarCorrespondence{}, errWorkerSidecars
+				}
+				received, _ := decodeEventFields(control.Event, frozen, h.history.numer, h.history.denom)
+				if received.Kind != 7 || !bytes.Equal(control.Request, selected.WorkerReceived) || !bytes.Equal(control.Reply, selected.WorkerSent) {
+					return workerSidecarCorrespondence{}, errWorkerSidecars
+				}
+				facts.ControlReceivedPresent = true
+			}
+		}
+		result.Entries[i] = facts
+		result.Count++
+	}
+	return result, nil
+}
