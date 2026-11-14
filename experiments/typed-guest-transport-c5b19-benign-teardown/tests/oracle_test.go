@@ -585,3 +585,291 @@ func TestWireRejectsMatchingInvalidFrozenBindings(t *testing.T) {
 		}
 	}
 }
+
+// Independently assembled with Python struct/hashlib from the Gate-2 field table.
+// Payload deliberately has no kind-specific meaning: this is envelope-only evidence.
+const eventEnvelopeVector = "433545560101001d0102030405060708fedcba987654321088776655443322110000007d000000037a06ffea981ff10e3292aaf1ac5ea6e6b913648f4e02d965f27da588072009c90b0b0b0b0b0b0b0b0b0b0b0b0b0b0b0bf1e2d3c4b5a697880c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0d0d0d0d0d0d0d0d0d0d0d0d0d0d0d0d0d0d0d0d0d0d0d0d0d0d0d0d0d0d0d0d89abcdeff8a432eb8000000076543210fedcba9803020e0e0e0e0e0e0e0e0e0e0e0e0e0e0e0e0e0e0e0e0e0e0e0e0e0e0e0e0e0e0e0e0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f0f00000000000000000000"
+const eventBindingDigestVector = "7a06ffea981ff10e3292aaf1ac5ea6e6b913648f4e02d965f27da588072009c9"
+
+func TestEventEnvelopeKnownAnswerAndOwnership(t *testing.T) {
+	raw := wireBytes(t, eventEnvelopeVector)
+	want := eventEnvelope{
+		Lane: 1, Kind: 29, Sequence: 0x0102030405060708,
+		Tick: 0xfedcba9876543210, AuxiliaryTick: 0x8877665544332211,
+		Numerator: 125, Denominator: 3,
+		BindingDigest: [32]byte(wireBytes(t, eventBindingDigestVector)),
+		Operation:     [16]byte(bytes.Repeat([]byte{11}, 16)), Generation: 0xf1e2d3c4b5a69788,
+		RequestDigest:   [32]byte(bytes.Repeat([]byte{12}, 32)),
+		ProcessIdentity: [32]byte(bytes.Repeat([]byte{13}, 32)),
+		PID:             0x89abcdef, SyscallResult: -123456789, Errno: -2147483648,
+		Flags: 0x76543210, WaitStatus: 0xfedcba98, Outcome: 3, ApplicationResult: 2,
+		RecordDigest:    [32]byte(bytes.Repeat([]byte{14}, 32)),
+		CandidateDigest: [32]byte(bytes.Repeat([]byte{15}, 32)),
+	}
+	got, err := decodeEventEnvelope(raw, obligationFixture(), 125, 3)
+	if err != nil || got != want {
+		t.Fatalf("decoded fields = %+v, %v; want %+v", got, err, want)
+	}
+	before := bytes.Clone(raw)
+	got.Operation[0] ^= 1
+	got.CandidateDigest[31] ^= 1
+	if !bytes.Equal(raw, before) {
+		t.Fatal("decoded value aliases input")
+	}
+	copyOfValue := got
+	for i := range raw {
+		raw[i] ^= 0xff
+	}
+	if copyOfValue != got {
+		t.Fatal("input mutation altered decoded values")
+	}
+	// Kind29 on control and non-common payload are decoded, not semantically
+	// approved. A later kind/causal oracle must reject this as a case trace.
+}
+
+func requireEnvelopeRefused(t *testing.T, raw []byte, frozen obligationBindings, numer, denom uint32) {
+	t.Helper()
+	got, err := decodeEventEnvelope(raw, frozen, numer, denom)
+	if err == nil || got != (eventEnvelope{}) {
+		t.Fatalf("invalid envelope returned %+v, %v", got, err)
+	}
+}
+
+func TestEventEnvelopeRefusesMalformedCommonFields(t *testing.T) {
+	raw := wireBytes(t, eventEnvelopeVector)
+	for n := 0; n < 256; n++ {
+		requireEnvelopeRefused(t, raw[:n], obligationFixture(), 125, 3)
+	}
+	requireEnvelopeRefused(t, append(bytes.Clone(raw), 0), obligationFixture(), 125, 3)
+	for _, offset := range []int{0, 1, 2, 3, 4, 40, 71, 246, 247, 248, 249, 250, 251, 252, 253, 254, 255} {
+		t.Run(fmt.Sprintf("byte%d", offset), func(t *testing.T) {
+			changed := bytes.Clone(raw)
+			changed[offset] ^= 0xff
+			requireEnvelopeRefused(t, changed, obligationFixture(), 125, 3)
+		})
+	}
+	for _, tc := range []struct {
+		offset int
+		values []byte
+	}{
+		{5, []byte{0, 4, 255}}, {180, []byte{4, 255}}, {181, []byte{3, 255}},
+	} {
+		for _, value := range tc.values {
+			changed := bytes.Clone(raw)
+			changed[tc.offset] = value
+			requireEnvelopeRefused(t, changed, obligationFixture(), 125, 3)
+		}
+	}
+	for _, kind := range []uint16{0, 30, 256, 65535} {
+		changed := bytes.Clone(raw)
+		binary.BigEndian.PutUint16(changed[6:8], kind)
+		requireEnvelopeRefused(t, changed, obligationFixture(), 125, 3)
+	}
+	for _, pair := range [][2]uint32{{0, 3}, {125, 0}, {0, 0}, {126, 3}, {125, 4}} {
+		requireEnvelopeRefused(t, raw, obligationFixture(), pair[0], pair[1])
+		changed := bytes.Clone(raw)
+		binary.BigEndian.PutUint32(changed[32:36], pair[0])
+		binary.BigEndian.PutUint32(changed[36:40], pair[1])
+		requireEnvelopeRefused(t, changed, obligationFixture(), 125, 3)
+		if pair[0] == 0 || pair[1] == 0 {
+			requireEnvelopeRefused(t, changed, obligationFixture(), pair[0], pair[1])
+		}
+	}
+	preimage, err := encodeObligationPreimage(obligationFixture())
+	if err != nil {
+		t.Fatal(err)
+	}
+	wrong := sha256.Sum256(preimage)
+	copy(raw[40:72], wrong[:])
+	requireEnvelopeRefused(t, raw, obligationFixture(), 125, 3)
+}
+
+func TestEventEnvelopeClosedCodesAndUnsignedExtremes(t *testing.T) {
+	for lane := byte(1); lane <= 3; lane++ {
+		for kind := uint16(1); kind <= 29; kind++ {
+			for outcome := byte(0); outcome <= 3; outcome++ {
+				for application := byte(0); application <= 2; application++ {
+					raw := wireBytes(t, eventEnvelopeVector)
+					raw[5], raw[180], raw[181] = lane, outcome, application
+					binary.BigEndian.PutUint16(raw[6:8], kind)
+					got, err := decodeEventEnvelope(raw, obligationFixture(), 125, 3)
+					if err != nil || got.Lane != lane || got.Kind != kind || got.Outcome != outcome || got.ApplicationResult != application {
+						t.Fatalf("known codes refused or changed: %+v %v", got, err)
+					}
+				}
+			}
+		}
+	}
+	for _, value := range []uint64{0, 1, ^uint64(0)} {
+		raw := wireBytes(t, eventEnvelopeVector)
+		for _, offset := range []int{8, 16, 24, 88} {
+			binary.BigEndian.PutUint64(raw[offset:offset+8], value)
+		}
+		binary.BigEndian.PutUint32(raw[32:36], ^uint32(0))
+		binary.BigEndian.PutUint32(raw[36:40], 1)
+		got, err := decodeEventEnvelope(raw, obligationFixture(), ^uint32(0), 1)
+		if err != nil || got.Sequence != value || got.Tick != value || got.AuxiliaryTick != value || got.Generation != value {
+			t.Fatalf("u64 boundary changed: %+v %v", got, err)
+		}
+	}
+}
+
+func TestEventEnvelopeFrozenBindings(t *testing.T) {
+	// Literal request bytes hold all ten binding fields, independently of the new decoder.
+	fields := [][2]int{{8, 24}, {24, 56}, {56, 88}, {88, 104}, {104, 120}, {120, 136}, {136, 168}, {168, 200}, {200, 232}, {232, 248}}
+	for _, field := range fields {
+		for _, fill := range []byte{0, 21} {
+			r := wireBytes(t, requestVector)
+			copy(r[field[0]:field[1]], bytes.Repeat([]byte{fill}, field[1]-field[0]))
+			frozen := bindingsFromTestRequest(r)
+			raw := wireBytes(t, eventEnvelopeVector)
+			digest := sha256.Sum256(r[8:248])
+			copy(raw[40:72], digest[:])
+			if fill == 0 {
+				requireEnvelopeRefused(t, raw, frozen, 125, 3)
+				continue
+			}
+			if _, err := decodeEventEnvelope(raw, frozen, 125, 3); err != nil {
+				t.Fatalf("valid changed binding %v refused: %v", field, err)
+			}
+			requireEnvelopeRefused(t, wireBytes(t, eventEnvelopeVector), frozen, 125, 3)
+		}
+	}
+	for _, pair := range [][4]int{{8, 24, 88, 104}, {24, 56, 56, 88}} {
+		r := wireBytes(t, requestVector)
+		copy(r[pair[0]:pair[1]], r[pair[2]:pair[3]])
+		raw := wireBytes(t, eventEnvelopeVector)
+		digest := sha256.Sum256(r[8:248])
+		copy(raw[40:72], digest[:])
+		requireEnvelopeRefused(t, raw, bindingsFromTestRequest(r), 125, 3)
+	}
+}
+
+func laneEnvelopeFixture(t *testing.T, lane byte, count int, first uint64) []byte {
+	t.Helper()
+	base := wireBytes(t, eventEnvelopeVector)
+	base[5] = lane
+	raw := make([]byte, count*256)
+	for i := 0; i < count; i++ {
+		frame := raw[i*256 : (i+1)*256]
+		copy(frame, base)
+		binary.BigEndian.PutUint64(frame[8:16], first+uint64(i))
+		binary.BigEndian.PutUint64(frame[16:24], uint64(i))
+	}
+	return raw
+}
+
+func TestLaneEnvelopeCapsAndFraming(t *testing.T) {
+	for _, tc := range []struct {
+		lane byte
+		cap  int
+	}{{1, 32768}, {2, 1024}, {3, 64}} {
+		t.Run(fmt.Sprintf("lane%d", tc.lane), func(t *testing.T) {
+			for _, first := range []uint64{0, 1, 123456789} {
+				raw := laneEnvelopeFixture(t, tc.lane, tc.cap, first)
+				before := bytes.Clone(raw)
+				if err := validateLaneEnvelope(raw, tc.lane, first, obligationFixture(), 125, 3); err != nil {
+					t.Fatalf("exact cap refused: %v", err)
+				}
+				if !bytes.Equal(raw, before) {
+					t.Fatal("lane check modified caller bytes")
+				}
+				tooMany := laneEnvelopeFixture(t, tc.lane, tc.cap+1, first)
+				if err := validateLaneEnvelope(tooMany, tc.lane, first, obligationFixture(), 125, 3); err == nil {
+					t.Fatal("cap+1 accepted")
+				}
+			}
+			for _, raw := range [][]byte{nil, {}, make([]byte, 255), laneEnvelopeFixture(t, tc.lane, 2, 0)[:511], append(laneEnvelopeFixture(t, tc.lane, 1, 0), 0)} {
+				if err := validateLaneEnvelope(raw, tc.lane, 0, obligationFixture(), 125, 3); err == nil {
+					t.Fatal("empty/truncated/trailing lane accepted")
+				}
+			}
+		})
+	}
+	for _, lane := range []byte{0, 4, 255} {
+		if err := validateLaneEnvelope(laneEnvelopeFixture(t, 1, 1, 0), lane, 0, obligationFixture(), 125, 3); err == nil {
+			t.Fatal("unknown expected lane accepted")
+		}
+	}
+}
+
+func TestLaneEnvelopeSequencesAndOverflow(t *testing.T) {
+	for _, lane := range []byte{1, 2, 3} {
+		for _, first := range []uint64{0, 1, ^uint64(0) - 2} {
+			raw := laneEnvelopeFixture(t, lane, 3, first)
+			if err := validateLaneEnvelope(raw, lane, first, obligationFixture(), 125, 3); err != nil {
+				t.Fatal(err)
+			}
+			for i := 0; i < 3; i++ {
+				for _, seq := range []uint64{first + uint64(i) - 1, first + uint64(i) + 1} {
+					changed := bytes.Clone(raw)
+					binary.BigEndian.PutUint64(changed[i*256+8:i*256+16], seq)
+					if err := validateLaneEnvelope(changed, lane, first, obligationFixture(), 125, 3); err == nil {
+						t.Fatalf("wrong sequence accepted at %d", i)
+					}
+				}
+				changed := bytes.Clone(raw)
+				changed[i*256+5] = lane%3 + 1
+				if err := validateLaneEnvelope(changed, lane, first, obligationFixture(), 125, 3); err == nil {
+					t.Fatal("mixed lane accepted")
+				}
+				for _, offset := range []int{0, 40, 246} {
+					changed := bytes.Clone(raw)
+					changed[i*256+offset] ^= 0xff
+					if err := validateLaneEnvelope(changed, lane, first, obligationFixture(), 125, 3); err == nil {
+						t.Fatal("malformed nested envelope accepted")
+					}
+				}
+			}
+			for i := 0; i < 2; i++ {
+				changed := bytes.Clone(raw)
+				copy(changed[i*256:(i+1)*256], raw[(i+1)*256:(i+2)*256])
+				copy(changed[(i+1)*256:(i+2)*256], raw[i*256:(i+1)*256])
+				if err := validateLaneEnvelope(changed, lane, first, obligationFixture(), 125, 3); err == nil {
+					t.Fatal("reordered records accepted")
+				}
+			}
+		}
+		for _, count := range []int{2, 3} {
+			raw := laneEnvelopeFixture(t, lane, count, ^uint64(0))
+			if err := validateLaneEnvelope(raw, lane, ^uint64(0), obligationFixture(), 125, 3); err == nil {
+				t.Fatal("wrapped sequence accepted")
+			}
+		}
+		if err := validateLaneEnvelope(laneEnvelopeFixture(t, lane, 1, ^uint64(0)), lane, ^uint64(0), obligationFixture(), 125, 3); err != nil {
+			t.Fatal("single max sequence refused")
+		}
+	}
+}
+
+func TestLaneEnvelopeControlTickOrderAndIndependence(t *testing.T) {
+	for _, lane := range []byte{1, 2, 3} {
+		raw := laneEnvelopeFixture(t, lane, 3, 0)
+		for i := 0; i < 3; i++ {
+			binary.BigEndian.PutUint64(raw[i*256+16:i*256+24], 10)
+		}
+		if err := validateLaneEnvelope(raw, lane, 0, obligationFixture(), 125, 3); err != nil {
+			t.Fatal("equal ticks refused")
+		}
+		for _, index := range []int{1, 2} {
+			changed := bytes.Clone(raw)
+			binary.BigEndian.PutUint64(changed[index*256+16:index*256+24], 9)
+			err := validateLaneEnvelope(changed, lane, 0, obligationFixture(), 125, 3)
+			if lane == 1 && err == nil {
+				t.Fatal("control tick regression accepted")
+			}
+			if lane != 1 && err != nil {
+				t.Fatal("independent observation lane imposed control watermark")
+			}
+		}
+	}
+	// No call can carry a watermark into another lane or subsequent invocation.
+	worker := laneEnvelopeFixture(t, 2, 1, 0)
+	binary.BigEndian.PutUint64(worker[16:24], ^uint64(0))
+	if err := validateLaneEnvelope(worker, 2, 0, obligationFixture(), 125, 3); err != nil {
+		t.Fatal(err)
+	}
+	if err := validateLaneEnvelope(laneEnvelopeFixture(t, 1, 1, 0), 1, 0, obligationFixture(), 125, 3); err != nil {
+		t.Fatal("worker advanced control watermark")
+	}
+}

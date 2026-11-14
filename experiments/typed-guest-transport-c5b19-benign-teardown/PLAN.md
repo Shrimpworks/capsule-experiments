@@ -368,3 +368,153 @@ ledger under `.planning/c5b19-settlement/`; report SHA256
 Historical G3a/G3a2 reviews and limitations remain unchanged. Full Gate3 remains
 `IN_PROGRESS — TRENDING_GOOD`; Gate4–6 and product admission remain `BLOCKED`.
 The draft remains unfinished experiment work, with no child execution authorized.
+
+## G3a4 event-envelope and lane-framing conformance
+
+Status: `PASSED` for bounded implementation and local checks; fresh independent
+review is `IN_PROGRESS — TRENDING_GOOD` (not yet accepted). Full Gate3 remains
+`IN_PROGRESS — TRENDING_GOOD`; child execution, Gate4–6 and product admission
+remain `BLOCKED`. Continue from exact archive head
+`6575898a32ff4a3d24ca4c757f42b1807798a372` and canonical reference
+`2aefb15ee45018bb1045e711c77a0c7bc9f4c54d`. Earlier review counts and historical
+source/log hashes remain unchanged; this is a distinct G3a4 delta.
+
+The accepted pre-implementation scope is a pure 256-byte event-envelope decoder
+and bounded lane-framing checker in existing `tests/oracle.go`, with tests in
+existing `tests/oracle_test.go`. The exact Gate2 packet's raw-trace fields are
+mechanically decoded at their fixed big-endian offsets, including signed32
+syscall result and errno. All decoded arrays are value-owned. Errors return a
+zero event; no caller memory is retained or changed. Valid bindings are checked
+using the existing obligation validator, but the event digest covers only its
+exact Bindings[240], not the full obligation preimage. Timebase must match the
+caller's exact nonzero expected pair. Magic/version, lane1–3, kind1–29,
+outcome0–3, application0–2 and all ten reserved zero bytes are enforced.
+
+The finite lane checker rejects empty, partial, over-capacity and mixed-lane
+input before granting envelope acceptance. Caps are32768 control,1024 worker,
+64 harness. It checks exact lane-local sequence continuity with overflow refusal
+and the private nondecreasing control tick watermark. Equal control ticks are
+preserved; it never sorts or merges lanes or carries state between calls.
+Gate2 does not fix the writer's first index to0 or1. The API therefore requires
+an explicit trusted `firstSequence` parameter, never inferred from the raw
+input. This establishes continuity only relative to that parameter, not complete
+capture. Future writer/oracle integration must resolve its expected origin.
+
+Envelope acceptance is **not** event semantic validity or a full-case pass.
+The literal deliberately carries a harness-kind value on control plus arbitrary
+non-common fields to make this boundary observable. Kind28 can also decode;
+that does not make a trace fault passing evidence. Per-kind required/forbidden
+fields and lane ownership, captured-frame pairing, operation/candidate matching,
+received/applied pairs, complete captures, causal transitions, clocks/bounds,
+real custody/absence and native/store/build/run closure remain deferred. Existing
+writeHistory is untouched and disconnected. No start/stop/permission/completion/
+release method or simulated lifecycle effect is added.
+
+BUILD-NARROWLY dependency-policy record: applicable ecosystem row is C5b19
+prospective Supervisor control/storage lane exchange (ADOPT-PLATFORM /
+BUILD-NARROWLY). Trust class is synthetic test/evidence only; exact locally cached
+Go1.25.13 and standard-library BSD-style primitives are the entire dependency
+graph. No dependency, source-manifest, module, go.sum or platform API addition.
+Only finite caller-owned byte slices are read, with per-lane iteration/input
+caps; no process, clock, filesystem, network, credential, user data, service,
+signal, wait, store, lock or goroutine effects occur in these functions/tests.
+Refusal has no state mutation. Malformed/substitution/size/overflow/restoration
+checks below establish the bounded policy; Capsule maintainer owns upgrade or
+removal. The separately patched canonical Go toolchain does not change this
+frozen archive pin or admit any runnable host profile.
+
+### G3a4 test-first and verification evidence
+
+Every command used this exact offline prefix from this experiment directory:
+
+```sh
+GOCACHE=/tmp/c5b19-g3a4-go-cache GOTOOLCHAIN=local GOPROXY=off GOSUMDB=off /Users/dsteele/go/pkg/mod/golang.org/toolchain@v0.0.1-go1.25.13.darwin-arm64/bin/go
+```
+
+Before implementation, `test ./... -count=1` failed compilation on the expected
+missing symbols. Retained excerpts: `tests/oracle_test.go:596:10: undefined:
+eventEnvelope`, `:609:14: undefined: decodeEventEnvelope`, and `:728:15:
+undefined: validateLaneEnvelope`; final line `FAIL [build failed]`. No implementation
+was present at this point. The command wrapper then encountered zsh's read-only
+`status` variable while attempting to report the exit code; the actual Go red
+output was already captured, and subsequent commands use `result_code`.
+
+After implementation, `test ./... -count=1`: exit0, `ok ... 0.260s`.
+`test -race ./... -count=1`: exit0, `ok ... 1.786s`.
+`vet ./...`: exit0, no diagnostics. `build ./...`: exit0, no diagnostics.
+`git diff --check`: exit0. No fixture or child was executed. Race-test success
+is not a claim of concurrent API safety or live control behavior.
+
+The literal256-byte known answer was assembled independently with Python
+struct big-endian encoding and hashlib; it asserts every decoded field,
+negative signed values and high unsigned values. The binding known answer is
+`7a06ffea981ff10e3292aaf1ac5ea6e6b913648f4e02d965f27da588072009c9`.
+Tests cover every shorter length, trailing byte, all reserved bytes, unknown
+closed-code boundaries, all1044 known lane/kind/outcome/application combinations,
+all ten individually changed valid/zero bindings, representative duplicate ID
+and digest bindings with matching raw hashes, stale/full-obligation hashes,
+nonzero exact timebase, zero/max-u64 values and copied ownership.
+Lane tests cover exact cap/cap+1 for every lane at origins0/1/123456789, unknown
+lane, empty/partial/trailing inputs, every position in a3-record stream for
+sequence gap/duplicate/mixed lane/malformed frame, adjacent reorder, max-to-zero
+wrap, a single MaxUint64 index, equal/regressed control ticks and independence
+of worker/harness observations. These are envelope streams, not valid causal
+traces, timing evidence or the deferred paired-wait simulation.
+
+### G3a4 targeted mutation sensitivity
+
+Each temporary source mutation below was applied alone, then ran
+`test ./tests -run '^TESTNAME$' -count=1`. All compiled and exited1 through the
+intended assertion. Exact original bytes were restored in a finally block after
+each check. No mutant remains; selected sensitivity is not exhaustive proof.
+
+| Mutation | TESTNAME | Failing assertion |
+| --- | --- | --- |
+| binding | TestEventEnvelopeRefusesMalformedCommonFields | `invalid envelope returned` |
+| reserved | TestEventEnvelopeRefusesMalformedCommonFields | `invalid envelope returned` |
+| sequence | TestLaneEnvelopeSequencesAndOverflow | `wrong sequence accepted` |
+| capacity | TestLaneEnvelopeCapsAndFraming | `cap+1 accepted` |
+| control-tick | TestLaneEnvelopeControlTickOrderAndIndependence | `control tick regression accepted` |
+| signed-offset | TestEventEnvelopeKnownAnswerAndOwnership | `decoded fields =` |
+
+Restored oracle.go SHA256: `4d7010b67089bd8d25e3c6f35101e9652c66e7147bcb5210e2103b3314f34f4b`.
+Restored `test ./... -count=1`: exit0, `ok ... 0.306s`.
+
+Current source hashes (older slice hashes remain historical):
+
+- `go.mod`: `5f40cde18c2d82fe5d57f3a8822377c12e473f1026f174165dfecd126bea3eeb`
+- `tests/oracle.go`: `4d7010b67089bd8d25e3c6f35101e9652c66e7147bcb5210e2103b3314f34f4b`
+- `tests/oracle_test.go`: `d134a318eb49335c3113e35fb42928ebc427022612413b7925c5fbe514cdc234`
+- `tests/model_test.go`: `b0f3b9d063c225eb887cecaf16f4058f0ed07ae8f14c3d92c49acacabb0a931e`
+
+Raw `/tmp/c5b19-g3a4-<name>.log` files are ephemeral; commands/results/excerpts
+above and these hashes are the retained evidence:
+
+- `red`: `27bce6238496353a53786c0a68e97ba0e87c07a3fd5915fc138c8c4e816f6737`
+- `green`: `d836e56b1539e13fc90fa86073176f516cbda85c56794e58e9ae5dc394594ff6`
+- `race`: `61e2fa7c65cf037fa1b7a2ed92663c87ae223b6a2d8db13d4a457f3cba67c8c5`
+- `vet`: `e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855`
+- `build`: `e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855`
+- `restored`: `130be73d22e5fbaa7861f8e425060473e1ecbab5df11822a2c832305cded9cd2`
+- `mutant-binding`: `0b8d3648d168be5f7126fa8130e435c18c9fd9da3d4168be020270c363cb2ee3`
+- `mutant-reserved`: `bdb95daab4d075d064532a02e43637e8a823d7ad89f66d5fd7cfc03b69dd8352`
+- `mutant-sequence`: `13973a49f9b314d1322adf59eb68d946391524f6abf7fa46ca3271b23d4db837`
+- `mutant-capacity`: `444b5cfa796bab55d7bbd79e23e0cfbecc30e2e2bc0f1a782acdcdc607a76ef7`
+- `mutant-control-tick`: `24e60bd01fb053f5d021ae059ceede20ed8b8a922516feac71d043f659d81388`
+- `mutant-signed-offset`: `b3f74138f091cd50b6be719499cd6f9242e1c7d39e8d561a87c9cd760b77cfb9`
+
+Fresh independent review of this exact G3a4 delta is pending (max3 instances).
+Brain owns source freeze, review reconciliation, commits, both PR destinations,
+immutable canonical links and any later gate decision. No child execution is
+authorized by this increment or its eventual acceptance.
+
+### G3a4 acceptance
+
+PASSED: fresh independent review instance1/3 returned **Ready**, no actionable
+findings. The reviewer independently ran exact offline test/race/vet/build,
+verified source/reference/log hashes and inspected all mutation logs; mutants
+were not independently replayed. Full report retained in canonical
+`.planning/c5b19-events/review-1.md`, SHA256 `9b4a00d4eaedfe9abfe17de33d5fcef38dc6849086f8212f13b826d794647f64`.
+Reviewed oracle/test bytes are unchanged; only acceptance metadata was appended
+after freeze. Publication is owned by the Brain. Full Gate3 remains
+IN_PROGRESS — TRENDING_GOOD; child execution, Gate4–6 and product admission BLOCKED.

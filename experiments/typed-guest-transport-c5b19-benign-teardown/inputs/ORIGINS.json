@@ -64,5 +64,40 @@
     "dependencies": "Go1.25.13 standard library only; no added requirements or go.sum",
     "apply_reply_meaning": "simulated accepted control application, not worker arrival or observed storage confirmation",
     "review_report_sha256": "949c324bd0a069f2cb63b06fb429a1c46537b81211a74351ad47d5e9ce72fb2a"
+  },
+  "g3a4": {
+    "scope": "pure 256-byte event-envelope decoding and bounded per-lane framing; no kind semantics, trace verdict or live effects",
+    "continued_archive_head": "6575898a32ff4a3d24ca4c757f42b1807798a372",
+    "canonical_reference_commit": "2aefb15ee45018bb1045e711c77a0c7bc9f4c54d",
+    "canonical_reference_sha256": {
+      "docs/C5B19_GATE2_IMPLEMENTATION_PACKET.md": "65c885425298ce056f8619c5d0837f97ba54dee91c025fea5621a2d75d5ef4f0",
+      "internal/execution/teardownpassive/types.go": "249b7ef054134f47974bf769c3fb37309b867b1be42ae53c18baf23dc8bacfd0",
+      "internal/execution/teardownpassive/model.go": "1e3a8be8527554d3953d494086c5313ceeca5806b40a7661ab488717f4a94c40"
+    },
+    "implementation_sha256": {
+      "go.mod": "5f40cde18c2d82fe5d57f3a8822377c12e473f1026f174165dfecd126bea3eeb",
+      "tests/oracle.go": "4d7010b67089bd8d25e3c6f35101e9652c66e7147bcb5210e2103b3314f34f4b",
+      "tests/oracle_test.go": "d134a318eb49335c3113e35fb42928ebc427022612413b7925c5fbe514cdc234",
+      "tests/model_test.go": "b0f3b9d063c225eb887cecaf16f4058f0ed07ae8f14c3d92c49acacabb0a931e"
+    },
+    "evidence_log_sha256": {
+      "red": "27bce6238496353a53786c0a68e97ba0e87c07a3fd5915fc138c8c4e816f6737",
+      "green": "d836e56b1539e13fc90fa86073176f516cbda85c56794e58e9ae5dc394594ff6",
+      "race": "61e2fa7c65cf037fa1b7a2ed92663c87ae223b6a2d8db13d4a457f3cba67c8c5",
+      "vet": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "build": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "restored": "130be73d22e5fbaa7861f8e425060473e1ecbab5df11822a2c832305cded9cd2",
+      "mutant-binding": "0b8d3648d168be5f7126fa8130e435c18c9fd9da3d4168be020270c363cb2ee3",
+      "mutant-reserved": "bdb95daab4d075d064532a02e43637e8a823d7ad89f66d5fd7cfc03b69dd8352",
+      "mutant-sequence": "13973a49f9b314d1322adf59eb68d946391524f6abf7fa46ca3271b23d4db837",
+      "mutant-capacity": "444b5cfa796bab55d7bbd79e23e0cfbecc30e2e2bc0f1a782acdcdc607a76ef7",
+      "mutant-control-tick": "24e60bd01fb053f5d021ae059ceede20ed8b8a922516feac71d043f659d81388",
+      "mutant-signed-offset": "b3f74138f091cd50b6be719499cd6f9242e1c7d39e8d561a87c9cd760b77cfb9"
+    },
+    "review_status": "PASSED; fresh instance 1 of 3 Ready; no actionable findings",
+    "dependencies": "Go1.25.13 standard library only; no added requirements or go.sum",
+    "sequence_origin": "explicit trusted firstSequence parameter; Gate2 writer origin unspecified and not inferred from raw input",
+    "scope_limit": "syntactic acceptance only; per-kind field/lane ownership, frame pairing, causality, timing and real evidence remain deferred",
+    "review_report_sha256": "9b4a00d4eaedfe9abfe17de33d5fcef38dc6849086f8212f13b826d794647f64"
   }
 }

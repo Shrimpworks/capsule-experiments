@@ -383,3 +383,106 @@ func (h *writeHistory) applyReply(reply []byte) error {
 	h.pendingRequest = [397]byte{}
 	return nil
 }
+
+var errEventEnvelope = errors.New("C5B19_EVENT_ENVELOPE")
+
+// eventEnvelope is a copied syntactic record, not a semantically valid event or
+// case verdict. Kind-specific fields, lane ownership, frame pairing, causality
+// and timing still require the future full oracle. In particular, decoding a
+// trace-fault or containment event never makes it passing Supervisor evidence.
+type eventEnvelope struct {
+	Lane              byte
+	Kind              uint16
+	Sequence          uint64
+	Tick              uint64
+	AuxiliaryTick     uint64
+	Numerator         uint32
+	Denominator       uint32
+	BindingDigest     [32]byte
+	Operation         [16]byte
+	Generation        uint64
+	RequestDigest     [32]byte
+	ProcessIdentity   [32]byte
+	PID               uint32
+	SyscallResult     int32
+	Errno             int32
+	Flags             uint32
+	WaitStatus        uint32
+	Outcome           byte
+	ApplicationResult byte
+	RecordDigest      [32]byte
+	CandidateDigest   [32]byte
+}
+
+func decodeEventEnvelope(raw []byte, frozen obligationBindings, numer, denom uint32) (eventEnvelope, error) {
+	if len(raw) != 256 || !bytes.Equal(raw[:5], []byte{'C', '5', 'E', 'V', 1}) ||
+		raw[5] < 1 || raw[5] > 3 || numer == 0 || denom == 0 {
+		return eventEnvelope{}, errEventEnvelope
+	}
+	kind := binary.BigEndian.Uint16(raw[6:8])
+	if kind < 1 || kind > 29 || raw[180] > 3 || raw[181] > 2 ||
+		binary.BigEndian.Uint32(raw[32:36]) != numer || binary.BigEndian.Uint32(raw[36:40]) != denom ||
+		[10]byte(raw[246:256]) != [10]byte{} {
+		return eventEnvelope{}, errEventEnvelope
+	}
+	preimage, err := encodeObligationPreimage(frozen)
+	if err != nil {
+		return eventEnvelope{}, errEventEnvelope
+	}
+	// The event binds only the packet's exact 240-byte Bindings, excluding the
+	// obligation's domain/version, clock policy and trigger mask.
+	bindingDigest := sha256.Sum256(preimage[30:270])
+	if [32]byte(raw[40:72]) != bindingDigest {
+		return eventEnvelope{}, errEventEnvelope
+	}
+	return eventEnvelope{
+		Lane: raw[5], Kind: kind,
+		Sequence: binary.BigEndian.Uint64(raw[8:16]), Tick: binary.BigEndian.Uint64(raw[16:24]),
+		AuxiliaryTick: binary.BigEndian.Uint64(raw[24:32]), Numerator: numer, Denominator: denom,
+		BindingDigest: bindingDigest, Operation: [16]byte(raw[72:88]),
+		Generation: binary.BigEndian.Uint64(raw[88:96]), RequestDigest: [32]byte(raw[96:128]),
+		ProcessIdentity: [32]byte(raw[128:160]), PID: binary.BigEndian.Uint32(raw[160:164]),
+		SyscallResult: int32(binary.BigEndian.Uint32(raw[164:168])), Errno: int32(binary.BigEndian.Uint32(raw[168:172])),
+		Flags: binary.BigEndian.Uint32(raw[172:176]), WaitStatus: binary.BigEndian.Uint32(raw[176:180]),
+		Outcome: raw[180], ApplicationResult: raw[181],
+		RecordDigest: [32]byte(raw[182:214]), CandidateDigest: [32]byte(raw[214:246]),
+	}, nil
+}
+
+// validateLaneEnvelope checks only finite framing and common fields. The trusted
+// caller supplies firstSequence because Gate2 does not freeze a writer origin;
+// it is never inferred from untrusted records. Success cannot prove capture
+// completeness, correct kind ownership or any causal/timing/lifecycle claim.
+// No history is settled and no watermark is shared with another invocation/lane.
+func validateLaneEnvelope(raw []byte, expectedLane byte, firstSequence uint64, frozen obligationBindings, numer, denom uint32) error {
+	var capacity int
+	switch expectedLane {
+	case 1:
+		capacity = 32768
+	case 2:
+		capacity = 1024
+	case 3:
+		capacity = 64
+	default:
+		return errEventEnvelope
+	}
+	if len(raw) == 0 || len(raw)%256 != 0 || len(raw)/256 > capacity {
+		return errEventEnvelope
+	}
+	count := len(raw) / 256
+	if uint64(count-1) > ^uint64(0)-firstSequence {
+		return errEventEnvelope
+	}
+	var previousTick uint64
+	for index := 0; index < count; index++ {
+		event, err := decodeEventEnvelope(raw[index*256:(index+1)*256], frozen, numer, denom)
+		if err != nil || event.Lane != expectedLane || event.Sequence != firstSequence+uint64(index) {
+			return errEventEnvelope
+		}
+		if expectedLane == 1 && index > 0 && event.Tick < previousTick {
+			return errEventEnvelope
+		}
+		previousTick = event.Tick
+	}
+	return nil
+}
